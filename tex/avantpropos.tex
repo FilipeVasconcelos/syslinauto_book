@@ -1,0 +1,63 @@
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+\begin{center}
+\begin{tikzpicture}
+    \tikzset{box/.style={rectangle,rounded corners=12pt,minimum width=3.5cm,minimum height=2cm}}
+    \draw node[fill=black!10!white,box] (A) at (0,0) {\scshape Automatique}; 
+    \draw node[fill=blue!10!white,box] (M) at (-4.5,-3) {\scshape Modélisation}; 
+    \draw node[fill=blue!10!white,box] (N) at ( 0,-3) {\scshape Analyse}; 
+    \draw node[fill=blue!10!white,box] (S) at ( 4.5,-3) {\scshape Asservissement}; 
+    \draw[-latex,ultra thick] (A)--(M.north) ;
+    \draw[-latex,ultra thick] (A)--(N.north) ;
+    \draw[-latex,ultra thick] (A)--(S.north) ;
+
+\tikzset{pos1/.style={fill=blue!10!white,yshift=1.2em,text width=3.5cm,minimum height=4cm,rounded corners=12pt}}
+\node[below=of M,pos1] {\vbox {\footnotesize
+                                    \begin{itemize}
+                                        \item Mise en équation du système
+                                        \item Modèles usuels
+                                        \item Outils
+                                    \end{itemize}}};
+\node[below=of N,pos1] {\vbox {\footnotesize
+                                    \begin{itemize}
+                                        \item Réponses aux soliciations
+                                        \item Identification
+                                        \item Caractérisation
+                                        \item Performances
+                                    \end{itemize}}};
+\node[below=of S,pos1] {\vbox {\footnotesize
+                                    \begin{itemize}
+                                        \item Mise en oeuvre d'une correction
+                                    \end{itemize}}};
+\tikzset{pos2/.style={fill=red!10!white,yshift=-10em,text width=3.5cm,minimum height=4cm,rounded corners=12pt}}
+\node[below=of M,pos2] {\vbox {\small
+                                    \begin{itemize}
+                                        \item \Cref{chap-SLCI}
+                                        \item \Cref{chap-schemabloc}
+                                        \item \Cref{chap-model} 
+                                        \item \Cref{chap-repreEtat} 
+                                    \end{itemize}}};
+\node[below=of N,pos2] {\vbox {\small
+                                    \begin{itemize}
+                                        \item \Cref{chap-anafreq}
+                                        \item \Cref{chap-perf} 
+                                        \item \Cref{chap-stab} 
+                                    \end{itemize}}};
+\node[below=of S,pos2] {\vbox {\small
+                                    \begin{itemize}
+                                        \item \Cref{chap-asservis} 
+                                        \item \Cref{chap-correc} 
+                                    \end{itemize}}};
+\end{tikzpicture}
+\end{center}
+%\label{chap-SLCI}}
+%\label{chap-schemabloc}}
+%\label{chap-1er_2nd}
+%\label{chap-anafreq}}
+%\label{chap-asservis}
+%\label{chap-perf}}
+%\label{chap-stab}}
+%\label{chap-correc}}
+%\label{chap-repreEtat}}
+
