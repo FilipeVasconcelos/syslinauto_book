@@ -1,8 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter[Schéma fonctionnels]{Schémas fonctionnels et graphes de fluence\label{chap-schemabloc}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\minitoc
-\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
@@ -848,23 +846,23 @@ Le comparateur/sommateur présentait précedemment est équivalent au graphe
 de fluence suivant:
 
 \begin{center}
-    \begin{tikzpicture}
+\begin{tikzpicture}
         \coordinate (pt) at (0,-1);
         \sbEntree{E1}
-        \sbCompSum[5.0]{comp}{E}{}{\pm}{+}{}
+        \sbCompSum[5.0]{comp}{E1}{}{\pm}{+}{}
         \sbRelier[$E_1$]{E1}{comp}
         \sbSortie[2.5]{S}{comp}
         \sbRelier[$S$]{comp}{S}
         \draw[-latex] (comp|-0,-1.5) -- (comp.south) node[midway,left] {$E_2$};
         \node[right=of S] {\Large $\equiv$};
-    \end{tikzpicture}\hspace{0.5cm}
-\begin{tikzpicture}
-    \gfEntree[0][0][]{}{E}
-    \gfEntree[0][1.5][+]{$E_1$}{E1}
-    \gfEntree[0][-1.5][-]{$E_2$}{E2}
-    \gfSortie[4]{$S$}{E}{S}
-    \gfRelier[$+1$]{E1}{S}
-    \gfRelier[$\pm1$][-][1.0]{E2}{S}
+    \begin{scope}[xshift=1cm]
+        \gfEntree[0][0][]{}{E}
+        \gfEntree[0][1.5][+]{$E_1$}{E1}
+        \gfEntree[0][-1.5][-]{$E_2$}{E2}
+        \gfSortie[4]{$S$}{E}{S}
+        \gfRelier[$+1$]{E1}{S}
+        \gfRelier[$\pm1$][-][1.0]{E2}{S}
+    \end{scope}
 \end{tikzpicture}
 \end{center}
 

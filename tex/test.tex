@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{mathtools}
+\usepackage{tikz}
+
+\newcommand{\DoTikzmarkU}[1]{%
+    \tikz[remember picture] \coordinate[shift={(-1ex,1.5ex)}](#1);%
+}
+\newcommand{\DoTikzmarkD}[1]{%
+    \tikz[remember picture] \coordinate[shift={(-1ex,-0.8ex)}](#1);%
+}
+\newcommand{\colrow}[3][]{%
+  \tikz[overlay,remember picture, line width=15pt]
+    \draw[shorten >=-.1em, shorten <=-.1em, #1] (#2.north)--(#3.south east);
+}
+
+\begin{document}
+\[
+\begin{bmatrix*}[r]
+    3\DoTikzmarkU{num-3}& 1 & {-}3 & 0 & {4}\DoTikzmarkU{num4} & 1 \\
+    0 & 1 & -1 & 2 & -2 & 5 \\
+    -2\DoTikzmarkD{num-2} & -3 & 1  & 1 & 0\DoTikzmarkD{num1}&1 \\
+\end{bmatrix*}
+\]
+\colrow[blue ,opacity=.5]{num-3}{num-2}
+\colrow[green,opacity=.5]{num4}{num1}
+\end{document}

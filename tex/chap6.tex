@@ -1,6 +1,4 @@
 \chapter{Stabilité des systèmes asservis\label{chap-stab}}
-\minitoc
-\newpage
 
 
 \section{Définitions de la stabilité}
@@ -12,7 +10,6 @@ nos amis anglo-saxons, on rencontre le concept de BIBO (\og bounded input bounde
 
 Ces deux définitions sont équivalentes dans le cas des \SLCI. 
 
-\captionsetup{width=0.8\linewidth}
 \begin{figure}[!h]
     \centering
     \begin{tikzpicture}
@@ -43,7 +40,7 @@ Ces deux définitions sont équivalentes dans le cas des \SLCI.
     \textbf{Un système est stable si sa fonction de transfert ne possède aucun pôles à partie réelle négative.}
 \end{criteria}
 
-%\input{fig/stabilite.tex}
+\input{tikz/stabilite.tex}
 
 \paragraph{Inconvénients de la condition fondamentale}
 
@@ -141,7 +138,8 @@ déterminant\footnote{Nous rappellons le calcul d'un déterminant d'une matrice
     \textcolor{red}{b_n}       & \textcolor{red}{b_{n-2}}    & b_{n-4}    & \cdots & b_3            & b_1         \\
     \textcolor{red}{b_{n-1}}   & \textcolor{red}{b_{n-3}}    & b_{n-5}    & \cdots & b_2            & b_0         \\
     \hline
-%    \hmm{A_{31}}{red}   & A_{32}     & A_{33}     & \cdots & \cdots         & \cdots      \\
+    %\hmm{A_{31}}{red}   & A_{32}     & A_{33}     & \cdots & \cdots         & \cdots      \\
+    A_{31}  & A_{32}     & A_{33}     & \cdots & \cdots         & \cdots      \\
     \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots      \\
 \end{vmatrix}
 \Rightarrow
@@ -160,7 +158,8 @@ A_{31}=-\dfrac{1}{b_{n-1}}\begin{vmatrix} b_{n}  & b_{n-2} \\ b_{n-1} & b_{n-3}\
     \textcolor{blue}{b_n}       & b_{n-2}    & \textcolor{blue}{b_{n-4}}    & \cdots & b_3            & b_1         \\
     \textcolor{blue}{b_{n-1}}   & b_{n-3}    & \textcolor{blue}{b_{n-5}}    & \cdots & b_2            & b_0         \\
     \hline
-%    A_{31}    & \hmm{A_{32}}{blue}     & A_{33}     & \cdots & \cdots         & \cdots      \\
+    %A_{31}    & \hmm{A_{32}}{blue}     & A_{33}     & \cdots & \cdots         & \cdots      \\
+    A_{31}    & A_{32}     & A_{33}     & \cdots & \cdots         & \cdots      \\
     \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots      \\
 \end{vmatrix}
 \Rightarrow
@@ -182,7 +181,8 @@ On construit de la même manière la quatrième ligne :
      \textcolor{red}{b_{n-1}}   &  \textcolor{red}{b_{n-3}}    & b_{n-5}    & \cdots & b_2            & b_0         \\
     \hline
      \textcolor{red}{A_{31}}     &  \textcolor{red}{A_{32}}    & A_{33}    & \cdots & \cdots         & \cdots      \\
-%    \hmm{A_{41}}{red}      & A_{42}     & A_{43}    & \cdots & \cdots         & \cdots      \\
+    %\hmm{A_{41}}{red}      & A_{42}     & A_{43}    & \cdots & \cdots         & \cdots      \\
+    A_{41}      & A_{42}     & A_{43}    & \cdots & \cdots         & \cdots      \\
     \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots      \\
     \end{vmatrix}
 \Rightarrow
@@ -203,7 +203,8 @@ A_{41}=-\dfrac{1}{A_{31}}\begin{vmatrix} A_{21} & A_{22} \\ A_{31} & A_{22} \end
      \textcolor{blue}{b_{n-1}}   &  b_{n-3}    & \textcolor{blue}{b_{n-5}}    & \cdots & b_2            & b_0         \\
     \hline
      \textcolor{blue}{A_{31}}     &  A_{32}    & \textcolor{blue}{A_{33}}    & \cdots & \cdots         & \cdots      \\
-%    A_{41}      & \hmm{A_{42}}{blue}     & A_{43}    & \cdots & \cdots         & \cdots      \\
+    %A_{41}      & \hmm{A_{42}}{blue}     & A_{43}    & \cdots & \cdots         & \cdots      \\
+    A_{41}      & A_{42}     & A_{43}    & \cdots & \cdots         & \cdots      \\
     \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots      \\
     \end{vmatrix}
 \Rightarrow
@@ -219,15 +220,19 @@ La formule générale pour obtenir l'élément $A_{ij}$ est alors :
 A_{ij}=-\dfrac{1}{A_{(i-1)1}}\begin{vmatrix} A_{(i-2)1} & A_{(i-2)(j+1)} \\ A_{(i-1)1} & A_{(i-1)(j+1)} \end{vmatrix}
 \end{bequation}
 
-\newcommand{\DoTikzmarkU}[1]{%                                                                                                
-    \tikz[remember picture] \coordinate[shift={(-1ex,1.75ex)}](#1);%                                                       
-}                                                                                                                             
-\newcommand{\DoTikzmarkD}[1]{%                                                                                                
-    \tikz[remember picture] \coordinate[shift={(-1ex,-10ex)}](#1);%                                                        
-}                                                                                                                             
-\newcommand{\colrow}[3][]{%                                                                                                   
-  \tikz[overlay,remember picture, line width=40pt]                                                                            
-    \draw[shorten >=-1.25em, shorten <=-.5em, #1] (#2.north)--(#3.north);                                                     
+\newcommand*{\DoTikzmarkU}[1]{%
+\tikzset{external/export next=false}
+    \tikz[remember picture] \coordinate[shift={(-1ex,1.75ex)}](#1);%
+}
+\newcommand*{\DoTikzmarkD}[1]{%
+\tikzset{external/export next=false}
+    \tikz[remember picture] \coordinate[shift={(-1ex,-10ex)}](#1);%
+}
+
+\newcommand*{\colrow}[3][]{%
+\tikzset{external/export next=false}
+  \tikz[overlay,remember picture, line width=40pt]
+    \draw[shorten >=-1.25em, shorten <=-.5em, #1] (#2.north)--(#3.north);
 }                                                                                                                             
 
 Le critère s'applique sur la première colonne (dite des pivots) du tableau de Routh ainsi construit. 
@@ -266,8 +271,8 @@ Soit un système asservi caractérisé par le schéma-bloc suivant:
 
 \begin{center}
     \begin{tikzpicture}
-    \sbEntree{E}
-    \sbComp[5.0]{comp}{E}
+        \sbEntree{E}
+        \sbComp[5.0]{comp}{E}
         \sbRelier[$E(p)$]{E}{comp}
         \sbBloc[1.5]{B}{$H(p)=\dfrac{K}{p(p^2+p+3)}$}{comp}
         \sbRelier[$\epsilon$]{comp}{B}
@@ -322,17 +327,19 @@ $$
 $$
 A_{41}=-\dfrac{1}{A_{31}}\begin{vmatrix} 1 & K \\ A_{31} & 0 \end{vmatrix}=K
 $$
-\renewcommand{\DoTikzmarkU}[1]{%                                                                                                
-    \tikz[remember picture] \coordinate[shift={(-0.5ex,1.75ex)}](#1);%                                                       
-}                                                                                                                             
-\renewcommand{\DoTikzmarkD}[1]{%                                                                                                
-    \tikz[remember picture] \coordinate[shift={(-0.5ex,-6ex)}](#1);%                                    
-}                                                                                                                             
-\renewcommand{\colrow}[3][]{%                                                                          
-  \tikz[overlay,remember picture, line width=30pt]                                                                            
-  \draw[shorten >=-.5em, shorten <=-.5em, #1] (#2.north)--(#3.north);                                                     
-}                                                                                                                             
-
+\renewcommand*{\DoTikzmarkU}[1]{%
+\tikzset{external/export next=false}
+    \tikz[remember picture] \coordinate[shift={(-0.5ex,1.75ex)}](#1);%
+}
+\renewcommand*{\DoTikzmarkD}[1]{% 
+\tikzset{external/export next=false}
+    \tikz[remember picture] \coordinate[shift={(-0.5ex,-6ex)}](#1);%
+}
+\renewcommand*{\colrow}[3][]{%
+\tikzset{external/export next=false}
+  \tikz[overlay,remember picture, line width=30pt]
+  \draw[shorten >=-.5em, shorten <=-.5em, #1] (#2.north)--(#3.north);
+}
 \[
 \begin{matrix}
     p^3 \\
@@ -397,8 +404,8 @@ $(-1,0)$
         pulsations croissantes, on laisse le point critique sur la gauche.}
 \end{criteria}
 
-\begin{figure}[!h]                                                                                                           
-\begin{center}                                                                                                               
+\begin{figure}[!h]
+\begin{center}
 \begin{tikzpicture}
 \begin{axis}
     [
@@ -505,8 +512,8 @@ une introduction plus détaillée ainsi qu'une bibliographie très fournie sur l
 
 \paragraph{Théorème du principe de l'argument de Cauchy}
 
-\begin{figure}[!h]                                                                                                           
-\begin{center}                                                                                                               
+\begin{figure}[!h]
+\begin{center}
 \begin{tikzpicture}
 \begin{axis}
     [

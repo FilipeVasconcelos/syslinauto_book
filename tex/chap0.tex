@@ -1,214 +1,90 @@
-\adjustmtc
 \chapter[Systèmes linéaires, continus\ldots]{Systèmes linéaires continus et invariants\label{chap-SLCI}}     
 
-\minitoc
-\newpage
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \section{Introduction}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \subsection{Système}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \begin{center}
-    \begin{tikzpicture}
-        \draw[-latex] (0.6,2.75) -- (0.6,2.0); 
-        \draw[-latex] (1.2,2.75)node[above,xshift=1em] {Perturbations} -- (1.2,2.0); 
-        \draw[-latex] (1.8,2.75) -- (1.8,2.0); 
-        \draw[-latex] (2.4,2.75) -- (2.4,2.0); 
-        \draw[ultra thick,rounded corners=15pt] (0,0) rectangle (3,2);
-        \node (S) at (1.5,1) {\scshape Système};
-        \draw[-latex] (-1,1.8) node[left] {Entrée 1} -- (0,1.8);
-        \draw[-latex] (-1,1.3) node[left] {Entrée 2} -- (0,1.3);
-        \node[] at (-0.6,0.8) {\rotatebox{90}{\ldots}};
-        \draw[-latex] (-1,0.3) node[left] {Entrée $n$} -- (0,0.3);
-        \draw[-latex] (3,1.8) -- (4,1.8)node[right] {Sortie 1};
-        \draw[-latex] (3,1.3) -- (4,1.3)node[right] {Sortie 2};
-        \node[] at (3.4,0.8) {\rotatebox{90}{\ldots}};
-        \draw[-latex] (3,0.3) -- (4,0.3)node[right] {Sortie $n$};
-        \draw[-latex] (0.6,0.0) -- (0.6,-0.75); 
-        \draw[-latex] (1.2,0.0) -- (1.2,-0.75) node[below,xshift=1em] {Mesures}; 
-        \draw[-latex] (1.8,0.0) -- (1.8,-0.75); 
-        \draw[-latex] (2.4,0.0) -- (2.4,-0.75); 
-    \end{tikzpicture}
+    \tikzsetnextfilename{systeme-chap0-ext}
+    \input{tikz/systeme-chap0.tex}
 \end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \subsection{Système linéaire}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \subsection{Système à temps continu}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \subsection{Système invariant}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \section{Modélisation d'un signal}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Un signal 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Types de signaux}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \acpl
 Analogique, numérique et discret.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Propriétés générales des signaux analogiques}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 
 Un signal d'entrée ou de sortie d'un \SLCI~sera modélisé par 
 une fonction continue du temps. Formellement, par une fonction $s$ telle que :
 
 \begin{align*}
 	s : \mathbb{R}&\rightarrow\mathbb{R} \\
-	t&\rightarrow s(t) 
+t&\rightarrow s(t) 
 \end{align*}
 
 \paragraph{Causal}
 
 \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-        axis line style = thick,
-	ticks=none,
-        height=5cm,
-        width=5cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-2,
-        xmax=10,
-        ymin=-1.5,
-        ymax=3.0,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        ]
-        \addplot [very thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};                                
-	\addplot [very thick,color=blue,domain=0:10, samples=501,unbounded coords=jump]{sin(3*deg(x))*exp(-0.5*x)+1};
-        \draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1); 
-        \end{axis}
-    \end{tikzpicture}
+\tikzsetnextfilename{causal-chap0_ext}
+\input{tikz/causal-chap0.tex}
 \end{center}
 
 
 \paragraph{Stable}
 
 \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-	ticks=none,
-        axis line style = thick,
-        height=5cm,
-        width=5cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-2,
-        xmax=10,
-        ymin=-1.5,
-        ymax=3.0,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        ]                                                                                                                     
-        \addplot [very thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};                                
-	\addplot [very thick,color=blue,domain=0:10, samples=501,unbounded coords=jump]{sin(3*deg(x))*exp(-x)+1};                                
-	\draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1); 
-        \end{axis}                                                                                                            
-    \end{tikzpicture}                                                                                                         
+\tikzsetnextfilename{stable-chap0_ext}
+\input{tikz/stable-chap0.tex}
 \end{center}                
 
 \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-	ticks=none,
-        axis line style = thick,
-        height=5cm,
-        width=5cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-2,
-        xmax=10,
-        ymin=-1.5,
-        ymax=3.0,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        ]                                                                                                                     
-        \addplot [very thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};
-	\addplot [very thick,color=blue,domain=0:10, samples=501,unbounded coords=jump]{0.7*sin(3*deg(x))+1};
-	\draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1);
-        \end{axis}
-    \end{tikzpicture}
+\tikzsetnextfilename{stable2-chap0_ext}
+\input{tikz/stable2-chap0.tex}
 \end{center}
 
 \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-	ticks=none,
-        axis line style = thick,
-        height=5cm,
-        width=5cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-2,
-        xmax=10,
-        ymin=-3,
-        ymax=6.0,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        ]
-        \addplot [very thick,color=red,domain=-2:0, samples=101,unbounded coords=jump]{0};
-	\addplot [very thick,color=red,domain=0:10, samples=501,unbounded coords=jump]{0.8*sin(3*deg(x))*exp(0.2*x)+1};
-	\draw[dotted,very thick,red] (axis cs:0,0) -- (axis cs:0,1);
-        \end{axis}
-    \end{tikzpicture}
+\tikzsetnextfilename{instable-chap0_ext}
+\input{tikz/instable-chap0.tex}
 \end{center}
+
 \paragraph{Périodique}
-
 \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-	ticks=none,
-        axis line style = thick,
-        height=5cm,
-        width=9cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-2,
-        xmax=16,
-        ymin=-1.5,
-        ymax=1.5,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        ]
-        \addplot [very thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};
-        \addplot [very thick,color=blue,domain=0:2, samples=101,unbounded coords=jump]{0.5*x};
-        \addplot [very thick,color=blue,domain=2:6, samples=101,unbounded coords=jump]{-0.5*x+2};
-        \addplot [very thick,color=blue,domain=6:10, samples=101,unbounded coords=jump]{0.5*x-4};
-        \addplot [very thick,color=blue,domain=10:14, samples=101,unbounded coords=jump]{-0.5*x+6};
-        \end{axis}
-    \end{tikzpicture}
+\tikzsetnextfilename{periodique-chap0_ext}
+\input{tikz/periodique-chap0.tex}
 \end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \subsection{Signaux usuels}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Impulsion de Dirac}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 L'impulsion de Dirac $\delta(t)$ est une \og fonction\fg 
 \footnote{Les guillemets sont essentiels pour ne pas se fâcher avec nos collègues mathématiciens.} telle que
@@ -216,7 +92,7 @@ L'impulsion de Dirac $\delta(t)$ est une \og fonction\fg
 \delta(t) : 
 \begin{dcases}
 	\int\limits_{-\infty}^{+\infty}	 \delta(t)\,\,\dd{t}&=1   \\
-	\int\limits_{-\infty}^{+\infty}  \delta(t)f(t)\,\,\dd{t}&=f(0)	
+\int\limits_{-\infty}^{+\infty}  \delta(t)f(t)\,\,\dd{t}&=f(0)	
 \end{dcases}
 \end{align*}
 
@@ -227,102 +103,27 @@ impulsion retardée de $\tau$ noté $\delta(t-\tau)$.
 
 \begin{figure}[!h]
 \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-        name=ax0,
-        ticks=none,
-        axis line style = thick,
-        height=5cm,
-        width=5cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-4,
-        xmax=4,
-        ymin=-1.5,
-        ymax=3.0,
-        xlabel={$t$},
-        ylabel={$\delta(t)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        ]
-	\draw[ultra thick,blue,-latex] (axis cs:0,0) -- (axis cs:0,2.0);
-        \end{axis}
-        \begin{axis}[
-        at={(ax0.south east)}, 
-        xshift=4        em,                
-        axis line style = thick,
-        height=5cm,
-        width=5cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-4,
-        xmax=4,
-        ymin=-1.5,
-        ymax=3.0,
-        xlabel={$t$},
-        ylabel={$\delta(t-\tau)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        xtick={2},
-        xticklabels={$\tau$},
-        ytick={10},
-        yticklabels={},
-        ]
-	\draw[ultra thick,blue,-latex] (axis cs:2,0) -- (axis cs:2,2.0);
-        \end{axis}
-
-    \end{tikzpicture}
+\tikzsetnextfilename{dirac-chap0_ext}
+\input{tikz/dirac-chap0.tex}
 \end{center}
-    \caption{\label{fig-dirac}}
+\caption{\label{fig-dirac}}
 \end{figure}
 
 Impulsion réelle :
 
 \begin{figure}[!h]
 \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-        ticks=none,
-        axis line style = thick,
-        height=5cm,
-        width=5cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-2,
-        xmax=6,
-        ymin=-1.5,
-        ymax=3.0,
-        xlabel={$t$},
-        ylabel={$\delta(t)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        ]
-        \addplot [thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};
-        \addplot [thick,color=blue,domain=0:2 , samples=101,unbounded coords=jump]{0.5};
-        \addplot [thick,color=blue,domain=2:5 , samples=101,unbounded coords=jump]{0};
-	\draw[dotted,thick,blue] (axis cs:0,0) -- (axis cs:0,0.5);
-	\draw[dotted,thick,blue] (axis cs:2,0.5) -- (axis cs:2,0);
-        \addplot [thick,color=green,domain=-2:0, samples=101,unbounded coords=jump]{0};
-        \addplot [thick,color=green,domain=0:1 , samples=101,unbounded coords=jump]{1};
-        \addplot [thick,color=green,domain=1:5 , samples=101,unbounded coords=jump]{0};
-	\draw[dotted,thick,green] (axis cs:0,0) -- (axis cs:0,1);
-	\draw[dotted,thick,green] (axis cs:1,1) -- (axis cs:1,0);
-        \addplot [thick,color=red,domain=-2:0, samples=101,unbounded coords=jump]{0};
-        \addplot [thick,color=red,domain=0:0.5 , samples=101,unbounded coords=jump]{2};
-        \addplot [thick,color=red,domain=0.5:5 , samples=101,unbounded coords=jump]{0};
-	\draw[dotted,thick,red] (axis cs:0,0) -- (axis cs:0,2);
-	\draw[dotted,thick,red] (axis cs:0.5,2) -- (axis cs:0.5,0);
-        \end{axis}
-    \end{tikzpicture}
-\end{center}
+\tikzsetnextfilename{dirac_reel-chap0_ext}
+\input{tikz/dirac_reel-chap0.tex}
     \caption{\label{fig-dirac2}}
+\end{center}
 \end{figure}
 
 La réponse à une impulsion de Dirac est appelée \textbf{réponse impulsionnelle}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{\'Echelon unité}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 L'échelon unitaire est défini par la fonction, noté $u(t)$, telle que :
 $$
@@ -338,57 +139,8 @@ anglo-saxons l'appelle la \og\emph{step function}\fg} à $t=0$.
 Ci dessous nous la représentons avec la fonction retardée $u(t-\tau)$.
 \begin{figure}[!h]
 \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-        name=ax2,
-        axis line style = thick,
-        height=5cm,
-        width=5cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-2,
-        xmax=6,
-        ymin=-1.5,
-        ymax=1.5,
-        ytick={1},
-        yticklabels={$1$},
-        xtick=\empty,
-        xlabel={$t$},
-        ylabel={$u(t)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        ]
-        \addplot [ultra thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};
-        \addplot [ultra thick,color=blue,domain=0:16, samples=101,unbounded coords=jump]{1};
-	\draw[dotted,ultra thick,blue] (axis cs:0,0) -- (axis cs:0,1);
-        \end{axis}
-        \begin{axis}[
-        at={(ax2.south east)},
-        xshift=4em,
-        ytick=\empty,
-        axis line style = thick,
-        height=5cm,
-        width=5cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-2,
-        xmax=6,
-        ymin=-1.5,
-        ymax=1.5,
-        ytick={1},
-        yticklabels={$1$},
-        xlabel={$t$},
-        ylabel={$u(t-\tau)$},
-        xlabel style={below right},
-        ylabel style={above left},
-	xticklabels={$\tau$},
-        xtick={2},
-        ]
-        \addplot [ultra thick,color=blue,domain=-2:2, samples=101,unbounded coords=jump]{0};
-        \addplot [ultra thick,color=blue,domain=2:16, samples=101,unbounded coords=jump]{1};
-	\draw[dotted,ultra thick,blue] (axis cs:2,0) -- (axis cs:2,1);
-        \end{axis}
-    \end{tikzpicture}
+\tikzsetnextfilename{echelon-chap0_ext}
+\input{tikz/echelon-chap0.tex}
 \end{center}
 \caption{\label{fig-echelon}}
 \end{figure}
@@ -405,9 +157,9 @@ l'unité dépend de la nature du problème considéré.
 La réponse à un échelon est appelée \textbf{réponse indicielle}.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Rampe unité}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 La fonction rampe\footnote{On retrouve parfois~\cite{sueurautomatique} le terme 
 d'échelon vitesse pour désigner la fonction rampe} $r(t)$ unité est la fonction telle que :
@@ -423,31 +175,12 @@ $$
 r(t)=t\cdot u(t)
 $$
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[!h]
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-        ticks=none,
-        axis line style = thick,
-        height=5cm,
-        width=5cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-2,
-        xmax=6,
-        ymin=-1.5,
-        ymax=6,
-        xlabel={$t$},
-        ylabel={$r(t)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        ]
-        \addplot [ultra thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};
-        \addplot [ultra thick,color=blue,domain=0:15, samples=101,unbounded coords=jump]{x};
-        \end{axis}
-    \end{tikzpicture}
+\tikzsetnextfilename{rampe-chap0_ext}
+\input{tikz/rampe-chap0.tex}
 \end{center}
     \caption{\label{fig-rampe}}
 \end{figure}
@@ -456,9 +189,9 @@ $$
 r(t)=\int\limits_{-\infty}^{t} u(\tau)\,\,\dd{\tau}
 $$
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exponentielle décroissante}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La fonction exponentielle décroissante $s(t)$ est telle que :
 $$
 s(t)=e^{-at}\cdot u(t)
@@ -467,37 +200,14 @@ avec $a$ l'inverse d'un temps caractéristique.
 
 \begin{figure}[!h]
 \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-        axis line style = thick,
-%        clip=false,
-        height=5cm,
-        width=8cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-1,
-        xmax=7,
-        ymin=-0.1,
-        ymax=1.5,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        ytick={1},
-        yticklabels={$1$},
-        xtick=\empty,
-        ]
-            \addplot [ultra thick,color=blue,domain=-1:0, samples=101,unbounded coords=jump]{0};
-            \addplot [ultra thick,color=blue,domain=0:6, samples=101,unbounded coords=jump]{exp(-x)};
-            \addplot [ultra thick,color=red,domain=0:6, samples=101,unbounded coords=jump] {exp(-0.5*x)};
-        \end{axis}
-    \end{tikzpicture}
+\tikzsetnextfilename{exp_dec-chap0_ext}
+\input{tikz/exp_dec-chap0.tex}
 \end{center}
     \caption{\label{fig-exp}}
 \end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Sinuso\"ide}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La fonction sinuso\"idale $s(t)$ est la fonction telle que :
 $$
 s(t)=A\sin{(\omega t +\phi)}\cdot u(t)
@@ -505,50 +215,19 @@ $$
 avec $A$ son amplitude, $\omega$ sa pulsation (en rad/s) et $\phi$ sa phase (rad).
 \begin{figure}[!h]
 \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-        axis line style = thick,
-        clip=false,
-        height=5cm,
-        width=10cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-2,
-        xmax=4*pi,
-        ymin=-1.5,
-        ymax=1.5,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        ytick={-1,1},
-        yticklabels={$-A$,$A$},
-        xtick={},
-        xticklabels={},
-        ]
-
-            \addplot [ultra thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};
-            \addplot [ultra thick,color=blue,domain=0:4*pi, samples=101,unbounded coords=jump]{sin(deg(x))};
-            \addplot [ultra thick,color=red,domain=0:4*pi, samples=101,unbounded coords=jump]{sin(deg(x-pi*0.5))};
-            \draw[blue,] (axis cs:pi*0.5,1) -- (axis cs:pi*0.5,1.25);
-            \draw[blue] (axis cs:pi*2.5,1) -- (axis cs:pi*2.5,1.25);
-            \draw[blue,ultra thick, latex-latex] (axis cs:pi*0.5,1.2) --node[above,yshift=+0.2em]{$\dfrac{2\pi}{\omega}$} (axis cs:pi*2.5,1.2);
-            \draw[blue,] (axis cs:pi*1.5,-1) -- (axis cs:pi*1.5,-1.25);
-            \draw[blue] (axis cs:pi*1.5+pi*0.5,-1) -- (axis cs:pi*1.5+pi*0.5,-1.25);
-            \draw[blue,ultra thick, latex-latex] (axis cs:pi*1.5,-1.2) --node[below,yshift=-0.2em]{$\dfrac{\Delta\phi}{\omega}$} (axis cs:pi*1.5+pi*0.5,-1.2);
-        \end{axis}
-    \end{tikzpicture}
+\tikzsetnextfilename{sinusoide-chap0-ext}
+\input{tikz/sinusoide-chap0.tex}
 \end{center}
 \caption{\label{fig-sin}}
 \end{figure}
 
-La réponse à une sinuso\"ide est appelée la \textbf{réponse harmonique} 
+La réponse à une sinuso\"ide est appelée la \textbf{réponse harmonique}
 et son analyse fera l'objet de tout un chapitre (\Cref{chap-anafreq}).
 
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \section{La transformée de Laplace}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 La transformée de Laplace\footnote{Pierre-Simon de Laplace, (1749-1827) 
 mathématicien, astronome, physicien et homme politique français} est l'outil indispensable 
 pour l'étude des \SLCI. Celle-çi s'avère très utile pour 
@@ -556,9 +235,9 @@ la résolution d'équation différentielle régissant nos \SLCI~et nous permettr
 de définir la notion de fonction de transfert entre une entrée 
 et une sortie d'un système.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \subsection{Définition}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 La Transformée de Laplace (TL) d'une fonction causale $s$ (signal) 
 d'une variable réelle $t$ (temps), est la fonction $S$ 
 de la variable complexe $p$, définie par :
@@ -583,13 +262,13 @@ Remarquons, dès à présent l'utilisation d'une convention utile:
 les fonctions du temps seront toujours désignées par une
 minuscule, et les fonctions complexes par la majuscule respective.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \subsection{Transformées des signaux usuels}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Transformée d'une impulsion de Dirac}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 Par simple application des définitions 
 de la TL et de l'impulsion de Dirac, la transformée d'une 
 impulsion de Dirac $\delta(t)$ s'écrit:
@@ -601,9 +280,9 @@ ou encore
     \laplace{\delta(t)}=1
 \end{bequation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Transformée d'un échelon unitaire}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 La transformée de Laplace d'un signal échelon unitaire s'écrit : 
 $$
 \laplace{u(t)}=\int_{0}^{+\infty} e^{-pt}\,u(t)\dd{t}=\int_{0}^{+\infty} e^{-pt}\dd{t}=\left[\dfrac{-e^{-pt}}{p}\right]_0^{+\infty}=\dfrac{1}{p}
@@ -612,10 +291,11 @@ ou encore
 \begin{bequation}[ams align]
     \laplace{u(t)}=\dfrac{1}{p}
 \end{bequation}
-%Dans le cas de la forme généralisée, il suffit de multiplier par une constante.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+Dans le cas de la forme généralisée, il suffit de multiplier par une constante.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Transformée d'une rampe}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 La transformée de Laplace d'un signal rampe s'écrit :
 $$
 \laplace{r(t)}=\int_{0}^{+\infty} e^{-pt}r(t)\dd{t}=\int_{0}^{+\infty} te^{-pt}\dd{t}
@@ -633,9 +313,9 @@ ou encore
     \laplace{r(t)}=\laplace{t\cdot u(t)}=\dfrac{1}{p^2}
 \end{bequation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Transformée d'une exponentielle décroissante}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 
 $$
 \laplace{e^{-at}u(t)}=\int_{0}^{+\infty} e^{-pt}e^{-at}\dd{t}=\int_{0}^{+\infty} e^{-(p+a)t}\dd{t} = \dfrac{1}{p+a}
@@ -645,9 +325,9 @@ ou encore
     \laplace{e^{-at}u(t)}=\dfrac{1}{p+a}
 \end{bequation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Transformée d'une sinuso\"ide}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 La transformée de Laplace d'un signal sinuso\"idal s'écrit :
 \begin{align*}
     \laplace{\sin{\omega t}\cdot u(t)}&=\int_{0}^{+\infty}e^{-pt}\dfrac{e^{\jw t}-e^{-\jw t}}{2j}\dd{t}=\dfrac{1}{2j}\int_{0}^{+\infty}e^{-(p-\jw)t}\dd{t} - \int_{0}^{+\infty}e^{-(p+\jw)t}\dd{t} \\
@@ -661,18 +341,18 @@ ou encore
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \subsection{Propriétés}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 Nous allons ici uniquement présenter les principales propriétés de la TL, 
 on se rapportera à nouveau à l'\cref{annexe-lap} pour 
 une liste exhaustive de ces propriétés.
 
 La propriété fondamentale de la transformée de Laplace est d'être linéaire.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Retard}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 Soit $s(t-\tau)$ un signal $s(t)$ présentant un retard $\tau$.
 $$
 \laplace{s(t-\tau)}=\int_{0}^{+\infty} e^{-pt}s(t-\tau)\dd{t}
@@ -685,9 +365,9 @@ on reconnait dans cette dernière expression la définition de la transformée d
 \begin{bequation}[ams align]
     \laplace{s(t-\tau)}=e^{-p\tau}S(p)
 \end{bequation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dérivation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit un signal $s(t)$ continu et dérivable pour $t\ge0$ et $S(p)$ sa transformée.
 Par définition de la transformée de Laplace 
 $$
@@ -713,9 +393,9 @@ $$
 
 Remarquons que \textbf{dériver dans le domaine temporelle consiste à multiplier par 
 $p$ dans le domaine de Laplace.}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Intégration}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 Soient  des signaux $v(t)$ et $s(t)$ tel que $v(t)=\int_{0}^{t}s(\tau)\dd{\tau}$. 
 Par définition,
 $$
@@ -738,16 +418,16 @@ Remarquons que \textbf{intégrer dans le domaine temporelle consiste à diviser 
 dans le domaine de Laplace.}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Théorème de la valeur initiale}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \begin{bequation}[ams align]
     s(0)=\lim\limits_{p\rightarrow+\infty} p S(p)\qquad \forall S(p)
 \end{bequation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Théorème de la valeur finale}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \begin{bequation}[ams align]
     s(\infty)=\lim\limits_{p\rightarrow0} p S(p)
 \end{bequation}
@@ -755,9 +435,9 @@ valable que si $pS(p)$ a tous ses pôles à partie réelle strictement négative
 signal soit stable.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \subsection[Application de la transformée de Laplace]{Application de la TL à la résolution d'équation différentielle}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 
 Soit l'équation différentielle suivante :
 \begin{align}
@@ -776,9 +456,10 @@ de cette équation différentielle, on observera que la méthode classique est p
 facile à mettre en oeuvre. Ceci n'est pas toujours le cas. 
 Comme nous le verrons la transformée de Laplace devient totalement indispensable pour la 
 définition de la fonction de transfert d'un \SLCI.}.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Résolution par la méthode \og classique\fg}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 L'équation caractéristique associée à cette équation différentielle est donnée par 
 $$
 r^2+2r+1=0
@@ -807,30 +488,8 @@ $$
 
 \begin{figure}[!t]
     \centering
-    \begin{tikzpicture}%[baseline=0]
-        \begin{axis}[
-        scaled y ticks = false,
-        axis line style = thick,
-        %height=5cm,
-        %width=9cm,
-        %axis x line=center,
-        %axis y line=center,
-        xmin=0,
-        xmax=6.0,
-        ymin=-1.5,
-        ymax=1.5,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        %xlabel style={below right},
-        %ylabel style={above left},
-        yticklabels={-1,0,1},
-        ytick={-1,0,1.0},
-        y tick label style={anchor=east},
-        label style={font=\Large},
-        ]
-        \addplot [very thick,color=blue,domain=0:6, samples=101,unbounded coords=jump]{1-2*exp(-x)};
-        \end{axis}
-    \end{tikzpicture}
+\tikzsetnextfilename{sol_eq_diff-chap0-ext}
+\input{tikz/sol_eq_diff-chap0.tex}
     \caption{Représentation de la solution générale de l'équation différentielle~(\ref{eq-diff1}). On vérifie lors 
     du tracer que l'on observe bien les principales propriétes du signal (i.e conditions initiales, valeurs finales).}
 \end{figure}
@@ -842,9 +501,9 @@ s(t)=1-2e^{-t}
 On constate que cette solution vérifie l'équation différentielle (\ref{eq-diff1}) ainsi que les 
 conditions initiales.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Résolution par appliqation de la transformée de Laplace}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Appliquons la transformée de Laplace aux différents termes de l'équation différentielle~(\ref{eq-diff1}),
 nous obtenons
@@ -916,9 +575,9 @@ Comme attendu, les deux méthodes donnent le même résultat, cependant la trans
 le domaine de Laplace, une relation direct entre l'entrée et la sortie d'un système. C'est la fonction de transfert 
 qui réalise ce lien.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fonction de Transfert}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Comme nous l'avons déjà discuté, un \SLCI~est par définition représenté par 
 une équation différentielle 
@@ -941,9 +600,9 @@ En appliquant la transformée de Laplace à l'\cref{eq-ltemp}, on obtient
 \end{align}
 Sous cette forme, cette équation constitue ce que l'on nomme \textbf{la loi fréquentielle} du système.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Définition}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 
 La fonction de transfert $H(p)$ d'un système est donnée par le rapport de la 
 sortie $S(p)$ sur l'entrée $E(p)$. 
@@ -952,9 +611,9 @@ H(p)=\dfrac{S(p)}{E(p)}
 \end{bequation}
 Cette fonction $H(p)$ est également appelé transmittance.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection[Représentation de la fonction de transfert]{Représentations algébrique et graphique de la fonction de transfert}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 D'après la loi fréquentielle (\Cref{eq-lfreq}), la fonction de transfert 
 d'un \SLCI~peut s'écrire sous la forme d'une fraction rationnelle,
@@ -967,9 +626,9 @@ Nous allons en introduire deux :
 la forme canonique et la forme factorisée. La forme canonique permet de faire apparaître 
 les intégrateurs purs du systèmes. La forme factorisée utilise les racines de la 
 fraction rationnelle définissant la fonction de transfert. 
-%Pour montrer l'équivalence de ces représentations nous allons les 
-%construire à partir de la forme générale de l'\cref{eq-ftgen} et ou de la connaissance des pôles et zéros de 
-%la fonction de transfert.
+Pour montrer l'équivalence de ces représentations nous allons les 
+construire à partir de la forme générale de l'\cref{eq-ftgen} et ou de la connaissance des pôles et zéros de 
+la fonction de transfert.
 
 Une fonction de transfert peut être vue comme le fraction de deux polynômes (i.e fraction rationnelle):
 un polynôme au numérateur $N(p)$ et un polynôme au dénominateur $D(p)$.
@@ -980,9 +639,9 @@ Ces polynômes possèdent des racines dans $\mathbb{C}$. Les \textbf{racines de 
 dits les zéros de $H(p)$ }et les \textbf{racines de $D(p)$ 
 sont dits les pôles de $H(p)$}. Il en vient qu'une fonction de transfert possède $m$ zéros et $n$ pôles.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Exemple}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 Reprenons l'équation différentielle de la section précédente, dans les conditions de Heaviside, afin de construire 
 la fonction de transfert qui lui est associée. 
 \begin{align}                                                                                                                 
@@ -998,12 +657,12 @@ La fonction de transfert associée à cette équation différentielle est donc
 $$
 H(p)=\dfrac{1}{p^2+2p+1}
 $$
-%Il est aisé de constater que la fonction de transfert est d'ordre deux et ne possède pas de zéro.
+Il est aisé de constater que la fonction de transfert est d'ordre deux et ne possède pas de zéro.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Forme canonique de la fonction de transfert}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 Développons les sommes de l'\cref{eq-ftgen},
 $$
 H(p)=\dfrac{b_0+b_1p+b_2p^2+\ldots+b_mp^m}{a_0+a_1p+a_2p^2+\ldots+a_np^n}.
@@ -1033,9 +692,9 @@ de l'équation différentielle régissant le système\footnote{Pour simplifier l
 les primes des coefficients de la forme canonique peuvent être omis, cependant 
 ceux-ci restent toujours différents des coefficients de l'équation différentielle.}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Exemple de forme canonique}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 Soit un système décrit par la fonction de transfert suivante:
 $$
 H(p)=\dfrac{2p+5}{p^3+2p^2+4p}
@@ -1049,9 +708,9 @@ H(p)=\dfrac{K(0.4p+1)}{p(0.25p^2+0.5p+1)},
 \end{align*}
 où le gain statique $K=$1.25.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Forme factorisée de la fonction de transfert}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 Soient les pôles $p_i$ avec $i\in[1,n]$ et les zéros $z_j$ 
 avec $j\in[1,m]$ de la fonction de transfert $H(p)$. 
 Il est alors possible de factoriser par les pôles et les zéros pour écrire la fonction de 
@@ -1062,9 +721,9 @@ H(p)=k\cdot\dfrac{\prod\limits_{j=0}^{m}(p-z_j)}{\prod\limits_{i=0}^{n}(p-p_i)},
 avec $k=\dfrac{b_m}{a_n}$. On remarquera que cette constante $k$ 
 n'est pas le gain statique de la forme canonique.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Exemple de fonction de transfert factorisée}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 
 Soit la fonction de transfert $H(p)$ tel que
 $$
@@ -1073,19 +732,19 @@ $$
 En factorisant par les coefficients d'ordre maximum au numérateur et au dénominateur, et en observant 
 que la fonction de transfert possède un zéro ($z_1=-2$) et deux pôles ($p_1=-1.5$ et $p_2=-0.5$), 
 on peut réécrire $H(p)$ sous sa forme factorisée:
-%$$
-%H(p)=\dfrac{6}{2}\cdot\dfrac{p+2}{p^2+2p+0.75}
-%$$
-%La fonction de transfert possède un zéro ($z_1=-2$) et deux pôles ($p_1=-1.5$ et $p_2=-0.5$).
-%Elle peut alors s'écrire :
+$$
+H(p)=\dfrac{6}{2}\cdot\dfrac{p+2}{p^2+2p+0.75}
+$$
+La fonction de transfert possède un zéro ($z_1=-2$) et deux pôles ($p_1=-1.5$ et $p_2=-0.5$).
+Elle peut alors s'écrire :
 $$
 H(p)=\dfrac{k(p+2)}{(p+1.5)(p+0.5)}
 $$
 avec $k=3$.
 	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Carte des pôles et zéros d'une fonction de transfert}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 
 Il est également possible de représenter une fonction de transfert graphiquement à 
 l'aide d'une carte des pôles et des zéros dans le plan complexe. Les pôles 
@@ -1094,9 +753,9 @@ La carte des pôles et des zéros d'une fonction de transfert est essentiel pour
 construction du lieu d'Evans\footnote{Walter Richard Evans, (1920-1999), ingénieur, automaticien américain} 
 pour l'étude des systèmes asservis.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Exemple de carte de pôles et zéros d'une fonction de transfert}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 
 Soit $H(p)$ une fonction de transfert telle que,
 \begin{align}
@@ -1111,29 +770,9 @@ La forme factorisée de $H(p)$ est donc
 
 La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert.
 \begin{figure}[!h]
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-        scaled y ticks = false,
-        axis line style = thick,
-        axis x line=center,
-        axis y line=center,
-        xmin=-2.5,
-        xmax=2.5,
-        ymin=-1.5,
-        ymax=1.5,
-        xlabel={$\Re{(p)}$},
-        ylabel={$\Im{(p)}$},
-        xlabel style={below right},
-        ylabel style={above left},
-        yticklabels={-1,0,1},
-        ytick={-1,0,1.0},
-        y tick label style={anchor=east}
-        ]
-        \addplot[mark=x,blue,ultra thick,only marks,mark size=5pt] coordinates{ (-1,1) (-1,-1) };
-        \addplot[mark=o,red,ultra thick,mark size=5pt] coordinates{ (1,0) };
-        \end{axis}
-    \end{tikzpicture}
+    \begin{center}
+    \tikzsetnextfilename{carte-chap0_ext}
+    \input{tikz/carte-chap0.tex}
 \end{center}
 \caption{Exemple d'une carte de pôles et zéros associés 
     à la fonction de transfert~\Cref{eq-ft_carte}\label{fig-carte} }
