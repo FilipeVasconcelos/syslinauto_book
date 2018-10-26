@@ -25,5 +25,7 @@
 *.slg
 *.sls
 *.toc
-
+fig/*.eps
+fig/*.md5
+fig/*.dpth
 
