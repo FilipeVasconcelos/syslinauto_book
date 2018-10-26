@@ -3,6 +3,8 @@
 filename=sma_auto
 #filename=tes
 #filename=test_tikz
+simple:	ps-simple 
+	ps2pdf -sPAPERSIZE=a4 ${filename}.ps
 
 pspdfd:	psd
 	ps2pdf -sPAPERSIZE=a4 ${filename}.ps
@@ -19,10 +21,10 @@ pdfd:
 	pdflatex ${filename}
 	
 pdf: 
-	pdflatex ${filename}
+	pdflatex -shell-escape ${filename}
 	bibtex ${filename} ||true
-	makeindex ${filename}.idx
-	makeindex ${filename}.gls 
+	#makeindex ${filename}.idx
+	#makeindex ${filename}.gls 
 	pdflatex ${filename}
 	pdflatex ${filename}
 
@@ -38,15 +40,19 @@ html:
 
 ps:	dvi
 	dvips -t a4 ${filename}.dvi
+ps-simple:	dvi-simple
+	dvips -t a4 ${filename}.dvi
 
 psd: dvid
 	dvips -t a4 ${filename}.dvi
 
 dvi:
-	latex ${filename}
+	latex --shell-escape ${filename}
 	bibtex ${filename} ||true
 	latex ${filename}
 	latex ${filename}
+dvi-simple:
+	latex --shell-escape ${filename}
 
 dvid:
 	latex -draftmode ${filename}
@@ -66,4 +72,4 @@ gvread: ps
 	gv ${filename}.ps 
 
 clean:
-	rm -f *.log *.aux *.out *.bbl *.blg *.mtc* *.toc *.maf *.idx *.gls *.ilg *.glo *.glg
+	rm -f *.log *.auxlock *.ind *.ist *.aux *.out *.bbl *.blg *.mtc* *.toc *.maf *.idx *.gls *.ilg *.glo *.glg
