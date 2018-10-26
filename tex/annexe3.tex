@@ -1,0 +1,108 @@
+\chapter{Décomposition en éléments simples\label{annexe-DES}}
+
+\section{Avant-propos}
+En automatique, la détermination d'une réponse temporelle $s(t)$
+correspond à déterminer la transformée 
+de Laplace inverse de la fraction rationnelle $S(p)$ 
+définit dans le domaine de Laplace, autrement dit :
+$$
+s(t)=\laplacei{S(p)}
+$$
+Cette inversion passe généralement par l'utiliation des tables de transformées de Laplace \Cref{annexe-lap}).
+Ces tables peuvent ne pas être complètes. La décomposition en 
+éléments simples de $S(p)$, nous permet alors de 
+réécrire cette fraction rationnelle sous une forme comportant 
+des fractions rationnelles usuellement présente dans les tables.
+
+Dans cette annexe, nous présenterons les techniques les plus couramment
+recontrées dans l'étude des \SLCI. Ces systèmes ne s'intéressent qu'à 
+une famille de fraction rationnelle.
+Cette présentation n'est pas exhaustive, et ne remplacera donc 
+pas la lecture du chapitre du cours de mathématiques qui lui est consacré.
+
+\section{Fraction rationnelle rencontrées en automatique}
+Dans le cas qui nous intéresse la fraction rationnelle est la réponse $S(p)$ 
+définit dans le domaine de Laplace.
+Cette grandeur est de la forme,
+$$
+S(p)=\dfrac{N(p)}{D(p)}
+$$
+où $N(p)$ et $D(p)$ sont deux polynômes de degrés $m$ et $n$ respectivement.
+En générale, nous aurons à faire à des systèmes pour lesquels $m<n$. 
+Une des conséquences est que la décomposition en élements simples ne comportera
+pas de partie entière.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Décomposition en éléments simples}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Soit $S(p)=\dfrac{N(p)}{D(p)}$ une fraction rationnelle. On considère la décomposition 
+de $D(p)$ en produit de polynômes irréductibles\footnote{Nous rappelons que 
+dans $\mathbb{R}[p]$, les polynômes irréductibles sont 
+les polynômes de degré 1 et les polynômes de degré 2 de discriminant négatif}unitaire\footnote{Un polynôme unitaire est un polynôme dont le coéfficient de degré le plus grand est 1}
+de la forme:
+$$
+D(p)=a\prod_{k=1}^r(p-\alpha_k)^{m_k}\prod_{k=1}^s(p^2+\beta_lp+\gamma_l)^{n_k}
+$$
+où $a$ est une constante qui est le coefficient du terme de plus haut degré de $D(p)$, les $\alpha_k$
+sont les pôles de multiplicités $m_k$,  les polynômes de degré 2 sont sans pôles réels (i.e $\beta_i-4\gamma_i<0$).
+
+Alors il existe une famille unique de rééls $A_{k,i}$, $B_{l,j}$ et $C_{l,j}$ telles que :
+\begin{align}
+S(p)=\sum_{k=1}^r\sum_{i=1}^{m_k} \dfrac{A_{k,i}}{\left(p-\alpha_k\right)^i}+\sum_{l=1}^s\sum_{j=1}^{n_l} \dfrac{B_{l,j}p+C_{l,j}}{\left(p^2+\beta_lp+\gamma_l\right)^j}
+\end{align}
+
+On appelle cette écriture la \textbf{décomposition en éléments simples} de $S(p)$ sur $\mathbb{R}$.
+
+\paragraph{Exemple 1}
+Soit $S(p)$ tel que:
+$$
+S(p)=\dfrac{1}{(p^2-1)(p^2+1)^2}
+$$
+où $D(p)$ se factorise sous la forme :
+$$
+D(p)=(p^2-1)(p^2+1)^2=(p-1)(p+1)(p^2+1)^2
+$$
+On obtient une décomposition en éléments simples de $S(p)$ de la forme :
+$$
+S(p)=\dfrac{A}{p-1}+\dfrac{B}{p+1}+\dfrac{Cp+D}{p^2+1}+\dfrac{Ep+F}{p^2+1}
+$$
+
+\paragraph{Exemple 2}
+Soit $S(p)$ tel que:
+$$
+S(p)=\dfrac{4p^3}{(p^2-1)^2}
+$$
+où $D(p)$ se factorise sous la forme :
+$$
+D(p)=(p^2-1)^2=\left((p-1)(p+1)\right)^2
+$$
+On obtient une décomposition en éléments simples de $S(p)$ de la forme :
+$$
+S(p)=\dfrac{A}{p-1}+\dfrac{B}{(p-1)^2}+\dfrac{C}{p+1}+\dfrac{D}{(p+1)^2}
+$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Détermination des coefficients de la DES]{Détermination des coefficients de la décomposition en éléments simples}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\acpl
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Par identification}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\acpl
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Multiplication/Substitution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\acpl
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\'Evaluation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\acpl
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Parité}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\acpl
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Passage à la limite}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\acpl
+

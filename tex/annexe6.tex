@@ -1,0 +1,327 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{\'Echelle logarithmique et le décibel~\label{annexe-log}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+En automatique, l'échelle logarithmique est très fréquement 
+utilisée pour permettre la représentation
+graphique de variables dont les valeurs s'étalent sur plusieurs ordres de grandeur. 
+Pour les diagrammes de Bode, il est courant de représenter le gain 
+d'un \SLCI~en décibel \textbf{dB} qui est également une unité liée au logarithme décimale. 
+La maitrise du calcul logarithmique est donc indispensable 
+pour l'établissement d'un diagramme de Bode.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Rappel sur le logarithme décimal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Le logarithme décimal (noté $\log$ ou $\log_{10}$) est le logarithme en base 10.
+La propriété principale du logarithme est de transformer un 
+produit en somme\footnote{C'est pour cette propriété qu'il 
+fut introduit par John Napier en 1614 pour faciliter les calculs de produit quelconque
+en établissant une correspondance avec la somme de logarithme 
+à l'aide de tables de logarithme, ceci avant le 
+développement de calculateur numérique performant.}.
+
+Formellement, la fonction logarithme décimal $\log{(x)}$ est défini analytiquement par 
+$$
+\log{(x)}=\dfrac{\ln{(x)}}{\ln{(10)}}
+$$
+où la fonction $\ln{x}$ est la fonction logarithme néperien (i.e en base naturelle $e$) 
+
+\paragraph{Propriétés}
+\begin{itemize}
+    \item $\log{(ab)}=\log{(a)} + \log{(b)}$; $\log{\left(\dfrac{a}{b}\right)}=\log{a} - \log{(b)}$
+    \item $\log{(a^n)}=n\log{(a)}$; $\log{\sqrt[n]{(a)}}=\dfrac{1}{n}\log{(a)}$
+    \item $\log(x)=a \Leftrightarrow x=10^a $; $\log(1) = 0$; $\log(10) = 1$ ; $\log(0.1) = -1$
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\'Echelle logarithmique décimale}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Sur une \textbf{échelle linéaire} décimale classique, des couples de graduations dont 
+la \textbf{différence} ($\Delta$ ci-dessous) vaut 10 sont à égales distances. 
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[-latex] (0,0) -- (11,0) ;
+    \foreach \x in {0,...,20}
+         \draw (\x/2,2pt) -- (\x/2,-2pt);
+    \foreach \x in {0,10,20} {
+         \draw (\x/2,4pt) -- (\x/2,-4pt);
+         \node [below,yshift=-0.5em] at (\x/2,2pt) {\small \x};
+     }
+    \foreach \x in {4,14}
+         \node [above,yshift=0.0em] at (\x/2,2pt) {\small \x};
+    \draw[blue,thick] (0,0.2) -- (0,1.2) ;
+    \draw[blue,thick] (5,0.2) -- (5,1.2) ;
+    \draw[blue,thick] (10,0.2) -- (10,1.2) ;
+    \draw[blue,ultra thick,latex-latex] (0,0.75) -- node[above] {$\Delta=10$} (5,0.75);
+    \draw[blue,ultra thick,latex-latex] (5,0.75) -- node[above] {$\Delta=10$} (10,0.75);
+    \draw[red,thick] (2,-0.2) -- (2,-1.22) ;
+    \draw[red,thick] (7,-0.2) -- (7,-1.2) ;
+    \draw[red,ultra thick,latex-latex] (2,-0.75) -- node[below] {$\Delta=10$} (7,-0.75);
+\end{tikzpicture}
+\end{center}
+
+Sur une \textbf{échelle logarithmique} décimale, des couples de graduations dont le \textbf{rapport} ($\alpha$ ci-dessous) 
+vaut 10 sont à égales distances. 
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[-latex] (0,0) -- (11,0) ;
+    \foreach \x in {1.0,10.0,100.0} {
+        \coordinate (P1) at ({5*log10(\x)},4pt);
+        \coordinate (P2) at ({5*log10(\x)},-4pt);
+        \draw[] (P1) -- (P2);
+    }
+    \foreach \x in {2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0} {
+        \coordinate (P1) at ({5*log10(\x)},2pt);
+        \coordinate (P2) at ({5*log10(\x)},-2pt);
+        \draw[] (P1) -- (P2);
+    }
+    \foreach \x in {1,10,100}
+         \node [below,yshift=-0.5em] at ({5*log10(\x)},2pt) {\small \x};
+    \foreach \x in {3,30}
+         \node [above,yshift=0.0em] at ({5*log10(\x)},2pt) {\small \x};
+    \draw[blue,thick] (0,0.2) -- (0,1.2) ;
+    \draw[blue,thick] (5,0.2) -- (5,1.2) ;
+    \draw[blue,thick] (10,0.2) -- (10,1.2) ;
+    \draw[blue,ultra thick,latex-latex] (0,0.75) -- node[above] {$\alpha=10$} (5,0.75);
+    \draw[blue,ultra thick,latex-latex] (5,0.75) -- node[above] {$\alpha=10$} (10,0.75);
+    \draw[red,thick] (2.3856062735983121,-0.2) -- (2.3856062735983121,-1.2) ;
+    \draw[red,thick] (7.3856062735983121,-0.2) -- (7.3856062735983121,-1.2) ;
+    \draw[red,ultra thick,latex-latex] (2.3856062735983121,-0.75) -- node[below] {$\alpha=10$} (7.3856062735983121,-0.75);
+\end{tikzpicture}
+\end{center}
+
+On généralise cette l'égalité entre le rapport et n'importe quelle distance constante sur l'axe à échelle logarithmique.
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[-latex] (0,0) -- (11,0) ;
+    \foreach \x in {2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0} {
+        \coordinate (P1) at ({5*log10(\x)},2pt);
+        \coordinate (P2) at ({5*log10(\x)},-2pt);
+        \draw[] (P1) -- (P2);
+    }
+    \foreach \x in {1.0,10.0,100.0} {
+        \coordinate (P1) at ({5*log10(\x)},4pt);
+        \coordinate (P2) at ({5*log10(\x)},-4pt);
+        \draw[] (P1) -- (P2);
+    }
+    \foreach \x in {1,10,100}
+         \node [below,yshift=-0.5em] at ({5*log10(\x)},2pt) {\small \x};
+    \foreach \x in {1,2,4,8,16,32,64}
+         \node [above,yshift=0em,blue] at ({5*log10(\x)},1.3) {\small \x};
+    \draw[blue,thick] (0,0.2) -- (0,1.2) ;
+    \draw[blue,thick] ({5*log10(2)},0.2) -- ({5*log10(2)},1.2) ;
+    \draw[blue,thick] ({5*log10(4)},0.2) -- ({5*log10(4)},1.2) ;
+    \draw[blue,thick] ({5*log10(8)},0.2) -- ({5*log10(8)},1.2) ;
+    \draw[blue,thick] ({5*log10(16)},0.2) -- ({5*log10(16)},1.2) ;
+    \draw[blue,thick] ({5*log10(32)},0.2) -- ({5*log10(32)},1.2) ;
+    \draw[blue,thick] ({5*log10(64)},0.2) -- ({5*log10(64)},1.2) ;
+    \draw[blue,ultra thick,latex-latex] (0,0.75) -- node[above] {$\alpha=2$} ({5*log10(2)},0.75);
+    \draw[blue,ultra thick,latex-latex] ({5*log10(2)},0.75) -- node[above] {$\alpha=2$} ({5*log10(4)},0.75);
+    \draw[blue,ultra thick,latex-latex] ({5*log10(4)},0.75) -- node[above] {$\alpha=2$} ({5*log10(8)},0.75);
+    \draw[blue,ultra thick,latex-latex] ({5*log10(8)},0.75) -- node[above] {$\alpha=2$} ({5*log10(16)},0.75);
+    \draw[blue,ultra thick,latex-latex] ({5*log10(16)},0.75) -- node[above] {$\alpha=2$} ({5*log10(32)},0.75);
+    \draw[blue,ultra thick,latex-latex] ({5*log10(32)},0.75) -- node[above] {$\alpha=2$} ({5*log10(64)},0.75);
+\end{tikzpicture}
+\end{center}
+On remarquera que dans le cas ci-dessus, les valeurs 16,32 et 64 n'ont pas de graduation qui leurs sont propres 
+mais ces valeurs sont bien déterminées par la distance constante entre deux graduation de rapport $\alpha=2$. 
+
+Il existe une terminologie pour se référer à des rapport $\alpha$ particuliers, 
+on parle d'\textbf{octave}\footnote{Pour le lecteur mélomane, celà correspond à 
+la définition de l'octave musicale. Par exemple, l'octave supérieur du La (noté La4) 
+de fréquence \unit{440}{\hertz} est de fréquence  
+égale à \unit{880}{\hertz} (noté La3).} lorsque $\alpha=2$ et de \textbf{décade} lorsque $\alpha=10$
+
+Avec cette terminologie, une atténuation du gain d'une réponse harmonique 
+de -20 dB lorsque la pulsation augmente d'un facteur 10, se dira -20dB/décade ou -6dB/octave.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Le décibel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Le bel (B) est une unité de grandeur sans dimension 
+exprimant la valeur relative entre deux quantités par le logarithme décimal 
+de leur rapport. Le décibel (dB), plus couramment utilisé, est définie comme un dixieme de bel, et donc correspond à 
+dix fois le logarithme décimal du rapport.
+$$
+X_{dB}=10\log{\dfrac{P_s}{P_e}}
+$$
+
+Le gain en décibel reporté sur un diagramme de Bode correspond à 
+la valeur relative à 1 du carré du gain $G$. Ainsi,
+$$
+G_{dB}(\omega)=10\log{G^2} = 20\log{G}
+$$
+Nous rappellons que le gain $G$, dit naturel, est le module de la
+fonction de transfert $G=|H(\jw)|$.
+Le~\cref{tab-equiv_dB} donne l'équivalence entre le gain naturel $G$ et gain décibel $G_{dB}$ pour différentes 
+valeurs particulières frequemment rencontrées dans ce cours.
+
+\begin{table}[!t]
+\begin{tabular}{M{1cm}M{1cm}M{1cm}M{1cm}M{1cm}M{1cm}M{1cm}M{1cm}M{1cm}M{1cm}N}
+    \hhline{==========}
+        $G$ & 0.01 & 0.1 & 0.5      & $\sqrt{2}/2$ & 1 & $\sqrt{2}$ & 2       & 10 & 100 & \\[1em]
+    \hline
+    $G_{dB}$ & -40  & -20 & $\sim$-6 &  $\sim$-3    & 0 & $\sim$3    & $\sim$6 & 20 & 40  & \\[1em]
+    \hhline{==========}
+    \end{tabular}
+    \caption{\'Equivalence entre gain naturel $G$ et gain décibel $G_{dB}$. D'après~\cite{laroche}\label{tab-equiv_dB}}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Diagramme de Bode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Un diagramme de Bode d'un fonction complexe $H(\jw)$ est composé de deux courbes (i.e gain et phase) 
+en représentation semi-logarithmique.
+
+Soit la fonction complexe du premier ordre telle que 
+\begin{align}
+H(\jw)=\dfrac{1}{1+\jw}\label{eq-ft_annexe}
+\end{align}
+
+\paragraph{Tracer du gain}
+Le gain de cette fonction de transfert $G(\omega)=|H(\jw)|$ s'écrit :
+$$
+G(\omega) =\dfrac{1}{\sqrt{1+\omega^2}}
+$$
+le gain en décibel est donc :
+$$
+G_{dB}=20\log{\dfrac{1}{\sqrt{1+\omega^2}}}=-20\log{\sqrt{1+\omega^2}}
+$$
+C'est cette fonction qu'il faut tracer point par point sur le diagramme de Bode, cependant il est généralement 
+recommandé d'étudier les asymptotes de cette fonction avant de tracer la courbe. 
+Pour les basses fréquences, le gain en décibel ce commporte comme 
+$$
+G_{dB}\sim-20\log{1}\sim 0\text{dB}
+$$ 
+et pour les hautes fréquences, comme
+$$
+G_{dB}\sim -20\log{\omega}.
+$$
+Dans le cas des hautes fréquences, lorsque la pulsation est mutiplié 
+par 10 (i.e une décade ) le gain diminue de -20 dB, 
+on dit également qu'à haute fréquence le gain possède une pente de \textbf{-20dB par décade}. 
+La pulsation de coupure est ici de $\omega_{c}=1$, c'est cette pulsation qui marque la \og séparation\fg 
+entre basses et hautes fréquences. 
+
+\begin{figure}[!t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=\textwidth,
+    height=0.3\textheight,
+    ylabel={Gain (dB)},
+    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
+    ytick={-60,-50,-40,-30,-20,-10,0,10}, 
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    yticklabels={-60,-50,-40,-30,-20,-10,0,10},
+    xmode=log,ymode=normal,
+    xmin=1e-3, xmax=1e3,
+    ymin=-60, ymax=10,
+    grid=both,
+    major grid style={black!40}
+]
+    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {-20*log10(sqrt(1+x*x))}; 
+    \addplot[line width=2pt,red,dashed,domain=1e-3:1e0, samples=101] {0};
+    \addplot[line width=2pt,red,dashed,domain=1e0:1e3, samples=101] {-20*log10(x)};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=\textwidth,
+    height=0.3\textheight,
+    xlabel={Pulsation (rad/s)},
+    ylabel={Phase (\degree)},
+    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
+    ytick={-90,-45,0}, 
+    yticklabels={-90,-45,0},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xmode=log,ymode=normal,
+    xmin=1e-3, xmax=1e3,
+    ymin=-90, ymax=0,
+    grid=both,
+    major grid style={black!40}
+]
+    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {-atan(x)}; 
+    \addplot[line width=2pt,red,dashed,domain=1e-3:1e0,samples=101,unbounded coords=jump] {0};
+    \addplot[line width=2pt,red,dashed,domain=1e0:1e3,samples=101,unbounded coords=jump] {-90};
+    \draw[line width=2pt,red,dashed] (axis cs:1,0) -- (axis cs:1,-90);
+\end{axis}
+\end{tikzpicture}
+    \caption{Diagramme de Bode d'un système du premier ordre.\label{fig-bode_annexe} }
+\end{figure}
+
+\paragraph{Tracer de la phase}
+La phase $\phi(\omega)$ correspond à l'argument principale (\Cref{annexe-NC}) 
+de la fonction complexe $H(\jw)$.
+$$
+\phi(\omega)=\arg{H(\jw)}=-\arg{(1+\jw)}=-\arctan{\omega}
+$$
+C'est cette fonction $\phi(\omega)$ qu'il faut tracer point par point 
+sur le diagramme de Bode, mais comme précedemment
+il est conseillé de déterminer les asymptotes à basse et haute fréquence.
+\`A basse fréquence, la phase se comporte comme,
+$$
+\phi(\omega)\sim 0
+$$ 
+et à haute fréquence, comme, 
+$$
+\phi(\omega)\sim -\dfrac{\pi}{2}.
+$$
+Les asymptotes sont une approximation bien plus 
+grossière dans le cas de la phase. 
+En générale, il est recommandé de 
+calculer la phase pour des valeurs particulières de la 
+pulsation. Par exemple, à la pulsation de coupure, 
+lorsque $\omega=$1, la phase est de -45\degree, en effet,
+$$
+\phi(1)=-\arg{(1+\jw)}=-\dfrac{\pi}{4}
+$$
+
+La~\cref{fig-bode_annexe} présente le diagramme de Bode associé à 
+la fonction de transfert de l'\cref{eq-ft_annexe}.
+
+\section{Tracer du diagramme de Bode avec Scilab}
+Deux fonctions permettent de tracer un diagramme de Bode avec Scilab.
+\begin{itemize}
+        \item  \verb?bode(syslin,fMin,fMax)? trace le diagramme de Bode réel. Cette fonction 
+            prend pour argument \verb?sys? un 
+            système linéaire comme défini à l'~\Cref{annexe-scilab}, 
+            \verb?fMin? et \verb?fMax? une fréquence minimal et maximal (en \unit{}{\hertz} 
+            sauf si un 4ème argument est donné). 
+        \item  \verb?bode_asymp(syslin,fMin,fMax)? trace le diagramme asymptotique.
+\end{itemize}
+
+
+\begin{code}
+\begin{verbatim}
+// ============================================================
+//                   Analyse Fréquentielle                                                                      
+// ============================================================
+scf(grf);clf(grf);grf=grf+1;
+fMin =0.01,fMax=100;
+p=poly(0,'p')
+PremierOrdre=syslin('c',[1],[1+p])
+//-----------------------------------
+// diagrammme de Bode
+//-----------------------------------
+bode(PremierOrdre,fMin,fMax,"rad");
+// ----------------------------------
+// diagrammme de Bode asymptotique
+//-----------------------------------
+bode_asymp(PremierOrdre,fMin,fMax);
+\end{verbatim}
+\end{code}
+
+

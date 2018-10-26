@@ -1,0 +1,187 @@
+\chapter{Transformation de Laplace\label{annexe-lap}}
+\chaptermark{Transformation de Laplace}
+
+
+\section{Définitions} 
+
+Soit f une fonction de la variable réelle t définie sur $\mathbb{R}$ 
+et supossée  nulle pour $t<0$, on appelle transformée de Laplace de $f$, la fonction $F$ définie par :
+$$
+F(p) = \int_0^\infty e^{-pt} f(t) \mathrm{d}t
+$$
+avec $p\in\mathbb{C}$. 
+
+En automatique, on n'utilise que la transformée de Laplace restreinte qui 
+ne s'applique qu'aux fonctions causales.
+Pour transformer une fonction quelconque en fonction causale, 
+on la combine avec la fonction de Heaviside $u(t)$ qui est telle que :
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[-{Stealth[scale=1.3,angle'=45]},] (-2,0) -- (4.,0) ;
+    \draw[-{Stealth[scale=1.3,angle'=45]}] (0,-1) -- (0,2.5)  ;
+
+
+\draw[line width =2pt,domain=-1.5:0,smooth,variable=\x,blue] plot ({\x},{0});
+\draw[line width =2pt,domain=0:3.5,smooth,variable=\x,blue] plot ({\x},{1});
+\node[left,blue] at (2.5,1.4)  (ft)  {\large $u(t)$};
+
+\node[below] at (3.5,0)  (t)     {\large $t$};
+
+    \node[below] at (-5.0,1.5) {$u(t)=\begin{cases}0 \qquad \forall t<0\\1 \qquad \forall t\geq 0\end{cases} $};
+\end{tikzpicture}
+\end{center}
+
+On note $F(p)=\laplace{f(t)}$, la transformée de Laplace de $f(t)$ et on dit de $F(p)$ qu'elle est l'image de $f(t)$
+dans le domaine de Laplace
+\footnote{Plusieurs termes sont utilisés dans la littérature. On parle 
+de domaine complexe, domaine fréquentielle ou de domaine symbolique. On choisit dans ce document 
+de ne parler que du domaine de Laplace} et on notera $\laplacei{F(p)}$ la transformée de Laplace inverse.
+%\newpage
+\section{Propriétés} 
+\begin{itemize}
+%\item \emph{unicité} : a une fonction $f(t)$ il correspond une unique transformée de Laplace 	
+%\item \emph{addition} : 
+%$$ 
+%\mathcal{L}[f(t)+g(t)] = F(p) + G(p)
+%$$ 
+\item \emph{linéarité} :
+$$ 
+\laplace{af(t)+bg(t)} = aF(p) + bG(p)
+$$ 
+\item \emph{dilatation du temps} : 
+$$
+\laplace{f(kt)}=\dfrac{1}{k}F\left(\dfrac{p}{k}\right)
+$$
+\item \emph{produit de convolution} : 
+$$
+\laplace{f(t)*g(t)} = F(p)G(p)
+$$
+\item \emph{dérivation} : 
+\begin{align*}
+\laplace{\devi{f(t)}{}}&=pF(p) - f(0^+) \\
+\laplace{\devi{f(t)}{2}}&=p^2F(p) - pf(0^+) - f'(0^+)\\
+\laplace{\devi{f(t)}{n}}&=p^nF(p) 
+\end{align*}
+si toutes les conditions initiales sont nulles.
+\item \emph{intégration} :
+$$
+\laplace{\int_0^t f(u)du} = \dfrac{F(p)}{p} + \dfrac{g(0^+)}{p}
+$$
+avec :
+$g(t)=\int_0^t f(u)du$
+\item \emph{théorème du retard en (t)} :
+$$
+\laplace{f(t-\tau)}=e^{-\tau p}F(p)
+$$
+\item \emph{théorème du retard en (p)} :
+$$
+\laplacei{F(p+a)}=e^{-at}f(t)
+$$
+\item \emph{théorème de la valeur initiale} :
+$$
+\lim\limits_{t \to 0} f(t)=\lim\limits_{p \to \infty}\, p F(p)
+$$
+\item \emph{théorème de la valeur finale} :
+$$
+\lim\limits_{t \to \infty} f(t)=\lim\limits_{p \to 0}\,p F(p)
+$$
+\item \emph{transformée de Laplace d'une fonction périodique et $f(t)$ de période $T$} :
+$$
+        F(p) = \dfrac{F_0(p)}{1-e^{-Tp}}
+$$
+où $F_0(p)$ est la transformée de Laplace du motif $f_0(t)$ égal à 
+$f(t)$ sur le segment $[0,T]$ et nul partout ailleurs.
+\end{itemize}
+\section{Tableau des transformées de Laplace}
+\begin{table}[H]
+%\resizebox{0.5\textwidth}{!}{
+\begin{tabular}{|M{0.5cm}|M{3.9cm}|M{8.9cm}|N}
+\hline
+& $F(p)$ & $f(t)=\laplacei{F(p)}$ &\\[20pt]
+\hline
+1 & 1 & $\delta(t)$ &\\[20pt]
+\hline
+2 & $e^{-\tau p}$ & $\delta(t-\tau)$ &\\[20pt]
+\hline
+3 & $\dfrac{1}{p}$ & 1 &\\[20pt]
+\hline
+4 & $\dfrac{1}{p^2}$ & t &\\[20pt]
+\hline
+5 & $\dfrac{1}{p^3}$ & $\dfrac{1}{2}t^2$ &\\[20pt]
+\hline
+6 & $\dfrac{1}{p^n}$ & $\dfrac{1}{(n-1)!}t^{n-1}$ &\\[20pt]
+\hline
+7 & $\dfrac{1}{p+a}$ & $e^{-at}$ &\\[20pt]
+\hline
+8 & $\dfrac{1}{(p+a)^2}$ & $te^{-at}$&\\[20pt]
+\hline
+9 & $\dfrac{1}{(p+a)^3}$ & $\dfrac{1}{2}t^2e^{-at}$&\\[20pt]
+\hline
+10 & $\dfrac{1}{(p+a)^n}$ & $\dfrac{1}{(n-1)!}t^{n-1}e^{-at}$&\\[20pt]
+\hline
+11 & $\dfrac{a}{p(p+a)}$ & $1-e^{-at}$ &\\[20pt]
+\hline
+12 & $\dfrac{a}{p^2(p+a)}$ & $\dfrac{1}{a}\left[at-\left(1-e^{-at}\right)\right]$ &\\[20pt]
+\hline
+13 & $\dfrac{p}{(p+a)^2}$ & $(1-at)e^{-at}$&\\[20pt]
+\hline
+14 & $\dfrac{a^2}{p(p+a)^2}$ & $1-(1+at)e^{-at}$&\\[20pt]
+\hline
+15 & $\dfrac{a^2(p+z)}{p(p+a)^2}$ & $z-\left(z+a(z-a)t\right)e^{-at}$&\\[20pt]
+\hline
+16 & $\dfrac{b-a}{(p+a)(p+b)}$ & $e^{-at}-e^{-bt}$&\\[20pt]
+\hline
+\end{tabular}
+%}
+$\,$
+\clearpage
+\captionof{table}{Table de transformées de Laplace d'après\cite{Ostertag}}
+\end{table}
+\newpage
+\begin{table}[!h]
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|M{0.5cm}|M{3.9cm}|M{8.9cm}|N}
+\hline
+   & $F(p)$                         & $f(t)=\laplacei{F(p)}$             &\\[20pt]
+\hline
+17 & $\dfrac{(b-a)p}{(p+a)(p+b)}$ & $-ae^{-at}+be^{-bt}$&\\[20pt]
+\hline
+18 & $\dfrac{(b-a)(p+z)}{(p+a)(p+b)}$ & $(z-a)e^{-at}-(z-b)e^{-bt}$&\\[20pt]
+\hline
+19 & $\dfrac{ab}{p(p+a)(p+b)}$      & $1+\dfrac{be^{-at}-ae^{-bt}}{a-b}$ &\\[20pt]
+\hline
+20 & $\dfrac{ab(p+z)}{p(p+a)(p+b)}$ & $z+\dfrac{b(z-a)e^{-at}-a(z-b)e^{-bt}}{a-b}$ &\\[20pt]
+\hline
+21 & $\dfrac{1}{(p+a)(p+b)(p+c)}$   & $\dfrac{e^{-at}}{(b-a)(c-a)}+\dfrac{e^{-bt}}{(c-b)(a-b)}+\dfrac{e^{-ct}}{(a-c)(b-c)}$ &\\[20pt]
+\hline
+22 & $\dfrac{p+z}{(p+a)(p+b)(p+c)}$& $\dfrac{(z-a)e^{-at}}{(b-a)(c-a)}+\dfrac{(z-b)e^{-bt}}{(c-b)(a-b)}+\dfrac{(z-c)e^{-ct}}{(a-c)(b-c)}$ &\\[20pt]
+\hline
+23 & $\dfrac{\omega}{p^2+\omega^2}$ & $\sin\omega t$ &\\[20pt]
+\hline
+24 & $\dfrac{p}{p^2+\omega^2}$ & $\cos\omega t$ &\\[20pt]
+\hline
+25 & $\dfrac{p+z}{p^2+\omega^2}$ & $\sqrt{\dfrac{z^2+\omega^2}{\omega^2}}\sin{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z}}$ &\\[20pt]
+\hline
+26 & $\dfrac{\omega^2}{p(p^2+\omega)^2}$ & $1-\cos\omega t$&\\[20pt]
+\hline
+27 & $\dfrac{\omega^2(p+z)}{p(p^2+\omega)^2}$ & $z-\sqrt{\dfrac{z^2+\omega^2}{\omega^2}}\cos{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z}}$&\\[20pt]
+\hline
+28 & $\dfrac{\omega}{p^2-\omega^2}$ & $\sinh{\omega t}$&\\[20pt]
+\hline
+29 & $\dfrac{p}{p^2-\omega^2}$ & $\cosh{\omega t}$&\\[20pt]
+\hline
+30 & $\dfrac{\omega}{(p+a)^2+\omega^2}$ & $e^{-at}\sin{\omega t}$ &\\[20pt]
+\hline
+31 & $\dfrac{p+a}{(p+a)^2+\omega^2}$ & $e^{-at}\cos{\omega t}$ &\\[20pt]
+\hline
+32 & $\dfrac{p+z}{(p+a)^2+\omega^2}$ & $\sqrt{\dfrac{(z-a)^2+\omega^2}{\omega^2}}e^{-at}\sin{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z-a}}$&\\[20pt]
+\hline
+33 & $\dfrac{\omega^2}{p^2+2\xi\omega p +\omega^2}$ & $\dfrac{\omega}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t}$&\\[20pt]
+\hline
+34 & $\dfrac{\omega^2}{p(p^2+2\xi\omega p +\omega^2)}$ & $1-\dfrac{1}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2}t+\phi}$ avec $\phi=\arccos{\xi}$&\\[20pt]
+\hline
+\end{tabular}
+}
+\captionof{table}{(suite) Table de transformées de Laplace d'après~\cite{Ostertag}}
+\end{table}

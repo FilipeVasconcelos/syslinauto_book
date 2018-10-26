@@ -1,0 +1,686 @@
+\chapter{Initiation à Scilab\label{annexe-scilab}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Présentation générale]{Présentation générale (source \href{https://fr.wikipedia.org/wiki/Scilab}{Wikipédia})}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Scilab est un logiciel libre
+de calcul numérique fournissant un environnement de
+calcul pour des applications scientifiques. 
+Il est utilisé pour le traitement 
+du signal, l'analyse statistique, 
+le traitement d'images, les simulations de 
+dynamique des fluides, l'optimisation numérique, et la 
+modélisation et simulation de systèmes dynamiques.
+
+La syntaxe et les possibilités offertes par Scilab sont 
+similaires à celles de Matlab.
+
+Scilab peut exécuter des instructions en ligne de commande, ainsi que 
+des fichiers de commande (scripts) contenant des instructions (format texte). 
+On peut exécuter des programmes Fortran ou C à partir de Scilab.
+Scilab est complété par un environnement graphique Xcos comparable 
+à l'environnement graphique Simulink fourni avec Matlab. 
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Syntaxe : console}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Les instructions sont tapées après le prompt \verb?-->?. Le résultat est donné sauf si l'instruction se termine par 
+un point-virgule auquel cas le résultat est caché.
+Les variables sont sensibles à la casse.
+\verb?ans? est la variable qui contient le dernier résultat.
+Un commentaire commence par  \verb?\\?. 
+La plupart des opérateurs sont communs avec d'autres langages (affectation~\verb?=?, addition~\verb?+?, soustraction~\verb?-?, multiplication~\verb?*?, puissance~\verb?**?).
+
+\paragraph{Exemples :}
+\begin{code}
+\begin{verbatim}
+-->// ceci n'est pas un commentaire
+
+-->a=2
+ a  =
+      
+    2. 
+-->A=3;  \\ le résultat est caché
+
+-->a*A   \\ produit
+ ans  =
+
+    6.  
+-->ans**2 \\ utilisation de la valeur précédente
+ ans  =
+  
+    36.  
+\end{verbatim}
+\end{code}
+
+Il existe quelques variables prédéfinies sous Scilab, elles sont appelées à l'aide du symbole \og\verb?%?\fg.
+La liste de ces variables est accessible par la fonction \verb?whos -name %?
+\begin{code}
+\begin{verbatim}
+%e    // constante d'Euler
+%eps  // précision machine epsilon
+%F %f // booléen false 0 
+%T %t // booléen True 1 
+%pi   // constante pi
+%i    // nombre imaginaire
+%inf  // infini
+%nan  // not-a-number
+%s %z // définition polynôme
+\end{verbatim}
+\end{code}
+
+
+Quelques opérateurs logiques : 
+\begin{code}
+\begin{verbatim}
+-->A=0;
+
+-->B=1;
+
+-->A&B    // ET logique
+ ans  =
+ 
+  F 
+
+-->A|B    // OU logique
+ ans  =
+ 
+  T 
+
+-->~A     // NON logique
+ ans  =
+ 
+  T 
+
+-->A==B   // Egalité logique
+ ans  =
+ 
+  F
+
+-->A~=B   // Différence logique
+ ans  =
+ 
+  T
+\end{verbatim}
+\end{code}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Polynômes et fractions rationnelles}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+En automatique, la définition de la fonction de transfert 
+fait intervenir des polynômes et des fractions rationnelles.
+
+La déclaration d'un polynôme se fait à l'aide de deux instructions. 
+La première utilise la fonction \verb?poly(0, "p")? qui définit \og \verb?p?\fg comme 
+l'indéterminée d'un polynôme. 
+La seconde instuction est l'énoncé du polynôme utilisant cette indéterminée. 
+
+\paragraph{Exemple :}
+
+On définit deux polynômes $D(p)=1+2p+3p^2$ et $N(p)=1+p$ de la façon suivante :
+\begin{code}
+\begin{verbatim}
+-->p = poly(0, 'p');
+
+-->D=(1+2*p+3*p**2)
+ D  =
+ 
+               2  
+    1 + 2p + 3p 
+
+-->N=1+p
+ N  =
+ 
+    1 + p
+\end{verbatim}
+\end{code}
+
+La fonction \verb?roots(D)? donne les racines du polynôme $D(p)$ :
+
+\begin{code}
+\begin{verbatim}
+-->roots(D)
+ ans  =
+ 
+  - 0.3333333 + 0.4714045i     // nombre complexe 
+  - 0.3333333 - 0.4714045i     // 
+-->roots(N)
+ ans  =
+  
+   - 1.
+\end{verbatim}
+\end{code}
+
+Scilab gère de la même manière les fractions rationnelles :
+\begin{code}
+\begin{verbatim}
+-->H=N/D
+ H  =
+ 
+       1 + p      
+    -----------   
+               2  
+    1 + 2p + 3p 
+\end{verbatim}
+\end{code}
+
+Il est possible d'extraire les numérateurs et dénominateurs de $H(p)=N(p)/D(p)$ 
+par les variables \verb?H.num? et \verb?H.den? respectivement :
+\begin{code}
+\begin{verbatim}
+-->roots(H.den)               // pôles
+ ans  =
+ 
+  - 0.3333333 + 0.4714045i  
+  - 0.3333333 - 0.4714045i
+
+-->roots(H.num)               // zéros
+ ans  =
+ 
+  - 1.
+\end{verbatim}
+\end{code}
+
+Il est également possible de définir un polynôme à partir de ces racines ou de ces coefficients 
+en appelant seulement la fonction \verb?poly?.
+
+\paragraph{\`A partir de ses racines:}
+
+\begin{code}                                                                                                                  
+\begin{verbatim}
+-->poly([1 2],'p')    // polynôme dont les racines sont 1 et 2
+ ans  =
+ 
+              2  
+    2 - 3p + p   
+\end{verbatim}                                                                                                                
+\end{code}      
+
+\paragraph{\`A partir des ses coefficient:}
+
+\begin{code}                                                                                                                  
+\begin{verbatim}
+-->poly([1 2],'p','c')    // option 'c' nécessaire
+ ans  =
+ 
+    1 + 2p   
+\end{verbatim}                                                                                                                
+\end{code}     
+
+\paragraph{Remarque:}
+Lorsque que l'on écrit \verb?p=poly(0,'p')?, on définit la variable \verb?p? comme le polynôme dont la racine est nulle.
+\begin{code}                                                                                                                  
+\begin{verbatim}
+-->p=poly(0,'p')  
+ ans  =
+ 
+    p
+\end{verbatim}                                                                                                                
+\end{code}     
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Vecteurs et matrices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Scilab est adapté au calcul vectoriel/ matriciel numérique. 
+
+Pour définir un vecteur ligne :
+\begin{code}
+\begin{verbatim}
+--> v=[1,2,3]
+ v  =
+ 
+    1.    2.    3. 
+
+-->v=1:3
+ v  =
+ 
+    1.    2.    3.
+
+-->v=1:0.5:4              // a:incr:b
+ v  =                     // liste allant de a à b par incrément 
+                          // de incr
+ 
+    1.    1.5    2.    2.5    3.    3.5    4.
+\end{verbatim}
+\end{code}
+
+Pour définir un vecteur colonne :
+\begin{code}
+\begin{verbatim}
+--> v=[1;2;3]
+ v  =
+ 
+    1.    
+    2.
+    3. 
+\end{verbatim}
+\end{code}
+
+Nous combinons les deux syntaxes précédentes pour définir une matrice : 
+\begin{code}
+\begin{verbatim}
+--> m=[1 2; 3 4 ; 5 6]
+ m  =
+ 
+    1.    2.  
+    3.    4.  
+    5.    6.  
+\end{verbatim}
+\end{code}
+
+Le vecteur ou la liste nul est simplement déclaré par :
+\begin{code}
+\begin{verbatim}
+-->liste=[];
+\end{verbatim}
+\end{code}
+
+
+Les parenthèses permettent d'accéder aux élément d'une matrice et le 
+symbole \og\verb?:?\fg permet d'accéder à toute ou une partie d'une ligne ou d'une colonne
+\begin{code}
+\begin{verbatim}
+-->v(1)
+ ans  =
+ 
+    1.  
+
+-->m(2,1)
+ ans  =
+ 
+    3.  
+--> // accéder à une ligne entière
+ 
+-->m(1,:)
+ ans  =
+   
+     1.    2. 
+\end{verbatim}
+\end{code}
+
+\newpage
+Pour concaténer deux vecteurs ou matrices :
+\begin{code}
+\begin{verbatim}
+-->u=[1,2,3];
+ 
+-->v=[4,5,6];
+ 
+-->w=[v,u]
+ w  =
+ 
+    4.    5.    6.    1.    2.    3.
+
+-->m1=[1 2; 3 4 ; 5 6]
+ 
+-->m2=[1 2; 3 4 ; 5 6]
+ 
+-->m3=[m1,m2]
+ m3  =
+ 
+    1.    2.    1.    2.  
+    3.    4.    3.    4.  
+    5.    6.    5.    6. 
+\end{verbatim}
+\end{code}
+
+Les opérateurs mathématiques de bases peuvent être utilisés 
+sur les vecteur et matrices mais doivent respecter une certaine cohérence des dimensions 
+des objets de chaque coté de l'opérateur. Notamment, les opérations \verb?*? et \verb?/? sont
+des opérations matricielles. Pour faire des opérations élément par élément,
+on fera précéder le signe opératoire d'un point : \verb?.*? \verb?./?.
+
+\paragraph{Exemple :}
+\begin{code}
+\begin{verbatim}
+// définition de l'indéterminée du polynôme
+-->p = poly(0, 'p');
+
+//définition d'un vecteur de numérateur
+-->num=[1 10 20];
+
+//définition d'un vecteur de dénominateur
+-->den=[p*(p+1) p*(p+10) p*(p+20) ];
+
+//définition d'un vecteur de fonction de transfert
+-->H=num ./ den
+ H  =
+ 
+      1         10          20      
+    -----     ------      ------    
+         2           2           2  
+    p + p     10p + p     20p + p   
+\end{verbatim}
+\end{code}
+
+Scilab a été conçu pour le calcul matriciel et numérique. 
+Il existe de nombreuses opérations spécifiques aux matrices et à la résolution 
+numériques que nous ne traiterons pas dans ce document.
+
+Pour accéder à l'aide en ligne, cliquez sur \verb/ ? >Aide Scilab/ 
+dans la barre de menus, ou tapez   dans la console :
+\begin{code}
+\begin{verbatim}
+-->help <fonction>
+\end{verbatim}
+\end{code}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Programmation]{Programmation (source \href{https://fr.wikibooks.org/wiki/Découvrir_Scilab}{Wikibooks}) }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Scilab est également un langage de programmation, il accepte un certain nombre 
+d'instructions autres que mathématiques, permettant la formulation et l'exécution d'algorithmes : 
+\verb?for, while, if, do, do, case?\ldots ou définition de fonction.
+
+L'écriture de programmes se fait idéalement avec l'éditeur de 
+texte SciNotes; celui-ci met en exergue les instructions en couleurs, 
+les parenthésages (correspondance entre les paires de parenthèses 
+et de crochets), et surligne les lignes continuées avec un fond jaune. 
+On peut aussi utiliser un autre éditeur de texte en sauvegardant le fichier 
+avec l'extension \verb?.sce? ou \verb?.sci?. Lorsque l'environnement le permet, on peut faire 
+du copier-coller depuis l'éditeur de texte externe vers SciNotes 
+ou bien l'éditeur de ligne de commande.
+
+\paragraph{Syntaxe d'une fonction :}
+
+La fonction doit commencer par le mot réservé \verb?function? et finir par \verb?endfunction? 
+sous la forme :
+\begin{code}
+\begin{verbatim}
+function [out1,out2,...,outN]=nomfonction(in1,in2,...,inP)
+
+  // out1,out2,...,outN sont les variables de sortie
+  // in1,in2,...,inP variables d entree
+          
+<instructions>
+endfunction
+\end{verbatim}
+\end{code}
+
+Une façon usuelle de définir des fonctions est de mettre 
+celles-ci dans un fichier à extension \verb?.sci?. 
+Il faut alors la charger avec la fonction \verb?exec()?.
+
+\paragraph{Appel d'une fonction :}
+Pour exécuter une fonction il suffit de l'appeler en passant les arguments nécessaires .
+\begin{code}
+\begin{verbatim}
+function [u,v]=mafonction(a,b)
+    u=exp(a)
+    v=u*sin(b)
+endfunction
+
+-->mafonction(rand(),rand())
+\end{verbatim}
+\end{code}
+L'appel précédent ne renvoie que la valeur de \verb?u?. 
+Pour obtenir les deux valeurs escomptées il faut faire un appel sous la forme  :
+\begin{code}
+\begin{verbatim}
+-->[u,v]=test_function(rand(),rand())
+ v  =
+ 
+    0.5695456  
+ u  =
+ 
+    1.0707657  
+\end{verbatim}
+\end{code}
+
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\SLCI~avec Scilab}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Scilab permet de réaliser des études avancées des systèmes linéaires continus et invariants.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Définition d'un système linéaire}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{doc}
+    \paragraph{Fonction syslin (extrait de la doc officiel: help syslin )}
+    \begin{itemize}
+        \item Syntaxe :
+            \begin{code}
+\begin{verbatim}
+sl=syslin(dom,N,D)
+sl=syslin(dom,H)
+\end{verbatim}
+            \end{code}
+        \item Paramètres :
+            \begin{itemize}
+                \item \verb?dom? : chaîne de caractères \verb?('c','d')?, ou \verb?[]? ou un scalaire.
+                \item \verb?N,D? : matrices polynomiales
+                \item \verb?H?   : matrice rationnelle
+                \item \verb?sl?  : tlist (liste de type "\verb?syslin?") représentant le système dynamique
+            \end{itemize}
+        \item Description : 
+            \begin{itemize}
+                \item \verb?syslin? définit un système dynamique linéaire en tant que liste typée, 
+                    et vérifie la consistance des données.
+                \item \verb?dom? spécifie le domaine temporel :
+                    \verb?dom='c'? pour un système à temps continu, \verb?dom='d'? pour un système à temps discret, 
+                    \verb?n? pour un système échantillonné à la période n (en secondes), 
+                    \verb?dom=[]? si le domaine temporel n'est pas défini
+            \end{itemize}
+    \end{itemize}
+
+\end{doc}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Simulation temporelle d'un système linéaire}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{doc}
+\paragraph{Fonction csim (extrait de la doc officiel (en anglais): help csim )}
+\begin{itemize}
+    \item Syntax :
+    \begin{code}
+\begin{verbatim}
+[y [,x]]=csim(u,t,sl,[x0 [,tol]])
+\end{verbatim}
+    \end{code}
+    \item Parameters :
+    \begin{itemize}
+        \item \verb?u?  function, list or string (control)
+        \item \verb?t?  real vector specifying times with, \verb?t(1)? is the initial time \verb?(x0=x(t(1)))?.
+        \item \verb?sl? syslin list (SIMO linear system) in continuous time.
+        \item \verb?y?  a matrix such that \verb?y=[y(t(i)], i=1,..,n?
+        \item \verb?x?  a matrix such that \verb?x=[x(t(i)], i=1,..,n?
+        \item \verb?tol? a 2 vector \verb?[atol rtol]? defining absolute and relative tolerances for \verb?ode? solver
+    \end{itemize}
+
+    \item Description :
+
+    \begin{itemize} 
+        \item \verb?csim? simulation of the controlled linear system \verb?sl?. 
+              \verb?sl? is assumed to be a continuous-time system represented by a \verb?syslin? list.
+        \item \verb?u?  is the control and \verb?x0? the initial state.
+        \item \verb?y?  is the output and \verb?x? the state.
+    \end{itemize}
+
+    The control can be:
+    \begin{itemize}
+        \item a function : \verb?[inputs]=u(t)?
+        \item a list : \verb?list(ut,parameter1,....,parametern)? such that: \verb?inputs=ut(t,parameter1,....,parametern)? 
+    (\verb?ut? is a function)
+        \item the string \verb?"impuls"? for impulse response calculation (here \verb?sl? must have a single input and \verb?x0=0?). For systems with direct feedthrough, the infinite pulse at \verb?t=0? is ignored.
+        \item the string \verb?"step"? for step response calculation (here \verb?sl? must have a single input and \verb?x0=0?)
+        \item a vector giving the values of \verb?u? corresponding to each \verb?t? value.
+\end{itemize}
+\end{itemize}
+\end{doc}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Système du premier ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Soit, un système du premier ordre définit par la fonction de transfert : 
+$$
+H(p)=\dfrac{K}{1+\tau p }
+$$
+La définition sous Scilab de ce système se fait simplement par les quelques instructions suivantes :
+\begin{code}
+\begin{verbatim}
+// ======================================
+//  Définir un système du premier ordre
+// ======================================
+
+p=poly(0,'p');
+K=1,tau=1;                      // paramètres du système
+
+H=K/(1+tau*p);                  // fonction de tranfert
+
+PremierOrdre=syslin('c',H)      // définition du SLCI
+\end{verbatim}
+\end{code}
+
+
+Nous allons maintenant étudier les réponses temporelles 
+à différentes excitations du système du premier ordre.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Réponse impulsionnnelle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{code}
+\begin{verbatim}
+// ------------------------
+// réponse impulsionnelle
+// ------------------------
+e2='imp'                        // 'imp' : dirac
+s2=csim(e2,t,PremierOrdre);   
+
+scf(1);clf(1);
+plot(t,s2,'r')
+
+legend('$s_2(t)$','$e_2(t)$')
+xlabel("$t$","fontsize",4);
+ylabel("$s(t)$","fontsize",4); 
+title('réponse impulsionnelle',"fontsize",4);
+\end{verbatim}
+\end{code}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Réponse indicielle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{code}
+\begin{verbatim}
+
+t=0.0:0.05:20;                  // définition du vecteur 
+                                // de temps
+// ---------------------
+//  réponse indicielle
+// ---------------------
+e1='step'                       // 'step' : échelon
+s1=csim(e1,t,PremierOrdre);    
+
+// clf : effacer le contenu de
+// la fenêtre graphique
+// scf : creer une nouvelle 
+// fenêtre graphique
+
+scf(0);clf(0);
+plot(t,s1,'r')
+
+legend('$s_1(t)$','$e_1(t)$')
+xlabel("$t$","fontsize",4);
+ylabel("$s(t)$","fontsize",4); 
+title('réponse indicielle',"fontsize",4);
+\end{verbatim}
+\end{code}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Réponse à une excitation sinuso\"idale}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{code}
+\begin{verbatim}
+// -----------------------------------------
+// réponse à une excitation sinuso\"idale 
+// -----------------------------------------
+e3=sin(t)
+s3=csim(e3,t,PremierOrdre);
+
+scf(2);clf(2);
+plot(t,s3,'r',t,e3,'b')
+
+legend('$s_3(t)$','$e_3(t)$')
+xlabel("$t$","fontsize",4);
+ylabel("$s(t)$","fontsize",4); 
+title('réponse harmonique',"fontsize",4);
+\end{verbatim}
+\end{code}
+
+Ci-dessous nous présentons une façon d'étudier la réponse temporelle pour
+différentes valeurs d'un des paramètres du système du premier ordre.
+\begin{code}
+\begin{verbatim}
+scf(3);clf(3);
+for tau=1:1.0:10.
+    H2=K/(1+tau*p)
+    PremierOrdre=syslin('c',H2)
+    e1='step'
+    s1=csim(e1,t,PremierOrdre);
+    plot(t,s1,'r')
+end
+\end{verbatim}
+\end{code}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Réponse fréquentielle}
+Scilab permet de tracer facilement les différents diagrammes de la réponse fréquentielle d'un système.
+Nous donnons ici les fonctions les plus importantes : 
+\begin{code}
+\begin{verbatim}
+// ============================================================
+//                   Réponse Fréquentielle
+// ============================================================
+scf(grf);clf(grf);grf=grf+1;
+fMin =0.01,fMax=100;
+p=poly(0,'p')
+K=1.,tau=1.;
+H=K/(1+tau*p);
+PremierOrdre=syslin('c',[K],[1+tau*p])
+
+// ----------------------
+// diagrammme de Bode
+//-----------------------
+bode(PremierOrdre,fMin,fMax); bode_asymp(PremierOrdre,fMin,fMax);
+
+// ----------------------
+// diagrammme de Nyquist
+//-----------------------
+scf(grf);clf(grf);grf=grf+1;
+nyquist(PremierOrdre) ;
+
+// ---------------------
+// diagramme de Black
+// ---------------------
+scf(grf);clf(grf);grf=grf+1;
+black(PremierOrdre,0.01,10);
+nicholschart(colors=color('gray')*[2 2]) //abaque de Black
+
+// ----------------------
+// Lieu de Evans
+//-----------------------
+scf(grf);clf(grf);grf=grf+1;
+evans(PremierOrdre) ;
+\end{verbatim}
+\end{code}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Système du second ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+à compléter
