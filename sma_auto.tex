@@ -35,7 +35,7 @@
 \usepackage[hyphenbreaks]{breakurl} 
 \usepackage[ucmark,toc,hyperfirst=false]{glossaries}
 \makeglossaries
-\loadglsentries{glossary}
+\loadglsentries{tex/glossary}
 \usepackage[french,nameinlink,noabbrev]{cleveref}
 \DeclareRobustCommand{\abbrevcrefs}{%
     \crefname{figure}{Fig.}{Figs.}%
@@ -434,29 +434,29 @@ cross/.default={1pt}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\include{avantpropos} 
-\include{chap0} 
-\include{chap1} 
-\include{chap2} 
-\include{chap3} 
-\include{chap4} 
-\include{chap5} 
-\include{chap6} 
-\include{chap7} 
-\include{chap8} 
+\include{tex/avantpropos} 
+\include{tex/chap0} 
+\include{tex/chap1} 
+\include{tex/chap2} 
+\include{tex/chap3} 
+\include{tex/chap4} 
+\include{tex/chap5} 
+\include{tex/chap6} 
+\include{tex/chap7} 
+\include{tex/chap8} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{appendices}
 \crefalias{chapter}{appchap}
-\include{annexe1}
-\include{annexe2}
-\include{annexe3}
-\include{annexe4}
-\include{annexe5}
-\include{annexe6}
-\include{todo}
+\include{tex/annexe1}
+\include{tex/annexe2}
+\include{tex/annexe3}
+\include{tex/annexe4}
+\include{tex/annexe5}
+\include{tex/annexe6}
+\include{tex/todo}
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
