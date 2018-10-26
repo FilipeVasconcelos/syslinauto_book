@@ -1,0 +1,15 @@
+    \begin{tikzpicture}
+        \begin{axis}[
+        legend style={draw=none},
+        axis line style = thick,
+        xmin=0,
+        xmax=10,
+        ymin=0,
+        ymax=0.4,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        label style={font=\Large},
+        ]
+            \addplot [thick,color=blue,domain=0:11.5, samples=101,unbounded coords=jump]{x*exp(-x)};
+        \end{axis}
+    \end{tikzpicture}
