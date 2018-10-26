@@ -78,27 +78,38 @@
 
 \makeatother
 
+%\usepackage{pdfcrop}
 \usepackage{pdflscape}
 \usepackage{lipsum}
 %\usepackage{adjustbox}
 \usepackage{etoolbox}
 \usepackage{pgf,tikz}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.14}
 \usepackage{tkz-euclide}
 \usepackage{tikz-3dplot}
 \usepackage{pst-3dplot}
 \usepackage{xargs}
-\usetikzlibrary{calc}
+\usetikzlibrary{calc,tikzmark}
 \usetikzlibrary{quotes,angles}
 \usetikzlibrary{arrows.meta,bending,automata,positioning}
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{babel} 
 \usetikzlibrary{decorations.text}
 \usetikzlibrary{matrix}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
 \usetkzobj{all} 
+\usetikzlibrary{external}
+%\usepgfplotslibrary{external}
 \usepackage{amsmath,amsthm,amssymb}
-
+\tikzset{external/system call={latex \tikzexternalcheckshellescape 
+-halt-on-error  -interaction=batchmode -jobname "\image" "\texsource"; 
+dvips -o "\image".ps "\image".dvi;
+ps2eps -f "\image.ps"
+}}
+\tikzset{external/optimize command away=\AddToShipoutPicture}
+%\tikzexternalize[mode=graphics if exists,
+%figure list=true,prefix=fig/]
+\tikzexternalize[prefix=fig/]
 
 \usepackage{rpcinematik} % liaisons cinématiques normalisées Robert Papnicola
 
@@ -161,9 +172,7 @@
 \usepackage{mymath}
 \usepackage{schemabloc}
 \usepackage{gfluence}
-%\usepackage{kinematik}
-%\usepackage{vecteurs}
-%\usepackage{fig-planes}
+\usepackage{vecteurs}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -178,10 +187,10 @@
     \path (0,1,0);
     \pgfgetlastxy{\cylyx}{\cylyy}
     \path (0,0,1);
-    \pgfgetlastxy{\cylzx}{\cylzy}
-    \pgfmathsetmacro{\cylt}{(\cylzy * \cylyx - \cylzx * \cylyy)/ (\cylzy * \cylxx - \cylzx * \cylxy)}
-    \pgfmathsetmacro{\ang}{atan(\cylt)}
-    \pgfmathsetmacro{\ct}{1/sqrt(1 + (\cylt)^2)}
+   \pgfgetlastxy{\cylzx}{\cylzy}
+   \pgfmathsetmacro{\cylt}{(\cylzy * \cylyx - \cylzx * \cylyy)/ (\cylzy * \cylxx - \cylzx * \cylxy)}
+  \pgfmathsetmacro{\ang}{atan(\cylt)}
+   \pgfmathsetmacro{\ct}{1/sqrt(1 + (\cylt)^2)}
     \pgfmathsetmacro{\st}{\cylt * \ct}
     \filldraw[fill=blue!50!white,opacity=0.50] (#4*\ct+#1,#4*\st+#2,#3) -- ++(0,0,#5) arc[start angle=\ang,delta angle=180,radius=#4] -- ++(0,0,-#5) arc[start angle=\ang+180,delta angle=180,radius=#4];
     \filldraw[fill=blue!50!white,opacity=0.50] (#1,#2,#3) circle[radius=#4];
@@ -292,8 +301,7 @@ cross/.default={1pt}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tcbuselibrary{skins}
-
-\tcbset{
+\tcbset{shield externalize,
     pccstyle/.style={,
         enhanced,flushleft upper,
         boxrule=1.6pt,
@@ -303,6 +311,7 @@ cross/.default={1pt}}
 }
 
 \newcommand\BackgroundPic{%
+    { \tikzset{external/export=false}
 \put(0,0){%
 \parbox[b][\paperheight]{\paperwidth}{%
 \begin{picture}(0,0)
@@ -310,12 +319,10 @@ cross/.default={1pt}}
 \end{picture}
 \vfill
 \centering
-\input{fig/cover}
-%\includegraphics[width=1.1\paperwidth,keepaspectratio]{fig/wall.eps}%
+%\tikzsetnextfilename{cover_ext}
+\input{tikz/cover}
 \vfill
-%\includegraphics[width=\paperwidth]{fig/wall2.eps}%
-%\includegraphics[width=0.5\paperwidth,keepaspectratio]{fig/wall3.eps}%
-}}}
+}}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tikzset{%
@@ -381,15 +388,15 @@ cross/.default={1pt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\includeonly{}
-%\includeonly{avantpropos}
+%\includeonly{avantpropos,chap0}
 %\includeonly{chap0}
 %\includeonly{chap1}
 %\includeonly{chap2,annexe1}
 %\includeonly{chap2,annexe1,annexe4}
-%\includeonly{tex/chap3}
+%\includeonly{chap3}
 %\includeonly{chap4}
 %\includeonly{chap5}
-%\includeonly{tex/chap6}
+%\includeonly{chap6}
 %\includeonly{chap1,chap6}
 %\includeonly{annexe1}
 %\includeonly{annexe2}
@@ -435,28 +442,31 @@ cross/.default={1pt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include{tex/avantpropos} 
-\include{tex/chap0} 
-\include{tex/chap1} 
-\include{tex/chap2} 
-\include{tex/chap3} 
-\include{tex/chap4} 
-\include{tex/chap5} 
-\include{tex/chap6} 
-\include{tex/chap7} 
-\include{tex/chap8} 
+\input{tex/chap0} 
+\input{tex/chap1} 
+\input{tex/chap2} 
+\input{tex/chap3} 
+\input{tex/chap4} 
+{\tikzset{external/export=false}
+\input{tex/chap5} 
+\input{tex/chap6} 
+}
+\input{tex/chap7} 
+\input{tex/chap8} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{appendices}
 \crefalias{chapter}{appchap}
-\input{tex/annexe1}
+\include{tex/annexe1}
 \include{tex/annexe2}
 \include{tex/annexe3}
 \include{tex/annexe4}
+{\tikzset{external/export=false}
 \include{tex/annexe5}
 \include{tex/annexe6}
-\include{tex/todo}
+}
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -480,9 +490,8 @@ cross/.default={1pt}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\ifodd\thepage ~\newpage~\fi
-%\cleartoleftpage
-%$\,$
+\cleartoleftpage
+$\,$
 \thispagestyle{empty}
 \pagecolor{yellow!15}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
