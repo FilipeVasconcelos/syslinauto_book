@@ -134,8 +134,8 @@ u(t)=
 \end{cases}
 $$
 
-Graphiquement, la fonction est représenté par une marche\footnote{Nos collègues 
-anglo-saxons l'appelle la \og\emph{step function}\fg} à $t=0$. 
+Graphiquement, la fonction est représentée par une marche\footnote{Nos 
+collègues anglo-saxons l'appelle la \og\emph{step function}\fg} à $t=0$. 
 Ci dessous nous la représentons avec la fonction retardée $u(t-\tau)$.
 \begin{figure}[!h]
 \begin{center}
@@ -230,8 +230,9 @@ et son analyse fera l'objet de tout un chapitre (\Cref{chap-anafreq}).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 La transformée de Laplace\footnote{Pierre-Simon de Laplace, (1749-1827) 
 mathématicien, astronome, physicien et homme politique français} est l'outil indispensable 
-pour l'étude des \SLCI. Celle-çi s'avère très utile pour 
-la résolution d'équation différentielle régissant nos \SLCI~et nous permettra 
+pour l'étude des \SLCI. Celle-çi nous sera très utile pour 
+la résolution des équations différentielles 
+régissant nos \SLCI~et nous permettra 
 de définir la notion de fonction de transfert entre une entrée 
 et une sortie d'un système.
 
@@ -254,8 +255,10 @@ par la transformation inverse
 $$
 s(t)=\laplacei{S(p)}
 $$
-Les transformations inverse sont tabulées à l'\cref{annexe-lap}. Lorsque la transformation
-n'existe pas dans les tables, on réalise une décompostion en éléments simple de la réponse 
+Les transformations inverses sont tabulées à l'\cref{annexe-lap}. 
+Lorsque la transformation
+n'existe pas dans les tables, on réalise une décompostion en éléments 
+simples de la réponse 
 $S(p)$ pour se placer dans un cas usuel (\cref{annexe-DES}).
 
 Remarquons, dès à présent l'utilisation d'une convention utile: 
@@ -349,6 +352,16 @@ on se rapportera à nouveau à l'\cref{annexe-lap} pour
 une liste exhaustive de ces propriétés.
 
 La propriété fondamentale de la transformée de Laplace est d'être linéaire.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+\paragraph{Linéarité}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+Soit deux signaux $s_1(t)$ et $s_2(t)$ continus et $S_1(p)$ et $S_2(p)$ leurs
+transformées de Laplace respectives. La transformée de Laplace d'une 
+relation linéaire quelconque de $s_1(t)$ et $s_2(t)$ est une relation linéaire 
+de $S_1(p)$ et $S_2(p)$. Autrement dit,
+\begin{bequation}[ams align]
+	\laplace{as_1(t)+bs_2(t)}=aS_1(p)+bS_2(p)
+\end{bequation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Retard}
@@ -391,7 +404,7 @@ $$
 \laplace{\devi{s(t)}{n}}=p^nS(p)
 $$
 
-Remarquons que \textbf{dériver dans le domaine temporelle consiste à multiplier par 
+Remarquons alors que \textbf{dériver dans le domaine temporelle consiste à multiplier par 
 $p$ dans le domaine de Laplace.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Intégration}
@@ -414,7 +427,7 @@ ou encore
 \begin{bequation}[ams align]
     \laplace{\int_{0}^{t}s(\tau)\dd{\tau}}=\dfrac{S(p)}{p}
 \end{bequation}
-Remarquons que \textbf{intégrer dans le domaine temporelle consiste à diviser par $p$ 
+Remarquons alors que \textbf{intégrer dans le domaine temporelle consiste à diviser par $p$ 
 dans le domaine de Laplace.}
 
 
@@ -491,15 +504,15 @@ $$
 \tikzsetnextfilename{sol_eq_diff-chap0-ext}
 \input{tikz/sol_eq_diff-chap0.tex}
     \caption{Représentation de la solution générale de l'équation différentielle~(\ref{eq-diff1}). On vérifie lors 
-    du tracer que l'on observe bien les principales propriétes du signal (i.e conditions initiales, valeurs finales).}
+	du tracer que l'on observe bien les principales propriétes du signal (i.e conditions initiales, valeurs finales).\label{fig-solution}}
 \end{figure}
 
 La solution générale de l'équation différentielle~(\ref{eq-diff1}) est donc 
 \begin{bequation}[ams align]
 s(t)=1-2e^{-t}
 \end{bequation}
-On constate que cette solution vérifie l'équation différentielle (\ref{eq-diff1}) ainsi que les 
-conditions initiales.
+On vérifiera que cette solution vérifie l'équation différentielle (\ref{eq-diff1}) ainsi que les conditions initiales, notamment à partir 
+de a représentation graphique (\Cref{fig-solution}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Résolution par appliqation de la transformée de Laplace}
@@ -557,7 +570,7 @@ $$
 S(p)=\dfrac{1}{p}-\dfrac{2}{p+1}
 $$
 Il est maitenant plus aisé d'appliquer la transformation de Laplace inverse, 
-en utilisant le tableau des transformées de Laplace usuels (\Cref{annexe-lap}) 
+en utilisant le tableau des transformées de Laplace usuels (c.f lignes 3 et 7 du tableau de l'\Cref{annexe-lap}) 
 pour obtenir la réponse temporelle $s(t)$. Notamment,
 $$
 \laplacei{\dfrac{1}{p}}=1
@@ -592,12 +605,12 @@ L'équation est dite d'ordre $n$.
 Sous cette forme, cette équation différentielle constitue ce que l'on nomme \textbf{la loi temporelle} du système.
 Sans perte de généralité, on ne considèrera dans un premier temps 
 que les systèmes pour lesquels toutes les 
-\textbf{conditions initialles sont nulles}\footnote{Que l'on nomme la condition d'Heaviside}.
+\textbf{conditions initialles sont nulles}\footnote{Que l'on nomme les conditions d'Heaviside}.
 
 En appliquant la transformée de Laplace à l'\cref{eq-ltemp}, on obtient
-\begin{align}
+\begin{bequation}[ams align]
     \sum_{i=0}^{n}a_ip^iS(p)=\sum_{i=0}^{m}b_ip^iE(p)\label{eq-lfreq}
-\end{align}
+\end{bequation}
 Sous cette forme, cette équation constitue ce que l'on nomme \textbf{la loi fréquentielle} du système.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
@@ -609,7 +622,7 @@ sortie $S(p)$ sur l'entrée $E(p)$.
 \begin{bequation}[ams align]
 H(p)=\dfrac{S(p)}{E(p)}
 \end{bequation}
-Cette fonction $H(p)$ est également appelé transmittance.
+Cette fonction $H(p)$ est également appelé \textbf{transmittance}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection[Représentation de la fonction de transfert]{Représentations algébrique et graphique de la fonction de transfert}
@@ -624,7 +637,7 @@ H(p)=\dfrac{\sum\limits_{i=0}^{m}b_ip^i}{\sum\limits_{i=0}^{n}a_ip^i}. \label{eq
 Il existe différentes façons équivalentes d'écrire cette fonction de transfert. 
 Nous allons en introduire deux :
 la forme canonique et la forme factorisée. La forme canonique permet de faire apparaître 
-les intégrateurs purs du systèmes. La forme factorisée utilise les racines de la 
+les intégrateurs purs du système. La forme factorisée utilise les racines de la 
 fraction rationnelle définissant la fonction de transfert. 
 Pour montrer l'équivalence de ces représentations nous allons les 
 construire à partir de la forme générale de l'\cref{eq-ftgen} et ou de la connaissance des pôles et zéros de 
@@ -673,14 +686,14 @@ $$
 H(p)=K_0\cdot\dfrac{1+b'_1p+b'_2p^2+\ldots+b'_mp^m}{1+a'_1p+a'_2p^2+\ldots+a'_np^n}.
 $$
 avec $K_0=\dfrac{b_0}{a_0}$, $a'_i=\dfrac{a_i}{a_0}$ et $b'_i=\dfrac{b_i}{b_0}$. 
-Dans ce cas, le système est dit de classe 0 et donc ne possède aucun intégrateur.
+Dans ce cas, le système est dit de classe 0 et ne possède aucun intégrateur.
 
 Si maintenant $a_0$ est nul et $a_1$ non nul, la fonction de transfert peut s'écrire,
 $$
 H(p)=\dfrac{K_1}{p}\cdot\dfrac{1+b'_1p+b'_2p^2+\ldots+b'_mp^m}{1+a'_1p+a'_2p^2+\ldots+a'_{n-1}p^{n-1}}.
 $$
 avec $K_1=\dfrac{b_0}{a_1}$, $a'_i=\dfrac{a_{i+1}}{a_1}$ et $b'_i=\dfrac{b_i}{b_0}$.
-Dans ce cas, le système est dit de classe 1 et donc possède un intégrateur.
+Dans ce cas, le système est dit de classe 1 et possède un intégrateur.
 
 On généralise donc la forme canonique de la fonction de transfert d'un système de classe $\alpha$ sous la forme,
 \begin{bequation}[ams align]

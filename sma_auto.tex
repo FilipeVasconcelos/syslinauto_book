@@ -54,12 +54,12 @@
     % hyperref,
     % hyperxmp,
 }
-\usepackage[type={CC},
-            modifier={by-sa},
-            imagemodifier={-eu},
-            imageposition=right,
-            version={4.0},
-           ]{doclicense}
+%\usepackage[type={CC},
+%            modifier={by-sa},
+%            imagemodifier={-eu},
+%            imageposition=right,
+%            version={4.0},
+%           ]{doclicense}
 
 \makeatletter
 
@@ -387,24 +387,22 @@ cross/.default={1pt}}
 \graphicspath{{./fig/}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\includeonly{}
-%\includeonly{avantpropos,chap0}
-%\includeonly{chap0}
-%\includeonly{chap1}
-%\includeonly{chap2,annexe1}
-%\includeonly{chap2,annexe1,annexe4}
-%\includeonly{chap3}
-%\includeonly{chap4}
-%\includeonly{chap5}
-%\includeonly{chap6}
-%\includeonly{chap1,chap6}
-%\includeonly{annexe1}
-%\includeonly{annexe2}
-%\includeonly{annexe3}
-%\includeonly{annexe4}
-%\includeonly{annexe5}
-%\includeonly{annexe6}
-%\includeonly{todo}
+%\includeonly{tex/avantpropos,tex/chap0}
+%\includeonly{tex/chap0}
+%\includeonly{tex/chap1}
+%\includeonly{tex/chap2,tex/annexe1}
+%\includeonly{tex/chap2,tex/annexe1,tex/annexe4}
+%\includeonly{tex/chap3}
+%\includeonly{tex/chap4}
+%\includeonly{tex/chap5}
+%\includeonly{tex/chap6}
+%\includeonly{tex/chap1,tex/chap6}
+%\includeonly{tex/annexe1}
+%\includeonly{tex/annexe2}
+%\includeonly{tex/annexe3}
+%\includeonly{tex/annexe4}
+%\includeonly{tex/annexe5}
+%\includeonly{tex/annexe6}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\setcounter{chapter}{-1}
 
@@ -442,24 +440,24 @@ cross/.default={1pt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include{tex/avantpropos} 
-\input{tex/chap0} 
-\input{tex/chap1} 
-\input{tex/chap2} 
-\input{tex/chap3} 
-\input{tex/chap4} 
+\include{tex/chap0} 
+\include{tex/chap1} 
+\include{tex/chap2} 
+\include{tex/chap3} 
+\include{tex/chap4} 
 {\tikzset{external/export=false}
-\input{tex/chap5} 
-\input{tex/chap6} 
+\include{tex/chap5} 
+\include{tex/chap6} 
 }
-\input{tex/chap7} 
-\input{tex/chap8} 
+\include{tex/chap7} 
+\include{tex/chap8} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{appendices}
 \crefalias{chapter}{appchap}
-\include{tex/annexe1}
+\input{tex/annexe1}
 \include{tex/annexe2}
 \include{tex/annexe3}
 \include{tex/annexe4}
