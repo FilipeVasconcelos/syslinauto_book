@@ -296,7 +296,7 @@ de l'argument principale (\Cref{annexe-NC}).
 %\begin{center}
 \centering
 \begin{tikzpicture}
-        \begin{axis}[
+    \begin{axis}[
         name=axx,
         ticks=none,
         axis line style = thick,
@@ -317,8 +317,8 @@ de l'argument principale (\Cref{annexe-NC}).
         clip=false,
         ]
         \addplot[ultra thick,color=black,domain=1e-2:1e2, samples=101,unbounded coords=jump]{-10*log10(1+x*x)};
-            \draw[blue,dashed] (1e-2,{-10*log10(1+100)}) node[left] {$G_{dB}(\omega_2)$} -- (1e1,{-10*log10(1+100)}) ; 
-            \draw[red ,dashed] (1e-2,{-10*log10(1+4)})   node[left] {$G_{dB}(\omega_1)$}   -- (2e0,{-10*log10(1+4)}) ; 
+        \draw[blue,dashed] (1e-2,{-10*log10(1+100)}) node[left] {$G_{dB}(\omega_2)$} -- (1e1,{-10*log10(1+100)}) ; 
+        \draw[red ,dashed] (1e-2,{-10*log10(1+4)})   node[left] {$G_{dB}(\omega_1)$}   -- (2e0,{-10*log10(1+4)}) ; 
         \addplot [red, mark = *]  coordinates {(2e0,{-10*log10(1+4)})} {};
         \addplot [blue, mark = *] coordinates {(1e1,{-10*log10(1+100)})} {};
         \end{axis}
