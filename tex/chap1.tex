@@ -11,13 +11,13 @@ la représentation des relations mathématiques entre les différents
 également appelé \textbf{schéma-blocs}. Les schémas fonctionnels nous seront très 
 utiles pour l'étude des systèmes asservis. Dans une dernière partie nous introduirons 
 les graphes de fluence, comme présenté dans~\cite{Ostertag}. Même si ces derniers 
-sont moins utilisés pour l'étude des schémas fonctionnels, l'algèbre qui lui est 
+sont moins utilisés pour l'étude \SLCI, l'algèbre qui lui est 
 associée s'avère bien plus éfficace et pourra être utilisé dans d'autres 
 applications (ex : éléctronique, réseaux de neurones).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Terminologie}
+\section{Terminologie relative aux schémas fonctionnels}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Les schémas fonctionnels sont composés de quatre éléments de base:
 \begin{itemize}
@@ -32,7 +32,7 @@ Les schémas fonctionnels sont composés de quatre éléments de base:
 \paragraph{Flèche}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Les flèches donnent la direction de l'information (i.e du signal) au sein du schéma-blocs. 
-Elles peuvent être orner de la grandeur mathématique qui leurs sont associée. 
+Elles peuvent être ornées de la grandeur mathématique qui leurs sont associée. 
 Celles-ci peuvent être des grandeurs temporelles ou fréquentielles. 
 \begin{center}
 \begin{tikzpicture}
@@ -40,8 +40,8 @@ Celles-ci peuvent être des grandeurs temporelles ou fréquentielles.
     \draw[-latex] (0,0) -- (2,0) node[midway,above] {$E(p)$};
 \end{tikzpicture}    
 \end{center}
-Pour allégér la notation, nous allons omettre la variable $p$ des grandeurs dans le domaine de Laplace 
-désigné par une majuscule.
+Pour allégér la notation, nous allons omettre la variable $p$ des grandeurs 
+dans le domaine de Laplace désignée par une majuscule.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Bloc}
@@ -94,7 +94,7 @@ est équivalente au comparateur suivant :
     \end{tikzpicture}
 \end{center}
 
-De même pour la somme de deux grandeurs,
+De même la somme de deux grandeurs,
 $$                                                                                                                            
 S = E_1+E_2                                                                                                          
 $$
@@ -115,9 +115,9 @@ est équivalente au sommateur suivant :
 \paragraph{Point de prélèvement}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Un point de prélèvement (ou point de dérivation ou encore jonction ) 
+Un point de prélèvement (ou point de dérivation ou encore jonction) 
 est un point d'une flèche où une information est prélevée ne modifiant pas sa valeur.
-Par exemple, la jonction suivante (représenté par un point) donne lieu à deux branches auxquelles sont
+Par exemple, la jonction suivante (représentée par un point) donne lieu à deux branches auxquelles sont
 associées la même grandeur $S$.
 
 \begin{center}
@@ -218,9 +218,10 @@ La démonstration est également triviale.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 La boucle de contre-réaction\footnote{\og Positive or negative feedback\fg, chez nos 
-amis anglophones} peut 
+amis anglophones.} peut 
 être réduite à une simple fonction de transfert.
-Considérons un système définit par le schéma-bloc ci-dessous, composé des différents élements de bases.
+Considérons un système définit par le schéma-bloc ci-dessous, composé 
+des différents élements de bases.
 
 \begin{center}
     \begin{tikzpicture}
@@ -237,7 +238,8 @@ Considérons un système définit par le schéma-bloc ci-dessous, composé des d
         \sbRelierxy[$M$]{B2}{comp}
 \end{tikzpicture}
 \end{center}
-Notons l'utilisation du symbole $\pm$ dans le comparateur/sommateur
+Notons l'utilisation du symbole $\pm$ dans le pour envisager à la fois les 
+comparateurs et sommateurs.
 
 Déterminons la relation entre l'entrée $E$ et la sortie $S$ de ce système.
 Pour celà réécrivons les relations linéaires simples issus de ce schéma-bloc.
@@ -253,7 +255,8 @@ Introduisons l'\cref{eq-fb.2} dans~(\ref{eq-fb.1}) et le résulat ainsi obtenu d
      S&=H_1\big(E\pm H_2S\big) \\
      S&=H_1E\pm H_1H_2S
 \end{align*}
-Regroupons les termes dépendant de la sortie ensemble pour déterminer la relation entre l'entrée et la sortie.
+Regroupons les termes dépendant de la sortie ensemble pour déterminer 
+la relation entre l'entrée et la sortie.
 
 \begin{align*}
     S\big(1\mp H_1H_2\big)&=H_1E 
@@ -284,7 +287,7 @@ La boucle de contre-réaction est donc équivalente au schéma-bloc simplifié s
 \paragraph{Boucle de contre-réaction unitaire}
 
 Une boucle de contre-réaction unitaire est une boucle de contre-réaction sans 
-fonction de transfert de retour ( ex: dans le cas présenté précedemment $H_2=1$).
+fonction de transfert de retour (ex: dans le cas présenté précedemment $H_2=1$).
 
 \begin{center}
     \begin{tikzpicture}
@@ -311,7 +314,7 @@ La formule de Black se simplifie alors de la façon suivante :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 Nous allons ici présenter différentes manipulations que nous
 pourront appliquer au schéma-bloc. Ces manipulations peuvent
-être vues comme des opérations d'une algèbre de blocs.
+être vues comme des opérations d'une \textbf{algèbre de blocs}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Déplacement d'un comparateur vers la gauche}
@@ -336,7 +339,7 @@ Considérons le schéma-bloc suivant :
 
 Pour pouvoir déplacer le comparateur vers la gauche, 
 il faut introduire le bloc $K$ dans la chaine direct.
-En conséquence, la chaîne de retour doit être modifié  pour ne pas affecter la sortie globale $S$.
+En conséquence, la chaîne de retour doit être modifiée pour ne pas affecter la sortie globale $S$.
 Le schéma fonctionnel précédent est donc équivalent au schéma ci-dessous :
 
 \begin{center}
@@ -470,8 +473,8 @@ déplacer le point de prélèvement. Ansi les deux schémas-blocs ci-dessous son
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Dans le cas d'un système possédant plusieurs entrées, il est possible de simplifier 
-le problème en appliqant le principe de superposition. Notamment la réponse totale est la somme
-des réponses indivuels de chaque entrée lorsque toutes les autres sont considérées comme nuls.
+le problème en appliqant le principe de superposition. La réponse totale devient alors la somme
+des réponses indivuelles de chaque entrée lorsque toutes les autres sont considérées comme nulles.
 
 Considérons le schéma-blocs suivant :
 \begin{center}                                                                                                                
@@ -551,7 +554,7 @@ La sortie totale $S$ du système à deux entrées est la somme de ses sorties in
 \end{bequation}
 
 Si $E$ est une entrée de consigne et $P$ une perturbation, $H_E$ et $H_P$ sont respectivement appelées \textbf{fonction de transfert d'asservissement} et \textbf{fonction de transfert de régulation}.
-
+Remarquons que le dénominateur des fonctions de transferts mis en jeu sont identiques.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section[Réduction de schéma-bloc de grande taille]{Méthodologie générale pour la réduction de schéma-bloc de grande taille}
@@ -559,7 +562,7 @@ Si $E$ est une entrée de consigne et $P$ une perturbation, $H_E$ et $H_P$ sont 
 
 Nous venons de présenter les principales transformations et manipulations qui peuvent être
 appliquées aux schémas fonctionnels. Nous donnons ici une approche simple pour la 
-réduction de schéma-bloc de grande taille :
+réduction de schéma-bloc de grande taille \cite{Ostertag}:
 \begin{enumerate}
     \item Regrouper les blocs en parallèle et en série.
     \item \'Eliminer les boucles de contre-réaction locales.
@@ -736,6 +739,7 @@ Enfin, il nous suffit de réduire la boucle de contre-réaction $B_2$ par la for
 \end{center}
 
 \subsection{Exemple à entrées multiples}
+\acpl
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1021,7 +1025,7 @@ Ce dernier graphe exprime la relation suivante :
 $$
 S=H_1E-H_1H_2S
 $$
-d'où l'expression déjà établie
+d'où l'expression déjà établie :
 $$
     S=\dfrac{H_1}{1+H_1H_2}E,
 $$
