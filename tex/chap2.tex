@@ -150,15 +150,15 @@ La pente à l'origine est négative et inversemment proportionnelle au carré de
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
-    \begin{subfigure}{0.49\textwidth}
 \centering
+%\begin{subfigure}[b]{0.49\textwidth}
 \begin{tikzpicture}
 \begin{axis}[%
     legend style={draw=none,font=\scriptsize},
     legend pos=south east,
     axis line style = thick,
     %height=8cm,
-    width=\textwidth,
+    width=0.49\textwidth,
     xmin=0,
     xmax=10,
     ymin=0,
@@ -179,10 +179,10 @@ La pente à l'origine est négative et inversemment proportionnelle au carré de
 \end{axis}%
 %    \draw[] (0,0) -- (1,0) ;
 \end{tikzpicture}%
-\caption{Pour différentes valeurs de $\tau$ et $K=1$}
-\end{subfigure}%
+%\caption{Pour différentes valeurs de $\tau$ et $K=1$}
+%\end{subfigure}%
 \hfill
-\begin{subfigure}{0.49\textwidth}%
+%\begin{subfigure}[b]{0.49\textwidth}%
 \begin{tikzpicture}
 \begin{axis}[
     legend style={draw=none,font=\scriptsize},
@@ -190,7 +190,7 @@ La pente à l'origine est négative et inversemment proportionnelle au carré de
     axis line style = thick,
     %height=8cm,
     %width=10cm,
-    width=\textwidth,
+    width=0.49\textwidth,
     xmin=0,
     xmax=10,
     ymin=0,
@@ -208,9 +208,11 @@ La pente à l'origine est négative et inversemment proportionnelle au carré de
 \legend{échelon,$K=0.5$,$K=1$,$K=2$}
 \end{axis}
 \end{tikzpicture}
-        \caption{Pour différentes valeurs du gain $K$ et $\tau=1$}
-    \end{subfigure}%
-\caption{Réponse indicielle d'un système du premier ordre avec $E_0=1$.\label{fig-1er_ind}}
+%\caption{Pour différentes valeurs du gain $K$ et $\tau=1$}
+%\end{subfigure}%
+\caption{Réponse indicielle d'un système du premier ordre avec $E_0=1$. (gauche) 
+         Pour différentes valeurs de $\tau$ et $K=1$ (droite) our différentes 
+         valeurs du gain $K$ et $\tau=1$.\label{fig-1er_ind}}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle}
@@ -276,7 +278,7 @@ on constate que le temps $t_{5\%}$ de réponse à 5\% est de l'ordre de 3$\tau$ 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
-    \begin{subfigure}{0.49\textwidth}
+%    \begin{subfigure}{0.49\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{axis}[%
@@ -284,7 +286,7 @@ on constate que le temps $t_{5\%}$ de réponse à 5\% est de l'ordre de 3$\tau$ 
     legend pos=north west,
     axis line style = thick,
     %height=8cm,
-    width=\textwidth,
+    width=0.49\textwidth,
     xmin=0,
     xmax=10,
     ymin=0,
@@ -305,10 +307,10 @@ on constate que le temps $t_{5\%}$ de réponse à 5\% est de l'ordre de 3$\tau$ 
 \end{axis}%
 %    \draw[] (0,0) -- (1,0) ;
 \end{tikzpicture}%
-\caption{Pour différentes valeurs de $\tau$ et $K=1$}
-\end{subfigure}%
+%\caption{Pour différentes valeurs de $\tau$ et $K=1$}
+%\end{subfigure}%
 \hfill
-\begin{subfigure}{0.49\textwidth}%
+%\begin{subfigure}{0.49\textwidth}%
 \begin{tikzpicture}
 \begin{axis}[
     legend style={draw=none,font=\scriptsize},
@@ -316,7 +318,7 @@ on constate que le temps $t_{5\%}$ de réponse à 5\% est de l'ordre de 3$\tau$ 
     axis line style = thick,
     %height=8cm,
     %width=10cm,
-    width=\textwidth,
+    width=0.49\textwidth,
     xmin=0,
     xmax=10,
     ymin=0,
@@ -334,9 +336,9 @@ on constate que le temps $t_{5\%}$ de réponse à 5\% est de l'ordre de 3$\tau$ 
 \legend{échelon,$K=0.5$,$K=1$,$K=2$}
 \end{axis}
 \end{tikzpicture}
-        \caption{Pour différentes valeurs du gain $K$ et $\tau=1$}
-    \end{subfigure}%
-\caption{Réponse à une rampe d'un système du premier ordre avec $E_0=1$.\label{fig-1er_ramp}}
+%        \caption{Pour différentes valeurs du gain $K$ et $\tau=1$}
+%    \end{subfigure}%
+\caption{Réponse à une rampe d'un système du premier ordre avec $E_0=1$. (gauche) Pour différentes valeurs de $\tau$ et $K=1$ (droite) Pour différentes valeurs du gain $K$ et $\tau=1$.\label{fig-1er_ramp}}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse à une rampe}
@@ -1166,9 +1168,9 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+\dfrac{2\xi}{\omega_d}e^{-\alpha t}\sin{
         legend pos=outer north east,
         axis line style = thick,
         xmin=0,
-        xmax=20,
+        xmax=10,
         ymin=0,
-        ymax=20,
+        ymax=10,
         xlabel={$t$},
         ylabel={$s(t)$},
 %        ytick={0,0.5,1,1.5},
@@ -1176,7 +1178,7 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+\dfrac{2\xi}{\omega_d}e^{-\alpha t}\sin{
         label style={font=\Large},
         cycle list name=color list,
         ]
-\addplot[thick,color=black,domain=0:20, samples=101,unbounded coords=jump]{x};
+\addplot[thick,color=black,domain=0:10, samples=101,unbounded coords=jump]{x};
 % xi=2 
 \def\a{0.28867513459481292}
 \def\u{3.73205080757}
@@ -1207,6 +1209,18 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+\dfrac{2\xi}{\omega_d}e^{-\alpha t}\sin{
 \end{center}
 \end{figure}
 
+\section{Cas particulier d'un système du second ordre sans amortissement}
+
+Dans le cas où l'équation différentielle est de la forme 
+$$
+\devi{s(t)}{2}+\omega_0^2 s(t)=e(t)
+$$
+
+La fonction de transfert s'écrit :
+$$
+H(p)=\dfrac{S(p)}{E(p)}=
+$$
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Autres modèles}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1217,3 +1231,7 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+\dfrac{2\xi}{\omega_d}e^{-\alpha t}\sin{
     \item dérivateur pur
 \end{itemize}
 \acpl
+
+
+
+

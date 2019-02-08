@@ -54,12 +54,12 @@
     % hyperref,
     % hyperxmp,
 }
-%\usepackage[type={CC},
-%            modifier={by-sa},
-%            imagemodifier={-eu},
-%            imageposition=right,
-%            version={4.0},
-%           ]{doclicense}
+\usepackage[type={CC},
+            modifier={by-sa},
+            imagemodifier={-eu},
+            imageposition=right,
+            version={4.0},
+           ]{doclicense}
 
 \makeatletter
 
@@ -79,7 +79,7 @@
 \makeatother
 
 %\usepackage{pdfcrop}
-\usepackage{pdflscape}
+\usepackage{lscape}
 \usepackage{lipsum}
 %\usepackage{adjustbox}
 \usepackage{etoolbox}
@@ -388,7 +388,7 @@ cross/.default={1pt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\includeonly{tex/avantpropos,tex/chap0}
-%\includeonly{tex/chap0}
+\includeonly{tex/chap0}
 %\includeonly{tex/chap1}
 %\includeonly{tex/chap2,tex/annexe1}
 %\includeonly{tex/chap2,tex/annexe1,tex/annexe4}
@@ -457,13 +457,14 @@ cross/.default={1pt}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{appendices}
 \crefalias{chapter}{appchap}
-\input{tex/annexe1}
+\include{tex/annexe1}
 \include{tex/annexe2}
 \include{tex/annexe3}
 \include{tex/annexe4}
 {\tikzset{external/export=false}
 \include{tex/annexe5}
 \include{tex/annexe6}
+\include{tex/todo}
 }
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

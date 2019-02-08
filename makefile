@@ -29,7 +29,7 @@ pdf:
 	pdflatex ${filename}
 
 pdf-print: ps
-	ps2pdf -sPAPERSIZE=a4 -dColorConversionStrategy=/LeaveColorUnchanged -dPDFSETTINGS=/printer ${filename}.ps
+	ps2pdf -sPAPERSIZE=a4 -dAutoRotatePages=/None -dColorConversionStrategy=/LeaveColorUnchanged -dPDFSETTINGS=/printer ${filename}.ps
 
 text: html
 	html2text -width 100 -style pretty ${filename}/${filename}.html | sed -n '/./,$$p' | head -n-2 >${filename}.txt

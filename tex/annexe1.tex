@@ -33,8 +33,7 @@ on la combine avec la fonction de Heaviside $u(t)$ qui est telle que :
 %\end{center}
 
 On note $F(p)=\laplace{f(t)}$, la transformée de Laplace de $f(t)$ et on dit de $F(p)$ qu'elle est l'image de $f(t)$
-dans le domaine de Laplace
-\footnote{Plusieurs termes sont utilisés dans la littérature. On parle 
+dans le domaine de Laplace\footnote{Plusieurs termes sont utilisés dans la littérature. On parle 
 de domaine complexe, domaine fréquentielle ou de domaine symbolique. On choisit dans ce document 
 de ne parler que du domaine de Laplace} et on notera $\laplacei{F(p)}$ la transformée de Laplace inverse.
 %\newpage
@@ -90,12 +89,14 @@ $$
 $$
         F(p) = \dfrac{F_0(p)}{1-e^{-Tp}}
 $$
+\end{itemize}
 où $F_0(p)$ est la transformée de Laplace du motif $f_0(t)$ égal à 
 $f(t)$ sur le segment $[0,T]$ et nul partout ailleurs.
-\end{itemize}
-\section{Tableau des transformées de Laplace}
-\begin{table}[H]
-%\resizebox{0.5\textwidth}{!}{
+
+\section{Table des transformées de Laplace}
+\begin{table}[!h]
+\centering
+\resizebox{0.92\textwidth}{!}{
 \begin{tabular}{|M{0.5cm}|M{3.9cm}|M{8.9cm}|N}
 \hline
 & $F(p)$ & $f(t)=\laplacei{F(p)}$ &\\[20pt]
@@ -133,17 +134,18 @@ $f(t)$ sur le segment $[0,T]$ et nul partout ailleurs.
 16 & $\dfrac{b-a}{(p+a)(p+b)}$ & $e^{-at}-e^{-bt}$&\\[20pt]
 \hline
 \end{tabular}
-%}
-$\,$
-\clearpage
+}
+%$\,$
+%\clearpage
 \captionof{table}{Table de transformées de Laplace d'après\cite{Ostertag}}
 \end{table}
 \newpage
 \begin{table}[!h]
-\resizebox{\textwidth}{!}{
+\centering
+\resizebox{0.92\textwidth}{!}{
 \begin{tabular}{|M{0.5cm}|M{3.9cm}|M{8.9cm}|N}
-\hline
-   & $F(p)$                         & $f(t)=\laplacei{F(p)}$             &\\[20pt]
+%\hline
+%   & $F(p)$                         & $f(t)=\laplacei{F(p)}$             &\\[20pt]
 \hline
 17 & $\dfrac{(b-a)p}{(p+a)(p+b)}$ & $-ae^{-at}+be^{-bt}$&\\[20pt]
 \hline
@@ -163,23 +165,23 @@ $\,$
 \hline
 25 & $\dfrac{p+z}{p^2+\omega^2}$ & $\sqrt{\dfrac{z^2+\omega^2}{\omega^2}}\sin{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z}}$ &\\[20pt]
 \hline
-26 & $\dfrac{\omega^2}{p(p^2+\omega)^2}$ & $1-\cos\omega t$&\\[20pt]
+26 & $\dfrac{\omega^2}{p(p^2+\omega)}$ & $1-\cos\omega t$&\\[20pt]
 \hline
 27 & $\dfrac{\omega^2(p+z)}{p(p^2+\omega)^2}$ & $z-\sqrt{\dfrac{z^2+\omega^2}{\omega^2}}\cos{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z}}$&\\[20pt]
 \hline
-28 & $\dfrac{\omega}{p^2-\omega^2}$ & $\sinh{\omega t}$&\\[20pt]
+%28 & $\dfrac{\omega}{p^2-\omega^2}$ & $\sinh{\omega t}$&\\[20pt]
+%\hline
+%29 & $\dfrac{p}{p^2-\omega^2}$ & $\cosh{\omega t}$&\\[20pt]
+%\hline
+28 & $\dfrac{\omega}{(p+a)^2+\omega^2}$ & $e^{-at}\sin{\omega t}$ &\\[20pt]
 \hline
-29 & $\dfrac{p}{p^2-\omega^2}$ & $\cosh{\omega t}$&\\[20pt]
+29 & $\dfrac{p+a}{(p+a)^2+\omega^2}$ & $e^{-at}\cos{\omega t}$ &\\[20pt]
 \hline
-30 & $\dfrac{\omega}{(p+a)^2+\omega^2}$ & $e^{-at}\sin{\omega t}$ &\\[20pt]
+30 & $\dfrac{p+z}{(p+a)^2+\omega^2}$ & $\sqrt{\dfrac{(z-a)^2+\omega^2}{\omega^2}}e^{-at}\sin{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z-a}}$&\\[20pt]
 \hline
-31 & $\dfrac{p+a}{(p+a)^2+\omega^2}$ & $e^{-at}\cos{\omega t}$ &\\[20pt]
+31 & $\dfrac{\omega^2}{p^2+2\xi\omega p +\omega^2}$ & $\dfrac{\omega}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t}$&\\[20pt]
 \hline
-32 & $\dfrac{p+z}{(p+a)^2+\omega^2}$ & $\sqrt{\dfrac{(z-a)^2+\omega^2}{\omega^2}}e^{-at}\sin{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z-a}}$&\\[20pt]
-\hline
-33 & $\dfrac{\omega^2}{p^2+2\xi\omega p +\omega^2}$ & $\dfrac{\omega}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t}$&\\[20pt]
-\hline
-34 & $\dfrac{\omega^2}{p(p^2+2\xi\omega p +\omega^2)}$ & $1-\dfrac{1}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2}t+\phi}$ avec $\phi=\arccos{\xi}$&\\[20pt]
+32 & $\dfrac{\omega^2}{p(p^2+2\xi\omega p +\omega^2)}$ & $1-\dfrac{1}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2}t+\phi}$ avec $\phi=\arccos{\xi}$&\\[20pt]
 \hline
 \end{tabular}
 }

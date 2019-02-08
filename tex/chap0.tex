@@ -142,7 +142,8 @@ Ci dessous nous la représentons avec la fonction retardée $u(t-\tau)$.
 \tikzsetnextfilename{echelon-chap0_ext}
 \input{tikz/echelon-chap0.tex}
 \end{center}
-\caption{\label{fig-echelon}}
+    \caption{Représentation graphique de (gauche) la fonction échelon unité et (droite) la fonction 
+    échelon unité retardée de $\tau$\label{fig-echelon}}
 \end{figure}
 
 En général, l'échelon unitaire est utilisé en entrée de nos systèmes pour 
@@ -175,14 +176,13 @@ $$
 r(t)=t\cdot u(t)
 $$
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[!h]
 \begin{center}
 \tikzsetnextfilename{rampe-chap0_ext}
 \input{tikz/rampe-chap0.tex}
 \end{center}
-    \caption{\label{fig-rampe}}
+    \caption{Représentation graphique de (gauche) la fonction rampe unité et (droite) la fonction
+        rampe unité retardée de $\tau$\label{fig-rampe}}
 \end{figure}
 Remarquons que la fonction rampe est l'intégrale de l'échelon unité, notamment 
 $$
@@ -196,15 +196,16 @@ La fonction exponentielle décroissante $s(t)$ est telle que :
 $$
 s(t)=e^{-at}\cdot u(t)
 $$  
-avec $a$ l'inverse d'un temps caractéristique.
-
+avec $a$ l'inverse d'un temps caractéristique. Cette fonction tend vers 0 pour 
+tout $a$ à $t\rightarrow\infty$ mais en un temps proportionnel à ce temps caractéristique . 
 \begin{figure}[!h]
 \begin{center}
 \tikzsetnextfilename{exp_dec-chap0_ext}
 \input{tikz/exp_dec-chap0.tex}
 \end{center}
-    \caption{\label{fig-exp}}
+    \caption{Représentation de la fonction exponentielle pour différentes valeurs du paramètre $a$. \label{fig-exp}}
 \end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Sinuso\"ide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -213,13 +214,36 @@ $$
 s(t)=A\sin{(\omega t +\phi)}\cdot u(t)
 $$
 avec $A$ son amplitude, $\omega$ sa pulsation (en rad/s) et $\phi$ sa phase (rad).
+La pulsation permet de définir la fréquence $f=\dfrac{\omega}{2\pi}$ en \unit{}{\hertz},  
+elle même liée à la période $T=\dfrac{1}{f}$ en \unit{}{\second}.
 \begin{figure}[!h]
 \begin{center}
 \tikzsetnextfilename{sinusoide-chap0-ext}
 \input{tikz/sinusoide-chap0.tex}
 \end{center}
-\caption{\label{fig-sin}}
+    \caption{Représentation de signaux sinuso\"idaux de même pulsation et même amplitude. 
+    (bleu) de phase $\phi=0$ et (rouge) de phase $\phi=-\dfrac{\pi}{2}$.\label{fig-sin}}
 \end{figure}
+
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{M{2cm}M{4cm}M{9cm}N}
+\hhline{====}
+    Déphasage               & Terminologie                  & Graphe &  \\[1em]
+\hhline{====}
+$\Delta\phi=0$              & \og en phase\fg               & \tikzsetnextfilename{sinusoide_enp-chap0-ext}\input{tikz/sinusoide_enp-chap0.tex} & \\[5em]
+\hhline{----}
+$\Delta\phi=\pm\pi$         & \og en opposition de phase\fg & \tikzsetnextfilename{sinusoide_enop-chap0-ext}\input{tikz/sinusoide_enop-chap0.tex} & \\
+\hhline{----}
+    $\Delta\phi=-\dfrac{\pi}{2}$ & \og en quadrature de phase\fg (retard de phase) & \tikzsetnextfilename{sinusoide_enqp-chap0-ext}\input{tikz/sinusoide_enqp-chap0.tex} & \\
+\hhline{----}
+    $\Delta\phi=\dfrac{\pi}{2}$ & \og en quadrature de phase\fg (avance de phase) & \tikzsetnextfilename{sinusoide_enqp2-chap0-ext}\input{tikz/sinusoide_enqp2-chap0.tex} & \\
+\hhline{====}
+\end{tabular}
+\caption{Différents types de déphasage d'un (rouge) signal sinusoidal $s_2(t)$ par rapport à (bleu) 
+         un signal de référence $s_1(t)$ de phase nulle.\label{fig-sin_deph}}
+\end{table}
 
 La réponse à une sinuso\"ide est appelée la \textbf{réponse harmonique}
 et son analyse fera l'objet de tout un chapitre (\Cref{chap-anafreq}).

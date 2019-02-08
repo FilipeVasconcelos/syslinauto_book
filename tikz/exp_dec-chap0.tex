@@ -9,7 +9,7 @@
         xmin=-1,
         xmax=7,
         ymin=-0.1,
-        ymax=1.5,
+        ymax=1.25,
         xlabel={$t$},
         ylabel={$s(t)$},
         xlabel style={below right},
@@ -17,9 +17,14 @@
         ytick={1},
         yticklabels={$1$},
         xtick=\empty,
+        legend style={draw=none,yshift=1em},
+        legend pos=outer north east,
+        legend cell align={left},
         ]
             \addplot [ultra thick,color=blue,domain=-1:0, samples=101,unbounded coords=jump]{0};
+            \addplot [ultra thick,color=green!50!black,domain=0:6, samples=101,unbounded coords=jump]{exp(-2*x)};
             \addplot [ultra thick,color=blue,domain=0:6, samples=101,unbounded coords=jump]{exp(-x)};
             \addplot [ultra thick,color=red,domain=0:6, samples=101,unbounded coords=jump] {exp(-0.5*x)};
+            \legend{,$a=2$,$a=1$,$a=0.5$}
         \end{axis}
     \end{tikzpicture}
