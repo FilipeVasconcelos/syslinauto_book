@@ -388,11 +388,11 @@ cross/.default={1pt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\includeonly{tex/avantpropos,tex/chap0}
-\includeonly{tex/chap0}
+%\includeonly{tex/chap0}
 %\includeonly{tex/chap1}
 %\includeonly{tex/chap2,tex/annexe1}
 %\includeonly{tex/chap2,tex/annexe1,tex/annexe4}
-%\includeonly{tex/chap3}
+%\includeonly{tex/chap2,tex/chap3}
 %\includeonly{tex/chap4}
 %\includeonly{tex/chap5}
 %\includeonly{tex/chap6}
@@ -439,18 +439,18 @@ cross/.default={1pt}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\include{tex/avantpropos} 
-\include{tex/chap0} 
-\include{tex/chap1} 
-\include{tex/chap2} 
-\include{tex/chap3} 
-\include{tex/chap4} 
-{\tikzset{external/export=false}
-\include{tex/chap5} 
-\include{tex/chap6} 
-}
-\include{tex/chap7} 
-\include{tex/chap8} 
+\include{tex/avantpropos}              % Introduction Générale 
+\include{tex/chap0}                    % SLCI
+\include{tex/chap1}                    % Diagramme bloc
+\include{tex/chap2}                    % Modèles de SLCI
+\include{tex/chap3}                    % Réponse Harmonique
+\include{tex/chap4}                    % Asservissement
+{\tikzset{external/export=false} 
+\include{tex/chap5}                    % Performance
+\include{tex/chap6}                    % Stabilité
+} 
+\include{tex/chap7}                    % Correction
+\include{tex/chap8}                    % Représentation d'état.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 

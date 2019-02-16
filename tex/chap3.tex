@@ -102,6 +102,7 @@ Le gain $|H(\jw)|$ est une fonction réelle de $\omega$ de ce fait nous utiliser
 $G(\omega)$ pour noter plus explicitement cette dépendance. La phase est également
 une fonction de la pulsation d'excitation, nous la noterons donc $\phi(\omega)$ par la suite.
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Exemple de réponse harmonique dans le domaine temporelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -260,15 +261,22 @@ déphasage qui dépend de la pulsation d'excitation. Ces variations
 d'amplitude et de phase sont totalement déterminées par la 
 connaissance du module et de l'argument du nombre complexe $H(\jw)$, c'est ce qui constitue 
 l'analyse fréquentielle des \SLCI.
-Dans cette partie, nous présenterons trois types de représentations 
-graphiques  que sont les:
+
+Dans cette partie, nous présenterons trois types de représentations graphiques 
+de ces lieux de transfert, notamment :
 \begin{itemize}
-    \item Diagramme de Bode
-    \item Diagramme de Nyquist 
-    \item Diagramme de Black-Nichols 
+    \item le diagramme de Bode,
+    \item le diagramme de Nyquist,
+    \item et le iagramme de Black-Nichols. 
 \end{itemize}
 Nous présenterons les diagrammes des modèles usuels régulièrement rencontrées 
 au cours d'une analyse fréquentielle d'un \SLCI.
+
+Remarquons que la représentation 
+
+Nous appelerons \textbf{lieu de transfert} les points de coordonnées $(\omega, \phi(\omega),G(\omega))$.
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Diagramme de Bode}
@@ -377,7 +385,7 @@ $$
 %$$                                                                                                                    
 %\phi(\omega)=\arg{H_1(\jw)} + \arg{H_2(\jw)} = \phi_1(\omega) + \phi_2(\omega).
 %$$                                                                                                                    
-\newpage
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Diagramme de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -427,7 +435,7 @@ les pulsations négatives, c'est à dire entre $\omega\rightarrow-\infty$ et $\o
     \addplot [blue, mark = *] coordinates {( \xd,\yd)} {};
     \node [above left, blue]       at (axis cs:  \xd,\yd) {$\omega_2$};
     \draw[blue] (axis cs:0,0) -- (axis cs:  \xd,\yd) node[midway,yshift=-0.8em,xshift=-1.5em] {$G(\omega_2)$};
-    \draw[blue] (axis cs:1.9,0) arc (0:119:1.9)    node[midway,yshift=-2.5em,xshift=-3.0em] {$\phi(\omega_2)$};
+    \draw[blue] (axis cs:1.9,0) arc (0:119:1.9)    node[midway,yshift=-2em,xshift=-3.0em] {$\phi(\omega_2)$};
     \addplot [thick,domain=0:7.853981633974483,samples=100]({x*sin(deg(x))},{x*cos(deg(x))});
 \end{axis}
 \end{tikzpicture}
@@ -445,9 +453,10 @@ Le diagramme de Black\footnote{Il également appelé diagramme de Nichols ou enc
 consiste à tracer le gain en décibel $G_{dB}(\omega)$ 
 en fonction de la phase, paramétré par la pulsation $\omega$. À l'instar du diagramme de Nyquist, le diagramme 
 de Black à l'avantage de combiner les deux graphiques du diagramme de Bode.
+La diagramme de Black est habituellement utilisé dans l'étude des systèmes asservis (\Cref{chap-asservis}) 
+pour déterminer le lieu de transfert dans le plan de Black d'un système en boucle fermée (FTBF) à partir 
+de la connaissance du lieu de transfert dans le plan de Black de la Fonction de Transfert en Boucle ouverte (FTBO).
 
-
-\acpl 
 %(moins important dans une premiere découverte des \SLCI.
 %Il pourra être introduit séparemment dans le cas des systèmes asservis.)
 
@@ -730,6 +739,13 @@ la phase s'écrit simplement
     avec (noir) $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons que le
     gain s'annule pour $\omega=\frac{1}{K}$ et que la phase reste inchangée.\label{fig-bode_deriv}}
 \end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Diagramme de Bode d'un système à retard pur}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Retard pur ! Diagramme de Bode}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système du premier ordre}
@@ -1356,7 +1372,7 @@ valeurs du taux d'amortissement.
 Dans le cas d'un système d'ordre supérieur à deux, nous allons utiliser les propriétés d'additivité des diagrammes 
 de Bode, en décomposant la fonction de transfert en différents modèles simples.
 
-Il est nottament possible d'écrire une fonction de transfert sous la forme d'un produit gain pur, d'intégrateur, de 
+Il est notamment toujours possible d'écrire une fonction de transfert sous la forme d'un produit gain pur, d'intégrateur, de 
 dérivateur, de premier et second ordre: 
 \begin{bequation}[ams align]
 H(p)= K_0p^{\alpha}\prod_{i} (1+\tau_ip)^{n_i}\prod_{j} (1+2\xi_j\tau_jp+\tau_jp^2)^{n_j}
