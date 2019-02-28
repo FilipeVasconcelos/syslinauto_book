@@ -1615,7 +1615,7 @@ Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
 Dans chacuns des exemples suivants nous reproduisons le lieu de Nyquist complet le domaine des pulsations
 négatives étant représenté en pointillé. Dans la pratique, il suffit de tracer le symétrique par rapport à 
 l'axe des réels et d'inverser le sens de la flêche pour obtenir le sens de la pulsation de $-\infty\to 0$. 
-
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùù
 \subsubsection{Diagramme de Nyquist d'un gain pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùù
@@ -1632,32 +1632,27 @@ Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
 \begin{tikzpicture}
 \begin{axis}
     [
-    height=8cm,
-    width=cm,
-    axis lines = center,
-    ticks=none,
     axis line style = thick,
-    enlargelimits=false,
     xlabel=$\Re\left(H(\jw)\right)$,
     ylabel=$\Im\left(H(\jw)\right)$,
-    xlabel style={below right},
-    ylabel style={left},
     ymin=-10,
     ymax=+10,
     xmin=-10,
-    xmax=+10
+    xmax=+10,
+    grid=both,
     ]     
-    \node [below]       at (axis cs:  6, 0)   {$\forall\omega$};                
-    \node [above,blue]       at (axis cs:  6, 0)   {$K$};                
-    \addplot [blue, mark = *] coordinates {(6, 0)} {};                          
+    \node [below]       at (axis cs:  5, 0)   {$\forall\omega$};                
+    \node [above,blue]       at (axis cs:  5, 0)   {$K$};                
+    \addplot [blue, mark = *] coordinates {(5, 0)} {};                          
 \end{axis}
 \end{tikzpicture}
 \end{center}
 \caption{Diagramme de Nyquist d'un gain pur. Le nombre complexe 
-    $H(\jw)$ est représenté par un point sur l'axe des réels à la valeur $K$.\label{fig-nyquist_1}}
+    $H(\jw)$ est représenté par un point sur l'axe des réels à la valeur $K$ (ici $K=5$).\label{fig-nyquist_1}}
 \end{figure}
 
 
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùù
 \subsubsection{Diagramme de Nyquist d'un intégrateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùù
@@ -1687,9 +1682,9 @@ Cependant il dépend de la pulsation $\omega$.
     \node [below right]       at (axis cs:  0, 0)   {$\omega\rightarrow+\infty$};
     \node [above right]       at (axis cs:  0, 0)   {$\omega\rightarrow-\infty$};
     \addplot [blue, mark = *] coordinates {(0, 0)} {};
-    \addplot[blue,thick,domain=0.01:0.2,samples=50,-latex,unbounded coords=jump] (0,{-1/x});
+    \addplot[blue,thick,domain=0.01:0.2,samples=50,-{Latex[length=3mm]},unbounded coords=jump] (0,{-1/x});
     \addplot[blue,thick,domain=0.1:100,samples=50,unbounded coords=jump] (0,{-1/x});
-    \addplot [dashed,blue,thick,domain=-100:-0.2,-latex,samples=100,unbounded coords=jump](0,{-1/x});
+    \addplot [dashed,blue,thick,domain=-100:-0.2,-{Latex[length=3mm]},samples=100,unbounded coords=jump](0,{-1/x});
     \addplot [dashed,blue,thick,domain=-0.2:-0.01,samples=100,unbounded coords=jump](0,{-1/x});
 \end{axis}
 \end{tikzpicture}
@@ -1699,6 +1694,7 @@ Cependant il dépend de la pulsation $\omega$.
     imaginaires purs négatifs.\label{fig-nyquist_2}}
 \end{figure}
 
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùù
 \subsubsection{Diagramme de Nyquist d'un dérivateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùù
@@ -1734,9 +1730,9 @@ nombre complexe $H(\jw)=K\jw$ imaginaire pur.
     \node [above right] at (axis cs:  0,-10)  {$\omega\rightarrow-\infty$};                
     \node [below right]       at (axis cs:  0, 0)   {$\omega=0$};                
     \addplot [blue, mark = *] coordinates {(0, 0)} {};                          
-    \addplot [blue,thick,domain=0:5,samples=50,-latex](0,{x}); 
+    \addplot [blue,thick,domain=0:5,samples=50,-{Latex[length=3mm]}](0,{x}); 
     \addplot [blue,thick,domain=4:10,samples=50](0,{x}); 
-    \addplot [dashed,blue,thick,domain=-10:-5,samples=50,-latex](0,{x}); 
+    \addplot [dashed,blue,thick,domain=-10:-5,samples=50,-{Latex[length=3mm]}](0,{x}); 
     \addplot [dashed,blue,thick,domain=-6:0,samples=50](0,{x}); 
 \end{axis}
 \end{tikzpicture}
@@ -1745,6 +1741,8 @@ nombre complexe $H(\jw)=K\jw$ imaginaire pur.
     est représenté par une demi droite sur l'axe des nombres 
     imaginaires purs positifs.\label{fig-nyquist_3}}
 \end{figure}
+
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùù
 \subsubsection{Diagramme de Nyquist d'un retard pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùù
@@ -1754,7 +1752,44 @@ $$
 H(\jw)=e^{-j\tau\omega}
 $$
 
+\begin{figure}[!h]                                                                                                           
+\begin{center}                                                                                                               
+\begin{tikzpicture}
+\begin{axis}
+    [
+    %height=5cm,
+    %width=5cm,
+    %axis lines = center,
+    %ticks=none,
+    axis line style = thick,
+    %enlargelimits=false,
+    xlabel=$\Re\left(H(\jw)\right)$,
+    ylabel=$\Im\left(H(\jw)\right)$,
+    %xlabel style={below right},
+    %ylabel style={left},
+    ymin=-1.5,
+    ymax=+1.5,
+    xmin=-1.5,
+    xmax=+1.5,
+    grid=both,
+%    clip=false,
+    ]     
+%    \node [below right] at (axis cs:  0, 10)  {$\omega\rightarrow\infty$};                
+%    \node [above right] at (axis cs:  0,-10)  {$\omega\rightarrow-\infty$};                
+    \node [right]       at (axis cs:  1, 0)   {\scriptsize$\omega=0$};                
+    \addplot [blue, mark = *] coordinates {(1, 0)} {};                          
+    \addplot [blue,thick,domain=pi/2:-pi/2-0.2,samples=50,-{Latex[length=3mm]}]({cos(deg(x))},{sin(deg(x)}); 
+    \addplot [blue,thick,domain=-pi/2:-3*pi/2-0.2,samples=50,-{Latex[length=3mm]}]({cos(deg(x))},{sin(deg(x)}); 
+    %    \addplot [dashed,blue,thick,domain=-10:-5,samples=50,-latex]({cos(deg(x))},{sin(deg(x)}); 
+    %\addplot [dashed,blue,thick,domain=-6:0,samples=50]({cos(deg(x))},{sin(deg(x)}); 
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{Diagramme de Nyquist d'un retard pur. Le lieu de Nyquist 
+    est représenté par le cercle unité dans le plan complexe.\label{fig-nyquist_4}}
+\end{figure}
 
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùù
 \subsubsection{Diagramme de Nyquist d'un système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùù
@@ -1763,7 +1798,7 @@ La fonction de transfert d'un système du premier ordre s'écrit:
 $$
 H(\jw)=\dfrac{K}{1+j\tau\omega}
 $$
-Les parties réel et imaginaire de cette fonction de transfert sont données par:
+Les parties réelle et imaginaire de cette fonction de transfert sont données par:
 \begin{align*}
     \Re\left(H(\jw)\right)&=\dfrac{K}{1+\tau^2\omega^2}\\
     \Im\left(H(\jw)\right)&=-\dfrac{K\tau\omega}{1+\tau^2\omega^2}\\
@@ -1802,7 +1837,7 @@ $$
         \hline
         $\Re\left(H(\jw)\right)$     & $K$         & 0                    & $K/2$                    & \\ [1.5em]
         \hline
-        $\Im\left(H(\jw)\right)$     & 0           & 0                    & -1/2                     & \\[1.5em]
+        $\Im\left(H(\jw)\right)$     & 0           & 0                    & $-K/2$                     & \\[1.5em]
         \hhline{====}
     \end{tabular}
     \caption{Quelques valeurs particulières de $\Re\left(H(\jw)\right)$ et $\Im\left(H(\jw)\right)$
@@ -1823,26 +1858,26 @@ $$
     ylabel=$\Im\left(H(\jw)\right)$,                                                
 %    xlabel style={below right},                                                     
 %    ylabel style={left},                                                            
-    ymin=-1,                                                                       
-    ymax=+1,                                                                       
-    xmin=-0.5,                                                                       
-    xmax=+1.5,                                                                       
+    ymin=-0.75,                                                                       
+    ymax=+0.75,                                                                       
+    xmin=-0.3,                                                                       
+    xmax=+1.3,                                                                       
     clip=false,                                                                     
     grid=both
     ]                                                                               
-    \addplot [blue,thick,domain=0:1.1,samples=100,-latex]({1/(1+x*x)},{-x/(1+x*x)}); 
+    \addplot [blue,thick,domain=0:1.1,samples=100,-{Latex[length=3mm]}]({1/(1+x*x)},{-x/(1+x*x)}); 
     \addplot [blue,thick,domain=0.5:5,samples=100]({1/(1+x*x)},{-x/(1+x*x)}); 
     \addplot [blue,thick,domain=5:10,samples=100]({1/(1+x*x)},{-x/(1+x*x)}); 
     \addplot [blue,thick,domain=10:100,samples=100]({1/(1+x*x)},{-x/(1+x*x)}); 
 
     \addplot [dashed,blue,thick,domain=-100:-10,samples=100]({1/(1+x*x)},{-x/(1+x*x)}); 
     \addplot [dashed,blue,thick,domain=-10:-5,samples=100]({1/(1+x*x)},{-x/(1+x*x)}); 
-    \addplot [dashed,blue,thick,domain=-5:-0.5,samples=100,-latex]({1/(1+x*x)},{-x/(1+x*x)}); 
+    \addplot [dashed,blue,thick,domain=-5:-0.5,samples=100,-{Latex[length=3mm]}]({1/(1+x*x)},{-x/(1+x*x)}); 
     \addplot [dashed,blue,thick,domain=-0.5:0,samples=100]({1/(1+x*x)},{-x/(1+x*x)}); 
 
-    \node [above left] at (axis cs:  0, 0)  {$\omega\rightarrow-\infty$};         
-    \node [below left] at (axis cs:  0, 0)  {$\omega\rightarrow+\infty$};         
-    \node [above right]       at (axis cs:  1, 0)   {$\omega=0$};                        
+    \node [above left,xshift=0.2em] at (axis cs:  0, 0)  {\scriptsize$\omega\rightarrow-\infty$};         
+    \node [below left,xshift=0.2em] at (axis cs:  0, 0)  {\scriptsize$\omega\rightarrow+\infty$};         
+    \node [right]       at (axis cs:  1, 0) {\scriptsize$\omega=0$};                        
     \addplot [blue, mark = *] coordinates {(0, 0)} {};                             
     \addplot [blue, mark = *] coordinates {(1, 0)} {};                             
 %    \draw[blue,ultra thick,-latex] (axis cs:  0,  0 ) -- (axis cs:  0, 5 );        
@@ -1858,10 +1893,11 @@ $$
 \end{figure}
 
 
-
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùù
 \subsubsection{Diagramme de Nyquist d'un système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùù
+\index{Système du second ordre ! Diagramme de Nyquist}
 La fonction de transfert d'un système du second ordre s'écrit:
 $$
 H(\jw)=\dfrac{K\omega_0^2}{(\omega_0^2-\omega^2)+j2\xi\omega_0\omega}
@@ -1879,16 +1915,16 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     axis line style = thick,                                                        
     xlabel=$\Re\left(H(\jw)\right)$,                                                
     ylabel=$\Im\left(H(\jw)\right)$,                                                
-    ymin=-2,                                                                       
-    ymax=+2,                                                                       
+    ymin=-1.5,                                                                       
+    ymax=+1.5,                                                                       
     xmin=-0.5,                                                                       
     xmax=+1.3,                                                                       
     clip=false,                                                                     
     grid=both
     ]                                                                               
-    \tikzstyle{lieua}=[blue,thick,samples=150,-latex]
+    \tikzstyle{lieua}=[blue,thick,samples=150,-{Latex[length=3mm]}]
     \tikzstyle{lieu}=[blue,thick,samples=150]
-    \tikzstyle{lieua_c}=[dashed,blue,thick,samples=150,-latex]
+    \tikzstyle{lieua_c}=[dashed,blue,thick,samples=150,-{Latex[length=3mm]}]
     \tikzstyle{lieu_c}=[dashed,blue,thick,samples=150]
     
     \def\xi{0.5}
@@ -1902,9 +1938,9 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     \addplot[lieua_c,domain=-5:-0.99]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
     \addplot[lieu_c,domain=-0.99:0]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
 
-    \node [above right] at (axis cs:  0, 0)  {$\omega\rightarrow-\infty$};
-    \node [right]       at (axis cs:  1, 0)   {$\omega=0$};       
-    \node [below right] at (axis cs:  0, 0)  {$\omega\rightarrow+\infty$};
+    \node [above right] at (axis cs:  0, 0)  {\scriptsize$\omega\rightarrow-\infty$};
+    \node [right]       at (axis cs:  1, 0)  {\scriptsize$\omega=0$};       
+    \node [below right] at (axis cs:  0, 0)  {\scriptsize$\omega\rightarrow+\infty$};
     \addplot [blue, mark = *] coordinates {(0, 0)} {};                  
     \addplot [blue, mark = *] coordinates {(1, 0)} {};                  
 \end{axis}                                                                          
@@ -1967,22 +2003,22 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     legend style={draw=none,yshift=1em},    
     legend pos=outer north east, 
     ]                                                                               
-    \tikzstyle{lieua}=[thick,samples=100,-latex]
+    \tikzstyle{lieua}=[thick,samples=100,-{Latex[length=3mm]}]
     \tikzstyle{lieu}=[thick,samples=100]
-    \tikzstyle{lieua_c}=[dashed,thick,samples=100,-latex]
+    \tikzstyle{lieua_c}=[dashed,thick,samples=100,-{Latex[length=3mm]}]
     \tikzstyle{lieu_c}=[dashed,thick,samples=100]
                                                                                                                              
     \foreach \xi in {0.4,0.6,0.8,1.0} 
     {
-    \addplot+[lieua,domain=0:1]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu, domain=0.99:5]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu,domain=5:10]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu,domain=10:100]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieua,domain=0:1]       ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu, domain=0.99:5]    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu,domain=5:10]       ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu,domain=10:100]     ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
                                                                                                                               
-    \addplot+[lieu_c,domain=-100:-10]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-10:-5]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu_c,domain=-100:-10] ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu_c,domain=-10:-5]   ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
     \addplot+[lieua_c,domain=-5:-0.99]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-0.99:0]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu_c,domain=-0.99:0]  ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
     }
     \legend{,$\xi=0.4$,,,,,,,,$\xi=0.6$,,,,,,,,$\xi=0.8$,,,,,,,,$\xi=1.0$,,,,,,,} 
 \end{axis}                                                                          
@@ -1993,26 +2029,6 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
             blue\\%
             blue\\%
             blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            red\\%
-            red\\%
-            red\\%
-            red\\%
-            red\\%
-            red\\%
-            red\\%
-            red\\%
-            red\\%
-            red\\%
             red\\%
             red\\%
             red\\%
@@ -2025,26 +2041,6 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
             brown!60!black\\%
             brown!60!black\\%
             brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            black\\%
-            black\\%
-            black\\%
-            black\\%
-            black\\%
-            black\\%
-            black\\%
-            black\\%
-            black\\%
-            black\\%
             black\\%
             black\\%
             black\\%
@@ -2067,32 +2063,23 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     legend style={draw=none,yshift=1em},    
     legend pos=outer north east, 
     ]
-    \tikzstyle{lieua}=[thick,samples=200,-latex]
+    \tikzstyle{lieua}=[thick,samples=200,-{Latex[length=3mm]}]
     \tikzstyle{lieu}=[thick,samples=200]
-    \tikzstyle{lieua_c}=[dashed,thick,samples=200,-latex]
+    \tikzstyle{lieua_c}=[dashed,thick,samples=200,-{Latex[length=3mm]}]
     \tikzstyle{lieu_c}=[dashed,thick,samples=200]
                                                                                                                              
     \foreach \xi in {0.05,0.07,0.1,0.2} 
+%    \foreach \xi in {0.05} 
     {
-    \addplot+[lieu,domain=0:0.5]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieua, domain=0.5:1]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu, domain=0.99:2]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu, domain=2:3]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu, domain=3:5]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu,domain=5:8]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu,domain=8:20]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu,domain=20:100]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-                                                                                                                              
-    \addplot+[lieu_c,domain=-100:-20]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-20:-8]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-8:-5]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-5:-3]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-3:-2]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieua_c,domain=-2:-1]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-1.1:-0.5]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-0.5:0]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu,domain=0:0.5]      ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieua, domain=0.5:1]    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu, domain=0.99:2]    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    
+    \addplot+[lieua_c,domain=-2:-1.0]   ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu_c,domain=-1.0:-0.5]  ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu_c,domain=-0.5:0]   ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
     }
-    \legend{$\xi=0.4$,,,,,,,,,,,,,,,,$\xi=0.6$,,,,,,,,,,,,,,,$\xi=0.8$,,,,,,,,,,,,,,,$\xi=1.0$,,,,,,,,,,,,,,,} 
+    \legend{$\xi=0.05$,,,,,,$\xi=0.07$,,,,,,$\xi=0.1$,,,,,,$\xi=0.2$,,,,,,} 
 \end{axis}                                                                          
 \end{tikzpicture}                                                                   
 \end{center}
@@ -2101,10 +2088,11 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     représenté par une demi cardio\"iode dans le plan des imaginaires négatifs.\label{fig-nyquist_2nd_2}}
 \end{figure}
 
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Effet d'un retard sur le diagramme de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\index{Retard pur ! effet d'un retard sur le diagramme de Nyquist}
 La fonction de transfert $H_R(\jw)$ d'un retard est donnée par la relation :
 $$
 H_R(\jw)=e^{-j\tau_1\omega}=\cos{\tau_1\omega}-j\sin{\tau_1\omega}
@@ -2136,7 +2124,7 @@ Les parties réels et imaginaire de la fonction de transfert sont:
     grid=both,
     ]                                                                               
     \def\t{1.0}
-    \def\tu{2.0}
+    \def\tu{1.1}
     \addplot[blue,thick,domain=0:1,samples=200] 
     ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},{-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
     \addplot[blue,thick,domain=1:10,samples=200] 
