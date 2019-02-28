@@ -1,6 +1,5 @@
 \chapter{Stabilité des systèmes asservis\label{chap-stab}}
 
-
 \section{Définitions de la stabilité}
 
 \textbf{Un système est dit stable si à une entrée bornée le système produit une sortie bornée}\footnote{Chez 
@@ -41,6 +40,8 @@ Ces deux définitions sont équivalentes dans le cas des \SLCI.
 \end{criteria}
 
 \input{tikz/stabilite.tex}
+
+\paragraph{Notion de pôles dominants}
 
 \paragraph{Inconvénients de la condition fondamentale}
 
@@ -263,7 +264,8 @@ Le critère s'applique sur la première colonne (dite des pivots) du tableau de 
 \end{criteria}
 
 \paragraph{Remarques:}
-Le nombre de changement de signe, nous donne le nombre de pôles à partie réelle de la fonction de transfert en boucle fermée.
+Le nombre de changement de signe, nous donne le nombre de pôles à partie réelle positives (instables)
+de la fonction de transfert en boucle fermée.
 
 \subsubsection{Exemple}
 
@@ -491,8 +493,6 @@ $(-1,0)$
 \caption{Représentation schématique de lieux de Nyquist de trois systèmes: stable, critique et instable vérifiant le critère du revers.
 \label{fig-nyquist_revers}}
 \end{figure}
-
-
 
 % (1-x)*((1-x)*(x*\x1)+x*((1-x)*\x1+x*\x2))+x*((1-x)*((1-x)*\x1+x*\x2)+x*((1-x)*\x2+x*\x3)),
 % (1-x)*((1-x)*(x*\y1)+x*((1-x)*\y1+x*\y2))+x*((1-x)*((1-x)*\y1+x*\y2)+x*((1-x)*\y2+x*\y3))
