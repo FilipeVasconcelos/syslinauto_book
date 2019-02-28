@@ -73,3 +73,4 @@ gvread: ps
 
 clean:
 	rm -f *.log *.auxlock *.ind *.ist *.aux *.out *.bbl *.blg *.mtc* *.toc *.maf *.idx *.gls *.ilg *.glo *.glg
+	rm -f fig/*.log fig/*.auxlock fig/*.idx fig/*.ps fig/*.md5 fig/.out fig/*.mtc* fig/*.glo fig/*.dpth fig/*.maf fig/*.ist fig/*.ilg fig/*.ind
