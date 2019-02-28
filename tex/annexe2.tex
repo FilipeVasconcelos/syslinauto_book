@@ -167,6 +167,48 @@ Cependant, de nombreux langages de programmation fournissent
 une variante de la fonction arc tangente, qui est souvent appélee
 \verb?atan2(b,a)?, et qui traite ces différents cas. 
 
+Rappelons la représentation graphique de la fonction $\arctan$:
+
+\begin{figure}[!ht]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+        axis line style = thick,
+        clip=false,
+        height=5cm,
+        width=10cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-7,
+        xmax=7,
+        ymin=-2,
+        ymax=2,
+        xlabel={$x$},
+        ylabel={$\arctan{(x)}$},
+        xlabel style={below right},
+        ylabel style={above left},
+        ytick={1.5707963267948966},
+        yticklabels={$\dfrac{\pi}{2}$},
+        extra y ticks={-1.5707963267948966},
+        extra y tick labels={$-\dfrac{\pi}{2}$},
+        extra y tick style={
+              yticklabel style={xshift=0.5ex, anchor=west}
+        },
+        xtick={-6,-4,-2,0,2,4,6},
+        ]
+            \addplot [ultra thick,color=blue,domain=-7:7,samples=201]{rad(atan(x))};
+            \addplot [thick,dashed,color=blue,domain=0:7,samples=10]{pi/2};
+            \addplot [thick,dashed,color=blue,domain=-7:0,samples=10]{-pi/2};
+%            \draw[blue] (axis cs:pi*2.5,1) -- (axis cs:pi*2.5,1.25);
+%            \draw[blue,ultra thick, latex-latex] (axis cs:pi*0.5,1.2) --node[above,yshift=+0.2em]{$\dfrac{2\pi}{\omega}$} (axis cs:pi*2.5,1.2);
+%            \draw[blue,] (axis cs:pi*1.5,-1) -- (axis cs:pi*1.5,-1.25);
+%            \draw[blue] (axis cs:pi*1.5+pi*0.5,-1) -- (axis cs:pi*1.5+pi*0.5,-1.25);
+%            \draw[blue,ultra thick, latex-latex] (axis cs:pi*1.5,-1.2) --node[below,yshift=-0.2em]{$\dfrac{\Delta\phi}{\omega}$} (axis cs:pi*1.5+pi*0.5,-1.2);
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Représentation graphique de la fonction arc tangente.}
+\end{figure}
+
 
 \paragraph{Forme exponentielle ou polaire d'un nombre complexe}
 La formule d'Euler 
