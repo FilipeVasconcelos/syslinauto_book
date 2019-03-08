@@ -680,7 +680,89 @@ evans(PremierOrdre) ;
 \end{code}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Système du second ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-à compléter
+\section{Scilab-Xcos}
+Pour ce TP nous utiliserons le module Xcos intégré à Scilab. Xcos inclut un 
+éditeur graphique pour facilement représenté les schémas fonctionnels
+en connectant des blocs entre eux. Ce document est loin d'être complet,
+nous renvoyons le lecteur vers des présentations plus complètes et la documentation
+officielle de Xcos pour obtenir davantage de détails sur l'utilisation de ce module (notamment les références
+suivantes~\cite{steer2014scilab,premier,xcos}, sur lesquelles est basé le petit tuto suivant.)
+
+\subsection{Lancer Xcos}
+Après avoir lancer Scilab :
+\begin{itemize}
+    \item Taper la commande \verb?xcos? dans la console;
+    \item Cliquer sur l'icône : \raisebox{-\mydepth}{\fbox{\includegraphics[height=\myheight]{fig/xcos.eps}}}
+    \item Menu $\rightarrow$ Applications $\rightarrow$ Xcos
+\end{itemize}
+
+Xcos ouvre par défaut le navigateur de palettes et une fenêtre d'édition. Pour construire le diagramme
+il suffit de faire glisser les blocs dans la fenêtre d'édition.
+
+\subsection{Diagramme simple}
+
+Le module inclut un grand nombre de blocs (c.f Navigateur de palettes).
+Il est possible de construire des super-blocs qui incorpore d'autres blocs pour faciliter la lecture d'un
+diagramme complexe. \newline
+Nous allons créer un diagramme simple. Pour celà, placer les blocs suivants dans la fenêtre d'édition.
+
+\begin{table}[h]
+    \centering
+\begin{tabular}{|M{4cm}|M{6cm}|M{4cm}|N}
+    \hline
+    Désignation   & Représentation & Sous-palette & \\
+    \hline
+    \'Echelon     & \begin{minipage}{6cm}\centering \includegraphics[width=0.25\linewidth]{fig/scilab05.eps}\end{minipage} & Sources / STEP\_FUNCTION & \\[2.75em]
+    \hline
+    Fonction de transfert continue     & \begin{minipage}{6cm}\centering \includegraphics[width=0.25\linewidth]{fig/scilab06.eps}\end{minipage} & Systèmes à temps continu / CLR & \\[3em]
+    \hline
+    Horloge       & \begin{minipage}{6cm}\centering \includegraphics[width=0.2\linewidth]{fig/scilab07.eps}\end{minipage} & Sources / Clock\_c & \\[2.75em]
+    \hline
+    Visualisation & \begin{minipage}{6cm}\centering \includegraphics[width=0.25\linewidth]{fig/scilab08.eps}\end{minipage} & Sinks / CSCOPE& \\[2.75em]
+    \hline
+\end{tabular}
+\end{table}
+
+Connecter les blocs pour obtenir le schéma bloc Xcos de la figure~\ref{fig-simple}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{fig/diagramme_simple.eps}
+    \caption{Exemple de diagramme simple\label{fig-simple}}
+\end{figure}
+
+Il faut maintenant simuler et visualiser les résultats.  
+
+\newpage
+\subsection{Simulation}
+
+Pour lancer une simulation : cliquer sur l'icône : 
+\raisebox{-\mydepth}{\fbox{\includegraphics[height=\myheight]{fig/demarrage.eps}}}
+
+Pour arrêter une simulation : cliquer sur l'icône : 
+\raisebox{-\mydepth}{\fbox{\includegraphics[height=\myheight]{fig/stop.eps}}}
+
+Plusieurs paramètres peuvent être ajuster :
+\begin{itemize}
+    \item La durée de la simulation : Simulation $\rightarrow$ Configurer $\rightarrow$ Temps d'intégration final
+    \item La période d'échantillonage : Cliquer sur l'horloge.
+    \item La fonction échelon  : Cliquer sur le bloc de la fonction échelon
+    \item Les paramètres de la fonction de transfert : Cliquer sur le bloc CLR 
+        (N'oubliez pas d'ajouter un contexte si vous utiliser des variables)
+\end{itemize}
+
+\subsection{Blocs \og To Workspace \fg~ou \og From Workspace\fg}
+
+On utilisera les blocs suivants dans le cas où l'on souhaite 
+utiliser des données à partir de Scilab (\og From Workspace\fg) 
+ou récupérer ces données après la simulation (\og To Workspace \fg).
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.25\textwidth]{fig/FROMWSB.eps}\hspace{3cm}
+    \includegraphics[width=0.25\textwidth]{fig/TOWS_c.eps}
+    \caption{Blocs d'échange avec Scilab\label{fig-workspace}}
+\end{figure}
+
+
+
