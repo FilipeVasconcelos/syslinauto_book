@@ -173,6 +173,11 @@ ps2eps -f "\image.ps"
 \usepackage{schemabloc}
 \usepackage{gfluence}
 \usepackage{vecteurs}
+\usepackage{tdexoq}
+\let\exo\exercice
+\let\ques\question
+\renewcommand{\exercice}[1]{\exo{#1}[\large][\sffamily]}
+\renewcommand{\question}{\ques[\sffamily]}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -393,6 +398,7 @@ cross/.default={1pt}}
 %\includeonly{tex/chap2,tex/annexe1}
 %\includeonly{tex/chap2,tex/annexe1,tex/annexe4}
 %\includeonly{tex/chap2,tex/chap3}
+%\includeonly{tex/chap3}
 %\includeonly{tex/chap4}
 %\includeonly{tex/chap5}
 %\includeonly{tex/chap6}
@@ -405,6 +411,15 @@ cross/.default={1pt}}
 %\includeonly{tex/annexe6}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\setcounter{chapter}{-1}
+
+%%%%%%%%%%%%%%
+ % utile pour l'annnexe 5
+\newlength\myheight
+\newlength\mydepth
+\settototalheight\myheight{Xygp}
+\settodepth\mydepth{Xygp}
+\setlength\fboxsep{0pt}
+
 
 \begin{document}
 
