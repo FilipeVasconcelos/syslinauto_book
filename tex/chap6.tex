@@ -302,6 +302,24 @@ Le critère s'applique sur la première colonne (dite des pivots) du tableau de 
 Le nombre de changement de signe, nous donne le nombre de pôles à partie réelle positives (instables)
 de la fonction de transfert en boucle fermée.
 
+
+\paragraph{Un propriété du tableau de Routh :}
+
+Une ligne de zéros pour les coefficients de l'avant-dernière ligne du tableau de
+Routh indique que le polynôme du dénominateur possède une paire de pôles, qui sont racines de l'équation auxiliaire :
+$$
+Ap^2+B=0
+$$
+où $A$ et $B$ sont les coefficients de la ligne précédente du tableau. On peut alors continuer le tableau en remplaçant la
+ligne de coefficients nuls par les coefficients de la dérivée de l'équation auxiliaire.
+
+Une ligne de zéro implique la présence d'une paire de racines imaginaires pures
+donnant lieu à une forme sinuso\"idale dans la réponse transitoire.
+Le système diverge en oscillant s'il y a au moins une racines à partie réelle positive,
+ou il converge vers des oscillations entretenues si les autres racines ont toutes une partie réelle négative.
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Exemple}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
