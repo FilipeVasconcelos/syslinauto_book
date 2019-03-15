@@ -171,6 +171,8 @@ ps2eps -f "\image.ps"
 %% fmv *.sty
 \usepackage{mymath}
 \usepackage{schemabloc}
+\sbStyleBloc{thick}
+\sbStyleLien{thick}
 \usepackage{gfluence}
 \usepackage{vecteurs}
 \usepackage{tdexoq}
@@ -399,7 +401,7 @@ cross/.default={1pt}}
 %\includeonly{tex/chap2,tex/annexe1,tex/annexe4}
 %\includeonly{tex/chap2,tex/chap3}
 %\includeonly{tex/chap3}
-%\includeonly{tex/chap4}
+\includeonly{tex/chap4}
 %\includeonly{tex/chap5}
 %\includeonly{tex/chap6}
 %\includeonly{tex/chap1,tex/chap6}
@@ -409,6 +411,7 @@ cross/.default={1pt}}
 %\includeonly{tex/annexe4}
 %\includeonly{tex/annexe5}
 %\includeonly{tex/annexe6}
+%\includeonly{tex/chap1,tex/chap4}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\setcounter{chapter}{-1}
 
@@ -459,8 +462,8 @@ cross/.default={1pt}}
 \include{tex/chap1}                    % Diagramme bloc
 \include{tex/chap2}                    % Modèles de SLCI
 \include{tex/chap3}                    % Réponse Harmonique
-\include{tex/chap4}                    % Asservissement
 {\tikzset{external/export=false} 
+\include{tex/chap4}                    % Asservissement
 \include{tex/chap5}                    % Performance
 \include{tex/chap6}                    % Stabilité
 } 
