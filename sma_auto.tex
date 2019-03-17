@@ -401,7 +401,7 @@ cross/.default={1pt}}
 %\includeonly{tex/chap2,tex/annexe1,tex/annexe4}
 %\includeonly{tex/chap2,tex/chap3}
 %\includeonly{tex/chap3}
-\includeonly{tex/chap4}
+%\includeonly{tex/chap4}
 %\includeonly{tex/chap5}
 %\includeonly{tex/chap6}
 %\includeonly{tex/chap1,tex/chap6}
@@ -462,11 +462,11 @@ cross/.default={1pt}}
 \include{tex/chap1}                    % Diagramme bloc
 \include{tex/chap2}                    % Modèles de SLCI
 \include{tex/chap3}                    % Réponse Harmonique
-{\tikzset{external/export=false} 
 \include{tex/chap4}                    % Asservissement
+%{\tikzset{external/export=false} 
 \include{tex/chap5}                    % Performance
 \include{tex/chap6}                    % Stabilité
-} 
+%} 
 \include{tex/chap7}                    % Correction
 \include{tex/chap8}                    % Représentation d'état.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -474,8 +474,7 @@ cross/.default={1pt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{appendices}
-\crefalias{chapter}{appchap}
-\include{tex/annexe1}
+\input{tex/annexe1}
 \include{tex/annexe2}
 \include{tex/annexe3}
 \include{tex/annexe4}
