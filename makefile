@@ -10,7 +10,7 @@ pspdfd:	psd
 	ps2pdf -sPAPERSIZE=a4 ${filename}.ps
 
 pspdf:	ps 
-	ps2pdf -sPAPERSIZE=a4 ${filename}.ps
+	ps2pdf -sPAPERSIZE=a4 -dNOSAFER ${filename}.ps
 
 pdfd: 
 	pdflatex -draftmode ${filename}

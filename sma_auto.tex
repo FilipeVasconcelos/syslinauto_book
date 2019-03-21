@@ -111,7 +111,7 @@ ps2eps -f "\image.ps"
 %figure list=true,prefix=fig/]
 \tikzexternalize[prefix=fig/]
 
-\usepackage{rpcinematik} % liaisons cinématiques normalisées Robert Papnicola
+%\usepackage{rpcinematik} % liaisons cinématiques normalisées Robert Papnicola
 
 \usepackage{booktabs}
 \usepackage{array}
@@ -180,6 +180,7 @@ ps2eps -f "\image.ps"
 \let\ques\question
 \renewcommand{\exercice}[1]{\exo{#1}[\large][\sffamily]}
 \renewcommand{\question}{\ques[\sffamily]}
+\usepackage{routhtab}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -322,7 +323,7 @@ cross/.default={1pt}}
 \put(0,0){%
 \parbox[b][\paperheight]{\paperwidth}{%
 \begin{picture}(0,0)
-\put(50,-130){\includegraphics[width=4cm]{fig/LOGO_ESME_QUADRI.eps}}
+\put(50,-130){\includegraphics[width=4cm]{fig/LOGO_ESME_QUADRI.EPS}}
 \end{picture}
 \vfill
 \centering
@@ -401,9 +402,9 @@ cross/.default={1pt}}
 %\includeonly{tex/chap2,tex/annexe1,tex/annexe4}
 %\includeonly{tex/chap2,tex/chap3}
 %\includeonly{tex/chap3}
-\includeonly{tex/chap4}
+%\includeonly{tex/chap4}
 %\includeonly{tex/chap5}
-%\includeonly{tex/chap6}
+\includeonly{tex/chap6}
 %\includeonly{tex/chap1,tex/chap6}
 %\includeonly{tex/annexe1}
 %\includeonly{tex/annexe2}
@@ -482,8 +483,8 @@ cross/.default={1pt}}
 {\tikzset{external/export=false}
 \include{tex/annexe5}
 \include{tex/annexe6}
-\include{tex/todo}
 }
+%\include{tex/todo}
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

@@ -263,12 +263,11 @@ A_{ij}=-\dfrac{1}{A_{(i-1)1}}\begin{vmatrix} A_{(i-2)1} & A_{(i-2)(j+1)} \\ A_{(
     \tikz[remember picture] \coordinate[shift={(-1ex,-10ex)}](#1);%
 }
 
-\newcommand*{\colrow}[3][]{%
+\renewcommand*{\colrow}[3][]{%
 \tikzset{external/export next=false}
   \tikz[overlay,remember picture, line width=40pt]
     \draw[shorten >=-1.25em, shorten <=-.5em, #1] (#2.north)--(#3.north);
 }                                                                                                                             
-
 Le critère s'applique sur la première colonne (dite des pivots) du tableau de Routh ainsi construit. 
 \[
 \begin{matrix}
@@ -281,16 +280,16 @@ Le critère s'applique sur la première colonne (dite des pivots) du tableau de 
     p^0    \\
 \end{matrix}
 \begin{vmatrix}
-    b_n\DoTikzmarkU{num-1}  & b_{n-2}    & b_{n-4}    & \cdots & b_2        & b_0         \\
+    b_n\DoTikzmarkU{n1}  & b_{n-2}    & b_{n-4}    & \cdots & b_2        & b_0         \\
     b_{n-1}                 & b_{n-3}    & b_{n-5}    & \cdots & b_1        & 0           \\
     A_{31}                  & A_{32}     & A_{33}     & \cdots & A_{3(k-1)} & 0           \\
     A_{41}                  & A_{42}     & A_{43}     & \cdots & 0          & 0           \\
     \vdots                  & \vdots     & \vdots     & \vdots & \vdots     & 0           \\
     A_{(n-1)1}              & A_{(n-1)2} & 0          & \cdots & 0          & 0           \\
-    b_0\DoTikzmarkU{num-2}  & 0          & 0          & \cdots & 0          & 0
+    b_0\DoTikzmarkD{n2}  & 0          & 0          & \cdots & 0          & 0
 \end{vmatrix}
 \]
-\colrow[green,opacity=.2]{num-1}{num-2}
+\colrow[green,opacity=.2]{n1}{n2}
 
 \begin{criteria}{Critère de Routh}
     \textbf{Un système est stable si tous les termes de la colonne des pivots du tableau de Routh sont de même signes.}
@@ -406,14 +405,14 @@ $$
     p^0 \\
 \end{matrix}
 \begin{vmatrix}
-    1\DoTikzmarkU{num-3}     & 3  \\
-    1\DoTikzmarkD{num-4}     & K  \\
+    1\DoTikzmarkU{n3}   & 3  \\
+    1\DoTikzmarkD{n4}     & K  \\
    % \hline
     3-K                      & 0  \\
     K                        & 0    
     \end{vmatrix}
 \]
-\colrow[green,opacity=.2]{num-3}{num-4}
+\colrow[green,opacity=.2]{n3}{n4}
 
 La colonne des pivots sont tous de même signe si $3-K>0$ et $K>0$ (déjà établie par la condition nécessaire de Routh).
 La condition sur $K$ pour que le système soit stable est donc :

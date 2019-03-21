@@ -75,16 +75,16 @@
                     axis x line=center,                                                                            
                     axis y line=center,
                     xmin=-0.5,                                                                                                                    xmax=6.5,
-                    ymin=-0.5,                                                                        
-                    ymax=2.5,
+                    ymin=-1.5,                                                                        
+                    ymax=1.5,
                     xlabel={$t$},
                     ylabel={$s(t)$},
                     xlabel style={below right},
                     ylabel style={right}
                     ]
                     \addplot [very thick,color=black!60!green,domain=0:10, samples=501,unbounded coords=jump]{1.2*sin(4.5*deg(x))*exp(-0.7*x)};
-                    \addplot [thick,dotted,color=black,domain=0:10, samples=501,unbounded coords=jump]{1.2*exp(-0.7*x)+1};
-                    \addplot [thick,dotted,color=black,domain=0:10, samples=501,unbounded coords=jump]{-1.2*exp(-0.7*x)+1};
+                    \addplot [thick,dotted,color=black,domain=0:10, samples=501,unbounded coords=jump]{1.2*exp(-0.7*x)};
+                    \addplot [thick,dotted,color=black,domain=0:10, samples=501,unbounded coords=jump]{-1.2*exp(-0.7*x)};
                     \end{axis}
                 \end{tikzpicture}
             };
@@ -99,16 +99,16 @@
                     axis x line=center,                                                                            
                     axis y line=center,
                     xmin=-0.5,                                                                                                                    xmax=6.5,
-                    ymin=-0.5,                                                                        
-                    ymax=2.5,
+                    ymin=-1.5,                                                                        
+                    ymax=1.5,
                     xlabel={$t$},
                     ylabel={$s(t)$},
                     xlabel style={below right},
                     ylabel style={right}
                     ]
                     \addplot [very thick,color=black!10!green,domain=0:10, samples=501,unbounded coords=jump]{1.2*sin(2.5*deg(x))*exp(-0.5*x)};
-                    \addplot [thick,dotted,color=black,domain=0:10, samples=501,unbounded coords=jump]{1.2*exp(-0.5*x)+1};
-                    \addplot [thick,dotted,color=black,domain=0:10, samples=501,unbounded coords=jump]{-1.2*exp(-0.5*x)+1};
+                    \addplot [thick,dotted,color=black,domain=0:10, samples=501,unbounded coords=jump]{1.2*exp(-0.5*x)};
+                    \addplot [thick,dotted,color=black,domain=0:10, samples=501,unbounded coords=jump]{-1.2*exp(-0.5*x)};
                     \end{axis}
                 \end{tikzpicture}
             };
