@@ -62,6 +62,15 @@ Ces deux définitions sont équivalentes dans le cas des \SLCI.
 \input{tikz/stabilite.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Système asservis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{criteria}{Condition de stabilité d'un système asservi (1)}
+    \textbf{Un système asservi est stable si sa fonction de transfert en boucle fermée 
+    ne possède aucun pôles à partie réelle positive.}
+\end{criteria}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Notion de pôles dominants}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -426,8 +435,8 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Routh s'applique sur la fonction de transfert en boucle fermée, les critères graphiques permettent 
-d'étudier la stabilité du système en boucle ouverte.
+Routh s'applique sur la fonction de transfert en boucle fermée. 
+Les critères graphiques permettent d'étudier la stabilité du système en boucle ouverte.
 
 En effet si l'on considère la boucle de contre réaction unitaire pour l'asservissement d'un système
 de fonction de transfert $H(p)$, telle que : 
@@ -454,7 +463,17 @@ $$
 1+H_{BO}(p)=0\Leftrightarrow H_{BO}(p)=-1
 $$
 Il est alors possible d'étudier la fonction de transfert en boucle ouverte par rapport au point critique du plan complexe 
-$(-1,0)$
+$(-1,0)$.
+Remarquons que les zéros de $1+H_{BO}(p)$ sont les pôles de la fonction de transfert en boucle fermée $H_{BF}(p)$ et
+que les pôles de $H_{BO}(p)$ co\"incident avec les pôles de $H_{BO}(p)$.
+Il est donc possible de réinterpréter la condition stabilité d'un système asservi :
+
+\begin{criteria}{Condition de stabilité d'un système asservi (2)}
+    \textbf{Un système est stable en boucle fermée si sa fonction de transfert en boucle ouverte ne possède aucun 
+    \textbf{zéros} à partie réelle positive.}
+\end{criteria}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Critère du revers de Nyquist}
@@ -550,7 +569,8 @@ $(-1,0)$
 \end{axis}
 \end{tikzpicture}
 \end{center}
-\caption{Représentation schématique de lieux de Nyquist de trois systèmes: stable, critique et instable vérifiant le critère du revers.
+\caption{Représentation schématique de lieux de Nyquist de la fonction de transfert en boucle ouverte de  
+trois systèmes asservis: stable, critique et instable. 
 \label{fig-nyquist_revers}}
 \end{figure}
 
@@ -562,6 +582,69 @@ $(-1,0)$
 \subsubsection{Critère du revers de Black}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{figure}[!h]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}
+    [
+    height=8cm,
+    width=8cm,
+    axis lines = center,
+    axis line style = thick,
+    ticks=none,
+    enlargelimits=false,
+    xlabel=$\phi$,
+    ylabel=$G_{dB}$,
+    xlabel style={below right},
+    ylabel style={left},
+    ymin=-150,
+    ymax=60,
+    xmin=-270,
+    xmax=70
+    ]
+    \def\da{0.6}
+    \def\db{5.0}
+    \def\dk{4}
+    \def\dpp{1.35}
+    \def\colru{blue}
+    \addplot[\colru,thick,domain=1e-2:1e-1,samples=100]({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colru,thick,domain=1e-1:1e0,samples=100,-{Latex[length=2mm]}] ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colru,thick,domain=0.9e0:1e1,samples=100]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \addplot[\colru,thick,domain=1e1:1e2,samples=100]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+%    \addplot[blue,thick,domain=1e2:1e4,samples=200]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    %\addplot[domain=1e1:1e5,samples=100] ({-10*log10(1+x*x)},{x});
+    %\draw[dashed,thick] (axis cs:-180,-200) -- (axis cs:-180,20) ;
+    \draw[draw=none,fill=black] (axis cs:-180,0) circle (1.5pt) node[above] {\tiny$(-180,0\mathrm{dB})$};
+
+    \def\da{0.6}
+    \def\db{1.0}
+    \def\dk{1.5}
+    \def\dpp{0.95}
+    \edef\colrd{green}
+    \addplot[\colrd,thick,domain=1e-2:1e-1,samples=100]({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colrd,thick,domain=1e-1:1e0,samples=100] ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colrd,thick,domain=1e0:1e1,samples=100,-{Latex[length=2mm]}]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \addplot[\colrd,thick,domain=0.9e1:1e2,samples=100]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+%    \addplot[blue,thick,domain=1e2:1e4,samples=200]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \def\da{0.6}
+    \def\db{4.0}
+    \def\dk{1.75}
+    \def\dpp{1.15}
+    \edef\colrt{red}
+    \addplot[\colrt,thick,domain=1e-2:1e-1,samples=100]({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colrt,thick,domain=1e-1:1e0,samples=100] ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colrt,thick,domain=1e0:1e1,samples=100,-{Latex[length=2mm]}]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \addplot[\colrt,thick,domain=0.9e1:1e2,samples=100]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+%    \addplot[blue,thick,domain=1e2:1e4,samples=200]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    %\addplot[domain=1e1:1e5,samples=100] ({-10*log10(1+x*x)},{x});
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{Représentation schématique de lieux de Black de la 
+    fonction de transfert en boucle ouverte de trois systèmes 
+    asservis: stable, critique et instable.
+\label{fig-black_revers}}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Critère du revers de Bode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -578,6 +661,7 @@ est plus générale que le critère du revers. Il s'appuie sur le
 principe de l'argument de Cauchy\footnote{Nous ne donnerons qu'une présentation élémentaire et sans démonstration
 de ce théorème. Un cours d'analyse complexe permettra de compléter cette présentation. On trouvera dans \cite{laas_pc7bis}, 
 une introduction plus détaillée ainsi qu'une bibliographie très fournie sur le sujet.}.
+Nous suivrons la présentation rencontrée dans~\cite{reg}
 
 \paragraph{Théorème du principe de l'argument de Cauchy}
 
@@ -650,7 +734,9 @@ une introduction plus détaillée ainsi qu'une bibliographie très fournie sur l
 \end{axis}
 \end{tikzpicture}
 \end{center}
-    \caption{Représentation de la transformation d'un contour $\mathcal{C}$ en son image par une fonction analytique $F(p)$
+    \caption{Représentation de la transformation d'un contour $\mathcal{C}$ en son image par une fonction analytique $F(p)$.
+    Dans cet exemple la fonction analytique $F(p)$ possède 2 pôles et 3 zéros. Le contour entoure $Z=3$ zéros et $P=1$ pôle.
+    le contour $\Gamma=F(\mathcal{C})$ fait alors $N=Z-P=2$ tours dans le sens trigonométrique.
     \label{fig-contour_cauchy}}
 \end{figure}
 
@@ -662,6 +748,9 @@ une introduction plus détaillée ainsi qu'une bibliographie très fournie sur l
     N=Z-P
     $$
 \end{theorem}
+
+Remarquons que les tours sont comptés positivement dans le sens trigonométrique.
+
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
