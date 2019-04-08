@@ -23,7 +23,10 @@
 \usepackage{rotating}
 \usepackage{epstopdf}
 \usepackage{mathtools}
-\usepackage[squaren,Gray,cdot]{SIunits}
+%\usepackage[squaren,Gray,cdot]{SIunits}
+\usepackage{siunitx}
+\DeclareSIUnit\dec{décade}
+\newcommand*{\degree}{\si{\degree}}
 \usepackage{afterpage}
 \usepackage[dvipsnames]{xcolor}
 %\usepackage{slashbox}
@@ -404,7 +407,7 @@ cross/.default={1pt}}
 %\includeonly{tex/chap3}
 %\includeonly{tex/chap4}
 %\includeonly{tex/chap5}
-\includeonly{tex/chap6}
+%\includeonly{tex/chap6}
 %\includeonly{tex/chap1,tex/chap6}
 %\includeonly{tex/annexe1}
 %\includeonly{tex/annexe2}

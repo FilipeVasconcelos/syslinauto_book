@@ -25,8 +25,8 @@ $$
 e(t)=E_0\sin\omega t 
 $$
 d'amplitude $E_0$ et de pulsation $\omega$\footnote{Strictement, $\omega$ est une 
-pulsation en unité \unit{}{\radian\per\second}, la fréquence associée étant $f=\omega/2\pi$, 
-en \unit{}{\reciprocal\second} ou \unit{}{\hertz}. Cependant, 
+pulsation en unité \si{\radian\per\second}, la fréquence associée étant $f=\omega/2\pi$, 
+en \si{\per\second} ou \si{\hertz}. Cependant, 
 par abus de langage, il est courant de se référer en terme de fréquence en parlant de la pulsation $\omega$. 
 Nous prendrons cependant soin d'utiliser la bonne forme dans nos applications numériques.}.
 Dans le domaine de Laplace, la sortie $S(p)$ est de la forme :
@@ -111,7 +111,7 @@ Considérons un \SLCI~définit par une fonction de transfert $H(p)$ du premier o
 $$
 H(p)=\dfrac{1}{1+p}
 $$
-avec $K=$1, $\tau=\unit{1}{\second}$.
+avec $K=$1, $\tau=\SI{1}{\second}$.
 
 Comme nous venons de le montrer la réponse harmonique est complétement 
 déterminée par la connaissance du module et de l'argument du nombre complexe $H(\jw)$.
@@ -124,12 +124,12 @@ Calculons donc ces deux quantités pour notre fonction de transfert du premier o
     \phi(\omega)&=\arg\left(H(\jw)\right)=-\arctan(\omega\tau)
 \end{align*}
 Le~\cref{tab-1ertemp} présente le module et l'argument pour quelques valeurs particulières de $\omega$ 
-($\omega=0.1$, $1$ et $\unit{10}{\rad\per\second}$).
+($\omega=0.1$, $1$ et $\SI{10}{\radian\per\second}$).
 \begin{table}
     \begin{center}
     \begin{tabular}{M{2.0cm}M{2.0cm}M{2.0cm}M{2.0cm}N}
         \hhline{====}
-        $\omega \unit{}{[\rad\per\second]}$ & $\omega=1$    & $\omega=10$    & $\omega=100$ & \\[1.5em]
+        $\omega \si{[\radian\per\second]}$ & $\omega=1$    & $\omega=10$    & $\omega=100$ & \\[1.5em]
         \hline
         $G(\omega)$     & 0.99          & 0.70       & 0.1 & \\ [1.5em]
         \hline
@@ -137,7 +137,7 @@ Le~\cref{tab-1ertemp} présente le module et l'argument pour quelques valeurs pa
         \hhline{====}
     \end{tabular}
     \caption{Quelques valeurs particulières du gain et de la phase de la fonction de 
-    transfert du premier ordre, pour $K=1$ et $\tau=\unit{1}{\second}$\label{tab-1ertemp}.}
+    transfert du premier ordre, pour $K=1$ et $\tau=\SI{1}{\second}$\label{tab-1ertemp}.}
     \end{center}
 \end{table}
 D'après ces valeurs, nous constatons que le rapport des amplitudes décroit et que le déphasage augmente 
@@ -622,7 +622,7 @@ et la phase s'obtient à partir de l'argument principale du nombre complexe $H(\
     ticklabel style = {font=\footnotesize},
     width=0.9\textwidth,
     height=0.25\textheight,
-    ylabel={Gain (dB)},
+    ylabel={Gain (\si{\decibel})},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-60,-40,-20,0,20,40,60}, 
     xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
@@ -644,7 +644,7 @@ et la phase s'obtient à partir de l'argument principale du nombre complexe $H(\
     ticklabel style = {font=\footnotesize},
     width=0.9\textwidth,
     height=0.25\textheight,
-    xlabel={Pulsation (rad/s)},
+    xlabel={Pulsation (\si{\radian\per\second})},
     ylabel={Phase (degré)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-90,-45,0,45,90}, 
@@ -848,7 +848,7 @@ Le gain de -3dB est la valeur approximative de $20\log{\sqrt{2}}$, communément 
 le gain et la phase se comporte comme, 
 \begin{bequation}[ams align*]
     G_{dB}(\omega)&\sim20\log{K} \\
-    \phi(\omega)&\sim0\degree.
+    \phi(\omega)&\sim0\si{\degree}.
 \end{bequation} 
 
 \`A haute fréquence, c'est à dire lorsque $\tau\omega\gg1$ ou encore $\omega\gg\omega_0$,
@@ -1023,7 +1023,7 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
     (\Cref{eq-1er_ftjw}) (i.e $K=1$, $\tau=1$ et $\omega_c=1$) avec (bleu) le diagramme réel 
     et (rouge) le diagramme asymptotique. On vérifie que les valeurs
     asymptotiques sont de bonnes approximations à basse et haute fréquence. Il est également 
-    possible de lire un gain de -3 dB et une phase de -45\degree à la fréquence de coupure.\label{fig-bode_1er_3}}
+    possible de lire un gain de -3 dB et une phase de -45\si{\degree} à la fréquence de coupure.\label{fig-bode_1er_3}}
 \end{figure}
 %\caption{Diagramme de Bode d'un système du premier ordre $H(p)=(1-\tau p)^{-1}$\label{fig-bode_1er_ms}}
 %\caption{Diagramme de Bode d'un système du premier ordre passe-bas $H(p)=(1+\tau p)^{-1}$.\label{fig-bode_1er_ps}}
@@ -1063,19 +1063,19 @@ $\omega\gg\omega_{c2}$
 \paragraph{Pour $\omega\ll\omega_{c1}$}
 \begin{bequation}[ams align*]
 G_{dB}(\omega)&\sim20\log{K_1K_2}\\
-\phi(\omega)&\sim0\degree
+    \phi(\omega)&\sim0\si{\degree}
 \end{bequation}
 
 \paragraph{Pour $\omega_{c1}<\omega<\omega_{c1}$}
 \begin{bequation}[ams align*]
     G_{dB}(\omega)&\sim20\log{K_1K_2}-20\log{\dfrac{\omega}{\omega_{c1}\omega_{c2}}}\\
-    \phi(\omega)&\sim-90\degree
+    \phi(\omega)&\sim-90\si{\degree}
 \end{bequation}
 
 \paragraph{Pour $\omega\gg\omega_{c2}$}
 \begin{bequation}[ams align*]
     G_{dB}(\omega)&\sim20\log{K_1K_2}-40\log{\dfrac{\omega}{\omega_{c1}\omega_{c2}}}\\
-    \phi(\omega)&\sim-180\degree
+    \phi(\omega)&\sim-180\si{\degree}
 \end{bequation}
 
 La~\cref{fig-bode_1er_serie} présente le diagramme de Bode réel et asymptotique 
@@ -1180,7 +1180,7 @@ Comme précdemment, il est recommandé d'étudier les valeurs asymptotiques du g
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{bequation}[ams align*]
 G_{dB}(\omega)&\sim20\log{K}\\
-\phi(\omega)&\sim0\degree
+    \phi(\omega)&\sim0\si{\degree}
 \end{bequation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1188,7 +1188,7 @@ G_{dB}(\omega)&\sim20\log{K}\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{bequation}[ams align*]
 G_{dB}(\omega)&\sim20\log{K\omega^2_0}-40\log\omega\\
-\phi(\omega)&\sim-180\degree
+    \phi(\omega)&\sim-180\si{\degree}
 \end{bequation}
 La~\cref{fig-bode_2nd_1} présente le diagramme de Bode associé à ces deux fonctions pour $\xi=1$, ainsi que le
 diagramme de Bode asymptotique. La~\cref{fig-bode_2nd_2} présente l'effet du taux d'amortissement $\xi$ sur le diagramme 
@@ -1455,27 +1455,27 @@ pour chacuns de ces élements selon le signe des exposants $\alpha$, $n_i$, et $
         provoque :
         \begin{itemize}
             \item gain  : pente de 20$\alpha$ dB/décade 
-            \item phase : 90$\alpha$\degree
+            \item phase : 90$\alpha$\si{\degree}
         \end{itemize}
     \item un terme $\dfrac{1}{(1+\tau_ip)}$ (i.e premier ordre au dénominateur) provoque, en $\omega=\frac{1}{\tau_i}$
         \begin{itemize}
             \item gain  : une rupture de pente de -20 dB/décade 
-            \item phase : un saut de -90\degree
+            \item phase : un saut de -90\si{\degree}
         \end{itemize}
     \item un terme $(1+\tau_ip)$ (i.e premier ordre au numérateur) provoque, en $\omega=\frac{1}{\tau_i}$
         \begin{itemize}
             \item gain  : une rupture de pente de +20 dB/décade 
-            \item phase : un saut de +90\degree
+            \item phase : un saut de +90\si{\degree}
         \end{itemize}
     \item un terme $\dfrac{1}{(1+2\xi_j\tau_jp+\tau_jp^2)}$ (i.e second ordre au dénominateur) provoque, en $\omega=\frac{1}{\tau_j}$
         \begin{itemize}
             \item gain  : une rupture de pente de -40 dB/décade 
-            \item phase : un saut de -180\degree
+            \item phase : un saut de -180\si{\degree}
         \end{itemize}
     \item un terme $(1+2\xi_j\tau_jp+\tau_jp^2)$ (i.e second ordre au numérateur) provoque, en $\omega=\frac{1}{\tau_j}$
         \begin{itemize}
             \item gain  : une rupture de pente de +40 dB/décade 
-            \item phase : un saut de +180\degree
+            \item phase : un saut de +180\si{\degree}
         \end{itemize}
 \end{itemize}
 
@@ -1516,7 +1516,7 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$
     \hhline{======}
     $G_{dB}(\omega)$ (pente) & 0(40dB)    &-20dB/décade &-20dB/décade & +40dB/décade & -20dB/décade &\\[1em]
     \hline
-    $\phi(\omega)$           & 0\degree   &-90\degree   & -90\degree  & +180\degree  & -90\degree   &\\[1em]
+        $\phi(\omega)$           & 0\si{\degree}   &-90\si{\degree}   & -90\si{\degree}  & +180\degree  & -90\degree   &\\[1em]
     \hhline{======}
     $G_{dB}(\omega)$ total   & 0(40dB)    &-20dB/décade & -40dB/décade& 0(-20dB)     & -20dB/décade &\\[1em]
     \hline

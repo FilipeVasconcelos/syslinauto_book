@@ -135,8 +135,8 @@ mais ces valeurs sont bien déterminées par la distance constante entre deux gr
 Il existe une terminologie pour se référer à des rapport $\alpha$ particuliers, 
 on parle d'\textbf{octave}\footnote{Pour le lecteur mélomane, celà correspond à 
 la définition de l'octave musicale. Par exemple, l'octave supérieur du La (noté La4) 
-de fréquence \unit{440}{\hertz} est de fréquence  
-égale à \unit{880}{\hertz} (noté La3).} lorsque $\alpha=2$ et de \textbf{décade} lorsque $\alpha=10$
+de fréquence \SI{440}{\hertz} est de fréquence  
+égale à \SI{880}{\hertz} (noté La3).} lorsque $\alpha=2$ et de \textbf{décade} lorsque $\alpha=10$
 
 Avec cette terminologie, une atténuation du gain d'une réponse harmonique 
 de -20 dB lorsque la pulsation augmente d'un facteur 10, se dira -20dB/décade ou -6dB/octave.
@@ -298,7 +298,7 @@ Deux fonctions permettent de tracer un diagramme de Bode avec Scilab.
         \item  \verb?bode(syslin,fMin,fMax)? trace le diagramme de Bode réel. Cette fonction 
             prend pour argument \verb?sys? un 
             système linéaire comme défini à l'~\Cref{annexe-scilab}, 
-            \verb?fMin? et \verb?fMax? une fréquence minimal et maximal (en \unit{}{\hertz} 
+            \verb?fMin? et \verb?fMax? une fréquence minimal et maximal (en \si{\hertz} 
             sauf si un 4ème argument est donné). 
         \item  \verb?bode_asymp(syslin,fMin,fMax)? trace le diagramme asymptotique.
 \end{itemize}

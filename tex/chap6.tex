@@ -516,7 +516,7 @@ Il est donc possible de réinterpréter la condition stabilité d'un système as
 \begin{criteria}{Critère du revers (Nyquist)}
 \textbf{Un système est stable en boucle fermée si lorsque parcourant 
         le lieu de Nyquist de la boucle ouverte dans le sens des 
-        pulsations croissantes, on laisse le point critique sur la gauche.}
+        pulsations croissantes, on laisse le point critique sur la \underline{gauche}.}
 \end{criteria}
 
 \begin{figure}[!h]
@@ -616,6 +616,12 @@ trois systèmes asservis: stable, critique et instable.
 \subsubsection{Critère du revers de Black}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{criteria}{Critère du revers dans le plane de Black}
+\textbf{Un système est stable en boucle fermée si lorsque parcourant 
+        le lieu de Black de la boucle ouverte dans le sens des 
+        pulsations croissantes, on laisse le point critique sur la \underline{droite}.}
+\end{criteria}
+
 \begin{figure}[!h]
 \begin{center}
 \begin{tikzpicture}
@@ -684,6 +690,12 @@ trois systèmes asservis: stable, critique et instable.
 \subsubsection{Critère du revers de Bode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{criteria}{Critère du revers dans le plan de Bode}
+\textbf{Un système est stable en boucle fermée si, pour la pulsation $\omega_{c0}$ telle que le module 
+    de la fonction de transfert en boucle ouverte est égal à 1 (c.a.d $H_{BO}(\omega_{c0})=1$ ou encore
+    $\SI{0}{\dB}$) }
+\end{criteria}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -694,11 +706,29 @@ trois systèmes asservis: stable, critique et instable.
 Le critère de Nyquist est également un critère graphique mais 
 est plus générale que le critère du revers. Il s'appuie sur le 
 principe de l'argument de Cauchy\footnote{Nous ne donnerons qu'une présentation élémentaire et sans démonstration
-de ce théorème. Un cours d'analyse complexe permettra de compléter cette présentation. On trouvera dans \cite{laas_pc7bis}, 
+de ce théorème. Un cours d'analyse complexe permettra de compléter cette présentation. On 
+trouvera dans \cite{laas_pc7bis,reg}, 
 une introduction plus détaillée ainsi qu'une bibliographie très fournie sur le sujet.}.
-Nous suivrons la présentation rencontrée dans~\cite{reg}
+Nous suivrons une présentation \og~graphique\fg du critère et de ce théorème à l'instar de~\cite{reg}. 
 
 \paragraph{Théorème du principe de l'argument de Cauchy}
+
+Soit un contour $\mathcal{C}$ parcourant le plan complexe de 
+la variable $p$ dans le sens des aiguilles d'une montre et $F(p)$ une fonction rationnelle 
+ne possédant ni pôle ni zéro sur $\mathcal{C}$. Le théorème du principe de 
+l'argument de Cauchy permet de relier, le nombre de pôles $P$ et de zéros $Z$ entourées par le contour $\mathcal{C}$ 
+au comportement de la courbe $F(\mathcal{C})$ image $F(p)$ de $\mathcal{C}$.
+
+\begin{theorem}{Principe de l'argument de Cauchy} 
+    Si un contour $\mathcal{C}$ contient $Z$ zéros et $P$ pôles d'une fonction analytique $F(p)$ 
+    sans en traverser aucun, alors quand on le parcourt dans le sens anti-trigonométrique, le contour $\Gamma=F(\mathcal{C})$ 
+    fait un nombre de tours autour de l'origine dans le sens trigonométrique égal à,
+    $$
+    N=Z-P
+    $$
+\end{theorem}
+
+On se rapportera à la figure~\cref{fig-contour_cauchy} pour une représentation graphique du théorème.
 
 \begin{figure}[!h]
 \begin{center}
@@ -775,22 +805,15 @@ Nous suivrons la présentation rencontrée dans~\cite{reg}
 \end{center}
     \caption{Représentation de la transformation d'un contour $\mathcal{C}$ en son image par une fonction analytique $F(p)$.
     Dans cet exemple la fonction analytique $F(p)$ possède 2 pôles et 3 zéros. Le contour entoure $Z=3$ zéros et $P=1$ pôle.
-    le contour $\Gamma=F(\mathcal{C})$ fait alors $N=Z-P=2$ tours dans le sens trigonométrique.
+    le contour $\Gamma=F(\mathcal{C})$ fait alors $N=Z-P=2$ tours autour de l'origine dans le sens trigonométrique.
     \label{fig-contour_cauchy}}
 \end{figure}
 
-\begin{theorem}{Principe de l'argument de Cauchy} 
-    Si un contour $\mathcal{C}$ contient $Z$ zéros et $P$ pôles d'une fonction analytique $F(p)$ 
-    sans en traverser aucun, alors quand on le parcourt dans le sens anti-trigonométrique, le contour $\Gamma=F(\mathcal{C})$ 
-    fait un nombre de tours autour de l'origine dans le sens trigonométrique égal à,
-    $$
-    N=Z-P
-    $$
-\end{theorem}
 
 
 Remarquons que les tours sont comptés positivement dans le sens trigonométrique.
 
+\begin{figure}[!h]
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[ticks=none,
@@ -890,6 +913,122 @@ clip=false]
 \end{axis}
 \end{tikzpicture}
 \end{center}
+\caption{Représentation schématique du nombre de tours autour de l'origine de 
+l'image d'une fraction rationnelle d'un contour fermée. Le sens positif 
+est celui du sens trigonométrique.}
+\end{figure}
+
+
+
+\paragraph{Contours de Nyquist et de Bromwich}
+
+Bromwich\footnote{Thomas John I'Anson Bromwich (1875-1929), mathématicien anglais.}
+
+\begin{figure}[!h]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    name=aaa1,
+    ticks=none,
+    axis line style = thick,
+    axis lines = center,
+    height=6cm,
+    width=6cm,
+    ymin=-1.6,
+    ymax=1.6,
+    xmin=-0.8,
+    xmax=2.4,
+    clip=false]
+    \draw[blue,thick,-{Latex[length=2.5mm]}] (axis cs:0,-1.4) -- (axis cs:0,-0.8) ;
+    \draw[blue,thick,-{Latex[length=2.5mm]}] (axis cs:0,-0.85) -- (axis cs:0,0.8) ;
+    \draw[blue,thick]                        (axis cs:0,0.75) -- (axis cs:0,1.4) ;
+    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=90:60] ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=62:-60] ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[blue,very thick,domain=-58:-90] ({1.4*cos(x)},{1.4*sin(x)});
+    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(30)},{1.4*sin(30)}) 
+        node[midway,below right,xshift=-1em] {$R\rightarrow\infty$};
+    \node[below, text width=6cm,text justified,
+    align=center] at (axis cs:0,-1.6) {(a) $H_{BO}$ ne possède aucun pôle ou zéro };
+    \end{axis}
+    \begin{axis}[
+    name=aaa2,
+    at={(aaa1.south east)},xshift=4ex,
+    ticks=none,
+    axis line style = thick,
+    axis lines = center,
+    height=6cm,
+    width=6cm,
+    ymin=-1.6,
+    ymax=1.6,
+    xmin=-0.8,
+    xmax=2.4,
+    clip=false]
+    \draw[blue,thick,-{Latex[length=2.5mm]}] (axis cs:0,-1.4) -- (axis cs:0,-0.7) ;
+    \draw[blue,thick] (axis cs:0,-0.75) -- (axis cs:0,-0.15) ;
+    \addplot[blue,very thick,domain=-90:-50,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[blue,very thick,domain=-51:-52,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[blue,very thick,domain=-50:60,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[blue,very thick,domain=54:90,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
+    \draw[blue,thick,-{Latex[length=2.5mm]}]        (axis cs:0,0.15) -- (axis cs:0,0.7) ;
+    \draw[blue,thick]        (axis cs:0,0.65) -- (axis cs:0,1.4) ;
+    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[blue,very thick,domain=-58:-90,samples=10] ({1.4*cos(x)},{1.4*sin(x)});
+    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(30)},{1.4*sin(30)}) 
+        node[midway,below right,xshift=-1em] {$R\rightarrow\infty$};
+    \addplot[mark=x,black,ultra thick,only marks,mark size=4pt] coordinates{ (0,0) };
+    \node[below, text width=6cm,text justified,align=center] at (axis cs:0,-1.6) 
+        {(b) 0 est un pôle\\ ou zéro de $H_{BO}$};
+    \end{axis}
+    \begin{axis}[
+    at={(aaa2.south east)},xshift=4ex,
+    ticks=none,
+    axis line style = thick,
+    axis lines = center,
+    height=6cm,
+    width=6cm,
+    ymin=-1.6,
+    ymax=1.6,
+    xmin=-0.8,
+    xmax=2.4,
+    clip=false]
+    \draw[blue,thick,-{Latex[length=2.5mm]}] (axis cs:0,-1.4) -- (axis cs:0,-1.0) ;
+    \draw[blue,thick] (axis cs:0,-1.1) -- (axis cs:0,-0.85) ;
+    \addplot[blue,very thick,domain=-90:-50,samples=10] ({0.15*cos(x)},{-0.7+0.15*sin(x)});
+    \addplot[blue,very thick,domain=-51:-52,samples=10] ({0.15*cos(x)},{-0.7+0.15*sin(x)});
+    \addplot[blue,very thick,domain=-50:60,samples=10]  ({0.15*cos(x)},{-0.7+0.15*sin(x)});
+    \addplot[blue,very thick,domain=54:90,samples=10] ({0.15*cos(x)},{-0.7+0.15*sin(x)});
+    \draw[blue,thick,-{Latex[length=2.5mm]}] (axis cs:0,-0.55) -- (axis cs:0,-0.3) ;
+    \draw[blue,thick] (axis cs:0,-0.35) -- (axis cs:0,-0.15) ;
+    \addplot[blue,very thick,domain=-90:-50,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[blue,very thick,domain=-51:-52,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[blue,very thick,domain=-50:60,samples=10]  ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[blue,very thick,domain=54:90,samples=10]   ({0.15*cos(x)},{0.15*sin(x)});
+    \draw[blue,thick,-{Latex[length=2.5mm]}]    (axis cs:0,0.15) -- (axis cs:0,0.4) ;
+    \draw[blue,thick]        (axis cs:0,0.35) -- (axis cs:0,0.55) ;
+    \addplot[blue,very thick,domain=-90:-50,samples=10] ({0.15*cos(x)},{0.7+0.15*sin(x)});
+    \addplot[blue,very thick,domain=-51:-52,samples=10] ({0.15*cos(x)},{0.7+0.15*sin(x)});
+    \addplot[blue,very thick,domain=-50:60,samples=10]  ({0.15*cos(x)},{0.7+0.15*sin(x)});
+    \addplot[blue,very thick,domain=54:90,samples=10]   ({0.15*cos(x)},{0.7+0.15*sin(x)});
+    \draw[blue,thick,-{Latex[length=2.5mm]}]    (axis cs:0,0.85) -- (axis cs:0,1.1) ;
+    \draw[blue,thick]        (axis cs:0,1.0) -- (axis cs:0,1.4) ;
+    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[blue,very thick,domain=-58:-90,samples=10] ({1.4*cos(x)},{1.4*sin(x)});
+    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(30)},{1.4*sin(30)}) 
+          node[midway,below right,xshift=-1em] {$R\rightarrow\infty$};
+    \addplot[mark=x,black,ultra thick,only marks,mark size=4pt] coordinates{ (0,0) (0,-0.7) (0,0.7) };
+    \node[left] at (axis cs:0,0.7) {$p_1$};
+    \node[left] at (axis cs:0,-0.7) {$p_2$};
+    \node[below, text width=6cm,text justified,align=center] at (axis cs:0,-1.6) 
+        {(c) 0, $p_1$ et $p_2$ sont des pôles\\ ou zéros de $H_{BO}$};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{Contours de Nyquist/Bromwich}
+\end{figure}
+
+
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
