@@ -84,25 +84,39 @@ Ces deux définitions sont équivalentes dans le cas des \SLCI.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Routh\footnote{Edward John Routh (1831-1907), mathématicien anglais.}
+Le critère de Routh\footnote{Edward John Routh (1831-1907), mathématicien anglais.}
+est dit algébrique car il s'établit dirctement sur la fonction de transfert en 
+boucle fermée du système asservis. 
 $$
 H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{a_mp^m+a_{m-1}p^{m-1}+\ldots+a_1p+a_0}{b_np^n+b_{n-1}p^{n-1}+\ldots+b_1p+b_0}
 $$
 
-l'équation caractéristique :
+Pour appliquer le critère fondamentale de stabilité à cette fonction de transfert,
+il nous faut étudier \textbf{le polynôme caractéristique}:
 \begin{align}
     D(p)&=0 \nonumber\\
     b_np^n+b_{n-1}p^{n-1}+\ldots+b_1p+b_0 &= 0
 \end{align}
+pour déterminer si ce polynôme possède des racines toutes à partie réelle 
+strictement négative. Les polynômes de ce type sont appelés en mathématiques 
+de dit de Hurwitz\footnote{Adolf Hurwitz (1859-1919), mathématicien allemand.}\footnote{Un polynôme de Hurwitz est un polynôme à coefficients 
+réels dont les racines sont toutes à partie réelle strictement négative.}.
+C'est pourquoi le critère suivant est également connu sous le nom de \textbf{critère de Routh-Hurwitz}.
 
-\begin{criteria}{Condition nécessaire (Routh)}
-    \textbf{Un système d'ordre $n$ est stable si tous les coefficients ($b_i\forall i\neq n$) 
-    de son équation caractéristique sont de même signe que $b_n$.}
+Il est possible de conclure sur la nature des racines d'un polynôme 
+en étudiant ses coéfficients. Le critère de Routh-Hurwitz se base sur cette propriété en 
+posant deux conditions pour établir qu'un polynôme est un polynôme de Hurwitz.
+Dans le cas de l'application de la stabilité des systèmes linéaires asservis, la première conditions'ennonce 
+de la façon suivante :
+\begin{criteria}{Condition nécessaire de Routh-Hurwitz }
+    \textbf{Un système asservis d'ordre $n$ est stable en boucle fermée 
+    si tous les coefficients ($b_i\forall i\neq n$) de son équation caractéristique 
+    sont de même signe que $b_n$.}
 \end{criteria}
 
 Cette condition nécessaire s'avère suffisante si le système est du premier ou du second ordre.
 Pour un ordre supérieur il faut construire le tableau de Routh à partir des coéfficients de $D(p)$,
-pour appliquer un critère suplémentaire. 
+pour appliquer une condition supplémentaire. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Tableau de Routh}
@@ -256,7 +270,6 @@ A_{42}=-\dfrac{1}{A_{31}}\begin{vmatrix} A_{21} & A_{23} \\ A_{31} & A_{33} \end
 
 Et ainsi de suite jusque la dernière ligne du tableau. 
 
-\newpage
 La formule générale pour obtenir l'élément $A_{ij}$ est alors :
 
 \begin{bequation}[ams align]
@@ -269,7 +282,7 @@ A_{ij}=-\dfrac{1}{A_{(i-1)1}}\begin{vmatrix} A_{(i-2)1} & A_{(i-2)(j+1)} \\ A_{(
 }
 \newcommand*{\DoTikzmarkD}[1]{%
 \tikzset{external/export next=false}
-    \tikz[remember picture] \coordinate[shift={(-1ex,-10ex)}](#1);%
+    \tikz[remember picture] \coordinate[shift={(-1ex,-0ex)}](#1);%
 }
 
 \renewcommand*{\colrow}[3][]{%
@@ -300,8 +313,11 @@ Le critère s'applique sur la première colonne (dite des pivots) du tableau de 
 \]
 \colrow[green,opacity=.2]{n1}{n2}
 
-\begin{criteria}{Critère de Routh}
-    \textbf{Un système est stable si tous les termes de la colonne des pivots du tableau de Routh sont de même signes.}
+\begin{criteria}{Critère de Routh-Hurtwitz}
+    \textbf{Un système asservis est stable en boucle fermée
+            si tous les termes de la colonne des pivots 
+            du tableau de Routh du polynôme caractéristique 
+            de la fonction de transfert en boucle fermée sont de même signes.}
 \end{criteria}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -311,35 +327,53 @@ Le nombre de changement de signe, nous donne le nombre de pôles à partie réel
 de la fonction de transfert en boucle fermée.
 
 
-\paragraph{Un propriété du tableau de Routh :}
+\paragraph{Propriétés du tableau de Routh}
 
-Une ligne de zéros pour les coefficients de l'avant-dernière ligne du tableau de
-Routh indique que le polynôme du dénominateur possède une paire de pôles, qui sont racines de l'équation auxiliaire :
-$$
-Ap^2+B=0
-$$
-où $A$ et $B$ sont les coefficients de la ligne précédente du tableau. On peut alors continuer le tableau en remplaçant la
-ligne de coefficients nuls par les coefficients de la dérivée de l'équation auxiliaire.
+Nous énonçons ici quelques propriétés du tableau de Routh 
+pour faciliter ou permettre l'application du critère dans 
+des cas particuliers~\cite{Ostertag}. 
 
-Une ligne de zéro implique la présence d'une paire de racines imaginaires pures
-donnant lieu à une forme sinuso\"idale dans la réponse transitoire.
-Le système diverge en oscillant s'il y a au moins une racines à partie réelle positive,
-ou il converge vers des oscillations entretenues si les autres racines ont toutes une partie réelle négative.
+\begin{itemize}
+    \item Pour simplifier les calculs, il est possible de factorisée par un entier une ligne du tableau.
+    \item Dans le cas où le tableau présente un zéro dans la première 
+          colonne, il est possible de remplacer par une variable $\epsilon$, et de prendre la limite
+          lorsque $\epsilon\rightarrow 0^+$ ou $\epsilon\rightarrow 0^-$ selon le signe de la colonne des pivots
+          qui respecterait le critère.
+    \item Une ligne de zéros pour les coefficients de l'avant-dernière ligne du tableau de
+    Routh indique que le polynôme du dénominateur possède une paire de pôles, qui sont racines de l'équation auxiliaire :
+    $$
+    Ap^2+B=0
+    $$
+    où $A$ et $B$ sont les coefficients de la ligne précédente du tableau. On peut alors continuer le tableau en remplaçant la
+    ligne de coefficients nuls par les coefficients de la dérivée de l'équation auxiliaire.
+    
+    Une ligne de zéro implique la présence d'une paire de racines imaginaires pures
+    donnant lieu à une forme sinuso\"idale dans la réponse transitoire.
+    Le système diverge en oscillant s'il y a au moins une racines à partie réelle positive,
+    ou il converge vers des oscillations entretenues si les autres racines ont toutes une partie réelle négative.
 
-
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Exemple}
+\subsubsection{Exemple d'application du critère de Routh-Hurwitz}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Soit un système asservi caractérisé par le schéma-bloc suivant:
+La particularité du critère de Routh-Hurwitz est de permettre d'étudier les conditions
+de stabilité d'un système en fonction des paramètres de la fonction de 
+transfert en boucle ouverte.
 
+Dans l'exemple ci-dessous, nous allons considérer un système asservi caractérisé 
+par fonction de transfert en boucle ouverte défini par un gain $K$
+dont l'on souhaite déterminer la valeur pour assurer la stabilité du système en boucle fermée.
+
+
+Soit alors un système asservi défini par le schéma-bloc suivant :
 \begin{center}
     \begin{tikzpicture}
         \sbEntree{E}
         \sbComp[5.0]{comp}{E}
         \sbRelier[$E(p)$]{E}{comp}
-        \sbBloc[1.5]{B}{$H(p)=\dfrac{K}{p(p^2+p+3)}$}{comp}
+        \sbBloc[1.5]{B}{$\dfrac{K}{p(p^2+p+3)}$}{comp}
         \sbRelier[$\epsilon$]{comp}{B}
         \sbSortie[5.0]{S}{B}
         \sbRelier[$S(p)$]{B}{S}
@@ -349,24 +383,24 @@ Soit un système asservi caractérisé par le schéma-bloc suivant:
 
 La fonction de transfert en boucle fermée $H_{BF}$ s'écrit :
 $$
-H_{BF}=\dfrac{H(p)}{1+H(p)}=\dfrac{K}{p^3+p^2+3p+K}.
+H_{BF}=\dfrac{H_{BO}(p)}{1+H_{BO}(p)}=\dfrac{K}{p^3+p^2+3p+K}.
 $$
 
 L'équation caractéristique $D(p)$ de $H_{BF}$ est donc 
 $$
 D(p)=p^3+p^2+3p+K,
 $$
-Nous constatons que le système est d'ordre 3 dont les coefficients sont :
+Nous constatons que le système est d'ordre 3 de coefficients :
 \begin{align*}
     b_3&=1\\
     b_2&=1\\
     b_1&=3\\
-    b_0&=K\\
+    b_0&=K
 \end{align*}
 Le critère nécessaire de Routh est donc respecté pour $K>0$.
 
 
-Construisons maintenant le tableau de Routh:
+Construisons maintenant le tableau de Routh, afin d'appliquer le critère de Routh-Hurwitz :
 
 \[
 \begin{matrix}
@@ -424,10 +458,10 @@ $$
 \colrow[green,opacity=.2]{n3}{n4}
 
 La colonne des pivots sont tous de même signe si $3-K>0$ et $K>0$ (déjà établie par la condition nécessaire de Routh).
-La condition sur $K$ pour que le système soit stable est donc :
-$$
+La condition sur $K$ pour que le système soit stable en boucle fermée est donc :
+\[
 0<K<3
-$$
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -606,7 +640,7 @@ trois systèmes asservis: stable, critique et instable.
     \def\db{5.0}
     \def\dk{4}
     \def\dpp{1.35}
-    \def\colru{blue}
+    \def\colru{red}
     \addplot[\colru,thick,domain=1e-2:1e-1,samples=100]({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
     \addplot[\colru,thick,domain=1e-1:1e0,samples=100,-{Latex[length=2mm]}] ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
     \addplot[\colru,thick,domain=0.9e0:1e1,samples=100]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
@@ -614,29 +648,30 @@ trois systèmes asservis: stable, critique et instable.
 %    \addplot[blue,thick,domain=1e2:1e4,samples=200]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
     %\addplot[domain=1e1:1e5,samples=100] ({-10*log10(1+x*x)},{x});
     %\draw[dashed,thick] (axis cs:-180,-200) -- (axis cs:-180,20) ;
-    \draw[draw=none,fill=black] (axis cs:-180,0) circle (1.5pt) node[above] {\tiny$(-180,0\mathrm{dB})$};
+    \node [\colru,right]  at (axis cs:  -260, 40.0)   {\textbf{instable}};                
 
     \def\da{0.6}
     \def\db{1.0}
     \def\dk{1.5}
     \def\dpp{0.95}
-    \edef\colrd{green}
+    \edef\colrd{green!50!black}
     \addplot[\colrd,thick,domain=1e-2:1e-1,samples=100]({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
     \addplot[\colrd,thick,domain=1e-1:1e0,samples=100] ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
     \addplot[\colrd,thick,domain=1e0:1e1,samples=100,-{Latex[length=2mm]}]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
     \addplot[\colrd,thick,domain=0.9e1:1e2,samples=100]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-%    \addplot[blue,thick,domain=1e2:1e4,samples=200]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \node [\colrd,right]  at (axis cs:  -140, -60.0)   {\textbf{stable}};                
+
     \def\da{0.6}
     \def\db{4.0}
     \def\dk{1.75}
     \def\dpp{1.15}
-    \edef\colrt{red}
+    \edef\colrt{blue}
     \addplot[\colrt,thick,domain=1e-2:1e-1,samples=100]({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
     \addplot[\colrt,thick,domain=1e-1:1e0,samples=100] ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
     \addplot[\colrt,thick,domain=1e0:1e1,samples=100,-{Latex[length=2mm]}]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
     \addplot[\colrt,thick,domain=0.9e1:1e2,samples=100]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-%    \addplot[blue,thick,domain=1e2:1e4,samples=200]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-    %\addplot[domain=1e1:1e5,samples=100] ({-10*log10(1+x*x)},{x});
+    \draw[draw=none,fill=black] (axis cs:-180,0) circle (2pt) node[above] {$(-180,0\mathrm{dB})$};
+    \node [\colrt,right]  at (axis cs:  -200, -140.0)   {\textbf{critique}};                
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -687,8 +722,9 @@ Nous suivrons la présentation rencontrée dans~\cite{reg}
     xmax=8
     ]     
     \pgfmathsetseed{3}
-    \draw [decoration={markings, 
-           mark=at position 0.2 with {\arrow[line width=2pt]{latex}}},
+    \draw [
+        decoration={markings,mark=at position 0.2 with {\arrow[line width=2pt]{latex}}},
+        decoration={markings,mark=at position 0.6 with {\arrow[line width=2pt]{latex}}},
            postaction={decorate},
            thick,
            red,
@@ -721,7 +757,9 @@ Nous suivrons la présentation rencontrée dans~\cite{reg}
     ]     
     \def\m{1.0}
     \def\n{2.1}
-    \addplot[decoration={markings,mark=at position 0.1 with {\arrow[line width=2pt]{latex}}},
+    \addplot[
+    decoration={markings,mark=at position 0.1 with {\arrowreversed[line width=2pt]{latex}}},
+    decoration={markings,mark=at position 0.5 with {\arrowreversed[line width=2pt]{latex}}},
     postaction={decorate},
     blue,
     thick,
@@ -731,6 +769,7 @@ Nous suivrons la présentation rencontrée dans~\cite{reg}
     {(1.9,-1.5) (0,-2) (-0.75,0.35) (0.25,1.25) (1,0.25) (-0.25,-0.75) 
     (-1.1,-1.25) (-1.5,-1) (-2,0) (-1.5,1.5)  (0,2)  (0.75,1.9) (2,0)}; 
     \node[blue] (ct) at (axis cs:-2.5,2) {\Large$\Gamma:F(\mathcal{C})$};
+    \draw[draw=none,fill=black] (axis cs:0,0) circle (2pt);
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -749,8 +788,108 @@ Nous suivrons la présentation rencontrée dans~\cite{reg}
     $$
 \end{theorem}
 
+
 Remarquons que les tours sont comptés positivement dans le sens trigonométrique.
 
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[ticks=none,
+axis line style = thick,
+axis lines = center,
+height=5cm,
+width=5cm,
+ymin=-1.4,
+ymax=1.4,
+xmin=-1.4,
+xmax=1.4,
+clip=false]
+\input{tikz/3tours_r.tex}
+\draw[draw=none,fill=black] (axis cs:0.0,0.0) circle (2pt);
+\node[below] at (axis cs:0,-1.4) {$N=-3$};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}[ticks=none,
+axis line style = thick,
+axis lines = center,
+height=5cm,
+width=5cm,
+ymin=-1.4,
+ymax=1.4,
+xmin=-1.4,
+xmax=1.4,
+clip=false]
+\input{tikz/2tours_r.tex}
+\draw[draw=none,fill=black] (axis cs:0.0,0.0) circle (2pt);
+\node[below] at (axis cs:0,-1.4) {$N=-2$};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}[ticks=none,
+axis line style = thick,
+axis lines = center,
+height=5cm,
+width=5cm,
+ymin=-1.4,
+ymax=1.4,
+xmin=-1.4,
+xmax=1.4,
+clip=false]
+\input{tikz/1tour_r.tex}
+\draw[draw=none,fill=black] (axis cs:0.0,0.0) circle (2pt);
+\node[below] at (axis cs:0,-1.4) {$N=-1$};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[ticks=none,
+axis line style = thick,
+axis lines = center,
+height=5cm,
+width=5cm,
+ymin=-1.4,
+ymax=1.4,
+xmin=-1.4,
+xmax=1.4,
+clip=false]
+\input{tikz/1tour.tex}
+\draw[draw=none,fill=black] (axis cs:0,0) circle (2pt);
+\node[below] at (axis cs:0,-1.4) {$N=1$};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}[ticks=none,
+axis line style = thick,
+axis lines = center,
+height=5cm,
+width=5cm,
+ymin=-1.4,
+ymax=1.4,
+xmin=-1.4,
+xmax=1.4,
+clip=false]
+\input{tikz/2tours.tex}
+\draw[draw=none,fill=black] (axis cs:0,0) circle (2pt);
+\node[below] at (axis cs:0,-1.4) {$N=2$};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}[ticks=none,
+axis line style = thick,
+axis lines = center,
+height=5cm,
+width=5cm,
+ymin=-1.4,
+ymax=1.4,
+xmin=-1.4,
+xmax=1.4,
+clip=false]
+\input{tikz/3tours.tex}
+\draw[draw=none,fill=black] (axis cs:0,0) circle (2pt);
+\node[below] at (axis cs:0,-1.4) {$N=3$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
