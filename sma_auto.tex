@@ -8,8 +8,15 @@
 \addto\captionsfrench{\def\tablename{Tableau}}
 \addto\captionsfrench{\renewcommand\appendixname{Annexe}\renewcommand\appendixpagename{Annexes}
 }
+\usepackage[type={CC},
+            modifier={by-sa},
+            imagemodifier={-eu},
+            imageposition=right,
+            version={4.0},
+           ]{doclicense}
+\usepackage{ifthen}
 \usepackage[skip=0.3cm,hypcap=false]{caption} 
-\captionsetup{width=.8\linewidth} 
+\captionsetup{width=.85\linewidth} 
 \usepackage[french]{minitoc}
 %\usepackage[multiple]{footmisc}
 %\usepackage{pdfpages}
@@ -20,6 +27,7 @@
 \usepackage{lscape}
 \usepackage{enumitem}
 \usepackage{pifont}
+\usepackage{setspace}
 \usepackage{rotating}
 \usepackage{epstopdf}
 \usepackage{mathtools}
@@ -36,33 +44,20 @@
 \usepackage[colorlinks]{hyperref}
 \usepackage{url} % url dans bibtex
 \usepackage[hyphenbreaks]{breakurl} 
-\usepackage[ucmark,toc,hyperfirst=false]{glossaries}
+%\usepackage[ucmark,toc,hyperfirst=false]{glossaries}
+\usepackage[abbreviations,symbols,nogroupskip,nonumberlist]{glossaries-extra}
 \makeglossaries
-\loadglsentries{tex/glossary}
-\usepackage[french,nameinlink,noabbrev]{cleveref}
-\DeclareRobustCommand{\abbrevcrefs}{%
-    \crefname{figure}{Fig.}{Figs.}%
-    \crefname{equation}{\'Eq.}{\'Eqs.}%
-    \crefname{table}{Tab.}{Tabx.}%
-}
-\DeclareRobustCommand{\cshref}[1]{{\abbrevcrefs\cref{#1}}}
-\crefname{appchap}{Annexe}{Annexes}
+%\DeclareRobustCommand{\abbrevcrefs}{%
+%    \crefname{figure}{Fig.}{Figs.}%
+%    \crefname{equation}{\'Eq.}{\'Eqs.}%
+%    \crefname{table}{Tab.}{Tabx.}%
+%}
+%\DeclareRobustCommand{\cshref}[1]{{\abbrevcrefs\cref{#1}}}
 \usepackage{tocbibind}
 %\usepackage{blindtext}
 \usepackage{float}
 \usepackage{titletoc}%
 \usepackage[page]{appendix}
-\usepackage{
-    % babel,
-    % hyperref,
-    % hyperxmp,
-}
-\usepackage[type={CC},
-            modifier={by-sa},
-            imagemodifier={-eu},
-            imageposition=right,
-            version={4.0},
-           ]{doclicense}
 
 \makeatletter
 
@@ -82,7 +77,7 @@
 \makeatother
 
 %\usepackage{pdfcrop}
-\usepackage{lscape}
+%\usepackage{lscape}
 \usepackage{lipsum}
 %\usepackage{adjustbox}
 \usepackage{etoolbox}
@@ -104,6 +99,8 @@
 \usetikzlibrary{external}
 %\usepgfplotslibrary{external}
 \usepackage{amsmath,amsthm,amssymb}
+\usepackage[french,nameinlink,noabbrev]{cleveref}
+\crefname{appchap}{Annexe}{Annexes}
 \tikzset{external/system call={latex \tikzexternalcheckshellescape 
 -halt-on-error  -interaction=batchmode -jobname "\image" "\texsource"; 
 dvips -o "\image".ps "\image".dvi;
@@ -166,7 +163,7 @@ ps2eps -f "\image.ps"
 % à compléter...
 \newcommand*{\acpl}{\emph{à compléter}\ldots}
 \newcommand*{\todo}[1]{\emph{TODO : #1}}
-\newcommand*{\SLCI}{\emph{{\scshape Slci}}}
+%\newcommand*{\SLCI}{\emph{{\scshape Slci}}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -186,6 +183,10 @@ ps2eps -f "\image.ps"
 \usepackage{routhtab}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\loadglsentries{tex/glossary}
+\loadglsentries{tex/symbole}
+
 
 %tikz
 \newcommand{\AxisRotator}[1][rotate=0]{%
@@ -407,7 +408,7 @@ cross/.default={1pt}}
 %\includeonly{tex/chap3}
 %\includeonly{tex/chap4}
 %\includeonly{tex/chap5}
-%\includeonly{tex/chap6}
+\includeonly{tex/chap1,tex/chap6}
 %\includeonly{tex/chap1,tex/chap6}
 %\includeonly{tex/annexe1}
 %\includeonly{tex/annexe2}
@@ -459,6 +460,7 @@ cross/.default={1pt}}
 \dominitoc
 \tableofcontents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\mainmatter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include{tex/avantpropos}              % Introduction Générale 
@@ -506,7 +508,10 @@ cross/.default={1pt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
+\setlength{\glsdescwidth}{0.8\textwidth}
+\doublespacing
 \printglossary[title={Glossaire}]
+\printunsrtglossary[type=symbols,style=long,title={Liste des Symboles}]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

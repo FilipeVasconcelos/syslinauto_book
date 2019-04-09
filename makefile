@@ -10,7 +10,7 @@ pspdfd:	psd
 	ps2pdf -sPAPERSIZE=a4 ${filename}.ps
 
 pspdf:	ps 
-	ps2pdf -sPAPERSIZE=a4 -dNOSAFER ${filename}.ps
+	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${filename}.ps
 
 pdfd: 
 	pdflatex -draftmode ${filename}
@@ -49,6 +49,8 @@ psd: dvid
 dvi:
 	latex --shell-escape ${filename}
 	bibtex ${filename} ||true
+	makeindex ${filename}
+	makeglossaries ${filename}
 	latex ${filename}
 	latex ${filename}
 dvi-simple:

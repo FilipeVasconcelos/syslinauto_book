@@ -2,16 +2,18 @@
 \chapter[Schéma fonctionnels]{Schémas fonctionnels et graphes de fluence\label{chap-schemabloc}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\minitoc
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dans ce chapitre, nous allons introduire un outil graphique pour faciliter 
 la représentation des relations mathématiques entre les différents 
-éléments constituants un \SLCI. Cet outil est le \textbf{schéma fonctionnel} ou 
+éléments constituants un \gls{slci}. Cet outil est le \textbf{schéma fonctionnel} ou 
 également appelé \textbf{schéma-blocs}. Les schémas fonctionnels nous seront très 
 utiles pour l'étude des systèmes asservis. Dans une dernière partie nous introduirons 
 les graphes de fluence, comme présenté dans~\cite{Ostertag}. Même si ces derniers 
-sont moins utilisés pour l'étude \SLCI, l'algèbre qui lui est 
+sont moins utilisés pour l'étude \gls{slci}, l'algèbre qui lui est 
 associée s'avère bien plus éfficace et pourra être utilisé dans d'autres 
 applications (ex : éléctronique, réseaux de neurones).
 
@@ -751,7 +753,7 @@ Enfin, il nous suffit de réduire la boucle de contre-réaction $B_2$ par la for
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous discutons ici d'une approche sensiblement différente 
 pour la représentation graphique des relations mathématiques 
-intervenants dans les \SLCI. Cette partie est largement
+intervenants dans les \gls{slci}. Cette partie est largement
 inspirée de~\cite{Ostertag}. Elle peut être omise au cours 
 d'une première lecture. L'algèbre de ces graphes de fluence
 est cependant très éfficace et trouve de nombreuses applications 
@@ -1077,9 +1079,8 @@ S=E\sum_k^n H^k-H^{n+1}S
 \end{align*}
 Pour $n\rightarrow\infty$, on reconnait la série géométrique $\sum_k^nH^k=\frac{1}{1-H}$ et $H^{n+1}\rightarrow 0$ pour $|H|<1$.
 La sortie $S$ tend donc bien vers la fonction de transfert attendue, seulement si $|H|<1$. 
-Cette dernière condition peut être interprétée comme une limite du gain de la fonction de 
-transfert dans le cas d'une fonction de transfert unitaire.
-}
+Cette dernière condition pourra être interprétée comme une limite de stabilité du gain 
+de la fonction de transfert dans le cas d'un système dans une boucle de contre réaction.}
 \begin{center}
     \begin{tikzpicture}
         \gfEntree[0][-10][+]{$E$}{E}

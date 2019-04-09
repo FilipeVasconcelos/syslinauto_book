@@ -7,6 +7,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\minitoc
+\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -21,7 +23,7 @@ nos amis anglo-saxons, on rencontre le concept de BIBO (\og bounded input bounde
 
 \textbf{Un système est dit stable lorsque écarté de sa position d'équilibre, il tend à y revenir}
 
-Ces deux définitions sont équivalentes dans le cas des \SLCI. 
+Ces deux définitions sont équivalentes dans le cas des \gls{slci}. 
 
 \begin{figure}[!h]
     \centering
@@ -507,6 +509,11 @@ Il est donc possible de réinterpréter la condition stabilité d'un système as
     \textbf{zéros} à partie réelle positive.}
 \end{criteria}
 
+Nous allons établir un critère que nous pourrons appliquer sur la réponse harmonique et les différentes représentation
+de cette réponse.
+
+    Supposons un système asservi par une boucle de contre-réaction unitaire
+décrit par la fonction de transfert en boucle ouverte $H_{BO}(p)=\dfrac{S(p)}{\epsilon(p)}$
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -530,8 +537,8 @@ Il est donc possible de réinterpréter la condition stabilité d'un système as
     ticks=none,
     axis line style = thick,
     enlargelimits=false,
-    xlabel=$\Re\left(H(\jw)\right)$,
-    ylabel=$\Im\left(H(\jw)\right)$,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
     xlabel style={below right},
     ylabel style={left},
     ymin=-4,
@@ -690,11 +697,105 @@ trois systèmes asservis: stable, critique et instable.
 \subsubsection{Critère du revers de Bode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{criteria}{Critère du revers dans le plan de Bode}
-\textbf{Un système est stable en boucle fermée si, pour la pulsation $\omega_{c0}$ telle que le module 
-    de la fonction de transfert en boucle ouverte est égal à 1 (c.a.d $H_{BO}(\omega_{c0})=1$ ou encore
-    $\SI{0}{\dB}$) }
+Il est possible d'appliquer le critère du revers au lieu de transfert de Bode
+en boucle ouverte. Le point critique
+dans le plan de Bode est représenté par deux verticales coupant les deux graphes en gain et en déphasage.
+De ce fait il faut vérifier deux conditions pour respecter le critère du revers dans le plan de Bode
+
+\begin{criteria}{Critère du revers dans le plan de Bode (1)}
+\textbf{Un système est stable en boucle fermée si, pour la pulsation $\omega_{1}$ telle que le module 
+    de la fonction de transfert en boucle ouverte est égal à 1 (c.a.d $H_{BO}(\omega_{1})=1$ 
+    ou $\SI{0}{\dB}$), le déphasage $\phi(\omega_1)$ est supérieur à -180\degree}
 \end{criteria}
+
+\begin{criteria}{Critère du revers dans le plan de Bode (2)}
+    \textbf{Un système est stable en boucle fermée si, pour la pulsation $\omega_{c}$ (pulsation critique)
+    telle que l'argument la fonction de transfert en boucle ouverte (déphasage) est 
+    égale à -180\degree (c.a.d $\phi(\omega_c)=-180\degree$), le gain $G_{dB}(\omega_c)$ est négatif.}
+\end{criteria}
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        name=axx,
+        ticks=none,
+        axis line style = thick,
+        xmode=log,
+        enlargelimits=false,
+        height=5cm,
+        width=9cm,
+        axis x line=center,
+        axis y line=left,
+        xmin=1e-2,
+        xmax=1e2,
+        ymin=-60,
+        ymax=80,
+        xlabel={$\log\omega$},
+        xlabel style={below right},
+        ylabel={$G_{dB}(\omega)$},
+        ylabel style={left,rotate=-90,yshift=3.25em},
+        clip=false,
+        ]
+        \def\dk{9}
+        \addplot[ultra thick,color=red,domain=1e-2:1e2  , samples=101]{\dk+50-20*log10(1+10*x*x)};
+        \addplot[ultra thick,color=blue,domain=1e-2:1e2  , samples=101]{\dk+30-20*log10(1+10*x*x)};
+        \addplot[ultra thick,color=green!50!black,domain=1e-2:1e2,samples=101]{\dk+10-20*log10(1+10*x*x)};
+        \addplot [green!50!black, mark = *]  coordinates {(3.0077,{\dk+10-20*log10(1+10*3.0077*3.0077)})} {};
+        \addplot [blue, mark = *]            coordinates {(3.0077,{\dk+30-20*log10(1+10*3.0077*3.0077)})} {};
+        \addplot [red, mark = *]             coordinates {(3.0077,{\dk+50-20*log10(1+10*3.0077*3.0077)})} {};
+        \draw[green!50!black,dashed] (1e-2,{\dk+10-20*log10(1+10*3.0077*3.0077)}) 
+        node[left] {$G(\omega_c)$} -- (3.0077,{\dk+10-20*log10(1+10*3.0077*3.0077)}) ;
+        \draw[red,dashed] (1e-2,{\dk+50-20*log10(1+10*3.0077*3.0077)}) 
+        node[left] {$G(\omega_c)$} -- (3.0077,{\dk+50-20*log10(1+10*3.0077*3.0077)}) ;
+        \node (pt1) at (axis cs:3.0077,80) {};
+        \draw[]  (1e-2,0)  node[left] {\SI{0}{\dB}} -- (1e2,0) ;
+        \node [green!50!black,right]  at (axis cs: 1e2, -80.0) {\textbf{stable}  };                
+        \node [blue          ,right]  at (axis cs: 1e2, -60.0) {\textbf{critique}};                
+        \node [red           ,right]  at (axis cs: 1e2, -40.0) {\textbf{instable}};                
+        \end{axis}
+        \begin{axis}[
+        at={(axx.below south west)},yshift=-0.2cm,anchor=north west,
+        ticks=none,
+        axis line style = thick,
+        xmode=log,
+        enlargelimits=false,
+        height=5cm,
+        width=9cm,
+        axis x line=center,
+        axis y line=left,
+        xmin=1e-2,
+        xmax=1e2,
+        ymin=-270,
+        ymax=40,
+        xlabel={$\log\omega$},
+        xlabel style={below right},
+        ylabel={$\hphantom{_DB}\phi(\omega)$},
+        ylabel style={left,rotate=-90,yshift=3.25em},
+        clip=false,
+        ]
+        \addplot[ultra thick,color=black,domain=1e-2:1e2, samples=101,unbounded coords=jump]{-2.5*atan2(x,1)};
+%        \draw[blue,dashed] (1e1,{-atan2(1e1,1)})  -- node[left,yshift=0.5em] {$\omega_2$} (1e1,77) ;
+%        \draw[red,dashed]  (2e0,{-atan2(2e0,1)})  -- node[left,yshift=-0.5em] {$\omega_1$} (2e0,100) ;
+%        \draw[blue,dashed] (1e-2,{-atan2(1e1,1)}) node[left] {$\phi(\omega_2)$} -- (1e1,{-atan2(1e1,1)}) ;
+        \def\ttt{0.865}
+        \def\ddd{9.1}
+        \addplot [green!50!black, mark = *]  coordinates {(\ttt,{-2.5*atan2(\ttt,1)})} {};
+        \addplot [blue, mark = *]            coordinates {(3.0077,{-2.5*atan2(3.0077,1)})} {};
+        \addplot [red, mark = *]             coordinates {(\ddd,{-2.5*atan2(\ddd,1)})} {};
+     \draw[green!50!black,dashed] (1e-2,{-2.5*atan2(\ttt,1)}) node[left] {$\phi(\omega_1)$} -- (\ttt,{-2.5*atan2(\ttt,1)}) ;
+     \draw[red,dashed]  (1e-2,{-2.5*atan2(\ddd,1)}) node[left] {$\phi(\omega_1)$} -- (\ddd,{-2.5*atan2(\ddd,1)}) ;
+        \draw[black,dashed]  (1e-2,-180)  node[left] {-180$\degree$} -- (1e2,-180) ;
+        \end{axis}
+        \draw[green!50!black,dashed] ($(pt1)+(-1,0)$) node[above] {$\omega_1$} -- + (0,-7.5cm) ;
+        \draw[blue ,dashed] ($(pt1)+(0,0)$) node[above,text width=1cm,align=center] {$\omega_c$\\$\omega_1$} -- + (0,-7.5cm) ;
+        \draw[red,dashed] ($(pt1)+(0.9,0)$) node[above] {$\omega_1$} -- + (0,-7.5cm) ;
+\end{tikzpicture}
+\caption{Représentation schématique de lieux de Bode de la
+    fonction de transfert en boucle ouverte de trois systèmes
+        asservis: stable, critique et instable.}
+\end{figure}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

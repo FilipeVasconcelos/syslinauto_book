@@ -11,7 +11,7 @@ imaginaire pur est généralement noté $i$. Ici nous utilisons la convention de
 pas confondre $i$ avec l'intensité du courant.}.
 
 Un nombre complexe est donc composé d'une partie 
-réel $\Re(z)=x$ et d'une partie imaginaire $\Im(z)=y$.
+réel $\Re{z}=x$ et d'une partie imaginaire $\Im{z}=y$.
 
 Un nombre complexe peut être représenté géométriquement dans un plan 
 (dit complexe), pour lequel l'abscisse et l'ordonné d'un 
@@ -20,7 +20,7 @@ point du plan correspondent respectivement
 \paragraph{Définition du conjugué d'un nombre complexe}
 Le conjugué de $z$ est le nombre noté $\bar{z}$ tel que :
 $$
-\bar{z}=\Re(z)-j\Im(z)=x-jy
+\bar{z}=\Re{z}-j\Im{z}=x-jy
 $$
 
 Dans la représentation géométrique le conjugé $\bar{z}$ est le symétrique de $z$ 
@@ -39,8 +39,8 @@ par rapport à l'axe des réels (\Cref{fig-plan_complexe}).
 %    grid=both,
     minor tick num=1,
     ticks=both,
-    xlabel=$\Re(z)$,
-    ylabel=$\Im(z)$,
+    xlabel=$\Re{z}$,
+    ylabel=$\Im{z}$,
     ymin=-4,
     ymax=+4.9,
     xmin=-5,
@@ -70,12 +70,12 @@ par rapport à l'axe des réels (\Cref{fig-plan_complexe}).
 
 \paragraph{Définition du module d'un nombre complexe}
 Le module d'un nombre complexe noté $|z|$ est la 
-racine carrée de la somme des carrés de $\Re(z)$ et de $\Im(z)$, 
+racine carrée de la somme des carrés de $\Re{z}$ et de $\Im{z}$, 
 autrement dit, 
 $$
 |z|=\sqrt{x^2+y^2},
 $$
-où $x=\Re(z)$ et $y=\Im(z)$ comme définit précedemment.
+où $x=\Re{z}$ et $y=\Im{z}$ comme définit précedemment.
 
 Dans le plan complexe, le module $|z|$ correspond à la distance à l'origine du 
 point correspondant à $z$ dans le plan complexe.
@@ -105,8 +105,8 @@ Soient $z_1$ et $z_2$ deux nombres complexes.
 %    grid=both,
     minor tick num=1,
     ticks=both,
-    xlabel=$\Re(z)$,
-    ylabel=$\Im(z)$,
+    xlabel=$\Re{z}$,
+    ylabel=$\Im{z}$,
     ymin=-4,
     ymax=+4.9,
     xmin=-5,
@@ -140,7 +140,7 @@ L'argument est définit à $2\pi$ près. On appelle argument principal celui qui
 \paragraph{Propriétés de l'argument}
 Soient $z$, $z_1$ et $z_2$ des nombres complexes.
 \begin{itemize}
-    \item $\cos\theta=\dfrac{\Re(z)}{|z|}$; $\sin\theta=\dfrac{\Im(z)}{|z|}$
+    \item $\cos\theta=\dfrac{\Re(z)}{|z|}$; $\sin\theta=\dfrac{\Im{z}}{|z|}$
     \item $\arg(z_1z_2)=\arg(z_1)+\arg(z_2)$; $\arg(\bar{z})=\arg(z)$
     \item $\arg(-z)=\pi+\arg(z)[2\pi]$; $\arg\left(\dfrac{1}{z}\right)=-\arg(z)[2\pi]$
     \item $\arg\left(\dfrac{z_1}{z_2}\right)=\arg(z_1)-\arg(z_2)[2\pi]$ pour $z_2\neq0$

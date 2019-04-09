@@ -1,5 +1,7 @@
-\chapter[Systèmes linéaires, continus\ldots]{Systèmes linéaires continus et invariants\label{chap-SLCI}}     
-
+\chapter[Systèmes linéaires, continus\ldots]{Systèmes linéaires continus et invariants\label{chap-SLCI}}
+\adjustmtc
+\minitoc
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
@@ -40,7 +42,7 @@ Analogique, numérique et discret.
 \subsection{Propriétés générales des signaux analogiques}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 
-Un signal d'entrée ou de sortie d'un \SLCI~sera modélisé par 
+Un signal d'entrée ou de sortie d'un \gls{slci}~sera modélisé par 
 une fonction continue du temps. Formellement, par une fonction $s$ telle que :
 
 \begin{align*}
@@ -254,9 +256,9 @@ et son analyse fera l'objet de tout un chapitre (\Cref{chap-anafreq}).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 La transformée de Laplace\footnote{Pierre-Simon de Laplace, (1749-1827) 
 mathématicien, astronome, physicien et homme politique français} est l'outil indispensable 
-pour l'étude des \SLCI. Celle-çi nous sera très utile pour 
+pour l'étude des \gls{slci}. Celle-çi nous sera très utile pour 
 la résolution des équations différentielles 
-régissant nos \SLCI~et nous permettra 
+régissant nos \gls{slci}~et nous permettra 
 de définir la notion de fonction de transfert entre une entrée 
 et une sortie d'un système.
 
@@ -272,7 +274,7 @@ S(p)=\laplace{s(t)}=\int_{0}^{+\infty} e^{-pt}s(t)\dd{t}.\label{eq-lap}
 
 
 On dit également que \textbf{$S(p)$ est l'image dans le domaine de 
-Laplace de la fonction $s(t)$ du domaine temporelle.}
+Laplace de la fonction $s(t)$ du domaine temporel.}
 De plus la transformée $S(p)$ de $s(t)$ est unique et parfaitement définie. 
 Connaissant $S(p)$ on en déduit $s(t)$
 par la transformation inverse 
@@ -428,7 +430,7 @@ $$
 \laplace{\devi{s(t)}{n}}=p^nS(p)
 $$
 
-Remarquons alors que \textbf{dériver dans le domaine temporelle consiste à multiplier par 
+Remarquons alors que \textbf{dériver dans le domaine temporel consiste à multiplier par 
 $p$ dans le domaine de Laplace.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Intégration}
@@ -451,7 +453,7 @@ ou encore
 \begin{bequation}[ams align]
     \laplace{\int_{0}^{t}s(\tau)\dd{\tau}}=\dfrac{S(p)}{p}
 \end{bequation}
-Remarquons alors que \textbf{intégrer dans le domaine temporelle consiste à diviser par $p$ 
+Remarquons alors que \textbf{intégrer dans le domaine temporel consiste à diviser par $p$ 
 dans le domaine de Laplace.}
 
 
@@ -492,7 +494,7 @@ et par l'application de la transformée de Laplace\footnote{Dans le cas particul
 de cette équation différentielle, on observera que la méthode classique est plus 
 facile à mettre en oeuvre. Ceci n'est pas toujours le cas. 
 Comme nous le verrons la transformée de Laplace devient totalement indispensable pour la 
-définition de la fonction de transfert d'un \SLCI.}.
+définition de la fonction de transfert d'un \gls{slci}.}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Résolution par la méthode \og classique\fg}
@@ -616,7 +618,7 @@ qui réalise ce lien.
 \section{Fonction de Transfert}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Comme nous l'avons déjà discuté, un \SLCI~est par définition représenté par 
+Comme nous l'avons déjà discuté, un \gls{slci}~est par définition représenté par 
 une équation différentielle 
 à coefficients constants,
 
@@ -653,7 +655,7 @@ Cette fonction $H(p)$ est également appelé \textbf{transmittance}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 D'après la loi fréquentielle (\Cref{eq-lfreq}), la fonction de transfert 
-d'un \SLCI~peut s'écrire sous la forme d'une fraction rationnelle,
+d'un \gls{slci}~peut s'écrire sous la forme d'une fraction rationnelle,
 \begin{bequation}[ams align]
 H(p)=\dfrac{\sum\limits_{i=0}^{m}b_ip^i}{\sum\limits_{i=0}^{n}a_ip^i}. \label{eq-ftgen}
 \end{bequation}

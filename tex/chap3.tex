@@ -1,10 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter[Analyse fréquentielle]{Analyse fréquentielle et représentation graphique\label{chap-anafreq}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\minitoc
+\newpage
 
 %\section{Introduction}
 
-Dans ce chapitre, nous allons établir la forme de la réponse d'un \SLCI~à une entrée sinuso\"idale, dite 
+Dans ce chapitre, nous allons établir la forme de la réponse d'un \gls{slci}~à une entrée sinuso\"idale, dite 
 \textbf{réponse harmonique} en régime permanent.
 Nous présenterons ensuite en détail les différentes représentations graphiques qui 
 constitueront l'\textbf{analyse fréquentielle} de cette réponse harmonique.
@@ -19,7 +21,7 @@ Nous verrons en fin de chapitre une étude du transitoire dans des cas usuels.
 %à une réponse harmonique dépendant de la fréquence d'excitation. 
 %Nous allons ici établir la forme de cette réponse.
 
-Soit un \SLCI~définit par une fonction de transfert $H(p)$ auquel on applique 
+Soit un \gls{slci}~défini par une fonction de transfert $H(p)$ auquel on applique 
 une entrée sinuso\"idale $e(t)$ tel que :
 $$
 e(t)=E_0\sin\omega t 
@@ -85,7 +87,7 @@ où l'on reconnait la forme exponentielle de la fonction sinus qui nous permet d
     s(t)=E_0|H(\jw)|\sin{(\omega t+\phi)}\label{eq-rh}
 \end{bequation}
 
-Cette relation exprime que \textbf{l'excitation d'un {\protect{\SLCI}}~par une entrée sinuso\"idale donne 
+Cette relation exprime que \textbf{l'excitation d'un {\protect{\gls{slci}}}~par une entrée sinuso\"idale donne 
 lieu, en régime permanent, à une réponse harmonique dépendant de la fréquence d'excitation dont 
 le gain en amplitude et la phase sont respectivement donné par le module et l'argument de la fonction
 de transfert du système.}
@@ -104,10 +106,10 @@ une fonction de la pulsation d'excitation, nous la noterons donc $\phi(\omega)$ 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Exemple de réponse harmonique dans le domaine temporelle}
+\subsection{Exemple de réponse harmonique dans le domaine temporel}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\index{Système du 1er ordre ! Réponse harmonique dans le domaine temporelle}
-Considérons un \SLCI~définit par une fonction de transfert $H(p)$ du premier ordre (\Cref{eq-ft1er}) de forme canonique:
+\index{Système du 1er ordre ! Réponse harmonique dans le domaine temporel}
+Considérons un \gls{slci}~définit par une fonction de transfert $H(p)$ du premier ordre (\Cref{eq-ft1er}) de forme canonique:
 $$
 H(p)=\dfrac{1}{1+p}
 $$
@@ -259,12 +261,12 @@ de l'amplitude lorsque la fréquence d'excitations augmente.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Comme nous venons de le voir, il est possible d'étudier
-la réponse harmonique (en régime permanent) d'un \SLCI~dans le domaine 
+la réponse harmonique (en régime permanent) d'un \gls{slci}~dans le domaine 
 temporel et observer la variation d'amplitude et du 
 déphasage qui dépend de la pulsation d'excitation. Ces variations 
 d'amplitude et de phase sont totalement déterminées par la 
 connaissance du module et de l'argument du nombre complexe $H(\jw)$, c'est ce qui constitue 
-l'analyse fréquentielle des \SLCI.
+l'analyse fréquentielle des \gls{slci}.
 
 Dans cette partie, nous présenterons trois types de représentations graphiques, notamment :
 \begin{itemize}
@@ -415,8 +417,8 @@ les pulsations négatives, c'est à dire entre $\omega\rightarrow-\infty$ et $\o
     ticks=none,
     axis line style = thick,
     enlargelimits=false,
-    xlabel=$\Re\left(H(\jw)\right)$,
-    ylabel=$\Im\left(H(\jw)\right)$,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
     xlabel style={below right},
     ylabel style={left},
     ymin=-10,
@@ -460,8 +462,8 @@ les pulsations négatives, c'est à dire entre $\omega\rightarrow-\infty$ et $\o
     ticks=none,
     axis line style = thick,
     enlargelimits=false,
-    xlabel=$\Re\left(H(\jw)\right)$,
-    ylabel=$\Im\left(H(\jw)\right)$,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
     xlabel style={below right},
     ylabel style={left},
     ymin=-10,
@@ -582,7 +584,7 @@ de la connaissance du lieu de transfert dans le plan de Black de la Fonction de 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Nous allons ici présenter la forme canonique des diagrammes fréquentielles (Bode, Nyquist et Black-Nichols) pour 
-les modèles usuels rencontrées dans l'étude des \SLCI. Les diagrammes de Bode restent l'outil principale et fera 
+les modèles usuels rencontrées dans l'étude des \gls{slci}. Les diagrammes de Bode restent l'outil principale et fera 
 l'objet d'une présentation plus détaillée.
 
 \subsection{Diagrammes de Bode : méthodologie générale}
@@ -1609,8 +1611,8 @@ Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
     \item Définir la fonction de transfert $H(p)$ du modèle pour $p=\jw$                                                      
     \item \'Etablir la partie réelle et imaginaire du nombre complexe $H(\jw)$                                          
     \item Tracer le lieu de Nyquist point par point, pour différentes valeurs de 
-        $\omega$ de 0 à $+\infty$, c'est à dire $\Re\left(H(\jw)\right)$ 
-          et $\Im\left(H(\jw)\right)$ dans le plan complexe.
+        $\omega$ de 0 à $+\infty$, c'est à dire $\Re{H(\jw)}$ 
+          et $\Im{H(\jw)}$ dans le plan complexe.
 \end{itemize}
 Dans chacuns des exemples suivants nous reproduisons le lieu de Nyquist complet le domaine des pulsations
 négatives étant représenté en pointillé. Dans la pratique, il suffit de tracer le symétrique par rapport à 
@@ -1623,8 +1625,8 @@ Le diagramme de Nyquist d'un gain pur est trivial. En effet le nombre complexe $
 à une constante réel $K$, le diagramme de Nyquist ce limite à un point sur l'axe des réels quelque soit la valeur de $\omega$.
 Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
 \begin{align*}
-    \Re\left(H(\jw)\right)&=K\\
-    \Im\left(H(\jw)\right)&=0\\
+    \Re{H(\jw)}&=K\\
+    \Im{H(\jw)}&=0\\
 \end{align*}
 
 \begin{figure}[!h]                                                                                                           
@@ -1633,8 +1635,8 @@ Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
 \begin{axis}
     [
     axis line style = thick,
-    xlabel=$\Re\left(H(\jw)\right)$,
-    ylabel=$\Im\left(H(\jw)\right)$,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
     ymin=-10,
     ymax=+10,
     xmin=-10,
@@ -1660,8 +1662,8 @@ Le diagramme de Nyquist d'un intégrateur pur est également trivial, puisque
 le nombre complexe $H(\jw)=\dfrac{K}{\jw}$ est un nombre imaginaire pur. 
 Cependant il dépend de la pulsation $\omega$.
 \begin{align*}
-    \Re\left(H(\jw)\right)&=0\\
-    \Im\left(H(\jw)\right)&=\dfrac{-K}{\omega}
+    \Re{H(\jw)}&=0\\
+    \Im{H(\jw)}&=\dfrac{-K}{\omega}
 \end{align*}
 \begin{figure}[!h]
 \begin{center}
@@ -1669,8 +1671,8 @@ Cependant il dépend de la pulsation $\omega$.
 \begin{axis}
     [
     axis line style = thick,
-    xlabel=$\Re\left(H(\jw)\right)$,
-    ylabel=$\Im\left(H(\jw)\right)$,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
     ymin=-10,
     ymax=+10,
     xmin=-10,
@@ -1701,8 +1703,8 @@ Cependant il dépend de la pulsation $\omega$.
 Le diagramme de Nyquist d'un dérivateur pur est également représentatif d'un 
 nombre complexe $H(\jw)=K\jw$ imaginaire pur. 
 \begin{align*}
-    \Re\left(H(\jw)\right)&=0\\
-    \Im\left(H(\jw)\right)&=K\omega
+    \Re{H(\jw)}&=0\\
+    \Im{H(\jw)}&=K\omega
 \end{align*}
 \begin{figure}[!h]                                                                                                           
 \begin{center}                                                                                                               
@@ -1715,8 +1717,8 @@ nombre complexe $H(\jw)=K\jw$ imaginaire pur.
     %ticks=none,
     axis line style = thick,
     %enlargelimits=false,
-    xlabel=$\Re\left(H(\jw)\right)$,
-    ylabel=$\Im\left(H(\jw)\right)$,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
     %xlabel style={below right},
     %ylabel style={left},
     ymin=-10,
@@ -1763,8 +1765,8 @@ $$
     %ticks=none,
     axis line style = thick,
     %enlargelimits=false,
-    xlabel=$\Re\left(H(\jw)\right)$,
-    ylabel=$\Im\left(H(\jw)\right)$,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
     %xlabel style={below right},
     %ylabel style={left},
     ymin=-1.5,
@@ -1800,18 +1802,18 @@ H(\jw)=\dfrac{K}{1+j\tau\omega}
 $$
 Les parties réelle et imaginaire de cette fonction de transfert sont données par:
 \begin{align*}
-    \Re\left(H(\jw)\right)&=\dfrac{K}{1+\tau^2\omega^2}\\
-    \Im\left(H(\jw)\right)&=-\dfrac{K\tau\omega}{1+\tau^2\omega^2}\\
+    \Re{H(\jw)}&=\dfrac{K}{1+\tau^2\omega^2}\\
+    \Im{H(\jw)}&=-\dfrac{K\tau\omega}{1+\tau^2\omega^2}\\
 \end{align*}
 Nous avons regroupé dans le~\cref{tab-nyquist-vp_1er} quelques valeurs particulières 
-de $\Re\left(H(\jw)\right)$ et $\Im\left(H(\jw)\right)$ pour quelques valeurs de $\omega$.
+de $\Re{H(\jw)}$ et $\Im{H(\jw)}$ pour quelques valeurs de $\omega$.
 
 Le lieu complet de Nyquist d'un système du premier ordre à la forme d'un cercle, nous allons établir
 ses caractéristiques\cite{9782729860127}.
 
 Posons tout d'abord,
 $$
-X=\Re\left(H(\jw)\right)=\dfrac{K}{1+\tau^2\omega^2}
+X=\Re{H(\jw)}=\dfrac{K}{1+\tau^2\omega^2}
 $$
 on peut écrire,
 $$
@@ -1819,7 +1821,7 @@ $$
 $$
 En posant maintenant, 
 $$
-Y=\Im\left(H(\jw)\right)=\dfrac{\tau\omega}{1+\tau^2\omega}=-\tau\omega X
+Y=\Im{H(\jw)}=\dfrac{\tau\omega}{1+\tau^2\omega}=-\tau\omega X
 $$
 on obtient une relation entre $Y$ et $X$:
 $$
@@ -1835,12 +1837,12 @@ $$
         \hhline{====}
                                      & $\omega=0$  & $\omega\to\infty$    & $\omega=\dfrac{1}{\tau}$ & \\[1.5em]
         \hline
-        $\Re\left(H(\jw)\right)$     & $K$         & 0                    & $K/2$                    & \\ [1.5em]
+        $\Re{H(\jw)}$     & $K$         & 0                    & $K/2$                    & \\ [1.5em]
         \hline
-        $\Im\left(H(\jw)\right)$     & 0           & 0                    & $-K/2$                     & \\[1.5em]
+        $\Im{H(\jw)}$     & 0           & 0                    & $-K/2$                     & \\[1.5em]
         \hhline{====}
     \end{tabular}
-    \caption{Quelques valeurs particulières de $\Re\left(H(\jw)\right)$ et $\Im\left(H(\jw)\right)$
+    \caption{Quelques valeurs particulières de $\Re{H(\jw)}$ et $\Im{H(\jw)}$
     selon $\omega$ pour un système du premier ordre\label{tab-nyquist-vp_1er}.}
     \end{center}
 \end{table}
@@ -1854,8 +1856,8 @@ $$
     %width=5cm,                                                                      
     axis line style = thick,                                                        
 %    enlargelimits=false,                                                            
-    xlabel=$\Re\left(H(\jw)\right)$,                                                
-    ylabel=$\Im\left(H(\jw)\right)$,                                                
+    xlabel=$\Re{H(\jw)}$,                                                
+    ylabel=$\Im{H(\jw)}$,                                                
 %    xlabel style={below right},                                                     
 %    ylabel style={left},                                                            
     ymin=-0.75,                                                                       
@@ -1904,8 +1906,8 @@ H(\jw)=\dfrac{K\omega_0^2}{(\omega_0^2-\omega^2)+j2\xi\omega_0\omega}
 $$
 Les parties réel et imaginaire de cette fonction de transfert sont données par:
 \begin{align*}
-    \Re\left(H(\jw)\right)&=\dfrac{K\omega_0^2(\omega_0^2-\omega^2)}{(\omega_0^2-\omega^2)^2+4\xi^2\omega_0^2\omega^2}\\
-    \Im\left(H(\jw)\right)&=\dfrac{-2\xi\omega_0^2\omega^2}{(\omega_0^2-\omega^2)^2+4\xi^2\omega_0^2\omega^2}\\
+    \Re{H(\jw)}&=\dfrac{K\omega_0^2(\omega_0^2-\omega^2)}{(\omega_0^2-\omega^2)^2+4\xi^2\omega_0^2\omega^2}\\
+    \Im{H(\jw)}&=\dfrac{-2\xi\omega_0^2\omega^2}{(\omega_0^2-\omega^2)^2+4\xi^2\omega_0^2\omega^2}\\
 \end{align*}
 \begin{figure}[!h]                                                                                                           
 \begin{center}                                                                                                               
@@ -1913,8 +1915,8 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
 \begin{axis}                                                                        
     [                                                                               
     axis line style = thick,                                                        
-    xlabel=$\Re\left(H(\jw)\right)$,                                                
-    ylabel=$\Im\left(H(\jw)\right)$,                                                
+    xlabel=$\Re{H(\jw)}$,                                                
+    ylabel=$\Im{H(\jw)}$,                                                
     ymin=-1.5,                                                                       
     ymax=+1.5,                                                                       
     xmin=-0.5,                                                                       
@@ -1992,8 +1994,8 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     [                                                                               
     name=nyq1,
     axis line style = thick,
-    xlabel=$\Re\left(H(\jw)\right)$,
-    ylabel=$\Im\left(H(\jw)\right)$,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
     ymin=-2,
     ymax=+2,
     xmin=-0.8,
@@ -2052,8 +2054,8 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     [                                                                               
     at={(nyq1.below south west)},yshift=-0.2cm,anchor=north west,
     axis line style = thick,
-    xlabel=$\Re\left(H(\jw)\right)$,
-    ylabel=$\Im\left(H(\jw)\right)$,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
     ymin=-15,
     ymax=+15,
     xmin=-6,
@@ -2105,8 +2107,8 @@ H(\jw)=\dfrac{K}{1+j\tau\omega}H_R(\jw)=\dfrac{K}{1+j\tau\omega}\left(\cos{\tau\
 $$
 Les parties réels et imaginaire de la fonction de transfert sont:
 \begin{align*}
-    \Re\left(H(\jw)\right)&=\dfrac{K\left(\cos{\tau_1\omega-\tau\omega\sin{\tau_1\omega}}\right)}{1+\tau^2\omega^2}\\
-    \Im\left(H(\jw)\right)&=\dfrac{-K\left(\tau\omega\cos{\tau_1\omega+\sin{\tau_1\omega}}\right)}{1+\tau^2\omega^2}\\
+    \Re{H(\jw)}&=\dfrac{K\left(\cos{\tau_1\omega-\tau\omega\sin{\tau_1\omega}}\right)}{1+\tau^2\omega^2}\\
+    \Im{H(\jw)}&=\dfrac{-K\left(\tau\omega\cos{\tau_1\omega+\sin{\tau_1\omega}}\right)}{1+\tau^2\omega^2}\\
 \end{align*}
 
 \begin{figure}[!h]                                                                                                           
@@ -2115,8 +2117,8 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 \begin{axis}                                                                        
     [                                                                               
     axis line style = thick,                                                        
-    xlabel=$\Re\left(H(\jw)\right)$,                                                
-    ylabel=$\Im\left(H(\jw)\right)$,                                                
+    xlabel=$\Re{H(\jw)}$,                                                
+    ylabel=$\Im{H(\jw)}$,                                                
     ymin=-1,                                                                       
     ymax=1,                                                                       
     xmin=-0.8,                                                                       
@@ -2168,8 +2170,8 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 \begin{axis}                                                                        
     [                                                                               
     axis line style = thick,                                                        
-    xlabel=$\Re\left(H(\jw)\right)$,                                                
-    ylabel=$\Im\left(H(\jw)\right)$,                                                
+    xlabel=$\Re{H(\jw)}$,                                                
+    ylabel=$\Im{H(\jw)}$,                                                
     ymin=-1,                                                                       
     ymax=1,                                                                       
     xmin=-0.8,                                                                       
