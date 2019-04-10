@@ -472,10 +472,11 @@ La condition sur $K$ pour que le système soit stable en boucle fermée est donc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Routh s'applique sur la fonction de transfert en boucle fermée. 
-Les critères graphiques permettent d'étudier la stabilité du système en boucle ouverte.
+Les critères graphiques que nous allons maintenant établir 
+permettent d'étudier la stabilité du système en boucle fermée en considérant le système en boucle ouverte.
 
-En effet si l'on considère la boucle de contre réaction unitaire pour l'asservissement d'un système
-de fonction de transfert $H(p)$, telle que : 
+Pour celà considèrons la boucle de contre réaction unitaire 
+pour l'asservissement d'un système de fonction de transfert $H(p)$, telle que : 
 \begin{center}
     \begin{tikzpicture}
     \sbEntree{E}
@@ -498,53 +499,127 @@ ainsi étudier les pôles de l'équation caractéristique $D(p)=0$ est équivale
 $$
 1+H_{BO}(p)=0\Leftrightarrow H_{BO}(p)=-1
 $$
-Il est alors possible d'étudier la fonction de transfert en boucle ouverte par rapport au point critique du plan complexe 
-$(-1,0)$.
+Il est alors possible d'étudier la fonction de transfert en boucle ouverte par rapport au \textbf{point critique}\index{Point critique}
+du plan complexe $(-1,0)$ de $H_{BO}$.
 Remarquons que les zéros de $1+H_{BO}(p)$ sont les pôles de la fonction de transfert en boucle fermée $H_{BF}(p)$ et
-que les pôles de $H_{BO}(p)$ co\"incident avec les pôles de $H_{BO}(p)$.
+que les pôles de $1+H_{BO}(p)$ co\"incident avec les pôles de $H_{BO}(p)$.
 Il est donc possible de réinterpréter la condition stabilité d'un système asservi :
 
 \begin{criteria}{Condition de stabilité d'un système asservi (2)}
     \textbf{Un système est stable en boucle fermée si sa fonction de transfert en boucle ouverte ne possède aucun 
-    \textbf{zéros} à partie réelle positive.}
+    \emph{zéros} à partie réelle positive.}
 \end{criteria}
 
-Nous allons établir un critère que nous pourrons appliquer sur la réponse harmonique et les différentes représentation
-de cette réponse.
+Nous allons établir un critère que nous pourrons appliquer sur la réponse harmonique et 
+ses différentes représentation graphique.
 
-    Supposons un système asservi par une boucle de contre-réaction unitaire
-décrit par la fonction de transfert en boucle ouverte $H_{BO}(p)=\dfrac{S(p)}{\epsilon(p)}$
+Supposons le système asservi iprécédent décrit 
+par la fonction de transfert en boucle ouverte $H_{BO}(p)$. Par définition cette fonction 
+de transfert est le rapport de la sortie $S(p)$ sur l'écart $\epsilon(p)$ que l'on souhaite minimiser.
 
+$$
+S(p)=H_{BO}(p)\epsilon(p)
+$$
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Critère du revers de Nyquist}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Considérons une entrée $e(t)$ sinuso\"idale de la forme :
+$$
+e(t)=E_0\sin{\omega t}
+$$
+au premier instant, on a alors 
+$$
+\epsilon(t)=E_0\sin{\omega t}
+$$
+en régime permanent la sortie est alors de la forme (c.f~\cref{chap-anafreq}) :
+$$
+s(t)=E_0|H_{BO}(\jw)|\sin{(\omega t+\phi)}
+$$
 
-\begin{criteria}{Critère du revers (Nyquist)}
-\textbf{Un système est stable en boucle fermée si lorsque parcourant 
-        le lieu de Nyquist de la boucle ouverte dans le sens des 
-        pulsations croissantes, on laisse le point critique sur la \underline{gauche}.}
+l'écart $\epsilon(t)=e(t)-s(t)$ est maximum pour une sortie en opposition de phase.
+Il existe donc une pulsation $\omega_p$ pour laquelle:
+\begin{align*}
+    \phi=\arg{H_{BO}(j\omega_p)}=-\pi\\
+    |H_{BO}(j\omega_p)|=K    
+\end{align*}
+
+Pour cette pulsation et ce déphasage: 
+$$
+S(p)=-K\epsilon(p)
+$$
+on a alors :
+$$
+H_{BO}(p)=-K
+$$
+
+L'écart dans le domaine de Laplace devient:
+\begin{align*}
+    \epsilon(p)&=E(p)-S(p)\\
+    \epsilon(p)&=E(p)+K\epsilon(p)
+\end{align*}
+
+Remplaçons à nouveau $\epsilon(p)$ par sa définition (pour simuler une deuxième boucle) : 
+\begin{align*}
+    \epsilon(p)&=E(p)+K(E(p)-S(p))=E(p)(1+K)+K^2\epsilon(p)
+\end{align*}
+et ainsi de suite :
+\begin{align*}
+    \epsilon(p)&=E(p)(1+K)+K^2\left(E(p)-S(p)\right)=E(p)(1+K+K^2)+K^3\epsilon(p)\\
+\end{align*}
+on obtient après $n$ subsitutions :
+$$
+\epsilon(p)=E(p)\sum_{i=0}^{n}K^i+K^n\epsilon(p)
+$$
+La somme diverge si $K\leq1$ et converge si $K<1$. Autrement dit le système est stable 
+en boucle fermée pour $|H_{BO}(\jw)|<1$.
+
+Nous pouvons donc énoncer le critère de stabilité dit du revers :
+
+\begin{criteria}{Critère de stabilité du revers}
+    \textbf{Un système est stable en boucle fermée si lorque le déphasage en boucle 
+    ouverte est de -180\degree~le module $|H_{BO}(\jw)|$ est strictement inférieur à 1.}
+    Pour $\omega_p$ telle que $\phi=\arg{\left(H_{BO}(j\omega_p)\right)}=-\pi$ stable 
+    si  $|H_{BO}(j\omega_p)|<1$ ou $20\log{|H_{BO}(j\omega_p)|}<0$ 
 \end{criteria}
+
+Ce déphasage de -180\degree~et le module de 1 de la fonction de transfert en boucle ouverte
+correspond au point critique présenté précedemment.
+
+Nous allons maintenant voir comment appliquer ce critère aux différentes représentations graphiques
+de la réponse harmonique.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Critère du revers dans le plan de Nyquist}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Pour énoncer le critère du revers dans le plan de Nyquist. Il nous faut tracer
+le lieu de Nyquist de la fonction de transfert en boucle ouverte et observer comment il 
+se comporte par rapport au point critique de coordonnées (-1,0) dans le plan complexe de $H_{BO}(\jw)$.
+La~\cref{fig-nyquist_revers} présente les lieux de Nyquist de trois systèmes: stable, instable et critique.
+Observons que dans le cas stable, le lieu de déphasage $\phi=-\pi$ (c.a.d lorsque le lieu coupe l'axe des réels négatifs), 
+le module ou le gain naturel $G(\omega)$ (ou encore la distance à l'origine) est inférieur à 1. 
+Dans le cas instable ce gain est supérieur à 1. Nous appelerons critique le système dont le lieu de Nyquist passe par le
+point critique de oordonnées (-1,0).
 
 \begin{figure}[!h]
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}
     [
-    height=8cm,
+    height=9cm,
     width=8cm,
     axis lines = center,
     ticks=none,
     axis line style = thick,
     enlargelimits=false,
-    xlabel=$\Re{H(\jw)}$,
-    ylabel=$\Im{H(\jw)}$,
+    xlabel=$\Re{H_{BO}(\jw)}$,
+    ylabel=$\Im{H_{BO}(\jw)}$,
     xlabel style={below right},
-    ylabel style={left},
+    ylabel style={right},
     ymin=-4,
-    ymax=1.5,
+    ymax=2.2,
     xmin=-2.25,
-    xmax=0.5
+    xmax=0.5,
+    clip=false
     ]     
     \addplot [black, mark = *] coordinates {( -1, 0)} {};
     \node [above left,xshift=1ex]  at (axis cs:  -1, 0)   {$(-1,0)$};                
@@ -569,7 +644,10 @@ décrit par la fonction de transfert en boucle ouverte $H_{BO}(p)=\dfrac{S(p)}{\
     ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
     {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
 
-    \node [red,right]  at (axis cs:  -2, 1.0)   {\textbf{instable}};                
+    \node [red,left]  at (axis cs:  -2.3, -3.5)   {\textbf{instable}};                
+    \addplot [red, mark = *]  coordinates   {(-1.7,0)} {};
+    \draw[dblarw={red}{2pt}{2pt}] (0,1.9) -- node[midway,above]  {$G(\omega)>1$} (-1.7,1.9) ;
+    \draw[red,dashed] (-1.7,1.9)--(-1.7,0);
 
     % critique 
     \def\xu{-0.5}
@@ -587,7 +665,9 @@ décrit par la fonction de transfert en boucle ouverte $H_{BO}(p)=\dfrac{S(p)}{\
     \addplot [blue,thick,domain=0.31:0,samples=25]
     ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
     {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \node [blue,left]  at (axis cs:  -1.5, -3.5)   {\textbf{critique}};                
+    \node [blue,left]  at (axis cs:  -1.45, -3.5)   {\textbf{critique}};                
+    \draw[dblarw={blue}{2pt}{2pt}] (0,1.2) -- node[midway,above]  {$G(\omega)=1$} (-1,1.2) ;
+    \draw[blue,dashed] (-1,1.2)--(-1,0);
 
     %stable
     \def\xu{-0.206}
@@ -606,7 +686,11 @@ décrit par la fonction de transfert en boucle ouverte $H_{BO}(p)=\dfrac{S(p)}{\
     ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
     {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
 
-    \node [green!50!black,right]  at (axis cs:  -0.9, -3.5)   {\textbf{stable}};                
+    \addplot [green!50!black, mark = *]  coordinates     {(-0.47,0)} {};
+
+    \node [green!50!black,right]  at (axis cs:  -1.0, -3.5)   {\textbf{stable}};                
+    \draw[dblarw={green!50!black}{2pt}{2pt}] (0,-0.5) -- node[midway,below]  {$G(\omega)<1$} (-0.47,-0.5) ;
+    \draw[green!50!black,dashed] (-0.47,-0.5)--(-0.47,0);
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -615,19 +699,21 @@ trois systèmes asservis: stable, critique et instable.
 \label{fig-nyquist_revers}}
 \end{figure}
 
+Nous pouvons maintenant formuler le critère du revers de Nyquist :
+
+\begin{criteria}{Critère du revers de Nyquist}
+\textbf{Un système est stable en boucle fermée si lorsque parcourant 
+        le lieu de Nyquist de la boucle ouverte dans le sens des 
+        pulsations croissantes, on laisse le point critique sur la \underline{gauche}.}
+\end{criteria}
 % (1-x)*((1-x)*(x*\x1)+x*((1-x)*\x1+x*\x2))+x*((1-x)*((1-x)*\x1+x*\x2)+x*((1-x)*\x2+x*\x3)),
 % (1-x)*((1-x)*(x*\y1)+x*((1-x)*\y1+x*\y2))+x*((1-x)*((1-x)*\y1+x*\y2)+x*((1-x)*\y2+x*\y3))
 
-
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Critère du revers de Black}
+\subsubsection{Critère du revers dans le plan de Black}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{criteria}{Critère du revers dans le plane de Black}
-\textbf{Un système est stable en boucle fermée si lorsque parcourant 
-        le lieu de Black de la boucle ouverte dans le sens des 
-        pulsations croissantes, on laisse le point critique sur la \underline{droite}.}
-\end{criteria}
 
 \begin{figure}[!h]
 \begin{center}
@@ -693,8 +779,15 @@ trois systèmes asservis: stable, critique et instable.
     asservis: stable, critique et instable.
 \label{fig-black_revers}}
 \end{figure}
+
+\begin{criteria}{Critère du revers de Black}
+\textbf{Un système est stable en boucle fermée si lorsque parcourant 
+        le lieu de Black de la boucle ouverte dans le sens des 
+        pulsations croissantes, on laisse le point critique sur la \underline{droite}.}
+\end{criteria}
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Critère du revers de Bode}
+\subsubsection{Critère du revers dans le plan de Bode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Il est possible d'appliquer le critère du revers au lieu de transfert de Bode
@@ -702,13 +795,13 @@ en boucle ouverte. Le point critique
 dans le plan de Bode est représenté par deux verticales coupant les deux graphes en gain et en déphasage.
 De ce fait il faut vérifier deux conditions pour respecter le critère du revers dans le plan de Bode
 
-\begin{criteria}{Critère du revers dans le plan de Bode (1)}
+\begin{criteria}{Critère du revers de Bode (1)}
 \textbf{Un système est stable en boucle fermée si, pour la pulsation $\omega_{1}$ telle que le module 
     de la fonction de transfert en boucle ouverte est égal à 1 (c.a.d $H_{BO}(\omega_{1})=1$ 
     ou $\SI{0}{\dB}$), le déphasage $\phi(\omega_1)$ est supérieur à -180\degree}
 \end{criteria}
 
-\begin{criteria}{Critère du revers dans le plan de Bode (2)}
+\begin{criteria}{Critère du revers de Bode (2)}
     \textbf{Un système est stable en boucle fermée si, pour la pulsation $\omega_{c}$ (pulsation critique)
     telle que l'argument la fonction de transfert en boucle ouverte (déphasage) est 
     égale à -180\degree (c.a.d $\phi(\omega_c)=-180\degree$), le gain $G_{dB}(\omega_c)$ est négatif.}
@@ -723,7 +816,7 @@ De ce fait il faut vérifier deux conditions pour respecter le critère du rever
         axis line style = thick,
         xmode=log,
         enlargelimits=false,
-        height=5cm,
+        height=4.5cm,
         width=9cm,
         axis x line=center,
         axis y line=left,
@@ -760,7 +853,7 @@ De ce fait il faut vérifier deux conditions pour respecter le critère du rever
         axis line style = thick,
         xmode=log,
         enlargelimits=false,
-        height=5cm,
+        height=4.5cm,
         width=9cm,
         axis x line=center,
         axis y line=left,
@@ -804,15 +897,15 @@ De ce fait il faut vérifier deux conditions pour respecter le critère du rever
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Le critère de Nyquist est également un critère graphique mais 
-est plus générale que le critère du revers. Il s'appuie sur le 
-principe de l'argument de Cauchy\footnote{Nous ne donnerons qu'une présentation élémentaire et sans démonstration
+Le critère de Nyquist généralise le critère du revers.
+Il s'appui sur le principe de l'argument de Cauchy\footnote{Nous ne donnerons qu'une 
+présentation élémentaire et sans démonstration
 de ce théorème. Un cours d'analyse complexe permettra de compléter cette présentation. On 
 trouvera dans \cite{laas_pc7bis,reg}, 
 une introduction plus détaillée ainsi qu'une bibliographie très fournie sur le sujet.}.
-Nous suivrons une présentation \og~graphique\fg du critère et de ce théorème à l'instar de~\cite{reg}. 
+Nous suivrons la présentation \og~graphique\fg de ce théorème et du critère de Nyquist donné par~\cite{reg}. 
 
-\paragraph{Théorème du principe de l'argument de Cauchy}
+\paragraph{Principe de l'argument de Cauchy}
 
 Soit un contour $\mathcal{C}$ parcourant le plan complexe de 
 la variable $p$ dans le sens des aiguilles d'une montre et $F(p)$ une fonction rationnelle 
@@ -820,7 +913,7 @@ ne possédant ni pôle ni zéro sur $\mathcal{C}$. Le théorème du principe de
 l'argument de Cauchy permet de relier, le nombre de pôles $P$ et de zéros $Z$ entourées par le contour $\mathcal{C}$ 
 au comportement de la courbe $F(\mathcal{C})$ image $F(p)$ de $\mathcal{C}$.
 
-\begin{theorem}{Principe de l'argument de Cauchy} 
+\begin{theorem}{\'Enoncé du principe de l'argument de Cauchy} 
     Si un contour $\mathcal{C}$ contient $Z$ zéros et $P$ pôles d'une fonction analytique $F(p)$ 
     sans en traverser aucun, alors quand on le parcourt dans le sens anti-trigonométrique, le contour $\Gamma=F(\mathcal{C})$ 
     fait un nombre de tours autour de l'origine dans le sens trigonométrique égal à,
@@ -829,7 +922,12 @@ au comportement de la courbe $F(\mathcal{C})$ image $F(p)$ de $\mathcal{C}$.
     $$
 \end{theorem}
 
-On se rapportera à la figure~\cref{fig-contour_cauchy} pour une représentation graphique du théorème.
+On se rapportera à la~\cref{fig-contour_cauchy} pour un exemple d'application de ce principe.
+Dans cet exemple la fonction analytique $F(p)$ possède 2 pôles 
+et 3 zéros. Le contour entoure $Z=3$ zéros et $P=1$ pôle.
+Le contour $\Gamma=F(\mathcal{C})$ fait alors $N=Z-P=2$ tours autour 
+de l'origine dans le sens trigonométrique ($N>0$). Remarquons que les tours sont 
+comptés positivement dans le sens trigonométrique.
 
 \begin{figure}[!h]
 \begin{center}
@@ -843,8 +941,8 @@ On se rapportera à la figure~\cref{fig-contour_cauchy} pour une représentation
     ticks=none,
     axis line style = thick,
     enlargelimits=false,
-    xlabel=$\Re\left(p\right)$,
-    ylabel=$\Im\left(p\right)$,
+    xlabel=$\Re{p}$,
+    ylabel=$\Im{p}$,
     xlabel style={below},
     ylabel style={left},
     ymin=-4,
@@ -877,8 +975,8 @@ On se rapportera à la figure~\cref{fig-contour_cauchy} pour une représentation
     ticks=none,
     axis line style = thick,
     enlargelimits=false,
-    xlabel=$\Re\left(F(p)\right)$,
-    ylabel=$\Im\left(F(p)\right)$,
+    xlabel=$\Re{F(p)}$,
+    ylabel=$\Im{F(p)}$,
     xlabel style={below},
     ylabel style={left},
     ymin=-4,
@@ -905,14 +1003,11 @@ On se rapportera à la figure~\cref{fig-contour_cauchy} pour une représentation
 \end{tikzpicture}
 \end{center}
     \caption{Représentation de la transformation d'un contour $\mathcal{C}$ en son image par une fonction analytique $F(p)$.
-    Dans cet exemple la fonction analytique $F(p)$ possède 2 pôles et 3 zéros. Le contour entoure $Z=3$ zéros et $P=1$ pôle.
-    le contour $\Gamma=F(\mathcal{C})$ fait alors $N=Z-P=2$ tours autour de l'origine dans le sens trigonométrique.
+   % Dans cet exemple la fonction analytique $F(p)$ possède 2 pôles et 3 zéros. Le contour entoure $Z=3$ zéros et $P=1$ pôle.
+   % Le contour $\Gamma=F(\mathcal{C})$ fait alors $N=Z-P=2$ tours autour de l'origine dans le sens trigonométrique ($N>0$).
     \label{fig-contour_cauchy}}
 \end{figure}
 
-
-
-Remarquons que les tours sont comptés positivement dans le sens trigonométrique.
 
 \begin{figure}[!h]
 \begin{center}
@@ -920,8 +1015,8 @@ Remarquons que les tours sont comptés positivement dans le sens trigonométriqu
 \begin{axis}[ticks=none,
 axis line style = thick,
 axis lines = center,
-height=5cm,
-width=5cm,
+height=4.8cm,
+width=4.8cm,
 ymin=-1.4,
 ymax=1.4,
 xmin=-1.4,
@@ -936,8 +1031,8 @@ clip=false]
 \begin{axis}[ticks=none,
 axis line style = thick,
 axis lines = center,
-height=5cm,
-width=5cm,
+height=4.8cm,
+width=4.8cm,
 ymin=-1.4,
 ymax=1.4,
 xmin=-1.4,
@@ -952,8 +1047,8 @@ clip=false]
 \begin{axis}[ticks=none,
 axis line style = thick,
 axis lines = center,
-height=5cm,
-width=5cm,
+height=4.8cm,
+width=4.8cm,
 ymin=-1.4,
 ymax=1.4,
 xmin=-1.4,
@@ -969,8 +1064,8 @@ clip=false]
 \begin{axis}[ticks=none,
 axis line style = thick,
 axis lines = center,
-height=5cm,
-width=5cm,
+height=4.8cm,
+width=4.8cm,
 ymin=-1.4,
 ymax=1.4,
 xmin=-1.4,
@@ -985,8 +1080,8 @@ clip=false]
 \begin{axis}[ticks=none,
 axis line style = thick,
 axis lines = center,
-height=5cm,
-width=5cm,
+height=4.8cm,
+width=4.8cm,
 ymin=-1.4,
 ymax=1.4,
 xmin=-1.4,
@@ -1001,8 +1096,8 @@ clip=false]
 \begin{axis}[ticks=none,
 axis line style = thick,
 axis lines = center,
-height=5cm,
-width=5cm,
+height=4.8cm,
+width=4.8cm,
 ymin=-1.4,
 ymax=1.4,
 xmin=-1.4,
@@ -1019,11 +1114,21 @@ l'image d'une fraction rationnelle d'un contour fermée. Le sens positif
 est celui du sens trigonométrique.}
 \end{figure}
 
-
+\clearpage
 
 \paragraph{Contours de Nyquist et de Bromwich}
 
-Bromwich\footnote{Thomas John I'Anson Bromwich (1875-1929), mathématicien anglais.}
+Pour pouvoir appliquer le critère de Nyquist par l'intermédiaire du principe de l'argument 
+de Cauchy, il nous faut définir le contour orienté dans le plan $p$ qui entoure la zone instable 
+(c.a.d le demi-plan à partie réelle positive).
+Nous présentons deux types de contours le contour de Nyquist et ceux de Bromwich\footnote{Thomas 
+John I'Anson Bromwich (1875-1929), mathématicien anglais.}
+
+La~\cref{fig-contours} présente les contours classiques pour l'application du critère de Nyquist.
+Ces contours sont composés de tout l'axe des imaginaires,
+d'un demi cercle de rayon infini centré sur l'origine et dans le
+cas où $p=0$ est un pôle ou un zéro de la fonction de transfert en boucle ouverte, le contour
+est également composé d'un cercle de rayon $r\rightarrow0$ centré sur les pôles nuls.
 
 \begin{figure}[!h]
 \begin{center}
@@ -1046,8 +1151,8 @@ Bromwich\footnote{Thomas John I'Anson Bromwich (1875-1929), mathématicien angla
     \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=90:60] ({1.4*cos(x)},{1.4*sin(x)});
     \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=62:-60] ({1.4*cos(x)},{1.4*sin(x)});
     \addplot[blue,very thick,domain=-58:-90] ({1.4*cos(x)},{1.4*sin(x)});
-    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(30)},{1.4*sin(30)}) 
-        node[midway,below right,xshift=-1em] {$R\rightarrow\infty$};
+    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)}) 
+        node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
     \node[below, text width=6cm,text justified,
     align=center] at (axis cs:0,-1.6) {(a) $H_{BO}$ ne possède aucun pôle ou zéro };
     \end{axis}
@@ -1075,8 +1180,8 @@ Bromwich\footnote{Thomas John I'Anson Bromwich (1875-1929), mathématicien angla
     \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
     \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
     \addplot[blue,very thick,domain=-58:-90,samples=10] ({1.4*cos(x)},{1.4*sin(x)});
-    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(30)},{1.4*sin(30)}) 
-        node[midway,below right,xshift=-1em] {$R\rightarrow\infty$};
+    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)}) 
+        node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
     \addplot[mark=x,black,ultra thick,only marks,mark size=4pt] coordinates{ (0,0) };
     \node[below, text width=6cm,text justified,align=center] at (axis cs:0,-1.6) 
         {(b) 0 est un pôle\\ ou zéro de $H_{BO}$};
@@ -1116,8 +1221,8 @@ Bromwich\footnote{Thomas John I'Anson Bromwich (1875-1929), mathématicien angla
     \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
     \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
     \addplot[blue,very thick,domain=-58:-90,samples=10] ({1.4*cos(x)},{1.4*sin(x)});
-    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(30)},{1.4*sin(30)}) 
-          node[midway,below right,xshift=-1em] {$R\rightarrow\infty$};
+    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)}) 
+        node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
     \addplot[mark=x,black,ultra thick,only marks,mark size=4pt] coordinates{ (0,0) (0,-0.7) (0,0.7) };
     \node[left] at (axis cs:0,0.7) {$p_1$};
     \node[left] at (axis cs:0,-0.7) {$p_2$};
@@ -1126,9 +1231,30 @@ Bromwich\footnote{Thomas John I'Anson Bromwich (1875-1929), mathématicien angla
     \end{axis}
 \end{tikzpicture}
 \end{center}
-\caption{Contours de Nyquist/Bromwich}
+\caption{(a) Contour de Nyquist et (b,c) contours de Bromwich.\label{fig-contours}} 
 \end{figure}
 
+\'Etudions en détail l'image par une fonction de transfert du contour de Nyquist.
+
+\paragraph{Contour de Nyquist}
+
+La~\cref{fig-contours} (a) présente le contour de Nyquist. Celui-ci est composé de 4 portions:
+\begin{itemize}
+    \item \textbf{I} : l'axe des imaginaires positifs pour laquelle $p=\jw$ avec $\omega\in[0,\infty[$,
+    \item \textbf{II}: un quart de cercle de rayon $R\rightarrow\infty$ pour laquelle $p=Re^{j\theta}$ avec $\theta\in[0,\pi/2]$,
+    \item \textbf{III}: l'axe des imaginaires négatifs  pour laquelle $p=-\jw$ avec $\omega\in]-\infty,0]$, symétrique de \textbf{I}
+    \item \textbf{IV}: un quart de cercle de rayon $R\rightarrow\infty$ pour laquelle $p=Re^{j\theta}$ avec 
+        $\theta\in[0,-\pi/2]$, symétrique de \textbf{II},
+\end{itemize}
+
+Seules les deux premières portions à considérer puisque les courbes images des 
+portions \textbf{III} et \textbf{IV} peuvent être déterminés par symétrie par rapport 
+à l'axe des réels des portions \textbf{I} et  \textbf{II} respectivement.
+
+Déterminons la courbe image d'une fonction de transfert $H_{BO}(p)$
+en boucle ouverte de ces deux portions. 
+Notamment, l'image de la portion \textbf{I} est donné par $H_{BO}(I)=H_{BO}(\jw)$, ce qui correspond au lieu 
+de Nyquist pour $\omega\in[0,\infty[$.
 
 
 \newpage

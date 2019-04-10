@@ -1069,15 +1069,16 @@ et deux branches (dont une boucle élémentaire).
     \end{tikzpicture}
 \end{center}
 La fonction de transfert est simplement représentée par le graphe suivant\footnote{Remarquons 
-que le graphe précédent exprime la relation $S=HE-HS$ qui nous donne bien la fonction de 
+que le graphe précédent exprime la relation $S=H(E-S)$ qui nous donne bien la fonction de 
 transfert $\frac{H}{1+H}$. Cependant, cette expression exprime une grandeur que l'on 
-cherche en fonction d'elle même. En remplaçant, $S$ par sa définition $HE-HS$, on obtient
-$$S=HE-H(HE-HS)=HE-H^2E-H^2S=(H-H^2)E-H^2S.$$ En procédant de même avec cette nouvelle expression, 
+cherche en fonction d'elle même. En remplaçant, $S$ par sa définition $H(E-S)$, on obtient
+$$S=HE-H(H(E-S))=HE-H^2E+H^2S=H(1-H)E+H^2S.$$ En procédant de même avec cette nouvelle expression, 
 on obtient une relation de récurrence. 
 \begin{align*}
-S=E\sum_k^n H^k-H^{n+1}S
+    S=EH\sum_k^n (-1)^kH^k+(-1)^{(n+1)}H^{n+1}S
 \end{align*}
-Pour $n\rightarrow\infty$, on reconnait la série géométrique $\sum_k^nH^k=\frac{1}{1-H}$ et $H^{n+1}\rightarrow 0$ pour $|H|<1$.
+Pour $n\rightarrow\infty$, on reconnait la série géométrique $\sum_k^n(-1)^kH^k=\frac{1}{1+H}$ 
+et $H^{n+1}\rightarrow 0$ pour $|H|<1$.
 La sortie $S$ tend donc bien vers la fonction de transfert attendue, seulement si $|H|<1$. 
 Cette dernière condition pourra être interprétée comme une limite de stabilité du gain 
 de la fonction de transfert dans le cas d'un système dans une boucle de contre réaction.}
