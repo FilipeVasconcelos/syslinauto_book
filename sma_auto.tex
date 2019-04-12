@@ -58,7 +58,7 @@
 \usepackage{float}
 \usepackage{titletoc}%
 \usepackage[page]{appendix}
-
+\renewcommand\appendixtocname{Annexes}
 \makeatletter
 
 \titlecontents{chapter}%
@@ -111,7 +111,8 @@ ps2eps -f "\image.ps"
 %figure list=true,prefix=fig/]
 \tikzexternalize[prefix=fig/]
 
-%\usepackage{rpcinematik} % liaisons cinématiques normalisées Robert Papnicola
+%\usepackage[]{hypdvips}
+
 
 \usepackage{booktabs}
 \usepackage{array}
@@ -408,7 +409,7 @@ cross/.default={1pt}}
 %\includeonly{tex/chap3}
 %\includeonly{tex/chap4}
 %\includeonly{tex/chap5}
-\includeonly{tex/chap6}
+%\includeonly{tex/chap6}
 %\includeonly{tex/annexe1}
 %\includeonly{tex/annexe2}
 %\includeonly{tex/annexe3}

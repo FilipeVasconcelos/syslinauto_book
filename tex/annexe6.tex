@@ -147,20 +147,22 @@ de -20 dB lorsque la pulsation augmente d'un facteur 10, se dira -20dB/décade o
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Le bel (B) est une unité de grandeur sans dimension 
-exprimant la valeur relative entre deux quantités par le logarithme décimal 
-de leur rapport. Le décibel (dB), plus couramment utilisé, est définie comme un dixieme de bel, et donc correspond à 
+exprimant la valeur relative entre deux quantités (de puissances en particuliers) 
+par le logarithme décimal de leur rapport. Le décibel (dB), plus couramment utilisé, est 
+définie comme un dixieme de bel, et donc correspond à 
 dix fois le logarithme décimal du rapport.
 $$
 X_{dB}=10\log{\dfrac{P_s}{P_e}}
 $$
 
 Le gain en décibel reporté sur un diagramme de Bode correspond à 
-la valeur relative à 1 du carré du gain $G$. Ainsi,
+la valeur relative à 1 du carré du gain $G$ (le carré de l'amplitude d'un signal 
+pouvant être définit comme une puissance). Ainsi,
 $$
-G_{dB}(\omega)=10\log{G^2} = 20\log{G}
+G_{dB}=10\log{G^2} = 20\log{G}
 $$
-Nous rappellons que le gain $G$, dit naturel, est le module de la
-fonction de transfert $G=|H(\jw)|$.
+Nous rappellons que le gain $G(\omega)$, dit naturel, est le module de la
+fonction de transfert $G(\omega)=|H(\jw)|$.
 Le~\cref{tab-equiv_dB} donne l'équivalence entre le gain naturel $G$ et gain décibel $G_{dB}$ pour différentes 
 valeurs particulières frequemment rencontrées dans ce cours.
 
@@ -188,24 +190,24 @@ Soit la fonction complexe du premier ordre telle que
 H(\jw)=\dfrac{1}{1+\jw}\label{eq-ft_annexe}
 \end{align}
 
-\paragraph{Tracer du gain}
+\paragraph{Tracé du gain}
 Le gain de cette fonction de transfert $G(\omega)=|H(\jw)|$ s'écrit :
 $$
-G(\omega) =\dfrac{1}{\sqrt{1+\omega^2}}
+G(\omega)=\dfrac{1}{\sqrt{1+\omega^2}}
 $$
 le gain en décibel est donc :
 $$
-G_{dB}=20\log{\dfrac{1}{\sqrt{1+\omega^2}}}=-20\log{\sqrt{1+\omega^2}}
+G_{dB}(\omega)=20\log{\dfrac{1}{\sqrt{1+\omega^2}}}=-20\log{\sqrt{1+\omega^2}}
 $$
 C'est cette fonction qu'il faut tracer point par point sur le diagramme de Bode, cependant il est généralement 
 recommandé d'étudier les asymptotes de cette fonction avant de tracer la courbe. 
 Pour les basses fréquences, le gain en décibel ce commporte comme 
 $$
-G_{dB}\sim-20\log{1}\sim 0\text{dB}
+G_{dB}(\omega)\sim-20\log{1}\sim 0\text{dB}
 $$ 
 et pour les hautes fréquences, comme
 $$
-G_{dB}\sim -20\log{\omega}.
+G_{dB}(\omega)\sim -20\log{\omega}.
 $$
 Dans le cas des hautes fréquences, lorsque la pulsation est mutiplié 
 par 10 (i.e une décade ) le gain diminue de -20 dB, 
@@ -262,7 +264,7 @@ entre basses et hautes fréquences.
     \caption{Diagramme de Bode d'un système du premier ordre.\label{fig-bode_annexe} }
 \end{figure}
 
-\paragraph{Tracer de la phase}
+\paragraph{Tracé de la phase}
 La phase $\phi(\omega)$ correspond à l'argument principale (\Cref{annexe-NC}) 
 de la fonction complexe $H(\jw)$.
 $$
@@ -292,7 +294,10 @@ $$
 La~\cref{fig-bode_annexe} présente le diagramme de Bode associé à 
 la fonction de transfert de l'\cref{eq-ft_annexe}.
 
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tracer du diagramme de Bode avec Scilab}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Deux fonctions permettent de tracer un diagramme de Bode avec Scilab.
 \begin{itemize}
         \item  \verb?bode(syslin,fMin,fMax)? trace le diagramme de Bode réel. Cette fonction 

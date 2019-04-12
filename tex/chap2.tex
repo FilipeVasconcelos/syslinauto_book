@@ -24,7 +24,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Définition d'un système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\index{Système du 1er ordre ! Définition}
+\index{Système du premier ordre!définition}
 Un système du premier ordre est un système régit par une équation
 différentielle linéaire à coefficient constant du premier ordre (i.e $n=1$ pour l'\cref{eq-ltemp}) de forme générale :
 \begin{align}
@@ -35,7 +35,7 @@ où $K$ est le gain statique et $\tau$ la constante de temps du système.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fonction de transfert d'un système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\index{Système du 1er ordre ! Fonction de transfert}
+\index{Système du premier ordre!fonction de transfert}
 La transformée de Laplace de l'\cref{eq-1er}, dans les conditions de Heaviside, nous donne :
 $$
 \tau pS(p)+S(p)=KE(p)
@@ -97,7 +97,7 @@ Nous allons ici établir toutes les réponses temporelles d'un système du premi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse impulsionnelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\index{Système du 1er ordre ! Réponse impulsionnelle}
+\index{Système du premier ordre!réponse impulsionnelle}
 Nous condidérons une excitation impulsionnelle de la forme :
 $$
 e(t)=E_0\delta(t),
@@ -219,7 +219,7 @@ La pente à l'origine est négative et inversemment proportionnelle au carré de
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\index{Système du 1er ordre ! Réponse indicielle}
+\index{Système du premier ordre!réponse indicielle}
 
 Pour déterminer la réponse indicielle, nous considérons une entrée $e(t)$ en échelon telle que :
 $$
@@ -345,7 +345,7 @@ on constate que le temps $t_{5\%}$ de réponse à 5\% est de l'ordre de 3$\tau$ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse à une rampe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\index{Système du 1er ordre ! Réponse à une rampe}
+\index{Système du premier ordre!réponse à une rampe}
 Nous considérons maitenant une excitation rampe de la forme:
 $$
 e(t)=E_0\cdot r(t)=E_0 t\cdot u(t) 
@@ -384,7 +384,7 @@ alors que $s'(0)=0$ quelque soit $\tau$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Définition d'un système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\index{Système du second ordre!définition}
 Un système du second ordre est un système régit par une équation 
 différentielle du second ordre de forme générale :
 $$
@@ -397,6 +397,7 @@ sans amortissement ($\xi=0$).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fonction de transfert d'un système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Système du second ordre!fonction de transfert}
 La transformée de Laplace de l'équation différentielle est, lorsque les CI sont toutes nulles :
 $$
 S(p)\left(p^2+2\xi\omega_0p+\omega^2_0\right)=K\omega^2_0E(p).
@@ -514,6 +515,7 @@ On trouvera les courbes en annexe (\Cref{annexe-2nd})
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse impulsionnelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Système du second ordre!réponse impulsionnelle}
 
 La réponse impulsionnelle d'un système du second ordre est, dans le domaine de Laplace, donnée 
 par :
@@ -604,6 +606,7 @@ nous donne la forme générale de la réponse impulsionnelle d'un système du se
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Système du second ordre!réponse indicielle}
 La réponse indicielle d'un système du second ordre est, dans le domaine de Laplace, donnée par :
 $$
 S(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}\cdot\dfrac{E_0}{p}
@@ -1018,6 +1021,7 @@ temps de réponse pour $\xi\sim 0.7$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse à une rampe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Système du second ordre!réponse à une rampe}
 La réponse à une rampe d'un système du second ordre est, dans le domaine de Laplace, donnée par
 $$
 S(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}\cdot\dfrac{E_0}{p^2}
@@ -1036,7 +1040,7 @@ la décomposition en éléments simples de $S(p)$ s'écrit:
 $$
 S(p)=\dfrac{A}{p}+\dfrac{B}{p^2}+\dfrac{C}{p-p_1}+\dfrac{D}{p-p_2}.
 $$
-Procédons par évaluation pour obtenir les coéfficients $B$, $C$ et $D$:
+Procédons par évaluation pour obtenir les coefficients $B$, $C$ et $D$:
 \begin{align*}
     B=p^2S(p)\Big|_{p=0}      &=KE_0,\\
     C=(p-p_1)S(p)\Big|_{p=p_1}&=\dfrac{KE_0\omega_0^2}{p_1^2(p_1-p_2)}=\dfrac{KE_0 p_2^2}{\omega_0^2(p_1-p_2)},\\
@@ -1070,7 +1074,7 @@ La décomposition en éléments simples de $S(p)$ s'écrit:
 $$                                                                                                                            
 S(p)=\dfrac{A}{p}+\dfrac{B}{p^2}+\dfrac{C}{(p-p_1)}+\dfrac{D}{(p-p_1)^2}.
 $$ 
-Procédons par évaluation pour obtenir les coéfficients $B$ et $D$:
+Procédons par évaluation pour obtenir les coefficients $B$ et $D$:
 \begin{align*}
     B=p^2S(p)\Big|_{p=0}        &=KE_0,\\
     D=(p-p_1)^2S(p)\Big|_{p=p_1}&=KE_0,\\
@@ -1108,7 +1112,7 @@ La décomposition en éléments simples de $S(p)$ s'écrit:
 $$                                                                                                                            
 S(p)=\dfrac{A}{p}+\dfrac{B}{p^2}+\dfrac{C(p+\alpha)+D}{(p+\alpha)^2+\omega_d^2}.
 $$ 
-Procédons par évaluation pour obtenir le coéfficient $B$:
+Procédons par évaluation pour obtenir le coefficient $B$:
 $$
 B=p^2S(p)\Big|_{p=0}=\dfrac{KE_0\omega_0^2}{\alpha^2+\omega_d^2}=KE_0,
 $$
@@ -1233,18 +1237,22 @@ Dans cette partie, nous allons présenter des modèles particuliers qui physique
 jamais seul mais compléterons les modèles du premier et second ordre discutés precedemment.
 
 \subsection{Gain pur}
+\index{Gain pur}
 $$
 H(p)=K
 $$
 \subsection{Intégrateur pur}
+\index{Intégrateur pur}
 $$
 H(p)=\dfrac{K}{p}
 $$
 \subsection{Dérivateur pur}
+\index{Dérivateur pur}
 $$
 H(p)=Kp
 $$
 \subsection{Retard pur}
+\index{Retard pur}
 $$
 H(p)=Ke^{-\tau p}
 $$

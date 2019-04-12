@@ -23,7 +23,7 @@ nos amis anglo-saxons, on rencontre le concept de BIBO (\og bounded input bounde
 
 \textbf{Un système est dit stable lorsque écarté de sa position d'équilibre, il tend à y revenir}
 
-Ces deux définitions sont équivalentes dans le cas des \gls{slci}. 
+Ces deux définitions sont équivalentes dans le cas des \glspl{slci}. 
 
 \begin{figure}[!h]
     \centering
@@ -43,12 +43,27 @@ Ces deux définitions sont équivalentes dans le cas des \gls{slci}.
             \draw[thick] (0,0) parabola (-1,1.75) ;
             \draw[thick] (0,0) parabola (0.5,0.2) ;
             \draw[thick] (0.5,0.2) parabola (1,-1.75) ;
-            \node at (0,-2.5) {(c) conditionnel};
+            \node[text width=3cm,align=center] at (0,-2.5) {(c) stabilité\\conditionnelle};
         \end{scope}
     \end{tikzpicture}
 \caption{Représentation schématique de la stabilité}
 \end{figure}
 
+
+\begin{center}
+\tikzsetnextfilename{stable-chap0_ext}
+\input{tikz/stable-chap0.tex}
+\end{center}                
+
+\begin{center}
+\tikzsetnextfilename{stable2-chap0_ext}
+\input{tikz/stable2-chap0.tex}
+\end{center}
+
+\begin{center}
+\tikzsetnextfilename{instable-chap0_ext}
+\input{tikz/instable-chap0.tex}
+\end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -57,6 +72,9 @@ Ces deux définitions sont équivalentes dans le cas des \gls{slci}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\acpl
+Réponse temporelle du premier ordre du second ordre ...
+
 \begin{criteria}{Condition fondamentale de stabilité}
     \textbf{Un système est stable si sa fonction de transfert ne possède aucun pôles à partie réelle positive.}
 \end{criteria}
@@ -64,17 +82,35 @@ Ces deux définitions sont équivalentes dans le cas des \gls{slci}.
 \input{tikz/stabilite.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Système asservis}
+\paragraph{Notion de pôles dominants}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Système asservi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbComp[5.0]{comp}{E}
+        \sbRelier[$E(p)$]{E}{comp}
+        \sbBloc[1.5]{B}{$\dfrac{K}{p(p^2+p+3)}$}{comp}
+        \sbRelier[$\epsilon$]{comp}{B}
+        \sbSortie[5.0]{S}{B}
+        \sbRelier[$S(p)$]{B}{S}
+    \sbRenvoi{B-S}{comp}{}
+\end{tikzpicture}
+\end{center}
+
+$$
+H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{a_mp^m+a_{m-1}p^{m-1}+\ldots+a_1p+a_0}{b_np^n+b_{n-1}p^{n-1}+\ldots+b_1p+b_0}
+$$
+
 \begin{criteria}{Condition de stabilité d'un système asservi (1)}
     \textbf{Un système asservi est stable si sa fonction de transfert en boucle fermée 
     ne possède aucun pôles à partie réelle positive.}
 \end{criteria}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Notion de pôles dominants}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Inconvénients de la condition fondamentale}
@@ -88,10 +124,7 @@ Ces deux définitions sont équivalentes dans le cas des \gls{slci}.
 
 Le critère de Routh\footnote{Edward John Routh (1831-1907), mathématicien anglais.}
 est dit algébrique car il s'établit dirctement sur la fonction de transfert en 
-boucle fermée du système asservis. 
-$$
-H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{a_mp^m+a_{m-1}p^{m-1}+\ldots+a_1p+a_0}{b_np^n+b_{n-1}p^{n-1}+\ldots+b_1p+b_0}
-$$
+boucle fermée du système asservi. 
 
 Pour appliquer le critère fondamentale de stabilité à cette fonction de transfert,
 il nous faut étudier \textbf{le polynôme caractéristique}:
@@ -100,31 +133,32 @@ il nous faut étudier \textbf{le polynôme caractéristique}:
     b_np^n+b_{n-1}p^{n-1}+\ldots+b_1p+b_0 &= 0
 \end{align}
 pour déterminer si ce polynôme possède des racines toutes à partie réelle 
-strictement négative. Les polynômes de ce type sont appelés en mathématiques 
-de dit de Hurwitz\footnote{Adolf Hurwitz (1859-1919), mathématicien allemand.}\footnote{Un polynôme de Hurwitz est un polynôme à coefficients 
+strictement négative. Les polynômes de ce type sont dits en mathématiques 
+de dit de Hurwitz\footnote{Adolf Hurwitz (1859-1919), mathématicien allemand.}\footnote{Un polynôme de 
+Hurwitz est un polynôme à coefficients 
 réels dont les racines sont toutes à partie réelle strictement négative.}.
 C'est pourquoi le critère suivant est également connu sous le nom de \textbf{critère de Routh-Hurwitz}.
 
 Il est possible de conclure sur la nature des racines d'un polynôme 
-en étudiant ses coéfficients. Le critère de Routh-Hurwitz se base sur cette propriété en 
+en étudiant ses coefficients. Le critère de Routh-Hurwitz se base sur cette propriété en 
 posant deux conditions pour établir qu'un polynôme est un polynôme de Hurwitz.
-Dans le cas de l'application de la stabilité des systèmes linéaires asservis, la première conditions'ennonce 
+Dans le cas de l'application de la stabilité des systèmes linéaires asservis, la première condition s'énonce 
 de la façon suivante :
 \begin{criteria}{Condition nécessaire de Routh-Hurwitz }
-    \textbf{Un système asservis d'ordre $n$ est stable en boucle fermée 
+    \textbf{Un système asservi d'ordre $n$ est stable en boucle fermée 
     si tous les coefficients ($b_i\forall i\neq n$) de son équation caractéristique 
     sont de même signe que $b_n$.}
 \end{criteria}
 
 Cette condition nécessaire s'avère suffisante si le système est du premier ou du second ordre.
-Pour un ordre supérieur il faut construire le tableau de Routh à partir des coéfficients de $D(p)$,
+Pour un ordre supérieur il faut construire le tableau de Routh à partir des coefficients de $D(p)$,
 pour appliquer une condition supplémentaire. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Tableau de Routh}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Dans le cas où la condition nécessaire est respectée et $n>2$, il faut constuire le tableau de Routh à partir 
-des coéfficients de l'équation caractéristique de la foction de transfert en boucle fermée.
+Dans le cas où la condition nécessaire est respectée et $n>2$, il faut constuire le \textbf{tableau de Routh}
+à partir des coefficients de l'équation caractéristique de la fonction de transfert en boucle fermée.
 
 Le tableau de Routh est constitué de $n$ lignes et de $k$ colonnes 
 où $k=n/2+1$\footnote{On réalise ici une division entière. Par exemple 
@@ -151,8 +185,9 @@ si $n=5$, $k=2+1=3$ et si $n=6$, $k=3+1=4$}. L'élément $A_{ij}$ correspond
 \end{vmatrix}
 \]
 
-Les deux premières lignes du tableau sont directement construites à partir des coéfficients de $D(p)$.
+Les deux premières lignes du tableau sont directement construites à partir des coefficients de $D(p)$.
 \[
+    \textbf{paire}\qquad\quad
 \begin{matrix}
     p^n    \\
     p^{n-1}\\
@@ -168,6 +203,7 @@ Les deux premières lignes du tableau sont directement construites à partir des
 \]
 si $n$ est impaire la dernière colonne de la seconde ligne est non-nulle:
 \[
+    \textbf{impaire}\qquad
 \begin{matrix}
     p^n    \\
     p^{n-1}\\
@@ -183,8 +219,8 @@ si $n$ est impaire la dernière colonne de la seconde ligne est non-nulle:
 \]
 
 Les éléments de la troisième ligne sont construits à partir du 
-déterminant\footnote{Nous rappellons le calcul d'un déterminant d'une matrice 
-2$\times$2 tel que $\begin{vmatrix} a & b \\ c & d \end{vmatrix}=ad-bc$} d'élements des deux premières lignes.
+déterminant\footnote{Le déterminant d'une matrice 2$\times$2 est tel que 
+$\begin{vmatrix} a & b \\ c & d \end{vmatrix}=ad-bc$} des élements des deux premières lignes.
 \[
 \begin{matrix}
     p^n    \\
@@ -292,7 +328,7 @@ A_{ij}=-\dfrac{1}{A_{(i-1)1}}\begin{vmatrix} A_{(i-2)1} & A_{(i-2)(j+1)} \\ A_{(
   \tikz[overlay,remember picture, line width=40pt]
     \draw[shorten >=-1.25em, shorten <=-.5em, #1] (#2.north)--(#3.north);
 }                                                                                                                             
-Le critère s'applique sur la première colonne (dite des pivots) du tableau de Routh ainsi construit. 
+Le critère s'applique sur la première colonne ainsi construit dite \textbf{colonne des pivots} du tableau de Routh. 
 \[
 \begin{matrix}
     p^n    \\
@@ -316,7 +352,7 @@ Le critère s'applique sur la première colonne (dite des pivots) du tableau de 
 \colrow[green,opacity=.2]{n1}{n2}
 
 \begin{criteria}{Critère de Routh-Hurtwitz}
-    \textbf{Un système asservis est stable en boucle fermée
+    \textbf{Un système asservi est stable en boucle fermée
             si tous les termes de la colonne des pivots 
             du tableau de Routh du polynôme caractéristique 
             de la fonction de transfert en boucle fermée sont de même signes.}
@@ -342,16 +378,18 @@ des cas particuliers~\cite{Ostertag}.
           lorsque $\epsilon\rightarrow 0^+$ ou $\epsilon\rightarrow 0^-$ selon le signe de la colonne des pivots
           qui respecterait le critère.
     \item Une ligne de zéros pour les coefficients de l'avant-dernière ligne du tableau de
-    Routh indique que le polynôme du dénominateur possède une paire de pôles, qui sont racines de l'équation auxiliaire :
+    Routh indique que le polynôme du dénominateur de la fonction de transfert 
+        possède une paire de pôles, qui sont racines de l'équation auxiliaire :
     $$
     Ap^2+B=0
     $$
-    où $A$ et $B$ sont les coefficients de la ligne précédente du tableau. On peut alors continuer le tableau en remplaçant la
+    où $A$ et $B$ sont les coefficients de la ligne précédente du tableau. On peut alors 
+    continuer le tableau en remplaçant la
     ligne de coefficients nuls par les coefficients de la dérivée de l'équation auxiliaire.
     
     Une ligne de zéro implique la présence d'une paire de racines imaginaires pures
     donnant lieu à une forme sinuso\"idale dans la réponse transitoire.
-    Le système diverge en oscillant s'il y a au moins une racines à partie réelle positive,
+    Le système diverge en oscillant s'il y a au moins une racine à partie réelle positive,
     ou il converge vers des oscillations entretenues si les autres racines ont toutes une partie réelle négative.
 
 \end{itemize}
@@ -368,8 +406,7 @@ Dans l'exemple ci-dessous, nous allons considérer un système asservi caractér
 par fonction de transfert en boucle ouverte défini par un gain $K$
 dont l'on souhaite déterminer la valeur pour assurer la stabilité du système en boucle fermée.
 
-
-Soit alors un système asservi défini par le schéma-bloc suivant :
+Soit un système asservi défini par le schéma-bloc suivant :
 \begin{center}
     \begin{tikzpicture}
         \sbEntree{E}
@@ -383,9 +420,9 @@ Soit alors un système asservi défini par le schéma-bloc suivant :
 \end{tikzpicture}
 \end{center}
 
-La fonction de transfert en boucle fermée $H_{BF}$ s'écrit :
+La fonction de transfert en boucle fermée $H_{BF}(p)$ s'écrit :
 $$
-H_{BF}=\dfrac{H_{BO}(p)}{1+H_{BO}(p)}=\dfrac{K}{p^3+p^2+3p+K}.
+H_{BF}(p)=\dfrac{H_{BO}(p)}{1+H_{BO}(p)}=\dfrac{K}{p^3+p^2+3p+K}.
 $$
 
 L'équation caractéristique $D(p)$ de $H_{BF}$ est donc 
@@ -399,10 +436,8 @@ Nous constatons que le système est d'ordre 3 de coefficients :
     b_1&=3\\
     b_0&=K
 \end{align*}
-Le critère nécessaire de Routh est donc respecté pour $K>0$.
-
-
-Construisons maintenant le tableau de Routh, afin d'appliquer le critère de Routh-Hurwitz :
+Le critère nécessaire de Routh est donc respecté pour $K>0$. L'équation caractéristique 
+étant d'ordre 3, il nous faut construire le tableau de Routh, afin de vérifier le critère supplémentaire :
 
 \[
 \begin{matrix}
@@ -430,11 +465,11 @@ A_{41}=-\dfrac{1}{A_{31}}\begin{vmatrix} 1 & K \\ A_{31} & 0 \end{vmatrix}=K
 $$
 \renewcommand*{\DoTikzmarkU}[1]{%
 \tikzset{external/export next=false}
-    \tikz[remember picture] \coordinate[shift={(-0.5ex,1.75ex)}](#1);%
+    \tikz[remember picture] \coordinate[shift={(-0.6ex,1.75ex)}](#1);%
 }
 \renewcommand*{\DoTikzmarkD}[1]{% 
 \tikzset{external/export next=false}
-    \tikz[remember picture] \coordinate[shift={(-0.5ex,-6ex)}](#1);%
+    \tikz[remember picture] \coordinate[shift={(-0.6ex,-6ex)}](#1);%
 }
 \renewcommand*{\colrow}[3][]{%
 \tikzset{external/export next=false}
@@ -491,29 +526,29 @@ pour l'asservissement d'un système de fonction de transfert $H(p)$, telle que :
 \end{center}
 
 la fonction de transfert en boucle ouverte $H_{BO}(p)$ est simplement donné par $H(p)$, et comme nous l'avons 
-déjà rencontré à plusieurs occasions, la fonction de transfert en boucle fermée $H_{BF}$ est égale à 
+déjà rencontré à plusieurs occasions, la fonction de transfert en boucle fermée $H_{BF}(p)$ est égale à 
 $$
 H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{H_{BO}(p)}{1+H_{BO}(p)},
 $$
-ainsi étudier les pôles de l'équation caractéristique $D(p)=0$ est équivalent à étudier l'équation 
+\'Etudier les pôles de l'équation caractéristique $D(p)=0$ est équivalent à étudier l'équation $1+H_{BO}(p)=0$, ou encore
 $$
-1+H_{BO}(p)=0\Leftrightarrow H_{BO}(p)=-1
+D(p)=0\Leftrightarrow1+H_{BO}(p)=0\Leftrightarrow H_{BO}(p)=-1
 $$
 Il est alors possible d'étudier la fonction de transfert en boucle ouverte par rapport au \textbf{point critique}\index{Point critique}
-du plan complexe $(-1,0)$ de $H_{BO}$.
+du plan complexe $(-1,0)$ de $H_{BO}(p)$.
 Remarquons que les zéros de $1+H_{BO}(p)$ sont les pôles de la fonction de transfert en boucle fermée $H_{BF}(p)$ et
 que les pôles de $1+H_{BO}(p)$ co\"incident avec les pôles de $H_{BO}(p)$.
 Il est donc possible de réinterpréter la condition stabilité d'un système asservi :
 
 \begin{criteria}{Condition de stabilité d'un système asservi (2)}
-    \textbf{Un système est stable en boucle fermée si sa fonction de transfert en boucle ouverte ne possède aucun 
-    \emph{zéros} à partie réelle positive.}
+    \textbf{Un système asservi est stable en boucle fermée si sa fonction de transfert 
+    en boucle ouverte ne possède aucun \emph{zéros} à partie réelle positive.}
 \end{criteria}
 
 Nous allons établir un critère que nous pourrons appliquer sur la réponse harmonique et 
-ses différentes représentation graphique.
+ses différentes représentations graphiques.
 
-Supposons le système asservi iprécédent décrit 
+Supposons le système asservi précédent décrit 
 par la fonction de transfert en boucle ouverte $H_{BO}(p)$. Par définition cette fonction 
 de transfert est le rapport de la sortie $S(p)$ sur l'écart $\epsilon(p)$ que l'on souhaite minimiser.
 
@@ -564,7 +599,7 @@ et ainsi de suite :
 \begin{align*}
     \epsilon(p)&=E(p)(1+K)+K^2\left(E(p)-S(p)\right)=E(p)(1+K+K^2)+K^3\epsilon(p)\\
 \end{align*}
-on obtient après $n$ subsitutions :
+on obtient après $n$ substitutions :
 $$
 \epsilon(p)=E(p)\sum_{i=0}^{n}K^i+K^n\epsilon(p)
 $$
@@ -580,8 +615,8 @@ Nous pouvons donc énoncer le critère de stabilité dit du revers :
     si  $|H_{BO}(j\omega_p)|<1$ ou $20\log{|H_{BO}(j\omega_p)|}<0$ 
 \end{criteria}
 
-Ce déphasage de -180\degree~et le module de 1 de la fonction de transfert en boucle ouverte
-correspond au point critique présenté précedemment.
+Dans le plan complexe, un  déphasage de -180\degree~et un module de 1 
+correspond au point critique de coordonnées $(1,0)$.
 
 Nous allons maintenant voir comment appliquer ce critère aux différentes représentations graphiques
 de la réponse harmonique.
@@ -704,7 +739,7 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
 \begin{criteria}{Critère du revers de Nyquist}
 \textbf{Un système est stable en boucle fermée si lorsque parcourant 
         le lieu de Nyquist de la boucle ouverte dans le sens des 
-        pulsations croissantes, on laisse le point critique sur la \underline{gauche}.}
+        pulsations croissantes, on laisse le point critique sur la \emph{gauche}.}
 \end{criteria}
 % (1-x)*((1-x)*(x*\x1)+x*((1-x)*\x1+x*\x2))+x*((1-x)*((1-x)*\x1+x*\x2)+x*((1-x)*\x2+x*\x3)),
 % (1-x)*((1-x)*(x*\y1)+x*((1-x)*\y1+x*\y2))+x*((1-x)*((1-x)*\y1+x*\y2)+x*((1-x)*\y2+x*\y3))
@@ -714,6 +749,7 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
 \subsubsection{Critère du revers dans le plan de Black}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\acpl
 
 \begin{figure}[!h]
 \begin{center}
@@ -783,7 +819,7 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
 \begin{criteria}{Critère du revers de Black}
 \textbf{Un système est stable en boucle fermée si lorsque parcourant 
         le lieu de Black de la boucle ouverte dans le sens des 
-        pulsations croissantes, on laisse le point critique sur la \underline{droite}.}
+        pulsations croissantes, on laisse le point critique sur la \emph{droite}.}
 \end{criteria}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -803,7 +839,7 @@ De ce fait il faut vérifier deux conditions pour respecter le critère du rever
 
 \begin{criteria}{Critère du revers de Bode (2)}
     \textbf{Un système est stable en boucle fermée si, pour la pulsation $\omega_{c}$ (pulsation critique)
-    telle que l'argument la fonction de transfert en boucle ouverte (déphasage) est 
+    telle que l'argument de la fonction de transfert en boucle ouverte (déphasage) est 
     égale à -180\degree (c.a.d $\phi(\omega_c)=-180\degree$), le gain $G_{dB}(\omega_c)$ est négatif.}
 \end{criteria}
 
@@ -903,9 +939,9 @@ présentation élémentaire et sans démonstration
 de ce théorème. Un cours d'analyse complexe permettra de compléter cette présentation. On 
 trouvera dans \cite{laas_pc7bis,reg}, 
 une introduction plus détaillée ainsi qu'une bibliographie très fournie sur le sujet.}.
-Nous suivrons la présentation \og~graphique\fg de ce théorème et du critère de Nyquist donné par~\cite{reg}. 
+Nous suivrons la présentation \og graphique\fg~ de ce théorème et du critère de Nyquist donné par~\cite{reg}. 
 
-\paragraph{Principe de l'argument de Cauchy}
+\subsubsection{Principe de l'argument de Cauchy}
 
 Soit un contour $\mathcal{C}$ parcourant le plan complexe de 
 la variable $p$ dans le sens des aiguilles d'une montre et $F(p)$ une fonction rationnelle 
@@ -916,7 +952,7 @@ au comportement de la courbe $F(\mathcal{C})$ image $F(p)$ de $\mathcal{C}$.
 \begin{theorem}{\'Enoncé du principe de l'argument de Cauchy} 
     Si un contour $\mathcal{C}$ contient $Z$ zéros et $P$ pôles d'une fonction analytique $F(p)$ 
     sans en traverser aucun, alors quand on le parcourt dans le sens anti-trigonométrique, le contour $\Gamma=F(\mathcal{C})$ 
-    fait un nombre de tours autour de l'origine dans le sens trigonométrique égal à,
+    fait un nombre de tours $N$ autour de l'origine dans le sens trigonométrique égal à,
     $$
     N=Z-P
     $$
@@ -927,7 +963,7 @@ Dans cet exemple la fonction analytique $F(p)$ possède 2 pôles
 et 3 zéros. Le contour entoure $Z=3$ zéros et $P=1$ pôle.
 Le contour $\Gamma=F(\mathcal{C})$ fait alors $N=Z-P=2$ tours autour 
 de l'origine dans le sens trigonométrique ($N>0$). Remarquons que les tours sont 
-comptés positivement dans le sens trigonométrique.
+comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours}).
 
 \begin{figure}[!h]
 \begin{center}
@@ -1002,7 +1038,10 @@ comptés positivement dans le sens trigonométrique.
 \end{axis}
 \end{tikzpicture}
 \end{center}
-    \caption{Représentation de la transformation d'un contour $\mathcal{C}$ en son image par une fonction analytique $F(p)$.
+    \caption{Représentation de la transformation d'un contour $\mathcal{C}$ en son image 
+    par une fonction analytique $F(p)$. Dans cet exemple, on observe (droite) 
+    que $\mathcal{C}$ entoure $Z=3$ zéros et $P=1$ pôle 
+    (gauche) l'image fait alors $N=3-1=2$ tours autour de l'origine.
    % Dans cet exemple la fonction analytique $F(p)$ possède 2 pôles et 3 zéros. Le contour entoure $Z=3$ zéros et $P=1$ pôle.
    % Le contour $\Gamma=F(\mathcal{C})$ fait alors $N=Z-P=2$ tours autour de l'origine dans le sens trigonométrique ($N>0$).
     \label{fig-contour_cauchy}}
@@ -1010,7 +1049,7 @@ comptés positivement dans le sens trigonométrique.
 
 
 \begin{figure}[!h]
-\begin{center}
+\centering
 \begin{tikzpicture}
 \begin{axis}[ticks=none,
 axis line style = thick,
@@ -1108,15 +1147,14 @@ clip=false]
 \node[below] at (axis cs:0,-1.4) {$N=3$};
 \end{axis}
 \end{tikzpicture}
-\end{center}
 \caption{Représentation schématique du nombre de tours autour de l'origine de 
-l'image d'une fraction rationnelle d'un contour fermée. Le sens positif 
-est celui du sens trigonométrique.}
+l'image d'une fraction rationnelle d'un contour fermé. Le sens positif 
+est celui du sens trigonométrique.\label{fig-ntours}}
 \end{figure}
 
 \clearpage
 
-\paragraph{Contours de Nyquist et de Bromwich}
+\subsubsection{Contours de Nyquist et de Bromwich}
 
 Pour pouvoir appliquer le critère de Nyquist par l'intermédiaire du principe de l'argument 
 de Cauchy, il nous faut définir le contour orienté dans le plan $p$ qui entoure la zone instable 
@@ -1130,6 +1168,7 @@ d'un demi cercle de rayon infini centré sur l'origine et dans le
 cas où $p=0$ est un pôle ou un zéro de la fonction de transfert en boucle ouverte, le contour
 est également composé d'un cercle de rayon $r\rightarrow0$ centré sur les pôles nuls.
 
+\captionsetup{width=.9\linewidth} 
 \begin{figure}[!h]
 \begin{center}
 \begin{tikzpicture}
@@ -1245,32 +1284,33 @@ est également composé d'un cercle de rayon $r\rightarrow0$ centré sur les pô
 \end{center}
 \caption{(a) Contour de Nyquist et (b,c) contours de Bromwich.\label{fig-contours}} 
 \end{figure}
-
-\'Etudions en détail l'image par une fonction de transfert du contour de Nyquist.
+\captionsetup{width=.85\linewidth} 
 
 \paragraph{Contour de Nyquist}
 
-La~\cref{fig-contours} (a) présente le contour de Nyquist. Celui-ci est composé de 4 portions:
+La~\cref{fig-contours} (a) présente le contour de Nyquist. Celui-ci est composé de 3 portions:
 \begin{itemize}
     \item \textbf{I} : l'axe des imaginaires positifs pour laquelle $p=\jw$ avec $\omega\in[0,\infty[$,
-    \item \textbf{II}: un quart de cercle de rayon $R\rightarrow\infty$ pour laquelle $p=Re^{j\theta}$ avec $\theta\in[0,\pi/2]$,
-    \item \textbf{III}: l'axe des imaginaires négatifs  pour laquelle $p=-\jw$ avec $\omega\in]-\infty,0]$, symétrique de \textbf{I}
+    \item \textbf{II}: un demi-cercle de rayon $R$ entourant tout le demi-plan complexe de partie réelle positive
+                        et pour lequel $p=Re^{j\theta}$ avec $R\rightarrow\infty$ et $\theta\in[0,\pi/2]$,
+    \item \textbf{III}: l'axe des imaginaires négatifs  pour laquelle $p=-\jw$ avec $\omega\in]-\infty,0]$, 
+                        symétrique de \textbf{I}
 \end{itemize}
 
 
-Déterminons la courbe image d'une fonction de transfert $H_{BO}(p)$
-en boucle ouverte de ces deux portions. 
-Notamment, l'image de la portion \textbf{I} est donné par $H_{BO}(I)=H_{BO}(\jw)$, 
+%La courbe image d'une fonction de transfert $H_{BO}(p)$
+%en boucle ouverte de ces deux portions. 
+L'image de la portion \textbf{I} est donné par $H_{BO}(\boldsymbol{\mathrm{I}})=H_{BO}(\jw)$, 
 ce qui correspond au lieu de Nyquist pour $\omega\in[0,\infty[$. 
 L'image de la portion \textbf{II} est l'origine du plan en 0. L'image de la 
 portion \textbf{III} peut être déterminé à partir de l'image de la 
 portion \textbf{I} par symétrie par rapport à l'axe des réels\footnote{On notera 
 en effet que $H_{BO}(-\jw)=\Re{H_{BO}(\jw)}-\Im{H_{BO}(\jw)}$}.
 
+\paragraph{Exemple}
 
-
+Déterminons l'image par le contour de Bromwich de la fonction de transfert suivante :
 $H_1(p)=\dfrac{1}{1+p}$
-$H_2(p)=\dfrac{1}{p(1+p)}$
 
 \begin{figure}[!h]
 \centering
@@ -1285,7 +1325,7 @@ $H_2(p)=\dfrac{1}{p(1+p)}$
     xlabel=$\Re{p}$,
     ylabel=$\Im{p}$,
     xlabel style={below},
-    ylabel style={left},
+    ylabel style={left,yshift=0.5em},
     ymin=-1.6,
     ymax=1.6,
     xmin=-0.8,
@@ -1299,22 +1339,25 @@ $H_2(p)=\dfrac{1}{p(1+p)}$
     \addplot[red,very thick,domain=62:0] ({1.4*cos(x)},{1.4*sin(x)});
     \addplot[red,very thick,-{Latex[length=2.5mm]},domain=0:-60] ({1.4*cos(x)},{1.4*sin(x)});
     \addplot[red,very thick,domain=-58:-90] ({1.4*cos(x)},{1.4*sin(x)});
-    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)})
-        node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
+%    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)})
+%        node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
     \node[right,xshift=0.5em,red] at (axis cs:{1.4*cos(50)},{1.4*sin(50)}) {\textbf{II}};
+    \node[left,red] at (axis cs:{1.4*cos(90)},{1.4*sin(90)}) {\scriptsize $p\rightarrow+j\infty$};
+    \node[left,red] at (axis cs:{1.4*cos(-90)},{1.4*sin(-90)}) {\scriptsize $p\rightarrow-j\infty$};
 \end{axis}
+    \draw[dblarw={black}{3pt}{3pt}] (5.5,2.18) -- node[midway,above]  {$H_1(p)$} (7.5,2.18) ;
 \begin{axis}[
     name=aaa2,
-    at={(aaa1.south east)},xshift=8ex,
+    at={(aaa1.south east)},xshift=24ex,
     ticks=none,
     axis line style = thick,
     axis lines = center,
     height=6cm,
     width=6cm,
-    xlabel=$\Re{H(p)}$,
-    ylabel=$\Im{H(p)}$,
+    xlabel=$\Re{H_1(p)}$,
+    ylabel=$\Im{H_1(p)}$,
     xlabel style={below right},
-    ylabel style={left},
+    ylabel style={left,yshift=0.5em},
     ymin=-0.6,
     ymax=0.6,
     xmin=-0.2,
@@ -1333,15 +1376,36 @@ $H_2(p)=\dfrac{1}{p(1+p)}$
     ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
     \addplot[dashed,blue,very thick,domain=10:20,samples=201] 
     ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
-    \draw[draw=none,fill=red] (axis cs:0,0) circle (2pt);
+    \draw[draw=none,fill=red] (axis cs:0,0) circle (2pt) node[above left,red] {\textbf{II}};
     \node[right,xshift=0.5em,blue] at (axis cs:{0.9*cos(30)},{0.9*sin(30)}) {\textbf{III}};
     \node[right,xshift=0.5em,blue] at (axis cs:{0.9*cos(30)},{-0.9*sin(30)}) {\textbf{I}};
-    \node[left,red]  at (axis cs:-0.05,0.05) {\textbf{II}};
+    \node[right,red] at (axis cs:{0.1*cos(90)},{0.1*sin(90)}) {\scriptsize $p\rightarrow-j\infty$};
+    \node[right,red] at (axis cs:{0.1*cos(-90)},{0.1*sin(-90)}) {\scriptsize $p\rightarrow+j\infty$};
+    \node[blue] at (axis cs:{1.2*cos(10)},{1.2*sin(10)})   {\scriptsize $p\rightarrow0^-$};
+    \node[blue] at (axis cs:{1.2*cos(-10)},{1.2*sin(-10)}) {\scriptsize $p\rightarrow0^+$};
 \end{axis}
 \end{tikzpicture}
     \caption{Exemple de représentation d'un lieu complet de Nyquist d'une fonction de transfert 
 	$H_1(p)$ par l'image du contour de Nyquist. \label{fig-nyquist_complet_contour} }
 \end{figure}
+
+\paragraph{Contour de Bromwich}
+
+La~\cref{fig-contours} (b) présente un contour de Bromwich dans le cas $p=0$ est pôle de la fonction de transfert. 
+Celui-ci est composé de 4 portions:
+\begin{itemize}
+    \item \textbf{I} : l'axe des imaginaires positifs pour laquelle $p=\jw$ avec $\omega\in[0,\infty[$,
+    \item \textbf{II}: un demi cercle de rayon $R$ entourant tout le demi-plan complexe de partie réelle positive 
+        et pour lequel $p=Re^{j\theta}$ avec $R\rightarrow\infty$ et $\theta\in[0,\pi/2]$,
+    \item \textbf{III}: l'axe des imaginaires négatifs  pour laquelle $p=-\jw$ avec $\omega\in]-\infty,0]$, symétrique de \textbf{I}
+    \item \textbf{IV}:  un demi cercle de rayon $r$ contournant l'origine 
+        pour lequel $p=re^{j\theta}$ avec $r\rightarrow0$ et$\omega\in]-\infty,0]$.
+\end{itemize}
+
+\paragraph{Exemple}
+
+Déterminons l'image par le contour de Bromwich de la fonction de transfert suivante :
+$H_2(p)=\dfrac{1}{p(1+p)}$
 
 \begin{figure}[!h]
 \centering
@@ -1356,30 +1420,34 @@ $H_2(p)=\dfrac{1}{p(1+p)}$
     xlabel=$\Re{p}$,
     ylabel=$\Im{p}$,
     xlabel style={below},
-    ylabel style={left},
+    ylabel style={left,yshift=0.5em},
     ymin=-1.6,
     ymax=1.6,
     xmin=-0.8,
     xmax=2.4,
     clip=false]
-    \draw[dashed,blue,very thick,-{Latex[length=2.5mm]}] (axis cs:0,-1.4) -- (axis cs:0,-0.7) ;
+    \draw[dashed,blue,very thick,-{Latex[length=2.5mm]}] (axis cs:0,-1.4) -- (axis cs:0,-0.7) node[left] {\textbf{III}};
     \draw[dashed,blue,very thick] (axis cs:0,-0.75) -- (axis cs:0,-0.15) ;
     \addplot[green!50!black,very thick,domain=-90:-50,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
     \addplot[green!50!black,very thick,domain=-51:-52,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
     \addplot[green!50!black,very thick,domain=-50:60,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
     \addplot[green!50!black,very thick,domain=54:90,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
-    \draw[blue,thick,-{Latex[length=2.5mm]}]        (axis cs:0,0.15) -- (axis cs:0,0.7) ;
+    \draw[blue,thick,-{Latex[length=2.5mm]}]        (axis cs:0,0.15) -- (axis cs:0,0.7) node[left] {\textbf{I}} ;
     \draw[blue,thick]        (axis cs:0,0.65) -- (axis cs:0,1.4) ;
     \addplot[red,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
     \addplot[red,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
     \addplot[red,very thick,domain=-58:-90,samples=10] ({1.4*cos(x)},{1.4*sin(x)});
-    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)})
-        node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
-    %\addplot[mark=x,black,ultra thick,only marks,mark size=4pt] coordinates{ (0,0) };
+    \node[right,xshift=0.5em,red] at (axis cs:{1.4*cos(50)},{1.4*sin(50)}) {\textbf{II}};
+    \node[right,green!50!black] at (axis cs:{0.20*cos(60)},{0.20*sin(60)}) {\textbf{IV}};
+    \node[left,green!50!black] at (axis cs:{-0.15*cos(90)},{0.15*sin(90)}) {\scriptsize $p\rightarrow0^+$};
+    \node[left,green!50!black] at (axis cs:{-0.15*cos(-90)},{0.15*sin(-90)}) {\scriptsize $p\rightarrow0^-$};
+    \node[left,red] at (axis cs:{1.4*cos(90)},{1.4*sin(90)}) {\scriptsize $p\rightarrow+j\infty$};
+    \node[left,red] at (axis cs:{1.4*cos(-90)},{1.4*sin(-90)}) {\scriptsize $p\rightarrow-j\infty$};
 \end{axis}
+    \draw[dblarw={black}{3pt}{3pt}] (5.5,2.18) -- node[midway,above]  {$H_2(p)$} (7.5,2.18) ;
 \begin{axis}[
     name=aaa2,
-    at={(aaa1.south east)},xshift=8ex,
+    at={(aaa1.south east)},xshift=24ex,
     ticks=none,
     axis line style = thick,
     axis lines = center,
@@ -1387,18 +1455,38 @@ $H_2(p)=\dfrac{1}{p(1+p)}$
     width=6cm,
     xlabel=$\Re{H_2(p)}$,
     ylabel=$\Im{H_2(p)}$,
-    xlabel style={below right},
-    ylabel style={left},
-    ymin=-0.6,
-    ymax=0.6,
-    xmin=-0.2,
-    xmax=1.1,
+    xlabel style={below},
+    ylabel style={left,yshift=0.5em},
+    ymin=-1.6,
+    ymax=1.6,
+    xmin=-0.8,
+    xmax=2.4,
     clip=false]
-    \node[right,xshift=0.5em,blue] at (axis cs:{0.9*cos(30)},{0.9*sin(30)}) {\textbf{III}};
-    \node[right,xshift=0.5em,blue] at (axis cs:{0.9*cos(30)},{-0.9*sin(30)}) {\textbf{I}};
-    \node[left,red]  at (axis cs:-0.05,0.05) {\textbf{II}};
-    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=0:0.9,samples=201] 
-    ({1/(1+\ttt*x*x)},{-x/(x*x(1+\ttt*x*x))});
+    \node[right,xshift=0.5em,green!50!black] at (axis cs:{1.3*cos(35)},{1.3*sin(35)}) {\textbf{IV}};
+    \node[blue] at (axis cs:{-1.2*cos(20)},{1.2*sin(20)}) {\textbf{III}};
+    \node[blue] at (axis cs:{-1.2*cos(20)},{-1.2*sin(20)}) {\textbf{I}};
+    \draw[draw=none,fill=red] (axis cs:0,0) circle (2pt) node[above right,red,yshift=0.7em] {\textbf{II}};
+    \def\ttt{1.0}
+    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=0.6:0.9,samples=201] 
+    ({-1/(1+\ttt*x*x)},{-1/(x*(1+\ttt*x*x))});
+    \addplot[blue,very thick,domain=0.8:10,samples=201] 
+    ({-1/(1+\ttt*x*x)},{-1/(x*(1+\ttt*x*x))});
+    \addplot[dashed,blue,very thick,domain=0.6:0.9,samples=201] 
+    ({-1/(1+\ttt*x*x)},{1/(x*(1+\ttt*x*x))});
+    \addplot[dashed,blue,very thick,domain=0.8:10,samples=201,{Latex[length=2.5mm]}-] 
+    ({-1/(1+\ttt*x*x)},{1/(x*(1+\ttt*x*x))});
+    \begin{scope}
+        \clip (axis cs:-0.7,-1.7)  rectangle (1.4,1.7);
+        \draw[green!50!black,very thick,
+        decoration={markings,mark=at position 0.2 with {\arrowreversed[line width=2pt]{latex}}},
+        decoration={markings,mark=at position 0.7 with {\arrowreversed[line width=2pt]{latex}}},
+        decoration={markings,mark=at position 0.9 with {\arrowreversed[line width=2pt]{latex}}},
+        postaction={decorate}] (axis cs:0,0) circle (1.4);
+    \end{scope}
+    \node[left,green!50!black] at (axis cs:{1.4*cos(120)},{1.4*sin(120)})   {\scriptsize $p\rightarrow0^-$};
+    \node[left,green!50!black] at (axis cs:{1.4*cos(-120)},{1.4*sin(-120)}) {\scriptsize $p\rightarrow0^+$};
+    \node[right,red] at (axis cs:{0.15*cos(90)},{0.15*sin(90)}) {\scriptsize $p\rightarrow-j\infty$};
+    \node[right,red] at (axis cs:{0.15*cos(-90)},{0.15*sin(-90)}) {\scriptsize $p\rightarrow+j\infty$};
 \end{axis}
 \end{tikzpicture}
     \caption{Exemple de représentation d'un lieu complet de Nyquist d'une fonction de transfert $H_2(p)$ 
