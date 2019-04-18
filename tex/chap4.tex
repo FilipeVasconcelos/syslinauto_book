@@ -18,15 +18,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \begin{figure}[!h]
     \centering
         \includegraphics[width=0.45\linewidth,height=10cm]{fig/AGMA_Clepsydre_m.eps}
         \label{fig-clep}
         \includegraphics[width=0.45\linewidth,height=10cm]{fig/Georgetown_PowerPlant_Museum_m.eps}
         \label{fig-watt}
-    \caption{Exemples historiques de régulateurs.\label{fig-hist}}
+    \caption{Exemples historiques de régulateurs. (gauche) Clepsydre athénienne (d'après \cite{clep}) 
+                                                  (droite) Régulateur de vitesse de Watt (d'après \cite{watt})\label{fig-hist}}
 \end{figure}
+
+La \textbf{régulation}\ldots
+L'\textbf{asservissement}\ldots
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -36,6 +40,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Schémas fonctionnels associés aux systèmes asservis}
+
+\begin{figure}[!h]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Nom des noeuds
 %                                      
@@ -51,30 +58,31 @@
 % d : capteur
 % r : noeud décalé pour le retour
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{center}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp{a}{E}
-        \sbRelier[$E(p)$]{E}{a}           % entree
-        \sbBloc[3]{b}{$C(p)$}{a}
-        \sbRelier[$\epsilon(p)$]{a}{b}    % ecart
-        \sbBloc[3]{c}{$H(p)$}{b}
-        \sbRelier[$U(p)$]{b}{c}           % commande
-        \sbSortie[4]{S}{c}
-        \sbRelier{c}{S}
-        \sbNomLien[0.8]{S}{$S(p)$}
-        \sbDecaleNoeudy[6]{b-c}{r}
-        \sbBlocr[-1.6]{d}{$G(p)$}{r}
-        \sbRelieryx{c-S}{d}              
-        \sbRelierxy[$M(p)$]{d}{a}         % mesure (image de S)
-        \node[yshift=-0.8em] at (b.south) {\small Correcteur};
-        \node[yshift=-0.8em] at (c.south) {\small Système};
-        \node[yshift=-0.8em] at (d.south) {\small Capteur};
-        \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
-        \node[yshift=-0.8em] at (S.south) {\small Sortie};
-    \end{tikzpicture}
-\end{center}
+%\begin{center}
+%    \begin{tikzpicture}
+%        \sbEntree{E}
+%        \sbComp{a}{E}
+%        \sbRelier[$E(p)$]{E}{a}           % entree
+%        \sbBloc[3]{b}{$C(p)$}{a}
+%        \sbRelier[$\epsilon(p)$]{a}{b}    % ecart
+%        \sbBloc[3]{c}{$H(p)$}{b}
+%        \sbRelier[$U(p)$]{b}{c}           % commande
+%        \sbSortie[4]{S}{c}
+%        \sbRelier{c}{S}
+%        \sbNomLien[0.8]{S}{$S(p)$}
+%        \sbDecaleNoeudy[6]{b-c}{r}
+%        \sbBlocr[-1.6]{d}{$G(p)$}{r}
+%        \sbRelieryx{c-S}{d}              
+%        \sbRelierxy[$M(p)$]{d}{a}         % mesure (image de S)
+%        \node[yshift=-0.8em] at (b.south) {\small Correcteur};
+%        \node[yshift=-0.8em] at (c.south) {\small Système};
+%        \node[yshift=-0.8em] at (d.south) {\small Capteur};
+%        \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
+%        \node[yshift=-0.8em] at (S.south) {\small Sortie};
+%    \end{tikzpicture}
+%\end{center}
 
+%avec cadre régulateur
 \begin{center}
     \begin{tikzpicture}
         \sbEntree{E}
@@ -95,8 +103,12 @@
         \node[yshift=-0.8em] at (c.south) {\small Système};
         \node[yshift=-0.8em] at (d.south) {\small Capteur};
         \draw[dashed,very thick,blue] (1.15,-1.8) rectangle node[blue,xshift=-1.999999999em,yshift=4em] {\textbf{Régulateur}} (4.9,1);
+        \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
+        \node[yshift=-0.8em] at (S.south) {\small Sortie};
     \end{tikzpicture}
 \end{center}
+\caption{\label{fig-reg}}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Nom des noeuds
@@ -116,28 +128,35 @@
 % f : capteur
 % r : noeud décalé pour le retour
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{center}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbBloc[3]{a}{$A_d(p)$}{E}
-        \sbRelier[$E(p)$]{E}{a}
-        \sbComp{b}{a}
-        \sbRelier{a}{b}
-        \sbBloc[3]{c}{$C(p)$}{b}
-        \sbRelier[$\epsilon(p)$]{b}{c}
-        \sbBloc[3]{d}{$A_c(p)$}{c}
-        \sbRelier[$\epsilon'(p)$]{c}{d}
-        \sbBloc[3]{e}{$H(p)$}{d}
-        \sbRelier[$U(p)$]{d}{e}
-        \sbSortie[4]{S}{e}
-        \sbRelier{e}{S}
-        \sbDecaleNoeudy[5]{d}{r}
-        \sbBlocr[-1.6]{f}{$G(p)$}{r}
-        \sbRelieryx{e-S}{f}              
-        \sbRelierxy[$M(p)$]{f}{b}        % Mesure
-        \sbNomLien[0.8]{S}{$S(p)$}
-    \end{tikzpicture}
-\end{center}
+%\begin{center}
+%    \begin{tikzpicture}
+%        \sbEntree{E}
+%        \sbBloc[3]{a}{$A_d(p)$}{E}
+%        \sbRelier[$E(p)$]{E}{a}
+%        \sbComp{b}{a}
+%        \sbRelier{a}{b}
+%        \sbBloc[3]{c}{$C(p)$}{b}
+%        \sbRelier[$\epsilon(p)$]{b}{c}
+%        \sbBloc[3]{d}{$A_c(p)$}{c}
+%        \sbRelier[$\epsilon'(p)$]{c}{d}
+%        \sbBloc[3]{e}{$H(p)$}{d}
+%        \sbRelier[$U(p)$]{d}{e}
+%        \sbSortie[4]{S}{e}
+%        \sbRelier{e}{S}
+%        \sbDecaleNoeudy[5]{d}{r}
+%        \sbBlocr[-1.6]{f}{$G(p)$}{r}
+%        \sbRelieryx{e-S}{f}              
+%        \sbRelierxy[$M(p)$]{f}{b}        % Mesure
+%        \sbNomLien[0.8]{S}{$S(p)$}
+%        \node[yshift=-0.8em] at (a.south) {\small Adaptateur};
+%        \node[yshift=-0.8em] at (c.south) {\small Correcteur};
+%        \node[yshift=-0.8em] at (d.south) {\small Actionneur};
+%        \node[yshift=-0.8em] at (e.south) {\small Système};
+%        \node[yshift=-0.8em] at (f.south) {\small Capteur};
+%        \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
+%        \node[yshift=-0.8em] at (S.south) {\small Sortie};
+%    \end{tikzpicture}
+%\end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Nom des noeuds
@@ -204,10 +223,11 @@
     \end{tikzpicture}
 \end{center}
     \captionof{figure}{Décomposition en chaîne d'information et chaîne 
-                       d'énergie d'un schéma bloc d'asservissement complet}
+                       d'énergie d'un schéma bloc d'asservissement complet\label{fig-asser}}
 \vspace*{\fill}
 \end{landscape}
 
+\begin{table}[!h]
 \begin{center}
     \begin{tabular}{M{3cm}M{8cm}M{4cm}N}
         \hhline{===}
@@ -243,11 +263,71 @@
                            est indispensable pour la caractérisation des performances du système asservi.
                                       & $G(p)$                                   &\\[3em]
         \hline
+        Mesure          & Le signal de la mesure de la sortie ou image de la sortie
+                          élaboré par le capteur.
+                                      & $M(p)$                                   &\\[3em]  
+        \hline
         Sortie          & Le signal de sortie du système que l'on souhaite régulé et/ou asservir
                                       & $S(p)$                                   &\\[3em]
         \hhline{===}
     \end{tabular}
 \end{center}
+\caption{Terminologie et définition associés à l'asservissement des systèmes.\label{tab-asser}}
+\end{table}
+
+\clearpage
+
+\subsection{Fonctions de transferts associées à un système asservi}
+
+%Chacuns des blocs du schéma fonctionnel d'un asservissement~\cref{fig-asser} permet 
+%de définir une fonction de transfert reliant localement une entrée et une sortie.
+%Nous allons définir quelques fonctions de transferts fondamentales à 
+%l'étude d'un système asservi :
+
+\paragraph{Fonction de transfert de la chaîne directe}
+
+La~\gls{ftcd}, que nous noterons $H_{CD}(p)$ est liée à 
+la chaîne d'action de l'asservissement. Elle lie la sortie $S(p)$ à l'écart $\epsilon(p)$.
+Formellement,
+\begin{bequation}[ams align]
+H_{CD}(p)=\dfrac{S(p)}{\epsilon(p)}
+\end{bequation}
+
+\paragraph{Fonction de transfert de la chaîne de retour}
+
+La~\gls{ftcr}, que nous noterons $H_{CR}(p)$ est 
+liée à la chaîne de mesure de l'asservissement. Elle lie l'image de la sortie $M(p)$ à la sortie $S(p)$ 
+Formellement,
+\begin{bequation}[ams align]
+H_{CR}(p)=\dfrac{M(p)}{S(p)}
+\end{bequation}
+Dans le cas d'un retour unitaire $H_{CR}(p)=1$, c'est à dire que la sortie est la consigne sont de même 
+nature.
+
+\paragraph{Fonction de transfert en boucle ouverte}
+
+La~\gls{ftbo}, que nous noterons $H_{BO}(p)$ correspond
+à la fonction de transfert du système non asservi. Elle lie l'image de la sortie $M(p)$ à l'écart $\epsilon(p)$.
+Formellement,
+\begin{bequation}[ams align]
+H_{BO}(p)=\dfrac{M(p)}{\epsilon(p)}=\dfrac{M(p)}{S(p)}\dfrac{S(p)}{\epsilon(p)}=H_{CR}(p)H_{CD}(p)
+\end{bequation}
+Dans le cas d'un retour unitaire on obtient $H_{BO}(p)=H_{CD}(p)$
+
+\paragraph{Fonction de transfert en boucle fermée}
+
+La~\gls{ftbf}, que nous noterons $H_{BF}(p)$ correspond
+explicitement à la fonction de transfert du système asservi. Elle lie la sortie du système $S(p)$ 
+à la consigne $E(p)$. Formellement et en appliquant la réduction des schémas blocs (c.f~\cref{sec-boucle}),
+\begin{bequation}[ams align]
+    H_{BF}(p)=\dfrac{S(p)}{E(p)}=\dfrac{H_{CD}(p)}{1+H_{CR}(p)H_{CD}(p)}=\dfrac{H_{CD}(p)}{1+H_{BO}(p)}
+\end{bequation}
+
+Remarquons que dans le cas d'une boucle de contre réaction unitaire (c.a.d $H_{CR}(p)=1$),
+la~\gls{ftbf} se réduit à :
+$$
+H_{BF}(p)=\dfrac{H_{BO}(p)}{1+H_{BO}(p)}
+$$
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -257,6 +337,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Stabilité}
 
 \subsection{Précision}
 
@@ -273,6 +355,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Pour étudier l'effet de l'asservissement d'un système du premier ordre 
+sur les performances discutées précedemment, nous allons considérer sans
+perte de généralité le schéma fonctionnel à boucle de contre réaction 
+unitaire suivant :
 \begin{center}
     \begin{tikzpicture}
         \sbEntree{E}
@@ -287,6 +373,37 @@
         \sbNomLien[0.8]{S}{$S(p)$}
     \end{tikzpicture}
 \end{center}
+
+Considérons un procédé de fonction de transfert $H(p)$ telle que:
+$$
+H(p)=\dfrac{K}{1+\tau p}
+$$
+où $K$ est le gain statique et $\tau$ la constante de temps du système.
+On a alors pour~\gls{ftbo} et~\gls{ftbf} respectivement :
+$$
+H_{BO}(p)=H(p)
+$$
+et 
+$$
+H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=\dfrac{K}{(1+K)+\tau p}
+$$
+Remarquons que la~\gls{ftbf} reste du premier ordre. Sous une forme canonique
+cette fonction de transfert devient :
+$$
+H_{BF}(p)=\dfrac{\dfrac{K}{1+K}}{1+\dfrac{\tau}{1+K}p}=\dfrac{K_{BF}}{1+\tau_{BF} p}
+$$
+
+Par identification, on alors les rélations suivantes entre les paramètres du premier ordre 
+de la~\gls{ftbo} et les paramètres du premier ordre de la~\gls{ftbf} :
+\begin{align*}
+       K_{BF}&=\dfrac{K}{1+K}\\
+    \tau_{BF}&=\dfrac{\tau}{1+K}
+\end{align*}
+
+Constatons que le gain statique en boucle ouverte $K$ intervient 
+dans la définition du gain statique $K_{BF}$ et de la constante de temps $\tau_{BF}$ en boucle fermée. 
+Ainsi en modifiant le paramètre $K$, il est possible de jouer sur les deux paramètres régissant la boucle fermée.
+Pour $K>0$, le domaine de définition des paramètres du système en boucle fermée sont  $K_{BF}\in[0,1[$ et  $\tau_{BF}\in]0,\tau]$
 
 
 

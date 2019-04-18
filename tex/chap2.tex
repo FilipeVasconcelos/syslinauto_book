@@ -238,7 +238,7 @@ nous donne la forme générale de la réponse indicielle d'un système du premie
 \end{align}
 La~\cref{fig-1er_ind} présente cette réponse indicielle pour 
 différentes valeurs de la constante de temps $\tau$.
-Pour $t\to\infty$, la valeur de $s(t)$ tend vers $KE_0$%\footnote{Il est également possible 
+Pour $t\to\infty$, la valeur de $s(t)$ tend vers $KE_0$.%\footnote{Il est également possible 
 %de déterminer cette valeur en appliquant le théorème de la valeur finale 
 %sur la fonction dans le domaine de Laplace puisque 
 %$pS(p)$ ne possède qu'un seul pôle à partie réelle négative. 
@@ -254,7 +254,11 @@ La pente à l'origine est positive et inversemment proportionnelle
 à la constante de temps du système.
 
 Le~\cref{tab-1er_ind} donne quelques valeurs particulières de la réponse indicielle. D'après celui-ci, 
-on constate que le temps $t_{5\%}$ de réponse à 5\% est de l'ordre de 3$\tau$ (i.e $-\log{5\%}$).
+on constate que le temps de réponse à 5\% $t_{5\%}$ (temps au bout duquel la réponse indicielle atteint 95\% du signal 
+final) est donné par :
+$$
+t_{5\%}=-\tau\log{0.05}\sim3\tau.
+$$
 \begin{table}
     \begin{center}
     \begin{tabular}{M{2cm}M{2cm}M{2.0cm}M{2.0cm}N}
@@ -267,6 +271,12 @@ on constate que le temps $t_{5\%}$ de réponse à 5\% est de l'ordre de 3$\tau$ 
     \caption{Quelques valeurs particulières de la réponse indicielle d'un système du premier ordre\label{tab-1er_ind}. }
     \end{center}
 \end{table}
+
+Le temps de montée $t_m$ (temps au bout duquel la réponse de 10\% à 90\% du signal final) est donné par :
+$$
+t_m=-\tau\log{\dfrac{0.1}{0.9}}\sim2.2\tau
+$$
+
 
 %\begin{figure}[!t]
 %\begin{center}
