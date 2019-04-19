@@ -407,7 +407,8 @@ cross/.default={1pt}}
 %\includeonly{tex/chap2,tex/annexe1,tex/annexe4}
 %\includeonly{tex/chap2,tex/chap3}
 %\includeonly{tex/chap3}
-\includeonly{tex/chap1,tex/chap4}
+%\includeonly{tex/chap1,tex/chap4}
+\includeonly{tex/chap0,tex/annexe1,tex/chap2,tex/chap4}
 %\includeonly{tex/chap5}
 %\includeonly{tex/chap6}
 %\includeonly{tex/annexe1}
@@ -463,7 +464,7 @@ cross/.default={1pt}}
 %\mainmatter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\include{tex/avantpropos}              % Introduction Générale 
+\input{tex/avantpropos}              % Introduction Générale 
 \include{tex/chap0}                    % SLCI
 \include{tex/chap1}                    % Diagramme bloc
 \include{tex/chap2}                    % Modèles de SLCI
@@ -480,14 +481,14 @@ cross/.default={1pt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{appendices}
-\input{tex/annexe_alphagrec}
-\include{tex/annexe1}
-\include{tex/annexe2}
-\include{tex/annexe3}
-\include{tex/annexe4}
-{\tikzset{external/export=false}
-\include{tex/annexe5}
-\include{tex/annexe6}
+\input{tex/annexe_alphagrec}           % alphabet grec
+\include{tex/annexe1}                  % Transformation de Laplace 
+\include{tex/annexe2}                  % Rappel sur les nombres complexes
+\include{tex/annexe3}                  % Décomposition en éléments simples
+\include{tex/annexe4}                  % Système du second ordre
+{\tikzset{external/export=false}       
+\include{tex/annexe5}                  % Scilab
+\include{tex/annexe6}                  % Echelle log  
 }
 \include{tex/todo}
 \end{appendices}

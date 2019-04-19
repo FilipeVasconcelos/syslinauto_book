@@ -153,14 +153,12 @@ La pente à l'origine est négative et inversemment proportionnelle au carré de
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
 \centering
-%\begin{subfigure}[b]{0.49\textwidth}
 \begin{tikzpicture}
 \begin{axis}[%
     legend style={draw=none,font=\scriptsize},
     legend pos=south east,
     axis line style = thick,
-    %height=8cm,
-    width=0.49\textwidth,
+    width=0.48\textwidth,
     xmin=0,
     xmax=10,
     ymin=0,
@@ -170,37 +168,30 @@ La pente à l'origine est négative et inversemment proportionnelle au carré de
     label style={font=\Large},
     legend cell align={left},
 ]%
-\addplot [thick,color=black,domain=0:11.5, samples=101,unbounded coords=jump] {{1}};
+\addplot[thick,color=black,domain=0:11.5, samples=101,unbounded coords=jump] {{1}};
 \addplot[thick,color=blue,domain=0:11.5, samples=101,unbounded coords=jump]{1-exp(-x)};
 \addplot[thick,color=green,domain=0:11.5, samples=101,unbounded coords=jump]{(1-exp(-x/2))};
 \addplot[thick,color=cyan,domain=0:11.5, samples=101,unbounded coords=jump]{(1-exp(-x/3))};
 \addplot[thick,color=red,domain=0:11.5, samples=101,unbounded coords=jump]{(1-exp(-x/4))};
 \addplot[thick,color=magenta,domain=0:11.5, samples=101,unbounded coords=jump]{(1-exp(-x/5))};
-%\addplot[thick,color=black,domain=0:11.5, samples=101,unbounded coords=jump]{(1-exp(-x/6))};
 \legend{échelon,$\tau=1$,$\tau=2$,$\tau=3$,$\tau=4$,$\tau=5$}
 \end{axis}%
-%    \draw[] (0,0) -- (1,0) ;
 \end{tikzpicture}%
-%\caption{Pour différentes valeurs de $\tau$ et $K=1$}
-%\end{subfigure}%
 \hfill
-%\begin{subfigure}[b]{0.49\textwidth}%
 \begin{tikzpicture}
 \begin{axis}[
     legend style={draw=none,font=\scriptsize},
     legend pos=north east,
     axis line style = thick,
-    %height=8cm,
-    %width=10cm,
-    width=0.49\textwidth,
+    width=0.48\textwidth,
     xmin=0,
     xmax=10,
     ymin=0,
-    ymax=2,
+    ymax=2.1,
     xlabel={$t$},
     ylabel={$s(t)$},
-    label style={font=\Large},
     ylabel near ticks, yticklabel pos=right,
+    label style={font=\Large},
     legend cell align={left},
 ]%
 \addplot[thick,color=black,domain=0:11.5, samples=101,unbounded coords=jump]{{1}};%
@@ -210,11 +201,9 @@ La pente à l'origine est négative et inversemment proportionnelle au carré de
 \legend{échelon,$K=0.5$,$K=1$,$K=2$}
 \end{axis}
 \end{tikzpicture}
-%\caption{Pour différentes valeurs du gain $K$ et $\tau=1$}
-%\end{subfigure}%
 \caption{Réponse indicielle d'un système du premier ordre avec $E_0=1$. (gauche) 
-         Pour différentes valeurs de $\tau$ et $K=1$ (droite) our différentes 
-         valeurs du gain $K$ et $\tau=1$.\label{fig-1er_ind}}
+         Pour différentes valeurs de $\tau$ et avec $K=1$. (droite) Pour différentes 
+         valeurs du gain $K$ et avec $\tau=1$.\label{fig-1er_ind}}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle}
@@ -278,27 +267,16 @@ t_m=-\tau\log{\dfrac{0.1}{0.9}}\sim2.2\tau
 $$
 
 
-%\begin{figure}[!t]
-%\begin{center}
-%\includegraphics[width=0.7\textwidth]{script/fig_1er_1.eps}
-%\end{center}
-%\caption{Réponse indicielle d'un système du premier ordre pour différentes valeurs
-%de la constante de temps $\tau$ 
-%    (\cref{eq-1er_ind}) avec $K=1$ et $E_0=1$\label{fig-1er_ind}}
-%\end{figure}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
-%    \begin{subfigure}{0.49\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{axis}[%
     legend style={draw=none,font=\scriptsize},
     legend pos=north west,
     axis line style = thick,
-    %height=8cm,
-    width=0.49\textwidth,
+    width=0.48\textwidth,
     xmin=0,
     xmax=10,
     ymin=0,
@@ -308,48 +286,39 @@ $$
     label style={font=\Large},
     legend cell align={left},
 ]%
-\addplot [thick,color=black,domain=0:11.5, samples=101,unbounded coords=jump]{x};
-\addplot [thick,color=blue,domain=0:11.5, samples=101,unbounded coords=jump]{x-(1-exp(-x))};
-\addplot [thick,color=green,domain=0:11.5, samples=101,unbounded coords=jump]{x-2*(1-exp(-x/2))};
-\addplot [thick,color=cyan,domain=0:11.5, samples=101,unbounded coords=jump]{x-3*(1-exp(-x/3))};
-\addplot [thick,color=red,domain=0:11.5, samples=101,unbounded coords=jump]{x-4*(1-exp(-x/4))};
-\addplot [thick,color=magenta,domain=0:11.5, samples=101,unbounded coords=jump]{x-5*(1-exp(-x/5))};
-%\addplot [thick,color=black,domain=0:11.5, samples=101,unbounded coords=jump]{x-6*(1-exp(-x/6))};
-\legend{échelon,$\tau=1$,$\tau=2$,$\tau=3$,$\tau=4$,$\tau=5$}
+\addplot[thick,color=black,domain=0:11.5, samples=101,unbounded coords=jump]{x};
+\addplot[thick,color=blue,domain=0:11.5, samples=101,unbounded coords=jump]{x-(1-exp(-x))};
+\addplot[thick,color=green,domain=0:11.5, samples=101,unbounded coords=jump]{x-2*(1-exp(-x/2))};
+\addplot[thick,color=cyan,domain=0:11.5, samples=101,unbounded coords=jump]{x-3*(1-exp(-x/3))};
+\addplot[thick,color=red,domain=0:11.5, samples=101,unbounded coords=jump]{x-4*(1-exp(-x/4))};
+\addplot[thick,color=magenta,domain=0:11.5, samples=101,unbounded coords=jump]{x-5*(1-exp(-x/5))};
+\legend{rampe,$\tau=1$,$\tau=2$,$\tau=3$,$\tau=4$,$\tau=5$}
 \end{axis}%
-%    \draw[] (0,0) -- (1,0) ;
 \end{tikzpicture}%
-%\caption{Pour différentes valeurs de $\tau$ et $K=1$}
-%\end{subfigure}%
 \hfill
-%\begin{subfigure}{0.49\textwidth}%
 \begin{tikzpicture}
 \begin{axis}[
     legend style={draw=none,font=\scriptsize},
     legend pos=north west,
     axis line style = thick,
-    %height=8cm,
-    %width=10cm,
-    width=0.49\textwidth,
+    width=0.48\textwidth,
     xmin=0,
     xmax=10,
     ymin=0,
     ymax=10,
     xlabel={$t$},
     ylabel={$s(t)$},
-    label style={font=\Large},
     ylabel near ticks, yticklabel pos=right,
+    label style={font=\Large},
     legend cell align={left},
 ]%
 \addplot [thick,color=black,domain=0:11.5, samples=101,unbounded coords=jump]{x};
 \addplot [thick,color=green,domain=0:11.5, samples=101,unbounded coords=jump]{0.5*(x-(1-exp(-x)))};
 \addplot [thick,color=blue,domain=0:11.5, samples=101,unbounded coords=jump]{x-(1-exp(-x))};
 \addplot [thick,color=cyan,domain=0:11.5, samples=101,unbounded coords=jump]{2*(x-(1-exp(-x)))};
-\legend{échelon,$K=0.5$,$K=1$,$K=2$}
+\legend{rampe,$K=0.5$,$K=1$,$K=2$}
 \end{axis}
 \end{tikzpicture}
-%        \caption{Pour différentes valeurs du gain $K$ et $\tau=1$}
-%    \end{subfigure}%
 \caption{Réponse à une rampe d'un système du premier ordre avec $E_0=1$. (gauche) Pour différentes valeurs de $\tau$ et $K=1$ (droite) Pour différentes valeurs du gain $K$ et $\tau=1$.\label{fig-1er_ramp}}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -521,7 +490,7 @@ nous sera très utile pour l'établissement des réponses temporelles des diffé
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous allons ici, comme dans le cas des systèmes du premier ordre données les formes analytiques des
 réponses temporelles (impulsionnelle, indicielle et rampe) des systèmes du second ordre.
-On trouvera les courbes en annexe (\Cref{annexe-2nd})
+On trouvera les réprésentations graphiques de ces réponses temporelles à l'\cref{annexe-2nd}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse impulsionnelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -902,10 +871,10 @@ le dépassement et le taux d'amortissement, il nous faut d'abord déterminer le 
 \begin{tikzpicture}
         \pgfmathsetmacro{\pi}{3.141592653589793}     % dépassement d4 
         \begin{axis}[
-        %    xmode=log,
-        %    ymode=log,
+            xmode=log,
+            ymode=log,
         legend style={draw=none},
-        legend pos=north east,
+        legend pos=south west,
         axis line style = thick,
         xmin=0.01,
         xmax=1,
@@ -914,6 +883,9 @@ le dépassement et le taux d'amortissement, il nous faut d'abord déterminer le 
         xlabel={$\xi$},
         ylabel={$D_k$},
         label style={font=\Large},
+        grid=both,
+        grid style={line width=.1pt, draw=gray!50},
+        major grid style={line width=.2pt,draw=gray!50},
         ]
             \addplot[thick,color=red,domain=0.0001:1, samples=101,unbounded coords=jump]{exp(-(x*\pi)/(sqrt(1-x*x)))};
             \addplot[thick,color=blue,domain=0.0001:1, samples=101,unbounded coords=jump]{exp(-(2*x*\pi)/(sqrt(1-x*x)))};
@@ -1027,6 +999,9 @@ temps de réponse pour $\xi\sim 0.7$
     \caption{Temps de réponse à 5\% réduit en fonction du taux d'amortissement $\xi$. 
      Le minimum est atteint pour $\xi\sim0.7$ pour lequel $\omega_0\cdot t_{5\%}\sim3$.\label{fig-2nd_temps_reponse}}
 \end{figure}
+
+
+\input{fig/reponse_indicielle_2nd_ordre.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse à une rampe}
@@ -1226,7 +1201,11 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+\dfrac{2\xi}{\omega_d}e^{-\alpha t}\sin{
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Cas particulier d'un système du second ordre sans amortissement}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Dans le cas où l'équation différentielle est de la forme 
@@ -1240,32 +1219,146 @@ H(p)=\dfrac{S(p)}{E(p)}=
 $$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Autres modèles particuliers}
 %r%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Dans cette partie, nous allons présenter des modèles particuliers qui physiquement ne retrouveront
-jamais seul mais compléterons les modèles du premier et second ordre discutés precedemment.
+Dans cette partie, nous allons présenter des modèles théoriques particuliers 
+qui physiquement ne retrouveront jamais seul mais compléterons les 
+modèles du premier et second ordre discutés précedemment.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Gain pur}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Gain pur}
+Dans le cas où l'équation différentielle\footnote{Bien evidemment dans le cas présent l'équation différentielle
+est d'ordre 0. Ce qui est un cas très particulier d'équation différentielle.}régissant le système est de la forme :
 $$
-H(p)=K
+s(t)=Ke(t)
 $$
+avec $K$ un gain pur. Autrement dit, la sortie est proportionnelle à l'entrée et
+de même nature.
+En effet, la réponse temporelle est trivialement donné par la définition 
+du modèle régissant le système, il est cependant possible de définir une fonction
+de transfert dans le cas d'un gain pur qui s'écrit :
+\begin{bequation}[ams align]
+H(p)=\dfrac{S(p)}{E(p)}=K
+\end{bequation}
+La \textbf{réponse impulsionnelle} pour une entrée du type impulsion de Dirac unitaire 
+est elle même une impulsion de Dirac :
+$$
+s(t)=K\delta(t)
+$$
+De même pour la \textbf{réponse indicielle} pour une entrée en échelon $e(t)=E_0u(t)$
+$$
+s(t)=KE_0u(t)
+$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Intégrateur pur}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Intégrateur pur}
+Dans le cas où l'équation différentielle régissant le système est de la forme :
 $$
-H(p)=\dfrac{K}{p}
+\devi{s(t)}{}=Ke(t)
 $$
+où $K$ est un gain. La sortie correspond à l'intégrale de l'entrée :
+$$
+s(t)=K\int\limits_0^t e(\tau)\dd{\tau}
+$$
+La \textbf{réponse impulsionnelle} pour une entrée unitaire est la fonction échélon unitaire:
+$$
+s(t)=K\int\limits_0^t \delta(\tau)\dd{\tau}=Ku(t)
+$$
+La  \textbf{réponse indicielle} est une droite de pente $KE_0$ :
+$$
+s(t)=KE_0\int\limits_0^t u(\tau)\dd{\tau}=KE_0\left[\tau\right]_0^t=KE_0t
+$$
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[%
+%    legend style={draw=none,font=\scriptsize},
+%    legend pos=south east,
+    axis line style = thick,
+    %height=8cm,
+    width=0.49\textwidth,
+    xmin=-1,
+    xmax=5,
+    ymin=0,
+    ymax=1.5,
+    xlabel={$t$},
+    ylabel={$s(t)$},
+    label style={font=\Large},
+%    legend cell align={left},
+]%
+\addplot[very thick,color=blue,domain=-1:0, samples=10,unbounded coords=jump] {{0}};
+\addplot[very thick,color=blue,domain=0:11.5, samples=10,unbounded coords=jump] {{1}};
+\draw[dashed,very thick,blue] (axis cs:0,0) -- (axis cs:0,1);
+\draw[dblarw={black}{2pt}{2pt}] (axis cs:0,0) -- (axis cs:0,1);
+%\legend{échelon,$\tau=1$,$\tau=2$,$\tau=3$,$\tau=4$,$\tau=5$}
+\end{axis}%
+\end{tikzpicture}%
+\hfill
+\begin{tikzpicture}
+\begin{axis}[
+%    legend style={draw=none,font=\scriptsize},
+%    legend pos=north east,
+    axis line style = thick,
+    width=0.49\textwidth,
+    xmin=-1,
+    xmax=5,
+    ymin=0,
+    ymax=5,
+    xlabel={$t$},
+    ylabel={$s(t)$},
+    label style={font=\Large},
+    ylabel near ticks, yticklabel pos=right,
+%    legend cell align={left},
+]%
+\addplot[very thick,color=blue,domain=-1:0, samples=10,unbounded coords=jump]{{0}};%
+\addplot[very thick,color=blue,domain=0:11.5, samples=10,unbounded coords=jump]{{x}};%
+\draw[dashed,very thick,black] (axis cs:0,0) -- (axis cs:0,1);
+\addplot[very thick,color=black,domain=-1:0, samples=10,unbounded coords=jump] {{0}};
+\addplot[very thick,color=black,domain=0:11.5, samples=10,unbounded coords=jump] {{1}};
+%\legend{échelon,$K=0.5$,$K=1$,$K=2$}
+\end{axis}
+\end{tikzpicture}
+\caption{(gauche) Réponse impulsionnelle (droite) Réponse indicielle d'un intégrateur avec $K=1$ et $E_0=1$.\label{fig-integ}}
+\end{figure}
+
+
+Autrement dit, le système est \textbf{instable}.
+
+Les mêmes résultats peuvent être obtenues en considérant la fonction de transfert
+d'un intégrateur pur défini par:
+\begin{bequation}[ams align]
+H(p)=\dfrac{S(p)}{E(p)}=\dfrac{K}{p}
+\end{bequation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dérivateur pur}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Dérivateur pur}
-$$
-H(p)=Kp
-$$
+\begin{bequation}[ams align]
+H(p)=\dfrac{S(p)}{E(p)}=Kp
+\end{bequation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Retard pur}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Retard pur}
-$$
-H(p)=Ke^{-\tau p}
-$$
+\begin{bequation}[ams align]
+H(p)=\dfrac{S(p)}{E(p)}=Ke^{-\tau p}
+\end{bequation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Généralisation des modèles de SLCI}

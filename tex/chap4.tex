@@ -329,6 +329,123 @@ $$
 H_{BF}(p)=\dfrac{H_{BO}(p)}{1+H_{BO}(p)}
 $$
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Asservissement des SLCI modèles}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Asservissement d'un intégrateur}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Asservissement d'un système du premier ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Considérons un système asservi régit par le schéma-bloc suivant :
+\begin{center}
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbComp{a}{E}
+        \sbRelier[$E(p)$]{E}{a}
+       % \sbBloc{b}{$C(p)$}{a}
+        \sbBloc{b}{$H(p)=\dfrac{K}{1+\tau p}$}{a}
+        \sbRelier{a}{b}
+        \sbSortie[4]{S}{b}
+        \sbRelier{b}{S}
+        \sbRenvoi{b-S}{a}{}
+        \sbNomLien[0.8]{S}{$S(p)$}
+    \end{tikzpicture}
+\end{center}
+avec $H(p)$ un procédé de fonction de transfert du second ordre tel que:
+$$
+H(p)=\dfrac{K}{1+\tau p}
+$$
+où $K$ est le gain statique et $\tau$ la constante de temps sont les 
+paramètres du système en boucle ouverte.
+On a alors pour~\gls{ftbo} et~\gls{ftbf} respectivement :
+$$
+H_{BO}(p)=H(p)
+$$
+et 
+$$
+H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=\dfrac{K}{(1+K)+\tau p}
+$$
+Remarquons que la~\gls{ftbf} reste du premier ordre. Sous une forme canonique
+cette fonction de transfert devient :
+$$
+H_{BF}(p)=\dfrac{\dfrac{K}{1+K}}{1+\dfrac{\tau}{1+K}p}=\dfrac{K_{BF}}{1+\tau_{BF} p}
+$$
+où $K_{BF}$ est le gain statique et $\tau_{BF}$ la constante de temps sont les 
+paramètres du système en boucle fermée.
+Par identification, on alors les rélations suivantes entre les paramètres du premier ordre 
+de la~\gls{ftbo} et les paramètres du premier ordre de la~\gls{ftbf} :
+\begin{align*}
+       K_{BF}&=\dfrac{K}{1+K}\\
+    \tau_{BF}&=\dfrac{\tau}{1+K}
+\end{align*}
+
+Constatons que le gain statique en boucle ouverte $K$ intervient 
+dans la définition du gain statique $K_{BF}$ et de la constante de temps $\tau_{BF}$ en boucle fermée. 
+Ainsi en modifiant le paramètre $K$, il est possible de jouer sur les deux paramètres régissant la boucle fermée.
+Pour $K>0$, le domaine de définition des paramètres du système en boucle fermée sont  $K_{BF}\in[0,1[$ et  $\tau_{BF}\in]0,\tau]$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Asservissement d'un système du second ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Considérons un système asservi régit par le schéma-bloc suivant :
+\begin{center}
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbComp{a}{E}
+        \sbRelier[$E(p)$]{E}{a}
+       % \sbBloc{b}{$C(p)$}{a}
+        \sbBloc{b}{$H(p)=\dfrac{K\omega^2_0}{\omega^2_0+2\xi\omega_0p+p^2}$}{a}
+        \sbRelier{a}{b}
+        \sbSortie[4]{S}{b}
+        \sbRelier{b}{S}
+        \sbRenvoi{b-S}{a}{}
+        \sbNomLien[0.8]{S}{$S(p)$}
+    \end{tikzpicture}
+\end{center}
+avec $H(p)$ un procédé de fonction de transfert du second ordre tel que:
+$$
+H(p)=\dfrac{K\omega^2_0}{\omega^2_0+2\xi\omega_0p+p^2}
+$$
+où $K$ est le gain statique, $\omega_0$ la pulsation propre et $\xi$ 
+le coefficient d'amortissement.
+Les~\gls{ftbo} et~\gls{ftbf} sont respectivement :
+$$
+H_{BO}(p)=H(p)
+$$
+et 
+$$
+H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=\dfrac{K\omega^2_0}{\omega^2_0(1+K)+2\xi\omega_0p+p^2}
+$$
+Une nouvelle fois, nous constatons que la fonction de transfert en boucle fermée est du même ordre
+que celle en boucle ouverte. Sous une forme canonique la~\gls{ftbf} devient :
+$$
+H_{BF}(p)=\dfrac{K\omega^2_0}{\omega^2_0(1+K)+2\xi\omega_0p+p^2}=
+\dfrac{K_{BF}\omega^2_{0,BF}}{\omega^2_{0,BF}(1+K_{BF})+2\xi_{BF}\omega_{0,BF}p+p^2}
+$$
+Par identification, on alors les rélations suivantes entre les paramètres du premier ordre 
+de la~\gls{ftbo} et les paramètres du premier ordre de la~\gls{ftbf} :
+\begin{align*}
+       K_{BF}&=\dfrac{K}{1+K}\\
+    \omega_{0,BF}&=\omega_0\sqrt{1+K}\\
+    \xi_{BF}&=\dfrac{\xi}{\sqrt{1+K}}
+\end{align*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -347,88 +464,7 @@ $$
 \subsection{Dépassement}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Asservissement d'un système du premier ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Pour étudier l'effet de l'asservissement d'un système du premier ordre 
-sur les performances discutées précedemment, nous allons considérer sans
-perte de généralité le schéma fonctionnel à boucle de contre réaction 
-unitaire suivant :
-\begin{center}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp{a}{E}
-        \sbRelier[$E(p)$]{E}{a}
-       % \sbBloc{b}{$C(p)$}{a}
-        \sbBloc{b}{$H(p)$}{a}
-        \sbRelier{a}{b}
-        \sbSortie[4]{S}{b}
-        \sbRelier{b}{S}
-        \sbRenvoi{b-S}{a}{}
-        \sbNomLien[0.8]{S}{$S(p)$}
-    \end{tikzpicture}
-\end{center}
-
-Considérons un procédé de fonction de transfert $H(p)$ telle que:
-$$
-H(p)=\dfrac{K}{1+\tau p}
-$$
-où $K$ est le gain statique et $\tau$ la constante de temps du système.
-On a alors pour~\gls{ftbo} et~\gls{ftbf} respectivement :
-$$
-H_{BO}(p)=H(p)
-$$
-et 
-$$
-H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=\dfrac{K}{(1+K)+\tau p}
-$$
-Remarquons que la~\gls{ftbf} reste du premier ordre. Sous une forme canonique
-cette fonction de transfert devient :
-$$
-H_{BF}(p)=\dfrac{\dfrac{K}{1+K}}{1+\dfrac{\tau}{1+K}p}=\dfrac{K_{BF}}{1+\tau_{BF} p}
-$$
-
-Par identification, on alors les rélations suivantes entre les paramètres du premier ordre 
-de la~\gls{ftbo} et les paramètres du premier ordre de la~\gls{ftbf} :
-\begin{align*}
-       K_{BF}&=\dfrac{K}{1+K}\\
-    \tau_{BF}&=\dfrac{\tau}{1+K}
-\end{align*}
-
-Constatons que le gain statique en boucle ouverte $K$ intervient 
-dans la définition du gain statique $K_{BF}$ et de la constante de temps $\tau_{BF}$ en boucle fermée. 
-Ainsi en modifiant le paramètre $K$, il est possible de jouer sur les deux paramètres régissant la boucle fermée.
-Pour $K>0$, le domaine de définition des paramètres du système en boucle fermée sont  $K_{BF}\in[0,1[$ et  $\tau_{BF}\in]0,\tau]$
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Asservissement d'un système du second ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{center}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp{a}{E}
-        \sbRelier[$E(p)$]{E}{a}
-       % \sbBloc{b}{$C(p)$}{a}
-        \sbBloc{b}{$H(p)$}{a}
-        \sbRelier{a}{b}
-        \sbSortie[4]{S}{b}
-        \sbRelier{b}{S}
-        \sbRenvoi{b-S}{a}{}
-        \sbNomLien[0.8]{S}{$S(p)$}
-    \end{tikzpicture}
-\end{center}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
