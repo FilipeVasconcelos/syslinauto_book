@@ -154,6 +154,7 @@ tracer la réponse temporelle pour toutes les pulsations que l'on souhaite étud
 
 \begin{figure}[!h]
 \begin{center}
+\tikzsetnextfilename{repham_1-chap3_ext}
     \begin{tikzpicture}
         \begin{axis}[
         ticks=none,
@@ -176,6 +177,7 @@ tracer la réponse temporelle pour toutes les pulsations que l'on souhaite étud
             \node[left] at (axis cs:0,0.5)  {$\omega=0.1$};
         \end{axis}
     \end{tikzpicture}
+\tikzsetnextfilename{repham_2-chap3_ext}
     \begin{tikzpicture}
         \begin{axis}[
         ticks=none,
@@ -198,6 +200,7 @@ tracer la réponse temporelle pour toutes les pulsations que l'on souhaite étud
             \node[left] at (axis cs:0,0.5)  {$\omega=1$};
         \end{axis}
     \end{tikzpicture}
+\tikzsetnextfilename{repham_3-chap3_ext}
     \begin{tikzpicture}
         \begin{axis}[
         ticks=none,
@@ -309,6 +312,7 @@ de l'argument principale (\Cref{annexe-NC}).
 \begin{figure}[!h]
 %\begin{center}
 \centering
+\tikzsetnextfilename{sche_bode-chap3_ext}
 \begin{tikzpicture}
     \begin{axis}[
         name=axx,
@@ -370,7 +374,7 @@ de l'argument principale (\Cref{annexe-NC}).
 %\end{center}
 \caption{Représentation schématique d'un diagramme de Bode. Le gain en décibel et la phase 
     associé à une fonction de transfert sont représentés en fonction de la pulsation (à l'échelle log) 
-    sur deux repères distincts.}
+    sur deux repères distincts.\label{fig-sche_bode}}
 \end{figure}
 
 La principale propriété du diagramme de Bode est de permettre de simplifier un grand nombre calcul.
@@ -408,6 +412,7 @@ les pulsations négatives, c'est à dire entre $\omega\rightarrow-\infty$ et $\o
 
 \begin{figure}[!h]                                                                                                           
 \begin{center}                                                                                                               
+\tikzsetnextfilename{sche_nyquist_1-chap3_ext}
 \begin{tikzpicture}
 \begin{axis}
     [
@@ -452,6 +457,7 @@ les pulsations négatives, c'est à dire entre $\omega\rightarrow-\infty$ et $\o
 \end{axis}
 \end{tikzpicture}%
 \hspace{0cm}
+\tikzsetnextfilename{sche_nyquist_2-chap3_ext}
 \begin{tikzpicture}
 \begin{axis}
     [
@@ -475,18 +481,6 @@ les pulsations négatives, c'est à dire entre $\omega\rightarrow-\infty$ et $\o
     \def\yu{3.24525022405}
     \def\xd{-2.6946926406}
     \def\yd{5.13601319826}
- %   \addplot [black, mark = *] coordinates {( 0, 0)} {};
-%    \node [below]       at (axis cs:  7.853981633974483, 0)   {$\omega=0$};                
- %   \addplot [black, mark = *] coordinates {(7.853981633974483, 0)} {};                          
-%    \node [below right]       at (axis cs:  0, 0) {$\omega\rightarrow\infty$};
- %   \addplot [red, mark = *] coordinates {(\xu,\yu)} {};
- %   \node [above right, red]       at (axis cs:  \xu,\yu) {$\omega_1$};
-%    \draw[red] (axis cs:0,0) -- (axis cs: \xu,\yu)   node[midway,yshift=1.4em,xshift=0.7em] {$G(\omega_1)$};
-%    \draw[red] (axis cs:2.6,0) arc (0:22:1cm)      node[midway,yshift=0.23em,xshift=1.6em] {$\phi(\omega_1)$};
- %   \addplot [blue, mark = *] coordinates {( \xd,\yd)} {};
- %   \node [above left, blue]       at (axis cs:  \xd,\yd) {$\omega_2$};
-%    \draw[blue] (axis cs:0,0) -- (axis cs:  \xd,\yd) node[midway,yshift=-0.8em,xshift=-1.5em] {$G(\omega_2)$};
-%    \draw[blue] (axis cs:1.9,0) arc (0:119:1.9)    node[midway,yshift=-2em,xshift=-3.0em] {$\phi(\omega_2)$};
     \addplot [postaction={decorate, decoration={markings,
             mark=at position 0.105 with {\arrow[rotate=-180]{latex};},
             mark=at position 0.31 with  {\arrow[rotate=-180]{latex};},
@@ -507,7 +501,7 @@ les pulsations négatives, c'est à dire entre $\omega\rightarrow-\infty$ et $\o
     \caption{ (gauche) Représentation schématique d'un diagramme de Nyquist. Le nombre complexe 
     $H(\jw)$ est représenté dans le plan complexe pour différentes valeurs de la 
     pulsation $\omega$ de 0 à $\infty$. (droite) Représentation schématique du lieu complet de Nyquist, 
-    symmétrique par rapport à l'axe des réels.\label{fig-nyquist}}
+    symmétrique par rapport à l'axe des réels.\label{fig-sche_nyquist}}
 \end{figure}
 
 
@@ -527,6 +521,7 @@ de la connaissance du lieu de transfert dans le plan de Black de la Fonction de 
 
 \begin{figure}[!h]                                                                                                           
 \begin{center}                                                                                                               
+\tikzsetnextfilename{sche_black-chap3_ext}
 \begin{tikzpicture}
 \begin{axis}
     [
@@ -574,7 +569,7 @@ de la connaissance du lieu de transfert dans le plan de Black de la Fonction de 
 \end{center}
 \caption{Représentation schématique d'un diagramme de Black. Le gain et la phase 
     de la fonction de transfert $H(\jw)$ sont représentés sur le lieu de Black 
-    pour différentes valeurs de la pulsation $\omega$ de 0 à $\infty$.\label{fig-black}}
+    pour différentes valeurs de la pulsation $\omega$ de 0 à $\infty$.\label{fig-sche_black}}
 \end{figure}
 
 
@@ -619,6 +614,7 @@ et la phase s'obtient à partir de l'argument principale du nombre complexe $H(\
 
 \begin{figure}[!htb]
 \centering
+\tikzsetnextfilename{bode_gain_1-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -641,6 +637,7 @@ et la phase s'obtient à partir de l'argument principale du nombre complexe $H(\
 \end{axis}
 \end{tikzpicture}
 
+\tikzsetnextfilename{bode_gain_2-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -688,6 +685,7 @@ et la phase s'obtient à partir de l'argument principale du nombre complexe $H(\
 
 \begin{figure}[!htb]
 \centering
+\tikzsetnextfilename{bode_integ_1-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -710,6 +708,7 @@ et la phase s'obtient à partir de l'argument principale du nombre complexe $H(\
 \end{axis}
 \end{tikzpicture}
 
+\tikzsetnextfilename{bode_integ_2-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -756,6 +755,7 @@ la phase s'écrit simplement
 
 \begin{figure}[!htb]
 \centering
+\tikzsetnextfilename{bode_deriv_1-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -778,6 +778,7 @@ la phase s'écrit simplement
 \end{axis}
 \end{tikzpicture}
 
+\tikzsetnextfilename{bode_deriv_2-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -863,6 +864,7 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
 
 \begin{figure}[!t]
 \centering
+\tikzsetnextfilename{bode_1er_1-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -885,6 +887,7 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
 \end{axis}
 \end{tikzpicture}
 
+\tikzsetnextfilename{bode_1er_2-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -916,6 +919,7 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
 \end{figure}
 \begin{figure}[!b]
 \centering
+\tikzsetnextfilename{bode_1er_3-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -938,6 +942,7 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
 \end{axis}
 \end{tikzpicture}
 
+\tikzsetnextfilename{bode_1er_4-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -972,6 +977,7 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
 
 \begin{figure}[!t]
 \centering
+\tikzsetnextfilename{bode_1er_5-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -994,6 +1000,7 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
 \end{axis}
 \end{tikzpicture}
 
+\tikzsetnextfilename{bode_1er_6-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -1091,6 +1098,7 @@ du second ordre en régime apériodique.
 
 \begin{figure}[!t]
 \centering
+\tikzsetnextfilename{bode_1er_serie_2nd_1-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -1116,6 +1124,7 @@ du second ordre en régime apériodique.
 \end{axis}
 \end{tikzpicture}
 
+\tikzsetnextfilename{bode_1er_serie_2nd_2-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -1200,6 +1209,7 @@ C'est ce phénomène de résonance que nous allons discuter dans la prochaine pa
 
 \begin{figure}[!t]
 \centering
+\tikzsetnextfilename{bode_2nd_1-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -1225,6 +1235,7 @@ C'est ce phénomène de résonance que nous allons discuter dans la prochaine pa
 \end{axis}
 \end{tikzpicture}
 
+\tikzsetnextfilename{bode_2nd_2-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     legend style={draw=none},    
@@ -1263,62 +1274,8 @@ C'est ce phénomène de résonance que nous allons discuter dans la prochaine pa
 
 \begin{figure}[!t]
 \centering
-\begin{tikzpicture}%[trim axis left]
-\begin{axis}[
-    name=ax1,
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
-    ylabel={Gain (dB)},
-    xtick={1e-1,1,1e1}, 
-    ytick={-120,-100,-80,-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$},
-    yticklabels={-120,-100,-80,-60,-40,-20,0,20,40,60}, 
-    xmode=log,ymode=normal,
-    xmin=1e-1, xmax=1e1,
-    ymin=-40, ymax=30,
-    grid=both,
-    major grid style={black!40},
-    cycle list name=color list,
-]
-    \foreach \a in {0.02,0.1,0.2,0.3,0.4,0.5,0.6}
-        \addplot+[thick,domain=1e-1:1e1, samples=201] {-20*log10(sqrt( (1-x*x)^2 +(2*\a*x)^2 )  )}; 
-\end{axis}
-%\end{tikzpicture}
-
-%\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    at={(ax1.south)},
-    yshift=-10em,
-    xshift=-15em,
-    legend style={draw=none,yshift=1em},    
-    legend pos=outer north east, 
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
-    xlabel={Pulsation (rad/s)},
-    ylabel={Phase (degré)},
-    xtick={1e-2,1e-1,1,1e1,1e2}, 
-    ytick={-180,-135,-90,-45,0}, 
-    %ytick={0,45,90,135,180}, 
-    %ytick={-90,-45,0}, 
-    yticklabels={-180,-135,-90,-45,0},
-    %yticklabels={0,45,90,135,180}, 
-    %yticklabels={-90,-45,0},
-    xticklabels={$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$},
-    xmode=log,ymode=normal,
-    xmin=1e-1, xmax=1e1,
-    ymin=-180, ymax=0,
-    grid=both,
-    major grid style={black!40},
-    cycle list name=color list,
-]
-    \foreach \a in {0.02,0.1,0.2,0.3,0.4,0.5,0.6}
-        \addplot+[thick,domain=1e-1:1e1, samples=201] {-atan2(2*\a*x,(1-x*x))}; 
-
-    \legend{$\xi=0.02$,$\xi=0.1$,$\xi=0.2$, $\xi=0.3$, $\xi=0.4$, $\xi=0.5$, $\xi=0.6$, $\xi=0.7$, $\xi=0.8$, $\xi=0.9$} 
-\end{axis}
-\end{tikzpicture}
+\tikzsetnextfilename{bode_2nd_3-chap3_ext}
+    \input{tikz/bode_2nd_3.tex}
     \caption{Diagramme de Bode d'une fonction de transfert du second ordre (\Cref{eq-2nd_ftjw}) pour 
     différentes valeurs de $\xi$ avec $K=1$ et $\omega_0=1$\label{fig-bode_2nd_2}}
 \end{figure}
@@ -1381,48 +1338,8 @@ valeurs du taux d'amortissement.
 
 \begin{figure}[!h]
     \centering
-    \begin{tikzpicture}
-        \pgfplotscreateplotcyclelist{mycolorlist}{%
-            blue\\%
-            red\\%
-            brown!60!black\\%
-            black\\%
-            green!60!black\\%
-            red!60!yellow\\
-            }
-        \begin{axis}[
-            ticklabel style = {font=\normalsize},
-            legend style={draw=none},
-            legend pos=outer north east,        
-            legend cell align={left},
-            ylabel={Gain (dB)},
-            xlabel={Pulsation (rad/s)},
-            xmode=normal,ymode=normal,
-            xmin=0.0, xmax=2,
-            ymin=-8, ymax=10,
-            %grid=both,
-            major grid style={black!40},
-            cycle list name=mycolorlist,
-        ]
-        \foreach \a in {0.2,0.3,0.4,0.5,0.6,0.707}
-            \addplot+[thick,domain=0:2, samples=501] {-20*log10(sqrt((1-x*x)^2 +(2*\a*x)^2 ))}; 
-        \addplot[dashed,domain=0.1:5, samples=201] {0};
-        \def\a{1.0}
-        \addplot [dashed,thick,domain=0:2, samples=501] {-20*log10(sqrt((1-x*x)^2 +(2*\a*x)^2 ))}; 
-        \coordinate (P) at (axis cs:0.75,{-20*log10(sqrt((1-0.75*0.75)^2 +(2*\a*0.75)^2 ))});
-        \node[left] (a) at (axis cs:0.5,-5) {$\xi=1$};
-        \draw [thick] (a.east) -- (P);
-                \addplot[mark size=1.75pt,color = black,fill=black,mark=*,only marks] coordinates {
-        	(0.959166304663,8.13608784305)
-        	(0.905538513814,4.84656106912)
-        	(0.824621125124,2.69540739954)
-        	(0.707106781187,1.24938736608)
-        	(0.529150262213,0.354575339209)
-       	};
-        \draw[dashed] (axis cs:1,-10) -- (axis cs:1,10);
-            \legend{$\xi=0.2$,$\xi=0.3$,$\xi=0.4$,$\xi=0.5$,$\xi=0.6$,$\xi=\sqrt{2}/2$}
-        \end{axis}
-    \end{tikzpicture}
+\tikzsetnextfilename{gain_resonance-chap3_ext}
+    \input{tikz/gain_resonance.tex}
     \caption{\'Evolution du gain en décibel en fonction de la pulsation pour différentes
     valeurs du taux d'amortissement du régime pseudo-périodique. Le gain maximal à la pulsation 
     de résonance $\omega_r$ est représenté par une pastille noir sur chacune des courbes pour $\xi<\sqrt{2}/2$.
@@ -1531,6 +1448,7 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$
 
 \begin{figure}[!t]
 \centering
+\tikzsetnextfilename{bode_exemple_1-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -1556,6 +1474,7 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$
 \end{axis}
 \end{tikzpicture}
 
+\tikzsetnextfilename{bode_exemple_2-chap3_ext}
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -1631,6 +1550,7 @@ Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
 
 \begin{figure}[!h]                                                                                                           
 \begin{center}                                                                                                               
+\tikzsetnextfilename{nyquist_gainpur-chap3_ext}
 \begin{tikzpicture}
 \begin{axis}
     [
@@ -1667,6 +1587,7 @@ Cependant il dépend de la pulsation $\omega$.
 \end{align*}
 \begin{figure}[!h]
 \begin{center}
+\tikzsetnextfilename{nyquist_integ-chap3_ext}
 \begin{tikzpicture}
 \begin{axis}
     [
@@ -1708,6 +1629,7 @@ nombre complexe $H(\jw)=K\jw$ imaginaire pur.
 \end{align*}
 \begin{figure}[!h]                                                                                                           
 \begin{center}                                                                                                               
+\tikzsetnextfilename{nyquist_deriv-chap3_ext}
 \begin{tikzpicture}
 \begin{axis}
     [
@@ -1756,6 +1678,7 @@ $$
 
 \begin{figure}[!h]                                                                                                           
 \begin{center}                                                                                                               
+\tikzsetnextfilename{nyquist_retard-chap3_ext}
 \begin{tikzpicture}
 \begin{axis}
     [
@@ -1849,6 +1772,7 @@ $$
 
 \begin{figure}[!h]                                                                                                           
 \begin{center}                                                                                                               
+\tikzsetnextfilename{nyquist_1er-chap3_ext}
 \begin{tikzpicture}                                                                 
 \begin{axis}                                                                        
     [                                                                               
@@ -1911,6 +1835,7 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
 \end{align*}
 \begin{figure}[!h]                                                                                                           
 \begin{center}                                                                                                               
+\tikzsetnextfilename{nyquist_2nd_1-chap3_ext}
 \begin{tikzpicture}                                                                 
 \begin{axis}                                                                        
     [                                                                               
@@ -1955,6 +1880,7 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
 
 \begin{figure}[!h]                                                                                                           
 \begin{center}                                                                                                               
+\tikzsetnextfilename{nyquist_2nd_2-chap3_ext}
 \begin{tikzpicture}                                                                 
         \pgfplotscreateplotcyclelist{mycolorlist}{%
             blue\\%
@@ -2113,6 +2039,7 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 
 \begin{figure}[!h]                                                                                                           
 \begin{center}                                                                                                               
+\tikzsetnextfilename{nyquist_effet_retard_1-chap3_ext}
 \begin{tikzpicture}                                                                 
 \begin{axis}                                                                        
     [                                                                               
@@ -2147,11 +2074,12 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 \end{center}
 \caption{Effet d'un retard sur le diagramme de Nyquist d'un système du premier ordre. 
     Avec $K=1$, $\tau=1$ et $\tau_1=2$. Le lieu de Nyquist est représenté par 
-    une spirale.\label{fig-nyquist}}
+    une spirale.\label{fig-nyquist_effet_retard_1}}
 \end{figure}
 
 \begin{figure}[!h]                                                                                                           
 \begin{center}                                                                                                               
+\tikzsetnextfilename{nyquist_effet_retard_2-chap3_ext}
 \begin{tikzpicture}                                                                 
         \pgfplotscreateplotcyclelist{mycolorlist}{%
             blue\\%
@@ -2197,7 +2125,7 @@ Les parties réels et imaginaire de la fonction de transfert sont:
          et (noir) $\tau_1=2.0$
          Avec $K=1$, $\tau=1$ et $\tau_1=2$. Le lieu de Nyquist est représenté par 
          une spirale. Par souci de clarté, nous n'avons ici représenté que l'intervalle $\omega\in[0,\dfrac{10}{\tau_1}]$ 
-         \label{fig-nyquist}}
+         \label{fig-nyquist_effet_retard_2}}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùù
