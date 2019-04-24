@@ -644,7 +644,7 @@ et la phase s'obtient à partir de l'argument principale du nombre complexe $H(\
     width=0.9\textwidth,
     height=0.25\textheight,
     xlabel={Pulsation (\si{\radian\per\second})},
-    ylabel={Phase (degré)},
+    ylabel={Phase (deg)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-90,-45,0,45,90}, 
     yticklabels={-90,-45,0,45,90},
@@ -715,7 +715,7 @@ et la phase s'obtient à partir de l'argument principale du nombre complexe $H(\
     width=0.9\textwidth,
     height=0.25\textheight,
     xlabel={Pulsation (rad/s)},
-    ylabel={Phase (degré)},
+    ylabel={Phase (deg)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-180,-135,-90,-45,0}, 
     yticklabels={-180,-135,-90,-45,0},
@@ -785,11 +785,9 @@ la phase s'écrit simplement
     width=0.9\textwidth,
     height=0.25\textheight,
     xlabel={Pulsation (rad/s)},
-    ylabel={Phase (degré)},
+    ylabel={Phase (deg)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    %ytick={-180,-135,-90,-45,0}, 
     ytick={0,45,90,135,180}, 
-    %yticklabels={-180,-135,-90,-45,0},
     yticklabels={0,45,90,135,180}, 
     xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     xmode=log,ymode=normal,
@@ -811,6 +809,72 @@ la phase s'écrit simplement
 \subsubsection{Diagramme de Bode d'un système à retard pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Retard pur!diagramme de Bode}
+La fonction de transfert d'un retard pur 
+est de la forme $H(\jw)=e^{-\jtw}$,
+le gain est donc simplement donné par
+$$
+G(\omega)=|H(\jw)|=1
+$$
+d'où le gain $G_{dB}$ en décibel :
+\begin{bequation}[ams align*]
+    G_{dB}(\omega)= \SI{0}{\decibel}
+\end{bequation}
+et la phase s'écrit simplement
+\begin{bequation}[ams align*]
+    \phi(\omega) = -\tau\omega
+\end{bequation}
+
+
+\begin{figure}[!htb]
+\centering
+\tikzsetnextfilename{bode_retard_1-chap3_ext}
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.25\textheight,
+    ylabel={Gain (dB)},
+    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3},
+    ytick={-60,-40,-20,0,20,40,60},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    yticklabels={-60,-40,-20,0,20,40,60},
+    xmode=log,ymode=normal,
+    xmin=1e-2, xmax=1e3,
+    ymin=-60, ymax=40,
+    grid=both,
+    major grid style={black!40}
+]
+    \addplot[ultra thick, blue,domain=1e-2:1e3, samples=101] {0};
+\end{axis}
+\end{tikzpicture}
+
+\tikzsetnextfilename{bode_retard_2-chap3_ext}
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.25\textheight,
+    xlabel={Pulsation (rad/s)},
+    ylabel={Phase (deg)},
+    xtick={1e-1,1,1e1,1e2,1e3},
+    ytick={-1000,-750,-500,-250,0},
+    yticklabels={-1000,-750,-500,-250,0},
+    xticklabels={$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xmode=log,ymode=normal,
+    xmin=1e-1, xmax=1e3,
+    ymin=-1000, ymax=0,
+    grid=both,
+    major grid style={black!40}
+]
+    \addplot[ultra thick, blue,domain=1e-1:1e3, samples=201] {-x};
+\end{axis}
+\end{tikzpicture}
+    \caption{Diagramme de Bode d'un retard pur 
+    avec $\tau=1$. Remarquons que le gain est constant pour toutes 
+    pulsations et le déphasage est monotone décroissant en fonction de la pulsation\label{fig-bode_retard_1}.}
+\end{figure}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -894,13 +958,9 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
     width=0.9\textwidth,
     height=0.22\textheight,
     xlabel={Pulsation (rad/s)},
-    ylabel={Phase (degré)},
+    ylabel={Phase (deg)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    %ytick={-180,-135,-90,-45,0}, 
-    %ytick={0,45,90,135,180}, 
     ytick={-90,-45,0}, 
-    %yticklabels={-180,-135,-90,-45,0},
-    %yticklabels={0,45,90,135,180}, 
     yticklabels={-90,-45,0},
     xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     xmode=log,ymode=normal,
@@ -949,13 +1009,9 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
     width=0.9\textwidth,
     height=0.22\textheight,
     xlabel={Pulsation (rad/s)},
-    ylabel={Phase (degré)},
+    ylabel={Phase (deg)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    %ytick={-180,-135,-90,-45,0}, 
-    %ytick={0,45,90,135,180}, 
     ytick={-90,-45,0}, 
-    %yticklabels={-180,-135,-90,-45,0},
-    %yticklabels={0,45,90,135,180}, 
     yticklabels={-90,-45,0},
     xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     xmode=log,ymode=normal,
@@ -1007,13 +1063,9 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
     width=0.9\textwidth,
     height=0.22\textheight,
     xlabel={Pulsation (rad/s)},
-    ylabel={Phase (degré)},
+    ylabel={Phase (deg)},
     xtick={1e-1,1,1e1}, 
-    %ytick={-180,-135,-90,-45,0}, 
-    %ytick={0,45,90,135,180}, 
     ytick={-90,-45,0}, 
-    %yticklabels={-180,-135,-90,-45,0},
-    %yticklabels={0,45,90,135,180}, 
     yticklabels={-90,-45,0},
     xticklabels={$10^{-1}$,$10^{0}$,$10^{1}$},
     xmode=log,ymode=normal,
@@ -1131,13 +1183,9 @@ du second ordre en régime apériodique.
     width=0.9\textwidth,
     height=0.25\textheight,
     xlabel={Pulsation (rad/s)},
-    ylabel={Phase (degré)},
+    ylabel={Phase (deg)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-180,-135,-90,-45,0}, 
-    %ytick={0,45,90,135,180}, 
-    %ytick={-90,-45,0}, 
-    %yticklabels={-180,-135,-90,-45,0},
-    %yticklabels={0,45,90,135,180}, 
     yticklabels={-180,-135,-90,-45,0},
     xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     xmode=log,ymode=normal,
@@ -1244,7 +1292,7 @@ C'est ce phénomène de résonance que nous allons discuter dans la prochaine pa
     width=0.9\textwidth,
     height=0.22\textheight,
     xlabel={Pulsation (rad/s)},
-    ylabel={Phase (degré)},
+    ylabel={Phase (deg)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-180,-135,-90,-45,0}, 
     %ytick={0,45,90,135,180}, 
@@ -1433,13 +1481,13 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$
     & $\omega_3<\omega<\omega_4$ 
     & $\omega\gg\omega_4$ & \\[1em]
     \hhline{======}
-    $G_{dB}(\omega)$ (pente) & 0(40dB)    &-20dB/décade &-20dB/décade & +40dB/décade & -20dB/décade &\\[1em]
+    $G_{dB}(\omega)$ (pente) & 0(40dB)       &-20dB/décade    & -20dB/décade    & +40dB/décade & -20dB/décade &\\[1em]
     \hline
-        $\phi(\omega)$           & 0\si{\degree}   &-90\si{\degree}   & -90\si{\degree}  & +180\degree  & -90\degree   &\\[1em]
+        $\phi(\omega)$       & 0\si{\degree} &-90\si{\degree} & -90\si{\degree} & +180\degree  & -90\degree   &\\[1em]
     \hhline{======}
-    $G_{dB}(\omega)$ total   & 0(40dB)    &-20dB/décade & -40dB/décade& 0(-20dB)     & -20dB/décade &\\[1em]
+    $G_{dB}(\omega)$ total   & 0(40dB)       &-20dB/décade    & -40dB/décade    & 0(-20dB)     & -20dB/décade &\\[1em]
     \hline
-    $\phi(\omega)$   total   & 0\degree   &-90\degree   &-180\degree  & 0            & -90\degree   &\\[1em]
+    $\phi(\omega)$   total   & 0\degree      &-90\degree      & -180\degree     & 0            & -90\degree   &\\[1em]
     \hhline{======}
     \end{tabular}
 }
@@ -1481,7 +1529,7 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$
     width=0.9\textwidth,
     height=0.25\textheight,
     xlabel={Pulsation (rad/s)},
-    ylabel={Phase (degré)},
+    ylabel={Phase (deg)},
     xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5}, 
     ytick={-180,-135,-90,-45,0}, 
     %ytick={0,45,90,135,180}, 
@@ -1622,7 +1670,8 @@ Cependant il dépend de la pulsation $\omega$.
 \subsubsection{Diagramme de Nyquist d'un dérivateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùù
 Le diagramme de Nyquist d'un dérivateur pur est également représentatif d'un 
-nombre complexe $H(\jw)=K\jw$ imaginaire pur. 
+nombre complexe $H(\jw)=K\jw$ imaginaire pur. Les parties réelles et imaginaire
+de ce nombre complexe sont :
 \begin{align*}
     \Re{H(\jw)}&=0\\
     \Im{H(\jw)}&=K\omega
@@ -1633,22 +1682,14 @@ nombre complexe $H(\jw)=K\jw$ imaginaire pur.
 \begin{tikzpicture}
 \begin{axis}
     [
-    %height=5cm,
-    %width=5cm,
-    %axis lines = center,
-    %ticks=none,
     axis line style = thick,
-    %enlargelimits=false,
     xlabel=$\Re{H(\jw)}$,
     ylabel=$\Im{H(\jw)}$,
-    %xlabel style={below right},
-    %ylabel style={left},
     ymin=-10,
     ymax=+10,
     xmin=-10,
     xmax=+10,
     grid=both,
-%    clip=false,
     ]     
     \node [below right] at (axis cs:  0, 10)  {$\omega\rightarrow\infty$};                
     \node [above right] at (axis cs:  0,-10)  {$\omega\rightarrow-\infty$};                
@@ -1675,6 +1716,15 @@ La fonction de transfert d'un retard pur s'écrit :
 $$
 H(\jw)=e^{-j\tau\omega}
 $$
+Les parties réelles et imaginaires sont simplement donnés par :
+\begin{align*}
+    \Re{H(\jw)}&=\hphantom{-}\cos{\tau\omega}\\
+    \Im{H(\jw)}&=-\sin{\tau\omega}
+\end{align*}
+
+Ces coordonnées dans le plan complexe sont celles du cercle unité 
+centré sur l'origine. Le lieu de transfert (c.a.d $\omega\to\infty$) 
+est la rotation infinie sur ce cercle. La \og vitesse angulaire\fg dépend de $\tau$.
 
 \begin{figure}[!h]                                                                                                           
 \begin{center}                                                                                                               
@@ -1682,37 +1732,29 @@ $$
 \begin{tikzpicture}
 \begin{axis}
     [
-    %height=5cm,
-    %width=5cm,
-    %axis lines = center,
-    %ticks=none,
     axis line style = thick,
-    %enlargelimits=false,
     xlabel=$\Re{H(\jw)}$,
     ylabel=$\Im{H(\jw)}$,
-    %xlabel style={below right},
-    %ylabel style={left},
     ymin=-1.5,
     ymax=+1.5,
     xmin=-1.5,
     xmax=+1.5,
     grid=both,
-%    clip=false,
     ]     
-%    \node [below right] at (axis cs:  0, 10)  {$\omega\rightarrow\infty$};                
-%    \node [above right] at (axis cs:  0,-10)  {$\omega\rightarrow-\infty$};                
-    \node [right]       at (axis cs:  1, 0)   {\scriptsize$\omega=0$};                
+    \node    [right]       at (axis cs:  1, 0)   {\scriptsize$\omega=0$};                
     \addplot [blue, mark = *] coordinates {(1, 0)} {};                          
     \addplot [blue,thick,domain=pi/2:-pi/2-0.2,samples=50,-{Latex[length=3mm]}]({cos(deg(x))},{sin(deg(x)}); 
     \addplot [blue,thick,domain=-pi/2:-3*pi/2-0.2,samples=50,-{Latex[length=3mm]}]({cos(deg(x))},{sin(deg(x)}); 
-    %    \addplot [dashed,blue,thick,domain=-10:-5,samples=50,-latex]({cos(deg(x))},{sin(deg(x)}); 
-    %\addplot [dashed,blue,thick,domain=-6:0,samples=50]({cos(deg(x))},{sin(deg(x)}); 
 \end{axis}
 \end{tikzpicture}
 \end{center}
 \caption{Diagramme de Nyquist d'un retard pur. Le lieu de Nyquist 
     est représenté par le cercle unité dans le plan complexe.\label{fig-nyquist_4}}
 \end{figure}
+
+On remarquera cependant que ce modèle est fondamentalement \textbf{instable} puisque 
+le module $|H(\jw)|$ ne s'annule pas lorsque $\omega\to\infty$, de ce fait nous 
+le trouverons jamais seul.
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùù
@@ -1776,14 +1818,9 @@ $$
 \begin{tikzpicture}                                                                 
 \begin{axis}                                                                        
     [                                                                               
-    %height=5cm,                                                                     
-    %width=5cm,                                                                      
     axis line style = thick,                                                        
-%    enlargelimits=false,                                                            
     xlabel=$\Re{H(\jw)}$,                                                
     ylabel=$\Im{H(\jw)}$,                                                
-%    xlabel style={below right},                                                     
-%    ylabel style={left},                                                            
     ymin=-0.75,                                                                       
     ymax=+0.75,                                                                       
     xmin=-0.3,                                                                       

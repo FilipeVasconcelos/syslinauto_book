@@ -1144,7 +1144,6 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+\dfrac{2\xi}{\omega_d}e^{-\alpha t}\sin{
 \begin{tikzpicture}
 \begin{axis}[
         legend style={draw=none},
-        %legend pos={east outer},
         legend pos=outer north east,
         axis line style = thick,
         xmin=0,
@@ -1153,8 +1152,6 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+\dfrac{2\xi}{\omega_d}e^{-\alpha t}\sin{
         ymax=10,
         xlabel={$t$},
         ylabel={$s(t)$},
-%        ytick={0,0.5,1,1.5},
-%        yticklabels={0,$0.5KE_0$,$KE_0$,$1.5KE_0$},
         label style={font=\Large},
         cycle list name=color list,
         ]
@@ -1272,51 +1269,40 @@ $$
 \tikzsetnextfilename{integrateur_1-chap2_ext}
 \begin{tikzpicture}
 \begin{axis}[%
-%    legend style={draw=none,font=\scriptsize},
-%    legend pos=south east,
+    name=first,
     axis line style = thick,
-    %height=8cm,
     width=0.49\textwidth,
     xmin=-1,
     xmax=5,
     ymin=0,
-    ymax=1.5,
+    ymax=1.2,
     xlabel={$t$},
     ylabel={$s(t)$},
     label style={font=\Large},
-%    legend cell align={left},
 ]%
 \addplot[very thick,color=blue,domain=-1:0, samples=10,unbounded coords=jump] {{0}};
 \addplot[very thick,color=blue,domain=0:11.5, samples=10,unbounded coords=jump] {{1}};
 \draw[dashed,very thick,blue] (axis cs:0,0) -- (axis cs:0,1);
 \draw[dblarw={black}{2pt}{2pt}] (axis cs:0,0) -- (axis cs:0,1);
-%\legend{échelon,$\tau=1$,$\tau=2$,$\tau=3$,$\tau=4$,$\tau=5$}
 \end{axis}%
-\end{tikzpicture}%
-\hfill
-\tikzsetnextfilename{integrateur_2-chap2_ext}
-\begin{tikzpicture}
 \begin{axis}[
-%    legend style={draw=none,font=\scriptsize},
-%    legend pos=north east,
+    at=(first.east),anchor=west,xshift=0.5cm,
     axis line style = thick,
     width=0.49\textwidth,
-    xmin=-1,
-    xmax=5,
+    xmin=-0.2,
+    xmax=1.2,
     ymin=0,
-    ymax=5,
+    ymax=1.2,
     xlabel={$t$},
     ylabel={$s(t)$},
-    label style={font=\Large},
     ylabel near ticks, yticklabel pos=right,
-%    legend cell align={left},
+    label style={font=\Large},
 ]%
 \addplot[very thick,color=blue,domain=-1:0, samples=10,unbounded coords=jump]{{0}};%
 \addplot[very thick,color=blue,domain=0:11.5, samples=10,unbounded coords=jump]{{x}};%
 \draw[dashed,very thick,black] (axis cs:0,0) -- (axis cs:0,1);
 \addplot[very thick,color=black,domain=-1:0, samples=10,unbounded coords=jump] {{0}};
 \addplot[very thick,color=black,domain=0:11.5, samples=10,unbounded coords=jump] {{1}};
-%\legend{échelon,$K=0.5$,$K=1$,$K=2$}
 \end{axis}
 \end{tikzpicture}
 \caption{(gauche) Réponse impulsionnelle (droite) Réponse indicielle d'un intégrateur avec $K=1$ et $E_0=1$.\label{fig-integ}}
