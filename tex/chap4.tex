@@ -339,6 +339,12 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Dans cette partie, nous présentons les asservissements par boucle 
+de contre-réaction unitaire par de systèmes modèles déjà introduits 
+au~\cref{chap-model}. Nous pourrons dégager la règle générale suivante :
+\textbf{l'ordre $n$ d'une fonction de transfert en boucle ouverte $H_{BO}(p)$
+est conservé en boucle fermée par l'asservissement.}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Asservissement d'un intégrateur}
@@ -362,22 +368,25 @@ Considérons un système intégrateur asservi et régi par le schéma-bloc suiva
     \end{tikzpicture}
 \end{center}
 
-La fonction de transfert en boucle ouverte $H(p)$ est telle que :
+La fonction de transfert en boucle ouverte $H_{BO}(p)$ est telle que :
 $$
-H(p)=\dfrac{K}{p}
+H_{BO}(p)=\dfrac{K}{p}
 $$
 avec $K$ le gain statique. 
-Les~\gls{ftbo} et~\gls{ftbf} sont respectivement :
+La~\gls{ftbf} est alors donnée :
 $$
-H_{BO}(p)=H(p)
+H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=\dfrac{K}{p+K}=\dfrac{1}{\tau_{BF} p+1}
 $$
-et
-$$
-H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=\dfrac{K}{p+K}
-$$
+Remarquons qu'un intégrateur asservi devient un système du premier 
+ordre de gain statique unité et de constante de temps $\tau_{BF}=\dfrac{1}{K}$ 
+où $K$ est le gain statique de la~\gls{ftbo}\footnote{Un intégrateur étant 
+un système du premier ordre particulier, nous avons bien l'ordre de $H_{BO}(p)$ qui est égal à l'ordre de $H_{BF}(p)$.}. 
 
-L'étude de la réponse temporelle d'un intégrateur nous a permis de conclure sur 
-son instabilité intrisèque.
+Au~\cref{chap-model}, nous avons pu conclure que les systèmes du premier ordre 
+sont fondamentalement stable (du moins pour $\tau>0$) et que les intégrateurs sont 
+instables.
+Ainsi, nous observons que \textbf{l'asservissement permet de stabiliser un système 
+intrinsèquement instable.} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -401,26 +410,22 @@ Considérons un système du premier ordre asservi et régi par le schéma-bloc s
         \sbNomLien[0.8]{S}{$S(p)$}
     \end{tikzpicture}
 \end{center}
-La fonction de transfert en boucle ouverte $H(p)$ du procédé est alors tel que:
+La fonction de transfert en boucle ouverte $H_{BO}(p)$ du procédé est alors tel que:
 $$
-H(p)=\dfrac{K}{1+\tau p}
+H_{BO}(p)=\dfrac{K}{1+\tau p}
 $$
-où $K$ est le gain statique et $\tau$ la constante de temps du système en boucle ouverte.
-On a alors pour~\gls{ftbo} et~\gls{ftbf} respectivement :
-$$
-H_{BO}(p)=H(p)
-$$
-et 
+où $K$ est le gain statique et $\tau$ la constante de temps 
+du système en boucle ouverte. 
+La~\gls{ftbf} est alors donnée :
 $$
 H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=\dfrac{K}{(1+K)+\tau p}
 $$
-Remarquons que la~\gls{ftbf} reste du premier ordre. Sous une forme canonique
-cette fonction de transfert devient :
+Remarquons que comme attendu la~\gls{ftbf} reste du premier ordre. 
+Sous sa forme canonique cette fonction de transfert devient :
 $$
 H_{BF}(p)=\dfrac{\dfrac{K}{1+K}}{1+\dfrac{\tau}{1+K}p}=\dfrac{K_{BF}}{1+\tau_{BF} p}
 $$
-où $K_{BF}$ est le gain statique et $\tau_{BF}$ la constante de temps sont les 
-paramètres du système en boucle fermée.
+où $K_{BF}$ est le gain statique et $\tau_{BF}$ la constante de temps du système boucle fermée.
 Par identification, on alors les rélations suivantes entre les paramètres du premier ordre 
 de la~\gls{ftbo} et les paramètres du premier ordre de la~\gls{ftbf} :
 \begin{align*}
@@ -447,7 +452,7 @@ Considérons un système du second ordre asservi et régi par le schéma-bloc su
         \sbComp{a}{E}
         \sbRelier[$E(p)$]{E}{a}
        % \sbBloc{b}{$C(p)$}{a}
-        \sbBloc{b}{$H(p)=\dfrac{K\omega^2_0}{\omega^2_0+2\xi\omega_0p+p^2}$}{a}
+        \sbBloc{b}{$\dfrac{K\omega^2_0}{\omega^2_0+2\xi\omega_0p+p^2}$}{a}
         \sbRelier{a}{b}
         \sbSortie[4]{S}{b}
         \sbRelier{b}{S}
@@ -455,17 +460,13 @@ Considérons un système du second ordre asservi et régi par le schéma-bloc su
         \sbNomLien[0.8]{S}{$S(p)$}
     \end{tikzpicture}
 \end{center}
-La fonction de transfert en boucle ouverte du procédé $H(p)$ est tel que:
+La fonction de transfert en boucle ouverte du procédé $H_{BO}(p)$ est tel que:
 $$
-H(p)=\dfrac{K\omega^2_0}{\omega^2_0+2\xi\omega_0p+p^2}
+H_{BO}(p)=\dfrac{K\omega^2_0}{\omega^2_0+2\xi\omega_0p+p^2}
 $$
 où $K$ est le gain statique, $\omega_0$ la pulsation propre et $\xi$ 
 le coefficient d'amortissement du système en boucle ouverte.
-Les~\gls{ftbo} et~\gls{ftbf} sont respectivement :
-$$
-H_{BO}(p)=H(p)
-$$
-et 
+La~\gls{ftbf} est donnée par :
 $$
 H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=\dfrac{K\omega^2_0}{\omega^2_0(1+K)+2\xi\omega_0p+p^2}
 $$

@@ -125,10 +125,10 @@ Impulsion réelle :
 La réponse à une impulsion de Dirac est appelée \textbf{réponse impulsionnelle}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{\'Echelon unité}
+\paragraph{\'Echelon-unité}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-L'échelon unitaire est défini par la fonction, noté $u(t)$, telle que :
+L'échelon-unité est défini par la fonction, noté $u(t)$, telle que :
 $$
 u(t)=
 \begin{cases} 
@@ -145,11 +145,11 @@ Ci dessous nous la représentons avec la fonction retardée $u(t-\tau)$.
 \tikzsetnextfilename{echelon-chap0_ext}
 \input{tikz/echelon-chap0.tex}
 \end{center}
-    \caption{Représentation graphique de (gauche) la fonction échelon unité et (droite) la fonction 
-    échelon unité retardée de $\tau$\label{fig-echelon}}
+    \caption{Représentation graphique de (gauche) la fonction échelon-unité et (droite) la fonction 
+    échelon-unité retardée de $\tau$\label{fig-echelon}}
 \end{figure}
 
-En général, l'échelon unitaire est utilisé en entrée de nos systèmes pour 
+En général, l'échelon-unité est utilisé en entrée de nos systèmes pour 
 modéliser des états fermé/ouvert (\og on/off\fg).
 Nous la rencontrerons souvent sous sa forme généralisée, 
 $$
@@ -160,17 +160,17 @@ l'unité dépend de la nature du problème considéré.
 
 La réponse à un échelon est appelée \textbf{réponse indicielle}.
 
-Remarquons que la fonction échelon unité est l'intégrale de la distribution de Dirac,
+Remarquons que la fonction échelon-unité est l'intégrale de la distribution de Dirac,
 $$
 u(t)=\int\limits_{-\infty}^{t} \delta(\tau)\,\,\dd{\tau}
 $$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Rampe unité}
+\paragraph{Rampe-unité}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-La fonction rampe\footnote{On retrouve parfois~\cite{sueurautomatique} le terme 
-d'échelon vitesse pour désigner la fonction rampe} $r(t)$ unité est la fonction telle que :
+La fonction rampe-unité\footnote{On retrouve parfois~\cite{sueurautomatique} le terme 
+d'échelon vitesse pour désigner la fonction rampe} $r(t)$ est la fonction telle que :
 $$
 r(t)=
 \begin{cases}
@@ -188,10 +188,10 @@ $$
 \tikzsetnextfilename{rampe-chap0_ext}
 \input{tikz/rampe-chap0.tex}
 \end{center}
-    \caption{Représentation graphique de (gauche) la fonction rampe unité et (droite) la fonction
-        rampe unité retardée de $\tau$\label{fig-rampe}}
+    \caption{Représentation graphique de (gauche) la fonction rampe-unité et (droite) la fonction
+        rampe-unité retardée de $\tau$\label{fig-rampe}}
 \end{figure}
-Remarquons que la fonction rampe est l'intégrale de l'échelon unité, notamment 
+Remarquons que la fonction rampe est l'intégrale de l'échelon-unité, notamment 
 $$
 r(t)=\int\limits_{-\infty}^{t} u(\tau)\,\,\dd{\tau}
 $$
@@ -203,14 +203,14 @@ La fonction exponentielle décroissante $s(t)$ est telle que :
 $$
 s(t)=e^{-at}\cdot u(t)
 $$  
-avec $a$ l'inverse d'un temps caractéristique. Cette fonction tend vers 0 pour 
-tout $a$ à $t\rightarrow\infty$ mais en un temps proportionnel à ce temps caractéristique . 
+avec $a$ l'inverse d'un temps caractéristique d'un amortissement.
+Cette fonction tend vers 0 pour tout $a>0$ à $t\rightarrow\infty$ et diverge pour $a<0$
 \begin{figure}[!h]
 \begin{center}
 \tikzsetnextfilename{exp_dec-chap0_ext}
 \input{tikz/exp_dec-chap0.tex}
 \end{center}
-    \caption{Représentation de la fonction exponentielle pour différentes valeurs du paramètre $a$. \label{fig-exp}}
+    \caption{Représentation de la fonction exponentielle pour différentes valeurs du paramètre $a$.\label{fig-exp}}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -262,15 +262,16 @@ La fonction sinuso\"idale amortie $s(t)$ est la fonction telle que :
 $$
 s(t)=Ae^{-at}\sin{(\omega t +\phi)}\cdot u(t)
 $$
-c'est le produit d'une exponentielle décroissante et d'une sinuso\"ide.
+où $a>0$ est l'inverse d'un temps caractéristique de l'amortissement.
+Cette fonction est donc le produit d'une exponentielle décroissante et d'une sinuso\"ide.
 \begin{figure}[!h]
 \begin{center}
 \tikzsetnextfilename{sinusoide_amortie-chap0-ext}
 \input{tikz/sinusoide_amortie-chap0.tex}
 \end{center}
-    \caption{Représentation d'un sinuso\"ide amortie.\label{fig-sin_amor}}
+    \caption{Représentation d'un sinuso\"ide amortie. L'enveloppe en pointillé 
+correspond aux fonctions $e^{-at}$ et $-e^{-at}$.\label{fig-sin_amor}}
 \end{figure}
-
 
 
 \newpage
@@ -284,6 +285,8 @@ la résolution des équations différentielles
 régissant nos \gls{slci}~et nous permettra 
 de définir la notion de fonction de transfert entre une entrée 
 et une sortie d'un système.
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \subsection{Définition}
@@ -333,9 +336,9 @@ ou encore
 \end{bequation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
-\paragraph{Transformée d'un échelon unitaire}
+\paragraph{Transformée d'un échelon-unité}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
-La transformée de Laplace d'un signal échelon unitaire s'écrit : 
+La transformée de Laplace d'un signal échelon-unité  s'écrit : 
 $$
 \laplace{u(t)}=\int_{0}^{+\infty} e^{-pt}\,u(t)\dd{t}=\int_{0}^{+\infty} e^{-pt}\dd{t}=\left[\dfrac{-e^{-pt}}{p}\right]_0^{+\infty}=\dfrac{1}{p}
 $$
@@ -382,16 +385,32 @@ ou encore
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 La transformée de Laplace d'un signal sinuso\"idal s'écrit :
 \begin{align*}
-    \laplace{\sin{\omega t}\cdot u(t)}&=\int_{0}^{+\infty}e^{-pt}\dfrac{e^{\jw t}-e^{-\jw t}}{2j}\dd{t}=\dfrac{1}{2j}\int_{0}^{+\infty}e^{-(p-\jw)t}\dd{t} - \int_{0}^{+\infty}e^{-(p+\jw)t}\dd{t} \\
- &=\dfrac{1}{2j}\left( \dfrac{1}{p-\jw}-\dfrac{1}{p+\jw}\right)\\
- &=\dfrac{\omega}{p^2+\omega^2}
+\laplace{\sin{\omega t}\cdot u(t)}&=\int_{0}^{+\infty}e^{-pt}\dfrac{e^{\jw t}-e^{-\jw t}}{2j}\dd{t}\\
+&=\dfrac{1}{2j}\int_{0}^{+\infty}e^{-(p-\jw)t}\dd{t} - \dfrac{1}{2j}\int_{0}^{+\infty}e^{-(p+\jw)t}\dd{t} \\
+&=\dfrac{1}{2j}\left( \dfrac{1}{p-\jw}-\dfrac{1}{p+\jw}\right)\\
+&=\dfrac{\omega}{p^2+\omega^2}
 \end{align*}
 ou encore
 \begin{bequation}[ams align]
     \laplace{\sin{\omega t}\cdot u(t)}=\dfrac{\omega}{p^2+\omega^2}
 \end{bequation}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+\paragraph{Transformée d'une sinuso\"ide amortie}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+La transformée de Laplace d'un signal sinuso\"idal amortie s'écrit :
+\begin{align*}
+\laplace{e^{-at}\sin{\omega t}\cdot u(t)}&=\int_{0}^{+\infty}e^{-pt}e^{-at}\dfrac{e^{\jw t}-e^{-\jw t}}{2j}\dd{t}\\
+&=\dfrac{1}{2j}\int_{0}^{+\infty}e^{-((p+a)-\jw)t}\dd{t} - \dfrac{1}{2j}\int_{0}^{+\infty}e^{-((p+a)+\jw)t}\dd{t} \\
+&=\dfrac{1}{2j}\left( \dfrac{1}{(p+a)-\jw}-\dfrac{1}{(p+a)+\jw}\right)\\
+&=\dfrac{\omega}{(p+a)^2+\omega^2}
+\end{align*}
+ou encore
+\begin{bequation}[ams align]
+    \laplace{e^{-at}\sin{\omega t}\cdot u(t)}=\dfrac{\omega}{(p+a)^2+\omega^2}
+\end{bequation}
+Remarquons que pour cette transformée, nous aurions pu faire usage
+de la propriété du théorème de l'amortissement (c.f paragraphe suivant).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \subsection{Propriétés}
@@ -413,7 +432,7 @@ de $S_1(p)$ et $S_2(p)$. Autrement dit,
 \end{bequation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
-\paragraph{Retard}
+\paragraph{Retard en $t$ (temporel)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 Soit $s(t-\tau)$ un signal $s(t)$ présentant un retard $\tau$.
 $$
@@ -421,11 +440,24 @@ $$
 $$
 en appliquant le changement de variable $t'=t-\tau$, on obtient $t=t'+\tau$ et $\dd{t}=\dd{t}$
 $$
-\laplace{s(t-\tau)}=\int_{\tau}^{+\infty} e^{-p(t'+\tau)}s(t')\dd{t'}=e^{-p\tau}\int_{0}^{+\infty} e^{-pt'}s(t')\dd{t'}=
+\laplace{s(t-\tau)}=\int_{\tau}^{+\infty} e^{-p(t'+\tau)}s(t')\dd{t'}=e^{-p\tau}\int_{0}^{+\infty} e^{-pt'}s(t')\dd{t'}
 $$
 on reconnait dans cette dernière expression la définition de la transformée de Laplace, on écrit alors :
 \begin{bequation}[ams align]
     \laplace{s(t-\tau)}=e^{-p\tau}S(p)
+\end{bequation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+\paragraph{Retard en $p$ (Thèorème de l'amortissement)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+Soit $s(t)$ un signal de transformée de Laplace $S(p)$. La transformée 
+de Laplace du signal modifié $e^{-at}s(t)$ est alors :
+$$
+\laplace{e^{-at}s(t)}=\int_{0}^{+\infty} e^{-pt}e^{-at}s(t)\dd{t}=\int_{0}^{+\infty} e^{-(p+a)t}s(t)\dd{t}
+$$
+on reconnait dans cette dernière expression la définition de la transformée de Laplace pour $p+a$,
+ on écrit alors :
+\begin{bequation}[ams align]
+    \laplace{e^{-at}s(t)}=S(p+a)
 \end{bequation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dérivation}
@@ -503,6 +535,24 @@ signal soit stable.
 \subsection[Application de la transformée de Laplace]{Application de la TL à la résolution d'équation différentielle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+\subsubsection{Méthodologie}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+\acpl
+\tikzsetnextfilename{laplace_schema-chap0-ext}
+\begin{figure}[!h]
+\begin{center}
+\input{tikz/laplace_schema.tex}
+\end{center}
+\caption{Représentation schématique de la méthode employée pour la résolution
+des équations différentielles linéaires.\label{fig-laplace_schema}}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+\subsubsection{Exemple complet}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+
 Soit l'équation différentielle suivante :
 \begin{align}
 \devi{s(t)}{2}+2\devi{s(t)}{} + s(t) = e(t)\label{eq-diff1}
@@ -511,7 +561,7 @@ Soit l'équation différentielle suivante :
 où $e(t)$ et $s(t)$ sont respectivement les fonctions temporelles d'entrée et de sortie du système
 régit par cette équation différentielle avec pour conditions initiales (CI) 
 $s(0)=-1$ et $s'(0)=2$.
-Nous considérons la réponse à un échelon unitaire ( i.e $e(t)=u(t)$ ) 
+Nous considérons la réponse à un échelon-unité ( i.e $e(t)=u(t)$ ) 
 
 Nous allons résoudre cette équation par deux méthodes différentes: la méthode classique 
 de résolution d'équations différentielles avec second membre, 
@@ -555,7 +605,7 @@ $$
 \tikzsetnextfilename{sol_eq_diff-chap0-ext}
 \input{tikz/sol_eq_diff-chap0.tex}
     \caption{Représentation de la solution générale de l'équation différentielle~(\ref{eq-diff1}). On vérifie lors 
-	du tracer que l'on observe bien les principales propriétes du signal (i.e conditions initiales, valeurs finales).\label{fig-solution}}
+	du tracé que l'on observe bien les principales propriétes du signal (i.e conditions initiales, valeurs finales).\label{fig-solution}}
 \end{figure}
 
 La solution générale de l'équation différentielle~(\ref{eq-diff1}) est donc 
