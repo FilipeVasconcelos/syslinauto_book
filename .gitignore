@@ -26,8 +26,9 @@
 *.sls
 *.toc
 fig/sma_auto-figure*.eps
-fig/*chap0_ext*.eps
-fig/*chap0-ext*.eps
+fig/*_ext*.eps
+fig/*-ext*.eps
 fig/*.md5
 fig/*.dpth
 test/*
+sma_auto.pdf_save

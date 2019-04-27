@@ -255,6 +255,24 @@ $\Delta\phi=\pm\pi$         & \og en opposition de phase\fg & \tikzsetnextfilena
 La réponse à une sinuso\"ide est appelée la \textbf{réponse harmonique}
 et son analyse fera l'objet de tout un chapitre (\Cref{chap-anafreq}).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Sinuso\"ide amortie}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La fonction sinuso\"idale amortie $s(t)$ est la fonction telle que :
+$$
+s(t)=Ae^{-at}\sin{(\omega t +\phi)}\cdot u(t)
+$$
+c'est le produit d'une exponentielle décroissante et d'une sinuso\"ide.
+\begin{figure}[!h]
+\begin{center}
+\tikzsetnextfilename{sinusoide_amortie-chap0-ext}
+\input{tikz/sinusoide_amortie-chap0.tex}
+\end{center}
+    \caption{Représentation d'un sinuso\"ide amortie.\label{fig-sin_amor}}
+\end{figure}
+
+
+
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \section{La transformée de Laplace}
@@ -602,7 +620,7 @@ La réponse $S(p)$ se décompose donc de la façon suivante en éléments simple
 $$
 S(p)=\dfrac{1}{p}-\dfrac{2}{p+1}
 $$
-Il est maitenant plus aisé d'appliquer la transformation de Laplace inverse, 
+Il est maintenant plus aisé d'appliquer la transformation de Laplace inverse, 
 en utilisant le tableau des transformées de Laplace usuels (c.f lignes 3 et 7 du tableau de l'\Cref{annexe-lap}) 
 pour obtenir la réponse temporelle $s(t)$. Notamment,
 $$
@@ -825,27 +843,27 @@ La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert
 \caption{Exemple d'une carte de pôles et zéros associés 
     à la fonction de transfert~\Cref{eq-ft_carte}\label{fig-carte} }
 \end{figure}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Exercices du chapitre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\small
+\input{tex/exercices_chap0.tex}
 
+\setcounter{numexos}{0}
+\normalsize
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Exercices du chapitre}
+\section{Corrigé des exercices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\exercice{}
-\question
-
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Corrigé des exercices}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\small
+\input{tex/exercices_chap0_corrige.tex}
+\normalsize

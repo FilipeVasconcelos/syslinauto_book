@@ -27,6 +27,7 @@ Ces deux définitions sont équivalentes dans le cas des \glspl{slci}.
 
 \begin{figure}[!h]
     \centering
+\tikzsetnextfilename{stable_1-chap6_ext}
     \begin{tikzpicture}
         \draw[green!50!black,line width=0.5mm] (0,0.25) circle (1.5ex);
         \draw[thick] (0,0) parabola (1,1.75) ;
@@ -79,6 +80,7 @@ Réponse temporelle du premier ordre du second ordre ...
     \textbf{Un système est stable si sa fonction de transfert ne possède aucun pôles à partie réelle positive.}
 \end{criteria}
 
+\tikzsetnextfilename{stabilite_plan-complexe-chap6_ext}
 \input{tikz/stabilite.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -90,6 +92,7 @@ Réponse temporelle du premier ordre du second ordre ...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{center}
+\tikzsetnextfilename{asser-chap6_ext}
     \begin{tikzpicture}
         \sbEntree{E}
         \sbComp[5.0]{comp}{E}
@@ -408,6 +411,7 @@ dont l'on souhaite déterminer la valeur pour assurer la stabilité du système 
 
 Soit un système asservi défini par le schéma-bloc suivant :
 \begin{center}
+\tikzsetnextfilename{routh_exemple-chap6_ext}
     \begin{tikzpicture}
         \sbEntree{E}
         \sbComp[5.0]{comp}{E}
@@ -513,6 +517,7 @@ permettent d'étudier la stabilité du système en boucle fermée en considéran
 Pour celà considèrons la boucle de contre réaction unitaire 
 pour l'asservissement d'un système de fonction de transfert $H(p)$, telle que : 
 \begin{center}
+\tikzsetnextfilename{sb_revers-chap6_ext}
     \begin{tikzpicture}
     \sbEntree{E}
     \sbComp[5.0]{comp}{E}
@@ -637,6 +642,7 @@ point critique de oordonnées (-1,0).
 
 \begin{figure}[!h]
 \begin{center}
+\tikzsetnextfilename{critere_revers_nyquist-chap6_ext}
 \begin{tikzpicture}
 \begin{axis}
     [
@@ -753,6 +759,7 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
 
 \begin{figure}[!h]
 \begin{center}
+\tikzsetnextfilename{critere_revers_black-chap6_ext}
 \begin{tikzpicture}
 \begin{axis}
     [
@@ -845,6 +852,7 @@ De ce fait il faut vérifier deux conditions pour respecter le critère du rever
 
 \begin{figure}[!h]
 \centering
+\tikzsetnextfilename{critere_revers_bode-chap6_ext}
 \begin{tikzpicture}
     \begin{axis}[
         name=axx,
@@ -967,6 +975,7 @@ comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours}).
 
 \begin{figure}[!h]
 \begin{center}
+\tikzsetnextfilename{nyquist_cauchy-chap6_ext}
 \begin{tikzpicture}
 \begin{axis}
     [
@@ -1050,6 +1059,7 @@ comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours}).
 
 \begin{figure}[!h]
 \centering
+\tikzsetnextfilename{nyquist_ntours_1-chap6_ext}
 \begin{tikzpicture}
 \begin{axis}[ticks=none,
 axis line style = thick,
@@ -1066,6 +1076,7 @@ clip=false]
 \node[below] at (axis cs:0,-1.4) {$N=-3$};
 \end{axis}
 \end{tikzpicture}
+\tikzsetnextfilename{nyquist_ntours_2-chap6_ext}
 \begin{tikzpicture}
 \begin{axis}[ticks=none,
 axis line style = thick,
@@ -1082,6 +1093,7 @@ clip=false]
 \node[below] at (axis cs:0,-1.4) {$N=-2$};
 \end{axis}
 \end{tikzpicture}
+\tikzsetnextfilename{nyquist_ntours_3-chap6_ext}
 \begin{tikzpicture}
 \begin{axis}[ticks=none,
 axis line style = thick,
@@ -1099,6 +1111,7 @@ clip=false]
 \end{axis}
 \end{tikzpicture}
 
+\tikzsetnextfilename{nyquist_ntours_4-chap6_ext}
 \begin{tikzpicture}
 \begin{axis}[ticks=none,
 axis line style = thick,
@@ -1115,6 +1128,7 @@ clip=false]
 \node[below] at (axis cs:0,-1.4) {$N=1$};
 \end{axis}
 \end{tikzpicture}
+\tikzsetnextfilename{nyquist_ntours_5-chap6_ext}
 \begin{tikzpicture}
 \begin{axis}[ticks=none,
 axis line style = thick,
@@ -1131,6 +1145,7 @@ clip=false]
 \node[below] at (axis cs:0,-1.4) {$N=2$};
 \end{axis}
 \end{tikzpicture}
+\tikzsetnextfilename{nyquist_ntours_6-chap6_ext}
 \begin{tikzpicture}
 \begin{axis}[ticks=none,
 axis line style = thick,
@@ -1171,6 +1186,7 @@ est également composé d'un cercle de rayon $r\rightarrow0$ centré sur les pô
 \captionsetup{width=.9\linewidth} 
 \begin{figure}[!h]
 \begin{center}
+\tikzsetnextfilename{nyquist_contours-chap6_ext}
 \begin{tikzpicture}
 \begin{axis}[
     name=aaa1,
@@ -1314,6 +1330,7 @@ $H_1(p)=\dfrac{1}{1+p}$
 
 \begin{figure}[!h]
 \centering
+\tikzsetnextfilename{nyquist_contours_exemple_1-chap6_ext}
 \begin{tikzpicture}
 \begin{axis}[
     name=aaa1,
@@ -1409,6 +1426,7 @@ $H_2(p)=\dfrac{1}{p(1+p)}$
 
 \begin{figure}[!h]
 \centering
+\tikzsetnextfilename{nyquist_contours_exemple_2-chap6_ext}
 \begin{tikzpicture}
 \begin{axis}[
     name=aaa1,
