@@ -340,13 +340,13 @@ on fera précéder le signe opératoire d'un point : \verb?.*? \verb?./?.
 // définition de l'indéterminée du polynôme
 -->p = poly(0, 'p');
 
-//définition d'un vecteur de numérateur
+//définition d'un vecteur de numérateurs
 -->num=[1 10 20];
 
-//définition d'un vecteur de dénominateur
+//définition d'un vecteur de dénominateurs
 -->den=[p*(p+1) p*(p+10) p*(p+20) ];
 
-//définition d'un vecteur de fonction de transfert
+//définition d'un vecteur de fonctions de transfert
 -->H=num ./ den
  H  =
  
@@ -679,34 +679,34 @@ evans(PremierOrdre) ;
 \end{verbatim}
 \end{code}
 
-
+\newpage
 \section{Scilab-Xcos}
-Pour ce TP nous utiliserons le module Xcos intégré à Scilab. Xcos inclut un 
+Nous présentons ici le module Xcos intégré à Scilab. Xcos inclut un 
 éditeur graphique pour facilement représenté les schémas fonctionnels
-en connectant des blocs entre eux. Ce document est loin d'être complet,
-nous renvoyons le lecteur vers des présentations plus complètes et la documentation
-officielle de Xcos pour obtenir davantage de détails sur l'utilisation de ce module (notamment les références
-suivantes~\cite{steer2014scilab,premier,xcos}, sur lesquelles est basé le petit tuto suivant.)
+en connectant des blocs entre eux. Cette présentation/tutoriel étant loin d'être complète,
+nous renvoyons le lecteur à la documentation officielle de Xcos pour obtenir davantage de détails~\cite{steer2014scilab,premier,xcos}. 
+%sur l'utilisation de ce module (notamment les références
+%suivantes~\cite{steer2014scilab,premier,xcos}, sur lesquelles est basé le petit tuto suivant.)
 
 \subsection{Lancer Xcos}
-Après avoir lancer Scilab :
+Après avoir lancé Scilab, éxécuter une des instructions suivantes :
 \begin{itemize}
     \item Taper la commande \verb?xcos? dans la console;
     \item Cliquer sur l'icône : \raisebox{-\mydepth}{\fbox{\includegraphics[height=\myheight]{fig/xcos.eps}}}
     \item Menu $\rightarrow$ Applications $\rightarrow$ Xcos
 \end{itemize}
 
-Xcos ouvre par défaut le navigateur de palettes et une fenêtre d'édition. Pour construire le diagramme
-il suffit de faire glisser les blocs dans la fenêtre d'édition.
+Xcos ouvre par défaut le navigateur de palettes et une fenêtre d'édition. 
+Pour construire le diagramme il suffit de faire glisser les blocs dans la fenêtre d'édition.
 
 \subsection{Diagramme simple}
 
 Le module inclut un grand nombre de blocs (c.f Navigateur de palettes).
 Il est possible de construire des super-blocs qui incorpore d'autres blocs pour faciliter la lecture d'un
 diagramme complexe. \newline
-Nous allons créer un diagramme simple. Pour celà, placer les blocs suivants dans la fenêtre d'édition.
+Nous allons créer un diagramme simple. Pour celà, placer les blocs suivants dans la fenêtre d'édition:
 
-\begin{table}[h]
+\begin{table}[!h]
     \centering
 \begin{tabular}{|M{4cm}|M{6cm}|M{4cm}|N}
     \hline
@@ -733,7 +733,7 @@ Connecter les blocs pour obtenir le schéma bloc Xcos de la figure~\ref{fig-simp
 
 Il faut maintenant simuler et visualiser les résultats.  
 
-\newpage
+%\newpage
 \subsection{Simulation}
 
 Pour lancer une simulation : cliquer sur l'icône : 
@@ -742,7 +742,7 @@ Pour lancer une simulation : cliquer sur l'icône :
 Pour arrêter une simulation : cliquer sur l'icône : 
 \raisebox{-\mydepth}{\fbox{\includegraphics[height=\myheight]{fig/stop.eps}}}
 
-Plusieurs paramètres peuvent être ajuster :
+Plusieurs paramètres peuvent être ajustés :
 \begin{itemize}
     \item La durée de la simulation : Simulation $\rightarrow$ Configurer $\rightarrow$ Temps d'intégration final
     \item La période d'échantillonage : Cliquer sur l'horloge.
@@ -753,7 +753,7 @@ Plusieurs paramètres peuvent être ajuster :
 
 \subsection{Blocs \og To Workspace \fg~ou \og From Workspace\fg}
 
-On utilisera les blocs suivants dans le cas où l'on souhaite 
+On utilisera les blocs particuliers dans le cas où l'on souhaite 
 utiliser des données à partir de Scilab (\og From Workspace\fg) 
 ou récupérer ces données après la simulation (\og To Workspace \fg).
 
