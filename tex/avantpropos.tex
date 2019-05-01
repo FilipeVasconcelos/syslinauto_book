@@ -1,12 +1,51 @@
-\chapter*{Introduction}
+\chapter*{Avant-propos}
 %\addcontentsline{toc}{chapter}{Introduction}
-\addstarredchapter{Introduction}
+\addstarredchapter{Avant-propos}
+
+Ce cours est une introduction à l'\textbf{automatique}
+pour des étudiants de deuxième année de classe préparatoire scientifique.
+Cette introduction est basée sur une structure sous-jacentes autour de 
+trois piliers de l'automatique : la \textbf{modélisation}, l'\textbf{analyse} et 
+le \textbf{contrôle}. Les chapitres suivent un découpage classique
+autour de ces trois notions (c.f~\Cref{fig-diagramme_cours}).
+
+En effet l'objectif principal de l'automatique est de permettre
+le contrôle des \textbf{systèmes dynamiques}
+de toutes natures que ce soient mécanique, chimique, 
+électronique, optique, thermique, acoustique\ldots.
+L'automatique permet de commander un système dynamique en respectant
+certaines contraintes en termes de performances (rapidité, précision, stabilité\ldots)
+
+La \textbf{modélisation} des systèmes dynamiques passe par 
+la mise en équation du comportement physique des
+systèmes sous forme d'équations différentielles.
+Cette étape ne fait pas à proprement parler partie d'un cours d'automatique,
+en effet chacunes des disciplines construisent cette modélisation 
+en se basant sur les principes et les hypothèses les plus adaptés 
+à un problème donné.
+La modélisation permet une étude systématique des équations
+différentielles en proposant des modèles généraux 
+et ce quelque soit la nature du procédé.
+
+L'\textbf{analyse} nous permettra de caractériser et d'identifier 
+ces modèles à partir des réponses aux sollicitations et de leurs performances.
+
+Le \textbf{contrôle} est un concept très générale permettant de regrouper
+toutes les méthodes et techniques permettant de commander un système dynamique.
+Dans ce cours nous présenterons que les principes d'asservissement et de régulation.
+Nous verrons comment, il est possible d'élaborer une commande adapté pour chaque
+procédé. Ceci nous permettra de mettre en oeuvre
+une correction dans le cas où le procédé présente des défauts intrinsèques.
 
 
+%\tikzsetnextfilename{diagramme_cours-ap-ext}
+\begin{figure}[!h]
+\renewcommand\thefigure{A}
 \begin{center}
 {
 \tikzset{external/export=false}
 \input{tikz/diagramme_cours.tex}
 }
 \end{center}
-
+\caption{Organisation du document.\label{fig-diagramme_cours}}
+\end{figure}

@@ -5,15 +5,45 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+Dans ce chapitre nous présentons les outils et concepts 
+physiques et mathématiques fondamentaux pour la \textbf{modélisation}
+de l'automatique.
 
+Dans un premier temps nous donnerons une définition de chacuns 
+des termes qui compose la notion centrale de \gls{slci}.
+Nous aborderons les différents signaux usuels rencontrés de Laplace. 
+en automatique.
+Celle-çi nous conduiera naturellement à la définition de la fonction 
+de transfert d'un système.
+Ce chapitre introduira le principal outil mathématique 
 
+\section{Définition des~\gls{slci}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \subsection{Système}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+La notion de \textbf{système} est central dans un cours traitant
+d'automatique . Il existe de nombreuses définitions d'un système.
+Dans le cadre de ce cours, nous suivrons celle de la systèmique
+\footnote{Avec la cybernétique, la systèmique est un courant de pensée
+apparue progréssivement au milieu du XXe siècle, sous l'impulsion
+des travaux précurseurs et indépendants de Claude Shannon, Warren McCulloch, 
+Norbert Wiener ou encore Marvin Minsky.} qui donne une définition structurelle 
+et fonctionnelle.
+Au niveau structurel, \textbf{un système est un ensemble 
+d'éléments constitutifs ayant des relations entre eux et 
+une limite délimitant la frontière avec son environnement.}
+Au niveau fonctionnel, \textbf{un système modifie des flux de 
+matière, d'énergie et 
+d'informations provenant de son environnement.}
+
+
+\begin{figure}[!h]
 \begin{center}
     \tikzsetnextfilename{systeme-chap0-ext}
     \input{tikz/systeme-chap0.tex}
 \end{center}
+\caption{Représentation d'un système en intéraction avec son environnement. Un système a une ou plusieurs entrée/sortie (flux de~\gls{mei}) . }
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \subsection{Système linéaire}
