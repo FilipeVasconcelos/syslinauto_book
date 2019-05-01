@@ -1391,7 +1391,7 @@ valeurs du taux d'amortissement.
     \caption{\'Evolution du gain en décibel en fonction de la pulsation pour différentes
     valeurs du taux d'amortissement du régime pseudo-périodique. Le gain maximal à la pulsation 
     de résonance $\omega_r$ est représenté par une pastille noir sur chacune des courbes pour $\xi<\sqrt{2}/2$.
-    On remarquera l'utilisation exceptionnel d'une échelle linéaire pour les pulsations.\label{fig-gain_2nd}}
+    On remarquera l'utilisation exceptionnelle d'une échelle linéaire pour les pulsations.\label{fig-gain_2nd}}
 \end{figure}
 \afterpage{\clearpage}
 \newpage
@@ -1402,8 +1402,8 @@ valeurs du taux d'amortissement.
 Dans le cas d'un système d'ordre supérieur à deux, nous allons utiliser les propriétés d'additivité des diagrammes 
 de Bode, en décomposant la fonction de transfert en différents modèles simples.
 
-Il est notamment toujours possible d'écrire une fonction de transfert sous la forme d'un produit gain pur, d'intégrateur, de 
-dérivateur, de premier et second ordre: 
+Il est notamment toujours possible d'écrire une fonction de transfert sous la forme d'un produit de gains purs, 
+d'intégrateurs, de dérivateurs, de systèmes du premier et du second ordre: 
 \begin{bequation}[ams align]
 H(p)= K_0p^{\alpha}\prod_{i} (1+\tau_ip)^{n_i}\prod_{j} (1+2\xi_j\tau_jp+\tau_jp^2)^{n_j}
 \end{bequation}
@@ -1424,22 +1424,22 @@ pour chacuns de ces élements selon le signe des exposants $\alpha$, $n_i$, et $
             \item gain  : pente de 20$\alpha$ dB/décade 
             \item phase : 90$\alpha$\si{\degree}
         \end{itemize}
-    \item un terme $\dfrac{1}{(1+\tau_ip)}$ (i.e premier ordre au dénominateur) provoque, en $\omega=\frac{1}{\tau_i}$
+    \item un terme $\dfrac{1}{(1+\tau_ip)}$ (i.e premier ordre au dénominateur si $n_i=-1$) provoque, en $\omega=\frac{1}{\tau_i}$
         \begin{itemize}
             \item gain  : une rupture de pente de -20 dB/décade 
             \item phase : un saut de -90\si{\degree}
         \end{itemize}
-    \item un terme $(1+\tau_ip)$ (i.e premier ordre au numérateur) provoque, en $\omega=\frac{1}{\tau_i}$
+    \item un terme $(1+\tau_ip)$ (i.e premier ordre au numérateur si $n_i=1$) provoque, en $\omega=\frac{1}{\tau_i}$
         \begin{itemize}
             \item gain  : une rupture de pente de +20 dB/décade 
             \item phase : un saut de +90\si{\degree}
         \end{itemize}
-    \item un terme $\dfrac{1}{(1+2\xi_j\tau_jp+\tau_jp^2)}$ (i.e second ordre au dénominateur) provoque, en $\omega=\frac{1}{\tau_j}$
+    \item un terme $\dfrac{1}{(1+2\xi_j\tau_jp+\tau_jp^2)}$ (i.e second ordre au dénominateur si $n_j=-1$) provoque, en $\omega=\frac{1}{\tau_j}$
         \begin{itemize}
             \item gain  : une rupture de pente de -40 dB/décade 
             \item phase : un saut de -180\si{\degree}
         \end{itemize}
-    \item un terme $(1+2\xi_j\tau_jp+\tau_jp^2)$ (i.e second ordre au numérateur) provoque, en $\omega=\frac{1}{\tau_j}$
+    \item un terme $(1+2\xi_j\tau_jp+\tau_jp^2)$ (i.e second ordre au numérateur si $n_j=-1$) provoque, en $\omega=\frac{1}{\tau_j}$
         \begin{itemize}
             \item gain  : une rupture de pente de +40 dB/décade 
             \item phase : un saut de +180\si{\degree}
@@ -1456,8 +1456,9 @@ Soit la fonction de transfert $H(p)$ telle que
     H(p) = \dfrac{100(p+1)^2}{(100p+1)(10p+1)(0.01p+1)}\label{eq-ft_qq}
 \end{align}
 La première étape consiste à ordonner les temps caractéristiques par ordre décroissant 
-(ou encore les pulsations propres par ordre croissant). Ensuite, il faut identifier 
-les différents modèles, ici nous identifions :
+cela nous permettra d'obtenir les pulsations propres par ordre croissant. 
+Ensuite, il faut identifier les différents modèles.
+Pour cet exemple, nous identifions :
 \begin{itemize}
     \item un gain pur $K_0=100$
     \item un second ordre double au numérateur de temps caractéristique $\tau=1$

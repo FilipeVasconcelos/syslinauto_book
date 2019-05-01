@@ -3,34 +3,35 @@
 \section{Avant-propos}
 En automatique, la détermination d'une réponse temporelle $s(t)$
 correspond à déterminer la transformée 
-de Laplace inverse de la fraction rationnelle $S(p)$ 
-définit dans le domaine de Laplace, autrement dit :
+de Laplace inverse d'une fraction rationnelle $S(p)$ 
+définie dans le domaine de Laplace. Autrement dit, 
 $$
 s(t)=\laplacei{S(p)}
 $$
-Cette inversion passe généralement par l'utiliation des tables de transformées de Laplace \Cref{annexe-lap}).
-Ces tables peuvent ne pas être complètes. La décomposition en 
-éléments simples de $S(p)$, nous permet alors de 
+Cette inversion passe généralement par l'utiliation des tables de transformées de Laplace 
+(c.f \Cref{annexe-lap}).
+Ces tables peuvent ne pas être complètes. La~\gls{des} de $S(p)$, nous permet alors de 
 réécrire cette fraction rationnelle sous une forme comportant 
 des fractions rationnelles usuellement présente dans les tables.
 
-Dans cette annexe, nous présenterons les techniques les plus couramment
-recontrées dans l'étude des \gls{slci}. Ces systèmes ne s'intéressent qu'à 
-une famille de fraction rationnelle.
+Dans cette annexe, nous présenterons les techniques de~\gls{des} les plus couramment
+recontrées dans l'étude des~\gls{slci}. 
+%Ces systèmes ne s'intéressent qu'à 
+%une famille de fraction rationnelle.
 Cette présentation n'est pas exhaustive, et ne remplacera donc 
 pas la lecture du chapitre du cours de mathématiques qui lui est consacré.
 
-\section{Fraction rationnelle rencontrées en automatique}
+\section{Fractions rationnelles rencontrées en automatique}
 Dans le cas qui nous intéresse la fraction rationnelle est la réponse $S(p)$ 
-définit dans le domaine de Laplace.
+défini dans le domaine de Laplace.
 Cette grandeur est de la forme,
 $$
 S(p)=\dfrac{N(p)}{D(p)}
 $$
 où $N(p)$ et $D(p)$ sont deux polynômes de degrés $m$ et $n$ respectivement.
 En générale, nous aurons à faire à des systèmes pour lesquels $m<n$. 
-Une des conséquences est que la décomposition en élements simples ne comportera
-pas de partie entière.
+Une des conséquences est que \textbf{la décomposition en élements simples ne comportera
+pas de partie entière.}\footnote{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Décomposition en éléments simples}
