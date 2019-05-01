@@ -3,9 +3,9 @@
 \tikzstyle{temp}=[both,fill=blue!25!white]
 \tikzstyle{lapl}=[both,fill=red!25!white]
 \node[temp] (a) at (0,0)  {\small\'Equation différentielle\\ (domaine temporel)};
-\node[temp] (b) at (7,0)  {\small Solution \\(domaine temporel)};
+\node[temp] (b) at (7,0)  {\small Solution $s(t)$\\(domaine temporel)};
 \node[lapl] (c) at  (0,-4){\small \'Equation algébrique\\ (domaine de Laplace)};
-\node[lapl] (d) at (7,-4) {\small Solution \\(domaine de Laplace)};
+\node[lapl] (d) at (7,-4) {\small Solution $S(p)$\\(domaine de Laplace)};
 \draw[very thick,-{Latex[length=3.5mm]}] (a) --node[above,align=center,text width=2cm] {Résolution\\direct} (b);
 \draw[very thick,-{Latex[length=3.5mm]}] (d) --node[right] {\Large$\mathscr{L}^{-1}$} (b);
 \draw[very thick,-{Latex[length=3.5mm]}] (a) --node[left] {\Large$\mathscr{L}$} (c);
