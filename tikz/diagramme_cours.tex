@@ -8,41 +8,44 @@
     \draw[-latex,ultra thick] (A)--(N.north) ;
     \draw[-latex,ultra thick] (A)--(S.north) ;
 \tikzset{pos1/.style={fill=blue!10!white,yshift=1.2em,text width=4.0cm,minimum height=4cm,rounded corners=12pt}}
-\node[below=of M,pos1] {\vbox {\footnotesize
+\newcommand{\mysize}{\small}
+\newcommand{\mysized}{\normalsize}
+\node[below=of M,pos1] {\vbox {\mysize
                                     \begin{itemize}
                                         \item Mise en équation du système
                                         \item Modèles usuels
                                         \item Outils
                                     \end{itemize}}};
-\node[below=of N,pos1] {\vbox {\footnotesize
+\node[below=of N,pos1] {\vbox {\mysize
                                     \begin{itemize}
                                         \item Réponses aux sollicitations
                                         \item Identification
                                         \item Caractérisation
                                         \item Performances
                                     \end{itemize}}};
-\node[below=of S,pos1] {\vbox {\footnotesize
+\node[below=of S,pos1] {\vbox {\mysize
                                     \begin{itemize}
-				        \item Consigne, commande	
+				        \item Consigne
+				        \item Commande
 					\item Asservissement
 					\item Régulation
                                         \item Mise en oeuvre d'une correction
                                     \end{itemize}}};
 \tikzset{pos2/.style={fill=red!10!white,yshift=-10em,text width=4.0cm,minimum height=4cm,rounded corners=12pt}}
-\node[below=of M,pos2] {\vbox {\small
+\node[below=of M,pos2] {\vbox {\mysized
                                     \begin{itemize}
                                         \item \Cref{chap-SLCI}
                                         \item \Cref{chap-schemabloc}
                                         \item \Cref{chap-model} 
                                         \item \Cref{chap-repreEtat} 
                                     \end{itemize}}};
-\node[below=of N,pos2] {\vbox {\small
+\node[below=of N,pos2] {\vbox {\mysized
                                     \begin{itemize}
                                         \item \Cref{chap-anafreq}
                                         \item \Cref{chap-perf} 
                                         \item \Cref{chap-stab} 
                                     \end{itemize}}};
-\node[below=of S,pos2] {\vbox {\small
+\node[below=of S,pos2] {\vbox {\mysized
                                     \begin{itemize}
                                         \item \Cref{chap-asservis} 
                                         \item \Cref{chap-correc} 
