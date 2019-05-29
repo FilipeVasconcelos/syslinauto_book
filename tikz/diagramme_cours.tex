@@ -7,14 +7,14 @@
     \draw[-latex,ultra thick] (A)--(M.north) ;
     \draw[-latex,ultra thick] (A)--(N.north) ;
     \draw[-latex,ultra thick] (A)--(S.north) ;
-\tikzset{pos1/.style={fill=blue!10!white,yshift=1.2em,text width=4.0cm,minimum height=4cm,rounded corners=12pt}}
+\tikzset{pos1/.style={fill=blue!10!white,yshift=1.2em,text width=4.0cm,minimum height=5cm,rounded corners=12pt}}
 \newcommand{\mysize}{\small}
 \newcommand{\mysized}{\normalsize}
 \node[below=of M,pos1] {\vbox {\mysize
                                     \begin{itemize}
                                         \item Mise en équation du système
                                         \item Modèles usuels
-                                        \item Outils
+                                        \item Outils Mathématiques
                                     \end{itemize}}};
 \node[below=of N,pos1] {\vbox {\mysize
                                     \begin{itemize}
@@ -29,9 +29,10 @@
 				        \item Commande
 					\item Asservissement
 					\item Régulation
-                                        \item Mise en oeuvre d'une correction
+                                        \item Nécessité / Mise en oeuvre \\
+                                            d'une correction
                                     \end{itemize}}};
-\tikzset{pos2/.style={fill=red!10!white,yshift=-10em,text width=4.0cm,minimum height=4cm,rounded corners=12pt}}
+\tikzset{pos2/.style={fill=red!10!white,yshift=-12em,text width=4.0cm,minimum height=4cm,rounded corners=12pt}}
 \node[below=of M,pos2] {\vbox {\mysized
                                     \begin{itemize}
                                         \item \Cref{chap-SLCI}

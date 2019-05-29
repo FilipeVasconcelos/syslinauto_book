@@ -18,9 +18,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Dans ce chapitre nous présentons les outils et concepts 
-physiques et mathématiques fondamentaux pour la \textbf{modélisation}
-de l'automatique.
+Dans ce chapitre, nous présentons les outils mathématiques 
+et fondamentaux pour la \textbf{modélisation} de l'automatique.
 
 Dans un premier temps nous donnerons une définition de chacuns 
 des termes qui compose la notion centrale de \gls{slci}.
@@ -89,7 +88,7 @@ c'est de jouer avec.\fg (René Thom)}
 
 Pour résumer, nous ne traiterons dans ce document 
 que des systèmes monovariables que 
-nous représenterons par un bloc de la façon suivante :
+nous représenterons par de la façon suivante :
 \begin{center}
 \tikzsetnextfilename{sb_bloc-chap0_ext}
 \begin{tikzpicture}
@@ -102,13 +101,14 @@ nous représenterons par un bloc de la façon suivante :
 \end{center}
 où $e(t)$ et $s(t)$ sont respectivement es signaux d'entrée et de sortie 
 dépendants du temps. 
-Cette représentation dite en bloc sera généralisée au~\Cref{chap-schemabloc}.
+Cette représentation, dite en \textbf{bloc} ou \textbf{schema-bloc}, 
+sera généralisée au~\Cref{chap-schemabloc}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Système à temps continu}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textbf{Un système à temps continu met en oeuvre des signaux 
-à temps continus}. Comme nous le verons, ces signaux seront
+à temps continus}. Comme nous le verrons, ces signaux seront
 modélisés par des fonctions continus d'une variable $t$ de temps.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -119,10 +119,11 @@ Un système est dit linéaire si il respecte les deux principes suivants:
 
 \begin{itemize}
     \item \emph{Principe de superposition :}
-     \textbf{Si l'entrée du système se décompose en une combinaison 
-        somme de plusieurs entrées alors la sortie du système sera la somme des 
+     \textbf{Si l'entrée du système se décompose en une somme 
+        de plusieurs entrées alors la sortie du système sera la somme des 
         sorties correspondant à chaque entrée séparée.}
 
+    Schématiquement, on exprime ce principe de la façon suivante:
     \begin{center}
     \tikzsetnextfilename{sb_bloc_e1-chap0_ext}
     \begin{tikzpicture}
@@ -176,7 +177,7 @@ Un système est dit linéaire si il respecte les deux principes suivants:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textbf{Un système est dit invariant si la sortie ne dépend pas explicitement du temps
 autrement que par l'intermédiaire de l'entrée.}
-
+Autrement dit, 
 \begin{center}
 \tikzsetnextfilename{sb_bloc_e3-chap0_ext}
 \begin{tikzpicture}
@@ -187,7 +188,7 @@ autrement que par l'intermédiaire de l'entrée.}
         \sbRelier[$s(t+\tau)$]{B4}{S4}
 \end{tikzpicture}
 \end{center}
-
+avec $\tau$ une temps quelconque.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -276,7 +277,8 @@ impulsion retardée de $\tau$ noté $\delta(t-\tau)$.
 \caption{\label{fig-dirac}}
 \end{figure}
 
-Impulsion réelle :
+L'impulsion de Dirac est expérimentalement approchée par un signal 
+bref et de grande amplitude :
 
 \begin{figure}[!h]
 \begin{center}
@@ -691,8 +693,8 @@ dans le domaine de Laplace.}
 \begin{bequation}[ams align]
     s(\infty)=\lim\limits_{p\rightarrow0} p S(p)
 \end{bequation}
-valable que si $pS(p)$ a tous ses pôles à partie réelle strictement négative, autrement dit que le
-signal soit stable.
+valable que si $pS(p)$ a tous ses pôles à partie réelle 
+strictement négative, autrement dit que le signal soit stable.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
