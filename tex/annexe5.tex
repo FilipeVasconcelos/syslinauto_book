@@ -679,6 +679,39 @@ evans(PremierOrdre) ;
 \end{verbatim}
 \end{code}
 
+\subsection{Asservissement}
+
+\begin{doc}
+\paragraph{Fonction feedback (extrait de la doc officiel (en anglais): help feedback)}
+\begin{itemize}
+    \item Syntax :
+    \begin{code}
+\begin{verbatim}
+Sl=Sl1/.Sl2
+\end{verbatim}
+    \end{code}
+    \item Parameters :
+    \begin{itemize}
+        \item \verb?Sl1,Sl2?  linear systems (syslin list) in state-space or transfer form, or ordinary gain matrices.
+        \item \verb?Sl? linear system (syslin list) in state-space or transfer form.
+    \end{itemize}
+
+    \item Description :
+
+    \begin{itemize} 
+        \item The feedback operation is denoted by /. (slashdot). 
+        \item This command returns \verb?Sl=Sl1*(I+Sl2*Sl1)^-1?, i.e the (negative) feedback 
+        of \verb?Sl1? and \verb?Sl2?. \verb?Sl? is the transfer \verb?v -> y? for \verb?y = Sl1 u?, \verb?u = v - Sl2 y?.
+
+        \item The result is the same as \verb?Sl=LFT([0,I;I,-Sl2],Sl1)?.
+
+        \item Caution: do not use with decimal point (e.g. \verb?1/.1? is ambiguous!)
+    \end{itemize}
+
+\end{itemize}
+\end{doc}
+
+
 \newpage
 \section{Scilab-Xcos}
 Nous présentons ici le module Xcos intégré à Scilab. Xcos inclut un 
