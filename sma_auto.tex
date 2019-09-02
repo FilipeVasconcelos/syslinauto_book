@@ -416,6 +416,7 @@ cross/.default={1pt}}
 %\includeonly{tex/chap6}
 %\includeonly{tex/annexe1,tex/annexe4}
 %\includeonly{tex/annexe2}
+%\includeonly{tex/chap0,tex/annexe_equa_diff}
 %\includeonly{tex/annexe3}
 %\includeonly{tex/annexe4}
 %\includeonly{tex/annexe1}
@@ -484,9 +485,11 @@ cross/.default={1pt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{appendices}
-\input{tex/annexe_alphagrec}           % alphabet grec
+\input{tex/annexe_alphagrec}           % Alphabet grec
+\include{tex/annexe0}                  % Unités du Système International 
 \include{tex/annexe1}                  % Transformation de Laplace 
 \include{tex/annexe2}                  % Rappel sur les nombres complexes
+\include{tex/annexe_equa_diff}         % Equation différentielle à coefficient constant
 \include{tex/annexe3}                  % Décomposition en éléments simples
 \include{tex/annexe4}                  % Système du second ordre
 {\tikzset{external/export=false}       

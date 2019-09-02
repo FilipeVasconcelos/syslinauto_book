@@ -88,7 +88,7 @@ c'est de jouer avec.\fg (René Thom)}
 
 Pour résumer, nous ne traiterons dans ce document 
 que des systèmes monovariables que 
-nous représenterons par de la façon suivante :
+nous représenterons de la façon suivante :
 \begin{center}
 \tikzsetnextfilename{sb_bloc-chap0_ext}
 \begin{tikzpicture}
@@ -99,8 +99,9 @@ nous représenterons par de la façon suivante :
         \sbRelier[$s(t)$]{B1}{S1}
 \end{tikzpicture}
 \end{center}
-où $e(t)$ et $s(t)$ sont respectivement es signaux d'entrée et de sortie 
-dépendants du temps. 
+où $e(t)$ et $s(t)$ sont respectivement les signaux d'entrée et de sortie 
+dépendants du temps et $\Sigma$ est le système traitant l'entrée $e(t)$ et élaborant
+la sortie $s(t)$. 
 Cette représentation, dite en \textbf{bloc} ou \textbf{schema-bloc}, 
 sera généralisée au~\Cref{chap-schemabloc}.
 
@@ -118,12 +119,39 @@ modélisés par des fonctions continus d'une variable $t$ de temps.
 Un système est dit linéaire si il respecte les deux principes suivants:
 
 \begin{itemize}
+    \item \emph{Principe de proportionnalité :}
+        \textbf{Si $s(t)$ est la réponse à une entrée $e(t)$, alors pour une entrée $\alpha e(t)$
+        la réponse est $\alpha s(t)$}
+        
+    Schématiquement, on exprime ce principe de la façon suivante pour 
+    un système linéaire $\Sigma$:
+    \begin{center}
+    \begin{tikzpicture}
+        \begin{scope}[local bounding box=scope1]
+            \sbEntree{E1}
+            \sbBloc[3]{B1}{\Large$\Sigma$}{E1}
+            \sbRelier[$e(t)$]{E1}{B1}
+            \sbSortie[3]{S1}{B1}
+            \sbRelier[$s(t)$]{B1}{S1}
+        \end{scope}
+        \begin{scope}[shift={($(scope1.east)+(1,0)$)}]
+            \sbEntree{E3}
+            \sbBloc[3]{B3}{\Large$\Sigma$}{E3}
+            \sbRelier[$\alpha e(t)$]{E3}{B3}
+            \sbSortie[3]{S3}{B3}
+            \sbRelier[$\alpha s(t)$]{B3}{S3}
+        \end{scope}
+    \end{tikzpicture}
+    \end{center}
+
+
     \item \emph{Principe de superposition :}
      \textbf{Si l'entrée du système se décompose en une somme 
         de plusieurs entrées alors la sortie du système sera la somme des 
         sorties correspondant à chaque entrée séparée.}
 
-    Schématiquement, on exprime ce principe de la façon suivante:
+    Une nouvelle fois, il est possible d'exprimer ce principe de la façon suivante pour 
+    un système linéaire $\Sigma$:
     \begin{center}
     \tikzsetnextfilename{sb_bloc_e1-chap0_ext}
     \begin{tikzpicture}
@@ -178,9 +206,10 @@ Un système est dit linéaire si il respecte les deux principes suivants:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Système invariant}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{Un système est dit invariant si la sortie ne dépend pas explicitement du temps
-autrement que par l'intermédiaire de l'entrée.}
-Autrement dit, 
+\textbf{Un système est dit invariant si la sortie ne dépend pas 
+explicitement du temps autrement que par l'intermédiaire de l'entrée.}
+
+À l'aide d'un schéma-bloc, un système invariant $\Sigma$ devient : 
 \begin{center}
 \tikzsetnextfilename{sb_bloc_e3-chap0_ext}
 \begin{tikzpicture}
@@ -196,58 +225,84 @@ avec $\tau$ une temps quelconque.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Modélisation d'un signal}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Un signal 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Un signal est par définition le porteur de l'information de la 
+sollicitation et de la réponse d'un système. Les signaux 
+sont modélisés mathématiquement par des fonctions. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Types de signaux}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acpl
-Analogique, numérique et discret.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Propriétés générales des signaux analogiques}
+Il existe différents types de signaux: 
+\begin{itemize}
+    \item en temps continu (ou analogique).
+    Ce signal sera modélisé par une fonction continue du temps. Formellement, par une fonction $s$ telle que :
+        \begin{align*}
+        s : \mathbb{R}&\rightarrow\mathbb{R} \\  
+        t&\rightarrow s(t) 
+        \end{align*}    
+    \item en temps discret/échantillonné (ou numérique).
+        \begin{align*}
+        s : \mathbb{Z}&\rightarrow\mathbb{R} \\  
+        k&\rightarrow s[k]
+        \end{align*}    
+\end{itemize}
+
+\textbf{Dans le reste de ce document, nous ne traiterons que
+du cas de signaux en temps continu.} Les signaux en temps discret
+seront traités lors du cycle ingénieur de cette formation.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Propriétés générales des signaux continus (analogiques)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Un signal d'entrée ou de sortie d'un \gls{slci}~sera modélisé par 
-une fonction continue du temps. Formellement, par une fonction $s$ telle que :
-
-\begin{align*}
-	s : \mathbb{R}&\rightarrow\mathbb{R} \\
-t&\rightarrow s(t) 
-\end{align*}
 
 \paragraph{Causal}
 
+Un signal modélisé par la fonction $s(t)$ est dit \textbf{causal}
+si ce signal est nul pour tout $t<0$. Autrement dit, 
+$$
+s(t)=0\,\,\,\,\forall t<0
+$$
+Exemple :
 \begin{center}
 \tikzsetnextfilename{causal-chap0_ext}
 \input{tikz/causal-chap0.tex}
 \end{center}
 
 
-\paragraph{Stable}
+%\paragraph{Stable}
 
-\begin{center}
-\tikzsetnextfilename{stable-chap0_ext}
-\input{tikz/stable-chap0.tex}
-\end{center}                
+%\begin{center}
+%\tikzsetnextfilename{stable-chap0_ext}
+%\input{tikz/stable-chap0.tex}
+%\end{center}                
 
-\begin{center}
-\tikzsetnextfilename{stable2-chap0_ext}
-\input{tikz/stable2-chap0.tex}
-\end{center}
+%\begin{center}
+%\tikzsetnextfilename{stable2-chap0_ext}
+%\input{tikz/stable2-chap0.tex}
+%\end{center}
 
-\begin{center}
-\tikzsetnextfilename{instable-chap0_ext}
-\input{tikz/instable-chap0.tex}
-\end{center}
+%\begin{center}
+%\tikzsetnextfilename{instable-chap0_ext}
+%\input{tikz/instable-chap0.tex}
+%\end{center}
 
 \paragraph{Périodique}
+
+Un signal est dit \textbf{périodique} s'il se reproduit identique à lui
+même au bout d'un même intervalle de temps ou periode $T$.
+
+Exemple :
 \begin{center}
 \tikzsetnextfilename{periodique-chap0_ext}
 \input{tikz/periodique-chap0.tex}
 \end{center}
+
+\paragraph{Retardé}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Signaux usuels}
@@ -1063,26 +1118,27 @@ La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert
     à la fonction de transfert~\Cref{eq-ft_carte}\label{fig-carte} }
 \end{figure}
 \clearpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Exercices du chapitre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\small
-\input{tex/exercices_chap0.tex}
 
-\setcounter{numexos}{0}
-\normalsize
-\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Corrigé des exercices}
+%\section{Exercices du chapitre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\small
-\input{tex/exercices_chap0_corrige.tex}
-\normalsize
+%\small
+%\input{tex/exercices_chap0.tex}
+
+%\setcounter{numexos}{0}
+%\normalsize
+%\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Corrigé des exercices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\small
+%\input{tex/exercices_chap0_corrige.tex}
+%\normalsize
