@@ -1,8 +1,8 @@
     \begin{tikzpicture}
         \begin{axis}[
         axis line style = thick,
-        clip=false,
-        height=7cm,
+        %clip=false,
+        height=5cm,
         width=10cm,
         axis x line=center,
         axis y line=center,
@@ -21,7 +21,7 @@
         ]
 
             \addplot [very thick,color=blue,domain=-2:0, samples=11,unbounded coords=jump]{0};
-            \addplot [very thick,color=blue,domain=0:4*pi, samples=501,unbounded coords=jump]{exp(-0.2*x)*sin(4*deg(x))};
+            \addplot [very thick,color=blue,domain=0:4*pi, samples=501,unbounded coords=jump]{exp(-0.2*x)*sin(3.5*deg(x))};
             \addplot [dashed,very thick,color=blue,domain=0:4*pi, samples=501,unbounded coords=jump]{exp(-0.2*x)};
             \addplot [dashed,very thick,color=blue,domain=0:4*pi, samples=501,unbounded coords=jump]{-exp(-0.2*x)};
             %\addplot [thick,color=red,domain=0:4*pi, samples=501,unbounded coords=jump]{exp(-0.2*x)*sin(deg(4*x-pi*0.5))};
