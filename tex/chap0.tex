@@ -84,11 +84,12 @@ l'identification et la caractérisation de ces systèmes.
 comme des \og boîtes noires\fg pour lesquelles la structure interne est 
 inaccessible\footnote{\og Ce qui - en dernière analyse - justifie l'attitude 
 ludique, c'est que le seul moyen concevable de dévoiler une boîte noire, 
-c'est de jouer avec.\fg (René Thom)}
+c'est de jouer avec.\fg (René Thom)}. Une approche basée sur la représentation
+des états internes au système sera introduite au~\cref{chap-repreEtat}. 
 
 Pour résumer, nous ne traiterons dans ce document 
 que des systèmes monovariables que 
-nous représenterons de la façon suivante :
+nous représenterons simplement de la façon suivante :
 \begin{center}
 \tikzsetnextfilename{sb_bloc-chap0_ext}
 \begin{tikzpicture}
@@ -102,8 +103,8 @@ nous représenterons de la façon suivante :
 où $e(t)$ et $s(t)$ sont respectivement les signaux d'entrée et de sortie 
 dépendants du temps et $\Sigma$ est le système traitant l'entrée $e(t)$ et élaborant
 la sortie $s(t)$. 
-Cette représentation, dite en \textbf{bloc} ou \textbf{schema-bloc}, 
-sera généralisée au~\Cref{chap-schemabloc}.
+Cette représentation, dite en \textbf{bloc} ou 
+\textbf{schema-bloc}, sera généralisée au~\Cref{chap-schemabloc}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Système à temps continu}
@@ -227,7 +228,7 @@ avec $\tau$ une temps quelconque.
 \section{Modélisation d'un signal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Un signal est par définition le porteur de l'information de la 
+Un signal est une variation d'une grandeur qui porte l'information de la 
 sollicitation et de la réponse d'un système. Les signaux 
 sont modélisés mathématiquement par des fonctions. 
 
@@ -251,10 +252,9 @@ Il existe différents types de signaux:
 
 \textbf{Dans le reste de ce document, nous ne traiterons que
 du cas de signaux en temps continu.} Les signaux en temps discret
-seront traités lors du cycle ingénieur de cette formation.
+seront traités lors d'un cours avancé d'automatique du cycle ingénieur.
 
-
-
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Propriétés générales des signaux continus (analogiques)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -262,16 +262,20 @@ seront traités lors du cycle ingénieur de cette formation.
 \paragraph{Causal}
 
 Un signal modélisé par la fonction $s(t)$ est dit \textbf{causal}
-si ce signal est nul pour tout $t<0$. Autrement dit, 
-$$
-s(t)=0\,\,\,\,\forall t<0
-$$
-Exemple :
-\begin{center}
+si ce signal est nul pour tout $t<0$. 
+%Autrement dit, 
+%$$
+%s(t)=0\,\,\,\,\forall t<0
+%$$
+{
+\begin{figure}[htb]
+\centering
 \tikzsetnextfilename{causal-chap0_ext}
 \input{tikz/causal-chap0.tex}
-\end{center}
-
+\caption{Exemple d'}
+\end{figure}
+\setlength\intextsep{0pt}
+}
 
 %\paragraph{Stable}
 
@@ -293,20 +297,34 @@ Exemple :
 \paragraph{Périodique}
 
 Un signal est dit \textbf{périodique} s'il se reproduit identique à lui
-même au bout d'un même intervalle de temps ou periode $T$.
-
-Exemple :
-\begin{center}
+même au bout d'un même intervalle de temps ou periode $T$. On définit alors sa fréquence $f$  
+qui est l'inverse de la période $f=1/T$ ou la pulsation $\omega$ définit par rapport au cercle unité
+$\omega=2\pi f$.
+%L'analyse de Fourier est un outil fondamentale de 
+%l'étude des signaux périodiques. Dans ce cours, nous
+%aborderons 
+{
+\begin{figure}[htb]
+\centering
 \tikzsetnextfilename{periodique-chap0_ext}
 \input{tikz/periodique-chap0.tex}
-\end{center}
-
+\end{figure}
+\setlength\intextsep{0pt}
+}
 \paragraph{Retardé}
-
-
+Un signal $s(t-\tau)$ est dit \textbf{retardé} d'un temps $\tau$ 
+par rapport à $s(t)$, si on lui a fait subir un changement
+d'origine des temps par rapport au signal $s(t)$.
+\begin{center}
+\tikzsetnextfilename{retarde-chap0_ext}
+\input{tikz/retarde-chap0.tex}
+\end{center}
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Signaux usuels}
+\subsection{Signaux usuels\ldots}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{\ldots en sollicitation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Impulsion de Dirac}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -419,24 +437,6 @@ Remarquons que la fonction rampe est l'intégrale de l'échelon-unité, notammen
 $$
 r(t)=\int\limits_{-\infty}^{t} u(\tau)\,\,\dd{\tau}
 $$
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exponentielle décroissante}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La fonction exponentielle décroissante $s(t)$ est telle que :
-$$
-s(t)=e^{-at}\cdot u(t)
-$$  
-avec $a$ l'inverse d'un temps caractéristique d'un amortissement.
-Cette fonction tend vers 0 pour tout $a>0$ à $t\rightarrow\infty$ et diverge pour $a<0$
-\begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{exp_dec-chap0_ext}
-\input{tikz/exp_dec-chap0.tex}
-\end{center}
-    \caption{Représentation de la fonction exponentielle pour différentes valeurs du paramètre $a$.\label{fig-exp}}
-\end{figure}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Sinuso\"ide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -478,6 +478,25 @@ $\Delta\phi=\pm\pi$         & \og en opposition de phase\fg & \tikzsetnextfilena
 
 La réponse à une sinuso\"ide est appelée la \textbf{réponse harmonique}
 et son analyse fera l'objet de tout un chapitre (\Cref{chap-anafreq}).
+
+\subsubsection{\ldots en réponse}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exponentielle décroissante}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La fonction exponentielle décroissante $s(t)$ est telle que :
+$$
+s(t)=e^{-at}\cdot u(t)
+$$  
+avec $a$ l'inverse d'un temps caractéristique d'un amortissement.
+Cette fonction tend vers 0 pour tout $a>0$ à $t\rightarrow\infty$ et diverge pour $a<0$
+\begin{figure}[!h]
+\begin{center}
+\tikzsetnextfilename{exp_dec-chap0_ext}
+\input{tikz/exp_dec-chap0.tex}
+\end{center}
+    \caption{Représentation de la fonction exponentielle pour différentes valeurs du paramètre $a$.\label{fig-exp}}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Sinuso\"ide amortie}
