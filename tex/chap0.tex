@@ -554,14 +554,14 @@ pour l'étude des \gls{slci}. Celle-çi nous sera très utile pour
 la résolution des équations différentielles 
 régissant nos \gls{slci}~et nous permettra 
 de définir la notion de fonction de transfert entre une entrée 
-et une sortie d'un système.
+et une sortie d'un système linéaire.
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Définition}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La Transformée de Laplace (TL) d'une fonction causale $s$ (signal) 
+La Transformée de Laplace ($\mathscr{L}$) d'une fonction causale $s$ (s pour signal) 
 d'une variable réelle $t$ (temps), est la fonction $S$ 
 de la variable complexe $p$, définie par :
 \begin{align}
@@ -579,13 +579,17 @@ s(t)=\laplacei{S(p)}
 $$
 Les transformations inverses sont tabulées à l'\cref{annexe-lap}. 
 Lorsque la transformation
-n'existe pas dans les tables, on réalise une décompostion en éléments 
-simples de la réponse 
-$S(p)$ pour se placer dans un cas usuel (\cref{annexe-DES}).
+n'existe pas dans les tables, il est possible de réaliser une décompostion en éléments 
+simples de la réponse $S(p)$ pour se placer dans un cas usuel (\cref{annexe-DES}).
+
+Il existe des méthodes numériques pour déterminer la fonction image de la transformée 
+de Laplace inverse, ces méthodes sont cependant hors programme, mais cependant discuté en \cref{annexe-invL}
+
+
 
 Remarquons, dès à présent l'utilisation d'une convention utile: 
-les fonctions du temps seront toujours désignées par une
-minuscule, et les fonctions complexes par la majuscule respective.
+\textbf{les fonctions du temps seront toujours désignées par une
+minuscule, et les fonctions complexes par la majuscule respective}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Transformées des signaux usuels}
