@@ -1,4 +1,3 @@
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -21,8 +20,9 @@
 Dans ce chapitre, nous présentons les outils mathématiques 
 et fondamentaux pour la \textbf{modélisation} de l'automatique.
 
-Dans un premier temps nous donnerons une définition de chacuns 
-des termes qui compose la notion centrale de \gls{slci}.
+Dans un premier temps, nous donnerons une définition de chacuns 
+des termes qui compose la notion centrale de \gls{slci} ainsi que quelques
+exemples classiques de système électronique ou mécanique.
 Nous aborderons les différents signaux usuels rencontrés
 en automatique\footnote{et en traitement du signal de façon générale.}.
 Ce chapitre nous permettra d'introduire l'outils mathématique 
@@ -42,6 +42,7 @@ de la \textbf{fonction de transfert} d'un système et de ses différentes repré
     mesures de son état pourront être considérés.\label{fig-systeme}}
 \end{figure}
 
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -192,10 +193,12 @@ Un système est dit linéaire si il respecte les deux principes suivants:
     \end{tikzpicture}
     \end{center}
     avec $\alpha\ \text{et}\ \beta\in\mathbb{R}$.	
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Système causal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
     \item \emph{Principe de causalité :}
         C'est un principe fort de la physique :
         \textbf{\og L'éffet ne précèdant pas sa cause\fg} alors 
@@ -210,7 +213,8 @@ Un système est dit linéaire si il respecte les deux principes suivants:
 \textbf{Un système est dit invariant si la sortie ne dépend pas 
 explicitement du temps autrement que par l'intermédiaire de l'entrée.}
 
-À l'aide d'un schéma-bloc, un système invariant $\Sigma$ devient : 
+Un système invariant $\Sigma$, à l'aide d'un schéma-bloc simple est représenté ci-dessous 
+(avec $\tau$ une temps quelconque.): 
 \begin{center}
 \tikzsetnextfilename{sb_bloc_e3-chap0_ext}
 \begin{tikzpicture}
@@ -221,7 +225,64 @@ explicitement du temps autrement que par l'intermédiaire de l'entrée.}
         \sbRelier[$s(t+\tau)$]{B4}{S4}
 \end{tikzpicture}
 \end{center}
-avec $\tau$ une temps quelconque.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Modélisation d'un système linéaire continu et invariant}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Un système possédant les différentes propriétés précédentes est
+dit linéaire continu et invariant ou \gls{slci}.
+L'entrée et la sortie d'un \gls{slci} sont reliés par une 
+équation différentielle à coefficients constants que l'on peut écrire dans le cas le
+plus générale par la relation suivante :
+\begin{bequation}[ams align]
+    \sum_{i=0}^{n}a_i\devi{s(t)}{i}=\sum_{i=0}^{m}b_i\devi{e(t)}{i}\label{eq-difflci}
+\end{bequation}
+avec $n,m\in\mathbb{N}$, $s(t)$ le signal de sortie, $e(t)$ le signal d'entrée et $a_i,b_i\in\mathbb{R}$ 
+sont des coefficients constants. 
+
+Ces équations différentielles proviennent directement de la modélisation 
+de la physique d'un problème donnée (mécanique, électronique, optique \ldots).
+Par exemple, dans le cas d'un problème de mécanique, 
+la relation fondamentale de la dynamique est 
+une source importante d'équations différentielles (appelées équations du mouvement). 
+En électronique, ce sont les lois des noeuds et mailles qui 
+permettront d'écrire de telles équations. 
+
+\subsubsection{Mise en équation : système masse-ressort}
+
+On considère un système mécanique constitué d'une masse $m$ en translation couplée avec un ressort de constante
+de raideur $k_r$ et un amortisseur de coefficient de frottement visqueux $b$ (c.a.d proportionnelle à la vitesse). 
+La masse est soumise à une force $\vect{F}=F(t)\xx{}$.
+
+En appliquant le principe fondamentale de la dynamique en projection sur la direction $x$,                                    
+on obtient l'équation du mouvement suivante :                                                                                 
+$$                                                                                                                            
+m\devi{x(t)}{2}+b\devi{x(t)}{}+k_rx(t)=F(t)                                                                                   
+$$ 
+
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{masse_ressort-chap0-ext}
+    \input{tikz/masse_ressort-chap0.tex}
+    \caption{(gauche) Système masse-ressort. (droite) Schéma-bloc de ce même système.\label{fig-masse-ressort}}
+\end{figure}
+
+On identifie la forme de l'\cref{eq-difflci} avec $s(t)=x(t)$, $e(t)=F(t)$, 
+$n=$2, $m=0$, $a_2=m$, $a_1=b$, $a_0=k_r$ et $b_0=$1.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{Exemple d'équation différentielles à coefficients constants}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Un corps soumis à la gravité et à la résistance de l'air peut être considéré 
+%comme un \gls{slci} pour lequel la sortie est la vitesse $v(t)$ à l'instant $t$
+%après l'un avoir fourni une vitesse initiale $e(t)$ (ici soit une impulsion ou 
+
+
+%On s'interresse à des systèmes très simples qui peuvent 
+%\subsubsection{\ldots mécanique (chute libre)}
+
+%\subsubsection{\ldots électronique}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -564,9 +625,9 @@ et une sortie d'un système linéaire.
 La Transformée de Laplace ($\mathscr{L}$) d'une fonction causale $s$ (s pour signal) 
 d'une variable réelle $t$ (temps), est la fonction $S$ 
 de la variable complexe $p$, définie par :
-\begin{align}
+\begin{bequation}[ams align]
 S(p)=\laplace{s(t)}=\int_{0}^{+\infty} e^{-pt}s(t)\dd{t}.\label{eq-lap}
-\end{align}
+\end{bequation}
 
 
 On dit également que \textbf{$S(p)$ est l'image dans le domaine de 
@@ -577,15 +638,22 @@ par la transformation inverse
 $$
 s(t)=\laplacei{S(p)}
 $$
-Les transformations inverses sont tabulées à l'\cref{annexe-lap}. 
+%Les transformations inverses sont tabulées à l'\cref{annexe-lap}. 
+
+Il existe une forme analytique de la transformée inverse basée sur
+la formule de Mellin-Fourier\cite{Ostertag}:
+$$
+s(t)=\laplacei{S(p)}=\int_{c-j\infty}^{c+j\infty} e^{pt}S(p)\dd{p}
+$$
+L'intégration de celle-ci est difficile à mettre en oeuvre\footnote{
+Il existe différentes méthodes numériques de transformée de Laplace inverse (\cref{annexe-invL}).
+Ces méthodes, hors programme, peuvent cependant faire l'objet d'un projet numérique
+intéressant.}
+, on préferera utilisé
+les tables de transformations de Laplace pour réaliser la correspondance inverse (\cref{annexe-lap}).
 Lorsque la transformation
 n'existe pas dans les tables, il est possible de réaliser une décompostion en éléments 
 simples de la réponse $S(p)$ pour se placer dans un cas usuel (\cref{annexe-DES}).
-
-Il existe des méthodes numériques pour déterminer la fonction image de la transformée 
-de Laplace inverse, ces méthodes sont cependant hors programme, mais cependant discuté en \cref{annexe-invL}
-
-
 
 Remarquons, dès à présent l'utilisation d'une convention utile: 
 \textbf{les fonctions du temps seront toujours désignées par une
