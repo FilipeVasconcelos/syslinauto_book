@@ -271,20 +271,6 @@ On identifie la forme de l'\cref{eq-difflci} avec $s(t)=x(t)$, $e(t)=F(t)$,
 $n=$2, $m=0$, $a_2=m$, $a_1=b$, $a_0=k_r$ et $b_0=$1.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsubsection{Exemple d'équation différentielles à coefficients constants}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Un corps soumis à la gravité et à la résistance de l'air peut être considéré 
-%comme un \gls{slci} pour lequel la sortie est la vitesse $v(t)$ à l'instant $t$
-%après l'un avoir fourni une vitesse initiale $e(t)$ (ici soit une impulsion ou 
-
-
-%On s'interresse à des systèmes très simples qui peuvent 
-%\subsubsection{\ldots mécanique (chute libre)}
-
-%\subsubsection{\ldots électronique}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Modélisation d'un signal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -382,7 +368,7 @@ d'origine des temps par rapport au signal $s(t)$.
 \end{center}
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Signaux usuels rencontrés\ldots}
+\subsection{Signaux usuels rencontrés\ldots\label{sec-signaux_usuels}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Nous aurons l'occasion de rencontrer de nombreuses fois certains signaux.
@@ -659,9 +645,130 @@ Remarquons, dès à présent l'utilisation d'une convention utile:
 \textbf{les fonctions du temps seront toujours désignées par une
 minuscule, et les fonctions complexes par la majuscule respective}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Propriétés}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Nous allons ici uniquement présenter les principales propriétés de la TL, 
+on se rapportera à nouveau à l'\cref{annexe-lap} pour 
+une liste exhaustive de ces propriétés.
+
+La propriété fondamentale de la transformée de Laplace est d'être linéaire.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Linéarité}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit deux signaux $s_1(t)$ et $s_2(t)$ continus et $S_1(p)$ et $S_2(p)$ leurs
+transformées de Laplace respectives. La transformée de Laplace d'une 
+relation linéaire quelconque de $s_1(t)$ et $s_2(t)$ est une relation linéaire 
+de $S_1(p)$ et $S_2(p)$. Autrement dit,
+\begin{bequation}[ams align]
+	\laplace{as_1(t)+bs_2(t)}=aS_1(p)+bS_2(p)
+\end{bequation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Retard en $t$ (temporel)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit $s(t-\tau)$ un signal $s(t)$ présentant un retard $\tau$.
+$$
+\laplace{s(t-\tau)}=\int_{0}^{+\infty} e^{-pt}s(t-\tau)\dd{t}
+$$
+en appliquant le changement de variable $t'=t-\tau$, on obtient $t=t'+\tau$ et $\dd{t}=\dd{t}$
+$$
+\laplace{s(t-\tau)}=\int_{\tau}^{+\infty} e^{-p(t'+\tau)}s(t')\dd{t'}=e^{-p\tau}\int_{0}^{+\infty} e^{-pt'}s(t')\dd{t'}
+$$
+on reconnait dans cette dernière expression la définition de la transformée de Laplace, on écrit alors :
+\begin{bequation}[ams align]
+    \laplace{s(t-\tau)}=e^{-p\tau}S(p)
+\end{bequation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Retard en $p$ (Thèorème de l'amortissement)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit $s(t)$ un signal de transformée de Laplace $S(p)$. La transformée 
+de Laplace du signal modifié $e^{-at}s(t)$ est alors :
+$$
+\laplace{e^{-at}s(t)}=\int_{0}^{+\infty} e^{-pt}e^{-at}s(t)\dd{t}=\int_{0}^{+\infty} e^{-(p+a)t}s(t)\dd{t}
+$$
+on reconnait dans cette dernière expression la définition de la transformée de Laplace pour $p+a$,
+ on écrit alors :
+\begin{bequation}[ams align]
+    \laplace{e^{-at}s(t)}=S(p+a)
+\end{bequation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Dérivation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit un signal $s(t)$ continu et dérivable pour $t\ge0$ et $S(p)$ sa transformée.
+Par définition de la transformée de Laplace 
+$$
+\laplace{\devi{s(t)}{}}=\int_{0}^{+\infty} e^{-pt}\devi{s(t)}{}\dd{t}
+$$
+par intégration par parties
+\begin{align*}
+    v=e^{-pt}\qquad&\dd{u}=\devi{s(t)}{}\dd{t}\\
+    \dd{v}=-pe^{-pt}\dd{t}\qquad&u=s(t)
+\end{align*}
+\begin{align*}
+    \laplace{\devi{s(t)}{}}&=\left[s(t)e^{-pt}\right]_0^{+\infty}-p\int_{0}^{+\infty} e^{-pt}s(t)\dd{t} \\
+                           &=-s(0)+pS(p)
+\end{align*}
+ou encore
+\begin{bequation}[ams align]
+    \laplace{\devi{s(t)}{}}=pS(p)-s(0)
+\end{bequation}
+On généralise à tous les ordres de dérivation dans le cas de conditions initiales nulles.
+$$
+\laplace{\devi{s(t)}{n}}=p^nS(p)
+$$
+
+Remarquons alors que \textbf{dériver dans le domaine temporel consiste à multiplier par 
+$p$ dans le domaine de Laplace.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Intégration}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soient  des signaux $v(t)$ et $s(t)$ tel que $v(t)=\int_{0}^{t}s(\tau)\dd{\tau}$. 
+Par définition,
+$$
+\laplace{v(t)}=\int_{0}^{+\infty} e^{-pt}v(t)\dd{t}
+$$
+par intégration par parties,
+\begin{align*}
+    v=v(t)\qquad&\dd{u}=e^{-pt}\dd{t}\\
+    \dd{v}=s(t)\dd{t}\qquad&u=-\dfrac{1}{p}e^{-pt}
+\end{align*} 
+\begin{align*}
+    \laplace{v(t)}&=\left[-\dfrac{1}{p}v(t)\right]_0^{+\infty}-\int_{0}^{+\infty} -\dfrac{1}{p}e^{-pt}s(t)\dd{t} \\
+    &=\dfrac{1}{p}\int_{0}^{+\infty} e^{-pt}s(t)\dd{t}       
+\end{align*}
+ou encore
+\begin{bequation}[ams align]
+    \laplace{\int_{0}^{t}s(\tau)\dd{\tau}}=\dfrac{S(p)}{p}
+\end{bequation}
+Remarquons alors que \textbf{intégrer dans le domaine temporel consiste à diviser par $p$ 
+dans le domaine de Laplace.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Théorème de la valeur initiale}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Théorème!de la valeur initiale}
+\begin{bequation}[ams align]
+    s(0)=\lim\limits_{p\rightarrow+\infty} p S(p)\qquad \forall S(p)
+\end{bequation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Théorème de la valeur finale}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Théorème!de la valeur finale}
+\begin{bequation}[ams align]
+    s(\infty)=\lim\limits_{p\rightarrow0} p S(p)
+\end{bequation}
+valable que si $pS(p)$ a tous ses pôles à partie réelle 
+strictement négative, autrement dit que le signal soit stable.
+
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Transformées des signaux usuels}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Nous présentons les transformées de Laplace des signaux usuels introduits
+au paragraphe\cref{sec-signaux_usuels}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Transformée d'une impulsion de Dirac}
@@ -752,125 +859,8 @@ ou encore
     \laplace{e^{-at}\sin{\omega t}\cdot u(t)}=\dfrac{\omega}{(p+a)^2+\omega^2}
 \end{bequation}
 Remarquons que pour cette transformée, nous aurions pu faire usage
-de la propriété du théorème de l'amortissement (c.f paragraphe suivant).
+de la propriété du théorème de l'amortissement (c.f propriétés du paragraphe précédent).
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Propriétés}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Nous allons ici uniquement présenter les principales propriétés de la TL, 
-on se rapportera à nouveau à l'\cref{annexe-lap} pour 
-une liste exhaustive de ces propriétés.
-
-La propriété fondamentale de la transformée de Laplace est d'être linéaire.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Linéarité}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Soit deux signaux $s_1(t)$ et $s_2(t)$ continus et $S_1(p)$ et $S_2(p)$ leurs
-transformées de Laplace respectives. La transformée de Laplace d'une 
-relation linéaire quelconque de $s_1(t)$ et $s_2(t)$ est une relation linéaire 
-de $S_1(p)$ et $S_2(p)$. Autrement dit,
-\begin{bequation}[ams align]
-	\laplace{as_1(t)+bs_2(t)}=aS_1(p)+bS_2(p)
-\end{bequation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Retard en $t$ (temporel)}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Soit $s(t-\tau)$ un signal $s(t)$ présentant un retard $\tau$.
-$$
-\laplace{s(t-\tau)}=\int_{0}^{+\infty} e^{-pt}s(t-\tau)\dd{t}
-$$
-en appliquant le changement de variable $t'=t-\tau$, on obtient $t=t'+\tau$ et $\dd{t}=\dd{t}$
-$$
-\laplace{s(t-\tau)}=\int_{\tau}^{+\infty} e^{-p(t'+\tau)}s(t')\dd{t'}=e^{-p\tau}\int_{0}^{+\infty} e^{-pt'}s(t')\dd{t'}
-$$
-on reconnait dans cette dernière expression la définition de la transformée de Laplace, on écrit alors :
-\begin{bequation}[ams align]
-    \laplace{s(t-\tau)}=e^{-p\tau}S(p)
-\end{bequation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Retard en $p$ (Thèorème de l'amortissement)}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Soit $s(t)$ un signal de transformée de Laplace $S(p)$. La transformée 
-de Laplace du signal modifié $e^{-at}s(t)$ est alors :
-$$
-\laplace{e^{-at}s(t)}=\int_{0}^{+\infty} e^{-pt}e^{-at}s(t)\dd{t}=\int_{0}^{+\infty} e^{-(p+a)t}s(t)\dd{t}
-$$
-on reconnait dans cette dernière expression la définition de la transformée de Laplace pour $p+a$,
- on écrit alors :
-\begin{bequation}[ams align]
-    \laplace{e^{-at}s(t)}=S(p+a)
-\end{bequation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Dérivation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Soit un signal $s(t)$ continu et dérivable pour $t\ge0$ et $S(p)$ sa transformée.
-Par définition de la transformée de Laplace 
-$$
-\laplace{\devi{s(t)}{}}=\int_{0}^{+\infty} e^{-pt}\devi{s(t)}{}\dd{t}
-$$
-par intégration par parties
-\begin{align*}
-    v=e^{-pt}\qquad&\dd{u}=\devi{s(t)}{}\dd{t}\\
-    \dd{v}=-pe^{-pt}\dd{t}\qquad&u=s(t)
-\end{align*}
-\begin{align*}
-    \laplace{\devi{s(t)}{}}&=\left[s(t)e^{-pt}\right]_0^{+\infty}-p\int_{0}^{+\infty} e^{-pt}s(t)\dd{t} \\
-                           &=f(0)+pS(p)
-\end{align*}
-ou encore
-\begin{bequation}[ams align]
-    \laplace{\devi{s(t)}{}}=pS(p)+f(0)
-\end{bequation}
-On généralise à tous les ordres de dérivation dans le cas de conditions initiales nulles.
-$$
-\laplace{\devi{s(t)}{n}}=p^nS(p)
-$$
-
-Remarquons alors que \textbf{dériver dans le domaine temporel consiste à multiplier par 
-$p$ dans le domaine de Laplace.}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Intégration}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Soient  des signaux $v(t)$ et $s(t)$ tel que $v(t)=\int_{0}^{t}s(\tau)\dd{\tau}$. 
-Par définition,
-$$
-\laplace{v(t)}=\int_{0}^{+\infty} e^{-pt}v(t)\dd{t}
-$$
-par intégration par parties,
-\begin{align*}
-    v=v(t)\qquad&\dd{u}=e^{-pt}\dd{t}\\
-    \dd{v}=s(t)\dd{t}\qquad&u=-\dfrac{1}{p}e^{-pt}
-\end{align*} 
-\begin{align*}
-    \laplace{v(t)}&=\left[-\dfrac{1}{p}v(t)\right]_0^{+\infty}-\int_{0}^{+\infty} -\dfrac{1}{p}e^{-pt}s(t)\dd{t} \\
-    &=\dfrac{1}{p}\int_{0}^{+\infty} e^{-pt}s(t)\dd{t}       
-\end{align*}
-ou encore
-\begin{bequation}[ams align]
-    \laplace{\int_{0}^{t}s(\tau)\dd{\tau}}=\dfrac{S(p)}{p}
-\end{bequation}
-Remarquons alors que \textbf{intégrer dans le domaine temporel consiste à diviser par $p$ 
-dans le domaine de Laplace.}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Théorème de la valeur initiale}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\index{Théorème!de la valeur initiale}
-\begin{bequation}[ams align]
-    s(0)=\lim\limits_{p\rightarrow+\infty} p S(p)\qquad \forall S(p)
-\end{bequation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Théorème de la valeur finale}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\index{Théorème!de la valeur finale}
-\begin{bequation}[ams align]
-    s(\infty)=\lim\limits_{p\rightarrow0} p S(p)
-\end{bequation}
-valable que si $pS(p)$ a tous ses pôles à partie réelle 
-strictement négative, autrement dit que le signal soit stable.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -880,16 +870,54 @@ strictement négative, autrement dit que le signal soit stable.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Méthodologie}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acpl
+Lorsqu'une équation différentielle à coéfficients constants a put être établie
+pour définir la relation entre l'entrée et la sortie d'un \gls{slci}, il nous faut
+en trouver une solution pour un jeu de de conditions initiales données.
+Les méthodes classiques de résolution d'équations différentielles 
+peuvent très bien être appliquées. Cependant, celles-ci peuvent être difficiles 
+à mettre en oeuvre dans le cas d'équation différentielle d'ordre élevé 
+ou encore pour des systèmes composés de sous-systèmes.
+
+La transformée de Laplace permet de mettre en oeuvre une méthode plus simple et 
+systèmatique  pour la la résolution de ces équations différentielles à coefficients constants.
+
+Comme nous l'avons déjà discuté, la forme générale de ces équations est donnée par :
+\begin{align}
+    \sum_{i=0}^{n}a_i\devi{s(t)}{i}=\sum_{i=0}^{m}b_i\devi{e(t)}{i}\label{eq-ltemp}
+\end{align}
+avec $n,m\in\mathbb{N}$, $s(t)$ le signal de sortie, $e(t)$ le signal d'entrée et $a_i,b_i\in\mathbb{R}$.
+L'équation est dite d'ordre $n$.
+
+Sous cette forme, cette équation différentielle constitue ce que l'on nomme \textbf{la loi temporelle} du système.
+Sans perte de généralité, on ne considèrera dans un premier temps 
+que les systèmes pour lesquels toutes les 
+\textbf{conditions initialles sont nulles}\footnote{Que l'on nomme les conditions 
+d'Heaviside\footnote{\index{Heaviside, Oliver}Oliver Heaviside, (1850-1925), physicien britannique.}}.
+
+En appliquant la transformée de Laplace à l'\cref{eq-ltemp}, on obtient 
+ce que l'on nomme \textbf{la loi fréquentielle} du système :
+\begin{bequation}[ams align]
+    \sum_{i=0}^{n}a_ip^iS(p)=\sum_{i=0}^{m}b_ip^iE(p)\label{eq-lfreq}
+\end{bequation}
+
 \tikzsetnextfilename{laplace_schema-chap0-ext}
-\begin{figure}[!h]
+\begin{figure}[t]
 \begin{center}
 \input{tikz/laplace_schema.tex}
 \end{center}
 \caption{Représentation schématique de la méthode employée pour la résolution
-des équations différentielles linéaires.\label{fig-laplace_schema}}
+des équations différentielles linéaires à coefficients constants.\label{fig-laplace_schema}}
 \end{figure}
 
+La résolution algébrique de cette équation est simplement donnée par :
+\begin{bequation}[ams align]
+    S(p)=\dfrac{\sum\limits_{i=0}^{m}b_ip^i}{\sum\limits_{i=0}^{n}a_ip^i}E(p)\label{eq-lfreq}
+\end{bequation}
+La solution dans le domaine temporelle $s(t)$ de l'équation différentielle est alors 
+simplement obtenue par transformée de Laplace inverse $\laplacei{S(p)}$.
+
+Cette méthode, résumée par l'organigramme de la~\cref{fig-laplace_schema}, est appliqué à un exemple 
+complet au paragraphe suivant.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Exemple complet}
@@ -1035,34 +1063,12 @@ qui réalise ce lien.
 \section{Fonction de Transfert}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Comme nous l'avons déjà discuté, un \gls{slci}~est par définition représenté par 
-une équation différentielle 
-à coefficients constants,
-
-\begin{align}
-    \sum_{i=0}^{n}a_i\devi{s(t)}{i}=\sum_{i=0}^{m}b_i\devi{e(t)}{i}\label{eq-ltemp}
-\end{align}
-avec $n,m\in\mathbb{N}$, $s(t)$ le signal de sortie, $e(t)$ le signal d'entrée et $a_i,b_i\in\mathbb{R}$.
-L'équation est dite d'ordre $n$.
-
-Sous cette forme, cette équation différentielle constitue ce que l'on nomme \textbf{la loi temporelle} du système.
-Sans perte de généralité, on ne considèrera dans un premier temps 
-que les systèmes pour lesquels toutes les 
-\textbf{conditions initialles sont nulles}\footnote{Que l'on nomme les conditions 
-d'Heaviside\footnote{\index{Heaviside, Oliver}Oliver Heaviside, (1850-1925), physicien britannique.}}.
-
-En appliquant la transformée de Laplace à l'\cref{eq-ltemp}, on obtient
-\begin{bequation}[ams align]
-    \sum_{i=0}^{n}a_ip^iS(p)=\sum_{i=0}^{m}b_ip^iE(p)\label{eq-lfreq}
-\end{bequation}
-Sous cette forme, cette équation constitue ce que l'on nomme \textbf{la loi fréquentielle} du système.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
-\paragraph{Définition}
+\subsection{Définition}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 
 La fonction de transfert $H(p)$ d'un système est donnée par le rapport de la 
-sortie $S(p)$ sur l'entrée $E(p)$. 
+sortie $S(p)$ et l'entrée $E(p)$ dans le domaine de Laplace. 
 \begin{bequation}[ams align]
 H(p)=\dfrac{S(p)}{E(p)}
 \end{bequation}

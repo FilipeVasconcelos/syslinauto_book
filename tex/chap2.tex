@@ -26,10 +26,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du premier ordre!définition}
 Un système du premier ordre est un système régit par une équation
-différentielle linéaire à coefficient constant du premier ordre (i.e $n=1$ pour l'\cref{eq-ltemp}) de forme générale :
-\begin{align}
+différentielle linéaire à coefficient constant du premier ordre (i.e $n=1$ pour l'\cref{eq-difflci}) de forme générale :
+\begin{bequation}[ams align]
     \tau\devi{s(t)}{}+s(t)=K e(t)\label{eq-1er}
-\end{align}
+\end{bequation}
 où $K$ est le gain statique et $\tau>0$ la constante de temps du système.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -112,9 +112,9 @@ S(p)=H(p)E(p)=\dfrac{KE_0}{(\tau p+1)}.
 $$
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 7 du tableau de l'\cref{annexe-lap}),
 nous donne la forme générale de la réponse impulsionnelle d'un système du premier ordre:
-\begin{align}
+\begin{bequation}[ams align]
     \laplacei{S(p)}=s(t)=\dfrac{KE_0}{\tau} e^{-t/\tau}\label{eq-1er_imp}.
-\end{align}
+\end{bequation}
 Cette réponse correspond à une simple exponentielle décroissante.
 La~\cref{fig-1er_imp} présente la réponse impulsionnelle d'un système du premier ordre pour
 différentes valeurs de la constante de temps $\tau$.
@@ -225,9 +225,9 @@ S(p)=H(p)E(p)=\dfrac{KE_0}{p(1+\tau p)}=\dfrac{KE_0}{\tau p(p+\frac{1}{\tau})}
 $$
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 11 du tableau de l'\cref{annexe-lap}),
 nous donne la forme générale de la réponse indicielle d'un système du premier ordre:
-\begin{align}
+\begin{bequation}[ams align]
 \laplacei{S(p)}=s(t)=KE_0\left(1-e^{-t/\tau}\right)\label{eq-1er_ind}
-\end{align}
+\end{bequation}
 La~\cref{fig-1er_ind} présente cette réponse indicielle pour 
 différentes valeurs de la constante de temps $\tau$.
 Pour $t\to\infty$, la valeur de $s(t)$ tend vers $KE_0$.%\footnote{Il est également possible 
@@ -344,9 +344,9 @@ $$
 
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 11 du tableau de l'\cref{annexe-lap}),
 nous donne la forme générale de la réponse à une rampe d'un système du premier ordre:
-\begin{align}                                                                                                                 
+\begin{bequation}[ams align]
     \laplacei{S(p)}=s(t)=KE_0 \left( t -\tau(1-e^{-t/\tau})\right)\label{eq-1er_ramp}  
-\end{align} 
+\end{bequation}
 
 %\begin{figure}
 %\begin{center}
