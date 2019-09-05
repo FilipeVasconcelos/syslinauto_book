@@ -18,18 +18,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dans ce chapitre, nous présentons les outils mathématiques 
-et fondamentaux pour la \textbf{modélisation} de l'automatique.
+et notions fondamentales pour la \textbf{modélisation} de l'automatique.
 
 Dans un premier temps, nous donnerons une définition de chacuns 
 des termes qui compose la notion centrale de \gls{slci} ainsi que quelques
 exemples classiques de système électronique ou mécanique.
 Nous aborderons les différents signaux usuels rencontrés
 en automatique\footnote{et en traitement du signal de façon générale.}.
-Ce chapitre nous permettra d'introduire l'outils mathématique 
-indispensable que se doit de maîtriser l'automaticien à savoir 
-\textbf{la transformée de Laplace.}
-Celui-ci nous conduiera naturellement à la définition 
-de la \textbf{fonction de transfert} d'un système et de ses différentes représentations.
+Ce chapitre nous permettra d'introduire la transformée de Laplace qui 
+est l'outils mathématique indispensable de l'automaticien.
+Celle-ci nous conduiera naturellement à la définition 
+de la \textbf{fonction de transfert} qui caractérisera de façon univoque 
+les systèmes dynamiques linéaires.
 
 \begin{figure}[!h]
 \begin{center}
@@ -56,23 +56,25 @@ de la \textbf{fonction de transfert} d'un système et de ses différentes repré
 \subsection{Système}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La notion de \textbf{système} est central dans un cours traitant
-d'automatique, elle possède cependant de nombreuses définitions.
+La notion de \textbf{système} est central dans le monde de l'ingénierie.
+Elle possède cependant de nombreuses définitions dépendant du domaine d'application.
 Dans le cadre de ce cours, nous nous reposerons sur la systémique\footnote{Avec la 
 cybernétique, la systémique est un courant de pensée pluridisciplinaire
 apparue progréssivement au milieu du \textsc{\romannumeral 20}\textsuperscript{e}~siècle, sous l'impulsion
 des travaux précurseurs de Claude Shannon, 
 Warren McCulloch, Norbert Wiener ou encore Marvin Minsky.} 
-qui nous donne une définition à la fois structurelle et fonctionnelle.
+qui nous donne une définition à la fois structurelle et fonctionnelle de la notion de système.
 
 Au niveau structurel, \textbf{un système est un ensemble 
 d'éléments constitutifs ayant des relations entre eux et 
-une frontière avec son environnement.}
+une frontière avec son environnement.}. Cette définition est parfaitement
+représenté par le schéma de la~\cref{fig-systeme}.
+
 Au niveau fonctionnel, \textbf{un système modifie des flux dynamiques (c.a.d dépendant
 du temps) de matière, d'énergie et d'informations provenant de son environnement.}
 
-C'est essentiellement cette dernière qui nous sera la plus utile dans
-le cadre de ce cours. Un système sera alors considéré comme 
+C'est essentiellement cette dernière qui nous sera la plus utile.
+Un système sera alors considéré comme 
 une \og boîte\fg traitant une ou plusieurs entrées et élaborant une ou plusieurs
 sorties (c.f~\Cref{fig-systeme}). On distinguera les systèmes a une entrée et une 
 sortie, dit \textbf{monovariable}\footnote{ou \gls{siso} en anglais}
@@ -103,16 +105,16 @@ nous représenterons simplement de la façon suivante :
 \end{center}
 où $e(t)$ et $s(t)$ sont respectivement les signaux d'entrée et de sortie 
 dépendants du temps et $\Sigma$ est le système traitant l'entrée $e(t)$ et élaborant
-la sortie $s(t)$. 
+la sortie $s(t)$ délimité par un bloc. 
 Cette représentation, dite en \textbf{bloc} ou 
-\textbf{schema-bloc}, sera généralisée au~\Cref{chap-schemabloc}.
+\textbf{schema-bloc}, sera généralisée au~\cref{chap-schemabloc}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Système à temps continu}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textbf{Un système à temps continu met en oeuvre des signaux 
 à temps continus}. Comme nous le verrons, ces signaux seront
-modélisés par des fonctions continus d'une variable $t$ de temps.
+modélisés par des fonctions d'une variable continue $t$ de temps.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Système linéaire}
@@ -123,21 +125,23 @@ Un système est dit linéaire si il respecte les deux principes suivants:
 \begin{itemize}
     \item \emph{Principe de proportionnalité :}
         \textbf{Si $s(t)$ est la réponse à une entrée $e(t)$, alors pour une entrée $\alpha e(t)$
-        la réponse est $\alpha s(t)$}
+        la réponse est $\alpha s(t)$.}
         
-    Schématiquement, on exprime ce principe de la façon suivante pour 
+    On exprime, schématiquement, ce principe de la façon suivante pour 
     un système linéaire $\Sigma$:
     \begin{center}
     \begin{tikzpicture}
         \begin{scope}[local bounding box=scope1]
             \sbEntree{E1}
+            \node[] at ($(E1.west)+(-0.5,0)$) {Si};
             \sbBloc[3]{B1}{\Large$\Sigma$}{E1}
             \sbRelier[$e(t)$]{E1}{B1}
             \sbSortie[3]{S1}{B1}
             \sbRelier[$s(t)$]{B1}{S1}
         \end{scope}
-        \begin{scope}[shift={($(scope1.east)+(1,0)$)}]
+        \begin{scope}[shift={($(scope1.east)+(1.5,0)$)}]
             \sbEntree{E3}
+            \node[] at ($(E3.west)+(-0.5,0)$) {alors};
             \sbBloc[3]{B3}{\Large$\Sigma$}{E3}
             \sbRelier[$\alpha e(t)$]{E3}{B3}
             \sbSortie[3]{S3}{B3}
@@ -192,7 +196,10 @@ Un système est dit linéaire si il respecte les deux principes suivants:
             \sbRelier[$\alpha s_1(t)+\beta s_2(t)$]{B4}{S4}
     \end{tikzpicture}
     \end{center}
-    avec $\alpha\ \text{et}\ \beta\in\mathbb{R}$.	
+    avec $\alpha\ \text{et}\ \beta\in\mathbb{R}$, ou un nombre quelconques d'entrées.
+   % $$
+   % s(t)=\sum_{k}^n \alpha_ks_k(t)
+   % $$
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -204,7 +211,7 @@ Un système est dit linéaire si il respecte les deux principes suivants:
         \textbf{\og L'éffet ne précèdant pas sa cause\fg} alors 
         \textbf{\og La réponse du système ne précède pas son excitation\fg}.
         Formellememnt, un système est dit causal si 
-        $$\forall t\quad e(t)=0\Rightarrow s(t)=0$$  
+        $$e(t)=0\quad\forall t\le t_0 \Rightarrow s(t)=0\quad\forall t\le t_0 $$  
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -213,7 +220,7 @@ Un système est dit linéaire si il respecte les deux principes suivants:
 \textbf{Un système est dit invariant si la sortie ne dépend pas 
 explicitement du temps autrement que par l'intermédiaire de l'entrée.}
 
-Un système invariant $\Sigma$, à l'aide d'un schéma-bloc simple est représenté ci-dessous 
+On représente, schématiquement, un système invariant $\Sigma$, à l'aide d'un schéma-bloc ci-dessous 
 (avec $\tau$ une temps quelconque.): 
 \begin{center}
 \tikzsetnextfilename{sb_bloc_e3-chap0_ext}
@@ -229,35 +236,50 @@ Un système invariant $\Sigma$, à l'aide d'un schéma-bloc simple est représen
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Modélisation d'un système linéaire continu et invariant}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Un système possédant les différentes propriétés précédentes est
-dit linéaire continu et invariant ou \gls{slci}.
-L'entrée et la sortie d'un \gls{slci} sont reliés par une 
-équation différentielle à coefficients constants que l'on peut écrire dans le cas le
-plus générale par la relation suivante :
+Un système dit linéaire continu et invariant ou \gls{slci} 
+peut être modélisé par une équation différentielle à coefficients 
+constants possédant les propriétés précédentes qui s'écrit dans
+le cas générale :
 \begin{bequation}[ams align]
     \sum_{i=0}^{n}a_i\devi{s(t)}{i}=\sum_{i=0}^{m}b_i\devi{e(t)}{i}\label{eq-difflci}
 \end{bequation}
 avec $n,m\in\mathbb{N}$, $s(t)$ le signal de sortie, $e(t)$ le signal d'entrée et $a_i,b_i\in\mathbb{R}$ 
-sont des coefficients constants. 
+sont des coefficients constants. Le degré de dérivation de la sortie $n$ le plus grand est appelé \textbf{ordre}.
 
 Ces équations différentielles proviennent directement de la modélisation 
-de la physique d'un problème donnée (mécanique, électronique, optique \ldots).
+de la physique d'un problème donnée (qu'il soit mécanique, électronique, optique \ldots).
+Celle-ci 
+
 Par exemple, dans le cas d'un problème de mécanique, 
-la relation fondamentale de la dynamique est 
-une source importante d'équations différentielles (appelées équations du mouvement). 
-En électronique, ce sont les lois des noeuds et mailles qui 
+la relation fondamentale de la dynamique qui est 
+la source importante d'équations différentielles (appelées équations du mouvement), pourra selon 
+comporter différent selon le niveau de précision et/ou des hypothèses utilisées. 
+En électronique, ce sont par exemple les lois des noeuds et mailles qui 
 permettront d'écrire de telles équations. 
 
-\subsubsection{Mise en équation : système masse-ressort}
+Le degré de dérivation le plus grand de la sortie $n$ est appelé ordre. 
+On parlera alors de \textbf{l'ordre du système} $n$.
+Nous aurons la plupart du temps à faire des équations différentielles
+d'ordre $n\ne2$, avec un second membre ne dépendant que du signal d'entrée et non de ses dérivées.
+
+Prenons l'exemple d'un système d'ordre $n=2$, son équation différentielle 
+sera généralement de la forme :
+$$
+a_2\devi{s(t)}{2}+a_1\devi{s(t)}{}+a_0 s(t)=b_0e(t)
+$$
+
+\subsubsection{Exemples de mise en équation}
+
+\paragraph{Système masse-ressort}
 
 On considère un système mécanique constitué d'une masse $m$ en translation couplée avec un ressort de constante
-de raideur $k_r$ et un amortisseur de coefficient de frottement visqueux $b$ (c.a.d proportionnelle à la vitesse). 
+de raideur $k$ et un amortisseur de coefficient de frottement visqueux $b$ (c.a.d proportionnelle à la vitesse). 
 La masse est soumise à une force $\vect{F}=F(t)\xx{}$.
 
 En appliquant le principe fondamentale de la dynamique en projection sur la direction $x$,                                    
 on obtient l'équation du mouvement suivante :                                                                                 
 $$                                                                                                                            
-m\devi{x(t)}{2}+b\devi{x(t)}{}+k_rx(t)=F(t)                                                                                   
+m\devi{x(t)}{2}+b\devi{x(t)}{}+kx(t)=F(t)
 $$ 
 
 \begin{figure}[!h]
@@ -269,6 +291,16 @@ $$
 
 On identifie la forme de l'\cref{eq-difflci} avec $s(t)=x(t)$, $e(t)=F(t)$, 
 $n=$2, $m=0$, $a_2=m$, $a_1=b$, $a_0=k_r$ et $b_0=$1.
+
+\paragraph{Décharge d'un condensateur}
+
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{decharge_condensateur-chap0-ext}
+    \input{tikz/decharge_condensateur-chap0.tex}
+    \caption{Circuit RC ouvert.\label{fig-decharge_condensateur}}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
