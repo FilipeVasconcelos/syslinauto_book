@@ -21,7 +21,7 @@
     \pgfmathsetmacro{\ab}{1.5}
     \pgfmathsetmacro{\cb}{1.0}
     \pgfmathsetmacro{\gh}{2*\ab+\cb}
-    \pgfmathsetmacro{\fg}{1.25}
+    \pgfmathsetmacro{\fg}{1}
     \pgfmathsetmacro{\tmpu}{0.5*\eC}
     \pgfmathsetmacro{\tmpd}{-0.5*\lR}
     \pgfmathsetmacro{\dj}{\fg+\tmpu+\tmpd}
@@ -45,18 +45,20 @@
     \coordinate (R2) at ($(R1)+(\eR,\lR)$);
 
 
-
+    %\node[circle,fill=white,draw=black,ultra thick] at (B) {};
     \draw[thick] (A)  -- (B);
     \draw[thick] (C)  -- (D);
     \draw[thick] (A)  -- (E);
-    \draw[very thick,blue] (C1) -- (C2) node[blue] {$C$};
+    \draw[very thick,blue] (C1) -- (C2) node[blue,xshift=1em,yshift=-0.5em] {$C$};
     \draw[very thick,blue] (C3) -- (C4);
     \draw[thick] (F)  -- (G);
     \draw[thick] (G)  -- (H);
     \draw[thick] (I)  -- (H);
     \draw[thick] (J)  -- (D);
     \draw[thick] (K)  -- (C);
-    \draw[very thick,red] (R1) rectangle (R2) node[red] {$R$};
+    \draw[very thick,red] (R1) rectangle (R2) node[yshift=-1.5em,xshift=0.75em] {$R$};% node[red] {$R$};
+    \draw[draw=black,fill=white] (B) circle (2pt);
+    \draw[draw=black,fill=white] (C) circle (2pt);
 
 
     

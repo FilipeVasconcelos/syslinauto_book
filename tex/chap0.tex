@@ -268,15 +268,51 @@ $$
 a_2\devi{s(t)}{2}+a_1\devi{s(t)}{}+a_0 s(t)=b_0e(t)
 $$
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Exemples de mise en équation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Décharge d'un condensateur}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Considérons un condensateur de capacité électrique $C$ 
+initialement chargé en circuit ouvert.
+À la fermeture de l'interrupteur, en $t=0$, 
+un courant $i(t)$ parcourt le circuit.
+On observe alors la décharge du condensateur à travers une resistance $R$. 
+
+On souhaite suivre la quantité de charge aux bornes du condensateur au 
+cours du temps.
+\begin{figure}[!h]      
+    \centering
+    \tikzsetnextfilename{decharge_condensateur-chap0-ext}
+    \input{tikz/decharge_condensateur-chap0.tex}
+    \caption{Circuit RC ouvert.\label{fig-decharge_condensateur}}
+\end{figure}
+
+La somme des tensions aux bornes du condensateur et de la résistance étant nulle, on a :
+\begin{align*}
+    R\devi{q(t)}{}+\dfrac{1}{C}q(t)=0 
+\end{align*}
+Comme précédemment, on identifie formellemet cette équation différentielle 
+à la forme générale de l'\cref{eq-difflci} avec $s(t)=q(t)$, $e(t)=0$, 
+$n=$1, $m=0$, $a_1=R$, $a_0=\dfrac{1}{C}$.
+
+Nous laissons au lecteur la résolution de cette équation différentielle par une approche direct classique.
+Nous la rencontrerons à nouveau au~\cref{chap-model}, après avoir 
+présenté la méthode générale pour la résolution de ce type d'équation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Système masse-ressort}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 On considère un système mécanique constitué d'une masse $m$ en translation couplée avec un ressort de constante
-de raideur $k$ et un amortisseur de coefficient de frottement visqueux $b$ (c.a.d proportionnelle à la vitesse). 
+de raideur $k$ et un amortisseur de coefficient de frottement visqueux $b$ (c.a.d que la force est 
+proportionnelle à la vitesse). 
 La masse est soumise à une force $\vect{F}=F(t)\xx{}$.
 
-En appliquant le principe fondamentale de la dynamique en projection sur la direction $x$,                                    
+En appliquant le principe fondamentale de la dynamique en projection sur la direction $x$,
 on obtient l'équation du mouvement suivante :                                                                                 
 $$                                                                                                                            
 m\devi{x(t)}{2}+b\devi{x(t)}{}+kx(t)=F(t)
@@ -289,49 +325,45 @@ $$
     \caption{(gauche) Système masse-ressort. (droite) Schéma-bloc de ce même système.\label{fig-masse-ressort}}
 \end{figure}
 
-On identifie la forme de l'\cref{eq-difflci} avec $s(t)=x(t)$, $e(t)=F(t)$, 
+La résolution de cette équation du mouvement permet de connaitre la position de la masse
+à chaque instant connaissant la force exterieur appliquée $F(t)$. Le système masse-ressort
+peut être assimilé à un~\gls{slci} dont l'entrée $e(t)$ est la force $F(t)$ et 
+la sortie $s(t)$ est la position $x(t)$ de la masse (c.f le schéma-bloc de la \cref{fig-masse-ressort})
+
+Formellement, on identifie cette équation différentielle à la forme générale 
+de l'\cref{eq-difflci} pour $s(t)=x(t)$, $e(t)=F(t)$, 
 $n=$2, $m=0$, $a_2=m$, $a_1=b$, $a_0=k_r$ et $b_0=$1.
 
-\paragraph{Décharge d'un condensateur}
 
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{decharge_condensateur-chap0-ext}
-    \input{tikz/decharge_condensateur-chap0.tex}
-    \caption{Circuit RC ouvert.\label{fig-decharge_condensateur}}
-\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Modélisation d'un signal}
+\section{Modélisation d'un signal continus}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Un signal est une variation d'une grandeur qui porte l'information de la 
-sollicitation et de la réponse d'un système. Les signaux 
-sont modélisés mathématiquement par des fonctions. 
+sollicitation et de la réponse d'un système. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Types de signaux}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Il existe différents types de signaux: 
+Les signaux continus sont modélisés mathématiquement par des fonctions continues 
+du temps. Formellement, par une fonction $s$ telle que :
+\begin{align*}
+s : \mathbb{R}&\rightarrow\mathbb{R} \\  
+t&\rightarrow s(t) 
+\end{align*}    
+
+Il existe cependant d'autres type de signaux qui sont très souvent confondus à tord:
 \begin{itemize}
-    \item en temps continu (ou analogique).
-    Ce signal sera modélisé par une fonction continue du temps. Formellement, par une fonction $s$ telle que :
-        \begin{align*}
-        s : \mathbb{R}&\rightarrow\mathbb{R} \\  
-        t&\rightarrow s(t) 
-        \end{align*}    
-    \item en temps discret/échantillonné (ou numérique).
-        \begin{align*}
-        s : \mathbb{Z}&\rightarrow\mathbb{R} \\  
-        k&\rightarrow s[k]
-        \end{align*}    
+    \item un signal \emph{quantifié} est un signal continu 
+          dont la valeur ne peut prendre que des valeurs discrètes. 
+    \item un signal \emph{discret} est un signal à temps discret.
+    \item un signal \emph{numérique} est un signal discret et quantifié.   
 \end{itemize}
 
 \textbf{Dans le reste de ce document, nous ne traiterons que
-du cas de signaux en temps continu.} Les signaux en temps discret
-seront traités lors d'un cours avancé d'automatique du cycle ingénieur.
+du cas de signaux en temps continu}. Les signaux en temps discret
+sont généralement abordées lors d'un cours 
+avancé d'automatique du cycle ingénieur.
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
