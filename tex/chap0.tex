@@ -339,11 +339,11 @@ $n=$2, $m=0$, $a_2=m$, $a_1=b$, $a_0=k_r$ et $b_0=$1.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Modélisation d'un signal continus}
+\section{Modélisation d'un signal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Un signal est une variation d'une grandeur qui porte l'information de la 
-sollicitation et de la réponse d'un système. 
+\textbf{Un signal est une variation d'une grandeur qui porte l'information de la 
+sollicitation et de la réponse d'un système.}
 
 Les signaux continus sont modélisés mathématiquement par des fonctions continues 
 du temps. Formellement, par une fonction $s$ telle que :
@@ -442,6 +442,7 @@ Ici, nous distingons les signaux généralement utilisés en
 entrée des signaux généralement rencontrées en sortie des \gls{slci}.
 
 \subsubsection{\ldots en entrée}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Impulsion de Dirac}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -457,6 +458,9 @@ physicien britannique} $\delta(t)$ est une \og fonction\fg
 \end{dcases}
 \end{align*}
 
+C'est fonction est donc nulle partout sauf en $t=0$ où elle prend 
+une valeur infinie. C'est pourquoi l'intégrale sur tous les nombres réels d'une impulsion 
+de Dirac est normalisée à 1.
 Graphiquement une impulsion de Dirac $\delta(t)$ est 
 représentée par une flèche en $t=0$. La figure ci-dessous présente 
 une impulsion de Dirac ainsi qu'une 
@@ -474,6 +478,12 @@ L'impulsion de Dirac est expérimentalement approchée par un signal
 bref et de grande amplitude. Il est possible de montrer que la fonction
 suivante $\delta_a(t)$ est une impulsion de Dirac lorsque $a\to0$.
 
+Nous la rencontrerons quelque fois sous sa forme généralisée, 
+$$
+e(t)=E_0\delta(t)
+$$
+où $e(t)$ est le signal d'entrée du système et $E_0$ la valeur de l'amplitude de l'impulsion de Dirac
+dont l'unité dépend de la nature du problème considéré.
 \begin{figure}[!h]
 \begin{center}
 \tikzsetnextfilename{dirac_reel-chap0_ext}
@@ -485,15 +495,9 @@ suivante $\delta_a(t)$ est une impulsion de Dirac lorsque $a\to0$.
 
 La réponse d'un système à une impulsion de Dirac est appelée \textbf{réponse impulsionnelle}.
 
-Dans la pratique, l'impulsion de Dirac est utilisée pour caractériser le 
-système. En effet la réponse impulsionnelle est caractéristique d'un
-système linéaire. 
-Nous la rencontrerons quelque fois sous sa forme généralisée, 
-$$
-e(t)=E_0\delta(t)
-$$
-où $e(t)$ est le signal d'entrée du système et $E_0$ la valeur de l'amplitude de l'impulsion de Dirac
-dont l'unité dépend de la nature du problème considéré.
+Dans la pratique, une telle sollicitation breve et de grande amplitude
+permet de parfaitement caractériser le système. La réponse impulsionnelle, qui en résulte, contient
+toute l'information du système linéaire qui l'a élaboré.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{\'Echelon-unité}
@@ -508,7 +512,7 @@ u(t)=
 \end{cases}
 $$
 
-Graphiquement, la fonction est représentée par une marche\footnote{Nos 
+Cette fonction présente une marche\footnote{Nos 
 collègues anglo-saxons l'appelle la \og\emph{step function}\fg} à $t=0$. 
 Ci dessous nous la représentons avec la fonction retardée $u(t-\tau)$.
 \begin{figure}[!h]
@@ -529,9 +533,8 @@ $$
 où $e(t)$ est le signal d'entrée du système et $E_0$ la valeur seuil de l'échelon dont 
 l'unité dépend de la nature du problème considéré.
 
-Puisque tous les signaux que nous rencontrerons sont des signaux causaux. Tout signaux $s(t)$
-est modélisé par le produit d'une fonction $f(t)$ et de la fonction échelon-unité $u(t)$. Autrement dit,
-pour rendre une fonction causale, il suffit de la multiplier par la fonction échelon-unité.
+D'après les propriétés du signal échelon-unité et de la causalité, il est possible 
+de rendre causale une fonction quelconque en la multipliant par un échélon-unité.
 
 La réponse d'un système à un échelon est appelée \textbf{réponse indicielle}.
 
@@ -570,7 +573,7 @@ Remarquons que la fonction rampe est l'intégrale de l'échelon-unité, notammen
 $$
 r(t)=\int\limits_{-\infty}^{t} u(\tau)\,\,\dd{\tau}
 $$
-La réponse d'un système à une rampe ne possède pas de nom communément 
+La réponse d'un système à une rampe ne possède pas de nom spécifique, 
 utilisé pour la distinguer des autres réponses. On parlera donc simplement 
 de \textbf{réponse à une rampe}. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -581,8 +584,8 @@ $$
 s(t)=A\sin{(\omega t +\phi)}\cdot u(t)
 $$
 avec $A$ son amplitude, $\omega$ sa pulsation (en rad/s) et $\phi$ sa phase (rad).
-La pulsation permet de définir la fréquence $f=\dfrac{\omega}{2\pi}$ en \si{\hertz},  
-elle même liée à la période $T=\dfrac{1}{f}$ en \si{\second}.
+%La pulsation permet de définir la fréquence $f=\dfrac{\omega}{2\pi}$ en \si{\hertz},  
+%elle même liée à la période $T=\dfrac{1}{f}$ en \si{\second}.
 \begin{figure}[!h]
 \begin{center}
 \tikzsetnextfilename{sinusoide-chap0-ext}
@@ -609,11 +612,14 @@ $\Delta\phi=\pm\pi$         & \og en opposition de phase\fg & \tikzsetnextfilena
 \hhline{====}
 \end{tabular}
 \caption{Différents types de déphasage d'un (rouge) signal sinusoidal $s_2(t)$ par rapport à (bleu) 
-         un signal de référence $s_1(t)$ de phase nulle.\label{fig-sin_deph}}
+         un signal de référence $s_1(t)$ de phase nulle.\label{tab-sin_deph}}
 \end{table}
 
 La réponse d'un système à une sinuso\"ide est appelée la \textbf{réponse harmonique}
 et son analyse fera l'objet de tout un chapitre (\Cref{chap-anafreq}).
+
+Le~\cref{tab-sin_deph} rappel la terminologie associé au déphasage entre 
+deux signaux sinuso\"idaux. 
 
 \clearpage
 \subsubsection{\ldots en sortie}
@@ -663,17 +669,16 @@ La transformée de Laplace\footnote{\index{Laplace, Pierre-Simon}Pierre-Simon de
 mathématicien, astronome, physicien et homme politique français} est l'outil indispensable 
 pour l'étude des \gls{slci}. Celle-çi nous sera très utile pour 
 la résolution des équations différentielles 
-régissant nos \gls{slci}~et nous permettra 
-de définir la notion de fonction de transfert entre une entrée 
-et une sortie d'un système linéaire.
+et nous permettra également de définir la notion de 
+fonction de transfert reliant l'entrée et la sortie d'un système linéaire.
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Définition}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La Transformée de Laplace ($\mathscr{L}$) d'une fonction causale $s$ (s pour signal) 
-d'une variable réelle $t$ (temps), est la fonction $S$ 
+La~\gls{tl}, notée $\mathscr{L}$, d'une fonction causale $s$ (pour signal) 
+d'une variable réelle $t$ (pour temps), est la fonction $S$ 
 de la variable complexe $p$, définie par :
 \begin{bequation}[ams align]
 S(p)=\laplace{s(t)}=\int_{0}^{+\infty} e^{-pt}s(t)\dd{t}.\label{eq-lap}
@@ -698,8 +703,7 @@ $$
 L'intégration de celle-ci est difficile à mettre en oeuvre\footnote{
 Il existe différentes méthodes numériques de transformée de Laplace inverse (\cref{annexe-invL}).
 Ces méthodes, hors programme, peuvent cependant faire l'objet d'un projet numérique
-intéressant.}
-, on préferera utilisé
+intéressant.}, on préferera utilisé
 les tables de transformations de Laplace pour réaliser la correspondance inverse (\cref{annexe-lap}).
 Lorsque la transformation
 n'existe pas dans les tables, il est possible de réaliser une décompostion en éléments 
@@ -747,15 +751,21 @@ on reconnait dans cette dernière expression la définition de la transformée d
 \paragraph{Retard en $p$ (Thèorème de l'amortissement)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit $s(t)$ un signal de transformée de Laplace $S(p)$. La transformée 
-de Laplace du signal modifié $e^{-at}s(t)$ est alors :
+de Laplace du signal modifié $e^{-at}s(t)$ s'écrit :
 $$
 \laplace{e^{-at}s(t)}=\int_{0}^{+\infty} e^{-pt}e^{-at}s(t)\dd{t}=\int_{0}^{+\infty} e^{-(p+a)t}s(t)\dd{t}
 $$
 on reconnait dans cette dernière expression la définition de la transformée de Laplace pour $p+a$,
- on écrit alors :
+ on obtient donc la transformée,
 \begin{bequation}[ams align]
     \laplace{e^{-at}s(t)}=S(p+a)
 \end{bequation}
+ou encore,
+\begin{bequation}[ams align]
+    \laplacei{S(p+a)}=e^{-at}s(t).
+\end{bequation}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dérivation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -808,7 +818,6 @@ ou encore
 Remarquons alors que \textbf{intégrer dans le domaine temporel consiste à diviser par $p$ 
 dans le domaine de Laplace.}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Théorème de la valeur initiale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -824,21 +833,20 @@ dans le domaine de Laplace.}
 \begin{bequation}[ams align]
     s(\infty)=\lim\limits_{p\rightarrow0} p S(p)
 \end{bequation}
-valable que si $pS(p)$ a tous ses pôles à partie réelle 
-strictement négative, autrement dit que le signal soit stable.
+valable que si $s(\infty)$ est définie
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Transformées des signaux usuels}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous présentons les transformées de Laplace des signaux usuels introduits
-au paragraphe\cref{sec-signaux_usuels}
+au paragraphe~\cref{sec-signaux_usuels}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Transformée d'une impulsion de Dirac}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Par simple application des définitions 
-de la TL et de l'impulsion de Dirac, la transformée d'une 
+de la~\gls{tl} et de l'impulsion de Dirac, la transformée d'une 
 impulsion de Dirac $\delta(t)$ s'écrit:
 $$
 \laplace{\delta(t)}=\int_{0}^{+\infty} e^{-pt}\,\delta(t)\dd{t}=1
@@ -878,8 +886,14 @@ $$
 $$
 ou encore
 \begin{bequation}[ams align]
-    \laplace{r(t)}=\laplace{t\cdot u(t)}=\dfrac{1}{p^2}
+    \laplace{r(t)}=\laplace{t\cdot u(t)}=\dfrac{1}{p^2}.
 \end{bequation}
+
+On généralise aux ordres supérieures (parabolique,cubique\ldots) :
+\begin{bequation}[ams align]
+    \laplace{\dfrac{1}{n!}t^n\cdot u(t)}=\dfrac{1}{p^{n+1}}.
+\end{bequation}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Transformée d'une exponentielle décroissante}
@@ -894,9 +908,9 @@ ou encore
 \end{bequation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Transformée d'une sinuso\"ide}
+\paragraph{Transformée d'une sinus}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La transformée de Laplace d'un signal sinuso\"idal s'écrit :
+La transformée de Laplace d'un sinus s'écrit :
 \begin{align*}
 \laplace{\sin{\omega t}\cdot u(t)}&=\int_{0}^{+\infty}e^{-pt}\dfrac{e^{\jw t}-e^{-\jw t}}{2j}\dd{t}\\
 &=\dfrac{1}{2j}\int_{0}^{+\infty}e^{-(p-\jw)t}\dd{t} - \dfrac{1}{2j}\int_{0}^{+\infty}e^{-(p+\jw)t}\dd{t} \\
@@ -908,22 +922,29 @@ ou encore
     \laplace{\sin{\omega t}\cdot u(t)}=\dfrac{\omega}{p^2+\omega^2}
 \end{bequation}
 
+%Exercice
+%La même approche appliquée pour la fonction cosinus, nous donne :
+%\begin{bequation}[ams align]
+%    \laplace{\cos{\omega t}\cdot u(t)}=\dfrac{p}{p^2+\omega^2}
+%\end{bequation}
+
+%Exercice
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Transformée d'une sinuso\"ide amortie}
+%\paragraph{Transformée d'une sinuso\"ide amortie}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La transformée de Laplace d'un signal sinuso\"idal amortie s'écrit :
-\begin{align*}
-\laplace{e^{-at}\sin{\omega t}\cdot u(t)}&=\int_{0}^{+\infty}e^{-pt}e^{-at}\dfrac{e^{\jw t}-e^{-\jw t}}{2j}\dd{t}\\
-&=\dfrac{1}{2j}\int_{0}^{+\infty}e^{-((p+a)-\jw)t}\dd{t} - \dfrac{1}{2j}\int_{0}^{+\infty}e^{-((p+a)+\jw)t}\dd{t} \\
-&=\dfrac{1}{2j}\left( \dfrac{1}{(p+a)-\jw}-\dfrac{1}{(p+a)+\jw}\right)\\
-&=\dfrac{\omega}{(p+a)^2+\omega^2}
-\end{align*}
-ou encore
-\begin{bequation}[ams align]
-    \laplace{e^{-at}\sin{\omega t}\cdot u(t)}=\dfrac{\omega}{(p+a)^2+\omega^2}
-\end{bequation}
-Remarquons que pour cette transformée, nous aurions pu faire usage
-de la propriété du théorème de l'amortissement (c.f propriétés du paragraphe précédent).
+%La transformée de Laplace d'un signal sinuso\"idal amortie s'écrit :
+%\begin{align*}
+%\laplace{e^{-at}\sin{\omega t}\cdot u(t)}&=\int_{0}^{+\infty}e^{-pt}e^{-at}\dfrac{e^{\jw t}-e^{-\jw t}}{2j}\dd{t}\\
+%&=\dfrac{1}{2j}\int_{0}^{+\infty}e^{-((p+a)-\jw)t}\dd{t} - \dfrac{1}{2j}\int_{0}^{+\infty}e^{-((p+a)+\jw)t}\dd{t} \\
+%&=\dfrac{1}{2j}\left( \dfrac{1}{(p+a)-\jw}-\dfrac{1}{(p+a)+\jw}\right)\\
+%&=\dfrac{\omega}{(p+a)^2+\omega^2}
+%\end{align*}
+%ou encore
+%\begin{bequation}[ams align]
+%    \laplace{e^{-at}\sin{\omega t}\cdot u(t)}=\dfrac{\omega}{(p+a)^2+\omega^2}
+%\end{bequation}
+%Remarquons que pour cette transformée, nous aurions pu faire usage
+%de la propriété du théorème de l'amortissement (c.f propriétés du paragraphe précédent).
 
 
 
@@ -936,11 +957,10 @@ de la propriété du théorème de l'amortissement (c.f propriétés du paragrap
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Lorsqu'une équation différentielle à coéfficients constants a put être établie
 pour définir la relation entre l'entrée et la sortie d'un \gls{slci}, il nous faut
-en trouver une solution pour un jeu de de conditions initiales données.
+en trouver une solution.
 Les méthodes classiques de résolution d'équations différentielles 
-peuvent très bien être appliquées. Cependant, celles-ci peuvent être difficiles 
-à mettre en oeuvre dans le cas d'équation différentielle d'ordre élevé 
-ou encore pour des systèmes composés de sous-systèmes.
+peuvent être difficiles et fastidueuses à mettre en oeuvre, notamment dans le cas d'équation 
+différentielle d'ordre élevé ou encore pour des systèmes composés de sous-systèmes.
 
 La transformée de Laplace permet de mettre en oeuvre une méthode plus simple et 
 systèmatique  pour la la résolution de ces équations différentielles à coefficients constants.
@@ -978,7 +998,7 @@ La résolution algébrique de cette équation est simplement donnée par :
     S(p)=\dfrac{\sum\limits_{i=0}^{m}b_ip^i}{\sum\limits_{i=0}^{n}a_ip^i}E(p)\label{eq-lfreq}
 \end{bequation}
 La solution dans le domaine temporelle $s(t)$ de l'équation différentielle est alors 
-simplement obtenue par transformée de Laplace inverse $\laplacei{S(p)}$.
+simplement obtenue par transformée de Laplace inverse de $S(p)$.
 
 Cette méthode, résumée par l'organigramme de la~\cref{fig-laplace_schema}, est appliqué à un exemple 
 complet au paragraphe suivant.
@@ -999,11 +1019,15 @@ Nous considérons la réponse à un échelon-unité ( i.e $e(t)=u(t)$ )
 
 Nous allons résoudre cette équation par deux méthodes différentes: la méthode classique 
 de résolution d'équations différentielles avec second membre, 
-et par l'application de la transformée de Laplace\footnote{Dans le cas particulier
-de cette équation différentielle, on observera que la méthode classique est plus 
-facile à mettre en oeuvre. Ceci n'est pas toujours le cas. 
-Comme nous le verrons la transformée de Laplace devient totalement indispensable pour la 
-définition de la fonction de transfert d'un \gls{slci}.}.
+et par l'application de la transformée de Laplace.
+
+%\footnote{Dans le cas particulier
+%de cette équation différentielle, il apparaitra que la résolution \og classique\fg soit plus
+%facile à appliquer. La TL est cependant plus systèmatique et ne nécessite 
+%que la connaissance d'algèbre on observera que la méthode classique est plus 
+%facile à mettre en oeuvre. Ceci n'est pas toujours le cas. 
+%Comme nous le verrons la transformée de Laplace devient totalement indispensable pour la 
+%définition de la fonction de transfert d'un \gls{slci}.}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Résolution par la méthode \og classique\fg}
@@ -1046,8 +1070,8 @@ La solution générale de l'équation différentielle~(\ref{eq-diff1}) est donc
 \begin{bequation}[ams align]
 s(t)=1-2e^{-t}
 \end{bequation}
-On vérifiera que cette solution vérifie l'équation différentielle (\ref{eq-diff1}) ainsi que les conditions initiales, notamment à partir 
-de a représentation graphique (\Cref{fig-solution}).
+On laisse au lecteur le soin de vérifier que cette fonction est solution de l'équation~\ref{eq-diff1},
+et respecte les conditions initiales, notamment à partir de sa représentation graphique (\Cref{fig-solution}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Résolution par application de la transformée de Laplace}
@@ -1136,7 +1160,14 @@ sortie $S(p)$ et l'entrée $E(p)$ dans le domaine de Laplace.
 \begin{bequation}[ams align]
 H(p)=\dfrac{S(p)}{E(p)}
 \end{bequation}
-Cette fonction $H(p)$ est également appelé \textbf{transmittance}.
+ou encore,
+\begin{bequation}[ams align]
+S(p)=H(p)E(p)
+\end{bequation}
+
+Cette fonction $H(p)$, également appelé \textbf{transmittance}, caractérise le système de façon univoque.
+Pour une entrée donnée il est possible de prévoir la sortie d'un système caractérisé par 
+sa fonction de transfert $H(p)$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection[Représentation de la fonction de transfert]{Représentations algébrique et graphique de la fonction de transfert}
@@ -1248,6 +1279,9 @@ H(p)=k\cdot\dfrac{\prod\limits_{j=0}^{m}(p-z_j)}{\prod\limits_{i=0}^{n}(p-p_i)},
 avec $k=\dfrac{b_m}{a_n}$. On remarquera que cette constante $k$ 
 n'est pas le gain statique de la forme canonique.
 
+Cette forme factorisée est très utile pour la représentation graphique
+de la réponse harmonique (c.f~\cref{chap-anafreq}).
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \paragraph{Exemple de fonction de transfert factorisée}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
@@ -1305,7 +1339,9 @@ La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert
 \caption{Exemple d'une carte de pôles et zéros associés 
     à la fonction de transfert~\Cref{eq-ft_carte}\label{fig-carte} }
 \end{figure}
-\clearpage
+
+\subsection{Fonction de transfert et réponse impulsionnelle}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
