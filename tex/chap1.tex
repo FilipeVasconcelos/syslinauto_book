@@ -22,20 +22,21 @@ applications (ex : éléctronique, réseaux de neurones).
 \section{Terminologie relative aux schémas fonctionnels}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Les schémas fonctionnels sont composés de quatre éléments de base:
-\begin{itemize}
-    \item les flèches.
-    \item les blocs.
-    \item les comparateurs et sommateurs.
-    \item les points de prélèvement.
-\end{itemize}
+\textbf{les flèches, les blocs, les comparateurs et sommateurs et les points de prélèvement}
+%\begin{itemize}
+%    \item les flèches.
+%    \item les blocs.
+%    \item les comparateurs et sommateurs.
+%    \item les points de prélèvement.
+%\end{itemize}
 
-\newpage
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Flèche}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Les flèches donnent la direction de l'information (i.e du signal) au sein du schéma-blocs. 
 Elles peuvent être ornées de la grandeur mathématique qui leurs sont associée. 
-Celles-ci peuvent être des grandeurs temporelles ou fréquentielles. 
+Celles-ci peuvent être des grandeurs temporelles ou \og fréquentielles\fg (i.e dans le domaine de Laplace). 
 \begin{center}
 \tikzsetnextfilename{sb_fleche-chap1_ext}
 \begin{tikzpicture}
@@ -43,7 +44,7 @@ Celles-ci peuvent être des grandeurs temporelles ou fréquentielles.
     \draw[-latex] (0,0) -- (2,0) node[midway,above] {$E(p)$};
 \end{tikzpicture}    
 \end{center}
-Pour allégér la notation, nous allons omettre la variable $p$ des grandeurs 
+Pour alléger la notation, nous allons omettre la variable $p$ des grandeurs 
 dans le domaine de Laplace désignée par une majuscule.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -233,7 +234,7 @@ La démonstration est également triviale.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 La boucle de contre-réaction\footnote{\og Positive or negative feedback\fg, chez nos 
-amis anglophones.} peut 
+collègues anglophones.} peut 
 être réduite à une simple fonction de transfert.
 Considérons un système définit par le schéma-bloc ci-dessous, composé 
 des différents élements de bases.
@@ -254,7 +255,7 @@ des différents élements de bases.
         \sbRelierxy[$M$]{B2}{comp}
 \end{tikzpicture}
 \end{center}
-Notons l'utilisation du symbole $\pm$ dans le pour envisager à la fois les 
+Notons l'utilisation du symbole $\pm$ pour envisager à la fois les 
 comparateurs et sommateurs.
 
 Déterminons la relation entre l'entrée $E$ et la sortie $S$ de ce système.
@@ -385,30 +386,34 @@ Par exemple, les deux schémas-blocs suivants sont équivalents:
 \begin{center}
     \tikzsetnextfilename{dep_comp3-chap1_ext}
     \begin{tikzpicture}
-        \sbEntree{E1}
-        \sbBloc[4.0]{K}{$K$}{E1}
-        \sbRelier[$E$]{E1}{K}
-        \sbComp[6]{comp}{K}
-        \sbRelier[$X_1$]{K}{comp}
-        \sbBloc[3.0]{G}{$G$}{comp}
-        \sbRelier[$\epsilon$]{comp}{G}
-        \sbSortie[2.5]{S}{G}
-        \sbRelier[$S$]{G}{S}
-        \sbDecaleNoeudy[4]{G}{r1}
-        \sbBlocr[-1.5]{B2}{$K$}{r1}
-        \sbRelierxy[$X_2$]{B2}{comp}
-        \node at (comp|-0,-3) {\rotatebox{90}{\LARGE$\equiv$}};
-    \end{tikzpicture}
-    \tikzsetnextfilename{dep_comp4-chap1_ext}
-    \begin{tikzpicture}
-        \sbEntree[8.0]{E1}
-        \sbComp[4.0]{comp}{E1}
-        \sbRelier[$E$]{E1}{comp}
-        \sbBloc[3.0]{G}{$KG$}{comp}
-        \sbRelier[$\epsilon$]{comp}{G}
-        \sbSortie[2.5]{S}{G}
-        \sbRelier[$S$]{G}{S}
-        \draw[-latex] (comp|-0,-1.5) -- (comp.south) node[midway,left] {$X_2$};
+        \begin{scope}[local bounding box=scope1]
+            \sbEntree{E1}
+            \sbBloc[4.0]{K}{$K$}{E1}
+            \sbRelier[$E$]{E1}{K}
+            \sbComp[6]{comp}{K}
+            \sbRelier[$X_1$]{K}{comp}
+            \sbBloc[3.0]{G}{$G$}{comp}
+            \sbRelier[$\epsilon$]{comp}{G}
+            \sbSortie[2.5]{S}{G}
+            \sbRelier[$S$]{G}{S}
+            \sbDecaleNoeudy[4]{G}{r1}
+            \sbBlocr[-1.5]{B2}{$K$}{r1}
+            \sbRelierxy[$X_2$]{B2}{comp}
+            \node at ( $(S)+(1,-0.75)$) {\LARGE$\equiv$};
+        \end{scope}
+%    \end{tikzpicture}
+%    \tikzsetnextfilename{dep_comp4-chap1_ext}
+%    \begin{tikzpicture}
+        \begin{scope}[shift={($(scope1.east)+(-3,0.8)$)}]
+            \sbEntree[8.0]{E1}
+            \sbComp[4.0]{comp}{E1}
+            \sbRelier[$E$]{E1}{comp}
+            \sbBloc[3.0]{G}{$KG$}{comp}
+            \sbRelier[$\epsilon$]{comp}{G}
+            \sbSortie[2.5]{S}{G}
+            \sbRelier[$S$]{G}{S}
+            \draw[-latex] (comp|-0,-1.5) -- (comp.south) node[midway,left] {$X_2$};
+        \end{scope}
     \end{tikzpicture}
 \end{center}
 
@@ -461,34 +466,38 @@ déplacer le point de prélèvement. Ansi les deux schémas-blocs ci-dessous son
 \begin{center}
     \tikzsetnextfilename{dep_jonc3-chap1_ext}
     \begin{tikzpicture}
-        \sbEntree[1.0]{E1}
-        \sbBloc[4.0]{K}{$K$}{E1}
-        \sbRelier[$E$]{E1}{K}
-        \sbBloc[3.0]{G}{$H_1$}{K}
-        \sbRelier{K}{G}
-        \sbDecaleNoeudy[4]{G}{r1}
-        \sbBloc[-1.5]{G2}{$H_2$}{r1}
-        \sbRelieryx{E1-K}{G2.west}
-        \sbSortie[3.0]{S1}{G}
-        \sbRelier[$S_1$]{G}{S1}
-        \sbSortie[3.0]{S2}{G2}
-        \sbRelier[$S_2$]{G2}{S2}
-        \node at (K-G|-0,-3) {\rotatebox{90}{\LARGE$\equiv$}};
-    \end{tikzpicture}
-    \tikzsetnextfilename{dep_jonc4-chap1_ext}
-    \begin{tikzpicture}
-        \sbEntree[1.0]{E1}
-        \sbBloc[4.0]{K}{$K$}{E1}
-        \sbRelier[$E$]{E1}{K}
-        \sbBloc[3.0]{G}{$H_1$}{K}
-        \sbRelier{K}{G}
-        \sbDecaleNoeudy[4]{G}{r1}
-        \sbBloc[-1.5]{G2}{$\dfrac{H_2}{K}$}{r1}
-        \sbRelieryx{K-G}{G2.west}
-        \sbSortie[3.0]{S1}{G}
-        \sbRelier[$S_1$]{G}{S1}
-        \sbSortie[3.0]{S2}{G2}
-        \sbRelier[$S_2$]{G2}{S2}
+        \begin{scope}[local bounding box=scope1]
+            \sbEntree[1.0]{E1}
+            \sbBloc[4.0]{K}{$K$}{E1}
+            \sbRelier[$E$]{E1}{K}
+            \sbBloc[3.0]{G}{$H_1$}{K}
+            \sbRelier{K}{G}
+            \sbDecaleNoeudy[4]{G}{r1}
+            \sbBloc[-1.5]{G2}{$H_2$}{r1}
+            \sbRelieryx{E1-K}{G2.west}
+            \sbSortie[3.0]{S1}{G}
+            \sbRelier[$S_1$]{G}{S1}
+            \sbSortie[3.0]{S2}{G2}
+            \sbRelier[$S_2$]{G2}{S2}
+            \node at ( $(S1)+(1,-0.75)$) {\LARGE$\equiv$};
+        \end{scope}
+%    \end{tikzpicture}
+%    \tikzsetnextfilename{dep_jonc4-chap1_ext}
+%    \begin{tikzpicture}
+        \begin{scope}[shift={($(scope1.east)+(-0.25,0.8)$)}]
+            \sbEntree[1.0]{E1}
+            \sbBloc[4.0]{K}{$K$}{E1}
+            \sbRelier[$E$]{E1}{K}
+            \sbBloc[3.0]{G}{$H_1$}{K}
+            \sbRelier{K}{G}
+            \sbDecaleNoeudy[4]{G}{r1}
+            \sbBloc[-1.5]{G2}{$\dfrac{H_2}{K}$}{r1}
+            \sbRelieryx{K-G}{G2.west}
+            \sbSortie[3.0]{S1}{G}
+            \sbRelier[$S_1$]{G}{S1}
+            \sbSortie[3.0]{S2}{G2}
+            \sbRelier[$S_2$]{G2}{S2}
+        \end{scope}
     \end{tikzpicture}
 \end{center}
 
@@ -499,7 +508,7 @@ déplacer le point de prélèvement. Ansi les deux schémas-blocs ci-dessous son
 
 Dans le cas d'un système possédant plusieurs entrées, il est possible de simplifier 
 le problème en appliqant le principe de superposition. La réponse totale devient alors la somme
-des réponses indivuelles de chaque entrée lorsque toutes les autres sont considérées comme nulles.
+des réponses individuelles de chaque entrée lorsque toutes les autres sont considérées comme nulles.
 
 Considérons le schéma-blocs suivant :
 \begin{center}                                                                                                                
@@ -582,7 +591,7 @@ La sortie totale $S$ du système à deux entrées est la somme de ses sorties in
 \end{bequation}
 
 Si $E$ est une entrée de consigne et $P$ une perturbation, $H_E$ et $H_P$ sont respectivement appelées \textbf{fonction de transfert d'asservissement} et \textbf{fonction de transfert de régulation}.
-Remarquons que le dénominateur des fonctions de transferts mis en jeu sont identiques.
+Remarquons que le dénominateur de ces fonctions de transferts sont identiques. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section[Réduction de schéma-bloc de grande taille]{Méthodologie générale pour la réduction de schéma-bloc de grande taille}
@@ -1015,30 +1024,34 @@ le graphe de fluence équivalent:
 \begin{center}
     \tikzsetnextfilename{gf_boucle1-chap1_ext}
     \begin{tikzpicture}[scale=0.8, every node/.style={scale=0.8}]
-        \sbEntree{E}
-        \sbCompSum[5.0]{comp}{E}{}{-}{+}{}
-        \sbRelier[$E$]{E}{comp}
-        \sbBloc[2.5]{B}{$H_1$}{comp}
-        \sbRelier[$\epsilon$]{comp}{B}
-        \sbSortie[4.0]{S}{B}
-        \sbRelier[$S$]{B}{S}
-        \sbDecaleNoeudy[3.5]{B}{r1}
-        \sbBlocr[-1.6]{B2}{$H_2$}{r1}
-        \sbRelieryx{B-S}{B2}
-        \sbRelierxy[$M$]{B2}{comp}
-    \end{tikzpicture}
-    \tikzsetnextfilename{gf_boucle2-chap1_ext}
-    \begin{tikzpicture}
-        \gfEntree[0][-2][]{}{E0}
-        \gfEntree{$E$}{E}
-        \gfNoeud[4]{$\epsilon$}{E}{X}
-        \gfNoeud[6]{$M$}[-1]{E0}{M}
-        \gfSortie[4]{$S$}{X}{S}
-        \gfRelier[1]{E}{X}
-        \gfRelier[$H_1$]{X}{S}
-        %\gfRelierB[$-H_2$]{S}{X}
-        \gfRelierB[$H_2$][+][1.5][-1]{S}{M}[-90][0]
-        \gfRelierB[$-1$][-][-1.5][0.5]{M}{X}[180][90]
+        \begin{scope}[local bounding box=scope1]
+            \sbEntree{E}
+            \sbCompSum[5.0]{comp}{E}{}{-}{+}{}
+            \sbRelier[$E$]{E}{comp}
+            \sbBloc[2.5]{B}{$H_1$}{comp}
+            \sbRelier[$\epsilon$]{comp}{B}
+            \sbSortie[4.0]{S}{B}
+            \sbRelier[$S$]{B}{S}
+            \sbDecaleNoeudy[3.5]{B}{r1}
+            \sbBlocr[-1.6]{B2}{$H_2$}{r1}
+            \sbRelieryx{B-S}{B2}
+            \sbRelierxy[$M$]{B2}{comp}
+        \end{scope}
+%    \end{tikzpicture}
+%    \tikzsetnextfilename{gf_boucle2-chap1_ext}
+%    \begin{tikzpicture}
+        \begin{scope}[shift={($(scope1.east)+(1.6,0.7)$)}]
+            \gfEntree[0][-2][]{}{E0}
+            \gfEntree{$E$}{E}
+            \gfNoeud[4]{$\epsilon$}{E}{X}
+            \gfNoeud[6]{$M$}[-1]{E0}{M}
+            \gfSortie[4]{$S$}{X}{S}
+            \gfRelier[1]{E}{X}
+            \gfRelier[$H_1$]{X}{S}
+            %\gfRelierB[$-H_2$]{S}{X}
+            \gfRelierB[$H_2$][+][1.5][-1]{S}{M}[-90][0]
+            \gfRelierB[$-1$][-][-1.5][0.5]{M}{X}[180][90]
+        \end{scope}
     \end{tikzpicture}
 \end{center}
 
