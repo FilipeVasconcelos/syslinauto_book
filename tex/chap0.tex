@@ -1162,12 +1162,24 @@ H(p)=\dfrac{S(p)}{E(p)}
 \end{bequation}
 ou encore,
 \begin{bequation}[ams align]
-S(p)=H(p)E(p)
+    S(p)=H(p)E(p)\label{eq-she}
 \end{bequation}
 
 Cette fonction $H(p)$, également appelé \textbf{transmittance}, caractérise le système de façon univoque.
 Pour une entrée donnée il est possible de prévoir la sortie d'un système caractérisé par 
 sa fonction de transfert $H(p)$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Fonction de transfert et réponse impulsionnelle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+À partir de l'équation~\ref{eq-she}, le lien entre la fonction de transfert
+et la réponse impulsionnelle paraît évident. Pour une impulsion de Dirac 
+en entrée, la réponse impulsionnelle est alors simplement la fonction 
+de transfert puisque $E(p)=1$. Autrement dit, la fonction de 
+transfert d'un système est la réponse impulsionnelle dans le domaine de Laplace.
+Formellement, si $h(t)$ est la réponse impulsionnelle d'un système alors,
+$$
+H(p) = \laplace{h(t)}
+$$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection[Représentation de la fonction de transfert]{Représentations algébrique et graphique de la fonction de transfert}
@@ -1340,7 +1352,8 @@ La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert
     à la fonction de transfert~\Cref{eq-ft_carte}\label{fig-carte} }
 \end{figure}
 
-\subsection{Fonction de transfert et réponse impulsionnelle}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
