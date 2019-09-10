@@ -835,7 +835,24 @@ dans le domaine de Laplace.}
 \end{bequation}
 valable que si $s(\infty)$ est définie
 
-\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Transformée de Laplace d'un produit de convolution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Le produit de convolution de deux signaux $h(t)$ et $e(t)$ que l'on note $(h*e)(t)$
+est défini par :
+$$
+(h*e)(t)=\int_{-\infty}^{+\infty}h(t-\tau)e(\tau)\dd{\tau}
+$$
+La transformée de Laplace transforme le produit de convolution en un simple
+produit des signaux dans le domaine de Laplace. Formellement,
+\begin{bequation}[ams align]
+    \laplace{(h*e)(t)}=H(p)E(p)
+\end{bequation}
+Si cette propriété est fondamentale, nous ne l'utiliserons 
+que très exceptionnellement. Nous la rencontrerons à nouveau 
+lorsque nous introduierons la fonction de transfert d'un système linéaire.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Transformées des signaux usuels}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -908,7 +925,7 @@ ou encore
 \end{bequation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Transformée d'une sinus}
+\paragraph{Transformée d'un sinus}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La transformée de Laplace d'un sinus s'écrit :
 \begin{align*}
@@ -922,6 +939,20 @@ ou encore
     \laplace{\sin{\omega t}\cdot u(t)}=\dfrac{\omega}{p^2+\omega^2}
 \end{bequation}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Transformée d'un cosinus}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace d'un cosinus s'écrit :
+\begin{align*}
+\laplace{\cos{\omega t}\cdot u(t)}&=\int_{0}^{+\infty}e^{-pt}\dfrac{e^{\jw t}+e^{-\jw t}}{2}\dd{t}\\
+&=\dfrac{1}{2}\int_{0}^{+\infty}e^{-(p-\jw)t}\dd{t} + \dfrac{1}{2j}\int_{0}^{+\infty}e^{-(p+\jw)t}\dd{t} \\
+&=\dfrac{1}{2}\left( \dfrac{1}{p-\jw}+\dfrac{1}{p+\jw}\right)\\
+&=\dfrac{p}{p^2+\omega^2}
+\end{align*}
+ou encore
+\begin{bequation}[ams align]
+    \laplace{\cos{\omega t}\cdot u(t)}=\dfrac{p}{p^2+\omega^2}
+\end{bequation}
 %Exercice
 %La même approche appliquée pour la fonction cosinus, nous donne :
 %\begin{bequation}[ams align]
@@ -1168,18 +1199,30 @@ ou encore,
 Cette fonction $H(p)$, également appelé \textbf{transmittance}, caractérise le système de façon univoque.
 Pour une entrée donnée il est possible de prévoir la sortie d'un système caractérisé par 
 sa fonction de transfert $H(p)$
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fonction de transfert et réponse impulsionnelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 À partir de l'équation~\ref{eq-she}, le lien entre la fonction de transfert
 et la réponse impulsionnelle paraît évident. Pour une impulsion de Dirac 
 en entrée, la réponse impulsionnelle est alors simplement la fonction 
-de transfert puisque $E(p)=1$. Autrement dit, la fonction de 
+de transfert puisque $\laplace{\delta(t)}=E(p)=1$. Autrement dit, la fonction de 
 transfert d'un système est la réponse impulsionnelle dans le domaine de Laplace.
 Formellement, si $h(t)$ est la réponse impulsionnelle d'un système alors,
 $$
 H(p) = \laplace{h(t)}
 $$
+D'après la propriété du produit de convolution, nous savons que le produit de deux fonctions
+dans le domaine de Laplace correspond au produit de convolution de ces deux fonctions
+dans le domaine temporelle, dans le cas de l'équation~\ref{eq-she},
+$$
+s(t)=\laplacei{S(p)}=\laplacei{H(p)E(p)}=\int_{-\infty}^{+\infty}h(t-\tau)e(\tau)\dd{\tau}
+$$
+ou encore,
+$$
+s(t)=(h*e)(t)
+$$
+ce qui exprime que \textbf{la réponse d'un système est donnée par le produit de convolution de l'entrée  et la réponse impulsionnelle.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection[Représentation de la fonction de transfert]{Représentations algébrique et graphique de la fonction de transfert}
