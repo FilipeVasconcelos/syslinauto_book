@@ -387,7 +387,8 @@ si ce signal est nul pour tout $t<0$.
 \end{figure}
 \setlength\intextsep{0pt}
 }
-
+Pour un signal en entrée, le temps $t=0$ permet de 
+définir une origine des temps.
 %\paragraph{Stable}
 
 %\begin{center}
@@ -405,23 +406,6 @@ si ce signal est nul pour tout $t<0$.
 %\input{tikz/instable-chap0.tex}
 %\end{center}
 
-\paragraph{Périodique}
-
-Un signal est dit \textbf{périodique} s'il se reproduit identique à lui
-même au bout d'un même intervalle de temps ou periode $T$. On définit alors sa fréquence $f$  
-qui est l'inverse de la période $f=1/T$ ou la pulsation $\omega$ définit par rapport au cercle unité
-$\omega=2\pi f$.
-%L'analyse de Fourier est un outil fondamentale de 
-%l'étude des signaux périodiques. Dans ce cours, nous
-%aborderons 
-{
-\begin{figure}[htb]
-\centering
-\tikzsetnextfilename{periodique-chap0_ext}
-\input{tikz/periodique-chap0.tex}
-\end{figure}
-\setlength\intextsep{0pt}
-}
 \paragraph{Retardé}
 Un signal $s(t-\tau)$ est dit \textbf{retardé} d'un temps $\tau$ 
 par rapport à $s(t)$, si on lui a fait subir un changement
@@ -430,7 +414,39 @@ d'origine des temps par rapport au signal $s(t)$.
 \tikzsetnextfilename{retarde-chap0_ext}
 \input{tikz/retarde-chap0.tex}
 \end{center}
-\clearpage
+
+\paragraph{Périodique}
+                                                                                                                              
+Un signal est dit \textbf{périodique} s'il se reproduit identique à lui
+même au bout d'un même intervalle de temps ou periode $T$. On définit alors sa fréquence $f$
+qui est l'inverse de la période $f=1/T$ ou la pulsation $\omega$ définit par rapport au cercle unité
+$\omega=2\pi f$.
+{
+\begin{figure}[!htb]
+\centering
+\tikzsetnextfilename{periodique-chap0_ext}
+\input{tikz/periodique-chap0.tex}
+\end{figure}
+\setlength\intextsep{0pt}
+}
+                                                                                                                              
+Le signal complet peut être totalement d'écrit en considérant un motif de base $s_0(t)$ telle que
+\begin{align*}
+s_0(t) =
+\begin{dcases}
+    s(t)&\quad\text{pour}\quad 0\le t\le T   \\
+    0&\quad\text{pour}\quad t>T
+\end{dcases}
+\end{align*}
+Le signal $s(t)$ est alors la somme (série) du motif retardé de $nT$ 
+avec $n\in\mathbb{N}$ tel que :
+$$
+s(t)=\sum_0^\infty s_0(t-nT)
+$$
+L'analyse de Fourier est un outil fondamentale pour l'étude 
+de ces signaux périodiques. Elle sort cependant légérement du cadre de ce cours.
+
+%\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Signaux usuels rencontrés\ldots\label{sec-signaux_usuels}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

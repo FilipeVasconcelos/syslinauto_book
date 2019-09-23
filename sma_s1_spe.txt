@@ -1,0 +1,276 @@
+ =========================================================================
+  Progression du cours de SMA (IngeSpe) 
+ =========================================================================
+  13 semaines :
+                 - 12 semaines (Cours+TD+TP)
+                 - 1 semaine   (Révision)
+             
+ =========================================================================
+  Semaine 1 (16 Sep 2019)
+ =========================================================================
+ -------------------------------------------------------------------------
+  Cours 1  
+ -------------------------------------------------------------------------
+  Chapitre : Introduction à l'automatique.
+           - Modalité de validation du module.
+           - Petit historique (Clepsydre, Machine de Watt)  
+           - Un exemple de la vie courante (temperature d'une douche régulation de la température pour 
+             introduire: 
+                  - un bouton (une seule sortie)
+                  - deux robinets (humain/manuel) 
+                  - la régulation (thermostat/automatique)
+                  - les performances. 
+           - Schéma bloc simple (entrée/système/sortie)
+           - Objectifs de l'année : 
+                    - Modélisation    |
+                    - Analyse         |  des systèmes dynamiques 
+                    - Contrôle        | 
+           - Définition simple d'un système (dynamique) :
+                    - frontiere (définition structurelle)
+                    - modifie les flux de MEI (définition fonctionnelle)
+           - Définition signaux (Les systèmes seront traités au prochain cours )
+           - Différents types de signaux :
+               - Impulsion de Dirac
+               - Échelon
+               - Rampe
+               - Exponentielle décroissante
+               - Periodique (ex. Sinusoide )
+               - Pseudo-périodique (ex. Sinusoide amortie)
+           - Discuter des caractéristiques d'un signal 
+             (valeure finale, temps de réponse à 5%, dépassement, 
+             oscillation, temps de montée ) qui seront traités dans 
+             le premier TD )
+ -------------------------------------------------------------------------
+  TD 1 (à écrire !) 
+ -------------------------------------------------------------------------
+           - Décomposition de signaux en signaux élémentaires 
+           - Détermination graphique de la valeure finale du temps de 
+             réponse à 5%, du temps de montée, du dépassement.
+ =========================================================================
+  Semaine 2 (23 Sep 2019)
+ =========================================================================
+ -------------------------------------------------------------------------
+  Cours 2  
+ -------------------------------------------------------------------------
+  Chapitre : Systèmes linéaires continus et invariants
+
+           - Différentes propriétés systèmes : 
+                - linéaire
+                - continue
+                - invariant
+                - causal   
+           - SLCI 
+           - Equations différentielles à coefficient constants
+           - Résolution classique  ( pour sentir la solution )
+           - Discuter un exemple du premier ordre :
+                - chute libre
+                - décharge d'un condensateur
+ -------------------------------------------------------------------------
+  TD 2 (à écrire !)  
+ -------------------------------------------------------------------------
+           - Résolution classique d'équations différentielles
+             à coefficient constants :
+                - 1er ordre / 2nd ordre 
+                     - sans second membre
+                     - avec second membre
+ =========================================================================
+  Semaine 3 (30 Sep 2019)
+ =========================================================================
+ -------------------------------------------------------------------------
+  Cours 3 
+ -------------------------------------------------------------------------
+  Chapitre : Systèmes linéaires continus et invariants
+
+           - Transformée de Laplace 
+           - Propriétés de la transformée
+           - Résolution d'équations différentielles 
+           - Exemple complet ( le même utilisé au cours précédent)  
+ -------------------------------------------------------------------------
+  TD 3 (prêt!)
+ -------------------------------------------------------------------------
+           - /home/filipe/enseignement/auto/2018_2019_SPE/td/td_1
+ =========================================================================
+  Semaine 4 (07 Oct 2019)
+ =========================================================================
+ -------------------------------------------------------------------------
+  Cours 4  
+ -------------------------------------------------------------------------
+  Chapitre : Systèmes linéaires continus et invariants
+
+           - Fonctions de transfert 
+           - Pôles / Zéros
+           - Fonction de transfert et réponse impulsionnelle.
+           - Représentation de la fonction de transfert algébrique/graphique
+ -------------------------------------------------------------------------
+  TD 4 (à écrire !) 
+ -------------------------------------------------------------------------
+           - Exercice 
+ =========================================================================
+  Semaine 5 (14 Oct 2019)
+ =========================================================================
+ -------------------------------------------------------------------------
+  Cours 5 
+ -------------------------------------------------------------------------
+  Chapitre : Schémas fonctionnels et graphe de fluence 
+
+           - Schéma fonctionnel (Algèbre de blocs) ( hors programme à mentionner 
+                                                     Graphe de fluence )
+ -------------------------------------------------------------------------
+  TD 5 (prêt!)
+ -------------------------------------------------------------------------
+           - /home/filipe/enseignement/auto/2018_2019_SPE/td/td_3
+           - /home/filipe/enseignement/auto/2018_2019_SPE/td/td_4
+ =========================================================================
+  Semaine 6 (21 Oct 2019)
+ =========================================================================
+ -------------------------------------------------------------------------
+  Cours 6  
+ -------------------------------------------------------------------------
+  Chapitre : Modélisation des SLCI et leurs réponses temporelles
+
+           - Système du premier ordre :
+               - Définition 
+               - Fonction de transfert 
+               - Pôle de la fonction de transfert 
+               - Réponses temporelles   
+               - Exemple complet :
+                     - décharge condensateur 
+                     - chute libre  (selon celui qui a était traité "classiquement")
+ -------------------------------------------------------------------------
+  TP 1 non noté (Découverte de scilab) 
+ -------------------------------------------------------------------------
+           - /home/filipe/enseignement/auto/2018_2019_SPE/tp/tp_1
+ =========================================================================
+  Semaine 7 (04 Nov 2019)
+ =========================================================================
+ -------------------------------------------------------------------------
+  Cours 7  
+ -------------------------------------------------------------------------
+  Chapitre : Modélisation des SLCI et leurs réponses temporelles
+
+           - Système du second ordre :
+               - Définition 
+               - Fonction de transfert 
+               - Pôle de la fonction de transfert 
+               - Exemple complet :
+                    - système masse/ressort
+               - Réponses temporelles :
+                      - impulsionnelle
+                      - indicielle 
+                      - (à une rampe)
+ -------------------------------------------------------------------------
+  TP 2 noté (prêt!) 
+ -------------------------------------------------------------------------
+            - /home/filipe/enseignement/auto/2018_2019_SPE/tp/tp_2
+ =========================================================================
+  Semaine 8 (11 Nov 2019) Semaine du DS
+ =========================================================================
+ -------------------------------------------------------------------------
+  Cours 8
+ -------------------------------------------------------------------------
+  Chapitre : Modélisation des SLCI et leurs réponses temporelles
+
+           - Système du second ordre (suite) :
+ -------------------------------------------------------------------------
+  DS 
+ -------------------------------------------------------------------------
+           - Le DS pourra être composé de plusieurs exercices :
+                - Détermination d'une fonction de transfert à partir
+                  de différentes équations différentielles
+                - Réduction d'un schéma-bloc
+                - Tracer des réponses temporelles du premier ordre.
+                - Détermination des caractéristiques d'une réponse 
+                  du second ordre.
+             
+ =========================================================================
+  Semaine 9 (18 Nov 2019)
+ =========================================================================
+ -------------------------------------------------------------------------
+  Correction du DS
+ -------------------------------------------------------------------------
+ -------------------------------------------------------------------------
+  TD 6 (à écrire)
+ -------------------------------------------------------------------------
+          - TD sur le second ordre   
+ =========================================================================
+  Semaine 10 (25 Nov 2019)
+ =========================================================================
+ -------------------------------------------------------------------------
+  Cours 9  
+ -------------------------------------------------------------------------
+  Chapitre : Analyse fréquentielle et représentation graphique 
+             de la réponse harmonique.
+           - Définition de la réponse harmonique / exemple de 
+             réponse harmonique
+           - Représentation graphique de la réponse harmonique 
+             (schématiquement) :
+                     - Diagramme de Bode
+                     - Diagramme de Black-Nichols
+                     - Diagramme de Nyquist  
+ -------------------------------------------------------------------------
+  TD 7  (à écrire) 
+ -------------------------------------------------------------------------
+           - réponse harmonique dans le domaine temporelle 
+ =========================================================================
+  Semaine 11 (02 Dec 2019)
+ =========================================================================
+ -------------------------------------------------------------------------
+  Cours 10
+ -------------------------------------------------------------------------
+  Chapitre : Analyse fréquentielle et représentation graphique 
+             de la réponse harmonique.
+           - Méthodologie générale pour tracer un diagramme de Bode
+           - Diagramme de Bode des modèles usuels :
+                     - gain pur
+                     - intégrateur pur
+                     (- dérivateur pur )
+                     (- retard pur)
+                     - 1er ordre
+ -------------------------------------------------------------------------
+  TD 8
+ -------------------------------------------------------------------------
+           - /home/filipe/enseignement/auto/2018_2019_SPE/td/td_5
+ =========================================================================
+  Semaine 12 (09 Dec 2019)
+ =========================================================================
+ -------------------------------------------------------------------------
+  Cours 11
+ -------------------------------------------------------------------------
+  Chapitre : Analyse fréquentielle et représentation graphique 
+             de la réponse harmonique.
+           - Diagramme de Bode des modèles usuels (suites) :
+                     - 2 systèmes du premier ordre
+                     - 2nd ordre / phénomène de résonance 
+                     - système d'ordre quelconques à traiter en TD
+ -------------------------------------------------------------------------
+  TP 3 noté (à écrire)
+ -------------------------------------------------------------------------
+           - Un TP pour tracer les réponses harmoniques Bode/Nyquist
+           - Scilab / Python  
+ =========================================================================
+  Semaine 13 (16 Dec 2019)
+ -------------------------------------------------------------------------
+  Cours 12
+ -------------------------------------------------------------------------
+  Chapitre : Analyse fréquentielle et représentation graphique 
+             de la réponse harmonique.
+           - Diagramme de Black-Nichols des modèles usuels :
+                     - 1er ordre
+                     - 2nd ordre
+           - Diagramme de Nyquist des modèles usuels :
+                     - 1er ordre
+                     - 2nd ordre
+ -------------------------------------------------------------------------
+  TD 9
+ -------------------------------------------------------------------------
+           - /home/filipe/enseignement/auto/2018_2019_SPE/td/td_6
+ =========================================================================
+  Semaine 14 (16 Dec 2019)
+ =========================================================================
+ -------------------------------------------------------------------------
+  Revision Examen ou Suite du cours 
+ -------------------------------------------------------------------------
+ -------------------------------------------------------------------------
+  Revision Examen
+ -------------------------------------------------------------------------
+ =========================================================================
