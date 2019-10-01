@@ -3,7 +3,7 @@
 filename=sma_auto
 #filename=tes
 #filename=test_tikz
-simple:	ps-simple 
+fast:	ps-simple 
 	ps2pdf -sPAPERSIZE=a4 ${filename}.ps
 
 pspdfd:	psd
