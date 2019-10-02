@@ -824,12 +824,12 @@ par intégration par parties,
     \dd{v}=s(t)\dd{t}\qquad&u=-\dfrac{1}{p}e^{-pt}
 \end{align*} 
 \begin{align*}
-    \laplace{v(t)}&=\left[-\dfrac{1}{p}v(t)\right]_0^{+\infty}-\int_{0}^{+\infty} -\dfrac{1}{p}e^{-pt}s(t)\dd{t} \\
-    &=\dfrac{1}{p}\int_{0}^{+\infty} e^{-pt}s(t)\dd{t}       
+    \laplace{v(t)}&=\left[-\dfrac{1}{p}v(t)e^{-pt}\right]_0^{+\infty}-\int_{0}^{+\infty} -\dfrac{1}{p}e^{-pt}s(t)\dd{t} \\
+    &=\dfrac{1}{p}\int_{0}^{+\infty} e^{-pt}s(t)\dd{t}+\dfrac{s(0)}{p}
 \end{align*}
 ou encore
 \begin{bequation}[ams align]
-    \laplace{\int_{0}^{t}s(\tau)\dd{\tau}}=\dfrac{S(p)}{p}
+    \laplace{\int_{0}^{t}s(\tau)\dd{\tau}}=\dfrac{S(p)}{p}+\dfrac{s(0)}{p}
 \end{bequation}
 Remarquons alors que \textbf{intégrer dans le domaine temporel consiste à diviser par $p$ 
 dans le domaine de Laplace.}
@@ -841,6 +841,10 @@ dans le domaine de Laplace.}
 \begin{bequation}[ams align]
     s(0)=\lim\limits_{p\rightarrow+\infty} p S(p)\qquad \forall S(p)
 \end{bequation}
+où $s(0)$ est la valeur d'un signal $s(t)$ pour $t=0$.
+Ce théorème est utilisé pour déterminer la valeur initiale
+dans le domaine temporelle d'un signal dont on connait 
+uniquement la transformée de Laplace.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Théorème de la valeur finale}
@@ -849,7 +853,9 @@ dans le domaine de Laplace.}
 \begin{bequation}[ams align]
     s(\infty)=\lim\limits_{p\rightarrow0} p S(p)
 \end{bequation}
-valable que si $s(\infty)$ est définie
+où $s(\infty)$ est la valeur d'un signal $s(t)$ pour $t\to\infty$.
+Ce théorème n'est valable que si $s(\infty)$ est définie. On dira plus tard
+si le signal est stable.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -873,7 +879,7 @@ lorsque nous introduierons la fonction de transfert d'un système linéaire.
 \subsection{Transformées des signaux usuels}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous présentons les transformées de Laplace des signaux usuels introduits
-au paragraphe~\cref{sec-signaux_usuels}
+au paragraphe~\ref{sec-signaux_usuels}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Transformée d'une impulsion de Dirac}
@@ -931,7 +937,7 @@ On généralise aux ordres supérieures (parabolique,cubique\ldots) :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Transformée d'une exponentielle décroissante}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+La transformée de Laplace d'une exponentielle décroissante s'écrit :
 $$
 \laplace{e^{-at}u(t)}=\int_{0}^{+\infty} e^{-pt}e^{-at}\dd{t}=\int_{0}^{+\infty} e^{-(p+a)t}\dd{t} = \dfrac{1}{p+a}
 $$
@@ -939,6 +945,9 @@ ou encore
 \begin{bequation}[ams align]
     \laplace{e^{-at}u(t)}=\dfrac{1}{p+a}
 \end{bequation}
+Nous aurions pu utiliser la propriété du retard en p (Théorème de 
+l'amortissement) pour déterminer cette transformée de Laplace.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Transformée d'un sinus}
