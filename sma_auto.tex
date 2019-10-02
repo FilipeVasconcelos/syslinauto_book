@@ -47,7 +47,14 @@
 \usepackage[hyphenbreaks]{breakurl} 
 %\usepackage[ucmark,toc,hyperfirst=false]{glossaries}
 \usepackage[abbreviations,symbols,nogroupskip,nonumberlist]{glossaries-extra}
+\setabbreviationstyle[acronym]{long-short}
 \makeglossaries
+% disable hyperlink if link count is equal to 1:
+%\renewcommand*{\glslinkpresetkeys}{%
+%\ifnum\GlsXtrLinkCounterValue{\glslabel}=1
+%\setkeys{glslink}{hyper=false}%
+%\fi
+%}
 %\DeclareRobustCommand{\abbrevcrefs}{%
 %    \crefname{figure}{Fig.}{Figs.}%
 %    \crefname{equation}{\'Eq.}{\'Eqs.}%
