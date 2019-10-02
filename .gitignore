@@ -35,5 +35,6 @@ fig/*.md5
 fig/*.dpth
 test/*
 sma_auto.pdf_save
+sma_auto.pdf
 
 
