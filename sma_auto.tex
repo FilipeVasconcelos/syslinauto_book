@@ -122,13 +122,13 @@ ps2eps -f "\image.ps"
 %\usepackage[]{hypdvips}
 
 
-\usepackage{booktabs}
+%\usepackage{booktabs}
 \usepackage{array}
-\usepackage{makecell}
+%\usepackage{makecell}
 \usepackage{hhline}
-\renewcommand\cellalign{cc}
+%\renewcommand\cellalign{cc}
 %\renewcommand{\arraystretch}{4.0}
-\usepackage{tabulary}
+\usepackage{tabularx}
 \usepackage{footnote}
 \renewcommand{\footnoterule}{%
     \kern -3pt  % call this kerna
@@ -138,6 +138,7 @@ ps2eps -f "\image.ps"
 
 \newcolumntype{K}[1]{>{\centering\arraybackslash}p{#1}}
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{D}[1]{>{\centering\arraybackslash}m{#1}}
 \newcolumntype{N}{@{}m{0pt}@{}}
 
 \def\fup#1{\raise+2pt\hbox{\footnotesize #1}}

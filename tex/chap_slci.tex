@@ -1008,6 +1008,14 @@ ou encore
 \subsection[Application de la transformée de Laplace]{Application de la TL à la résolution d'équation différentielle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\tikzsetnextfilename{laplace_schema-chap0-ext}
+\begin{figure}[!ht]
+\begin{center}
+\input{tikz/laplace_schema.tex}
+\end{center}
+\caption{Représentation schématique de la méthode employée pour la résolution
+des équations différentielles linéaires à coefficients constants.\label{fig-laplace_schema}}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Méthodologie}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1040,14 +1048,6 @@ ce que l'on nomme \textbf{la loi fréquentielle} du système :
     \sum_{i=0}^{n}a_ip^iS(p)=\sum_{i=0}^{m}b_ip^iE(p)\label{eq-lfreq}
 \end{bequation}
 
-\tikzsetnextfilename{laplace_schema-chap0-ext}
-\begin{figure}[t]
-\begin{center}
-\input{tikz/laplace_schema.tex}
-\end{center}
-\caption{Représentation schématique de la méthode employée pour la résolution
-des équations différentielles linéaires à coefficients constants.\label{fig-laplace_schema}}
-\end{figure}
 
 La résolution algébrique de cette équation est simplement donnée par :
 \begin{bequation}[ams align]
@@ -1073,27 +1073,26 @@ régit par cette équation différentielle avec pour conditions initiales (CI)
 $s(0)=-1$ et $s'(0)=2$.
 Nous considérons la réponse à un échelon-unité ( i.e $e(t)=u(t)$ ) 
 
-Nous allons résoudre cette équation par deux méthodes différentes: la méthode classique 
+Nous allons résoudre cette équation par deux méthodes différentes: la méthode direct  
 de résolution d'équations différentielles avec second membre, 
 et par l'application de la transformée de Laplace.
 
-%\footnote{Dans le cas particulier
-%de cette équation différentielle, il apparaitra que la résolution \og classique\fg soit plus
-%facile à appliquer. La TL est cependant plus systèmatique et ne nécessite 
-%que la connaissance d'algèbre on observera que la méthode classique est plus 
-%facile à mettre en oeuvre. Ceci n'est pas toujours le cas. 
-%Comme nous le verrons la transformée de Laplace devient totalement indispensable pour la 
-%définition de la fonction de transfert d'un \gls{slci}.}.
+Nous pourrons observer que l'application de la TL pour la résolution
+des équations différentielles est une méthode plus systèmatique qui s'affranchit 
+de la forme particulière de l'équation différentielle auquelle on a à faire.
+Nous verrons que la transformée de Laplace devient totalement indispensable pour 
+la caractérisation d'un \gls{slci}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Résolution par la méthode \og classique\fg}
+\paragraph{Résolution par la méthode direct}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 L'équation caractéristique associée à cette équation différentielle est donnée par 
 $$
 r^2+2r+1=0
 $$
 cette équation possède une solution double $r_{1,2}=-1$.
-La solution homogène $s_0(t)$ est donc de la forme
+La solution générale de l'équation homogène $s_0(t)$ (c.a.d sans second membre) 
+est donc de la forme :
 $$
 s_0(t)=(\alpha t+\beta)e^{-t}.
 $$
@@ -1105,41 +1104,42 @@ s(t)=(\alpha t+\beta)e^{-t}+1
 $$
 Dérivons cette solution générale pour pouvoir déterminer les coefficients $\alpha$, $\beta$ en utilisant
 les conditions initiales,
-$$
-s'(t)=\alpha e^{-t}-(\alpha t+\beta)e^{-t}
-$$
-
 \begin{align*}
+    s'(t)&=\alpha e^{-t}-(\alpha t+\beta)e^{-t}\\
      s(0)&=-1\Rightarrow\beta+1=-1\Rightarrow\beta=-2 \\
     s'(0)&=\hphantom{-}2\Rightarrow\alpha+2=\hphantom{-}2\Rightarrow\alpha=0
 \end{align*}
 
 \begin{figure}[!t]
     \centering
-\tikzsetnextfilename{sol_eq_diff-chap0-ext}
-\input{tikz/sol_eq_diff-chap0.tex}
+    \tikzsetnextfilename{sol_eq_diff-chap0-ext}
+    \input{tikz/sol_eq_diff-chap0.tex}
     \caption{Représentation de la solution générale de l'équation différentielle~(\ref{eq-diff1}). On vérifie lors 
-	du tracé que l'on observe bien les principales propriétes du signal (i.e conditions initiales, valeurs finales).\label{fig-solution}}
+             du tracé que l'on observe bien les principales propriétes du signal (i.e conditions initiales, 
+             valeurs finales).\label{fig-solution}}
 \end{figure}
 
-La solution générale de l'équation différentielle~(\ref{eq-diff1}) est donc 
+La solution générale de l'équation différentielle~(\ref{eq-diff1}) est donc donnée par, 
 \begin{bequation}[ams align]
-s(t)=1-2e^{-t}
+s(t)=1-2e^{-t}.
 \end{bequation}
-On laisse au lecteur le soin de vérifier que cette fonction est solution de l'équation~\ref{eq-diff1},
-et respecte les conditions initiales, notamment à partir de sa représentation graphique (\Cref{fig-solution}).
+Nous laissons au lecteur le soin de vérifier que cette fonction est solution 
+de l'équation~\ref{eq-diff1}, et qu'elle respecte notamment les conditions initiales. 
+Le graphe de la solution est également présenté (\Cref{fig-solution}).
 
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Résolution par application de la transformée de Laplace}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Appliquons la transformée de Laplace aux différents termes de l'équation différentielle~(\ref{eq-diff1}),
-nous obtenons
+La transformée de Laplace est linéaire. Il nous est alors possible
+de l'appliquer aux différents termes de l'équation différentielle~(\ref{eq-diff1}) séparemment.
+On obtient pour chacuns des termes :
 \begin{align*}
-    \laplace{s(t)} &= S(p) \\
-    \laplace{\devi{s(t)}{}} &= pS(p)-s(0) = pS(p) +1 \\
-    \laplace{\devi{s(t)}{2}} &= p^2S(p)-ps(0)-s'(0) = p^2S(p) + p -2\\
-    \laplace{u(t)} &= \dfrac{1}{p}
+    \laplace{s(t)} &= S(p), \\
+    \laplace{\devi{s(t)}{}} &= pS(p)-s(0) = pS(p) +1, \\
+    \laplace{\devi{s(t)}{2}} &= p^2S(p)-ps(0)-s'(0) = p^2S(p) + p -2,\\
+    \laplace{u(t)} &= \dfrac{1}{p}.
 \end{align*}
 
 L'équation différentielle~(\ref{eq-diff1}) devient dans le domaine de Laplace :

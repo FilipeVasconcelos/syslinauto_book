@@ -231,46 +231,46 @@ L'\textbf{asservissement}\ldots
 
 \begin{table}[!h]
 \begin{center}
-    \begin{tabular}{M{3cm}M{8cm}M{4cm}N}
+    \begin{tabular}{M{3cm}M{8cm}M{4cm}}
         \hhline{===}
-        Composants      & Description & Fonction de transfert ou signal associés &\\[2em]
+        Composants      & Description & Fonction de transfert ou signal associés \\[0em]
         \hhline{===}
         Consigne/Entrée & La valeur que l'on souhaite atteindre en sortie du système asservi.
                           Cette consigne peut être constante ou dépendante du temps. 
-                        & $E(p)$                                                 &\\[5em]
+                        & $E(p)$                                                 \\[0em]
         \hline
         Adaptateur      & Adapte le signal de consigne à l'image de la sortie.           
-                        & $A_d(p)$                                               &\\[3em]
+                        & $A_d(p)$                                               \\[0em]
         \hline
         Correcteur      & \'Elabore à partir du signal d'écart $\epsilon(p)$ 
                           la commande $U(p)$ ou la grandeur réglante du système.
-                        & $C(p)$                                                 & \\[3em]
+                        & $C(p)$                                                 \\[0em]
         \hline
         Actionneur      & L'organe d'action qui apporte l'énergie au système.
-                        & $A_c(p)$                                               &\\[3em]
+                        & $A_c(p)$                                               \\[0em]
         \hline
         Système         & Le système que l'on souhaite contrôler et/ou asservir
-                                      & $H(p)$                                   &\\[3em]
+                                      & $H(p)$                                   \\[0em]
         \hline
         Régulateur      & Le régulateur se compose d'un comparateur qui élabore le signal d'écart $\epsilon(p)$ 
                           à partir de la consigne et de la mesure, formellement le régulateur incorpore le correcteur 
                           et du correcteur.
-                                      & $\epsilon(p)$                            &\\[3em]
+                                      & $\epsilon(p)$                            \\[0em]
         \hline
         Perturbation    & Phénomène physique intervenant sur le système qui en modifie la sortie
-                                      & $P(p)$                                   &\\[3em]
+                                      & $P(p)$                                   \\[0em]
         \hline
         Capteur         &  Le capteur prélève le sortie pour en donner une image (la mesure) 
                            utile au régulateur. Intervenant dans la boucle ouverte, son étude 
                            est indispensable pour la caractérisation des performances du système asservi.
-                                      & $G(p)$                                   &\\[3em]
+                                      & $G(p)$                                   \\[0em]
         \hline
         Mesure          & Le signal de la mesure de la sortie ou image de la sortie
                           élaboré par le capteur.
-                                      & $M(p)$                                   &\\[3em]  
+                                      & $M(p)$                                   \\[0em]  
         \hline
         Sortie          & Le signal de sortie du système que l'on souhaite régulé et/ou asservir
-                                      & $S(p)$                                   &\\[3em]
+                                      & $S(p)$                                   \\[0em]
         \hhline{===}
     \end{tabular}
 \end{center}

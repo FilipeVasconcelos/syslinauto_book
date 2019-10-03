@@ -129,13 +129,13 @@ Le~\cref{tab-1ertemp} présente le module et l'argument pour quelques valeurs pa
 ($\omega=0.1$, $1$ et $\SI{10}{\radian\per\second}$).
 \begin{table}
     \begin{center}
-    \begin{tabular}{M{2.0cm}M{2.0cm}M{2.0cm}M{2.0cm}N}
+    \begin{tabular}{M{2.0cm}M{2.0cm}M{2.0cm}M{2.0cm}}
         \hhline{====}
-        $\omega \si{[\radian\per\second]}$ & $\omega=1$    & $\omega=10$    & $\omega=100$ & \\[1.5em]
+        $\omega \si{[\radian\per\second]}$ & $\omega=1$    & $\omega=10$    & $\omega=100$ \\[0em]
         \hline
-        $G(\omega)$     & 0.99          & 0.70       & 0.1 & \\ [1.5em]
+        $G(\omega)$     & 0.99          & 0.70       & 0.1 \\ [0em]
         \hline
-   $\phi(\omega)$      &-5.7\degree  &-45\degree&-84.3\degree & \\[1.5em]
+   $\phi(\omega)$      &-5.7\degree  &-45\degree&-84.3\degree \\[0em]
         \hhline{====}
     \end{tabular}
     \caption{Quelques valeurs particulières du gain et de la phase de la fonction de 
@@ -1474,24 +1474,23 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$
 
 \begin{table}[!h]
     \resizebox{\linewidth}{!}{
-    \begin{tabular}{M{1cm}M{2.5cm}M{2.5cm}M{2.5cm}M{2.5cm}M{2.5cm}N}
+    \begin{tabular}{M{1cm}M{2.5cm}M{2.5cm}M{2.5cm}M{2.5cm}M{2.5cm}}
     \hhline{======}
     & $\omega\ll\omega_1$ 
     & $\omega_1<\omega<\omega_2$ 
     & $\omega_2<\omega<\omega_3$  
     & $\omega_3<\omega<\omega_4$ 
-    & $\omega\gg\omega_4$ & \\[1em]
+    & $\omega\gg\omega_4$ \\[0em]
     \hhline{======}
-    $G_{dB}(\omega)$ (pente) & 0(40dB)       &-20dB/décade    & -20dB/décade    & +40dB/décade & -20dB/décade &\\[1em]
+    $G_{dB}(\omega)$ (pente) & 0(40dB)       &-20dB/décade    & -20dB/décade    & +40dB/décade & -20dB/décade \\[0em]
     \hline
-        $\phi(\omega)$       & 0\si{\degree} &-90\si{\degree} & -90\si{\degree} & +180\degree  & -90\degree   &\\[1em]
+        $\phi(\omega)$       & 0\si{\degree} &-90\si{\degree} & -90\si{\degree} & +180\degree  & -90\degree   \\[0em]
     \hhline{======}
-    $G_{dB}(\omega)$ total   & 0(40dB)       &-20dB/décade    & -40dB/décade    & 0(-20dB)     & -20dB/décade &\\[1em]
+    $G_{dB}(\omega)$ total   & 0(40dB)       &-20dB/décade    & -40dB/décade    & 0(-20dB)     & -20dB/décade \\[0em]
     \hline
-    $\phi(\omega)$   total   & 0\degree      &-90\degree      & -180\degree     & 0            & -90\degree   &\\[1em]
+    $\phi(\omega)$   total   & 0\degree      &-90\degree      & -180\degree     & 0            & -90\degree   \\[0em]
     \hhline{======}
-    \end{tabular}
-}
+    \end{tabular}}
 \end{table}
 
 
@@ -1513,7 +1512,7 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$
     ymin=-80, ymax=60,
     grid=both,
     major grid style={black!40}
-]
+    ]
     \addplot[ultra thick, blue,domain=1e-4:1e5, samples=201] {40+20*log10(1+x*x)-10*log10(1+10000*x*x)-10*log10(1+100*x*x)-10*log10(1+0.0001*x*x)}; 
     \addplot[line width=2pt,red,dashed,domain=1e-4:1e-2, samples=101] {40};
     \addplot[line width=2pt,red,dashed,domain=1e-2:1e-1, samples=101] {-20*log10(x)};
@@ -1525,7 +1524,8 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$
 
 \tikzsetnextfilename{bode_exemple_2-chap3_ext}
 \begin{tikzpicture}[trim axis left]
-\begin{axis}[
+\begin{axis}
+    [
     ticklabel style = {font=\footnotesize},
     width=0.9\textwidth,
     height=0.25\textheight,
@@ -1544,7 +1544,7 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$
     ymin=-180, ymax=0,
     grid=both,
     major grid style={black!40}
-]
+    ]
     \addplot[ultra thick, blue,domain=1e-4:1e5, samples=201] {2*atan2(x,1)-atan2(100*x,1)-atan2(10*x,1)-atan2(0.01*x,1)}; 
     \addplot[line width=2pt,red,dashed,domain=1e-4:1e-2, samples=101] {0};
     \addplot[line width=2pt,red,dashed,domain=1e-2:1e-1, samples=101] {-90};
@@ -1799,13 +1799,13 @@ $$
 $$
 \begin{table}
     \begin{center}
-    \begin{tabular}{M{2.0cm}M{2.0cm}M{2.0cm}M{2.0cm}N}
+    \begin{tabular}{M{2.0cm}M{2.0cm}M{2.0cm}M{2.0cm}}
         \hhline{====}
-                                     & $\omega=0$  & $\omega\to\infty$    & $\omega=\dfrac{1}{\tau}$ & \\[1.5em]
+                                     & $\omega=0$  & $\omega\to\infty$    & $\omega=\dfrac{1}{\tau}$ \\[0em]
         \hline
-        $\Re{H(\jw)}$     & $K$         & 0                    & $K/2$                    & \\ [1.5em]
+        $\Re{H(\jw)}$     & $K$         & 0                    & $K/2$                    \\[0em]
         \hline
-        $\Im{H(\jw)}$     & 0           & 0                    & $-K/2$                     & \\[1.5em]
+        $\Im{H(\jw)}$     & 0           & 0                    & $-K/2$                   \\[0em]
         \hhline{====}
     \end{tabular}
     \caption{Quelques valeurs particulières de $\Re{H(\jw)}$ et $\Im{H(\jw)}$

@@ -4,7 +4,7 @@ filename=sma_auto
 #filename=tes
 #filename=test_tikz
 fast:	ps-simple 
-	ps2pdf -sPAPERSIZE=a4 ${filename}.ps
+	ps2pdf -sPAPERSIZE=a4 -dNOSAFER ${filename}.ps
 
 pspdfd:	psd
 	ps2pdf -sPAPERSIZE=a4 ${filename}.ps
