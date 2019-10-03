@@ -1,6 +1,6 @@
 \chapter{Décomposition en éléments simples\label{annexe-DES}}
 
-\section{Avant-propos}
+\section{Contexte}
 En automatique, la détermination d'une réponse temporelle $s(t)$
 correspond à déterminer la transformée 
 de Laplace inverse d'une fraction rationnelle $S(p)$ 
@@ -10,7 +10,7 @@ s(t)=\laplacei{S(p)}
 $$
 Cette inversion passe généralement par l'utiliation des tables de transformées de Laplace 
 (c.f \Cref{annexe-lap}).
-Ces tables peuvent ne pas être complètes. La~\gls{des} de $S(p)$, nous permet alors de 
+Cependant, ces tables peuvent ne pas être complètes. La~\gls{des} de $S(p)$, nous permet alors de 
 réécrire cette fraction rationnelle sous une forme comportant 
 des fractions rationnelles usuellement présente dans les tables.
 
@@ -29,9 +29,9 @@ $$
 S(p)=\dfrac{N(p)}{D(p)}
 $$
 où $N(p)$ et $D(p)$ sont deux polynômes de degrés $m$ et $n$ respectivement.
-En générale, nous aurons à faire à des systèmes pour lesquels $m<n$. 
+En générale, nous aurons à faire à des systèmes pour lesquels $m\le n$. 
 Une des conséquences est que \textbf{la décomposition en élements simples ne comportera
-pas de partie entière.}\footnote{}
+pas de partie entière.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Décomposition en éléments simples}
@@ -40,8 +40,8 @@ pas de partie entière.}\footnote{}
 Soit $S(p)=\dfrac{N(p)}{D(p)}$ une fraction rationnelle. On considère la décomposition 
 de $D(p)$ en produit de polynômes irréductibles\footnote{Nous rappelons que 
 dans $\mathbb{R}[p]$, les polynômes irréductibles sont 
-les polynômes de degré 1 et les polynômes de degré 2 de discriminant négatif}unitaire\footnote{Un polynôme 
-unitaire est un polynôme dont le coefficient de degré le plus grand est 1}
+les polynômes de degré 1 et les polynômes de degré 2 de discriminant négatif.}unitaire\footnote{Un polynôme 
+unitaire est un polynôme dont le coefficient de degré le plus grand est 1.}
 de la forme:
 $$
 D(p)=a\prod_{k=1}^r(p-\alpha_k)^{m_k}\prod_{k=1}^s(p^2+\beta_lp+\gamma_l)^{n_k}
@@ -86,11 +86,26 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section[Détermination des coefficients de la DES]{Détermination des coefficients de la décomposition en éléments simples}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acpl
+Après avoir obtenue la~\gls{des}, il faut alors en déterminer les coefficients. Il existe plusieurs
+méthodes permettant cette détermination, toutes donnant evidemment le même résultat. Le choix 
+de la méthode dépend de la décomposition. On considèrera alors la méthode la plus éfficace et rapide.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Par identification}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acpl
+Cette méthode est toujours applicable, mais peux demander le plus de calcul. Celle-ci consiste à réduire
+la décomposition au même dénominateur.
+
+\paragraph{Exemple 1}
+Soit $S(p)$ tel que:
+$$
+S(p)=\dfrac{1}{(p^2-1)(p^2+1)^2}
+$$
+sa décomposition en éléments simples déterminé précédemment est donnée par :
+$$
+S(p)=\dfrac{A}{p-1}+\dfrac{B}{p+1}+\dfrac{Cp+D}{p^2+1}+\dfrac{Ep+F}{p^2+1}
+$$
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Multiplication/Substitution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

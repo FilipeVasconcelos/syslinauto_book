@@ -10,16 +10,19 @@
 Dans ce chapitre, nous allons introduire un outil graphique pour faciliter 
 la représentation des relations mathématiques entre les différents 
 éléments constituants un \gls{slci}. Cet outil est le \textbf{schéma fonctionnel} ou 
-également appelé \textbf{schéma-blocs}. Les schémas fonctionnels nous seront très 
-utiles pour l'étude des systèmes asservis. Dans une dernière partie nous introduirons 
+également appelé \textbf{schéma-bloc}. Les schémas fonctionnels nous seront très 
+utiles pour l'étude des systèmes asservis. Nous introduirons une algèbre de blocs permettant
+de réduire les schémas-blocs de grande taille. Nous aborderons également le cas des entrées multiples. 
+
+Dans une dernière partie nous introduirons 
 les graphes de fluence, comme présenté dans~\cite{Ostertag}. Même si ces derniers 
-sont moins utilisés pour l'étude \gls{slci}, l'algèbre qui lui est 
-associée s'avère bien plus éfficace et pourra être utilisé dans d'autres 
+sont moins utilisés pour l'étude \gls{slci}, et peuvent être négligés dans une première lecture,
+l'algèbre qui lui est associée s'avère bien plus éfficace et pourra être utilisé dans d'autres 
 applications (ex : éléctronique, réseaux de neurones).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Terminologie relative aux schémas fonctionnels}
+\section{\'Eléments de base des schémas fonctionnels}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Les schémas fonctionnels sont composés de quatre éléments de base:
 \textbf{les flèches, les blocs, les comparateurs et sommateurs et les points de prélèvement}
@@ -36,7 +39,7 @@ Les schémas fonctionnels sont composés de quatre éléments de base:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Les flèches donnent la direction de l'information (i.e du signal) au sein du schéma-blocs. 
 Elles peuvent être ornées de la grandeur mathématique qui leurs sont associée. 
-Celles-ci peuvent être des grandeurs temporelles ou \og fréquentielles\fg (i.e dans le domaine de Laplace). 
+Celles-ci peuvent être des grandeurs temporelles ou dans le domaine de Laplace. 
 \begin{center}
 \tikzsetnextfilename{sb_fleche-chap1_ext}
 \begin{tikzpicture}
@@ -44,23 +47,26 @@ Celles-ci peuvent être des grandeurs temporelles ou \og fréquentielles\fg (i.e
     \draw[-latex] (0,0) -- (2,0) node[midway,above] {$E(p)$};
 \end{tikzpicture}    
 \end{center}
-Pour alléger la notation, nous allons omettre la variable $p$ des grandeurs 
-dans le domaine de Laplace désignée par une majuscule.
+Cependant, nous nous limiterons à l'usage de ces schémas fonctionnelles pour la représentation
+de grandeur dans le domaine de Laplace.
 
+Pour alléger la notation dans ce chapitre, nous omettrons 
+très souvent la variable $p$ des grandeurs dans le domaine de Laplace désignées par une majuscule.
+
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Bloc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Le bloc est la représentation d'une fonction de transfert entre deux grandeurs.
-Par exemple, la relation entre deux grandeurs $E$ et $S$ et la fonction de transfert $H$
+Le bloc est la représentation d'une fonction de transfert entre deux grandeurs dans le domaine de Laplace.
+Par exemple, la relation entre l'entrée $E$ et la sortie $S$ définit par la fonction de transfert $H$
 qui s'écrit formellement, 
 \begin{bequation}[ams align]
 S = HE,\label{eq-ES}
 \end{bequation}
-
-est équivalente au schéma fonctionnel\footnote{Les schémas blocs de ce document ont tous étaient réalisés 
-avec les macros Ti\emph{k}Z (\verb?schemabloc?) écrit par R. Papanicola\cite{schemabloc}. 
-\`A noter que des macros Ti\emph{k}Z pour représenter les graphes de fluence 
+est équivalente au schéma fonctionnel\footnote{Les schémas-blocs de ce document ont tous 
+étaient réalisés avec les macros Ti\emph{k}Z (\verb?schemabloc?) écrit par R. Papanicola\cite{schemabloc}. 
+\`A noter que des macros Ti\emph{k}Z (\verb?gfluence?) pour représenter les graphes de fluence 
 de ce même chapitre, ont était fortement inspiré par ce même auteur.} 
 suivant:
 
@@ -326,8 +332,6 @@ La formule de Black se simplifie alors de la façon suivante :
     S&=\dfrac{H_1}{1+H_1}E
 \end{bequation}
 
-\newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
 \subsection{Manipulation de schéma-bloc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
@@ -501,7 +505,6 @@ déplacer le point de prélèvement. Ansi les deux schémas-blocs ci-dessous son
     \end{tikzpicture}
 \end{center}
 
-\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Cas d'entrées multiples}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1287,13 +1290,13 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section*{Exercices du chapitre}
+\section*{Exercices du chapitre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\exercice{}
-%\question
+\exercice{}
+\question
 
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
