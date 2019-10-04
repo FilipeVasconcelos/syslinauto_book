@@ -95,94 +95,92 @@ $f(t)$ sur le segment $[0,T]$ et nul partout ailleurs.
 
 %\clearpage
 \section{Table des transformées de Laplace}
+\renewcommand{\arraystretch}{2.5}
 \begin{table}[H]
 \centering
-%\resizebox{0.9\textwidth}{!}{
-\begin{tabular}{|D{0.5cm}|D{3.9cm}|D{8.9cm}|N}
+\resizebox{0.9\textwidth}{!}{
+\begin{tabular}{|M{0.5cm}|M{3.9cm}|M{8.9cm}|}
 \hline
-    & $F(p)$ & $f(t)=\laplacei{F(p)}$ &\tabularnewline[20pt]
+    & $F(p)$ & $f(t)=\laplacei{F(p)}$ \\
 \hline
-    1 & 1 & $\delta(t)$ &\tabularnewline[20pt]
+    1 & 1 & $\delta(t)$ \tabularnewline
 \hline
-    2 & $e^{-\tau p}$ & $\delta(t-\tau)$ &\tabularnewline[20pt]
+    2 & $e^{-\tau p}$ & $\delta(t-\tau)$ \tabularnewline
 \hline
-    3 & $\dfrac{1}{p}$ & 1 &\tabularnewline[20pt]
+    3 & $\dfrac{1}{p}$ & 1 \tabularnewline
 \hline
-    4 & $\dfrac{1}{p^2}$ & t &\tabularnewline[20pt]
+    4 & $\dfrac{1}{p^2}$ & t \tabularnewline
 \hline
-    5 & $\dfrac{1}{p^3}$ & $\dfrac{1}{2}t^2$ &\tabularnewline[20pt]
+    5 & $\dfrac{1}{p^3}$ & $\dfrac{1}{2}t^2$ \tabularnewline
 \hline
-    6 & $\dfrac{1}{p^n}$ & $\dfrac{1}{(n-1)!}t^{n-1}$ &\tabularnewline[20pt]
+    6 & $\dfrac{1}{p^n}$ & $\dfrac{1}{(n-1)!}t^{n-1}$ \tabularnewline
 \hline
-    7 & $\dfrac{1}{p+a}$ & $e^{-at}$ &\tabularnewline[20pt]
+    7 & $\dfrac{1}{p+a}$ & $e^{-at}$ \tabularnewline
 \hline
-    8 & $\dfrac{1}{(p+a)^2}$ & $te^{-at}$ &\tabularnewline[20pt]
+    8 & $\dfrac{1}{(p+a)^2}$ & $te^{-at}$ \tabularnewline
 \hline
-    9 & $\dfrac{1}{(p+a)^3}$ & $\dfrac{1}{2}t^2e^{-at}$ &\tabularnewline[20pt]
+    9 & $\dfrac{1}{(p+a)^3}$ & $\dfrac{1}{2}t^2e^{-at}$ \tabularnewline
 \hline
-    10 & $\dfrac{1}{(p+a)^n}$ & $\dfrac{1}{(n-1)!}t^{n-1}e^{-at}$ &\tabularnewline[20pt]
+    10 & $\dfrac{1}{(p+a)^n}$ & $\dfrac{1}{(n-1)!}t^{n-1}e^{-at}$ \tabularnewline
 \hline
-    11 & $\dfrac{a}{p(p+a)}$ & $1-e^{-at}$ &\tabularnewline[20pt]
+    11 & $\dfrac{a}{p(p+a)}$ & $1-e^{-at}$ \tabularnewline
 \hline
-    12 & $\dfrac{a}{p^2(p+a)}$ & $\dfrac{1}{a}\left[at-\left(1-e^{-at}\right)\right]$ &\tabularnewline[20pt]
+    12 & $\dfrac{a}{p^2(p+a)}$ & $\dfrac{1}{a}\left[at-\left(1-e^{-at}\right)\right]$ \tabularnewline
 \hline
-    13 & $\dfrac{p}{(p+a)^2}$ & $(1-at)e^{-at}$ &\tabularnewline[20pt]
+    13 & $\dfrac{p}{(p+a)^2}$ & $(1-at)e^{-at}$ \tabularnewline
 \hline
-    14 & $\dfrac{a^2}{p(p+a)^2}$ & $1-(1+at)e^{-at}$ &\tabularnewline[20pt]
+    14 & $\dfrac{a^2}{p(p+a)^2}$ & $1-(1+at)e^{-at}$ \tabularnewline
 \hline
-    15 & $\dfrac{a^2(p+z)}{p(p+a)^2}$ & $z-\left(z+a(z-a)t\right)e^{-at}$ &\tabularnewline[20pt]
+    15 & $\dfrac{a^2(p+z)}{p(p+a)^2}$ & $z-\left(z+a(z-a)t\right)e^{-at}$ \tabularnewline
 \hline
-    16 & $\dfrac{b-a}{(p+a)(p+b)}$ & $e^{-at}-e^{-bt}$ &\tabularnewline[20pt]
+    16 & $\dfrac{b-a}{(p+a)(p+b)}$ & $e^{-at}-e^{-bt}$ \tabularnewline
 \hline
 \end{tabular}
-%}
-%$\,$
-%\clearpage
+}
 \captionof{table}{Table de transformées de Laplace d'après\cite{Ostertag}}
 \end{table}
 \clearpage
+\renewcommand{\arraystretch}{3}
 \begin{table}[H]
 \centering
 \resizebox{0.9\textwidth}{!}{
 \begin{tabular}{|M{0.5cm}|M{3.9cm}|M{8.9cm}|N}
-%\hline
-%   & $F(p)$                         & $f(t)=\laplacei{F(p)}$             &\\[20pt]
 \hline
-17 & $\dfrac{(b-a)p}{(p+a)(p+b)}$ & $-ae^{-at}+be^{-bt}$&\\[20pt]
+17 & $\dfrac{(b-a)p}{(p+a)(p+b)}$ & $-ae^{-at}+be^{-bt}$&\\
 \hline
-18 & $\dfrac{(b-a)(p+z)}{(p+a)(p+b)}$ & $(z-a)e^{-at}-(z-b)e^{-bt}$&\\[20pt]
+18 & $\dfrac{(b-a)(p+z)}{(p+a)(p+b)}$ & $(z-a)e^{-at}-(z-b)e^{-bt}$&\\
 \hline
-19 & $\dfrac{ab}{p(p+a)(p+b)}$      & $1+\dfrac{be^{-at}-ae^{-bt}}{a-b}$ &\\[20pt]
+19 & $\dfrac{ab}{p(p+a)(p+b)}$      & $1+\dfrac{be^{-at}-ae^{-bt}}{a-b}$ &\\
 \hline
-20 & $\dfrac{ab(p+z)}{p(p+a)(p+b)}$ & $z+\dfrac{b(z-a)e^{-at}-a(z-b)e^{-bt}}{a-b}$ &\\[20pt]
+20 & $\dfrac{ab(p+z)}{p(p+a)(p+b)}$ & $z+\dfrac{b(z-a)e^{-at}-a(z-b)e^{-bt}}{a-b}$ &\\
 \hline
-21 & $\dfrac{1}{(p+a)(p+b)(p+c)}$   & $\dfrac{e^{-at}}{(b-a)(c-a)}+\dfrac{e^{-bt}}{(c-b)(a-b)}+\dfrac{e^{-ct}}{(a-c)(b-c)}$ &\\[20pt]
+21 & $\dfrac{1}{(p+a)(p+b)(p+c)}$   & $\dfrac{e^{-at}}{(b-a)(c-a)}+\dfrac{e^{-bt}}{(c-b)(a-b)}+\dfrac{e^{-ct}}{(a-c)(b-c)}$ &\\
 \hline
-22 & $\dfrac{p+z}{(p+a)(p+b)(p+c)}$& $\dfrac{(z-a)e^{-at}}{(b-a)(c-a)}+\dfrac{(z-b)e^{-bt}}{(c-b)(a-b)}+\dfrac{(z-c)e^{-ct}}{(a-c)(b-c)}$ &\\[20pt]
+22 & $\dfrac{p+z}{(p+a)(p+b)(p+c)}$& $\dfrac{(z-a)e^{-at}}{(b-a)(c-a)}+\dfrac{(z-b)e^{-bt}}{(c-b)(a-b)}+\dfrac{(z-c)e^{-ct}}{(a-c)(b-c)}$ &\\
 \hline
-23 & $\dfrac{\omega}{p^2+\omega^2}$ & $\sin\omega t$ &\\[20pt]
+23 & $\dfrac{\omega}{p^2+\omega^2}$ & $\sin\omega t$ &\\
 \hline
-24 & $\dfrac{p}{p^2+\omega^2}$ & $\cos\omega t$ &\\[20pt]
+24 & $\dfrac{p}{p^2+\omega^2}$ & $\cos\omega t$ &\\
 \hline
-25 & $\dfrac{p+z}{p^2+\omega^2}$ & $\sqrt{\dfrac{z^2+\omega^2}{\omega^2}}\sin{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z}}$ &\\[20pt]
+25 & $\dfrac{p+z}{p^2+\omega^2}$ & $\sqrt{\dfrac{z^2+\omega^2}{\omega^2}}\sin{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z}}$ &\\
 \hline
-26 & $\dfrac{\omega^2}{p(p^2+\omega)}$ & $1-\cos\omega t$&\\[20pt]
+26 & $\dfrac{\omega^2}{p(p^2+\omega)}$ & $1-\cos\omega t$&\\
 \hline
-27 & $\dfrac{\omega^2(p+z)}{p(p^2+\omega)^2}$ & $z-\sqrt{\dfrac{z^2+\omega^2}{\omega^2}}\cos{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z}}$&\\[20pt]
+27 & $\dfrac{\omega^2(p+z)}{p(p^2+\omega)^2}$ & $z-\sqrt{\dfrac{z^2+\omega^2}{\omega^2}}\cos{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z}}$&\\
 \hline
 %28 & $\dfrac{\omega}{p^2-\omega^2}$ & $\sinh{\omega t}$&\\[20pt]
 %\hline
 %29 & $\dfrac{p}{p^2-\omega^2}$ & $\cosh{\omega t}$&\\[20pt]
 %\hline
-28 & $\dfrac{\omega}{(p+a)^2+\omega^2}$ & $e^{-at}\sin{\omega t}$ &\\[20pt]
+28 & $\dfrac{\omega}{(p+a)^2+\omega^2}$ & $e^{-at}\sin{\omega t}$ &\\
 \hline
-29 & $\dfrac{p+a}{(p+a)^2+\omega^2}$ & $e^{-at}\cos{\omega t}$ &\\[20pt]
+29 & $\dfrac{p+a}{(p+a)^2+\omega^2}$ & $e^{-at}\cos{\omega t}$ &\\
 \hline
-30 & $\dfrac{p+z}{(p+a)^2+\omega^2}$ & $\sqrt{\dfrac{(z-a)^2+\omega^2}{\omega^2}}e^{-at}\sin{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z-a}}$&\\[20pt]
+30 & $\dfrac{p+z}{(p+a)^2+\omega^2}$ & $\sqrt{\dfrac{(z-a)^2+\omega^2}{\omega^2}}e^{-at}\sin{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z-a}}$&\\
 \hline
-31 & $\dfrac{\omega^2}{p^2+2\xi\omega p +\omega^2}$ & $\dfrac{\omega}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t}$&\\[20pt]
+31 & $\dfrac{\omega^2}{p^2+2\xi\omega p +\omega^2}$ & $\dfrac{\omega}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t}$&\\
 \hline
-32 & $\dfrac{\omega^2}{p(p^2+2\xi\omega p +\omega^2)}$ & $1-\dfrac{1}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2}t+\phi}$ avec $\phi=\arccos{\xi}$&\\[20pt]
+32 & $\dfrac{\omega^2}{p(p^2+2\xi\omega p +\omega^2)}$ & $1-\dfrac{1}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2}t+\phi}$ avec $\phi=\arccos{\xi}$&\\
 \hline
 \end{tabular}
 }
