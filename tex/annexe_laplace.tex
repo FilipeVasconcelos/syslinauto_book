@@ -92,58 +92,56 @@ $$
 \end{itemize}
 où $F_0(p)$ est la transformée de Laplace du motif $f_0(t)$ égal à 
 $f(t)$ sur le segment $[0,T]$ et nul partout ailleurs.
-
-%\clearpage
 \section{Table des transformées de Laplace}
-\renewcommand{\arraystretch}{2.5}
+\renewcommand{\arraystretch}{2.25}
 \begin{table}[H]
 \centering
-\resizebox{0.9\textwidth}{!}{
-\begin{tabular}{|M{0.5cm}|M{3.9cm}|M{8.9cm}|}
+%\resizebox{0.9\textwidth}{!}{
+\begin{tabular}{|M{0.5cm}|M{3.9cm}|M{8.9cm}|N}
 \hline
-    & $F(p)$ & $f(t)=\laplacei{F(p)}$ \\
+    & $F(p)$ & $f(t)=\laplacei{F(p)}$ &\\
 \hline
-    1 & 1 & $\delta(t)$ \tabularnewline
+    1 & 1 & $\delta(t)$ &\tabularnewline
 \hline
-    2 & $e^{-\tau p}$ & $\delta(t-\tau)$ \tabularnewline
+    2 & $e^{-\tau p}$ & $\delta(t-\tau)$ &\tabularnewline
 \hline
-    3 & $\dfrac{1}{p}$ & 1 \tabularnewline
+    3 & $\dfrac{1}{p}$ & 1 &\tabularnewline
 \hline
-    4 & $\dfrac{1}{p^2}$ & t \tabularnewline
+    4 & $\dfrac{1}{p^2}$ & t &\tabularnewline
 \hline
-    5 & $\dfrac{1}{p^3}$ & $\dfrac{1}{2}t^2$ \tabularnewline
+    5 & $\dfrac{1}{p^3}$ & $\dfrac{1}{2}t^2$ &\tabularnewline
 \hline
-    6 & $\dfrac{1}{p^n}$ & $\dfrac{1}{(n-1)!}t^{n-1}$ \tabularnewline
+    6 & $\dfrac{1}{p^n}$ & $\dfrac{1}{(n-1)!}t^{n-1}$ &\tabularnewline
 \hline
-    7 & $\dfrac{1}{p+a}$ & $e^{-at}$ \tabularnewline
+    7 & $\dfrac{1}{p+a}$ & $e^{-at}$ &\tabularnewline
 \hline
-    8 & $\dfrac{1}{(p+a)^2}$ & $te^{-at}$ \tabularnewline
+    8 & $\dfrac{1}{(p+a)^2}$ & $te^{-at}$ &\tabularnewline
 \hline
-    9 & $\dfrac{1}{(p+a)^3}$ & $\dfrac{1}{2}t^2e^{-at}$ \tabularnewline
+    9 & $\dfrac{1}{(p+a)^3}$ & $\dfrac{1}{2}t^2e^{-at}$ &\tabularnewline
 \hline
-    10 & $\dfrac{1}{(p+a)^n}$ & $\dfrac{1}{(n-1)!}t^{n-1}e^{-at}$ \tabularnewline
+    10 & $\dfrac{1}{(p+a)^n}$ & $\dfrac{1}{(n-1)!}t^{n-1}e^{-at}$ &\tabularnewline
 \hline
-    11 & $\dfrac{a}{p(p+a)}$ & $1-e^{-at}$ \tabularnewline
+    11 & $\dfrac{a}{p(p+a)}$ & $1-e^{-at}$ &\tabularnewline
 \hline
-    12 & $\dfrac{a}{p^2(p+a)}$ & $\dfrac{1}{a}\left[at-\left(1-e^{-at}\right)\right]$ \tabularnewline
+    12 & $\dfrac{a}{p^2(p+a)}$ & $\dfrac{1}{a}\left[at-\left(1-e^{-at}\right)\right]$ &\tabularnewline
 \hline
-    13 & $\dfrac{p}{(p+a)^2}$ & $(1-at)e^{-at}$ \tabularnewline
+    13 & $\dfrac{p}{(p+a)^2}$ & $(1-at)e^{-at}$ &\tabularnewline
 \hline
-    14 & $\dfrac{a^2}{p(p+a)^2}$ & $1-(1+at)e^{-at}$ \tabularnewline
+    14 & $\dfrac{a^2}{p(p+a)^2}$ & $1-(1+at)e^{-at}$ &\tabularnewline
 \hline
-    15 & $\dfrac{a^2(p+z)}{p(p+a)^2}$ & $z-\left(z+a(z-a)t\right)e^{-at}$ \tabularnewline
+    15 & $\dfrac{a^2(p+z)}{p(p+a)^2}$ & $z-\left(z+a(z-a)t\right)e^{-at}$ &\tabularnewline
 \hline
-    16 & $\dfrac{b-a}{(p+a)(p+b)}$ & $e^{-at}-e^{-bt}$ \tabularnewline
+    16 & $\dfrac{b-a}{(p+a)(p+b)}$ & $e^{-at}-e^{-bt}$ &\tabularnewline
 \hline
 \end{tabular}
-}
+%}
 \captionof{table}{Table de transformées de Laplace d'après\cite{Ostertag}}
 \end{table}
-\clearpage
-\renewcommand{\arraystretch}{3}
+%\clearpage
+\renewcommand{\arraystretch}{2.25}
 \begin{table}[H]
 \centering
-\resizebox{0.9\textwidth}{!}{
+%\resizebox{0.9\textwidth}{!}{
 \begin{tabular}{|M{0.5cm}|M{3.9cm}|M{8.9cm}|N}
 \hline
 17 & $\dfrac{(b-a)p}{(p+a)(p+b)}$ & $-ae^{-at}+be^{-bt}$&\\
@@ -164,7 +162,7 @@ $f(t)$ sur le segment $[0,T]$ et nul partout ailleurs.
 \hline
 25 & $\dfrac{p+z}{p^2+\omega^2}$ & $\sqrt{\dfrac{z^2+\omega^2}{\omega^2}}\sin{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z}}$ &\\
 \hline
-26 & $\dfrac{\omega^2}{p(p^2+\omega)}$ & $1-\cos\omega t$&\\
+26 & $\dfrac{\omega^2}{p(p^2+\omega^2)}$ & $1-\cos\omega t$&\\
 \hline
 27 & $\dfrac{\omega^2(p+z)}{p(p^2+\omega)^2}$ & $z-\sqrt{\dfrac{z^2+\omega^2}{\omega^2}}\cos{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z}}$&\\
 \hline
@@ -178,11 +176,11 @@ $f(t)$ sur le segment $[0,T]$ et nul partout ailleurs.
 \hline
 30 & $\dfrac{p+z}{(p+a)^2+\omega^2}$ & $\sqrt{\dfrac{(z-a)^2+\omega^2}{\omega^2}}e^{-at}\sin{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z-a}}$&\\
 \hline
-31 & $\dfrac{\omega^2}{p^2+2\xi\omega p +\omega^2}$ & $\dfrac{\omega}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t}$&\\
+31 & $\dfrac{\omega^2}{p^2+2\xi\omega p +\omega^2}$ avec $\xi<1$& $\dfrac{\omega}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t}$&\\
 \hline
-32 & $\dfrac{\omega^2}{p(p^2+2\xi\omega p +\omega^2)}$ & $1-\dfrac{1}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2}t+\phi}$ avec $\phi=\arccos{\xi}$&\\
+32 & $\dfrac{\omega^2}{p(p^2+2\xi\omega p +\omega^2)}$ avec $\xi<1$ & $1-\dfrac{1}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2}t+\phi}$ avec $\phi=\arccos{\xi}$&\\
 \hline
 \end{tabular}
-}
+%}
 \captionof{table}{(suite) Table de transformées de Laplace d'après~\cite{Ostertag}}
 \end{table}

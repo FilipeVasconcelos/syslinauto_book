@@ -93,33 +93,51 @@ de la méthode dépend de la décomposition. On considèrera alors la méthode l
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Par identification}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Cette méthode est toujours applicable, mais peux demander le plus de calcul. Celle-ci consiste à réduire
-la décomposition au même dénominateur.
+Cette méthode est toujours applicable, mais pourra s'avérer être la fastidueuse
+à mettre en oeuvre dans certains cas.
+Celle-ci consiste à réduire la décomposition au même dénominateur et à établir
+un système d'équations sur les coéfficients à déterminer.
 
 \paragraph{Exemple 1}
 Soit $S(p)$ tel que:
 $$
-S(p)=\dfrac{1}{(p^2-1)(p^2+1)^2}
+S(p)=\dfrac{1}{(p+1)(p+2)}
 $$
-sa décomposition en éléments simples déterminé précédemment est donnée par :
+sa décomposition en éléments simples est donnée par :
 $$
-S(p)=\dfrac{A}{p-1}+\dfrac{B}{p+1}+\dfrac{Cp+D}{p^2+1}+\dfrac{Ep+F}{p^2+1}
+S(p)=\dfrac{A}{p+1}+\dfrac{B}{p+2}
+$$
+au même dénominateur on obtient
+$$
+S(p)=\dfrac{A(p+2)+B(p+1)}{(p+1)(p+2)}=\dfrac{(A+B)p+(2A+B)}{(p+1)(p+2)}=\dfrac{1}{(p+1)(p+2)}
+$$
+Le système d'équations sur les coéfficients de la décomposition sont :
+$$
+\begin{cases}
+    A+B=0\\
+    2A+B=1
+\end{cases}
+$$
+Sa résolution nous donne, $A=1$ et $B=-1$.
+La décompositon en éléments simples de $S(p)$ est donc finalement donnée par :
+$$
+S(p)=\dfrac{1}{p+1}-\dfrac{1}{p+2}
 $$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Multiplication/Substitution}
+%\subsection{Multiplication/Substitution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acpl
+%\acpl
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{\'Evaluation}
+%\subsection{\'Evaluation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acpl
+%\acpl
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Parité}
+%\subsection{Parité}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acpl
+%\acpl
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Passage à la limite}
+%\subsection{Passage à la limite}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acpl
+%\acpl
 

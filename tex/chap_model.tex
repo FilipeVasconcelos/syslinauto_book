@@ -934,8 +934,8 @@ et le $k$-ème dépassement $D_k$ est lui donné par :
 
 La~\cref{fig-2nd_depassement_2} présente cette relation entre le dépassement  et le taux d'amortissement.
 Il est possible d'utiliser cette figure comme un abaque\footnote{Les abaques sont très répandus en automatique. 
-Ils permettent de s'affranchir de nombreux claculs.} facilitant le calcul du dépassement 
-connaissant le taux d'amortissement et inversement.
+Ils permettent de s'affranchir de nombreux claculs en lisant des valeurs directement sur un graphique.} 
+facilitant le calcul du dépassement connaissant le taux d'amortissement et inversement.
 \newline
 
 Il n'existe pas de relation analytique simple pour déterminer 
@@ -1208,13 +1208,35 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+\dfrac{2\xi}{\omega_d}e^{-\alpha t}\sin{
 
 Dans le cas où l'équation différentielle est de la forme 
 $$
-\devi{s(t)}{2}+\omega_0^2 s(t)=e(t)
+\devi{s(t)}{2}+\omega_0^2 s(t)=Ke(t)
+$$
+c'est à dire sans amortissement ($\xi=0$), on se retrouve alors dans le 
+cas classique de l'oscillateur harmonique.
+Nous allons ici étudié ce modèle limite qui est d'une grande importance en physique.
+Ceci afin de constater que l'approche utilisée tout le long de ce chapitre
+permet également de décrire ce modèle important. 
+
+La fonction de transfert de l'équation différentielle précédente s'écrit :
+$$
+H(p)=\dfrac{S(p)}{E(p)}=\dfrac{K}{p^2+\omega_o^2}
 $$
 
-La fonction de transfert s'écrit :
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Réponse impulsionnelle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La réponse impulsionnelle d'un oscillateur harmonique est, dans le domaine de Laplace,
+donnée par 
 $$
-H(p)=\dfrac{S(p)}{E(p)}=
+S(p)=\dfrac{KE_0}{p^2+\omega_o^2}
 $$
+La réponse dans le domaine temporelle est donnée par :
+$$
+s(t)=\laplace{S(p)}=\dfrac{KE_0}{\omega_0}\sin{\omega_0t}
+$$
+Ce qui correspond bien à l'oscillation incessante d'un oscillateur que l'on a 
+déplacé de son état d'équilibre.
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
