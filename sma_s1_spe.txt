@@ -11,7 +11,7 @@
  -------------------------------------------------------------------------
   Cours 1  
  -------------------------------------------------------------------------
-  Chapitre : Introduction à l'automatique.
+  Chapitre : Introduction à l'automatique.           (Avant-propos et Chapitre 1 du poly)
            - Modalité de validation du module.
            - Petit historique (Clepsydre, Machine de Watt)  
            - Un exemple de la vie courante (temperature d'une douche régulation de la température pour 
@@ -52,7 +52,7 @@
  -------------------------------------------------------------------------
   Cours 2  
  -------------------------------------------------------------------------
-  Chapitre : Systèmes linéaires continus et invariants
+  Chapitre : Systèmes linéaires continus et invariants (Chapitre 1 du poly)
 
            - Différentes propriétés systèmes : 
                 - linéaire
@@ -79,7 +79,7 @@
  -------------------------------------------------------------------------
   Cours 3 
  -------------------------------------------------------------------------
-  Chapitre : Systèmes linéaires continus et invariants
+  Chapitre : Systèmes linéaires continus et invariants (Chapitre 1 du poly)
 
            - Présentation de la méthodologie de résolution des équations 
              différentielles. Introduction de la transformée de façon générale. 
@@ -111,12 +111,20 @@
  -------------------------------------------------------------------------
   Cours 4  
  -------------------------------------------------------------------------
-  Chapitre : Systèmes linéaires continus et invariants
+  Chapitre : Systèmes linéaires continus et invariants (Chapitre 1 du poly)
 
-           - Fonctions de transfert 
-           - Pôles / Zéros
-           - Fonction de transfert et réponse impulsionnelle.
-           - Représentation de la fonction de transfert algébrique/graphique
+           - Fonctions de transfert :
+                - Définition
+                - Remarque par rapport au lien entre la FT et la réponse
+                  impulsionnelle
+                - Fraction rationnelle
+                - Pôles / Zéros ( + petit exemple)
+                - Représentation en bloc de la fonction de transfert 
+                  (la semaine prochaine nous présenterons l'algèbre de bloc)
+           - Représentation de la fonction de transfert algébrique/graphique :
+                - Forme canonique  ( + exemple )
+                - Forme factorisée ( + exemple )
+                - Carte des pôles et zéros d'une fonction de transfert. 
  -------------------------------------------------------------------------
   TD 4 (à écrire !) 
  -------------------------------------------------------------------------
@@ -127,10 +135,23 @@
  -------------------------------------------------------------------------
   Cours 5 
  -------------------------------------------------------------------------
-  Chapitre : Schémas fonctionnels et graphe de fluence 
+  Chapitre : Schémas fonctionnels et graphe de fluence (Chapitre 2 du poly)
 
-           - Schéma fonctionnel (Algèbre de blocs) ( hors programme à mentionner 
-                                                     Graphe de fluence )
+           - Eléments de base des schémas fonctionnels 
+                - Bloc
+                - Flêche
+                - Comparateur/Sommateur
+                - Point de jonction/prélèvement
+           - Transformation des schémas fonctionnels
+                - Réduction (série/parallèle/boucle de contre réaction)
+                - Manipulation :
+                    - Déplacement d'un comparateur vers la gauche 
+                    - Déplacement d'un point de prélèvement vers la droite
+           - Cas des entrées multiples
+                - Entrée/Perturbation
+                - Principe de superposition
+           - Méthodologie générale pour la réduction de schéma-bloc de grande taille  
+           - Mentionner les Graphes de fluence du poly (hors programme).
  -------------------------------------------------------------------------
   TD 5 (prêt!)
  -------------------------------------------------------------------------
