@@ -30,7 +30,7 @@ un point-virgule auquel cas le résultat est caché.
 Les variables sont sensibles à la casse.
 \verb?ans? est la variable qui contient le dernier résultat.
 Un commentaire commence par  \verb?\\?. 
-La plupart des opérateurs sont communs avec d'autres langages (affectation~\verb?=?, addition~\verb?+?, soustraction~\verb?-?, multiplication~\verb?*?, puissance~\verb?**?).
+La plupart des opérateurs sont communs avec d'autres langages (affectation~\verb?=?, addition~\verb?+?, soustraction~\verb?-?, multiplication~\verb?*?, puissance~\verb?** ou ^? ).
 
 \paragraph{Exemples :}
 \begin{code}
@@ -369,6 +369,44 @@ dans la barre de menus, ou tapez   dans la console :
 \end{verbatim}
 \end{code}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Tracer de figures}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On utilisera les fonctions \verb?scf? et \verb?clf?  pour respectivement
+créer une nouvelle fenêtre graphique et éffacer le contenu d'une fenêtre graphique.
+
+\paragraph{Exemple : plot de deux fenêtres (sinus/cosinus)}
+\begin{code}
+\begin{verbatim}
+
+scf(0);clf(0); // création d'une première fenêtre
+t=0.0:0.05:100;
+plot(t,sin(t),'r')
+legend('$s_1(t)$','$e_1(t)$')
+xlabel("$t$","fontsize",4);
+ylabel("$s_2(t)$","fontsize",4);
+title('fonction sinus',"fontsize",4);
+
+scf(1);clf(1); / création d'une seconde fenêtre
+t=0.0:0.05:100;
+plot(t,cos(t),'r')
+legend('$s_2(t)$','$e_1(t)$')
+xlabel("$t$","fontsize",4);
+ylabel("$s_2(t)$","fontsize",4);
+title('fonction cosinus',"fontsize",4);
+\end{verbatim}
+\end{code}
+          
+Les textes des légendes, titre des axes acceptent la syntaxe~\LaTeX.
+
+Il existe de nombreuses commandes pour modifier l'apparence
+d'une figure, de ces axes et pour pouvoir la sauvegarder
+dans différents formats (vectorielle ou matricielle).
+Nous renvoyons au lecteur à la documentation de Scilab pour
+cet aspect. Il est également possible d'éditer une image en accédant
+au menu de la fenêtre graphique après l'avoir générée.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section[Programmation]{Programmation (source \href{https://fr.wikibooks.org/wiki/Découvrir_Scilab}{Wikibooks}) }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -475,9 +513,7 @@ sl=syslin(dom,H)
 
 \end{doc}
 
-\subsection{Carte des pôles et zéros}
-\acpl
-plzr
+
 
 \newpage
 
@@ -647,44 +683,60 @@ Scilab permet de tracer facilement les différents diagrammes de la réponse fr�
 Nous donnons ici les fonctions les plus importantes : 
 \begin{code}
 \begin{verbatim}
-// ============================================================
-//                   Réponse Fréquentielle
-// ============================================================
-scf(grf);clf(grf);grf=grf+1;
 fMin =0.01,fMax=100;
 p=poly(0,'p')
 K=1.,tau=1.;
 H=K/(1+tau*p);
 PremierOrdre=syslin('c',[K],[1+tau*p])
 
-// ----------------------
 // diagrammme de Bode
-//-----------------------
+scf(0);clf(0);
 bode(PremierOrdre,fMin,fMax); bode_asymp(PremierOrdre,fMin,fMax);
 
-// ----------------------
 // diagrammme de Nyquist
-//-----------------------
-scf(grf);clf(grf);grf=grf+1;
+scf(1);clf(1);
 nyquist(PremierOrdre) ;
 
-// ---------------------
 // diagramme de Black
-// ---------------------
-scf(grf);clf(grf);grf=grf+1;
+scf(2);clf(2);
 black(PremierOrdre,0.01,10);
 nicholschart(colors=color('gray')*[2 2]) //abaque de Black
 
-// ----------------------
 // Lieu de Evans
-//-----------------------
-scf(grf);clf(grf);grf=grf+1;
+scf(3);clf(3);
 evans(PremierOrdre) ;
 \end{verbatim}
 \end{code}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Carte des pôles et zéros}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{doc}                                                                       
+\paragraph{Fonction plzr (extrait de la doc officiel (en anglais): help plzr )}   
+\begin{itemize}                                                                   
+    \item Syntax :                                                                
+    \begin{code}                                                                  
+\begin{verbatim}                                                                  
+plzr(sl)                                                                          
+\end{verbatim}                                                                    
+    \end{code}                                                                    
+    \item Arguments :                                                             
+    \begin{itemize}                                                               
+        \item \verb?sl? syslin list (SIMO linear system) in continuous time.      
+    \end{itemize}                                                                 
+    \item Description :                                                           
+                                                                                  
+    \begin{itemize}                                                               
+        \item \verb?plzr(sl)? produces a pole-zero plot of the linear system sl.  
+    \end{itemize}                                                                 
+\end{itemize}                                                                     
+                                                                                  
+\end{doc}                                                                         
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Asservissement}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{doc}
 \paragraph{Fonction feedback (extrait de la doc officiel (en anglais): help feedback)}
@@ -718,7 +770,11 @@ Sl=Sl1/.Sl2
 
 
 \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Scilab-Xcos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous présentons ici le module Xcos intégré à Scilab. Xcos inclut un 
 éditeur graphique pour facilement représenté les schémas fonctionnels
 en connectant des blocs entre eux. Cette présentation/tutoriel étant loin d'être complète,
@@ -726,7 +782,9 @@ nous renvoyons le lecteur à la documentation officielle de Xcos pour obtenir da
 %sur l'utilisation de ce module (notamment les références
 %suivantes~\cite{steer2014scilab,premier,xcos}, sur lesquelles est basé le petit tuto suivant.)
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Lancer Xcos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Après avoir lancé Scilab, éxécuter une des instructions suivantes :
 \begin{itemize}
     \item Taper la commande \verb?xcos? dans la console;
@@ -737,7 +795,9 @@ Après avoir lancé Scilab, éxécuter une des instructions suivantes :
 Xcos ouvre par défaut le navigateur de palettes et une fenêtre d'édition. 
 Pour construire le diagramme il suffit de faire glisser les blocs dans la fenêtre d'édition.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Diagramme simple}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Le module inclut un grand nombre de blocs (c.f Navigateur de palettes).
 Il est possible de construire des super-blocs qui incorpore d'autres blocs pour faciliter la lecture d'un
@@ -772,7 +832,9 @@ Connecter les blocs pour obtenir le schéma bloc Xcos de la figure~\ref{fig-simp
 Il faut maintenant simuler et visualiser les résultats.  
 
 %\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Simulation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Pour lancer une simulation : cliquer sur l'icône : 
 \raisebox{-\mydepth}{\fbox{\includegraphics[height=\myheight]{fig/demarrage.eps}}}
@@ -789,7 +851,9 @@ Plusieurs paramètres peuvent être ajustés :
         (N'oubliez pas d'ajouter un contexte si vous utiliser des variables)
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Blocs \og To Workspace \fg~ou \og From Workspace\fg}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 On utilisera les blocs particuliers dans le cas où l'on souhaite 
 utiliser des données à partir de Scilab (\og From Workspace\fg) 
