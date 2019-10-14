@@ -424,6 +424,8 @@ cross/.default={1pt}}
 %\includeonly{tex/annexe_invL}              % Inverse Laplace 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\includeonly{tex/chap_model,tex/annexe_laplace}         
+\includeonly{tex/chap_bloc}
+
 %\setcounter{chapter}{-1}
 
 %%%%%%%%%%%%%%
@@ -471,7 +473,9 @@ cross/.default={1pt}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{tex/avantpropos}                % Introduction Générale 
 \include{tex/chap_slci}                % SLCI
+{\tikzset{external/export=false}
 \include{tex/chap_bloc}                % Diagramme bloc
+}
 \include{tex/chap_model}               % Modèles de SLCI
 \include{tex/chap_repfreq}             % Réponse Harmonique
 \include{tex/chap_asserv}              % Asservissement

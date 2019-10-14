@@ -15,9 +15,10 @@ utiles pour l'étude des systèmes asservis. Nous introduirons une algèbre de b
 de réduire les schémas-blocs de grande taille. Nous aborderons également le cas des entrées multiples. 
 
 Dans une dernière partie nous introduirons 
-les graphes de fluence, comme présenté dans~\cite{Ostertag}. Même si ces derniers 
-sont moins utilisés pour l'étude \gls{slci}, et peuvent être négligés dans une première lecture,
-l'algèbre qui lui est associée s'avère bien plus éfficace et pourra être utilisé dans d'autres 
+les graphes de fluence, comme présenté dans~\cite{Ostertag}. Ces derniers 
+sont moins utilisés pour l'étude des \gls{slci}, et peuvent donc être négligés 
+dans une première lecture, l'algèbre qui lui est associée s'avère cependant bien plus 
+éfficace et pourra être utilisée dans d'autres 
 applications (ex : éléctronique, réseaux de neurones).
 
 
@@ -607,7 +608,7 @@ réduction de schéma-bloc de grande taille \cite{Ostertag}:
     \item Regrouper les blocs en parallèle et en série.
     \item \'Eliminer les boucles de contre-réaction locales.
     \item Déplacer les sommateurs/comparateurs vers la gauche et déplacer les jonctions vers la droite.
-    \item Répéter pour obtenir une forme cannonique pour une entrée particulière.
+    \item Répéter pour obtenir une forme canonique pour une entrée particulière.
     \item Dans le cas d'entrée multiple, répéter (1-4) pour chaque entrée. 
 \end{enumerate}
 
@@ -713,7 +714,7 @@ Déplaçons le point de prélèvement de la boucle de retour inférieur vers la 
     \sbRelierxy[$n_1$]{r1}{d}
     \sbRelieryx{f-S1}{r2}
     \sbRelierxy[$n_2$]{r2}{a}
-    \draw[ultra thick,blue,-latex] (6.7,1.15) +(80:0.45cm) arc(80:-260:0.45cm) 
+    \draw[ultra thick,blue,-latex] (7.15,1.21) +(80:0.45cm) arc(80:-260:0.45cm) 
     node[blue,below,right,xshift=1.5em,yshift=-1em] {$B_1$};
 \end{tikzpicture}   
 \end{center}                                                                                                                  
@@ -739,7 +740,7 @@ Après réduction de cette boucle, le schéma-blocs dévient :
     \sbBlocr{r2}{$\dfrac{R_2R_3}{H_4}$}{v}
     \sbRelieryx{f-S1}{r2}
     \sbRelierxy[$n_2$]{r2}{a}
-    \draw[ultra thick,blue,-latex] (4.5,-1.2) +(80:0.45cm) arc(80:-260:0.45cm) 
+    \draw[ultra thick,blue,-latex] (4.9,-1.23) +(80:0.45cm) arc(80:-260:0.45cm) 
     node[blue,below,right,xshift=1.5em,yshift=-1em] {$B_2$};
 \end{tikzpicture}   
 \end{center}                                                                                                                  
@@ -762,7 +763,7 @@ Après réduction de cette boucle, le schéma-blocs dévient :
     \sbBlocr[-1.5]{r2}{$\dfrac{R_2R_3}{H_4}$}{v}
     \sbRelieryx{b-S1}{r2}
     \sbRelierxy[$n_2$]{r2}{a}
-    \draw[ultra thick,black,-latex] (3.85,-1.15) +(80:0.45cm) arc(80:-260:0.45cm) 
+    \draw[ultra thick,black,-latex] (4.1,-1.23) +(80:0.45cm) arc(80:-260:0.45cm) 
     node[black,below,right,xshift=1.5em,yshift=-1em] {$B_2$};
 \end{tikzpicture}   
 \end{center}                                                                                                                  
