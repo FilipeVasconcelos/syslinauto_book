@@ -1,11 +1,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter[Schéma fonctionnels]{Schémas fonctionnels et graphes de fluence\label{chap-schemabloc}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \minitoc
 \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dans ce chapitre, nous allons introduire un outil graphique pour faciliter 
 la représentation des relations mathématiques entre les différents 
@@ -22,8 +28,10 @@ dans une première lecture, l'algèbre qui lui est associée s'avère cependant 
 applications (ex : éléctronique, réseaux de neurones).
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\'Eléments de base des schémas fonctionnels}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Les schémas fonctionnels sont composés de quatre éléments de base:
 \textbf{les flèches, les blocs, les comparateurs et sommateurs et les points de prélèvement}
@@ -151,8 +159,10 @@ associées la même grandeur $S$.
 Dans cette configuration, la branche 1 est dite \og direct\fg et la branche 2 est dite de \og retour\fg.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Transformation des schémas fonctionnels}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Réduction de schéma-bloc}
@@ -309,7 +319,9 @@ La boucle de contre-réaction est donc équivalente au schéma-bloc simplifié s
 \end{center}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Boucle de contre-réaction unitaire}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Une boucle de contre-réaction unitaire est une boucle de contre-réaction sans 
 fonction de transfert de retour (ex: dans le cas présenté précedemment $H_2=1$).
@@ -333,9 +345,11 @@ La formule de Black se simplifie alors de la façon suivante :
     S&=\dfrac{H_1}{1+H_1}E
 \end{bequation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Manipulation de schéma-bloc}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous allons ici présenter différentes manipulations que nous
 pourront appliquer au schéma-bloc. Ces manipulations peuvent
 être vues comme des opérations d'une \textbf{algèbre de blocs}.
@@ -506,9 +520,11 @@ déplacer le point de prélèvement. Ansi les deux schémas-blocs ci-dessous son
     \end{tikzpicture}
 \end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Cas d'entrées multiples}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Dans le cas d'un système possédant plusieurs entrées, il est possible de simplifier 
 le problème en appliqant le principe de superposition. La réponse totale devient alors la somme
@@ -534,7 +550,7 @@ Considérons le schéma-blocs suivant :
     \sbRelieryx{e-S1}{r2}
     \sbRelierxy{r2}{a}
     \node[above =of d] (aa) {}; 
-    \draw[-latex] (aa) node[right,yshift=-1em] {$P$} --(d.north) ;
+    \draw[thick,-latex] (aa) node[right,yshift=-1em] {$P$} --(d.north) ;
 \end{tikzpicture}   
 \end{center}                                                                                                                  
 
@@ -597,9 +613,11 @@ La sortie totale $S$ du système à deux entrées est la somme de ses sorties in
 Si $E$ est une entrée de consigne et $P$ une perturbation, $H_E$ et $H_P$ sont respectivement appelées \textbf{fonction de transfert d'asservissement} et \textbf{fonction de transfert de régulation}.
 Remarquons que le dénominateur de ces fonctions de transferts sont identiques. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section[Réduction de schéma-bloc de grande taille]{Méthodologie générale pour la réduction de schéma-bloc de grande taille}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Nous venons de présenter les principales transformations et manipulations qui peuvent être
 appliquées aux schémas fonctionnels. Nous donnons ici une approche simple pour la 
@@ -785,12 +803,94 @@ Enfin, il nous suffit de réduire la boucle de contre-réaction $B_2$ par la for
 \end{tikzpicture}
 \end{center}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Exemple à entrées multiples}
-\acpl
-\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+On considère le schéma fonctionnel suivant qui est exactement celui traité
+précédemment mais en ayant incorporer une nouvelle entrée $P$.
+
+\begin{center}                                                                                                                
+    \tikzsetnextfilename{exemple_1-chap1_ext}
+    \begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{comp1}{E}
+    \sbRelier[$E$]{E}{comp1}
+    \sbStyleBloc{green!70!black}
+    \sbBloc{h1}{$H_1$}{comp1}
+    \sbRelier[$\epsilon$]{comp1}{h1}
+    \sbCompSum{sum1}{h1}{+}{}{+}{}
+    \sbRelier{h1}{sum1}
+    \sbBloc{h2}{$H_2$}{sum1}
+    \sbRelier{sum1}{h2}
+    \sbComph{comp2}{h2} 
+    \sbRelier{h2}{comp2}
+    \sbStyleBloc{blue}
+    \sbBlocL{h3}{$H_3$}{comp2}
+    \sbBlocL{h4}{$H_4$}{h3}
+    \sbSortie[5]{S1}{h4}
+    \sbRelier{h4}{S1}
+    \sbNomLien[0.8]{S1}{$S$}
+    \sbDecaleNoeudy[-4]{h4}{u}
+    \sbDecaleNoeudy{h3}{v}
+    \sbBlocr{r1}{$R_1$}{u}
+    \sbStyleBloc{red}
+    \sbBlocr{r2}{$R_2$}{v}
+    \sbBlocrL{r3}{$R_3$}{r2}
+    \sbRelieryx{h4-S1}{r1}
+    \sbRelierxy[$n_1$]{r1}{comp2}
+    \sbRelieryx{h3-h4}{r2}
+    \sbRelierxy[$n_2$]{r3}{comp1}
+    \node[above =of sum1] (aa) {}; 
+    \draw[thick,-latex] (aa) node[right,yshift=-1em] {$P$} --(sum1.north);
+\end{tikzpicture}
+\end{center}
+
+La première étape consiste à déterminer la fonction de transfert globale entre
+la sortie $S$ et $E$ pour $P\equiv0$.
+Celle-ci correspond à la fonction de transfert déterminée précédemment, soit :
+$$
+     S_{P\equiv0}=\dfrac{H_1H_2H_3H_4}{1+R_1H_3H_4+R_2R_3H_1H_2H_3}E
+$$
+
+Le schéma fonctionnel réduit pour $E\equiv0$ est maintenant :
+
+\begin{center}                                                                                                                
+    \begin{tikzpicture}
+        \sbEntree{P}
+        \sbComp{comp1}{P}
+        \sbRelier[$P$]{P}{comp1}
+        \sbStyleBloc{green!70!black}
+        \sbBloc{h2}{$H_2$}{comp1}
+        \sbRelier{comp1}{h2}
+        \sbComph{comp2}{h2} 
+        \sbRelier{h2}{comp2}
+        \sbStyleBloc{blue}
+        \sbBlocL{h3}{$H_3$}{comp2}
+        \sbBlocL{h4}{$H_4$}{h3}
+        \sbSortie[5]{S1}{h4}
+        \sbRelier{h4}{S1}
+        \sbNomLien[0.8]{S1}{$S$}
+        \sbDecaleNoeudy[-4]{h4}{u}
+        \sbDecaleNoeudy{h3}{v}
+        \sbBlocr{r1}{$R_1$}{u}
+        \sbStyleBloc{red}
+        \sbBlocr[-1.5]{r2}{$R_2$}{v}
+        \sbBlocrL{r3}{$R_3$}{r2}
+        \sbStyleBloc{green!70!black}
+        \sbBlocrL{h1}{$H_1$}{r3}
+        \sbRelieryx{h4-S1}{r1}
+        \sbRelierxy[$n_1$]{r1}{comp2}
+        \sbRelieryx{h3-h4}{r2}
+        \sbRelierxy[$n_2$]{h1}{comp1}
+    \end{tikzpicture}
+\end{center}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Graphe de fluence}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous discutons ici d'une approche sensiblement différente 
 pour la représentation graphique des relations mathématiques 
