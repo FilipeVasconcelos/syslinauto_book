@@ -69,7 +69,7 @@ $$
 ce pôle $p_1=-\dfrac{1}{\tau}$ est donc réel négatif pour $\tau>0$.
 La fonction de transfert d'un système du premier s'écrit peut alors s'écrire sous la forme factorisée suivante
 $$
-H(p)=\dfrac{K}{(p-p_1)}=\dfrac{K}{\left(p+\dfrac{1}{\tau}\right)}
+H(p)=\dfrac{K}{(p-p_1)}=\dfrac{K}{\tau\left(p+\dfrac{1}{\tau}\right)}
 $$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -356,7 +356,7 @@ $$
 S(p)=H(p)E(p)=\dfrac{KE_0}{p^2(1+\tau p)}
 $$
 
-La transformée de Laplace inverse de $S(p)$ (c.f ligne 11 du tableau de l'\cref{annexe-lap}),
+La transformée de Laplace inverse de $S(p)$ (c.f ligne 12 du tableau de l'\cref{annexe-lap}),
 nous donne la forme générale de la réponse à une rampe d'un système du premier ordre:
 \begin{bequation}[ams align]
     \laplacei{S(p)}=s(t)=KE_0 \left( t -\tau(1-e^{-t/\tau})\right)\label{eq-1er_ramp}  
