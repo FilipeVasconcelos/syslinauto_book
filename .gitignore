@@ -28,6 +28,9 @@
 *.slg
 *.sls
 *.toc
+*.nav
+*.snm
+*.vrb
 fig/sma_auto-figure*.eps
 fig/*_ext*.eps
 fig/*-ext*.eps
