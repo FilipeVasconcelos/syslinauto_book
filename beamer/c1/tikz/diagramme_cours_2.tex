@@ -1,0 +1,37 @@
+\begin{tikzpicture}[thick,scale=0.7, every node/.style={scale=0.7}]
+    \tikzset{box/.style={rectangle,rounded corners=12pt,minimum width=4.0cm,minimum height=2cm}}
+    \draw node[fill=black!10!white,box] (A) at (0,0) {\scshape Automatique}; 
+    \draw node[fill=blue!10!white,box] (M) at (-4.5,-3) {\scshape Modélisation}; 
+    \draw node[fill=blue!10!white,box] (N) at ( 0,-3) {\scshape Analyse}; 
+    \draw node[fill=blue!10!white,box] (S) at ( 4.5,-3) {\scshape Contrôle}; 
+    \draw[-latex,ultra thick] (A)--(M.north) ;
+    \draw[-latex,ultra thick] (A)--(N.north) ;
+    \draw[-latex,ultra thick] (A)--(S.north) ;
+\tikzset{pos1/.style={fill=blue!10!white,yshift=1.2em,text width=4.0cm,minimum height=5cm,rounded corners=12pt}}
+\newcommand{\mysize}{\small}
+\newcommand{\mysized}{\normalsize}
+\node[below=of M,pos1] {\vbox {\mysize
+                                    \begin{itemize}
+                                        \item Mise en équation du système
+                                        \item Modèles usuels
+                                        \item Outils Mathématiques
+                                    \end{itemize}}};
+\node[below=of N,pos1] {\vbox {\mysize
+                                    \begin{itemize}
+                                        \item Réponses aux sollicitations
+                                        \item Identification
+                                        \item Caractérisation
+                                        \item Performances
+                                    \end{itemize}}};
+\node[below=of S,pos1] {\vbox {\mysize
+                                    \begin{itemize}
+				        \item Consigne
+				        \item Commande
+					\item Asservissement
+					\item Régulation
+                                        \item Nécessité / Mise en oeuvre \\
+                                            d'une correction
+                                    \end{itemize}}};
+    \draw[red,ultra thick,rounded corners=0.25cm] (-6.8 ,-1.8) rectangle (2.2,-10.1) node[xshift=-4cm,below,red] {\Large 1er semestre};
+    \draw[blue,ultra thick,rounded corners=0.25cm] (2.4 ,-1.8) rectangle (6.8,-10.1) node[xshift=-2cm,below,blue] {\Large 2nd semestre};
+\end{tikzpicture}

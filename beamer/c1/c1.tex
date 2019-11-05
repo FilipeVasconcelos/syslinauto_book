@@ -1,0 +1,80 @@
+\documentclass[10pt]{beamer}
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+
+\usepackage{pgf,tikz}
+\usetikzlibrary{calc,tikzmark}
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{arrows.meta,bending,automata,positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{babel}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{matrix}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14} 
+%\usepackage[dvipsnames]{xcolor}
+%\usepackage{textpos}
+%\usepackage{tikz}
+%\addtobeamertemplate{headline}{}{%
+%\begin{textblock*}{100mm}(.85\textwidth,0cm)
+%    \includegraphics[width=2cm]{fig/LOGO_ESME_QUADRI.EPS}
+%\end{textblock*}}
+
+%\addtobeamertemplate{block begin}{\setlength\abovedisplayskip{-1pt}}
+
+%\definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667} % UBC Blue (primary)
+%\usecolortheme[named=UBCblue]{structure}
+%\setbeamertemplate{frametitle}{\color{black}\bfseries\insertframetitle\par\vskip-6pt\noindent\rule{0.8\textwidth}{.6pt}\hfil}
+
+\title{Système automatiques}
+\subtitle{Séance 1}
+\date{}
+\author{F. Vasconcelos}
+\institute{ESME Sudria Lille}
+
+\begin{document}
+\maketitle
+
+\metroset{background=dark}
+\section{Un exemple historique \og classique\fg}
+\metroset{background=light}
+
+\begin{frame}
+    \frametitle{Régulateur à boules de Watts}
+    \includegraphics[width=\textwidth]{fig/Centrifugal_governor}
+    \url{https://www.youtube.com/watch?v=SiYEtnlZLSs}
+\end{frame}
+
+\metroset{background=dark}
+\section{Organisation du cours}
+\metroset{background=light}
+
+\begin{frame}
+    \begin{figure}[!h]
+        \begin{center}
+            {
+            \large
+            \input{tikz/diagramme_cours.tex}
+            }
+        \end{center}
+    \end{figure}  
+\end{frame}
+
+\begin{frame}
+    \begin{figure}[!h]
+        \begin{center}
+            {
+            \large
+            \input{tikz/diagramme_cours_2.tex}
+            }
+        \end{center}
+    \end{figure}  
+\end{frame}
+
+
+\end{document}
