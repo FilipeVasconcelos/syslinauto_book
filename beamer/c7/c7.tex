@@ -1,0 +1,72 @@
+\documentclass[10pt]{beamer}
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{graphicx}
+\usepackage{pgf,tikz}
+\usepackage{tikzfmv}
+\usepackage{mymath}
+\usepackage{schemabloc}
+\usepackage{caption}
+\sbStyleBloc{thick}
+\sbStyleLien{thick}
+\usetikzlibrary{calc,tikzmark}
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{arrows.meta,bending,automata,positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{babel}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{matrix}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14} 
+\usepackage{array,multirow,makecell}
+\usepackage{hhline}
+\newcolumntype{K}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+%\usepackage[dvipsnames]{xcolor}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \frametitle{Réponses temporelles du 2nd ordre}
+    \input{fig/reponses_temporelles_2nd_ordre_1.tex}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Temps de réponse à 5\%}
+\begin{center}
+    \input{tikz/temps_reponses_2nd.tex}
+\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \frametitle{Relation temps de réponse-amortissement}
+    \centering
+    \includegraphics[width=0.7\textwidth]{fig/fig_temps_de_reduit.eps}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Dépassement}
+\begin{center}
+    \input{tikz/depassement.tex}
+\end{center}                                                                                                     
+\end{frame}           
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Relation dépassement-amortissement}
+\begin{center}
+\input{tikz/depassement_amortissement.tex}
+\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+
+

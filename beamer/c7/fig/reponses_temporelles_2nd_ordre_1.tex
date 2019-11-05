@@ -1,0 +1,26 @@
+\newcommand{\mysize}{\footnotesize}
+\resizebox{\textwidth}{!}{
+        \begin{tabular}{M{2.75cm}M{5.25cm}M{5.25cm}M{5.25cm}}%
+        \hhline{====}
+             Réponse   & Régime apérodique        ($\xi>1$)  & Régime critique ($\xi=1$) & 
+                         Régime pseudo-périodique ($0<\xi<1$) \\[0em]
+        \hline
+        Réponse impulsionnelle & 
+            \resizebox{0.9\linewidth}{!}{\input{tikz/1-1.tex}} 
+            {\mysize $$ s(t)=\dfrac{1}{\tau_1-\tau_2}\left(e^{-\frac{t}{\tau_1}}-e^{-\frac{t}{\tau_2}}\right)$$} &  
+            \resizebox{0.9\linewidth}{!}{\input{tikz/1-2.tex}} 
+            {\mysize $$s(t)=\dfrac{t}{\tau^2}e^{-\frac{t}{\tau}}$$} &  
+            \resizebox{0.9\linewidth}{!}{\input{tikz/1-3.tex}} 
+            {\mysize $$s(t)=\dfrac{\omega_d}{1-\xi^2}e^{-\xi\omega_0 t}\sin{\omega_d t}$$}\\[0em]
+        \hline
+        Réponse indicielle &  
+            \resizebox{0.9\linewidth}{!}{\input{tikz/2-1.tex}} 
+            {\mysize $$s(t)=1+\dfrac{1}{\tau_1-\tau_2}\left(\tau_2e^{-\frac{t}{\tau_2}}-\tau_1e^{-\frac{t}{\tau_1}}\right)$$} &  
+            \resizebox{0.9\linewidth}{!}{\input{tikz/2-2.tex}} 
+            {\mysize $$s(t)=1-e^{-\frac{t}{\tau}}-\dfrac{t}{\tau}e^{-\frac{t}{\tau}}$$ } &  
+            \resizebox{0.9\linewidth}{!}{\input{tikz/2-3.tex}} 
+            {\mysize $$s(t) = 1 - \dfrac{e^{-\xi\omega_0 t}}{\sqrt{1-\xi^2}}\sin{(\omega_d t+\phi)}$$}\\[0em]
+        \hhline{====}
+        \end{tabular}
+}
+
