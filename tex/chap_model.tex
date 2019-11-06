@@ -16,12 +16,12 @@ temporelle de différents systèmes modèles. Ces modèles sont
     \item les systèmes gain, intégrateur, dérivateur et retard purs.
 \end{itemize}
 Ces modèles reflètent les différentes équations différentielles et 
-systèmes physiques généralement rencontré dans la nature.
-Les deux plus importants sont les systèmes du premier et second ordre qui sont pour cette
-raison éxamniner en détail.
+systèmes physiques généralement rencontrés dans la nature.
+Les deux plus importants sont les systèmes du premier et second ordre 
+qui sont pour cette raison éxamniner en détail.
 
-Nous suivrons la même présentation pour tous ces modèles: nous donnerons 
-d'abord l'équation différentielle régissant le système, puis 
+Nous suivrons la même présentation pour tous ces modèles: 
+nous donnerons d'abord l'équation différentielle régissant le système, puis 
 sa fonction de transfert ainsi que ses pôles, avant de 
 déterminer analytiquement les différentes réponses temporelles : impulsionnelle,
 indicielle et la réponse à une rampe. Le principal objectif de cette étude est
@@ -43,7 +43,15 @@ différentielle linéaire à coefficient constant du premier ordre
 \begin{bequation}[ams align]
     \tau\devi{s(t)}{}+s(t)=K e(t)\label{eq-1er}
 \end{bequation}
-où $K$ est le gain statique et $\tau>0$ la constante de temps du système.
+où $K$ est le gain statique et $\tau>0$ la constante de 
+temps du système. La condition sur le signe de $\tau$ sera 
+discutée au moment de l'établissement des réponses temporelles.
+L'analyse dimentionnelle de cette équation différentielle, nous permet 
+de confirmer que $\tau$ à la dimension d'un temps, mais surtout que 
+la dimension du gain statique est donnée par le rapport des dimensions de 
+la sortie sur l'entrée. Autrement dit, c'est un paramètre sans dimension 
+c'est l'entrée et la sortie sont de même nature.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fonction de transfert d'un système du premier ordre}
@@ -67,15 +75,17 @@ $$
 \tau p + 1 =0
 $$
 ce pôle $p_1=-\dfrac{1}{\tau}$ est donc réel négatif pour $\tau>0$.
-La fonction de transfert d'un système du premier s'écrit peut alors s'écrire sous la forme factorisée suivante
+La fonction de transfert d'un système du premier peut alors s'écrire 
+sous la forme factorisée suivante
 $$
-H(p)=\dfrac{K}{(p-p_1)}=\dfrac{K}{\tau\left(p+\dfrac{1}{\tau}\right)}
+H(p)=\dfrac{K}{(p-p_1)}=\dfrac{K}{\tau\left(p+\dfrac{1}{\tau}\right)}.
 $$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Réponses temporelles d'un système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Nous allons ici établir toutes les réponses temporelles d'un système du premier ordre.
+Nous allons maintenant établir les réponses temporelles d'un système 
+du premier ordre aux signaux usuels présentés au chapitre~\cref{chap_slci}.
 
 \begin{figure}[!t]
 \begin{center}
@@ -128,19 +138,14 @@ nous donne la forme générale de la réponse impulsionnelle d'un système du pr
 \begin{bequation}[ams align]
     \laplacei{S(p)}=s(t)=\dfrac{KE_0}{\tau} e^{-t/\tau}\label{eq-1er_imp}.
 \end{bequation}
-Cette réponse correspond à une simple exponentielle décroissante.
+Cette réponse correspond à une simple exponentielle décroissante pour $\tau>0$.
 La~\cref{fig-1er_imp} présente la réponse impulsionnelle d'un système du premier ordre pour
 différentes valeurs de la constante de temps $\tau$.
+On observe que pour $t\to\infty$, la valeur de $s(t)$ tend vers 0, ce qui est caractéristique 
+d'un système stable. Nous pouvons donc considérer que $\tau$ est strictement positif pour 
+une question de stabilité.  
 
-%\begin{figure}[!t]
-%\begin{center}
-%\includegraphics[width=0.7\textwidth]{script/fig_1er_2.eps}
-%\caption{Réponse impulsionnelle d'un système du premier ordre pour différentes valeurs
-%    de la constante de temps $\tau$  (\cref{eq-1er_ind}) avec $K=1$ et $E_0=1$\label{fig-1er_imp}}
-%\end{center}
-%\end{figure}
-Pour $t\to\infty$, la valeur de $s(t)$ tend vers 0, ce qui est caractéristique d'un système stable. 
-
+Il est également possible d'observer que la pente à l'origine dépend de la constante de temps.
 La pente à l'origine peut être obtenue directement en dérivant la réponse temporelle $s(t)$
 $$
 s'(0)=-\dfrac{KE_0}{\tau^2}
