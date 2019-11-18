@@ -82,7 +82,7 @@ La réponse temporelle peut alors s'écrire sous la forme
 \begin{align*}
     s(t)=E_0|H(\jw)|\left(\dfrac{e^{j(\omega t+\phi)}-e^{-j(\omega t+\phi)}}{2j}\right)
 \end{align*}
-où l'on reconnait la forme exponentielle de la fonction sinus qui nous permet d'écrire :
+où l'on reconnaît la forme exponentielle de la fonction sinus qui nous permet d'écrire :
 \begin{bequation}[ams align]
     s(t)=E_0|H(\jw)|\sin{(\omega t+\phi)}\label{eq-rh}
 \end{bequation}
@@ -131,7 +131,7 @@ Le~\cref{tab-1ertemp} présente le module et l'argument pour quelques valeurs pa
     \begin{center}
     \begin{tabular}{M{2.0cm}M{2.0cm}M{2.0cm}M{2.0cm}}
         \hhline{====}
-        $\omega \si{[\radian\per\second]}$ & $\omega=1$    & $\omega=10$    & $\omega=100$ \\[0em]
+        $\omega \si{[\radian\per\second]}$ & $\omega=0.1$    & $\omega=1$    & $\omega=10$ \\[0em]
         \hline
         $G(\omega)$     & 0.99          & 0.70       & 0.1 \\ [0em]
         \hline
@@ -172,9 +172,9 @@ tracer la réponse temporelle pour toutes les pulsations que l'on souhaite étud
         xlabel style={below right},
         ylabel style={right},
         ]
-            \addplot [thick,color=blue,domain=0:11.5, samples=101,unbounded coords=jump]{sin(deg(x))};
-            \addplot [thick,color=red,domain=0:11.5, samples=101,unbounded coords=jump]{0.9950371902099892*sin(deg(x)-5.7)};
-            \node[left] at (axis cs:0,0.5)  {$\omega=0.1$};
+\addplot [thick,color=blue,domain=0:11.5, samples=101,unbounded coords=jump]{sin(deg(x))};
+\addplot [thick,color=red,domain=0:11.5, samples=101,unbounded coords=jump]{0.9950371902099892*sin(deg(x)-5.7)};
+\node[left] at (axis cs:0,0.5)  {$\omega=0.1$};
         \end{axis}
     \end{tikzpicture}
 \tikzsetnextfilename{repham_2-chap3_ext}
@@ -1793,7 +1793,7 @@ on obtient une relation entre $Y$ et $X$:
 $$
 Y^2=\left(\dfrac{K}{X}-1\right)X^2
 $$
-on reconnait alors l'équation d'un cercle de centre $(K/2,0)$ et de rayon $K/2$
+on reconnaît alors l'équation d'un cercle de centre $(K/2,0)$ et de rayon $K/2$
 $$
 \left(X-\dfrac{K}{2}\right)^2+Y^2=\left(\dfrac{K}{2}\right)^2
 $$
