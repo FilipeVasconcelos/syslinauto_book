@@ -1252,7 +1252,7 @@ déplacé de son état d'équilibre.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Dans cette partie, nous allons présenter des modèles théoriques particuliers 
-qui physiquement ne retrouveront jamais seul mais compléterons les 
+qui physiquement ne se retrouveront jamais seuls. Cependant ils compléteront les 
 modèles du premier et second ordre discutés précedemment.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1261,16 +1261,17 @@ modèles du premier et second ordre discutés précedemment.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Gain pur}
-Dans le cas où l'équation différentielle\footnote{Bien evidemment dans le cas présent l'équation différentielle
-est d'ordre 0. Ce qui est un cas très particulier d'équation différentielle.}régissant le système est de la forme :
+Dans le cas où l'équation différentielle\footnote{Bien évidemment 
+dans ce cas présent, l'équation différentielle est d'ordre 0. Ce qui est 
+un cas très particulier d'équation différentielle.}~régissant le système est de la forme :
 $$
 s(t)=Ke(t)
 $$
 avec $K$ un gain pur. Autrement dit, la sortie est proportionnelle à l'entrée et
 de même nature.
 En effet, la réponse temporelle est trivialement donné par la définition 
-du modèle régissant le système, il est cependant possible de définir une fonction
-de transfert dans le cas d'un gain pur qui s'écrit :
+même du modèle, il est cependant possible de définir une fonction
+de transfert qui s'écrit :
 \begin{bequation}[ams align]
 H(p)=\dfrac{S(p)}{E(p)}=K
 \end{bequation}
@@ -1297,11 +1298,16 @@ où $K$ est un gain. La sortie correspond à l'intégrale de l'entrée :
 $$
 s(t)=K\int\limits_0^t e(\tau)\dd{\tau}
 $$
-La \textbf{réponse impulsionnelle} pour une entrée unitaire est la fonction échélon unitaire:
+La fonction de transfert est celle d'un intégrateur pur:
+\begin{bequation}[ams align]
+H(p)=\dfrac{S(p)}{E(p)}=\dfrac{K}{p}.
+\end{bequation}
+
+La \textbf{réponse impulsionnelle}, pour une entrée unitaire, est la fonction échélon unitaire:
 $$
 s(t)=K\int\limits_0^t \delta(\tau)\dd{\tau}=Ku(t)
 $$
-La  \textbf{réponse indicielle} est une droite de pente $KE_0$ :
+La  \textbf{réponse indicielle} est une rampe de pente $KE_0$ :
 $$
 s(t)=KE_0\int\limits_0^t u(\tau)\dd{\tau}=KE_0\left[\tau\right]_0^t=KE_0t
 $$
@@ -1349,36 +1355,60 @@ $$
 \caption{(gauche) Réponse impulsionnelle (droite) Réponse indicielle d'un intégrateur avec $K=1$ et $E_0=1$.\label{fig-integ}}
 \end{figure}
 
-
 Autrement dit, le système est \textbf{instable}.
 
-Les mêmes résultats peuvent être obtenues en considérant la fonction de transfert
-d'un intégrateur pur défini par:
-\begin{bequation}[ams align]
-H(p)=\dfrac{S(p)}{E(p)}=\dfrac{K}{p}
-\end{bequation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dérivateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Dérivateur pur}
+Dans le cas où l'équation différentielle régissant le système est de la forme :
+$$
+s(t)=K\devi{e(t)}{}
+$$
+où $K$ est un gain. On a à faire à un système dit dérivateur pur. 
+La sortie correspond alors à la dérivée de l'entrée.
+Sa fonction de transfert est de la forme :
 \begin{bequation}[ams align]
 H(p)=\dfrac{S(p)}{E(p)}=Kp
 \end{bequation}
+
+La \textbf{réponse impulsionnelle} d'un dérivateur n'est pas définie. 
+La \textbf{réponse indicielle} est une impulsion de Dirac, par définition de la dérivée d'un échelon :
+$$
+s(t)=K\delta(t)
+$$
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Retard pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Retard pur}
+Un système retard est régit par l'équation différentielle :
+$$
+s(t)=e(t-\tau)
+$$
+Sa fonction de transfert est donc de la forme :
 \begin{bequation}[ams align]
 H(p)=\dfrac{S(p)}{E(p)}=Ke^{-\tau p}
 \end{bequation}
+Les réponses temporelles sont donc de mêmes natures que leurs solliciations, 
+elles sont simplement retardés de $\tau$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Généralisation des modèles de SLCI}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Systèmes d'ordre supérieur à 2}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Identification d'un modèle de comportement}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
