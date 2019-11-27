@@ -265,6 +265,7 @@
                 - dérivateur pur 
                 - retard pur
                 - 1er ordre
+                - 2 systèmes du premier ordre
  -------------------------------------------------------------------------
   TD 7 
  -------------------------------------------------------------------------
@@ -278,7 +279,6 @@
   Chapitre : Analyse fréquentielle et représentation graphique 
              de la réponse harmonique.
             - Diagramme de Bode des modèles usuels (suites) :
-                - 2 systèmes du premier ordre
                 - 2nd ordre / phénomène de résonance 
                 - système d'ordre quelconques à traiter en TD
  -------------------------------------------------------------------------
