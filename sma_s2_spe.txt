@@ -4,8 +4,8 @@
   Résumé du second semestre : 
   - Asservissement: 2 semaines
   - Performances (précision, rapidité): 1 semaine
-  - Stabilité (Routh, Revers, Nyquist): 2 semaines
-  - Correcteurs (P, I,D, PI, PD, PID): 3 semaines
+  - Stabilité (Routh, Revers, Nyquist): 3 semaines
+  - Correcteurs (P, I,D, PI, PD, PID): 3-4 semaines
   - Introduction à la représentation d'état: 2 semaines (hors programme d'examen ?)
 
  =========================================================================
