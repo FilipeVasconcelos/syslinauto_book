@@ -51,8 +51,8 @@ dvi:
 	bibtex ${filename} ||true
 	makeindex ${filename}
 	makeglossaries ${filename}
-	latex ${filename}
-	latex ${filename}
+	latex --shell-escape ${filename}
+	latex --shell-escape ${filename}
 dvi-simple:
 	latex --shell-escape ${filename}
 
