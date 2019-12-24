@@ -2,7 +2,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Asservissements linéaires des systèmes\label{chap-asservis}}
+\chapter{Asservissements des systèmes linéaires\label{chap-asservis}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -20,16 +20,124 @@
 
 \begin{figure}[!h]
     \centering
-        \includegraphics[width=0.45\linewidth,height=10cm]{fig/AGMA_Clepsydre_m.eps}
-        \label{fig-clep}
-        \includegraphics[width=0.45\linewidth,height=10cm]{fig/Georgetown_PowerPlant_Museum_m.eps}
-        \label{fig-watt}
-    \caption{Exemples historiques de régulateurs. (gauche) Clepsydre athénienne (d'après \cite{clep}) 
-                                                  (droite) Régulateur de vitesse de Watt (d'après \cite{watt})\label{fig-hist}}
+%        \includegraphics[width=0.45\linewidth,height=10cm]{fig/AGMA_Clepsydre_m.eps}
+%        \label{fig-clep}
+   \includegraphics[width=0.45\linewidth,height=10cm]{fig/Georgetown_PowerPlant_Museum_m.eps}
+    \label{fig-watt}
+%\caption{Exemples historiques de régulateur : (gauche) Clepsydre athénienne (d'après \cite{clep}) 
+%                                                  (droite) Régulateur de vitesse de Watt (d'après \cite{watt})\label{fig-hist}}
+\caption{Exemple historique de régulateur : Régulateur de vitesse de Watt (d'après \cite{watt})\label{fig-hist}}
 \end{figure}
 
-La \textbf{régulation}\ldots
-L'\textbf{asservissement}\ldots
+Les chapitres précédents nous ont permis de caractériser, modéliser et
+analyser la réponse temporelle des systèmes linéaires.
+Nous allons maintenant aborder la possibilité du \textbf{contrôle} de ces 
+systèmes par l'intermédiaire de l'\textbf{asservissement} et de 
+\textbf{régulation}. 
+L'idée sous-jacente est de permettre le contrôle automatique d'un système
+sans l'intervention d'un opérateur humain dans l'établissement d'une commande
+d'un système. 
+En effet, jusqu'à présent nous nous sommes intéressés à l'étude de système 
+linéaire \og isolé\fg (de fonction de transfert $H(p)$) 
+qui pour une entrée $E(p)$, élaborait une sortie $S(p)$\footnote{On conserve la représentation
+dans le domaine de Laplace de nos systèmes linéaires et des signaux mis en jeu physiquement dans le domaine temporel}.
+
+\begin{center}
+\tikzsetnextfilename{sb_bloc-chap0_ext}
+\begin{tikzpicture}
+    \sbEntree{E1}
+	\sbBloc[3]{B1}{$H(p)$}{E1}
+        \sbRelier[$E(p)$]{E1}{B1}
+    \sbSortie[3]{S1}{B1}
+        \sbRelier[$S(p)$]{B1}{S1}
+\end{tikzpicture}
+\end{center}
+
+Nous avons pu caractériser la sortie en fonction de différentes 
+performances: rapidité, précision, stabilité et dépassement. 
+La question est de savoir maintenant comment agir sur le 
+signal $E(p)$ pour contrôler la sortie $S(p)$ en fonction de critères
+de performances choisis initialement.
+
+Il existe deux approches pour élaborer la commande 
+d'un système linéaire : en boucle ouverte ou en boucle fermée.
+
+\begin{itemize}
+	\item En boucle ouverte: on place un correcteur $C(p)$
+		en amont du système pour élaborer 
+		la commande (que nous noterons $U(p)$) du système que l'on 
+		souhaite contrôler. \`A noter que l'entrée du système appelée dans
+		le cadre de l'asservissement consigne est maintenant 
+		l'entrée du correcteur.
+
+\begin{center}
+\tikzsetnextfilename{sb_bloc-chap5_ext}
+\begin{tikzpicture}
+    \sbEntree{E}
+	\sbBloc[3]{C}{$C(p)$}{E}
+    \sbRelier[$E(p)$]{E}{C}
+	\sbBloc[3]{H}{$H(p)$}{C}
+    \sbRelier[$U(p)$]{C}{H}
+    \sbSortie[3]{S}{H}
+    \sbRelier[$S(p)$]{H}{S}
+    \node[yshift=-0.8em] at (C.south) {\small Correcteur};
+    \node[yshift=-0.8em] at (H.south) {\small Système};
+\end{tikzpicture}
+\end{center}
+
+\item En boucle fermée: le principe consiste à mesurer le signal de sortie
+      pour ajuster le signal de commande. Pour celà, on place le
+      système (corrigée ou non) dans une boucle de contre-réaction 
+	  \cref{chap-schemabloc}.
+
+\begin{center}
+\tikzsetnextfilename{sb_bloc2-chap5_ext}
+\begin{tikzpicture}
+    \sbEntree{E}
+	\sbComp{comp1}{E}
+	\sbRelier[$E(p)$]{E}{comp1}
+	\sbBloc[3]{C}{$C(p)$}{comp1}
+    \sbRelier[$\epsilon(p)$]{comp1}{C}
+	\sbBloc[3]{H}{$H(p)$}{C}
+    \sbRelier[$U(p)$]{C}{H}
+    \sbSortie[3]{S}{H}
+    \sbRelier[$S(p)$]{H}{S}
+	\sbRenvoi{H-S}{comp1}{}
+    \node[yshift=-0.8em] at (C.south) {\small Correcteur};
+    \node[yshift=-0.8em] at (H.south) {\small Système};
+\end{tikzpicture}
+\end{center}
+
+\end{itemize}
+
+En d'autre mot, 
+Dans un sens, le signal $e(t)$ est la commande du système 
+De tel système
+
+
+
+La \textbf{régulation} consiste à contrôler la sortie d'un système
+pour une consigne fixe quelque soit les perturbations variables au 
+cours du temps.
+
+L'\textbf{asservissement} consiste à suivre une consigne variable 
+au cours du temps.
+
+
+Imaginons que l'on souhaite étudier la température de l'eau 
+fournie par une douche. 
+
+
+
+Dans ce chapitre, nous allons aborder la notion d'asservissement des 
+systèmes linéaires que nous avons maitenant caractérisé, modélisisé et
+analysé dans les chapitres précédents.
+L'idée d'asservissement 
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -103,12 +211,12 @@ L'\textbf{asservissement}\ldots
         \node[yshift=-0.8em] at (b.south) {\small Correcteur};
         \node[yshift=-0.8em] at (c.south) {\small Système};
         \node[yshift=-0.8em] at (d.south) {\small Capteur};
-        \draw[dashed,very thick,blue] (1.15,-1.8) rectangle node[blue,xshift=-1.999999999em,yshift=4em] {\textbf{Régulateur}} (4.9,1);
+        \draw[dashed,very thick,blue] (1.15,-1.8) rectangle node[blue,xshift=-1.9em,yshift=4em] {\textbf{Régulateur}} (4.9,1);
         \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
         \node[yshift=-0.8em] at (S.south) {\small Sortie};
     \end{tikzpicture}
 \end{center}
-\caption{\label{fig-reg}}
+\caption{Schéma fonctionnel classique de l'asservissement d'un système présentant un correcteur et un capteur.\label{fig-reg}}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -248,6 +356,10 @@ L'\textbf{asservissement}\ldots
         \hline
         Actionneur      & L'organe d'action qui apporte l'énergie au système.
                         & $A_c(p)$                                               \\[0em]
+        \hline
+		Commande        & Le signal de commande du système élaboré par l'actionneur 
+		                  ou le correcteur.
+                        & $U(p)$                                                 \\[0em]
         \hline
         Système         & Le système que l'on souhaite contrôler et/ou asservir
                                       & $H(p)$                                   \\[0em]
