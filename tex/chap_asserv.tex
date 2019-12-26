@@ -43,7 +43,7 @@ qui pour une entrée $E(p)$, élaborait une sortie $S(p)$\footnote{On conserve l
 dans le domaine de Laplace de nos systèmes linéaires et des signaux mis en jeu physiquement dans le domaine temporel}.
 
 \begin{center}
-\tikzsetnextfilename{sb_bloc-chap0_ext}
+\tikzsetnextfilename{sb_bloc0-chap5_ext}
 \begin{tikzpicture}
     \sbEntree{E1}
 	\sbBloc[3]{B1}{$H(p)$}{E1}
@@ -63,7 +63,7 @@ Il existe deux approches pour élaborer la commande
 d'un système linéaire : en boucle ouverte ou en boucle fermée.
 
 \begin{itemize}
-	\item En boucle ouverte: on place un correcteur $C(p)$
+	\item En \textbf{boucle ouverte}: on place un correcteur $C(p)$
 		en amont du système pour élaborer 
 		la commande (que nous noterons $U(p)$) du système que l'on 
 		souhaite contrôler. \`A noter que l'entrée du système appelée dans
@@ -71,7 +71,7 @@ d'un système linéaire : en boucle ouverte ou en boucle fermée.
 		l'entrée du correcteur.
 
 \begin{center}
-\tikzsetnextfilename{sb_bloc-chap5_ext}
+\tikzsetnextfilename{sb_bloc1-chap5_ext}
 \begin{tikzpicture}
     \sbEntree{E}
 	\sbBloc[3]{C}{$C(p)$}{E}
@@ -85,7 +85,7 @@ d'un système linéaire : en boucle ouverte ou en boucle fermée.
 \end{tikzpicture}
 \end{center}
 
-\item En boucle fermée: le principe consiste à mesurer le signal de sortie
+\item En \textbf{boucle fermée}: le principe consiste à mesurer le signal de sortie
       pour ajuster le signal de commande. Pour celà, on place le
       système (corrigée ou non) dans une boucle de contre-réaction 
 	  \cref{chap-schemabloc}.
@@ -139,7 +139,7 @@ L'idée d'asservissement
 
 
 
-
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -288,8 +288,8 @@ L'idée d'asservissement
 % g : capteur
 % r : noeud décalé pour le retour
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{landscape}
-\vspace*{\fill}
+%\begin{landscape}
+%\vspace*{\fill}
 \begin{center}
 \tikzsetnextfilename{asser-chap4_ext}
     \begin{tikzpicture}
@@ -334,8 +334,8 @@ L'idée d'asservissement
 \end{center}
     \captionof{figure}{Décomposition en chaîne d'information et chaîne 
                        d'énergie d'un schéma bloc d'asservissement complet\label{fig-asser}}
-\vspace*{\fill}
-\end{landscape}
+%\vspace*{\fill}
+%\end{landscape}
 
 \begin{table}[!h]
 \begin{center}
@@ -410,19 +410,20 @@ H_{CD}(p)=\dfrac{S(p)}{\epsilon(p)}
 \paragraph{Fonction de transfert de la chaîne de retour}
 
 La~\gls{ftcr}, que nous noterons $H_{CR}(p)$ est 
-liée à la chaîne de mesure de l'asservissement. Elle lie l'image de la sortie $M(p)$ à la sortie $S(p)$ 
+liée à la chaîne de mesure de l'asservissement. Elle lie l'image de la sortie $M(p)$ à la sortie $S(p)$. 
+Elle correspond essentiellement au capteur.
 Formellement,
 \begin{bequation}[ams align]
 H_{CR}(p)=\dfrac{M(p)}{S(p)}
 \end{bequation}
-Dans le cas d'un retour unitaire $H_{CR}(p)=1$, c'est à dire que la sortie est la consigne sont de même 
-nature.
+Dans le cas d'un retour unitaire $H_{CR}(p)=1$, c'est à dire que la sortie est 
+la consigne sont de même nature.
 
 \paragraph{Fonction de transfert en boucle ouverte}
 
 La~\gls{ftbo}, que nous noterons $H_{BO}(p)$ correspond
-à la fonction de transfert du système non asservi. Elle lie l'image de la sortie $M(p)$ à l'écart $\epsilon(p)$.
-Formellement,
+à la fonction de transfert du système non asservi. Elle lie l'image de la sortie 
+$M(p)$ à l'écart $\epsilon(p)$. Formellement,
 \begin{bequation}[ams align]
 H_{BO}(p)=\dfrac{M(p)}{\epsilon(p)}=\dfrac{M(p)}{S(p)}\dfrac{S(p)}{\epsilon(p)}=H_{CR}(p)H_{CD}(p)
 \end{bequation}
@@ -442,6 +443,9 @@ la~\gls{ftbf} se réduit à :
 $$
 H_{BF}(p)=\dfrac{H_{BO}(p)}{1+H_{BO}(p)}
 $$
+
+Dans le cas d'une contre réaction unitaire, la~\gls{ftbf} ne dépend que de la~\gls{ftbo}.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -588,30 +592,47 @@ $$
 H_{BF}(p)=\dfrac{K\omega^2_0}{\omega^2_0(1+K)+2\xi\omega_0p+p^2}=
 \dfrac{K_{BF}\omega^2_{0,BF}}{\omega^2_{0,BF}(1+K_{BF})+2\xi_{BF}\omega_{0,BF}p+p^2}
 $$
-Par identification, on alors les rélations suivantes entre les paramètres du premier ordre 
-de la~\gls{ftbo} et les paramètres du premier ordre de la~\gls{ftbf} :
+Par identification, on alors les rélations suivantes entre les paramètres du second ordre 
+de la~\gls{ftbo} et les paramètres du second ordre de la~\gls{ftbf} :
 \begin{align*}
        K_{BF}&=\dfrac{K}{1+K}\\
     \omega_{0,BF}&=\omega_0\sqrt{1+K}\\
     \xi_{BF}&=\dfrac{\xi}{\sqrt{1+K}}
 \end{align*}
 
+On remarque que influencer le gain de la boucle ouverte permet de modifier
+tous les paramètres du second ordre de la boucle fermée.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Performances des systèmes en boucle ouverte}
+%\section{Performances des systèmes en boucle ouverte}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Stabilité en boucle ouverte}
+%Nous regroupons ici les résultats 
+%des performances des systèmes modèles étudiés au chapitre~\cref{chap-model}.
+%Les critères sont établies de la façon suivante. de performances sont la stabilité, la précision, la rapidité  
+%et le dépassement.
 
-\subsection{Précision en boucle ouverte}
+%\paragraph{1er ordre}
+%Le système est stable pour $\tau>0$.
 
-\subsection{Rapidité en boucle ouverte}
+%Le temps de réponse à 5\% est de $3\tau$
 
-\subsection{Dépassement en boucle }
+%Le système est précis pour $K=1$ puisque la valeur finale de la 
+%réponse indicielle est de $KE_0$.
 
+
+%\paragraph{2nd ordre}
+%Le système est stable pour $\xi>0$.
+
+%Le temps de réponse à 5\% est minimale pour $\xi\sim0.7$.
+
+%Le système est précis pour $K=1$.
+%
+%Le système présente des dépassement pour $\xi<1$ 
 
 
 %\newpage
