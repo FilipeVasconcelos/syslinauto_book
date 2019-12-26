@@ -13,7 +13,42 @@ On distingue deux cas :
     \item En régime transitoire, cet écart $\epsilon(t)=e(t)-s(t)$ est nommée \textbf{erreur dynamique.}
 \end{itemize}
 
+Rappelons qu'il est possible de corriger la précision 
+d'un système en boucle ouverte. Prenons l'exemple d'un système du 1er ordre
+de fonction de transfert canonique $H(p)=\dfrac{K}{1+\tau p}$, la réponse indicielle à 
+une consigne $E_0$ à pour valeur finale $KE_0$. Ainsi le système est prècis si
+$K=1$. Dans le cas où $K\neq1$, il faut alors modifier le gain global en boucle 
+ouverte.
+
 \section{Précision en boucle fermée}
+Considérons le cas d'un système asservi par une boucle de contre-réaction à retour unitaire.
+
+\begin{center}
+\tikzsetnextfilename{sb_bloc-chap6_ext}
+\begin{tikzpicture}
+    \sbEntree{E}
+	\sbComp{comp1}{E}
+	\sbRelier[$E(p)$]{E}{comp1}
+	\sbBloc[3]{C}{$C(p)$}{comp1}
+    \sbRelier[$\epsilon(p)$]{comp1}{C}
+	\sbBloc[3]{H}{$H(p)$}{C}
+    \sbRelier{C}{H}
+    \sbSortie[3]{S}{H}
+    \sbRelier[$S(p)$]{H}{S}
+	\sbRenvoi[6]{H-S}{comp1}{}
+\end{tikzpicture}
+\end{center}
+Que la boucle soit unitaire ou pas, la fonction de transfert en boucle 
+fermée pourra toujours s'écrire sous la forme canonique (\cref{chap-slci}):
+$$
+H_{BO}(p)=\dfrac{K}{p^\alpha}\cdot\dfrac{N(p)}{D(p)}
+$$
+
+Dans le domaine de Laplace l'erreur statique s'écrit alors :
+$$
+\epsilon(p)=E(p)-S(p)
+$$
+
 
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
