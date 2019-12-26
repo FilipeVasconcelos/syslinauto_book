@@ -1,5 +1,4 @@
 \documentclass[a4paper,12pt]{scrbook}
-
 \usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -90,6 +89,7 @@
 %\usepackage{adjustbox}
 \usepackage{etoolbox}
 \usepackage{pgf,tikz}
+\usepackage{tikzfmv}
 \usepackage{tkz-euclide}
 \usepackage{tikz-3dplot}
 \usepackage{pst-3dplot}
@@ -286,7 +286,7 @@ ps2eps -f "\image.ps"
   width=\textwidth,
   sharpish corners,
   colframe=white,
-  colback=gray!20,
+  colback=gray!40,
   after=,
   #1
 }
@@ -316,8 +316,6 @@ colback=red!8,
 cross/.default={1pt}}
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -325,7 +323,7 @@ cross/.default={1pt}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tcbuselibrary{skins}
 \tcbset{shield externalize,
-    pccstyle/.style={,
+ 		pccstyle/.style={,
         enhanced,flushleft upper,
         boxrule=1.6pt,
         colback=white,colframe=black!50!yellow,
@@ -348,44 +346,6 @@ cross/.default={1pt}}
 }}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\tikzset{%
-  % use: dblarw={color}{totalouterwidth}{outlineinsidewidth}
-  dblarw/.style n args={3}{%,
-    -latex,
-    line width=#2,
-    draw=#1,  % this draw and color could
-    color=#1, % be an additional style arg
-    opacity=0.9,
-    % note: just color=#1 makes all black! 
-    % fill=#1 makes insides (in an open! curve) filled too!
-    % draw=#1,color=#1, seems to work, though
-    postaction={
-      draw=#1,
-      color=#1,
-      line width=#2-#3,
-      shorten >=2*#3,
-      shorten <=#3,
-    },
-    dblarw/.default={gray}{5pt}{1pt},
-    dblarw/.initial={gray}{5pt}{1pt},
-  }
-}
-
-\tikzstyle{solid}=                   [dash pattern=]
-\tikzstyle{dotted}=                  [dash pattern=on \pgflinewidth off 2pt]
-\tikzstyle{densely dotted}=          [dash pattern=on \pgflinewidth off 1pt]
-\tikzstyle{loosely dotted}=          [dash pattern=on \pgflinewidth off 4pt]
-\tikzstyle{dashed}=                  [dash pattern=on 3pt off 3pt]
-\tikzstyle{densely dashed}=          [dash pattern=on 3pt off 2pt]
-\tikzstyle{loosely dashed}=          [dash pattern=on 3pt off 6pt]
-\tikzstyle{dashdotted}=              [dash pattern=on 5pt off 2pt on \the\pgflinewidth off 2pt]
-\tikzstyle{densely dashdotted}=      [dash pattern=on 3pt off 1pt on \the\pgflinewidth off 1pt]
-\tikzstyle{loosely dashdotted}=      [dash pattern=on 3pt off 4pt on \the\pgflinewidth off 4pt]
-
-\tikzset{BarreStyle/.style =   {opacity=.3,line width=4mm,line cap=round,color=#1}}
-\tikzset{SignePlus/.style  =   {above left,opacity=0.8,circle,inner sep=0.5pt,fill=#1!50}}
-\tikzset{SigneMoins/.style =   {above right,opacity=0.8,circle,inner sep=0.5pt,fill=#1!50}}
-\tikzset{node style ge/.style={circle,font=\bf}}
 
 %red
 \newcommand{\hmr}[1]{%
@@ -413,7 +373,8 @@ cross/.default={1pt}}
 %\includeonly{tex/avantpropos}
 %\includeonly{tex/chap_slci}                % Système linéaire
 %\includeonly{tex/chap_model}               % Modèles Usuels    
-\includeonly{tex/chap_asserv}               % Modèles Usuels    
+%\includeonly{tex/chap_asserv}              % Asservissement 
+%\includeonly{tex/chap_perf}                % Précision rapidité 
 %\includeonly{tex/annexe_alphagrec}         % Alphabet grec    
 %\includeonly{tex/annexe_usi}               % Unités du Système International    
 %\includeonly{tex/annexe_laplace}           % Transformation de Laplace
@@ -428,6 +389,8 @@ cross/.default={1pt}}
 %\includeonly{tex/chap_model,tex/annexe_laplace}         
 %\includeonly{tex/chap_bloc}
 
+%\includeonly{tex/chap_asserv,tex/chap_stab}     
+%\includeonly{tex/chap_slci,tex/chap_perf}     
 %\setcounter{chapter}{-1}
 
 %%%%%%%%%%%%%%
