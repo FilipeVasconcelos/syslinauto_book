@@ -231,6 +231,30 @@ et s'annule pour $\alpha>2$
 	classe de système en boucle ouverte}
 \end{table}
 
+\subsection{Effet d'une perturbation}
+
+\begin{center}                                                                                                                
+    \tikzsetnextfilename{reduc_mult1-chap1_ext}
+\begin{tikzpicture}                                                                                                           
+    \sbEntree{E}
+    \sbComp{a}{E}
+    \sbRelier[$E$]{E}{a}
+    \sbBloc{b}{$H_1$}{a}
+    \sbRelier{a}{b}
+    \sbCompSum{d}{b}{+}{}{+}{}
+    \sbRelier{b}{d}
+    \sbBlocL{e}{$H_2$}{d}
+    \sbSortie[5]{S1}{e}
+    \sbRelier{e}{S1}
+    \sbNomLien[0.8]{S1}{$S$}
+    \sbDecaleNoeudy{e}{v}
+    \sbBlocr{r2}{$R_1$}{v}
+    \sbRelieryx{e-S1}{r2}
+    \sbRelierxy{r2}{a}
+    \node[above =of d] (aa) {}; 
+    \draw[thick,-latex] (aa) node[right,yshift=-1em] {$P$} --(d.north) ;
+\end{tikzpicture}   
+\end{center}                                                                                                                  
 
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
