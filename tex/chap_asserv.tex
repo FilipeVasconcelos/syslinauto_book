@@ -37,10 +37,23 @@ systèmes par l'intermédiaire de l'\textbf{asservissement} et de
 L'idée sous-jacente est de permettre le contrôle automatique d'un système
 sans l'intervention d'un opérateur humain dans l'établissement d'une commande
 d'un système. 
+
+La figure~\ref{fig-hist} montre un exemple historique de 
+régulateur de vitesse ( également connu comme le régulateur à boules de Watt). La
+particularité de ce régulateur est d'avoir était utilisé dans l'industrie
+du 18ème siècle bien avant les premières avancées théoriques dans le domaine de l'automatique.
+Dans le contexte des premières machines à vapeurs, 
+il était important de contrôler la vitesse angulaire des turbines à vapeur. Le mécanisme 
+de Watt permet avec un dispositif de retroaction d'agir sur la valve d'arrivée de la vapeur
+en fonction de la vitesse de l'axe de la turbine.
+
+
+
 En effet, jusqu'à présent nous nous sommes intéressés à l'étude de système 
 linéaire \og isolé\fg (de fonction de transfert $H(p)$) 
 qui pour une entrée $E(p)$, élaborait une sortie $S(p)$\footnote{On conserve la représentation
-dans le domaine de Laplace de nos systèmes linéaires et des signaux mis en jeu physiquement dans le domaine temporel}.
+dans le domaine de Laplace de nos systèmes linéaires et des signaux mis en 
+jeu physiquement dans le domaine temporel}.
 
 \begin{center}
 \tikzsetnextfilename{sb_bloc0-chap5_ext}
@@ -60,7 +73,7 @@ signal $E(p)$ pour contrôler la sortie $S(p)$ en fonction de critères
 de performances choisis initialement.
 
 Il existe deux approches pour élaborer la commande 
-d'un système linéaire : en boucle ouverte ou en boucle fermée.
+d'un système linéaire soit en boucle ouverte ou en boucle fermée.
 
 \begin{itemize}
 	\item En \textbf{boucle ouverte}: on place un correcteur $C(p)$
@@ -124,15 +137,15 @@ L'\textbf{asservissement} consiste à suivre une consigne variable
 au cours du temps.
 
 
-Imaginons que l'on souhaite étudier la température de l'eau 
-fournie par une douche. 
+%Imaginons que l'on souhaite étudier la température de l'eau 
+%fournie par une douche. 
 
 
 
-Dans ce chapitre, nous allons aborder la notion d'asservissement des 
-systèmes linéaires que nous avons maitenant caractérisé, modélisisé et
-analysé dans les chapitres précédents.
-L'idée d'asservissement 
+%Dans ce chapitre, nous allons aborder la notion d'asservissement des 
+%systèmes linéaires que nous avons maitenant caractérisé, modélisisé et
+%analysé dans les chapitres précédents.
+%L'idée d'asservissement 
 
 
 
@@ -149,6 +162,8 @@ L'idée d'asservissement
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Schémas fonctionnels associés aux systèmes asservis}
+
+
 
 \begin{figure}[!h]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
