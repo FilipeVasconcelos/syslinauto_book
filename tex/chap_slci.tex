@@ -1,22 +1,22 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter[Systèmes linéaires, continus\ldots]{Systèmes linéaires continus et invariants\label{chap-slci}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \adjustmtc
 \minitoc
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dans ce chapitre, nous présentons les outils mathématiques 
 et notions fondamentales pour la \textbf{modélisation} de l'automatique.
 
@@ -37,33 +37,37 @@ les systèmes dynamiques linéaires.
     \input{tikz/systeme-chap0.tex}
 \end{center}
 \caption{Représentation d'un système en intéraction avec son environnement. 
-    Par définition, un système aura une ou plusieurs entrée/sortie bien définis de flux de~\gls{mei}.
-    Dans le cas général, des perturbations de l'environnement et des 
-    mesures de son état pourront être considérés.\label{fig-systeme}}
+         Par définition, un système aura une ou plusieurs entrée/sortie bien 
+		 définis de flux de~\gls{mei}. Dans le cas général, des perturbations 
+		 de l'environnement et des mesures de son état pourront être considérés.
+		 \label{fig-systeme}}
 \end{figure}
 
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section[Définition SLCI]{Définition des systèmes linéaires continus et invariants}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Système}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La notion de \textbf{système} est central dans le monde de l'ingénierie.
-Elle possède cependant de nombreuses définitions dépendant du domaine d'application.
-Dans le cadre de ce cours, nous nous reposerons sur la systémique\footnote{Avec la 
-cybernétique, la systémique est un courant de pensée pluridisciplinaire
-apparue progréssivement au milieu du \textsc{\romannumeral 20}\textsuperscript{e}~siècle, sous l'impulsion
-des travaux précurseurs de Claude Shannon, 
-Warren McCulloch, Norbert Wiener ou encore Marvin Minsky.} 
-qui nous donne une définition à la fois structurelle et fonctionnelle de la notion de système.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La notion de \textbf{système} est centrale dans le monde de l'ingénierie.
+Elle possède cependant de nombreuses définitions selon le domaine 
+d'application auquelle est associée. Dans le cadre de ce cours, nous nous 
+reposerons sur la systémique\footnote{Avec la cybernétique, la systémique est un 
+courant de pensée pluridisciplinaire apparue progressivement au milieu du 
+\textsc{\romannumeral 20}\textsuperscript{e}~siècle, sous l'impulsion des travaux 
+précurseurs de Claude Shannon\index{Shannon, Claude}, 
+Warren McCulloch\index{McCulloch, Warren}, Norbert Wiener\index{Wiener, Norbert} 
+ou encore Marvin Minsky\index{Minsky, Marvin}.} 
+qui nous donne une définition à la fois \textbf{structurelle} et \textbf{fonctionnelle} 
+de la notion de système.
 
 Au niveau structurel, \textbf{un système est un ensemble 
 d'éléments constitutifs ayant des relations entre eux et 
@@ -109,23 +113,23 @@ la sortie $s(t)$ délimité par un bloc.
 Cette représentation, dite en \textbf{bloc} ou 
 \textbf{schema-bloc}, sera généralisée au~\cref{chap-schemabloc}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Système à temps continu}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textbf{Un système à temps continu met en oeuvre des signaux 
 à temps continus}. Comme nous le verrons, ces signaux seront
 modélisés par des fonctions d'une variable continue $t$ de temps.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Système linéaire}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Un système est dit linéaire si il respecte les deux principes suivants:
 
 \begin{itemize}
     \item \emph{Principe de proportionnalité :}
-        \textbf{Si $s(t)$ est la réponse à une entrée $e(t)$, alors pour une entrée $\alpha e(t)$
-        la réponse est $\alpha s(t)$.}
+          \textbf{Si $s(t)$ est la réponse à une entrée $e(t)$, alors 
+          pour une entrée $\alpha e(t)$ la réponse est $\alpha s(t)$.}
         
     On exprime, schématiquement, ce principe de la façon suivante pour 
     un système linéaire $\Sigma$:
@@ -202,9 +206,9 @@ Un système est dit linéaire si il respecte les deux principes suivants:
    % $$
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Système causal}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
     \item \emph{Principe de causalité :}
         C'est un principe fort de la physique :
@@ -214,13 +218,14 @@ Un système est dit linéaire si il respecte les deux principes suivants:
         $$e(t)=0\quad\forall t\le t_0 \Rightarrow s(t)=0\quad\forall t\le t_0 $$  
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Système invariant}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textbf{Un système est dit invariant si la sortie ne dépend pas 
 explicitement du temps autrement que par l'intermédiaire de l'entrée.}
 
-On représente, schématiquement, un système invariant $\Sigma$, à l'aide d'un schéma-bloc ci-dessous 
+On représente, schématiquement, un système invariant $\Sigma$, à 
+l'aide d'un schéma-bloc ci-dessous 
 (avec $\tau$ une temps quelconque.): 
 \begin{center}
 \tikzsetnextfilename{sb_bloc_e3-chap0_ext}
@@ -234,7 +239,31 @@ On représente, schématiquement, un système invariant $\Sigma$, à l'aide d'un
 \end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Système stable}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Il existe deux définitions équivalentes de la stabilité pour un 
+système \gls{slci}.
+
+\textbf{Un système est dit stable si à une entrée bornée le système 
+produit une sortie bornée}\footnote{Chez nos collègues anglo-saxons, on 
+rencontre la notionde BIBO (\og bounded input bounded output\fg)}
+
+\textbf{Un système est dit stable lorsque écarté de sa position d'équilibre, il tend à y revenir}
+
+Nous présentons ici un définition encore peu pratique de 
+la stabilité des \glspl{slci}. Nous aurons l'occasion de préciser
+cette définition par des exemples plus concrets lorsque les outils
+de modélisation des systèmes et des signaux auront été introduits.
+
+Le \cref{chap-stab} est d'ailleurs totalement dédié
+à l'étude de cette propriété fondamentale.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Modélisation d'un système linéaire continu et invariant}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Un système dit linéaire continu et invariant ou \gls{slci} 
 peut être modélisé par une équation différentielle à coefficients 
@@ -299,7 +328,8 @@ Comme précédemment, on identifie formellemet cette équation différentielle
 à la forme générale de l'\cref{eq-difflci} avec $s(t)=q(t)$, $e(t)=0$, 
 $n=$1, $m=0$, $a_1=R$, $a_0=\dfrac{1}{C}$.
 
-Nous laissons au lecteur la résolution de cette équation différentielle par une approche direct classique.
+Nous laissons au lecteur la résolution de cette équation différentielle 
+par une approche direct classique.
 Nous la rencontrerons à nouveau au~\cref{chap-model}, après avoir 
 présenté la méthode générale pour la résolution de ce type d'équation.
 
@@ -307,13 +337,15 @@ présenté la méthode générale pour la résolution de ce type d'équation.
 \paragraph{Système masse-ressort}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-On considère un système mécanique constitué d'une masse $m$ en translation couplée avec un ressort de constante
-de raideur $k$ et un amortisseur de coefficient de frottement visqueux $b$ (c.a.d que la force est 
+On considère un système mécanique constitué d'une masse $m$ en translation 
+couplée avec un ressort de constante
+de raideur $k$ et un amortisseur de coefficient de frottement 
+visqueux $b$ (c.a.d que la force est 
 proportionnelle à la vitesse). 
 La masse est soumise à une force $\vect{F}=F(t)\xx{}$.
 
-En appliquant le principe fondamentale de la dynamique en projection sur la direction $x$,
-on obtient l'équation du mouvement suivante :                                                                                 
+En appliquant le principe fondamentale de la dynamique en projection 
+sur la direction $x$, on obtient l'équation du mouvement suivante :                                                                                 
 $$                                                                                                                            
 m\devi{x(t)}{2}+b\devi{x(t)}{}+kx(t)=F(t)
 $$ 
@@ -445,6 +477,110 @@ s(t)=\sum_0^\infty s_0(t-nT)
 $$
 L'analyse de Fourier est un outil fondamentale pour l'étude 
 de ces signaux périodiques. Elle sort cependant légérement du cadre de ce cours.
+
+\paragraph{Stable}
+En se basant sur la définition donnée d'un système stable.
+Nous ne limiterons à dire qu'un signal stable est un signal 
+borné.
+
+\begin{figure}[!htbp]
+\begin{center}
+\tikzsetnextfilename{stable-chap0_ext}
+\begin{tikzpicture}
+        \begin{axis}[
+		ticks=none,
+        axis line style = thick,
+        height=5cm,
+        width=5cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-2,
+        xmax=10,
+        ymin=-1.5,
+        ymax=3.0,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={above left},
+        ]
+        \addplot [very thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};
+		\addplot [very thick,color=blue,domain=0:10, samples=201,unbounded coords=jump]{sin(3*deg(x))*exp(-x)+1};
+		\draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1);
+        \end{axis}
+\end{tikzpicture}
+\tikzsetnextfilename{stable2-chap0_ext}
+\begin{tikzpicture}
+        \begin{axis}[
+		ticks=none,
+        axis line style = thick,
+        height=5cm,
+        width=5cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-2,
+        xmax=10,
+        ymin=-1.5,
+        ymax=3.0,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={above left},
+        ]
+        \addplot [very thick,color=red,domain=-2:0, samples=101,unbounded coords=jump]{0};
+		\addplot [very thick,color=red,domain=0:10, samples=101,unbounded coords=jump]{0.5*x};
+        \end{axis}
+\end{tikzpicture}
+
+\tikzsetnextfilename{instable-chap0_ext}
+\begin{tikzpicture}
+        \begin{axis}[
+	ticks=none,
+        axis line style = thick,
+        height=5cm,
+        width=5cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-2,
+        xmax=10,
+        ymin=-1.5,
+        ymax=3.0,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={above left},
+        ]                                                                                                                     
+        \addplot [very thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};
+		\addplot [very thick,color=blue,domain=0:10, samples=201,unbounded coords=jump]{0.7*sin(3*deg(x))+1};
+		\draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1);
+        \end{axis}
+\end{tikzpicture}
+\tikzsetnextfilename{instable2-chap0_ext}
+\begin{tikzpicture}
+        \begin{axis}[
+	ticks=none,
+        axis line style = thick,
+        height=5cm,
+        width=5cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-2,
+        xmax=10,
+        ymin=-3,
+        ymax=6.0,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={above left},
+        ]
+        \addplot [very thick,color=red,domain=-2:0, samples=101,unbounded coords=jump]{0};
+		\addplot [very thick,color=red,domain=0:10, samples=101,unbounded coords=jump]{0.8*sin(3*deg(x))*exp(0.2*x)+1};
+		\draw[dotted,very thick,red] (axis cs:0,0) -- (axis cs:0,1);
+        \end{axis}
+    \end{tikzpicture}
+\caption{Trois exemples de signaux : (en bleu) stable (en rouge) instable}
+\end{center}                
+\end{figure}
+
 
 %\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
