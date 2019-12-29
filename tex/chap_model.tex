@@ -153,23 +153,26 @@ La pente à l'origine peut être obtenue directement en dérivant la réponse te
 $$
 s'(0)=-\dfrac{KE_0}{\tau^2}
 $$
-La pente à l'origine est négative et inversemment proportionnelle au carré de la constante de temps du système $\tau$.
+La pente à l'origine est négative et inversemment proportionnelle 
+au carré de la constante de temps du système $\tau$.
 
-%Le~\cref{tab-1er_imp} donne quelques valeurs particulières de la réponse indicielle. D'après celui-ci,
-%on constate que le temps $t_{5\%}$ de réponse à 5\% est de l'ordre de 3$\tau$ (i.e $-\log{5\%}$).
+Le~\cref{tab-1er_imp} donne quelques valeurs particulières de la réponse impulsionnelle. 
+D'après celui-ci, on constate que le temps $t_{5\%}$ de réponse à 5\% est de l'ordre 
+de 3$\tau$ (i.e $-\log{5\%}$). Le transitoire est lui de l'ordre de $7\tau$ 
+(c'est à dire le temps à partir duquel on considère que le signal est nul).
 
-%\begin{table}
-%    \begin{center}
-%    \begin{tabular}{M{2cm}M{2cm}M{2.0cm}M{2.0cm}N}
-%        \hhline{====}
-%                                 & $t=0.5\tau$    & $t=\tau$    & $t=3\tau$ & \\[1.5em]
-%        \hline
-%        $\dfrac{s(t)}{KE_0}$     & 0.606          & 0.368       & 0.05 & \\ [1.5em]
-%        \hhline{====}
-%    \end{tabular}
-%    \caption{Quelques valeurs particulières de la réponse impulsionnelle d'un système du premier ordre\label{tab-1er_imp}.}
-%    \end{center}
-%\end{table}
+\begin{table}
+    \begin{center}
+		\begin{tabular}{M{2cm}M{2cm}M{2.0cm}M{2.0cm}M{2cm}N}
+        \hhline{=====}
+								 & $t=0.5\tau$    & $t=\tau$    & $t=3\tau$ & $t=7\tau$ & \\[1.5em]
+        \hline
+		$\dfrac{s(t)}{KE_0}$     & 0.606          & 0.368       & 0.05      & $\sim$ 0& \\ [1.5em]
+        \hhline{=====}
+    \end{tabular}
+    \caption{Quelques valeurs particulières de la réponse impulsionnelle d'un système du premier ordre\label{tab-1er_imp}.}
+    \end{center}
+\end{table}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -275,12 +278,12 @@ $$
 %\setlength\extrarowheight{4em}
 \begin{table}
     \begin{center}
-    \begin{tabular}{M{2cm}M{2cm}M{2cm}M{2cm}}
-        \hhline{====}
-                                 & $t=0.5\tau$    & $t=\tau$    & $t=3\tau$ \\[1em]
+		\begin{tabular}{M{2cm}M{2cm}M{2cm}M{2cm}M{2cm}}
+        \hhline{=====}
+								 & $t=0.5\tau$    & $t=\tau$    & $t=3\tau$ & $t=7\tau$\\[1em]
         \hline
-        $\dfrac{s(t)}{KE_0}$     & 0.393          & 0.632       & 0.950 \\[1em] 
-        \hhline{====}
+		$\dfrac{s(t)}{KE_0}$     & 0.393          & 0.632       & 0.950     & 0.999 \\[1em] 
+        \hhline{=====}
     \end{tabular}
     \caption{Quelques valeurs particulières de la réponse indicielle d'un système du premier ordre\label{tab-1er_ind}. }
     \end{center}
@@ -383,6 +386,7 @@ alors que $s'(0)=0$ quelque soit $\tau$.
 À la limite $t\to\infty$ la réponse à une rampe tend vers $t-\tau$.
 
 
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1244,6 +1248,7 @@ $$
 Ce qui correspond bien à l'oscillation incessante d'un oscillateur que l'on a 
 déplacé de son état d'équilibre.
 
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1398,6 +1403,7 @@ H(p)=\dfrac{S(p)}{E(p)}=Ke^{-\tau p}
 Les réponses temporelles sont donc de mêmes natures que leurs solliciations, 
 elles sont simplement retardés de $\tau$.
 
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Généralisation des modèles de SLCI}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1490,48 +1496,56 @@ temps caractéristique le plus grand. On dit que c'est un pôle dominant.
 
 \subsection{Notion de pôles dominants}
 
-Soient $p_1,\ldots,p_n$ les pôles d'un système stable
-\footnote{À partir des résultats obtenues dans ce chapitre il est déjà clair que la stabilité
-d'un système dépend également des pôles de la fonction de transfert}.
-Le pôle $p_i$ est dit dominant par rapport à $p_j$ si les
-valeurs absolues de leurs parties réelles vérifient la relation
-suivante :
+Soient $p_1,\ldots,p_n$ les pôles d'un système stable\footnote{À partir 
+des résultats obtenus dans ce chapitre il est déjà clair que la stabilité
+d'un système dépend également des pôles de sa fonction de transfert}.
+Le pôle $p_i$ est dit dominant si la valeur absolue
+de sa partie réelle est largement plus petite que celle de tout autre pôles 
+du système\footnote{Dans la pratique un rapport de 5 est 
+suffisant pour considérer une domination d'un pôle sur les autres}
 \begin{bequation}[ams align]
-	|\Re{p_i}| < |\Re{p_i}|
+	\big|\Re{p_i}\big| \ll \big|\Re{p_j}\big|\;\; \forall j\neq i
 \end{bequation}
 
-Pour plus facilement distinguée cette notion de pôles 
-dominants nous allons l'illustrer par l'étude d'une fonction 
-de transfert du second ordre en régime apériodique c'est à dire
-qu'elle est équivalente à deux systèmes du premier ordre en série.
-Soit une telle la fonction de transfert telle que :
+Pour observer l'influence d'un pôle dominant sur 
+la réponse temporelle d'un système linéaire, nous
+nous allons l'illustrer par l'étude d'une fonction 
+de transfert du second ordre en régime apériodique.
+Une telle fonction de transfert est équivalente à deux
+systèmes du premier ordre en série.
+
+Prenons l'exemple de la fonction de transfert définie par  
 $$
 H(p)=\dfrac{5}{(p+1)(5p+1)}
 $$
-Les pôles de celle-ci sont représentés sur la carte des pôles suivante :
-\begin{center}
-\tikzsetnextfilename{poles-chap2_ext}
-\begin{tikzpicture}[scale=1.2]
-    \carte[l]
-%    \dpole{-1.5}{1}{1}[orange]
-%    \dpole{-1.5}{-1}{2}[orange]
-    \dpole{-1}{0}{1}[blue]
-    \dpole{-0.2}{0}{2}[blue]
-\end{tikzpicture}
-\end{center}
-
-
-La décomposition en éléments simples nous donne :
+et de décomposition en éléments simples telle que :
 $$
 H(p)=\dfrac{-1.25}{p+1}+\dfrac{6.25}{5p+1}
 $$
 
+Traçons la réponse indicielle de $H(p)$ et de
 
+
+\begin{center}
+\tikzsetnextfilename{poles-chap2_ext}
+\begin{tikzpicture}[scale=1.2]
+    \carte[l]
+    \dpole{-2}{0}{1}[blue]
+    \dpole{-0.5}{0}{2}[blue]
+\end{tikzpicture}
+\end{center}
+
+
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Identification d'un modèle de comportement}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Formule de Bureau}
 \acpl
 
+\subsection{Modèle de Strejc}
+\acpl
 
 
 %\newpage
