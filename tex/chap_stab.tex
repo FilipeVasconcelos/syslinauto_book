@@ -13,17 +13,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Définitions de la stabilité}
+\section{Contexte et critère de stabilité fondamentale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\textbf{Un système est dit stable si à une entrée bornée le système produit une sortie bornée}\footnote{Chez 
-nos collègues anglo-saxons, on rencontre le concept de BIBO (\og bounded input bounded output\fg)}
-
-\textbf{Un système est dit stable lorsque écarté de sa position d'équilibre, il tend à y revenir}
-
-Ces deux définitions sont équivalentes dans le cas des \glspl{slci}. 
 
 \begin{figure}[!h]
     \centering
@@ -50,28 +43,10 @@ Ces deux définitions sont équivalentes dans le cas des \glspl{slci}.
 \caption{Représentation schématique de la stabilité}
 \end{figure}
 
+\textbf{Un système est dit stable si à une entrée bornée le système produit une sortie bornée}\footnote{Chez 
+nos collègues anglo-saxons, on rencontre le concept de BIBO (\og bounded input bounded output\fg)}
 
-\begin{center}
-\tikzsetnextfilename{stable-chap0_ext}
-\input{tikz/stable-chap0.tex}
-\end{center}                
-
-\begin{center}
-\tikzsetnextfilename{stable2-chap0_ext}
-\input{tikz/stable2-chap0.tex}
-\end{center}
-
-\begin{center}
-\tikzsetnextfilename{instable-chap0_ext}
-\input{tikz/instable-chap0.tex}
-\end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Critère de stabilité}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Un système est dit stable lorsque écarté de sa position d'équilibre, il tend à y revenir}
 
 \acpl
 Réponse temporelle du premier ordre du second ordre ...
