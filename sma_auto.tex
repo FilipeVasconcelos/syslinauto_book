@@ -180,7 +180,7 @@ ps2eps -f "\image.ps"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% fmv *.sty
-\usepackage{mymath}
+\usepackage{mathfmv}
 \usepackage{schemabloc}
 \sbStyleBloc{thick}
 \sbStyleLien{thick}
@@ -192,6 +192,7 @@ ps2eps -f "\image.ps"
 \renewcommand{\exercice}[1]{\exo{#1}[\large][\sffamily]}
 \renewcommand{\question}{\ques[\sffamily]}
 \usepackage{routhtab}
+\usepackage{poles}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -249,71 +250,7 @@ ps2eps -f "\image.ps"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %COLOR BOX conseil
 \usepackage[many,listings,skins,breakable]{tcolorbox}
-\newtcolorbox{tips}[2][]{%
-  enhanced,
-  width=\textwidth,
-  fonttitle=\bfseries,
-  fonttitle=\bfseries\color{black},
-  colframe=Melon,
-  colback=Melon!10,
-  title={#2},
-	#1
-}
-\newtcolorbox{criteria}[2][]{%
-  enhanced,
-  width=\textwidth,
-  fonttitle=\bfseries,
-  fonttitle=\bfseries\color{white},
-  colframe=Black,
-  colback=Black!10,
-  title={#2},
-  #1
-}
-\newtcolorbox{theorem}[2][]{%
-  enhanced,
-  breakable,
-  width=\linewidth ,
-  fonttitle=\bfseries,
-  fonttitle=\bfseries\color{black},
-  %sharpish corners,
-  colframe=gray!50,
-  colback=gray!10,
-  title={#2},
-	#1
-}
-\newtcolorbox{bequation}[1][]{%
-  enhanced,
-  width=\textwidth,
-  sharpish corners,
-  colframe=white,
-  colback=gray!40,
-  after=,
-  #1
-}
-\newtcolorbox{code}[1][]{%
-%before=\begin{center},after=\end{center},
-enhanced,
-breakable,
-width=\linewidth,
-%sharpish corners,
-%colframe=blue!60,
-colback=blue!8,
-#1
-}
-\newtcolorbox{doc}[1][]{%
-%before=\begin{center},after=\end{center},
-enhanced,
-breakable,
-width=\linewidth,
-%sharpish corners,
-colframe=red!60,
-colback=red!8,
-#1
-}
-
-\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
-        %default radius will be 1pt. 
-cross/.default={1pt}}
+\usepackage{tcolorfmv}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
