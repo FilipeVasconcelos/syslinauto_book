@@ -18,15 +18,18 @@ temporelle de différents systèmes modèles. Ces modèles sont
 Ces modèles reflètent les différentes équations différentielles et 
 systèmes physiques généralement rencontrés dans la nature.
 Les deux plus importants sont les systèmes du premier et second ordre 
-qui sont pour cette raison éxamniner en détail.
+qui sont pour cette raison éxaminer en détail. 
+Nous généraliserons aux systèmes d'ordre supérieur en montrant 
+que toute fonction de transferts peut se factoriser en un produit
+de ces systèmes modèles.
 
-Nous suivrons la même présentation pour tous ces modèles: 
+Nous suivrons la même présentation pour tous les modèles: 
 nous donnerons d'abord l'équation différentielle régissant le système, puis 
 sa fonction de transfert ainsi que ses pôles, avant de 
-déterminer analytiquement les différentes réponses temporelles : impulsionnelle,
-indicielle et la réponse à une rampe. Le principal objectif de cette étude est
-d'établir les caractéristiques de ces modèles à partir de leurs 
-réponses temporelles.
+déterminer analytiquement les différentes réponses temporelles : i
+impulsionnelle, indicielle et la réponse à une rampe. 
+Le principal objectif de cette étude est d'établir les caractéristiques 
+de ces modèles à partir de leurs réponses temporelles.
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1217,7 +1220,7 @@ $$
 $$
 c'est à dire sans amortissement ($\xi=0$), on se retrouve alors dans le 
 cas classique de l'oscillateur harmonique.
-Nous allons ici étudié ce modèle limite qui est d'une grande importance en physique.
+Nous allons ici étudier ce modèle limite qui est d'une grande importance en physique.
 Ceci afin de constater que l'approche utilisée tout le long de ce chapitre
 permet également de décrire ce modèle important. 
 
@@ -1240,8 +1243,6 @@ s(t)=\laplace{S(p)}=\dfrac{KE_0}{\omega_0}\sin{\omega_0t}
 $$
 Ce qui correspond bien à l'oscillation incessante d'un oscillateur que l'on a 
 déplacé de son état d'équilibre.
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1401,12 +1402,129 @@ elles sont simplement retardés de $\tau$.
 \section{Généralisation des modèles de SLCI}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Nous venons d'analyser un grand nombre de systèmes d'ordre $n<2$. 
+Nous allons ici généraliser l'approche pour l'étude de ssystèmes d'ordre supérieur à deux.
+
 \subsection{Systèmes d'ordre supérieur à 2}
+Dans le cas d'un système d'ordre $n>2$, il suffit de décomposée en éléments simples 
+la fonction de transfert, qui n'est rien d'autre qu'une fraction rationnelle en $p$ et 
+d'utiliser la propriété de linéarité de la sortie.
+
+Rappelons (c.f ~\cref{chap-slci}) que toute fonction de transfert peut être 
+mise sous la forme factorisé suivante  
+$$
+H(p)=\dfrac{K}{p^\alpha}\cdot\dfrac{N(p)}{D(p)}
+$$
+avec $K$ le gain statique, $\alpha$ la classe (ou le nombre d'intégrateur) et 
+deux polynômes $N(p)$ et $D(p)$.
+
+Les deux polynômes peuvent se factoriser comme un produit de polynômes 
+irréductibles unitaires, c'est à dire :
+$$
+H(p)=\dfrac{K}{p^\alpha}\dfrac{\prod\limits_i (1+\tau_ip)\prod\limits_j (1+2\xi_j\tau_jp+\tau_jp^2)}{\prod\limits_i (1+\tau_ip)\prod\limits_j (1+2\xi_j\tau_jp+\tau_jp^2)}
+$$
+en toute rigueur il suffit d'exprimer le rapport 
+des produits comme un simple produits en permettant
+les exposants d'être négatifs, soit alors la forme plus condensée :
+\begin{bequation}[ams align]
+H(p)= Kp^{\alpha}\prod_{i} (1+\tau_ip)^{n_i}\prod_{j} (1+2\xi_j\tau_jp+\tau_jp^2)^{n_j}
+\end{bequation}
+où $n_i$ et $n_j$ peuvent être positifs et négatifs. 
+
+Après décomposition en éléments simples, $H(p)$ s'écrit sous la forme d'une somme
+de systèmes du 1er et second ordre.
+$$
+H(p)=\sum_i H_i(p)
+$$
+La réponse temporelle $s(t)$ d'un tel système sortie est alors la somme des réponses de
+chacuns des sous systèmes $H_i(p)$
+$$
+s(t)=\sum_i s_i(t)
+$$
+
+\subsection{Exemple d'une fonction de transfert d'ordre 3}
+
+Soit un système caractérisé par la fonction de transfert $H(p)$ tel
+que :
+$$
+H(p)=\dfrac{3p+1}{p^3+9p^2+23p+15}
+$$
+On détermine, après un peu d'algèbre, les trois pôles 
+$p_1=-1$, $p_2=-3$ et $p_3=-5$ ainsi que la forme factorisée de la fonction de transfert :
+$$
+H(p)=\dfrac{3p+1}{(p+1)(p+3)(p+5)}
+$$
+
+La décomposition en éléments simples est donné par :
+$$
+H(p)=\dfrac{0.25}{p+1}+\dfrac{1}{p+3}-\dfrac{1.25}{p+5}
+$$
+et sous forme factorisée :
+$$
+H(p)=\dfrac{0.25}{p+1}+\dfrac{1/3}{\frac{1}{3}p+1}-\dfrac{0.25}{0.2p+1}
+$$
+
+La réponse temporelles est donc la somme des réponses temporelles de trois systèmes 
+du premier ordre $H_1(p)$, $H_2(p)$ et $H_3(p) $ ayant respectivement pour paramètres
+($K_1=0.25$,$\tau_1=1$), ($K_2=1/3,$$\tau_2=1/3$) et ($K_3=-0.25$,$\tau_3=0.2$)
+
+Pour la réponse indicielle à un échelon d'amplitude $E_0$ les réponses $s_i(t)$ 
+de chacunes de ces fonctions de transferts sont de la forme :
+$$
+s_i(t)=K_iE_0\left(1-e^{-t/\tau_i}\right)
+$$
+
+La réponse indicielle du système est alors
+$$
+s(t)=\sum_i s_i(t) = \dfrac{E_0}{4}\left(1-e^{-t}\right)+\dfrac{E_0}{3}\left(1-e^{-3t}\right)-\dfrac{E_0}{4}\left(1-e^{-5t}\right)
+$$
+
+La valeur finale est donnée par la somme algébrique des valeurs finales de chacunes
+des fonctions de transfert.
+
+Cependant, les propriétés telle que le temps de réponse, 
+les pseudo-oscillation (dans le cas de système du second ordre) 
+le dépassement ou encore la stabilité sont gouvernées 
+par la fonction de transfert de 
+temps caractéristique le plus grand. On dit que c'est un pôle dominant.
+
+\subsection{Notion de pôles dominants}
+
+Soient $p_1,\ldots,p_n$ les pôles d'un système stable
+\footnote{À partir des résultats obtenues dans ce chapitre } (c.a.d tous à partie réelle négative)
+
+
+Pour plus facilement distinguée cette notion de pôles 
+dominants nous allons l'illustrer par l'étude d'une fonction 
+de transfert du second ordre en régime apériodique c'est à dire
+qu'elle est équivalente à deux systèmes du premier ordre en série.
+Soit une telle la fonction de transfert telle que :
+$$
+H(p)=\dfrac{5}{(p+1)(5p+1)}
+$$
+Les pôles de celle-ci sont représentés sur la carte des pôles suivante :
+\begin{center}
+\tikzsetnextfilename{poles-chap2_ext}
+\begin{tikzpicture}[scale=1.2]
+    \carte[l]
+%    \dpole{-1.5}{1}{1}[orange]
+%    \dpole{-1.5}{-1}{2}[orange]
+    \dpole{-1}{0}{1}[blue]
+    \dpole{-0.2}{0}{2}[blue]
+\end{tikzpicture}
+\end{center}
+
+
+La décomposition en éléments simples nous donne :
+$$
+H(p)=\dfrac{-1.25}{p+1}+\dfrac{6.25}{5p+1}
+$$
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Identification d'un modèle de comportement}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\acpl
 
 
 
