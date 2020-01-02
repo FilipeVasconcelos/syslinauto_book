@@ -134,6 +134,7 @@ Un système est dit linéaire si il respecte les deux principes suivants:
     On exprime, schématiquement, ce principe de la façon suivante pour 
     un système linéaire $\Sigma$:
     \begin{center}
+    {\tikzset{external/export=false}
     \begin{tikzpicture}
         \begin{scope}[local bounding box=scope1]
             \sbEntree{E1}
@@ -152,6 +153,7 @@ Un système est dit linéaire si il respecte les deux principes suivants:
             \sbRelier[$\alpha s(t)$]{B3}{S3}
         \end{scope}
     \end{tikzpicture}
+    }
     \end{center}
 
 
@@ -484,7 +486,7 @@ Nous ne limiterons à dire qu'un signal stable est un signal
 borné. Il va sans dire que les signaux usuels en entrée
 de nos systèmes sont bornés et donc stables.
 
-\begin{figure}[!htbp]
+\begin{figure}[!ht]
 \begin{center}
 \tikzsetnextfilename{stable-chap0_ext}
 \begin{tikzpicture}
@@ -555,8 +557,8 @@ de nos systèmes sont bornés et donc stables.
 		\draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1);
         \end{axis}
 \end{tikzpicture}
-\tikzsetnextfilename{instable2-chap0_ext}
-\begin{tikzpicture}
+    {\tikzset{external/export=false}
+\begin{tikzpicture}%
         \begin{axis}[
 	ticks=none,
         axis line style = thick,
@@ -567,17 +569,18 @@ de nos systèmes sont bornés et donc stables.
         xmin=-2,
         xmax=10,
         ymin=-3,
-        ymax=6.0,
+        ymax=6,
         xlabel={$t$},
         ylabel={$s(t)$},
         xlabel style={below right},
         ylabel style={above left},
         ]
-        \addplot [very thick,color=red,domain=-2:0, samples=101,unbounded coords=jump]{0};
-		\addplot [very thick,color=red,domain=0:10, samples=101,unbounded coords=jump]{0.8*sin(3*deg(x))*exp(0.2*x)+1};
-		\draw[dotted,very thick,red] (axis cs:0,0) -- (axis cs:0,1);
-        \end{axis}
-    \end{tikzpicture}
+\addplot[very thick,color=red,domain=-2:0, samples=101,unbounded coords=jump]{0};
+%\addplot [very thick,color=red,domain=0:10, samples=101,unbounded coords=jump]{0.8*sin(3*deg(x))*exp(0.2*x)+1};
+%\draw[dotted,very thick,red] (axis cs:0,0) -- (axis cs:0,1);
+\end{axis}
+\end{tikzpicture}
+}
 \caption{Trois exemples de signaux : (en bleu) stable (en rouge) instable}
 \end{center}                
 \end{figure}
