@@ -173,6 +173,7 @@ ps2eps -f "\image.ps"
 
 % à compléter...
 \newcommand*{\acpl}{\emph{à compléter}\ldots}
+\newcommand*{\acplhp}{\emph{à compléter (hors programme)}\ldots}
 \newcommand*{\todo}[1]{\emph{TODO : #1}}
 %\newcommand*{\SLCI}{\emph{{\scshape Slci}}}
 
@@ -309,7 +310,7 @@ ps2eps -f "\image.ps"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\includeonly{tex/avantpropos}
 %\includeonly{tex/chap_slci}                % Système linéaire
-\includeonly{tex/chap_model}               % Modèles Usuels    
+%\includeonly{tex/chap_model}               % Modèles Usuels    
 %\includeonly{tex/chap_asserv}              % Asservissement 
 %\includeonly{tex/chap_perf}                % Précision rapidité 
 %\includeonly{tex/annexe_alphagrec}         % Alphabet grec    
@@ -380,11 +381,11 @@ ps2eps -f "\image.ps"
 }
 \include{tex/chap_model}               % Modèles de SLCI
 \include{tex/chap_repfreq}             % Réponse Harmonique
+{\tikzset{external/export=false} 
 \include{tex/chap_asserv}              % Asservissement
-%{\tikzset{external/export=false} 
 \include{tex/chap_perf}                % Performance
+} 
 \include{tex/chap_stab}                % Stabilité
-%} 
 \include{tex/chap_correction}          % Correction
 \include{tex/chap_etat}                % Représentation d'état.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

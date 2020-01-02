@@ -10,7 +10,8 @@ pspdfd:	psd
 	ps2pdf -sPAPERSIZE=a4 ${filename}.ps
 
 pspdf:	ps 
-	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dColorConversionStrategy=/LeaveColorUnchanged -dAutoRotatePages=/None ${filename}.ps
+	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${filename}.ps
+#	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dColorConversionStrategy=/LeaveColorUnchanged -dAutoRotatePages=/None ${filename}.ps
 
 pdfd: 
 	pdflatex -draftmode ${filename}
@@ -47,14 +48,14 @@ psd: dvid
 	dvips -t a4 ${filename}.dvi
 
 dvi:
-	latex --shell-escape ${filename}
+	latex -shell-escape ${filename}
 	bibtex ${filename} ||true
 	makeindex ${filename}
 	makeglossaries ${filename}
 	latex ${filename}
 	latex ${filename}
 dvi-simple:
-	latex --shell-escape ${filename}
+	latex -shell-escape ${filename}
 
 dvid:
 	latex -draftmode ${filename}
