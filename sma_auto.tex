@@ -17,12 +17,10 @@
 \usepackage[skip=0.3cm,hypcap=false]{caption} 
 \captionsetup{width=.85\linewidth,belowskip=0pt,labelfont=bf} 
 \usepackage[french]{minitoc}
-%\usepackage[multiple]{footmisc}
-%\usepackage{pdfpages}
+\usepackage{amsmath,amsthm,amssymb}
 \usepackage{mathrsfs}
 \usepackage{graphicx}
 \usepackage[graphicx]{realboxes}
-%\usepackage{subfig}
 \usepackage{subcaption}
 \usepackage{lscape}
 \usepackage{enumitem}
@@ -31,43 +29,26 @@
 \usepackage{rotating}
 \usepackage{epstopdf}
 \usepackage{mathtools}
-%\usepackage[squaren,Gray,cdot]{SIunits}
 \usepackage{siunitx}
-\DeclareSIUnit\dec{décade}
-\newcommand*{\degree}{\si{\degree}}
+\usepackage{siunitxfmv}
 \usepackage{afterpage}
 \usepackage[dvipsnames]{xcolor}
-%\usepackage{slashbox}
 \usepackage{eso-pic,calc}                
 \usepackage{imakeidx}
 \makeindex[columnsep=20pt,columnseprule]
 \usepackage[colorlinks]{hyperref}  % à remettre dans la version finale
 \usepackage{url} % url dans bibtex
 \usepackage[hyphenbreaks]{breakurl} 
-%\usepackage[ucmark,toc,hyperfirst=false]{glossaries}
 \usepackage[abbreviations,symbols,nogroupskip,nonumberlist]{glossaries-extra}
 \setabbreviationstyle[acronym]{long-short}
 \makeglossaries
-% disable hyperlink if link count is equal to 1:
-%\renewcommand*{\glslinkpresetkeys}{%
-%\ifnum\GlsXtrLinkCounterValue{\glslabel}=1
-%\setkeys{glslink}{hyper=false}%
-%\fi
-%}
-%\DeclareRobustCommand{\abbrevcrefs}{%
-%    \crefname{figure}{Fig.}{Figs.}%
-%    \crefname{equation}{\'Eq.}{\'Eqs.}%
-%    \crefname{table}{Tab.}{Tabx.}%
-%}
-%\DeclareRobustCommand{\cshref}[1]{{\abbrevcrefs\cref{#1}}}
 \usepackage{tocbibind}
-%\usepackage{blindtext}
 \usepackage{float}
 \usepackage{titletoc}%
 \usepackage[page]{appendix}
 \renewcommand\appendixtocname{Annexes}
-\makeatletter
 
+\makeatletter
 \titlecontents{chapter}%
  [0em]% 
  {\bfseries}%
@@ -78,22 +59,21 @@
 \g@addto@macro\appendices{%
 \addtocontents{toc}{\protect\renewcommand{\protect\@chapapp}{\appendixname}}%
 }
-
 \DeclareUnicodeCharacter{2212}{$-$}
-
 \makeatother
 
-%\usepackage{pdfcrop}
-%\usepackage{lscape}
+\usepackage{xargs}
 \usepackage{lipsum}
-%\usepackage{adjustbox}
 \usepackage{etoolbox}
+\usepackage[french,nameinlink,noabbrev]{cleveref}
+
 \usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
 \usepackage{tikzfmv}
 \usepackage{tkz-euclide}
 \usepackage{tikz-3dplot}
 \usepackage{pst-3dplot}
-\usepackage{xargs}
 \usetikzlibrary{calc,tikzmark}
 \usetikzlibrary{quotes,angles}
 \usetikzlibrary{arrows.meta,bending,automata,positioning}
@@ -101,13 +81,8 @@
 \usetikzlibrary{babel} 
 \usetikzlibrary{decorations.text}
 \usetikzlibrary{matrix}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.14}
 \usetkzobj{all} 
 \usetikzlibrary{external}
-%\usepgfplotslibrary{external}
-\usepackage{amsmath,amsthm,amssymb}
-\usepackage[french,nameinlink,noabbrev]{cleveref}
 \crefname{appchap}{Annexe}{Annexes}
 \tikzset{external/system call={latex \tikzexternalcheckshellescape 
 -halt-on-error  -interaction=batchmode -jobname "\image" "\texsource"; 
@@ -115,12 +90,12 @@ dvips -o "\image".ps "\image".dvi;
 ps2eps -f "\image.ps"
 }}
 \tikzset{external/optimize command away=\AddToShipoutPicture}
-%\tikzexternalize[mode=graphics if exists,
-%figure list=true,prefix=fig/]
 \tikzexternalize[prefix=fig/]
 
 %\usepackage[]{hypdvips}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usepackage{booktabs}
 \usepackage{array,multirow,makecell}
 \setcellgapes{1pt}
@@ -146,6 +121,8 @@ ps2eps -f "\image.ps"
 
 \usepackage[a4paper,headheight=16pt]{geometry}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -157,6 +134,8 @@ ps2eps -f "\image.ps"
 \fancyhead{} % get rid of headers
 \renewcommand{\headrulewidth}{0pt} % and the line
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \let\origprintindex\printindex
 \renewcommand*{\printindex}{%
@@ -202,24 +181,24 @@ ps2eps -f "\image.ps"
 
 
 %tikz
-\newcommand{\AxisRotator}[1][rotate=0]{%
-	    \tikz [x=0.25cm,y=0.60cm,line width=.2ex,-stealth,#1] \draw (0,0) arc (-150:150:1 and 1);%
-}
+%\newcommand{\AxisRotator}[1][rotate=0]{%
+%	    \tikz [x=0.25cm,y=0.60cm,line width=.2ex,-stealth,#1] \draw (0,0) arc (-150:150:1 and 1);%
+%}
 
-\newcommand{\tdcylxy}[5]{% origin x, origin y, origin z, radius, height
-    \path (1,0,0);
-    \pgfgetlastxy{\cylxx}{\cylxy}
-    \path (0,1,0);
-    \pgfgetlastxy{\cylyx}{\cylyy}
-    \path (0,0,1);
-   \pgfgetlastxy{\cylzx}{\cylzy}
-   \pgfmathsetmacro{\cylt}{(\cylzy * \cylyx - \cylzx * \cylyy)/ (\cylzy * \cylxx - \cylzx * \cylxy)}
-  \pgfmathsetmacro{\ang}{atan(\cylt)}
-   \pgfmathsetmacro{\ct}{1/sqrt(1 + (\cylt)^2)}
-    \pgfmathsetmacro{\st}{\cylt * \ct}
-    \filldraw[fill=blue!50!white,opacity=0.50] (#4*\ct+#1,#4*\st+#2,#3) -- ++(0,0,#5) arc[start angle=\ang,delta angle=180,radius=#4] -- ++(0,0,-#5) arc[start angle=\ang+180,delta angle=180,radius=#4];
-    \filldraw[fill=blue!50!white,opacity=0.50] (#1,#2,#3) circle[radius=#4];
-}
+%\newcommand{\tdcylxy}[5]{% origin x, origin y, origin z, radius, height
+%    \path (1,0,0);
+%    \pgfgetlastxy{\cylxx}{\cylxy}
+%    \path (0,1,0);
+%    \pgfgetlastxy{\cylyx}{\cylyy}
+%    \path (0,0,1);
+%   \pgfgetlastxy{\cylzx}{\cylzy}
+%   \pgfmathsetmacro{\cylt}{(\cylzy * \cylyx - \cylzx * \cylyy)/ (\cylzy * \cylxx - \cylzx * \cylxy)}
+%  \pgfmathsetmacro{\ang}{atan(\cylt)}
+%   \pgfmathsetmacro{\ct}{1/sqrt(1 + (\cylt)^2)}
+%    \pgfmathsetmacro{\st}{\cylt * \ct}
+%    \filldraw[fill=blue!50!white,opacity=0.50] (#4*\ct+#1,#4*\st+#2,#3) -- ++(0,0,#5) arc[start angle=\ang,delta angle=180,radius=#4] -- ++(0,0,-#5) arc[start angle=\ang+180,delta angle=180,radius=#4];
+%    \filldraw[fill=blue!50!white,opacity=0.50] (#1,#2,#3) circle[radius=#4];
+%}
 
 \makeatletter
 \addtocounter{secnumdepth}{1}
@@ -249,28 +228,16 @@ ps2eps -f "\image.ps"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%COLOR BOX conseil
+%COLOR BOX 
 \usepackage[many,listings,skins,breakable]{tcolorbox}
 \usepackage{tcolorfmv}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\tcbuselibrary{skins}
-\tcbset{shield externalize,
- 		pccstyle/.style={,
-        enhanced,flushleft upper,
-        boxrule=1.6pt,
-        colback=white,colframe=black!50!yellow,
-        drop fuzzy midday shadow=black!50!yellow
-    }
-}
-
+% Cover picture
 \newcommand\BackgroundPic{%
-    { \tikzset{external/export=false}
+{\tikzset{external/export=false}
 \put(0,0){%
 \parbox[b][\paperheight]{\paperwidth}{%
 \begin{picture}(0,0)
