@@ -180,26 +180,6 @@ ps2eps -f "\image.ps"
 \loadglsentries{tex/symbole}
 
 
-%tikz
-%\newcommand{\AxisRotator}[1][rotate=0]{%
-%	    \tikz [x=0.25cm,y=0.60cm,line width=.2ex,-stealth,#1] \draw (0,0) arc (-150:150:1 and 1);%
-%}
-
-%\newcommand{\tdcylxy}[5]{% origin x, origin y, origin z, radius, height
-%    \path (1,0,0);
-%    \pgfgetlastxy{\cylxx}{\cylxy}
-%    \path (0,1,0);
-%    \pgfgetlastxy{\cylyx}{\cylyy}
-%    \path (0,0,1);
-%   \pgfgetlastxy{\cylzx}{\cylzy}
-%   \pgfmathsetmacro{\cylt}{(\cylzy * \cylyx - \cylzx * \cylyy)/ (\cylzy * \cylxx - \cylzx * \cylxy)}
-%  \pgfmathsetmacro{\ang}{atan(\cylt)}
-%   \pgfmathsetmacro{\ct}{1/sqrt(1 + (\cylt)^2)}
-%    \pgfmathsetmacro{\st}{\cylt * \ct}
-%    \filldraw[fill=blue!50!white,opacity=0.50] (#4*\ct+#1,#4*\st+#2,#3) -- ++(0,0,#5) arc[start angle=\ang,delta angle=180,radius=#4] -- ++(0,0,-#5) arc[start angle=\ang+180,delta angle=180,radius=#4];
-%    \filldraw[fill=blue!50!white,opacity=0.50] (#1,#2,#3) circle[radius=#4];
-%}
-
 \makeatletter
 \addtocounter{secnumdepth}{1}
 \renewcommand{\thesection}{\arabic{section}}
@@ -277,7 +257,7 @@ ps2eps -f "\image.ps"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\includeonly{tex/avantpropos}
 %\includeonly{tex/chap_slci}                % Système linéaire
-%\includeonly{tex/chap_model}               % Modèles Usuels    
+\includeonly{tex/chap_model}               % Modèles Usuels    
 %\includeonly{tex/chap_asserv}              % Asservissement 
 %\includeonly{tex/chap_perf}                % Précision rapidité 
 %\includeonly{tex/annexe_alphagrec}         % Alphabet grec    
