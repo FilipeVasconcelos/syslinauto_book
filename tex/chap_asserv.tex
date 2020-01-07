@@ -1,32 +1,35 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Asservissements des systèmes linéaires\label{chap-asservis}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \minitoc
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[!h]
     \centering
-%        \includegraphics[width=0.45\linewidth,height=10cm]{fig/AGMA_Clepsydre_m.eps}
-%        \label{fig-clep}
-   \includegraphics[width=0.45\linewidth,height=10cm]{fig/Georgetown_PowerPlant_Museum_m.eps}
-    \label{fig-watt}
-%\caption{Exemples historiques de régulateur : (gauche) Clepsydre athénienne (d'après \cite{clep}) 
-%                                                  (droite) Régulateur de vitesse de Watt (d'après \cite{watt})\label{fig-hist}}
-\caption{Exemple historique de régulateur : Régulateur de vitesse de Watt (d'après \cite{watt})\label{fig-hist}}
+%\includegraphics[width=0.45\linewidth,height=10cm]{fig/AGMA_Clepsydre_m.eps}
+%\label{fig-clep}
+\includegraphics[width=0.45\linewidth,height=10cm]
+{fig/Georgetown_PowerPlant_Museum_m.eps}
+%\label{fig-watt}
+%\caption{Exemples historiques de régulateur : 
+%(gauche) Clepsydre athénienne (d'après \cite{clep}) 
+%(droite) Régulateur de vitesse de Watt (d'après \cite{watt})\label{fig-hist}}
+\caption{Exemple historique de régulateur : Régulateur 
+de vitesse de Watt (d'après \cite{watt})\label{fig-hist}}
 \end{figure}
 
 Les chapitres précédents nous ont permis de caractériser, modéliser et
@@ -39,21 +42,19 @@ sans l'intervention d'un opérateur humain dans l'établissement d'une commande
 d'un système. 
 
 La figure~\ref{fig-hist} montre un exemple historique de 
-régulateur de vitesse ( également connu comme le régulateur à boules de Watt). La
-particularité de ce régulateur est d'avoir était utilisé dans l'industrie
-du 18ème siècle bien avant les premières avancées théoriques dans le domaine de l'automatique.
-Dans le contexte des premières machines à vapeurs, 
-il était important de contrôler la vitesse angulaire des turbines à vapeur. Le mécanisme 
-de Watt permet avec un dispositif de retroaction d'agir sur la valve d'arrivée de la vapeur
-en fonction de la vitesse de l'axe de la turbine.
-
-
+régulateur de vitesse ( également connu comme le régulateur à boules de Watt). 
+La particularité de ce régulateur est d'avoir était utilisé dans l'industrie
+du 18ème siècle bien avant les premières avancées théoriques dans le domaine 
+de l'automatique. Dans le contexte des premières machines à vapeurs, 
+il était important de contrôler la vitesse angulaire des turbines à vapeur. 
+Le mécanisme de Watt permet avec un dispositif de retroaction d'agir sur la 
+valve d'arrivée de la vapeur en fonction de la vitesse de l'axe de la turbine.
 
 En effet, jusqu'à présent nous nous sommes intéressés à l'étude de système 
 linéaire \og isolé\fg (de fonction de transfert $H(p)$) 
-qui pour une entrée $E(p)$, élaborait une sortie $S(p)$\footnote{On conserve la représentation
-dans le domaine de Laplace de nos systèmes linéaires et des signaux mis en 
-jeu physiquement dans le domaine temporel}.
+qui pour une entrée $E(p)$, élaborait une sortie $S(p)$\footnote{On conserve 
+la représentation dans le domaine de Laplace de nos systèmes linéaires et 
+des signaux mis en jeu physiquement dans le domaine temporel}.
 
 \begin{center}
 %\tikzsetnextfilename{sb_bloc0-chap5_ext}
@@ -76,12 +77,12 @@ Il existe deux approches pour élaborer la commande
 d'un système linéaire soit en boucle ouverte ou en boucle fermée.
 
 \begin{itemize}
-	\item En \textbf{boucle ouverte}: on place un correcteur $C(p)$
-		en amont du système pour élaborer 
-		la commande (que nous noterons $U(p)$) du système que l'on 
-		souhaite contrôler. \`A noter que l'entrée du système appelée dans
-		le cadre de l'asservissement consigne est maintenant 
-		l'entrée du correcteur.
+    \item En \textbf{boucle ouverte}: on place un correcteur $C(p)$
+          en amont du système pour élaborer 
+          la commande (que nous noterons $U(p)$) du système que l'on 
+          souhaite contrôler. \`A noter que l'entrée du système appelée 
+          dans le cadre de l'asservissement consigne est maintenant 
+          l'entrée du correcteur.
 
 \begin{center}
 %\tikzsetnextfilename{sb_bloc1-chap5_ext}
@@ -98,10 +99,10 @@ d'un système linéaire soit en boucle ouverte ou en boucle fermée.
 \end{tikzpicture}
 \end{center}
 
-\item En \textbf{boucle fermée}: le principe consiste à mesurer le signal de sortie
-      pour ajuster le signal de commande. Pour celà, on place le
-      système (corrigée ou non) dans une boucle de contre-réaction 
-	  \cref{chap-schemabloc}.
+    \item En \textbf{boucle fermée}: le principe consiste à mesurer le signal 
+          de sortie pour ajuster le signal de commande. Pour celà, on place le
+          système (corrigée ou non) dans une boucle de contre-réaction 
+          \cref{chap-schemabloc}.
 
 \begin{center}
 %\tikzsetnextfilename{sb_bloc2-chap5_ext}
@@ -123,11 +124,9 @@ d'un système linéaire soit en boucle ouverte ou en boucle fermée.
 
 \end{itemize}
 
-En d'autre mot, 
-Dans un sens, le signal $e(t)$ est la commande du système 
-De tel système
-
-
+%En d'autre mot, 
+%Dans un sens, le signal $e(t)$ est la commande du système 
+%De tel système
 
 La \textbf{régulation} consiste à contrôler la sortie d'un système
 pour une consigne fixe quelque soit les perturbations variables au 
@@ -136,11 +135,8 @@ cours du temps.
 L'\textbf{asservissement} consiste à suivre une consigne variable 
 au cours du temps.
 
-
 %Imaginons que l'on souhaite étudier la température de l'eau 
 %fournie par une douche. 
-
-
 
 %Dans ce chapitre, nous allons aborder la notion d'asservissement des 
 %systèmes linéaires que nous avons maitenant caractérisé, modélisisé et
@@ -148,25 +144,19 @@ au cours du temps.
 %L'idée d'asservissement 
 
 
-
-
-
-
 \clearpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Organisation d'un asservissement}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Schémas fonctionnels associés aux systèmes asservis}
 
-
-
 \begin{figure}[!h]
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Nom des noeuds
 %                                      
 %   E ---- a ---- b ---- c ---- S
@@ -180,7 +170,7 @@ au cours du temps.
 % S : sortie
 % d : capteur
 % r : noeud décalé pour le retour
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{center}
 %    \begin{tikzpicture}
 %        \sbEntree{E}
@@ -206,35 +196,37 @@ au cours du temps.
 %\end{center}
 
 %avec cadre régulateur
-\begin{center}
-\tikzsetnextfilename{reg_1-chap4_ext}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp{a}{E}
-        \sbRelier[$E(p)$]{E}{a}           % entree
-        \sbBloc[3]{b}{$C(p)$}{a}
-        \sbRelier[$\epsilon(p)$]{a}{b}    % ecart
-        \sbBloc[4.2]{c}{$H(p)$}{b}
-        \sbRelier[$U(p)$]{b}{c}           % commande
-        \sbSortie[4]{S}{c}
-        \sbRelier{c}{S}
-        \sbNomLien[0.8]{S}{$S(p)$}
-        \sbDecaleNoeudy[7]{b-c}{r}
-        \sbBlocr[-1.6]{d}{$G(p)$}{r}
-        \sbRelieryx{c-S}{d}              
-        \sbRelierxy[$M(p)$]{d}{a}         % mesure (image de S)
-        \node[yshift=-0.8em] at (b.south) {\small Correcteur};
-        \node[yshift=-0.8em] at (c.south) {\small Système};
-        \node[yshift=-0.8em] at (d.south) {\small Capteur};
-        \draw[dashed,very thick,blue] (1.15,-1.8) rectangle node[blue,xshift=-1.9em,yshift=4em] {\textbf{Régulateur}} (4.9,1);
-        \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
-        \node[yshift=-0.8em] at (S.south) {\small Sortie};
-    \end{tikzpicture}
-\end{center}
-\caption{Schéma fonctionnel classique de l'asservissement d'un système présentant un correcteur et un capteur.\label{fig-reg}}
+    \begin{center}
+    \tikzsetnextfilename{reg_1-chap4_ext}
+        \begin{tikzpicture}
+            \sbEntree{E}
+            \sbComp{a}{E}
+            \sbRelier[$E(p)$]{E}{a}           % entree
+            \sbBloc[3]{b}{$C(p)$}{a}
+            \sbRelier[$\epsilon(p)$]{a}{b}    % ecart
+            \sbBloc[4.2]{c}{$H(p)$}{b}
+            \sbRelier[$U(p)$]{b}{c}           % commande
+            \sbSortie[4]{S}{c}
+            \sbRelier{c}{S}
+            \sbNomLien[0.8]{S}{$S(p)$}
+            \sbDecaleNoeudy[7]{b-c}{r}
+            \sbBlocr[-1.6]{d}{$G(p)$}{r}
+            \sbRelieryx{c-S}{d}              
+            \sbRelierxy[$M(p)$]{d}{a}         % mesure (image de S)
+            \node[yshift=-0.8em] at (b.south) {\small Correcteur};
+            \node[yshift=-0.8em] at (c.south) {\small Système};
+            \node[yshift=-0.8em] at (d.south) {\small Capteur};
+            \draw[dashed,very thick,blue] (1.15,-1.8) rectangle 
+            node[blue,xshift=-1.9em,yshift=4em] {\textbf{Régulateur}} (4.9,1);
+            \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
+            \node[yshift=-0.8em] at (S.south) {\small Sortie};
+        \end{tikzpicture}
+    \end{center}
+    \caption{Schéma fonctionnel classique de l'asservissement d'un système 
+             présentant un correcteur et un capteur.\label{fig-reg}}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Nom des noeuds
 %                                      
 %                                      
@@ -251,7 +243,7 @@ au cours du temps.
 % S : sortie
 % f : capteur
 % r : noeud décalé pour le retour
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{center}
 %    \begin{tikzpicture}
 %        \sbEntree{E}
@@ -282,7 +274,7 @@ au cours du temps.
 %    \end{tikzpicture}
 %\end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Nom des noeuds
 %                                      P
 %                                      |
@@ -302,7 +294,7 @@ au cours du temps.
 % S : sortie
 % g : capteur
 % r : noeud décalé pour le retour
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{landscape}
 %\vspace*{\fill}
 \begin{center}
@@ -340,92 +332,110 @@ au cours du temps.
         \node[yshift=-0.8em] at (S.south) {\small Sortie};
         \node[yshift=2em,xshift=2.8em] at (P.east) {\small Perturbation};
         \draw[dashed,very thick,blue](-0.8,-4) 
-         rectangle node[blue,xshift=-3.2em,yshift=7em]{\textbf{Chaîne d'information}}(6.9,2.5);
+        rectangle node[blue,xshift=-3.2em,yshift=7em]
+        {\textbf{Chaîne d'information}}(6.9,2.5);
         \draw[dashed,very thick,red](7.3,-4)
-         rectangle node[red,xshift=-5.9em,yshift=7em]  {\textbf{Chaîne d'énergie}    }(15.9,2.5);
-         \draw[very thick,green!50!black,dashed,-latex] (4,1)   -- node[green!50!black,above] {Chaîne direct} (14,1) ;
-         \draw[very thick,green!50!black,dashed,-latex] (14,-3.7) -- node[green!50!black,above] {Chaîne de retour} (4,-3.7) ;
+        rectangle node[red,xshift=-5.9em,yshift=7em]  
+        {\textbf{Chaîne d'énergie}    }(15.9,2.5);
+        \draw[very thick,green!50!black,dashed,-latex] (4,1)   -- 
+        node[green!50!black,above] {Chaîne direct} (14,1) ;
+        \draw[very thick,green!50!black,dashed,-latex] (14,-3.7) -- 
+        node[green!50!black,above] {Chaîne de retour} (4,-3.7) ;
     \end{tikzpicture}
 \end{center}
     \captionof{figure}{Décomposition en chaîne d'information et chaîne 
-                       d'énergie d'un schéma bloc d'asservissement complet\label{fig-asser}}
-%\vspace*{\fill}
-%\end{landscape}
+                       d'énergie d'un schéma bloc d'asservissement 
+                       complet\label{fig-asser}}
 
 \begin{table}[!h]
 \begin{center}
     \begin{tabular}{M{3cm}M{8cm}M{4cm}}
         \hhline{===}
-        Composants      & Description & Fonction de transfert ou signal associés \\[0em]
+Composants      & Description & Fonction de transfert ou signal associés\\[0em]
         \hhline{===}
-        Consigne/Entrée & La valeur que l'on souhaite atteindre en sortie du système asservi.
-                          Cette consigne peut être constante ou dépendante du temps. 
-                        & $E(p)$                                                 \\[0em]
+Consigne/Entrée & La valeur que l'on souhaite atteindre en sortie 
+                  du système asservi. Cette consigne peut être constante 
+                  ou dépendante du temps. 
+                & $E(p)$                                                \\[0em]
         \hline
-        Adaptateur      & Adapte le signal de consigne à l'image de la sortie.           
-                        & $A_d(p)$                                               \\[0em]
+Adaptateur      & Adapte le signal de consigne à l'image de la sortie.
+                & $A_d(p)$                                              \\[0em]
         \hline
-        Correcteur      & \'Elabore à partir du signal d'écart $\epsilon(p)$ 
+Correcteur      & \'Elabore à partir du signal d'écart $\epsilon(p)$ 
                           la commande $U(p)$ ou la grandeur réglante du système.
-                        & $C(p)$                                                 \\[0em]
+                & $C(p)$                                                \\[0em]
         \hline
-        Actionneur      & L'organe d'action qui apporte l'énergie au système.
-                        & $A_c(p)$                                               \\[0em]
+Actionneur      & L'organe d'action qui apporte l'énergie au système.
+                & $A_c(p)$                                              \\[0em]
         \hline
-		Commande        & Le signal de commande du système élaboré par l'actionneur 
+Commande        & Le signal de commande du système élaboré par l'actionneur 
 		                  ou le correcteur.
-                        & $U(p)$                                                 \\[0em]
+                & $U(p)$                                                \\[0em]
         \hline
-        Système         & Le système que l'on souhaite contrôler et/ou asservir
-                                      & $H(p)$                                   \\[0em]
+Système         & Le système que l'on souhaite contrôler et/ou asservir
+                & $H(p)$                                                \\[0em]
         \hline
-        Régulateur      & Le régulateur se compose d'un comparateur qui élabore le signal d'écart $\epsilon(p)$ 
-                          à partir de la consigne et de la mesure, formellement le régulateur incorpore le correcteur 
-                          et du correcteur.
-                                      & $\epsilon(p)$                            \\[0em]
+Régulateur      & Le régulateur se compose d'un comparateur qui élabore le 
+                  signal d'écart $\epsilon(p)$ à partir de la consigne et de 
+                  la mesure, formellement le régulateur incorpore 
+                  également le correcteur.
+                & $\epsilon(p)$                                         \\[0em]
         \hline
-        Perturbation    & Phénomène physique intervenant sur le système qui en modifie la sortie
-                                      & $P(p)$                                   \\[0em]
+Perturbation    & Phénomène physique intervenant sur le système qui 
+                  en modifie la sortie
+                & $P(p)$                                                \\[0em]
         \hline
-        Capteur         &  Le capteur prélève le sortie pour en donner une image (la mesure) 
-                           utile au régulateur. Intervenant dans la boucle ouverte, son étude 
-                           est indispensable pour la caractérisation des performances du système asservi.
-                                      & $G(p)$                                   \\[0em]
+Capteur         &  Le capteur prélève le sortie pour en donner une 
+                   image (la mesure) utile au régulateur. 
+                   Intervenant dans la boucle ouverte, son étude 
+                   est indispensable pour la caractérisation des 
+                   performances du système asservi.
+                & $G(p)$                                                \\[0em]
         \hline
-        Mesure          & Le signal de la mesure de la sortie ou image de la sortie
-                          élaboré par le capteur.
-                                      & $M(p)$                                   \\[0em]  
+Mesure          & Le signal de la mesure de la sortie ou image de la sortie
+                  élaboré par le capteur.
+                & $M(p)$                                                \\[0em]
         \hline
-        Sortie          & Le signal de sortie du système que l'on souhaite régulé et/ou asservir
-                                      & $S(p)$                                   \\[0em]
+Sortie          & Le signal de sortie du système que l'on souhaite 
+                  régulé et/ou asservir.
+                & $S(p)$                                   \\[0em]
         \hhline{===}
     \end{tabular}
 \end{center}
-\caption{Terminologie et définition associés à l'asservissement des systèmes.\label{tab-asser}}
+\caption{Terminologie et définition associés à l'asservissement des 
+         systèmes.\label{tab-asser}}
 \end{table}
 
 \clearpage
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fonctions de transferts associées à un système asservi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Chacuns des blocs du schéma fonctionnel d'un asservissement~\cref{fig-asser} permet 
-%de définir une fonction de transfert reliant localement une entrée et une sortie.
-%Nous allons définir quelques fonctions de transferts fondamentales à 
-%l'étude d'un système asservi :
+Chacuns des blocs du schéma fonctionnel d'un asservissement~\cref{fig-asser} 
+permet de définir une fonction de transfert reliant localement une entrée 
+et une sortie.
+Nous allons définir quelques fonctions de transferts fondamentales à 
+l'étude d'un système asservis.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonction de transfert de la chaîne directe}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 La~\gls{ftcd}, que nous noterons $H_{CD}(p)$ est liée à 
-la chaîne d'action de l'asservissement. Elle lie la sortie $S(p)$ à l'écart $\epsilon(p)$.
-Formellement,
+la chaîne d'action de l'asservissement. Elle lie la sortie $S(p)$ à 
+l'écart $\epsilon(p)$. Formellement,
 \begin{bequation}[ams align]
 H_{CD}(p)=\dfrac{S(p)}{\epsilon(p)}
 \end{bequation}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonction de transfert de la chaîne de retour}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 La~\gls{ftcr}, que nous noterons $H_{CR}(p)$ est 
-liée à la chaîne de mesure de l'asservissement. Elle lie l'image de la sortie $M(p)$ à la sortie $S(p)$. 
+liée à la chaîne de mesure de l'asservissement. Elle lie l'image 
+de la sortie $M(p)$ à la sortie $S(p)$. 
 Elle correspond essentiellement au capteur.
 Formellement,
 \begin{bequation}[ams align]
@@ -434,41 +444,49 @@ H_{CR}(p)=\dfrac{M(p)}{S(p)}
 Dans le cas d'un retour unitaire $H_{CR}(p)=1$, c'est à dire que la sortie est 
 la consigne sont de même nature.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonction de transfert en boucle ouverte}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 La~\gls{ftbo}, que nous noterons $H_{BO}(p)$ correspond
-à la fonction de transfert du système non asservi. Elle lie l'image de la sortie 
-$M(p)$ à l'écart $\epsilon(p)$. Formellement,
+à la fonction de transfert du système non asservi. Elle lie l'image de la 
+sortie $M(p)$ à l'écart $\epsilon(p)$. Formellement,
 \begin{bequation}[ams align]
-H_{BO}(p)=\dfrac{M(p)}{\epsilon(p)}=\dfrac{M(p)}{S(p)}\dfrac{S(p)}{\epsilon(p)}=H_{CR}(p)H_{CD}(p)
+H_{BO}(p)=\dfrac{M(p)}{\epsilon(p)}=
+\dfrac{M(p)}{S(p)}\dfrac{S(p)}{\epsilon(p)}=H_{CR}(p)H_{CD}(p)
 \end{bequation}
 Dans le cas d'un retour unitaire on obtient $H_{BO}(p)=H_{CD}(p)$
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonction de transfert en boucle fermée}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 La~\gls{ftbf}, que nous noterons $H_{BF}(p)$ correspond
-explicitement à la fonction de transfert du système asservi. Elle lie la sortie du système $S(p)$ 
-à la consigne $E(p)$. Formellement et en appliquant la réduction des schémas blocs (c.f~\cref{sec-boucle}),
+explicitement à la fonction de transfert du système asservi. 
+Elle lie la sortie du système $S(p)$ à la consigne $E(p)$. Formellement et en 
+appliquant la réduction des schémas blocs (c.f~\cref{sec-boucle}),
 \begin{bequation}[ams align]
-    H_{BF}(p)=\dfrac{S(p)}{E(p)}=\dfrac{H_{CD}(p)}{1+H_{CR}(p)H_{CD}(p)}=\dfrac{H_{CD}(p)}{1+H_{BO}(p)}
+H_{BF}(p)=\dfrac{S(p)}{E(p)}=\dfrac{H_{CD}(p)}{1+H_{CR}(p)H_{CD}(p)}=
+\dfrac{H_{CD}(p)}{1+H_{BO}(p)}
 \end{bequation}
 
-Remarquons que dans le cas d'une boucle de contre réaction unitaire (c.a.d $H_{CR}(p)=1$),
-la~\gls{ftbf} se réduit à :
+Remarquons que dans le cas d'une boucle de contre réaction unitaire 
+(c.a.d $H_{CR}(p)=1$), la~\gls{ftbf} se réduit à :
 $$
 H_{BF}(p)=\dfrac{H_{BO}(p)}{1+H_{BO}(p)}
 $$
 
-Dans le cas d'une contre réaction unitaire, la~\gls{ftbf} ne dépend que de la~\gls{ftbo}.
+Dans le cas d'une contre réaction unitaire, la~\gls{ftbf} ne dépend 
+que de la~\gls{ftbo}.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Asservissement des SLCI modèles}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Dans cette partie, nous présentons les asservissements par boucle 
 de contre-réaction unitaire par de systèmes modèles déjà introduits 
@@ -476,11 +494,11 @@ au~\cref{chap-model}. Nous pourrons dégager la règle générale suivante :
 \textbf{l'ordre $n$ d'une fonction de transfert en boucle ouverte $H_{BO}(p)$
 est conservé en boucle fermée par l'asservissement.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Asservissement d'un intégrateur}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Considérons un système intégrateur asservi et régi par le schéma-bloc suivant :
 \begin{center}
@@ -511,21 +529,23 @@ $$
 Remarquons qu'un intégrateur asservi devient un système du premier 
 ordre de gain statique unité et de constante de temps $\tau_{BF}=\dfrac{1}{K}$ 
 où $K$ est le gain statique de la~\gls{ftbo}\footnote{Un intégrateur étant 
-un système du premier ordre particulier, nous avons bien l'ordre de $H_{BO}(p)$ qui est égal à l'ordre de $H_{BF}(p)$.}. 
+un système du premier ordre particulier, nous avons bien l'ordre de $H_{BO}(p)$ 
+qui est égal à l'ordre de $H_{BF}(p)$.}. 
 
 Au~\cref{chap-model}, nous avons pu conclure que les systèmes du premier ordre 
-sont fondamentalement stable (du moins pour $\tau>0$) et que les intégrateurs sont 
-instables.
-Ainsi, nous observons que \textbf{l'asservissement permet de stabiliser un système 
-intrinsèquement instable.} 
+sont fondamentalement stable (du moins pour $\tau>0$) et que les intégrateurs 
+sont instables.
+Ainsi, nous observons que \textbf{l'asservissement permet de stabiliser un 
+système intrinsèquement instable.} 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Asservissement d'un système du premier ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Considérons un système du premier ordre asservi et régi par le schéma-bloc suivant :
+Considérons un système du premier ordre asservi et régi par le schéma-bloc 
+suivant :
 \begin{center}
 \tikzsetnextfilename{asser_1er-chap4_ext}
     \begin{tikzpicture}
@@ -541,7 +561,8 @@ Considérons un système du premier ordre asservi et régi par le schéma-bloc s
         \sbNomLien[0.8]{S}{$S(p)$}
     \end{tikzpicture}
 \end{center}
-La fonction de transfert en boucle ouverte $H_{BO}(p)$ du procédé est alors tel que:
+La fonction de transfert en boucle ouverte $H_{BO}(p)$ du procédé est alors 
+tel que:
 $$
 H_{BO}(p)=\dfrac{K}{1+\tau p}
 $$
@@ -554,28 +575,33 @@ $$
 Remarquons que comme attendu la~\gls{ftbf} reste du premier ordre. 
 Sous sa forme canonique cette fonction de transfert devient :
 $$
-H_{BF}(p)=\dfrac{\dfrac{K}{1+K}}{1+\dfrac{\tau}{1+K}p}=\dfrac{K_{BF}}{1+\tau_{BF} p}
+H_{BF}(p)=\dfrac{\dfrac{K}{1+K}}{1+\dfrac{\tau}{1+K}p}
+=\dfrac{K_{BF}}{1+\tau_{BF} p}
 $$
-où $K_{BF}$ est le gain statique et $\tau_{BF}$ la constante de temps du système boucle fermée.
-Par identification, on alors les rélations suivantes entre les paramètres du premier ordre 
-de la~\gls{ftbo} et les paramètres du premier ordre de la~\gls{ftbf} :
+où $K_{BF}$ est le gain statique et $\tau_{BF}$ la constante de temps du 
+système boucle fermée. Par identification, on alors les rélations suivantes 
+entre les paramètres du premier ordre de la~\gls{ftbo} et les paramètres du 
+premier ordre de la~\gls{ftbf} :
 \begin{align*}
        K_{BF}&=\dfrac{K}{1+K}\\
     \tau_{BF}&=\dfrac{\tau}{1+K}
 \end{align*}
 
 Constatons que le gain statique en boucle ouverte $K$ intervient 
-dans la définition du gain statique $K_{BF}$ et de la constante de temps $\tau_{BF}$ en boucle fermée. 
-Ainsi en modifiant le paramètre $K$, il est possible de jouer sur les deux paramètres régissant la boucle fermée.
-Pour $K>0$, le domaine de définition des paramètres du système en boucle fermée sont  $K_{BF}\in[0,1[$ et  $\tau_{BF}\in]0,\tau]$
+dans la définition du gain statique $K_{BF}$ et de la constante de temps 
+$\tau_{BF}$ en boucle fermée. Ainsi en modifiant le paramètre $K$, il est 
+possible de jouer sur les deux paramètres régissant la boucle fermée.
+Pour $K>0$, le domaine de définition des paramètres du système en boucle 
+fermée sont  $K_{BF}\in[0,1[$ et  $\tau_{BF}\in]0,\tau]$
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Asservissement d'un système du second ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Considérons un système du second ordre asservi et régi par le schéma-bloc suivant :
+Considérons un système du second ordre asservi et régi par le schéma-bloc 
+suivant :
 \begin{center}
 \tikzsetnextfilename{asser_2nd-chap4_ext}
     \begin{tikzpicture}
@@ -599,16 +625,20 @@ où $K$ est le gain statique, $\omega_0$ la pulsation propre et $\xi$
 le coefficient d'amortissement du système en boucle ouverte.
 La~\gls{ftbf} est donnée par :
 $$
-H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=\dfrac{K\omega^2_0}{\omega^2_0(1+K)+2\xi\omega_0p+p^2}
+H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=
+\dfrac{K\omega^2_0}{\omega^2_0(1+K)+2\xi\omega_0p+p^2}
 $$
-Une nouvelle fois, nous constatons que la fonction de transfert en boucle fermée est du même ordre
-que celle en boucle ouverte. Sous une forme canonique la~\gls{ftbf} devient :
+Une nouvelle fois, nous constatons que la fonction de transfert en 
+boucle fermée est du même ordre que celle en boucle ouverte. 
+Sous une forme canonique la~\gls{ftbf} devient :
 $$
 H_{BF}(p)=\dfrac{K\omega^2_0}{\omega^2_0(1+K)+2\xi\omega_0p+p^2}=
-\dfrac{K_{BF}\omega^2_{0,BF}}{\omega^2_{0,BF}(1+K_{BF})+2\xi_{BF}\omega_{0,BF}p+p^2}
+\dfrac{K_{BF}\omega^2_{0,BF}}{\omega^2_{0,BF}(1+K_{BF})+
+2\xi_{BF}\omega_{0,BF}p+p^2}
 $$
-Par identification, on alors les rélations suivantes entre les paramètres du second ordre 
-de la~\gls{ftbo} et les paramètres du second ordre de la~\gls{ftbf} :
+Par identification, on alors les rélations suivantes entre 
+les paramètres du second ordre de la~\gls{ftbo} et les paramètres du 
+second ordre de la~\gls{ftbf} :
 \begin{align*}
        K_{BF}&=\dfrac{K}{1+K}\\
     \omega_{0,BF}&=\omega_0\sqrt{1+K}\\
@@ -618,17 +648,18 @@ de la~\gls{ftbo} et les paramètres du second ordre de la~\gls{ftbf} :
 On remarque que influencer le gain de la boucle ouverte permet de modifier
 tous les paramètres du second ordre de la boucle fermée.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Performances des systèmes en boucle ouverte}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Nous regroupons ici les résultats 
 %des performances des systèmes modèles étudiés au chapitre~\cref{chap-model}.
-%Les critères sont établies de la façon suivante. de performances sont la stabilité, la précision, la rapidité  
+%Les critères sont établies de la façon suivante. de performances sont la 
+%stabilité, la précision, la rapidité  
 %et le dépassement.
 
 %\paragraph{1er ordre}
@@ -651,25 +682,25 @@ tous les paramètres du second ordre de la boucle fermée.
 
 
 %\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section*{Exercices du chapitre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %\exercice{}
 %\question
 
 %\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section*{Corrigé des exercices}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
