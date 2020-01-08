@@ -1,12 +1,22 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\chapter[Système du 1er et 2nd ordre]{Système linéaire du premier et du second ordre\label{chap-1er2nd}}
-\chapter[Modélisation des SLCI]{Modélisation des SLCI\label{chap-model} et leurs réponses temporelles}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter[Modélisation des SLCI]
+        {Modélisation des SLCI\label{chap-model} et leurs réponses temporelles}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \minitoc
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Dans ce chapitre, nous allons étudier la réponse 
 temporelle de différents systèmes modèles. Ces modèles sont 
@@ -32,13 +42,19 @@ Le principal objectif de cette étude est d'établir les caractéristiques
 de ces modèles à partir de leurs réponses temporelles.
 
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Système du premier ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Définition d'un système du premier ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du premier ordre!définition}
 Un système du premier ordre est un système régit par une équation
 différentielle linéaire à coefficient constant du premier ordre 
@@ -56,22 +72,28 @@ la sortie sur l'entrée. Autrement dit, c'est un paramètre sans dimension
 c'est l'entrée et la sortie sont de même nature.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fonction de transfert d'un système du premier ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du premier ordre!fonction de transfert}
-La transformée de Laplace de l'\cref{eq-1er}, dans les conditions de Heaviside, nous donne :
+La transformée de Laplace de l'\cref{eq-1er}, dans les conditions de 
+Heaviside, nous donne :
 $$
 \tau pS(p)+S(p)=KE(p)
 $$
-La fonction de transfert $H(p)$ d'un système du premier ordre est donc de la forme:
+La fonction de transfert $H(p)$ d'un système du premier ordre est 
+donc de la forme:
 \begin{bequation}[ams align]
     H(p)=\dfrac{S(p)}{E(p)}=\dfrac{K}{\tau p + 1}\label{eq-ft1er}
 \end{bequation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Pôle de la fonction de transfert du premier ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Un système du premier ordre ne possède qu'un seul pôle qui est trivialement 
 déterminé par la résolution de l'équation :
 $$
@@ -84,46 +106,57 @@ $$
 H(p)=\dfrac{K}{(p-p_1)}=\dfrac{K}{\tau\left(p+\dfrac{1}{\tau}\right)}.
 $$
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Réponses temporelles d'un système du premier ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous allons maintenant établir les réponses temporelles d'un système 
 du premier ordre aux signaux usuels présentés au chapitre~\cref{chap_slci}.
 
 \begin{figure}[!t]
 \begin{center}
-    \tikzsetnextfilename{1er_imp-chap2_ext}
-    \begin{tikzpicture}
-        \begin{axis}[
-        legend style={draw=none},
-        axis line style = thick,
-        %height=7cm,
-        %width=9cm,
-        xmin=0,
-        xmax=10,
-        ymin=0,
-        ymax=1.01,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        label style={font=\Large},
-        ]
-            \addplot [thick,color=blue,domain=0:11.5, samples=101,unbounded coords=jump]{exp(-x)};
-            \addplot [thick,color=green,domain=0:11.5, samples=101,unbounded coords=jump]{(exp(-x/2))/2};
-            \addplot [thick,color=cyan,domain=0:11.5, samples=101,unbounded coords=jump]{(exp(-x/3))/3};
-            \addplot [thick,color=red,domain=0:11.5, samples=101,unbounded coords=jump]{(exp(-x/4))/4};
-            \addplot [thick,color=magenta,domain=0:11.5, samples=101,unbounded coords=jump]{(exp(-x/5))/5};
-            \addplot [thick,color=black,domain=0:11.5, samples=101,unbounded coords=jump]{(exp(-x/6))/6};
-        \legend{$\tau=1$,$\tau=2$,$\tau=3$,$\tau=4$,$\tau=5$,$\tau=6$}
-        \end{axis}
-    \end{tikzpicture}
-\caption{Réponse impulsionnelle d'un système du premier ordre pour différentes valeurs
-    de la constante de temps $\tau$  (\Cref{eq-1er_imp}) avec $K=1$ et $E_0=1$.\label{fig-1er_imp}}
+\tikzsetnextfilename{1er_imp-chap2_ext}
+\begin{tikzpicture}
+    \begin{axis}[
+    legend style={draw=none},
+    axis line style = thick,
+    %height=7cm,
+    %width=9cm,
+    xmin=0,
+    xmax=10,
+    ymin=0,
+    ymax=1.01,
+    xlabel={$t$},
+    ylabel={$s(t)$},
+    label style={font=\Large},
+    ]
+    \addplot[thick,color=blue,domain=0:11.5,samples=101,unbounded coords=jump]
+            {exp(-x)};
+    \addplot[thick,color=green,domain=0:11.5,samples=101,unbounded coords=jump]
+            {(exp(-x/2))/2};
+    \addplot[thick,color=cyan,domain=0:11.5,samples=101,unbounded coords=jump]
+            {(exp(-x/3))/3};
+    \addplot[thick,color=red,domain=0:11.5,samples=101,unbounded coords=jump]
+            {(exp(-x/4))/4};
+    \addplot[thick,color=magenta,domain=0:11.5,samples=101,unbounded coords=jump]
+            {(exp(-x/5))/5};
+    \addplot[thick,color=black,domain=0:11.5,samples=101,unbounded coords=jump]
+            {(exp(-x/6))/6};
+    \legend{$\tau=1$,$\tau=2$,$\tau=3$,$\tau=4$,$\tau=5$,$\tau=6$}
+    \end{axis}
+\end{tikzpicture}
+\caption{Réponse impulsionnelle d'un système du premier ordre pour 
+         différentes valeurs de la constante de temps $\tau$  
+         (\Cref{eq-1er_imp}) avec $K=1$ et $E_0=1$.\label{fig-1er_imp}}
 \end{center}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse impulsionnelle}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du premier ordre!réponse impulsionnelle}
 Nous condidérons une excitation impulsionnelle de la forme :
 $$
@@ -131,51 +164,55 @@ e(t)=E_0\delta(t),
 $$
 où $\delta(t)$ est l'impulsion de Dirac et $E_0$ est une constante.
 
-La réponse impulsionnelle d'un système du premier ordre est, dans le domaine de Laplace,
-de la forme :
+La réponse impulsionnelle d'un système du premier ordre est, dans le 
+domaine de Laplace, de la forme :
 $$
 S(p)=H(p)E(p)=\dfrac{KE_0}{(\tau p+1)}.
 $$
-La transformée de Laplace inverse de $S(p)$ (c.f ligne 7 du tableau de l'\cref{annexe-lap}),
-nous donne la forme générale de la réponse impulsionnelle d'un système du premier ordre:
+La transformée de Laplace inverse de $S(p)$ (c.f ligne 7 du tableau de 
+l'\cref{annexe-lap}), nous donne la forme générale de la réponse impulsionnelle 
+d'un système du premier ordre:
 \begin{bequation}[ams align]
     \laplacei{S(p)}=s(t)=\dfrac{KE_0}{\tau} e^{-t/\tau}\label{eq-1er_imp}.
 \end{bequation}
 Cette réponse correspond à une simple exponentielle décroissante pour $\tau>0$.
-La~\cref{fig-1er_imp} présente la réponse impulsionnelle d'un système du premier ordre pour
-différentes valeurs de la constante de temps $\tau$.
-On observe que pour $t\to\infty$, la valeur de $s(t)$ tend vers 0, ce qui est caractéristique 
-d'un système stable. Nous pouvons donc considérer que $\tau$ est strictement positif pour 
-une question de stabilité.  
+La~\cref{fig-1er_imp} présente la réponse impulsionnelle d'un système 
+du premier ordre pour différentes valeurs de la constante de temps $\tau$.
+On observe que pour $t\to\infty$, la valeur de $s(t)$ tend vers 0, ce qui 
+est caractéristique d'un système stable. Nous pouvons donc considérer que 
+$\tau$ est strictement positif pour une question de stabilité.  
 
-Il est également possible d'observer que la pente à l'origine dépend de la constante de temps.
-La pente à l'origine peut être obtenue directement en dérivant la réponse temporelle $s(t)$
+Il est également possible d'observer que la pente à l'origine dépend de la 
+constante de temps. La pente à l'origine peut être obtenue directement en 
+dérivant la réponse temporelle $s(t)$ 
 $$
 s'(0)=-\dfrac{KE_0}{\tau^2}
 $$
 La pente à l'origine est négative et inversemment proportionnelle 
 au carré de la constante de temps du système $\tau$.
 
-Le~\cref{tab-1er_imp} donne quelques valeurs particulières de la réponse impulsionnelle. 
-D'après celui-ci, on constate que le temps $t_{5\%}$ de réponse à 5\% est de l'ordre 
-de 3$\tau$ (i.e $-\log{5\%}$). Le transitoire est lui de l'ordre de $7\tau$ 
-(c'est à dire le temps à partir duquel on considère que le signal est nul).
+Le~\cref{tab-1er_imp} donne quelques valeurs particulières de la réponse 
+impulsionnelle. D'après celui-ci, on constate que le temps $t_{5\%}$ de 
+réponse à 5\% est de l'ordre de 3$\tau$ (i.e $-\log{5\%}$). Le transitoire 
+est lui de l'ordre de $7\tau$ (c'est à dire le temps à partir duquel on 
+considère que le signal est nul).
 
 \begin{table}
     \begin{center}
 		\begin{tabular}{M{2cm}M{2cm}M{2.0cm}M{2.0cm}M{2cm}N}
         \hhline{=====}
-								 & $t=0.5\tau$    & $t=\tau$    & $t=3\tau$ & $t=7\tau$ & \\[1.5em]
+& $t=0.5\tau$        & $t=\tau$ & $t=3\tau$ & $t=7\tau$ & \\[1.5em]
         \hline
-		$\dfrac{s(t)}{KE_0}$     & 0.606          & 0.368       & 0.05      & $\sim$ 0& \\ [1.5em]
+$\dfrac{s(t)}{KE_0}$ & 0.606 & 0.368  & 0.05      & $\sim$ 0& \\ [1.5em]
         \hhline{=====}
     \end{tabular}
-    \caption{Quelques valeurs particulières de la réponse impulsionnelle d'un système du premier ordre\label{tab-1er_imp}.}
+    \caption{Quelques valeurs particulières de la réponse impulsionnelle 
+             d'un système du premier ordre\label{tab-1er_imp}.}
     \end{center}
 \end{table}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
 \centering
 \tikzsetnextfilename{1er_ind1-chap2_ext}
@@ -232,9 +269,9 @@ de 3$\tau$ (i.e $-\log{5\%}$). Le transitoire est lui de l'ordre de $7\tau$
          Pour différentes valeurs de $\tau$ et avec $K=1$. (droite) Pour différentes 
          valeurs du gain $K$ et avec $\tau=1$.\label{fig-1er_ind}}
 \end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du premier ordre!réponse indicielle}
 
 Pour déterminer la réponse indicielle, nous considérons une entrée $e(t)$ en échelon telle que :
@@ -296,7 +333,7 @@ $$
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
 \centering
 \tikzsetnextfilename{1er_ramp1-chap2_ext}
@@ -351,9 +388,9 @@ $$
 \end{tikzpicture}
 \caption{Réponse à une rampe d'un système du premier ordre avec $E_0=1$. (gauche) Pour différentes valeurs de $\tau$ et $K=1$ (droite) Pour différentes valeurs du gain $K$ et $\tau=1$.\label{fig-1er_ramp}}
 \end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse à une rampe}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du premier ordre!réponse à une rampe}
 Nous considérons maitenant une excitation rampe de la forme:
 $$
@@ -387,13 +424,19 @@ alors que $s'(0)=0$ quelque soit $\tau$.
 
 
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Système du second ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Définition d'un système du second ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du second ordre!définition}
 Un système du second ordre est un système régit par une équation 
 différentielle du second ordre de forme générale :
@@ -404,9 +447,11 @@ où $\xi>0$ est le coefficient d'amortissement, $K$ le gain statique et $\omega_
 la pulsation propre du système. Cette pulsation est celle de l'oscillateur harmonique équivalent 
 sans amortissement ($\xi=0$).
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fonction de transfert d'un système du second ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du second ordre!fonction de transfert}
 La transformée de Laplace de l'équation différentielle est, lorsque les CI sont toutes nulles :
 $$
@@ -421,9 +466,11 @@ $$
 H(p)=\dfrac{K}{\left(\dfrac{p}{\omega_0}\right)^2+\dfrac{2\xi p}{\omega_0}+1}
 $$
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Pôles de la fonction de transfert du second ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Les pôles de la fonction de transfert sont donnés par les racines du polynôme :
 $$
 p^2+2\xi\omega_0p+\omega_0^2 = 0
@@ -519,15 +566,17 @@ $$
 Nous remarquerons également que le produit $p_1p_2=\omega^2_0$ quelque soit le régime du système, cette relation 
 nous sera très utile pour l'établissement des réponses temporelles des différents régimes.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Réponses temporelles d'un système du second ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous allons ici, comme dans le cas des systèmes du premier ordre données les formes analytiques des
 réponses temporelles (impulsionnelle, indicielle et rampe) des systèmes du second ordre.
 On trouvera les réprésentations graphiques de ces réponses temporelles à l'\cref{annexe-2nd}.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse impulsionnelle}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du second ordre!réponse impulsionnelle}
 
 La réponse impulsionnelle d'un système du second ordre est, dans le domaine de Laplace, donnée 
@@ -542,9 +591,9 @@ notation.}.
 régimes du système du second ordre. 
 Nous rappellons que l'étude de la réponse impulsionnelle revient à étudier la fonction de transfert du système. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $\xi>1$ (régime apériodique),}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 la sortie dans le domaine de Laplace s'écrit :
 $$
 S(p)=\dfrac{K\omega^2_0}{(p-p_1)(p-p_2)}
@@ -580,9 +629,9 @@ où $K_1K_2=K$.
 Dans le régime apériodique un système du second ordre sera toujours considérer 
 comme la mise en cascade de deux systèmes du premier ordre.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $\xi=1$ (régime apériodique critique),}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 la sortie dans le domaine de Laplace s'écrit :                                                                            
 $$                                                                                                                            
 S(p)=\dfrac{K\omega^2_0}{(p-p_1)^2}
@@ -598,9 +647,9 @@ posons $p_1=-1/\tau$, la réponse devient :
 \end{bequation}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $0<\xi<1$ (régime pseudo-périodique),}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 la sortie dans le domaine de Laplace s'écrit :
 $$
 S(p)=\dfrac{K\omega^2_0}{(p-p_1)(p-p_2)} = \dfrac{\omega^2_0}{(p+\xi\omega_0-j\omega_0\sqrt{1-\xi^2})(p+\xi\omega_0+j\omega_0\sqrt{1-\xi^2})}
@@ -617,9 +666,9 @@ nous donne la forme générale de la réponse impulsionnelle d'un système du se
     s(t)=\dfrac{K\omega_d}{1-\xi^2}e^{-\xi\omega_0 t}\sin{\omega_d t}\label{eq-1-3_2nd} 
 \end{bequation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du second ordre!réponse indicielle}
 La réponse indicielle d'un système du second ordre est, dans le domaine de Laplace, donnée par :
 $$
@@ -631,9 +680,9 @@ où $E(p)=\dfrac{E_0}{p}$ est une entrée échelon.
 \'Etudions la forme analytique des réponses indicielles dans les différents 
 régimes du système du second ordre. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $\xi>1$ (régime apériodique),} la sortie dans le domaine de Laplace s'écrit :
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 $$
 S(p)=\dfrac{K\omega^2_0}{(p-p_1)(p-p_2)}\cdot\dfrac{E_0}{p}
 $$
@@ -654,10 +703,10 @@ posons $p_1=-1/\tau_1$ et $p_2=-1/\tau_2$, la réponse devient :
 Nous pouvons à nouveau envisager cette réponse comme la réponse de deux systèmes du premier 
 ordre en série.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $\xi=1$ (régime apériodique critique),} 
 la sortie dans le domaine de Laplace s'écrit :
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 $$
 S(p)=\dfrac{K\omega^2_0}{(p-p_1)^2}\cdot\dfrac{E_0}{p}
 $$
@@ -674,10 +723,11 @@ en posant $p_1=-\dfrac{1}{\tau}$, on obtient:
     s(t)=KE_0\left(1-e^{-\frac{t}{\tau}}-\dfrac{t}{\tau}e^{-\frac{t}{\tau}}\right)\label{eq-2-2_2nd} 
 \end{bequation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $0<\xi<1$ (régime pseudo-périodique),} 
 la sortie $S(p)$ dans le domaine de Laplace s'écrit :
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %$$
 %S(p)=\dfrac{\omega^2_0}{(p-p_1)(p-p_2)}\cdot\dfrac{1}{p} = \dfrac{\omega^2_0}{(p-\xi\omega_0-j\omega_0\sqrt{1-\xi^2})(p-\xi\omega_0+j\omega_0\sqrt{1-\xi^2})}\cdot\dfrac{1}{p}
 %$$
@@ -740,6 +790,7 @@ et enfin la forme générale de la réponse indicielle d'un système du second o
     s(t) = KE_0 \left( 1 - \dfrac{1}{\sqrt{1-\xi^2}} e^{-\xi\omega_0 t}\sin{(\omega_d t+\phi)}\right)\label{eq-2-3_2nd} 
 \end{bequation}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[!t]
 \begin{center}
         \tikzsetnextfilename{2nd_pp-chap2_ext}
@@ -830,9 +881,9 @@ taux d'amortissement pour une pulsation propre $\omega_0=1$.
 Nous constatons que comme attendu, l'amplitude des oscillations augmente lorsque le taux d'amortissement diminue.
 
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dépassement et temps de réponse à 5\%}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Certaines propriétés de la réponse indicielle dans le régime pseudo-périodique sont fortement 
 dépendantes du taux d'amortissement. C'est le cas du dépassemement et du temps de réponse. 
 La~\cref{fig-2nd_depassement_1} présente la réponse à un échelon unitaire pour un amortissement de $\xi=0.2$, 
@@ -1017,9 +1068,9 @@ temps de réponse pour $\xi\sim 0.7$
 
 \input{fig/reponses_temporelles_2nd_ordre_1.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse à une rampe}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du second ordre!réponse à une rampe}
 La réponse à une rampe d'un système du second ordre est, dans le domaine de Laplace, donnée par
 $$
@@ -1028,9 +1079,11 @@ $$
 où $E(p)=\dfrac{E_0}{p^2}$ est un signal rampe.
 \'Etudions la forme analytique des réponses à une rampe dans les différents régimes du système du second ordre.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $\xi>1$ (régime apériodique),}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
 écrivons la sortie $S(p)$ sous la forme :
 $$
 S(p)=\dfrac{K\omega_0^2}{(p-p_1)(p-p_2)}\cdot\dfrac{E_0}{p^2}
@@ -1062,9 +1115,9 @@ posons $p_1=-1/\tau_1$ et $p_2=-1/\tau_2$, la réponse devient :
 \begin{bequation}[ams align]
     s(t)=KE_0\left(t-\tau_1-\tau_2+\dfrac{1}{(\tau_1-\tau_2)}\left(\tau_1^2e^{-\frac{t}{\tau_1}}-\tau_2^2e^{-\frac{t}{\tau_2}}\right)\right)
 \end{bequation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $\xi=1$ (régime apériodique critique),} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 écrivons la sortie $S(p)$ sous la forme :
 $$
 S(p)=\dfrac{K\omega_0^2}{(p-p_1)^2}\cdot\dfrac{E_0}{p^2}.
@@ -1098,9 +1151,9 @@ posons $p_1=-1/\tau$, la réponse devient :
     s(t)=KE_0(t-2\tau+(t+2\tau)e^{-\frac{t}{\tau}})
 \end{bequation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $0<\xi<1$ (régime pseudo-périodique),} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 écrivons la sortie $S(p)$ sous la forme:
 $$
 S(p)=\dfrac{K\omega_0^2}{(p+\alpha)^2+\omega_d^2}\cdot\dfrac{E_0}{p^2},
@@ -1212,11 +1265,15 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+\dfrac{2\xi}{\omega_d}e^{-\alpha t}\sin{
 \end{center}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cas particulier de l'oscillateur harmonique}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 Dans le cas où l'équation différentielle est de la forme 
 $$
@@ -1233,9 +1290,9 @@ $$
 H(p)=\dfrac{S(p)}{E(p)}=\dfrac{K}{p^2+\omega_o^2}
 $$
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse impulsionnelle}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La réponse impulsionnelle d'un oscillateur harmonique est, dans le domaine de Laplace,
 donnée par 
 $$
@@ -1249,23 +1306,32 @@ Ce qui correspond bien à l'oscillation incessante d'un oscillateur que l'on a
 déplacé de son état d'équilibre.
 
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Autres modèles particuliers}
-%r%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 Dans cette partie, nous allons présenter des modèles théoriques particuliers 
 qui physiquement ne se retrouveront jamais seuls. Cependant ils compléteront les 
 modèles du premier et second ordre discutés précedemment.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Gain pur}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \index{Gain pur}
 Dans le cas où l'équation différentielle\footnote{Bien évidemment 
 dans ce cas présent, l'équation différentielle est d'ordre 0. Ce qui est 
@@ -1290,11 +1356,15 @@ De même pour la \textbf{réponse indicielle} pour une entrée en échelon $e(t)
 $$
 s(t)=KE_0u(t)
 $$
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Intégrateur pur}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \index{Intégrateur pur}
 Dans le cas où l'équation différentielle régissant le système est de la forme :
 $$
@@ -1358,16 +1428,21 @@ $$
 \addplot[very thick,color=black,domain=0:11.5, samples=10,unbounded coords=jump] {{1}};
 \end{axis}
 \end{tikzpicture}
-\caption{(gauche) Réponse impulsionnelle (droite) Réponse indicielle d'un intégrateur avec $K=1$ et $E_0=1$.\label{fig-integ}}
+\caption{(gauche) Réponse impulsionnelle 
+         (droite) Réponse indicielle d'un intégrateur avec $K=1$ et $E_0=1$.
+         \label{fig-integ}}
 \end{figure}
 
 Autrement dit, le système est \textbf{instable}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dérivateur pur}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \index{Dérivateur pur}
 Dans le cas où l'équation différentielle régissant le système est de la forme :
 $$
@@ -1381,16 +1456,21 @@ H(p)=\dfrac{S(p)}{E(p)}=Kp
 \end{bequation}
 
 La \textbf{réponse impulsionnelle} d'un dérivateur n'est pas définie. 
-La \textbf{réponse indicielle} est une impulsion de Dirac, par définition de la dérivée d'un échelon :
+La \textbf{réponse indicielle} est une impulsion de Dirac, par 
+définition de la dérivée d'un échelon :
 $$
 s(t)=K\delta(t)
 $$
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Retard pur}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \index{Retard pur}
 Un système retard est régit par l'équation différentielle :
 $$
@@ -1404,14 +1484,23 @@ Les réponses temporelles sont donc de mêmes natures que leurs solliciations,
 elles sont simplement retardés de $\tau$.
 
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Généralisation des modèles de SLCI}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Nous venons d'analyser un grand nombre de systèmes d'ordre $n<2$. 
 Nous allons ici généraliser l'approche pour l'étude de ssystèmes d'ordre supérieur à deux.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Systèmes d'ordre supérieur à 2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dans le cas d'un système d'ordre $n>2$, il suffit de décomposée en éléments simples 
 la fonction de transfert, qui n'est rien d'autre qu'une fraction rationnelle en $p$ et 
 d'utiliser la propriété de linéarité de la sortie.
@@ -1427,7 +1516,10 @@ deux polynômes $N(p)$ et $D(p)$.
 Les deux polynômes peuvent se factoriser comme un produit de polynômes 
 irréductibles unitaires, c'est à dire :
 $$
-H(p)=\dfrac{K}{p^\alpha}\dfrac{\prod\limits_i (1+\tau_ip)\prod\limits_j (1+2\xi_j\tau_jp+\tau_jp^2)}{\prod\limits_i (1+\tau_ip)\prod\limits_j (1+2\xi_j\tau_jp+\tau_jp^2)}
+H(p)=
+\dfrac{K}{p^\alpha}
+\dfrac{\prod\limits_i (1+\tau_ip)\prod\limits_j 
+(1+2\xi_j\tau_jp+\tau_jp^2)}{\prod\limits_i (1+\tau_ip)\prod\limits_j (1+2\xi_j\tau_jp+\tau_jp^2)}
 $$
 en toute rigueur il suffit d'exprimer le rapport 
 des produits comme un simple produits en permettant
@@ -1448,7 +1540,11 @@ $$
 s(t)=\sum_i s_i(t)
 $$
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Exemple d'une fonction de transfert d'ordre 3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Soit un système caractérisé par la fonction de transfert $H(p)$ tel
 que :
@@ -1482,7 +1578,10 @@ $$
 
 La réponse indicielle du système est alors
 $$
-s(t)=\sum_i s_i(t) = \dfrac{E_0}{4}\left(1-e^{-t}\right)+\dfrac{E_0}{3}\left(1-e^{-3t}\right)-\dfrac{E_0}{4}\left(1-e^{-5t}\right)
+s(t)=\sum_i s_i(t) = 
+\dfrac{E_0}{4}\left(1-e^{-t}\right)+
+\dfrac{E_0}{3}\left(1-e^{-3t}\right)-
+\dfrac{E_0}{4}\left(1-e^{-5t}\right)
 $$
 
 La valeur finale est donnée par la somme algébrique des valeurs finales de chacunes
@@ -1497,39 +1596,52 @@ de chacunes des performances attendues par non système asservis.
 
 
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Identification d'un modèle de comportement}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Identification d'un modèle de comportement}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Formule de Bureau}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \acplhp
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Modèle de Strejc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \acplhp
 
 
 %\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section*{Exercices du chapitre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %\exercice{}
 %\question
 
 %\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section*{Corrigé des exercices}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
