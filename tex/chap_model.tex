@@ -231,12 +231,18 @@ $\dfrac{s(t)}{KE_0}$ & 0.606 & 0.368  & 0.05      & $\sim$ 0& \\ [1.5em]
     label style={font=\Large},
     legend cell align={left},
 ]%
-\addplot[thick,color=black,domain=0:11.5, samples=101,unbounded coords=jump] {{1}};
-\addplot[thick,color=blue,domain=0:11.5, samples=101,unbounded coords=jump]{1-exp(-x)};
-\addplot[thick,color=green,domain=0:11.5, samples=101,unbounded coords=jump]{(1-exp(-x/2))};
-\addplot[thick,color=cyan,domain=0:11.5, samples=101,unbounded coords=jump]{(1-exp(-x/3))};
-\addplot[thick,color=red,domain=0:11.5, samples=101,unbounded coords=jump]{(1-exp(-x/4))};
-\addplot[thick,color=magenta,domain=0:11.5, samples=101,unbounded coords=jump]{(1-exp(-x/5))};
+\addplot[thick,color=black,domain=0:11.5,samples=101,unbounded coords=jump]
+{{1}};
+\addplot[thick,color=blue,domain=0:11.5,samples=101,unbounded coords=jump]
+{1-exp(-x)};
+\addplot[thick,color=green,domain=0:11.5,samples=101,unbounded coords=jump]
+{(1-exp(-x/2))};
+\addplot[thick,color=cyan,domain=0:11.5,samples=101,unbounded coords=jump]
+{(1-exp(-x/3))};
+\addplot[thick,color=red,domain=0:11.5,samples=101,unbounded coords=jump]
+{(1-exp(-x/4))};
+\addplot[thick,color=magenta,domain=0:11.5,samples=101,unbounded coords=jump]
+{(1-exp(-x/5))};
 \legend{échelon,$\tau=1$,$\tau=2$,$\tau=3$,$\tau=4$,$\tau=5$}
 \end{axis}%
 \end{tikzpicture}%
@@ -258,23 +264,29 @@ $\dfrac{s(t)}{KE_0}$ & 0.606 & 0.368  & 0.05      & $\sim$ 0& \\ [1.5em]
     label style={font=\Large},
     legend cell align={left},
 ]%
-\addplot[thick,color=black,domain=0:11.5, samples=101,unbounded coords=jump]{{1}};%
-\addplot[thick,color=blue,domain=0:11.5, samples=101,unbounded coords=jump]{0.5*(1-exp(-x))};
-\addplot[thick,color=green,domain=0:11.5, samples=101,unbounded coords=jump]{1-exp(-x)};
-\addplot[thick,color=cyan,domain=0:11.5, samples=101,unbounded coords=jump]{2*(1-exp(-x))};
+\addplot[thick,color=black,domain=0:11.5, samples=101,unbounded coords=jump]
+{{1}};%
+\addplot[thick,color=blue,domain=0:11.5, samples=101,unbounded coords=jump]
+{0.5*(1-exp(-x))};
+\addplot[thick,color=green,domain=0:11.5, samples=101,unbounded coords=jump]
+{1-exp(-x)};
+\addplot[thick,color=cyan,domain=0:11.5, samples=101,unbounded coords=jump]
+{2*(1-exp(-x))};
 \legend{échelon,$K=0.5$,$K=1$,$K=2$}
 \end{axis}
 \end{tikzpicture}
-\caption{Réponse indicielle d'un système du premier ordre avec $E_0=1$. (gauche) 
-         Pour différentes valeurs de $\tau$ et avec $K=1$. (droite) Pour différentes 
-         valeurs du gain $K$ et avec $\tau=1$.\label{fig-1er_ind}}
+\caption{Réponse indicielle d'un système du premier ordre avec $E_0=1$.
+		(gauche) Pour différentes valeurs de $\tau$ et avec $K=1$. 
+		(droite) Pour différentes valeurs du gain $K$ et 
+		avec $\tau=1$.\label{fig-1er_ind}}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du premier ordre!réponse indicielle}
 
-Pour déterminer la réponse indicielle, nous considérons une entrée $e(t)$ en échelon telle que :
+Pour déterminer la réponse indicielle, nous considérons une entrée 
+$e(t)$ en échelon telle que :
 $$
 e(t)=E_0\cdot u(t),
 $$
@@ -284,22 +296,26 @@ Dans le domaine de Laplace la sortie est donc de la forme :
 $$
 S(p)=H(p)E(p)=\dfrac{KE_0}{p(1+\tau p)}=\dfrac{KE_0}{\tau p(p+\frac{1}{\tau})}
 $$
-La transformée de Laplace inverse de $S(p)$ (c.f ligne 11 du tableau de l'\cref{annexe-lap}),
-nous donne la forme générale de la réponse indicielle d'un système du premier ordre:
+La transformée de Laplace inverse de $S(p)$ (c.f ligne 11 du tableau 
+de l'\cref{annexe-lap}), nous donne la forme générale de la réponse 
+indicielle d'un système du premier ordre:
 \begin{bequation}[ams align]
 \laplacei{S(p)}=s(t)=KE_0\left(1-e^{-t/\tau}\right)\label{eq-1er_ind}
 \end{bequation}
 La~\cref{fig-1er_ind} présente cette réponse indicielle pour 
 différentes valeurs de la constante de temps $\tau$.
-Pour $t\to\infty$, la valeur de $s(t)$ tend vers $KE_0$.%\footnote{Il est également possible 
+Pour $t\to\infty$, la valeur de $s(t)$ tend vers $KE_0$.
+%\footnote{Il est également possible 
 %de déterminer cette valeur en appliquant le théorème de la valeur finale 
 %sur la fonction dans le domaine de Laplace puisque 
 %$pS(p)$ ne possède qu'un seul pôle à partie réelle négative. 
 %Ainsi,
 %$$
-%\lim_{t\to\infty}s(t)=\lim_{p\to0}pS(p)=\lim_{p\to0}\dfrac{KE_0}{\tau p+1}=KE_0
+%\lim_{t\to\infty}s(t)=\lim_{p\to0}pS(p)=\lim_{p\to0}
+%\dfrac{KE_0}{\tau p+1}=KE_0
 %$$}.
-La pente à l'origine peut être obtenue directement en dérivant la réponse temporelle $s(t)$
+La pente à l'origine peut être obtenue directement en dérivant 
+la réponse temporelle $s(t)$
 $$
 s'(0)=\dfrac{KE_0}{\tau}
 $$
@@ -308,8 +324,8 @@ La pente à l'origine est positive et inversemment proportionnelle
 
 Le~\cref{tab-1er_ind} donne quelques valeurs particulières de la réponse 
 indicielle. D'après celui-ci, on constate que le temps de réponse à 
-5\% $t_{5\%}$ (temps au bout duquel la réponse indicielle atteint 95\% du signal 
-final) est donné par :
+5\% $t_{5\%}$ (temps au bout duquel la réponse indicielle atteint 95\% 
+du signal final) est donné par :
 $$
 t_{5\%}=-\tau\log{0.05}\sim3\tau.
 $$
@@ -424,14 +440,16 @@ La transformée de Laplace inverse de $S(p)$ (c.f ligne 12 du tableau
 de l'\cref{annexe-lap}), nous donne la forme générale de la réponse à une 
 rampe d'un système du premier ordre:
 \begin{bequation}[ams align]
-    \laplacei{S(p)}=s(t)=KE_0 \left( t -\tau(1-e^{-t/\tau})\right)\label{eq-1er_ramp}  
+\laplacei{S(p)}=s(t)=KE_0 \left( t -\tau(1-e^{-t/\tau})\right)
+	\label{eq-1er_ramp}  
 \end{bequation}
 
 %\begin{figure}
 %\begin{center}
 %\includegraphics[width=0.7\textwidth]{script/fig_1er_3.eps}
-%\caption{Réponse à une rampe d'un système du premier ordre pour différentes valeurs                                        
-%        de la constante de temps $\tau$  (\cref{eq-1er_ramp}) avec $K=1$ et $E_0=1$ \label{fig-1er_ramp}}
+%\caption{Réponse à une rampe d'un système du premier ordre pour 
+%         différentes valeurs de la constante de temps $\tau$  
+%         (\cref{eq-1er_ramp}) avec $K=1$ et $E_0=1$ \label{fig-1er_ramp}}
 %\end{center}
 %\end{figure}
 
@@ -460,9 +478,9 @@ différentielle du second ordre de forme générale :
 $$
 \devi{s(t)}{2}+2\xi\omega_0\devi{s(t)}{}+\omega^2_0s(t)=K\omega^2_0e(t)
 $$
-où $\xi>0$ est le coefficient d'amortissement, $K$ le gain statique et $\omega_0>0$  
-la pulsation propre du système. Cette pulsation est celle de l'oscillateur 
-harmonique équivalent sans amortissement ($\xi=0$).
+où $\xi>0$ est le coefficient d'amortissement, $K$ le gain statique et 
+$\omega_0>0$ la pulsation propre du système. Cette pulsation est celle de 
+l'oscillateur harmonique équivalent sans amortissement ($\xi=0$).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -557,25 +575,30 @@ Deux pôles réels $$p_{1,2}=-\xi\omega_0\pm\omega_0\sqrt{\xi^2-1}$$ &
         $$p_{1,2}=-\alpha\pm j\omega_d$$         
         avec $\alpha=\xi\omega_0$ et $\omega_d=\omega_0\sqrt{1-\xi^2}$ &
         \tikzsetnextfilename{2nd_pole3-chap2_ext}
-        \begin{tikzpicture}
-            \coordinate (o) at (0.0,0.0);
-            \coordinate (p1) at (-1.0,1.0);
-            \coordinate (p2) at (-1.0,-1.0);
-            \draw[very thick,-latex] (0,-1.5) -- (0,2.0) coordinate (im2)  node(im) [left] {Im};
-            \draw[very thick,-latex] (-2.5,0) -- (1.0,0) node(re) [below] {Re};
-            \draw[blue,very thick,dotted] (p1) -- (p2) node[blue,midway,xshift=-1em,yshift=-0.8em] {$-\alpha$};
-            \draw[very thick] (o) -- (p1) ;
-            \draw[very thick] (o) -- (p2) ;
-            \draw[red,very thick,dotted] (p1) --(0.0,1.0)   node[blue,xshift=1.2em,yshift=0em] {$\omega_d$} ;
-            \draw[red,very thick,dotted] (p2) -- (0.0,-1.0) node[blue,xshift=1.2em,yshift=0em] {$-\omega_d$};
-            \draw[red,thick] (0,0) circle [radius=1.41421356237];
-            \node at (p1) [thick,cross=5pt,blue] {};
-            \node at (p1) [blue,left,xshift=-0.5em]     {$p_1$};
-            \node at (p2) [thick,cross=5pt,blue] {};
-            \node at (p2) [blue,left,xshift=-0.5em]     {$p_2$};
-            \pic [draw, -latex, "$\phi$", angle radius=0.5cm , angle eccentricity=1.5] {angle = im2--o--p1};
-            %\pic [draw, ->, "$\phi$", angle eccentricity=1.5] {angle = p2--o--im};
-        \end{tikzpicture}   &\\ [1.5em]
+\begin{tikzpicture}
+	\coordinate (o) at (0.0,0.0);
+    \coordinate (p1) at (-1.0,1.0);
+    \coordinate (p2) at (-1.0,-1.0);
+\draw[very thick,-latex] (0,-1.5) -- (0,2.0) coordinate (im2)  
+node(im) [left] {Im};
+\draw[very thick,-latex] (-2.5,0) -- (1.0,0) node(re) [below] {Re};
+\draw[blue,very thick,dotted] (p1) -- (p2) 
+node[blue,midway,xshift=-1em,yshift=-0.8em] {$-\alpha$};
+\draw[very thick] (o) -- (p1) ;
+\draw[very thick] (o) -- (p2) ;
+\draw[red,very thick,dotted] (p1) --(0.0,1.0)   
+node[blue,xshift=1.2em,yshift=0em] {$\omega_d$} ;
+\draw[red,very thick,dotted] (p2) -- (0.0,-1.0) 
+node[blue,xshift=1.2em,yshift=0em] {$-\omega_d$};
+\draw[red,thick] (0,0) circle [radius=1.41421356237];
+\node at (p1) [thick,cross=5pt,blue] {};
+\node at (p1) [blue,left,xshift=-0.5em]     {$p_1$};
+\node at (p2) [thick,cross=5pt,blue] {};
+\node at (p2) [blue,left,xshift=-0.5em]     {$p_2$};
+\pic [draw, -latex, "$\phi$", angle radius=0.5cm , 
+	 angle eccentricity=1.5] {angle = im2--o--p1};
+%\pic [draw, ->, "$\phi$", angle eccentricity=1.5] {angle = p2--o--im};
+\end{tikzpicture}   &\\ [1.5em]
 %        \end{center} &\\ [1.5em]
         \hhline{===}
     \end{tabular}
@@ -665,10 +688,10 @@ considérer comme la mise en cascade de deux systèmes du premier ordre.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $\xi=1$ (régime apériodique critique),}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-la sortie dans le domaine de Laplace s'écrit :                                                                            
-$$                                                                                                                            
+la sortie dans le domaine de Laplace s'écrit :
+$$
 S(p)=\dfrac{K\omega^2_0}{(p-p_1)^2}
-$$ 
+$$
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 8 du tableau 
 de l'\cref{annexe-lap}), nous donne la forme générale de la réponse 
 impulsionnelle d'un système du second ordre en régime apériodique critique:
@@ -701,7 +724,8 @@ La transformée de Laplace inverse de $S(p)$ (c.f ligne 30 du tableau
 de l'\cref{annexe-lap}), nous donne la forme générale de la réponse 
 impulsionnelle d'un système du second ordre en régime pseudo-périodique :  
 \begin{bequation}[ams align]
-    s(t)=\dfrac{K\omega_d}{1-\xi^2}e^{-\xi\omega_0 t}\sin{\omega_d t}\label{eq-1-3_2nd} 
+s(t)=\dfrac{K\omega_d}{1-\xi^2}e^{-\xi\omega_0 t}\sin{\omega_d t}
+\label{eq-1-3_2nd} 
 \end{bequation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -730,16 +754,18 @@ La transformée de Laplace inverse de $S(p)$ (c.f ligne 19 du
 tableau de l'\cref{annexe-lap}), nous donne la forme générale de la 
 réponse indicielle d'un système du second ordre en régime apériodique:
 %$$
-%s(t)=\dfrac{KE_0\omega^2_0}{p_1p_2}\left(1+\dfrac{1}{p_1-p_2}(p_2e^{p_1t}-p_1e^{p_2t})\right)
+%s(t)=\dfrac{KE_0\omega^2_0}{p_1p_2}\left(1+\dfrac{1}{p_1-p_2}
+%(p_2e^{p_1t}-p_1e^{p_2t})\right)
 %$$
 %et en réarrangant les termes : 
 \begin{bequation}[ams align]
-%    s(t)&=\dfrac{\omega^2_0}{p_1p_2}\left(1+\dfrac{1}{p_1-p_2}(p_2e^{p_1t}-p_1e^{p_2t})\right)\\
-     s(t)&=KE_0\left(1+\dfrac{1}{p_1-p_2}\left(p_2e^{p_1t}-p_1e^{p_2t}\right)\right)
+s(t)&=KE_0\left(1+\dfrac{1}{p_1-p_2}\left(p_2e^{p_1t}-p_1e^{p_2t}\right)\right)
 \end{bequation}
 posons $p_1=-1/\tau_1$ et $p_2=-1/\tau_2$, la réponse devient :
 \begin{bequation}[ams align]
-    s(t)=KE_0\left(1+\dfrac{1}{\tau_1-\tau_2}\left(\tau_2e^{-\frac{t}{\tau_2}}-\tau_1e^{-\frac{t}{\tau_1}}\right)\label{eq-2-1_2nd}\right) 
+s(t)=KE_0\left(1+\dfrac{1}{\tau_1-\tau_2}
+	 \left(\tau_2e^{-\frac{t}{\tau_2}}-\tau_1e^{-\frac{t}{\tau_1}}\right)
+	 \label{eq-2-1_2nd}\right) 
 \end{bequation}
 Nous pouvons à nouveau envisager cette réponse comme la réponse 
 de deux systèmes du premier ordre en série.
@@ -780,7 +806,8 @@ la sortie $S(p)$ dans le domaine de Laplace s'écrit :
 %$S(p)$ devient :
 %$$
 %S(p)=\dfrac{\omega^2_0}{(p-\alpha-j\omega_d)(p-\alpha+j\omega_d)}
-%\cdot\dfrac{1}{p} = \dfrac{\omega^2_0}{(p-\alpha)^2+\omega^2_d}\cdot\dfrac{1}{p}
+%\cdot\dfrac{1}{p} = \dfrac{\omega^2_0}{(p-\alpha)^2+\omega^2_d}
+%\cdot\dfrac{1}{p}
 %$$
 $$
 S(p)=\dfrac{K\omega^2_0}{(p+\alpha)^2+\omega^2_d}\cdot\dfrac{E_0}{p}
@@ -1171,8 +1198,10 @@ temps de réponse pour $\xi\sim 0.7$
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{scilab/fig_temps_de_reduit.eps}
-    \caption{Temps de réponse à 5\% réduit en fonction du taux d'amortissement $\xi$. 
-     Le minimum est atteint pour $\xi\sim0.7$ pour lequel $\omega_0\cdot t_{5\%}\sim3$.\label{fig-2nd_temps_reponse}}
+\caption{Temps de réponse à 5\% réduit en fonction du taux 
+         d'amortissement $\xi$. Le minimum est atteint pour $\xi\sim0.7$ 
+		 pour lequel $\omega_0\cdot t_{5\%}\sim3$.
+		 \label{fig-2nd_temps_reponse}}
 \end{figure}
 
 
@@ -1182,18 +1211,18 @@ temps de réponse pour $\xi\sim 0.7$
 \subsubsection{Réponse à une rampe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du second ordre!réponse à une rampe}
-La réponse à une rampe d'un système du second ordre est, dans le domaine de Laplace, donnée par
+La réponse à une rampe d'un système du second ordre est, dans le domaine 
+de Laplace, donnée par
 $$
 S(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}\cdot\dfrac{E_0}{p^2}
 $$
 où $E(p)=\dfrac{E_0}{p^2}$ est un signal rampe.
-\'Etudions la forme analytique des réponses à une rampe dans les différents régimes du système du second ordre.
+\'Etudions la forme analytique des réponses à une rampe dans les différents 
+régimes du système du second ordre.
 
-%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $\xi>1$ (régime apériodique),}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%
 écrivons la sortie $S(p)$ sous la forme :
 $$
 S(p)=\dfrac{K\omega_0^2}{(p-p_1)(p-p_2)}\cdot\dfrac{E_0}{p^2}
@@ -1225,11 +1254,14 @@ La transformée de Laplace inverse de $S(p)$ (c.f lignes 4 et 7 du
 tableau de l'\cref{annexe-lap}), nous permet de déterminer la réponse à 
 une rampe du régime apériodique :
 \begin{bequation}[ams align]
-    s(t)=KE_0\left(t+\dfrac{p_1+p_2}{\omega_0^2}+\dfrac{1}{\omega_0^2(p_1-p_2)}\left(p_2^2e^{p_1t}-p_1^2e^{p_2t}\right)\right)
+s(t)=KE_0\left(t+\dfrac{p_1+p_2}{\omega_0^2}+\dfrac{1}{\omega_0^2(p_1-p_2)}
+\left(p_2^2e^{p_1t}-p_1^2e^{p_2t}\right)\right)
 \end{bequation}
 posons $p_1=-1/\tau_1$ et $p_2=-1/\tau_2$, la réponse devient :
 \begin{bequation}[ams align]
-    s(t)=KE_0\left(t-\tau_1-\tau_2+\dfrac{1}{(\tau_1-\tau_2)}\left(\tau_1^2e^{-\frac{t}{\tau_1}}-\tau_2^2e^{-\frac{t}{\tau_2}}\right)\right)
+s(t)=KE_0\left(t-\tau_1-\tau_2+\dfrac{1}{(\tau_1-\tau_2)}
+	     \left(\tau_1^2e^{-\frac{t}{\tau_1}}-
+		       \tau_2^2e^{-\frac{t}{\tau_2}}\right)\right)
 \end{bequation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $\xi=1$ (régime apériodique critique),} 
@@ -1239,7 +1271,7 @@ $$
 S(p)=\dfrac{K\omega_0^2}{(p-p_1)^2}\cdot\dfrac{E_0}{p^2}.
 $$
 La décomposition en éléments simples de $S(p)$ s'écrit:
-$$                                                                                                                            
+$$
 S(p)=\dfrac{A}{p}+\dfrac{B}{p^2}+\dfrac{C}{(p-p_1)}+\dfrac{D}{(p-p_1)^2}.
 $$ 
 Procédons par évaluation pour obtenir les coefficients $B$ et $D$:
@@ -1254,11 +1286,17 @@ $$
 et en utilisant la parité de la fonction $C=-A$.
 
 La sortie $S(p)$ devient alors :
-$$                                                                                                                            
-S(p)=KE_0\left(\dfrac{2}{p_1}\cdot\dfrac{1}{p}+ \dfrac{1}{p^2} - \dfrac{2}{p_1}\cdot\dfrac{1}{(p-p_1)}+ \dfrac{1}{(p-p_1)^2}\right)  
-$$ 
-La transformée de Laplace inverse de $S(p)$ (c.f lignes 3, 4, 7 et 8 du tableau de l'\cref{annexe-lap}), 
-nous permet de déterminer la réponse à une rampe du régime apériodique critique :
+$$
+S(p)=KE_0\left(\dfrac{2}{p_1}\cdot
+ 			   \dfrac{1}{p}+ 
+               \dfrac{1}{p^2}-
+			   \dfrac{2}{p_1}\cdot
+			   \dfrac{1}{(p-p_1)}+ 
+			   \dfrac{1}{(p-p_1)^2}\right) 
+$$
+La transformée de Laplace inverse de $S(p)$ (c.f lignes 3, 4, 7 
+et 8 du tableau de l'\cref{annexe-lap}), nous permet de déterminer 
+la réponse à une rampe du régime apériodique critique :
 \begin{bequation}[ams align]
     s(t)=KE_0\left(\dfrac{2}{p_1}+t-\dfrac{2}{p_1}e^{p_1t}+te^{p_1t}\right)
 \end{bequation}
@@ -1277,7 +1315,7 @@ $$
 où, rappellons que $\alpha=\xi\omega_0$ et $\omega_d=\omega_0\sqrt{1-\xi^2}$.
 
 La décomposition en éléments simples de $S(p)$ s'écrit:
-$$                                                                                                                            
+$$
 S(p)=\dfrac{A}{p}+\dfrac{B}{p^2}+\dfrac{C(p+\alpha)+D}{(p+\alpha)^2+\omega_d^2}.
 $$ 
 Procédons par évaluation pour obtenir le coefficient $B$:
@@ -1287,12 +1325,6 @@ $$
 où $\alpha^2+\omega_d^2=\omega_0^2$ par définition.
 
 Par identification du numérateur,
-%\begin{align*}
-%Ap\left((p+\alpha)^2+\omega_d^2\right)+B\left((p+\alpha)^2+\omega_d^2\right)+Cp^2(p+\alpha)+Dp^2=KE_0\omega_0^2\\
-%Ap(p^2+2p\alpha+\alpha^2+\omega_d^2)+B(p^2+2p\alpha+\alpha^2+\omega_d^2)+Cp^3+Cp^2\alpha+Dp^2=KE_0\omega_0^2\\
-%    Ap^3+2Ap^2\alpha+Ap(\alpha^2+\omega_d^2)+Bp^2+2Bp\alpha+B(\alpha^2+\omega_d^2)+Cp^3+Cp^2\alpha+Dp^2=KE_0\omega_0^2\\
-%    p^3(A+C)+p^2(2A\alpha+B+C\alpha+D)+p(A(\alpha^2+\omega_d^2)+2B\alpha)+B(\alpha^2+\omega_d^2)=KE_0\omega_0^2\\
-%\end{align*}
 on obtient les relations suivantes sur les coefficients:
 $$
 \begin{cases}
@@ -1309,13 +1341,21 @@ On a alors :
 \end{align*}
 La sortie $S(p)$ s'écrit donc :
 $$
-S(p)=KE_0\left(\dfrac{1}{p^2}-\dfrac{2\xi}{\omega_0}\cdot\dfrac{1}{p}+\dfrac{2\xi}{\omega_0}\cdot\dfrac{p+\alpha}{(p+\alpha)^2+\omega_d^2} + \dfrac{2\xi^2-1}{\omega_d}\cdot\dfrac{\omega_d}{(p+\alpha)^2+\omega_d^2}\right)
+S(p)=KE_0\left(\dfrac{1}{p^2}-\dfrac{2\xi}{\omega_0}\cdot
+               \dfrac{1}{p}+\dfrac{2\xi}{\omega_0}\cdot
+			   \dfrac{p+\alpha}{(p+\alpha)^2+\omega_d^2}+
+			   \dfrac{2\xi^2-1}{\omega_d}\cdot\dfrac{\omega_d}
+			   {(p+\alpha)^2+\omega_d^2}\right)
 $$
-La transformée de Laplace inverse de $S(p)$ (c.f lignes 3, 4, 30 et 31 du tableau de l'\cref{annexe-lap}),         
-nous permet de déterminer la réponse à une rampe du régime pseudo-périodique :
+La transformée de Laplace inverse de $S(p)$ (c.f lignes 3, 4, 30 
+et 31 du tableau de l'\cref{annexe-lap}), nous permet de déterminer la 
+réponse à une rampe du régime pseudo-périodique :
 \begin{align*}
-    s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+\dfrac{2\xi\sqrt{1-\xi^2}}{\omega_d}e^{-\alpha t}\cos{\omega_d t}+\dfrac{2\xi^2-1}{\omega_d}e^{-\alpha t}\sin{\omega_d t}\right)\\
-%    s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+\dfrac{2\xi}{\omega_d}e^{-\alpha t}\left(\sqrt{1-\xi^2}\cos{\omega_d t}+\xi\sin{\omega_d t}\right)-\dfrac{1}{\omega_d}e^{-\alpha t}\sin{\omega_d t}\right)\\
+s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+
+	             \dfrac{2\xi\sqrt{1-\xi^2}}{\omega_d}
+				 e^{-\alpha t}\cos{\omega_d t}+
+				 \dfrac{2\xi^2-1}{\omega_d}e^{-\alpha t}\sin{\omega_d t}
+				 \right)\\
 \end{align*}
 en posant à nouveau : 
 \begin{align*}
@@ -1330,7 +1370,8 @@ et en notant que :
 
 on obtient :
 \begin{bequation}[ams align]
-s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+\dfrac{2\xi}{\omega_d}e^{-\alpha t}\sin{(\omega_d t+2\phi)}\right)
+s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+
+	     \dfrac{2\xi}{\omega_d}e^{-\alpha t}\sin{(\omega_d t+2\phi)}\right)
 \end{bequation}
 
 \begin{figure}[!t]
@@ -1357,27 +1398,27 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+\dfrac{2\xi}{\omega_d}e^{-\alpha t}\sin{
 \def\d{0.267949192431}
 \def\us{13.928203230275509}
 \def\ds{0.07179676972449088}
-\addplot[thick,color=blue,domain=0:20, samples=101,unbounded coords=jump]{x+-\u-\d+\a*(\us*exp(-x/\u)-\ds*exp(-x/\d))};
-
-\addplot[thick,color=green,domain=0:20, samples=101,unbounded coords=jump]{((x-2)+(x+2)*exp(-x))};
+\addplot[thick,color=blue,domain=0:20, samples=101,unbounded coords=jump]
+{x+-\u-\d+\a*(\us*exp(-x/\u)-\ds*exp(-x/\d))};
+\addplot[thick,color=green,domain=0:20, samples=101,unbounded coords=jump]
+{((x-2)+(x+2)*exp(-x))};
 
 \def\a{0.1}
 \def\b{0.99}
 \def\w{0.994987437107}
 \def\p{1.47062890563}
 
-%\def\a{0.2}
-%\def\b{0.96}
-%\def\w{0.979795897113}
-%\def\p{1.369438406}
-%\def\pd{-2.73887681201}
-
-\addplot[thick,color=red,domain=0:20, samples=101,unbounded coords=jump]{x-2*\a+\a/\w*exp(-\a*x)*sin(\w*deg(x)+deg(\p))-(1/\w)*exp(-\a*x)*sin(\w*deg(x))};
-%\addplot[thick,color=gray,domain=0:20, samples=101,unbounded coords=jump]{x-2*\a+(1/\w)*exp(-\a*x)*sin(\w*deg(x)-deg(\pd))};
+\addplot[thick,color=red,domain=0:20, samples=101,unbounded coords=jump]
+{x-2*\a+\a/\w*exp(-\a*x)*sin(\w*deg(x)+deg(\p))-
+(1/\w)*exp(-\a*x)*sin(\w*deg(x))};
 
 \end{axis}
 \end{tikzpicture}
-    \caption{Réponse à une rampe d'un système du second ordre en (bleu) régime apériodique avec $\xi=2.0$, (vert) régime apériodique critique (i.e $\xi=1$) et en (rouge) régime pseudo-périodique avec $\xi=0.1$. Avec $\omega_0=1$, $K=1$ et $E_0=1$. \label{fig-2nd_ramp}}
+    \caption{Réponse à une rampe d'un système du second ordre en 
+	        (bleu) régime apériodique avec $\xi=2.0$, 
+			(vert) régime apériodique critique (i.e $\xi=1$) et en 
+			(rouge) régime pseudo-périodique avec $\xi=0.1$. 
+			Avec $\omega_0=1$, $K=1$ et $E_0=1$. \label{fig-2nd_ramp}}
 \end{center}
 \end{figure}
 
@@ -1397,9 +1438,9 @@ $$
 $$
 c'est à dire sans amortissement ($\xi=0$), on se retrouve alors dans le 
 cas classique de l'oscillateur harmonique.
-Nous allons ici étudier ce modèle limite qui est d'une grande importance en physique.
-Ceci afin de constater que l'approche utilisée tout le long de ce chapitre
-permet également de décrire ce modèle important. 
+Nous allons ici étudier ce modèle limite qui est d'une grande importance 
+en physique. Ceci afin de constater que l'approche utilisée tout le long de 
+ce chapitre permet également de décrire ce modèle important. 
 
 La fonction de transfert de l'équation différentielle précédente s'écrit :
 $$
@@ -1409,8 +1450,8 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse impulsionnelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La réponse impulsionnelle d'un oscillateur harmonique est, dans le domaine de Laplace,
-donnée par 
+La réponse impulsionnelle d'un oscillateur harmonique est, dans le domaine 
+de Laplace, donnée par 
 $$
 S(p)=\dfrac{KE_0}{p^2+\omega_o^2}
 $$
@@ -1436,8 +1477,8 @@ déplacé de son état d'équilibre.
 
 
 Dans cette partie, nous allons présenter des modèles théoriques particuliers 
-qui physiquement ne se retrouveront jamais seuls. Cependant ils compléteront les 
-modèles du premier et second ordre discutés précedemment.
+qui physiquement ne se retrouveront jamais seuls. Cependant ils compléteront 
+les modèles du premier et second ordre discutés précedemment.
 
 
 
@@ -1451,24 +1492,26 @@ modèles du premier et second ordre discutés précedemment.
 \index{Gain pur}
 Dans le cas où l'équation différentielle\footnote{Bien évidemment 
 dans ce cas présent, l'équation différentielle est d'ordre 0. Ce qui est 
-un cas très particulier d'équation différentielle.}~régissant le système est de la forme :
+un cas très particulier d'équation différentielle.}~régissant le système 
+est de la forme :
 $$
 s(t)=Ke(t)
 $$
-avec $K$ un gain pur. Autrement dit, la sortie est proportionnelle à l'entrée et
-de même nature.
+avec $K$ un gain pur. Autrement dit, la sortie est proportionnelle à l'entrée 
+et de même nature.
 En effet, la réponse temporelle est trivialement donné par la définition 
 même du modèle, il est cependant possible de définir une fonction
 de transfert qui s'écrit :
 \begin{bequation}[ams align]
 H(p)=\dfrac{S(p)}{E(p)}=K
 \end{bequation}
-La \textbf{réponse impulsionnelle} pour une entrée du type impulsion de Dirac unitaire 
-est elle même une impulsion de Dirac :
+La \textbf{réponse impulsionnelle} pour une entrée du type impulsion de 
+Dirac unitaire est elle même une impulsion de Dirac :
 $$
 s(t)=K\delta(t)
 $$
-De même pour la \textbf{réponse indicielle} pour une entrée en échelon $e(t)=E_0u(t)$
+De même pour la \textbf{réponse indicielle} pour une entrée en 
+échelon $e(t)=E_0u(t)$
 $$
 s(t)=KE_0u(t)
 $$
@@ -1495,7 +1538,8 @@ La fonction de transfert est celle d'un intégrateur pur:
 H(p)=\dfrac{S(p)}{E(p)}=\dfrac{K}{p}.
 \end{bequation}
 
-La \textbf{réponse impulsionnelle}, pour une entrée unitaire, est la fonction échélon unitaire:
+La \textbf{réponse impulsionnelle}, pour une entrée unitaire, est la 
+fonction échélon unitaire:
 $$
 s(t)=K\int\limits_0^t \delta(\tau)\dd{\tau}=Ku(t)
 $$
@@ -1519,10 +1563,12 @@ $$
     ylabel={$s(t)$},
     label style={font=\Large},
 ]%
-\addplot[very thick,color=blue,domain=-1:0, samples=10,unbounded coords=jump] {{0}};
-\addplot[very thick,color=blue,domain=0:11.5, samples=10,unbounded coords=jump] {{1}};
-\draw[dashed,very thick,blue] (axis cs:0,0) -- (axis cs:0,1);
-\draw[dblarw={black}{2pt}{2pt}] (axis cs:0,0) -- (axis cs:0,1);
+\addplot[very thick,color=blue,domain=-1:0, samples=10,unbounded coords=jump]
+{{0}};
+\addplot[very thick,color=blue,domain=0:11.5, samples=10,unbounded coords=jump]
+{{1}};
+\draw[dashed,very thick,blue]   (axis cs:0,0)--(axis cs:0,1);
+\draw[dblarw={black}{2pt}{2pt}] (axis cs:0,0)--(axis cs:0,1);
 \end{axis}%
 \begin{axis}[
     at=(first.east),anchor=west,xshift=0.5cm,
@@ -1554,8 +1600,6 @@ $$
 \end{figure}
 
 Autrement dit, le système est \textbf{instable}.
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1768,7 +1812,3 @@ de chacunes des performances attendues par non système asservis.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-

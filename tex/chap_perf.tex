@@ -1,36 +1,36 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Performances des systèmes asservis\label{chap-perf}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \minitoc
 \newpage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Contexte}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Les performances qui vont nous interesser dans 
 ce chapitre sont  
 Par \emph{performances} on entend dans le cadre de ce chapitre
 les performances de précision et de rapidité.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Précision}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Un système est précis si l'écart que l'on note $\epsilon(t)$ 
 entre l'entrée $e(t)$ et la sortie $s(t)$ est nul.
@@ -41,32 +41,39 @@ $$
 
 On distingue deux cas :
 \begin{itemize}
-    \item En régime permanent, cet écart $\epsilon_s$ est nommée \textbf{erreur statique. }
-    \item En régime transitoire, cet écart $\epsilon(t)=e(t)-s(t)$ est nommée \textbf{erreur dynamique.}
+    \item En régime permanent, cet écart $\epsilon_s$ est nommée 
+		  \textbf{erreur statique. }
+    \item En régime transitoire, cet écart $\epsilon(t)=e(t)-s(t)$ est 
+		  nommée \textbf{erreur dynamique.}
 \end{itemize}
 
-L'erreur dynamique consiste à suivre l'écart défini précedemment durant le transitoire.
+L'erreur dynamique consiste à suivre l'écart défini précedemment durant 
+le transitoire.
 
-Pour étudier l'erreur statique, on sollicite le système à différents types de signaux 
-pour obtenir dans les différents cas :
+Pour étudier l'erreur statique, on sollicite le système à différents 
+types de signaux pour obtenir dans les différents cas :
 \begin{itemize}
-	\item l'\textbf{erreur indicielle} ou l'erreur de position qui est l'erreur statique de la réponse indicielle.
-	\item l'\textbf{erreur de poursuite} ou erreur de vitesse qui est l'erreur statique de la réponse à une rampe.
-	\item l'\textbf{erreur en accélération} qui est l'erreur statique de la réponse à une parabole.
+	\item l'\textbf{erreur indicielle} ou l'erreur de position qui est 
+		  l'erreur statique de la réponse indicielle.
+	\item l'\textbf{erreur de poursuite} ou erreur de vitesse qui est 
+		  l'erreur statique de la réponse à une rampe.
+	\item l'\textbf{erreur en accélération} qui est l'erreur statique 
+		  de la réponse à une parabole.
 \end{itemize}
-Concrétement pour étudier l'erreur statique on cherche la limite à l'infini de $\epsilon(t)$
-ou encore en appliquant le théorème de la valeur finale :
+Concrétement pour étudier l'erreur statique on cherche la limite à l'infini 
+de $\epsilon(t)$ ou encore en appliquant le théorème de la valeur finale :
 \begin{bequation}[ams align]
-\epsilon(\infty)=\lim\limits_{t\to\infty} e(t)-s(t)=\lim\limits_{p\to 0} p\big(E(p)-S(p)\big)
+\epsilon(\infty)=\lim\limits_{t\to\infty} e(t)-s(t)
+	            =\lim\limits_{p\to 0} p\big(E(p)-S(p)\big)
 \end{bequation}
-Rappelons que pour pouvoir appliquer ce théorème la valeur finale doit être finie ou en d'autre
-mot le système doit être stable.
+Rappelons que pour pouvoir appliquer ce théorème la valeur finale doit 
+être finie ou en d'autre mot le système doit être stable.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Précision en boucle ouverte}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Soit un système caractérisé par la fonction de transfert $H(p)$ 
 est sollicité par l'entrée $E(p)$. La sortie $S(p)$ est alors donnée par :
@@ -84,26 +91,29 @@ est sollicité par l'entrée $E(p)$. La sortie $S(p)$ est alors donnée par :
 
 L'erreur statique est alors donnée par :
 $$
-\epsilon(\infty)=\lim\limits_{p\to 0} p\big(E(p)-H(p)E(p)\big)=\lim\limits_{p\to 0} p\big(1-H(p)\big)E(p)
+\epsilon(\infty)=\lim\limits_{p\to 0} p\big(E(p)-H(p)E(p)\big)
+                =\lim\limits_{p\to 0} p\big(1-H(p)\big)E(p)
 $$
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Exemple d'un premier ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Rappelons qu'il est possible de corriger la précision 
 %d'un système en boucle ouverte. 
 Prenons l'exemple d'un système du 1er ordre de fonction de transfert canonique 
-$H(p)=\dfrac{K}{1+\tau p}$ que l'on sollicite avec un échelon d'amplitude (consigne) 
-$E_0$.
+$H(p)=\dfrac{K}{1+\tau p}$ que l'on sollicite avec un échelon 
+d'amplitude (consigne) $E_0$.
 L'erreur statique est alors donnée par :
 $$
-\epsilon(\infty)=\lim\limits_{p\to 0} \left(1-\dfrac{K}{1+\tau p}\right)E_0=(1-K)E_0
+\epsilon(\infty)=\lim\limits_{p\to 0}\left(1-\dfrac{K}{1+\tau p}\right)E_0
+                =(1-K)E_0
 $$
 
 Le système est prècis (c.a.d $\epsilon(\infty)=0$) si $K=1$. 
 
-%Il alors possible de corriger en boucle ouverte la précision en introduisant un gain $K'$ :
+%Il alors possible de corriger en boucle ouverte la précision en 
+%introduisant un gain $K'$ :
 
 %\begin{center}
 %\tikzsetnextfilename{sb_bloc2-chap6_ext}
@@ -119,15 +129,14 @@ Le système est prècis (c.a.d $\epsilon(\infty)=0$) si $K=1$.
 %\end{center}
 %tel que $K'K=1$ ou encore $K'=\frac{1}{K}$.
 
-%Cependant, nous allons dans ce chapitre nous interesser uniquement à l'asservissement en 
-%boucle fermée.
+%Cependant, nous allons dans ce chapitre nous interesser uniquement 
+% à l'asservissement en %boucle fermée.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Précision en boucle fermée}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Considérons le cas d'un système asservi de fonction de transfert $H(p)$
 par une boucle de contre-réaction à retour unitaire.
@@ -168,7 +177,8 @@ en remplaçant $H_{BO}(p)$ par sa représentation générale:
 L'erreur statique $\epsilon_s$ est alors donnée par la limite (Théorème 
 de la valeur finale) :
 $$
-\epsilon_s=\lim\limits_{p\to 0} p\epsilon(p)=\lim\limits_{p\to 0} \dfrac{p^\alpha D(p)}{p^\alpha D(p)+KN(p)}pE(p) 
+\epsilon_s=\lim\limits_{p\to 0} p\epsilon(p)=\lim\limits_{p\to 0} 
+           \dfrac{p^\alpha D(p)}{p^\alpha D(p)+KN(p)}pE(p) 
 $$
 ou encore en utilisant les valeurs des polynômes en 0: 
 \begin{bequation}[ams align]
@@ -179,17 +189,18 @@ ou encore en utilisant les valeurs des polynômes en 0:
 Cette erreur dépend donc de la nature de la sollicitation (c.a.d $E(p)$) et 
 de la classe $\alpha$ de la fonction de transfert en boucle ouverte.
 
-Nous allons maintenant considérer différentes types de sollicitations pour différentes
-classes de système en boucle ouverte.
+Nous allons maintenant considérer différentes types de sollicitations pour 
+différentes classes de système en boucle ouverte.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Erreur statique indicielle}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 L'erreur indicielle est l'erreur entre la sortie d'un système et une 
 sollicitation en échelon $e(t)=E_0u(t)$ de transformée de Laplace 
 $E(p)=\dfrac{E_0}{p}$. 
-Pour une telle entrée, l'erreur statique (c.f \cref{eq-erreurStatique}) devient :
+Pour une telle entrée, l'erreur statique (c.f \cref{eq-erreurStatique}) 
+devient :
 $$
 \epsilon_s=\lim\limits_{p\to 0} \dfrac{p^\alpha}{p^\alpha+K}E_0
 $$
@@ -207,82 +218,90 @@ $$
 $$
 Les réponses indicielle des systèmes de classe $\alpha>0$ sont donc précis.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Erreur statique de poursuite}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 L'erreur de poursuite est l'erreur statique d'un système soumis à une rampe 
 du type $e(t)=r(t)=E_0t u(t)$
 de transformée de Laplace $E(p)=\dfrac{E_0}{p^2}$
 
 Pour une telle entrée, l'erreur statique devient :
 $$
-\epsilon_s=\lim\limits_{p\to 0} \dfrac{p^\alpha}{p^\alpha+K}\dfrac{E_0}{p}=\dfrac{p^{\alpha-1}}{p^\alpha+K}E_0 
+\epsilon_s=\lim\limits_{p\to 0} \dfrac{p^\alpha}{p^\alpha+K}\dfrac{E_0}{p}
+          =\dfrac{p^{\alpha-1}}{p^\alpha+K}E_0 
 $$
 
-Dans le cas d'un système de classe $\alpha=0$ en boucle ouverte, l'erreur devient :
+Dans le cas d'un système de classe $\alpha=0$ en boucle ouverte, 
+l'erreur devient :
 $$
 \epsilon_s=\lim\limits_{p\to 0}\dfrac{p^{-1}}{p^0+K}E_0=+\infty
 $$
 Le système est incapable de suivre l'entrée souhaitée.
 
-Dans le cas d'un système de classe $\alpha=1$ en boucle ouverte, l'erreur devient :
+Dans le cas d'un système de classe $\alpha=1$ en boucle ouverte, 
+l'erreur devient :
 $$
 \epsilon_s=\lim\limits_{p\to 0}\dfrac{p^0}{p+K}E_0=\dfrac{E_0}{K}
 $$
 
-Dans le cas d'un système de classe $\alpha>1$ en boucle ouverte, l'erreur devient :
+Dans le cas d'un système de classe $\alpha>1$ en boucle ouverte, 
+l'erreur devient :
 $$
 \epsilon_s=\lim\limits_{p\to 0}\dfrac{p^{\alpha-1}}{p^\alpha+K}E_0=0
 $$
 Le système est donc prècis.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Erreur statique d'accélération}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 L'erreur d'accélération est l'erreur statique d'un système soumis à un signal
-parabolique $e(t)=r(t)=E_0t^2 u(t)$ de transformée de Laplace $E(p)=\dfrac{2E_0}{p^3}$
+parabolique $e(t)=r(t)=E_0t^2 u(t)$ de transformée de Laplace 
+$E(p)=\dfrac{2E_0}{p^3}$
 
 Pour une telle entrée, l'erreur statique devient :
 $$
-\epsilon_s=\lim\limits_{p\to 0} \dfrac{p^\alpha}{p^\alpha+K}\dfrac{2E_0}{p^2}=\dfrac{p^{\alpha-2}}{p^\alpha+K}2E_0 
+\epsilon_s=\lim\limits_{p\to 0} \dfrac{p^\alpha}{p^\alpha+K}\dfrac{2E_0}{p^2}
+          =\dfrac{p^{\alpha-2}}{p^\alpha+K}2E_0 
 $$
 
-Dans le cas d'un système de classe $\alpha<2$ en boucle ouverte, l'erreur devient :
+Dans le cas d'un système de classe $\alpha<2$ en boucle ouverte, 
+l'erreur devient :
 $$
 \epsilon_s=+\infty
 $$
 
-Pour un système de classe $\alpha=2$ en boucle ouverte, l'erreur est finie :
+Pour un système de classe $\alpha=2$ en boucle ouverte, 
+l'erreur est finie :
 $$
 \epsilon_s=\dfrac{2E_0}{K}
 $$
 et s'annule pour $\alpha>2$
 
 \begin{table}
-	\centering
+\centering
 \begin{tabular}{M{2cm}M{2cm}M{2cm}M{2cm}M{2cm}N}
-	\hline
-	Entrée & $\alpha=0$ & $\alpha=1$ & $\alpha=2$ & $\alpha>2$ & \\[2em]
-	\hline
-	$\dfrac{E_0}{p}$   &  $\dfrac{E_0}{1+K}$ & 0                & 0                 & 0 & \\[2em]
-	$\dfrac{E_0}{p^2}$ &  $+\infty$          & $\dfrac{E_0}{K}$ & 0                 & 0 & \\[2em]
-	$\dfrac{E_0}{p^3}$ &  $+\infty$          & $+\infty$        & $\dfrac{2E_0}{K}$ & 0 & \\[2em]
+\hline
+Entrée & $\alpha=0$ & $\alpha=1$ & $\alpha=2$ & $\alpha>2$ & \\[2em]
+\hline
+$\dfrac{E_0}{p}$&$\dfrac{E_0}{1+K}$&0&0&0&\\[2em]
+$\dfrac{E_0}{p^2}$&$+\infty$&$\dfrac{E_0}{K}$&0&0&\\[2em]
+$\dfrac{E_0}{p^3}$&$+\infty$&$+\infty$&$\dfrac{2E_0}{K}$&0&\\[2em]
 	\hline
 \end{tabular}
-	\caption{Résumé des erreurs statiques pour différentes sollicitations et 
-	classe de système en boucle ouverte}
+\caption{Résumé des erreurs statiques pour différentes 
+         sollicitations et classe de système en boucle ouverte}
 \end{table}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Effet d'une perturbation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{center}                                                                                                                
-    \tikzsetnextfilename{reduc_mult1-chap1_ext}
-\begin{tikzpicture}                                                                                                           
+\begin{center}
+\tikzsetnextfilename{reduc_mult1-chap1_ext}
+\begin{tikzpicture}
     \sbEntree{E}
     \sbComp{a}{E}
     \sbRelier[$E$]{E}{a}
@@ -300,34 +319,34 @@ et s'annule pour $\alpha>2$
     \sbRelierxy{r2}{a}
     \node[above =of d] (aa) {}; 
     \draw[thick,-latex] (aa) node[right,yshift=-1em] {$P$} --(d.north) ;
-\end{tikzpicture}   
-\end{center}                                                                                                                  
+\end{tikzpicture}
+\end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Rapidité}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Réponse temporelle}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Réponse harmonique}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Influence des pôles dominants}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Soient $p_1,\ldots,p_n$ les pôles d'un système stable\footnote{À partir 
 des résultats obtenus dans ce chapitre il est déjà clair que la stabilité
@@ -386,11 +405,14 @@ de ces trois fonctions de transfert.
     label style={font=\Large},
     legend cell align={left},
 ]%
-	\addplot[thick,color=black,domain=0:30, samples=101,unbounded coords=jump] {{1}};
-	\addplot[thick,color=cyan,domain=0:30, samples=101,unbounded coords=jump]{6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
-	\addplot[thick,color=green,domain=0:30, samples=101,unbounded coords=jump]{1.25*(1-exp(-x))};
-	\addplot[thick,color=blue,domain=0:30, samples=101,unbounded coords=jump]{6.25*(1-exp(-x/5))};
-	\legend{échelon,$s(t)$,$s_1(t)$,$s_2(t)$}
+\addplot[thick,color=black,domain=0:30, samples=101,unbounded coords=jump]{{1}};
+\addplot[thick,color=cyan,domain=0:30, samples=101,unbounded coords=jump]
+{6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
+\addplot[thick,color=green,domain=0:30, samples=101,unbounded coords=jump]
+{1.25*(1-exp(-x))};
+\addplot[thick,color=blue,domain=0:30, samples=101,unbounded coords=jump]
+{6.25*(1-exp(-x/5))};
+\legend{échelon,$s(t)$,$s_1(t)$,$s_2(t)$}
 \end{axis}%
 \end{tikzpicture}
 }
@@ -408,32 +430,32 @@ de ces trois fonctions de transfert.
 \end{tikzpicture}
 }
 \end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Influence du bouclage}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section*{Exercices du chapitre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %\exercice{}
 %\question
 
 %\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section*{Corrigé des exercices}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 

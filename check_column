@@ -1,3 +1,4 @@
 #!/bin/bash
-awk ' length > 80 { max=length;row=NR;print row }' $1
+awk 'length > 80 { max=length;row=NR;print row }' $1
+echo $1
 echo "nombre de lignes > 80 : " `awk ' length > 80 { max=length;row=NR;print row }' $1 | wc | awk '{print $1}'`
