@@ -35,10 +35,9 @@
                     - Chaine d'information / Chaine d'énergie
                 - Fonctions de transferts associés      
  -------------------------------------------------------------------------
-  TD 1 ( fait en partie )
+  TD 10 ( prêt )
  -------------------------------------------------------------------------
-        - Etude du moteur à courant continu
-
+        - Régulation d'un réservoir d'eau
  =========================================================================
   Semaine 2  (10 Fev 2020)
  =========================================================================
@@ -47,13 +46,13 @@
  -------------------------------------------------------------------------
    Chapitre : Asservissements des systèmes linéaires
             - Asservissements des modèles de SLCI :
-                - intégrateur (permet de stabilisé )
+                - intégrateur (permet de stabilisé)
                 - 1er ordre (en boucle fermée)
                 - 2nd ordre (en boucle fermée)  
  -------------------------------------------------------------------------
   TP 4 (fait à retravailler) déjà donné à Paris
  -------------------------------------------------------------------------
-        - Xcos (1er ordre / second ordre)
+        - Xcos ou Scilab (1er ordre / second ordre)
  =========================================================================
   Semaine 3  (17 Fev 2020)
  =========================================================================
@@ -74,7 +73,7 @@
                 - erreur en accélération 
             - Discuter du rejet de la perturbation (en TD)
  -------------------------------------------------------------------------
-  TD 2 (à faire) 
+  TD 11 (à faire) 
  -------------------------------------------------------------------------
             - Exercice sur le calcul de précision
             - Un cas avec perturbations
@@ -93,7 +92,7 @@
             - Influence de la bande passante en boucle fermée pour la réponse harmonique
             - Notion de pôles dominants (effet sur la rapidité)
  -------------------------------------------------------------------------
-  TD 4  (à écrire)
+  TD 12  (à écrire)
  -------------------------------------------------------------------------
             - Exercice sur la déterminantion des performances de rapidité
             - Exemple de la régulation de l'inclinaison du scooter UNOIII (Patrick Dupas)
@@ -113,7 +112,7 @@
             - Inconvénients de la condition fondamentale (calcul des pôles)
             - Critère algébrique de Routh-Hurtwitz. 
  -------------------------------------------------------------------------
-  TD 5 (dejà prêt à retravailler)
+  TD 13 (dejà prêt à retravailler)
  -------------------------------------------------------------------------
             - Application du critère de Routh 
  =========================================================================
@@ -128,9 +127,9 @@
                 - de Black
                 - de Bode
  -------------------------------------------------------------------------
-  TD 6 (dejà prêt à retravailler)
+  TD 14 (dejà prêt à retravailler)
  -------------------------------------------------------------------------
-        
+            - Application du critère du revers         
  =========================================================================
   Semaine 7  (23 Mar 2020) 
  =========================================================================
@@ -146,7 +145,7 @@
  -------------------------------------------------------------------------
   TP 5 
  -------------------------------------------------------------------------
-    Un TP sur la stabilité
+             - TP sur la stabilité
  =========================================================================
   Semaine 8  (30 Mar 2020) 
  =========================================================================
@@ -157,13 +156,11 @@
             - Nécéssité de la correction :
                 - Comportement du système non corrigé
                 - Cahier des charges.
-                
             - Types de correcteur :
                 - Correction en série (plus courante) 
                 - Correction en parallèle
                 - Correction série-parallèle
                 - (Correction par anticipation)   
-            
             - Présentation générale des correcteurs série usuels: 
                 - ceux qui modifient le gain :
                     - Correcteur P
@@ -174,14 +171,11 @@
                     - Correcteur à avance de phase
                 - ceux qui modifient les deux :
                     - Correcteur PID
-
             - Exemple de correcteur P,I
-
  -------------------------------------------------------------------------
-  TD 8 
+  TD 15 
  -------------------------------------------------------------------------
         - Exercice sur un correcteur P
-    
  =========================================================================
   Semaine 9  (06 Avr 2020) 
  =========================================================================
@@ -191,8 +185,9 @@
     Chapitre : Correction des systèmes asservis. 
             - Présentation détaillée des correcteurs PI, retard de phase
  -------------------------------------------------------------------------
-  TD 9 
+  TD 16 
  -------------------------------------------------------------------------
+        - Exercices sur les correcteurs PI et retard de phase
  =========================================================================
   Semaine 10  (13 Avr 2020) 
  =========================================================================
@@ -217,7 +212,7 @@
             - Méthodes empiriques de détermination des paramètres 
               des correcteurs 
  -------------------------------------------------------------------------
-  TD 11 
+  TD 17 
  -------------------------------------------------------------------------
  =========================================================================
   Semaine 12  (04 Mai 2020) 
@@ -234,5 +229,5 @@
                 - Vecteur d'état
                 - Equation d'état
  -------------------------------------------------------------------------
-  TD 12 
+  TD 18 
  -------------------------------------------------------------------------
