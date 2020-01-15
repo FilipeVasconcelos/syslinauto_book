@@ -139,6 +139,10 @@
  -------------------------------------------------------------------------
     Chapitre : Stabilité des systèmes asservis.
             - Critère de Nyquist 
+                - Principe de l'argument de Cauchy
+                - Contours de Nyquist et de Bromwich
+                - Exemple 1er ordre
+                - Exemple 1er ordre x intégrateur (un pôle nul)
  -------------------------------------------------------------------------
   TP 5 
  -------------------------------------------------------------------------
@@ -149,10 +153,34 @@
  -------------------------------------------------------------------------
   Cours 8  
  -------------------------------------------------------------------------
-    Chapitre : Correction des systèmes asservis. (Correcteur P,I,D)
+    Chapitre : Correction des systèmes asservis. 
+            - Nécéssité de la correction :
+                - Comportement du système non corrigé
+                - Cahier des charges.
+                
+            - Types de correcteur :
+                - Correction en série (plus courante) 
+                - Correction en parallèle
+                - Correction série-parallèle
+                - (Correction par anticipation)   
+            
+            - Présentation générale des correcteurs série usuels: 
+                - ceux qui modifient le gain :
+                    - Correcteur P
+                    - Correcteur I
+                    - Correcteur PI
+                - ceux qui modifient la marge de phase :
+                    - Correcteur PD
+                    - Correcteur à avance de phase
+                - ceux qui modifient les deux :
+                    - Correcteur PID
+
+            - Exemple de correcteur P,I
+
  -------------------------------------------------------------------------
   TD 8 
  -------------------------------------------------------------------------
+        - Exercice sur un correcteur P
     
  =========================================================================
   Semaine 9  (06 Avr 2020) 
@@ -160,7 +188,8 @@
  -------------------------------------------------------------------------
   Cours 9  
  -------------------------------------------------------------------------
-    Chapitre : Correction des systèmes asservis. (Correcteur PI, PD)
+    Chapitre : Correction des systèmes asservis. 
+            - Présentation détaillée des correcteurs PI, retard de phase
  -------------------------------------------------------------------------
   TD 9 
  -------------------------------------------------------------------------
@@ -170,7 +199,8 @@
  -------------------------------------------------------------------------
   Cours 10  
  -------------------------------------------------------------------------
-    Chapitre : Correction des systèmes asservis. (Correcteur PID)
+    Chapitre : Correction des systèmes asservis. 
+            - Présentation détaillée des correcteurs PD, avance de phase
  -------------------------------------------------------------------------
   TP 6 
  -------------------------------------------------------------------------
@@ -181,7 +211,11 @@
  -------------------------------------------------------------------------
   Cours 11  
  -------------------------------------------------------------------------
-    Chapitre : Initiation à la représentation d'état
+    Chapitre : Correction des systèmes asservis. 
+            - Présentation détaillée des correcteurs PID théorique, réel
+            - Synthèse des correcteurs 
+            - Méthodes empiriques de détermination des paramètres 
+              des correcteurs 
  -------------------------------------------------------------------------
   TD 11 
  -------------------------------------------------------------------------
@@ -192,6 +226,13 @@
   Cours 12  
  -------------------------------------------------------------------------
     Chapitre : Initiation à la représentation d'état
+            - Introduction à la représentation d'état ( système dynamique )
+            - Equivalence entre :
+            Fonction de transfert/Equation différentielle/réprésentation d'état
+            - Définitions : 
+                - Etat d'un système 
+                - Vecteur d'état
+                - Equation d'état
  -------------------------------------------------------------------------
   TD 12 
  -------------------------------------------------------------------------
