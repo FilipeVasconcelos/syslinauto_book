@@ -673,32 +673,31 @@ et $\phi$ sa phase (\si{\radian}).
 \label{fig-sin}}
 \end{figure}
 
-
 \begin{table}[!h]
 \centering
-\begin{tabular}{C{2cm}C{4cm}C{9cm}N}
+\begin{tabular}{M{2cm}M{4cm}M{9cm}N}
 \hhline{====}
-Déphasage       & Terminologie         & Graphe &  \\[1em]
+Déphasage       & Terminologie         & Graphe &  \\
 \hhline{====}
 $\Delta\phi=0$  
 & \og en phase\fg      
 & \tikzsetnextfilename{sinusoide_enp-chap0-ext}
-  \input{tikz/sinusoide_enp-chap0.tex}          & \\[5em]
+  \input{tikz/sinusoide_enp-chap0.tex}          & \\
 \hhline{----}
 $\Delta\phi=\pm\pi$         
 & \og en opposition de phase\fg 
 & \tikzsetnextfilename{sinusoide_enop-chap0-ext}
-  \input{tikz/sinusoide_enop-chap0.tex}         & \\[5em]
+  \input{tikz/sinusoide_enop-chap0.tex}         & \\
 \hhline{----}
 $\Delta\phi=-\dfrac{\pi}{2}$ 
 & \og en quadrature de phase\fg (retard de phase) 
 & \tikzsetnextfilename{sinusoide_enqp-chap0-ext}
-  \input{tikz/sinusoide_enqp-chap0.tex}         & \\[5em]
+  \input{tikz/sinusoide_enqp-chap0.tex}         & \\
 \hhline{----}
 $\Delta\phi=\dfrac{\pi}{2}$ 
 & \og en quadrature de phase\fg (avance de phase) 
 & \tikzsetnextfilename{sinusoide_enqp2-chap0-ext}
-\input{tikz/sinusoide_enqp2-chap0.tex}          & \\[5em]
+\input{tikz/sinusoide_enqp2-chap0.tex}          & \\
 \hhline{====}
 \end{tabular}
 \caption{Différents types de déphasage d'un (rouge) signal sinusoidal 
@@ -1633,14 +1632,11 @@ de ces trois fonctions de transfert.
     label style={font=\Large},
     legend cell align={left},
 ]%
-\addplot[thick,color=black,domain=0:30,samples=101,unbounded coords=jump]
-{{1}};
-\addplot[thick,color=cyan,domain=0:30,samples=101,unbounded coords=jump]
+\addplot[thick,color=black,domain=0:30,samples=101]{{1}};
+\addplot[thick,color=cyan,domain=0:30,samples=101]
 {6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
-\addplot[thick,color=green,domain=0:30,samples=101,unbounded coords=jump]
-{1.25*(1-exp(-x))};
-\addplot[thick,color=blue,domain=0:30,samples=101,unbounded coords=jump]
-    {6.25*(1-exp(-x/5))};
+\addplot[thick,color=green,domain=0:30,samples=101]{1.25*(1-exp(-x))};
+\addplot[thick,color=blue,domain=0:30,samples=101]{6.25*(1-exp(-x/5))};
 \legend{échelon,$s(t)$,$s_1(t)$,$s_2(t)$}
 \end{axis}%
 \end{tikzpicture}
