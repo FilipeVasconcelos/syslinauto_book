@@ -2,7 +2,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter[Analyse fréquentielle]{Analyse fréquentielle et représentation graphique\label{chap-anafreq}}
+\chapter[Analyse fréquentielle]
+        {Analyse fréquentielle et représentation graphique\label{chap-anafreq}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -13,10 +14,10 @@
 
 %\section{Introduction}
 
-Dans ce chapitre, nous allons établir la forme de la réponse d'un \gls{slci}~à une entrée sinuso\"idale, dite 
-\textbf{réponse harmonique} en régime permanent.
-Nous présenterons ensuite en détail les différentes représentations graphiques qui 
-constitueront l'\textbf{analyse fréquentielle} de cette réponse harmonique.
+Dans ce chapitre, nous allons établir la forme de la réponse d'un \gls{slci}~à 
+une entrée sinuso\"idale, dite \textbf{réponse harmonique} en régime permanent.
+Nous présenterons ensuite en détail les différentes représentations graphiques 
+qui constitueront l'\textbf{analyse fréquentielle} de cette réponse harmonique.
 Nous verrons en fin de chapitre une étude du transitoire dans des cas usuels.
 
 
@@ -29,26 +30,27 @@ Nous verrons en fin de chapitre une étude du transitoire dans des cas usuels.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%L'excitation d'un \SLCI~par une entrée sinuso\"idale donne lieu, en régime permanent, 
-%à une réponse harmonique dépendant de la fréquence d'excitation. 
+%L'excitation d'un \SLCI~par une entrée sinuso\"idale donne lieu, en régime 
+%permanent, à une réponse harmonique dépendant de la fréquence d'excitation. 
 %Nous allons ici établir la forme de cette réponse.
 
-Soit un \gls{slci}~défini par une fonction de transfert $H(p)$ auquel on applique 
-une entrée sinuso\"idale $e(t)$ tel que :
+Soit un \gls{slci}~défini par une fonction de transfert $H(p)$ auquel on 
+applique une entrée sinuso\"idale $e(t)$ tel que :
 $$
 e(t)=E_0\sin\omega t 
 $$
-d'amplitude $E_0$ et de pulsation $\omega$\footnote{Strictement, $\omega$ est une 
-pulsation en unité \si{\radian\per\second}, la fréquence associée étant $f=\omega/2\pi$, 
-en \si{\per\second} ou \si{\hertz}. Cependant, 
-par abus de langage, il est courant de se référer en terme de fréquence en parlant de la pulsation $\omega$. 
-Nous prendrons cependant soin d'utiliser la bonne forme dans nos applications numériques.}.
-Dans le domaine de Laplace, la sortie $S(p)$ est de la forme :
+d'amplitude $E_0$ et de pulsation $\omega$\footnote{Strictement, $\omega$ est 
+une pulsation en unité \si{\radian\per\second}, la fréquence associée étant 
+$f=\omega/2\pi$, en \si{\per\second} ou \si{\hertz}. Cependant, par abus de 
+langage, il est courant de se référer en terme de fréquence en parlant de la 
+pulsation $\omega$. Nous prendrons cependant soin d'utiliser la bonne forme 
+dans nos applications numériques.}. Dans le domaine de Laplace, la sortie $S(p)$
+est de la forme :
 $$
 S(p)=H(p)E(p)
 $$
-où $E(p)$ est la transformée de Laplace d'un sinus (c.f ligne 23 du tableau de l'\cref{annexe-lap}), 
-on obtient alors :
+où $E(p)$ est la transformée de Laplace d'un sinus (c.f ligne 23 du tableau de 
+l'\cref{annexe-lap}), on obtient alors :
 $$
 S(p)=H(p)\dfrac{E_0\omega}{p^2+\omega^2}
 $$
@@ -56,7 +58,8 @@ $$
 Les pôles de la fonction de transfert $H(p)$ donnent lieu au 
 régime transitoire alors que les pôles de l'excitation donnent 
 lieu au régime permanent. 
-Les deux pôles de l'excitation sont $p_{1,2}=\pm\jw$. La forme factorisée s'écrit alors:
+Les deux pôles de l'excitation sont $p_{1,2}=\pm\jw$. La forme factorisée 
+s'écrit alors:
 $$
 S(p)=H(p)\dfrac{E_0\omega}{(p+\jw)(p-\jw)}
 $$
@@ -68,8 +71,12 @@ $$
 
 où les coefficients s'obtiennent par évaluation :
 \begin{align*}
-    A&=(p-\jw)S(p)\bigg|_{p=\hphantom{-}\jw} =\dfrac{E_0\omega}{p+\jw}H(p)\bigg|_{p=\hphantom{-}\jw} =\hphantom{-}\dfrac{E_0}{2j}H(\jw)\\
-    B&=(p+\jw)S(p)\bigg|_{p=-\jw}=\dfrac{E_0\omega}{p-\jw}H(p)\bigg|_{p=-\jw}=-\dfrac{E_0}{2j}H(-\jw)
+    A&=(p-\jw)S(p)\bigg|_{p=\hphantom{-}\jw}=
+       \dfrac{E_0\omega}{p+\jw}H(p)\bigg|_{p=\hphantom{-}\jw}=
+       \hphantom{-}\dfrac{E_0}{2j}H(\jw)\\
+    B&=(p+\jw)S(p)\bigg|_{p=-\jw}=
+       \dfrac{E_0\omega}{p-\jw}H(p)\bigg|_{p=-\jw}=
+       -\dfrac{E_0}{2j}H(-\jw)
 \end{align*}
 
 nous obtenons donc :
@@ -77,44 +84,52 @@ $$
 S(p)=\dfrac{E_0}{2j}\left(\dfrac{H(\jw)}{p-\jw}-\dfrac{H(-\jw)}{p+\jw} \right)
 $$
 
-La transformée de Laplace inverse de la sortie $S(p)$ permet d'obtenir la réponse temporelle 
+La transformée de Laplace inverse de la sortie $S(p)$ permet d'obtenir la 
+réponse temporelle 
 $$
 s(t)=\dfrac{E_0}{2j}\left(H(\jw)e^{\jw t}-H(-\jw)e^{-\jw t}\right)
 $$
 
-En écrivant le nombre complexe $H(\jw)$ sous sa forme exponentielle (\Cref{annexe-NC}) :
+En écrivant le nombre complexe $H(\jw)$ sous sa forme exponentielle 
+(\Cref{annexe-NC}) :
 \begin{align*}
     H(\jw)  &= |H(\jw)| e^{j\phi} \\
     H(-\jw) &= |H(\jw)| e^{-j\phi}
 \end{align*}
-où $|H(\jw)|$ et $\phi$ sont respectivement le module et l'argument du nombre complexe $H(\jw)$ 
-et où l'on considère de plus que $H(-\jw)$ est égale à son conjugué (i.e $H(-\jw)=\overline{H(\jw)}$).
+où $|H(\jw)|$ et $\phi$ sont respectivement le module et l'argument du nombre
+complexe $H(\jw)$ 
+et où l'on considère de plus que $H(-\jw)$ est égale à son conjugué (i.e 
+$H(-\jw)=\overline{H(\jw)}$).
 
 La réponse temporelle peut alors s'écrire sous la forme 
 \begin{align*}
     s(t)=E_0|H(\jw)|\left(\dfrac{e^{j(\omega t+\phi)}-e^{-j(\omega t+\phi)}}{2j}\right)
 \end{align*}
-où l'on reconnaît la forme exponentielle de la fonction sinus qui nous permet d'écrire :
+où l'on reconnaît la forme exponentielle de la fonction sinus qui nous permet 
+d'écrire :
 \begin{bequation}[ams align]
     s(t)=E_0|H(\jw)|\sin{(\omega t+\phi)}\label{eq-rh}
 \end{bequation}
 
-Cette relation exprime que \textbf{l'excitation d'un {\protect{\gls{slci}}}~par une entrée sinuso\"idale donne 
-lieu, en régime permanent, à une réponse harmonique dépendant de la fréquence d'excitation dont 
-le gain en amplitude et la phase sont respectivement donné par le module et l'argument de la fonction
+Cette relation exprime que \textbf{l'excitation d'un {\protect{\gls{slci}}}
+~par une entrée sinuso\"idale donne lieu, en régime permanent, à une réponse 
+harmonique dépendant de la fréquence d'excitation dont le gain en amplitude et
+la phase sont respectivement donné par le module et l'argument de la fonction
 de transfert du système.}
 
 \`A noter que $H(\jw)$ correspond au rapport de la sortie sur l'entrée,
-ainsi le gain $|H(\jw)|$ et la phase peuvent être définits à partir de la sortie et de l'entrée du signal,
+ainsi le gain $|H(\jw)|$ et la phase peuvent être définits à partir de la 
+sortie et de l'entrée du signal,
 \begin{align*}
     H(\jw) &= \dfrac{S(\jw)}{E(\jw)} \\
     |H(\jw)|&= \dfrac{|S(\jw)|}{|E(\jw)|} \\
     \arg{H(\jw)}&=\arg{S(\jw)}-\arg{E(\jw)}
 \end{align*}
 
-Le gain $|H(\jw)|$ est une fonction réelle de $\omega$ de ce fait nous utiliserons par la suite
-$G(\omega)$ pour noter plus explicitement cette dépendance. La phase est également
-une fonction de la pulsation d'excitation, nous la noterons donc $\phi(\omega)$ par la suite.
+Le gain $|H(\jw)|$ est une fonction réelle de $\omega$ de ce fait nous 
+utiliserons par la suite $G(\omega)$ pour noter plus explicitement cette 
+dépendance. La phase est également une fonction de la pulsation d'excitation, 
+nous la noterons donc $\phi(\omega)$ par la suite.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -124,23 +139,26 @@ une fonction de la pulsation d'excitation, nous la noterons donc $\phi(\omega)$ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \index{Système du premier ordre!réponse harmonique dans le domaine temporel}
-Considérons un \gls{slci}~définit par une fonction de transfert $H(p)$ du premier ordre (\Cref{eq-ft1er}) de forme canonique:
+Considérons un \gls{slci}~définit par une fonction de transfert $H(p)$ du 
+premier ordre (\Cref{eq-ft1er}) de forme canonique:
 $$
 H(p)=\dfrac{1}{1+p}
 $$
 avec $K=$1, $\tau=\SI{1}{\second}$.
 
 Comme nous venons de le montrer la réponse harmonique est complétement 
-déterminée par la connaissance du module et de l'argument du nombre complexe $H(\jw)$.
-Le module donnant accès au rapport du gain en amplitude de la sortie sur l'entrée et 
-l'argument à la différence de phase entre la sortie et l'entrée.
+déterminée par la connaissance du module et de l'argument du nombre complexe
+$H(\jw)$. Le module donnant accès au rapport du gain en amplitude de la sortie 
+sur l'entrée et l'argument à la différence de phase entre la sortie et l'entrée.
 
-Calculons donc ces deux quantités pour notre fonction de transfert du premier ordre:
+Calculons donc ces deux quantités pour notre fonction de transfert du premier 
+ordre:
 \begin{align*}
     G(\omega)   &=|H(\jw)|               =\left|\dfrac{1}{1+\jtw}\right|\\
     \phi(\omega)&=\arg\left(H(\jw)\right)=-\arctan(\omega\tau)
 \end{align*}
-Le~\cref{tab-1ertemp} présente le module et l'argument pour quelques valeurs particulières de $\omega$ 
+Le~\cref{tab-1ertemp} présente le module et l'argument pour quelques valeurs 
+particulières de $\omega$ 
 ($\omega=0.1$, $1$ et $\SI{10}{\radian\per\second}$).
 \begin{table}
     \begin{center}
@@ -157,15 +175,17 @@ Le~\cref{tab-1ertemp} présente le module et l'argument pour quelques valeurs pa
     transfert du premier ordre, pour $K=1$ et $\tau=\SI{1}{\second}$\label{tab-1ertemp}.}
     \end{center}
 \end{table}
-D'après ces valeurs, nous constatons que le rapport des amplitudes décroit et que le déphasage augmente 
-lorsque la pulsation de l'excitation augmente.
+D'après ces valeurs, nous constatons que le rapport des amplitudes décroit et 
+que le déphasage augmente lorsque la pulsation de l'excitation augmente.
 
-La~\cref{fig-repham} présente la forme des réponses temporelles de ce système pour les données 
-calculées du gain et de la phase de la fonction de transfert considérée. 
-Cette représentation graphique montre ses limites, en effet quand est-il de toutes les autres valeurs de la pulsation ? 
+La~\cref{fig-repham} présente la forme des réponses temporelles de ce système 
+pour les données calculées du gain et de la phase de la fonction de transfert 
+considérée. Cette représentation graphique montre ses limites, en effet quand
+est-il de toutes les autres valeurs de la pulsation ? 
 
 Nous allons maintenant généraliser cette analyse sans pour autant avoir à 
-tracer la réponse temporelle pour toutes les pulsations que l'on souhaite étudier.
+tracer la réponse temporelle pour toutes les pulsations que l'on souhaite 
+étudier.
 
 \begin{figure}[!h]
 \begin{center}
@@ -187,8 +207,10 @@ tracer la réponse temporelle pour toutes les pulsations que l'on souhaite étud
         xlabel style={below right},
         ylabel style={right},
         ]
-\addplot [thick,color=blue,domain=0:11.5, samples=101,unbounded coords=jump]{sin(deg(x))};
-\addplot [thick,color=red,domain=0:11.5, samples=101,unbounded coords=jump]{0.9950371902099892*sin(deg(x)-5.7)};
+\addplot[thick,color=blue,domain=0:11.5,samples=101]
+            {sin(deg(x))};
+\addplot[thick,color=red,domain=0:11.5,samples=101]
+            {0.9950371902099892*sin(deg(x)-5.7)};
 \node[left] at (axis cs:0,0.5)  {$\omega=0.1$};
         \end{axis}
     \end{tikzpicture}
@@ -210,9 +232,11 @@ tracer la réponse temporelle pour toutes les pulsations que l'on souhaite étud
         ylabel={\hphantom{\textcolor{red}{$s(t)$} \textcolor{blue}{$e(t)$}}},
         ylabel style={right},
         ]
-            \addplot [thick,color=blue,domain=0:11.5, samples=101,unbounded coords=jump]{sin(deg(x))};
-            \addplot [thick,color=red,domain=0:11.5, samples=101,unbounded coords=jump]{0.707106*sin(deg(x)-45)};
-            \node[left] at (axis cs:0,0.5)  {$\omega=1$};
+            \addplot[thick,color=blue,domain=0:11.5,samples=101]
+            {sin(deg(x))};
+            \addplot[thick,color=red,domain=0:11.5,samples=101]
+            {0.707106*sin(deg(x)-45)};
+            \node[left] at (axis cs:0,0.5) {$\omega=1$};
         \end{axis}
     \end{tikzpicture}
 \tikzsetnextfilename{repham_3-chap3_ext}
@@ -233,17 +257,20 @@ tracer la réponse temporelle pour toutes les pulsations que l'on souhaite étud
         ylabel={\hphantom{\textcolor{red}{$s(t)$} \textcolor{blue}{$e(t)$}}},
         ylabel style={right},
         ]
-        \addplot [thick,color=blue,domain=0:11.5, samples=101,unbounded coords=jump]{sin(deg(x))};
-        \addplot [thick,color=red,domain=0:11.5, samples=101,unbounded coords=jump]{0.2*sin(deg(x)-84.2894)};
-        \node[left] at (axis cs:0,0.5)  {$\omega=10$};
-            \node[left] at (axis cs:11.5,0.5)  {\textcolor{red}{$s(t)\times 2$}};
-        \end{axis}
+      \addplot[thick,color=blue,domain=0:11.5,samples=101]
+            {sin(deg(x))};
+      \addplot[thick,color=red,domain=0:11.5,samples=101]
+          {0.2*sin(deg(x)-84.2894)};
+      \node[left] at (axis cs:0,0.5)  {$\omega=10$};
+      \node[left] at (axis cs:11.5,0.5)  {\textcolor{red}{$s(t)\times 2$}};
+      \end{axis}
     \end{tikzpicture}
-\caption{Réponse harmonique (en régime permanent) (\Cref{eq-rh}) d'un système du premier ordre
-pour différentes pulsations d'excitation de la forme $e(t)=\sin{\omega t}$, (données du~\cref{tab-1ertemp}).
-Cette figure permet d'observer l'augmentation du déphasage et la diminution 
-de l'amplitude lorsque la fréquence d'excitations augmente. 
-(bleu) excitation $e(t)$ (rouge) sortie $s(t)$.\label{fig-repham}}
+\caption{Réponse harmonique (en régime permanent) (\Cref{eq-rh}) d'un système 
+         du premier ordre pour différentes pulsations d'excitation de la forme 
+         $e(t)=\sin{\omega t}$, (données du~\cref{tab-1ertemp}). Cette figure
+         permet d'observer l'augmentation du déphasage et la diminution de 
+         l'amplitude lorsque la fréquence d'excitations augmente. (bleu) 
+         excitation $e(t)$ (rouge) sortie $s(t)$.\label{fig-repham}}
 \end{center}
 \end{figure}
 
@@ -356,7 +383,7 @@ de l'argument principale (\Cref{annexe-NC}).
         ylabel style={left,rotate=-90,yshift=2.25em},
         clip=false,
         ]
-        \addplot[ultra thick,color=black,domain=1e-2:1e2, samples=101,unbounded coords=jump]{-10*log10(1+x*x)};
+        \addplot[ultra thick,color=black,domain=1e-2:1e2, samples=101]{-10*log10(1+x*x)};
         \draw[blue,dashed] (1e-2,{-10*log10(1+100)}) node[left] {$G_{dB}(\omega_2)$} -- (1e1,{-10*log10(1+100)}) ; 
         \draw[red ,dashed] (1e-2,{-10*log10(1+4)})   node[left] {$G_{dB}(\omega_1)$}   -- (2e0,{-10*log10(1+4)}) ; 
         \addplot [red, mark = *]  coordinates {(2e0,{-10*log10(1+4)})} {};
@@ -384,7 +411,7 @@ de l'argument principale (\Cref{annexe-NC}).
         ylabel style={left,rotate=-90,yshift=2.25em},
         clip=false,
         ]
-        \addplot[ultra thick,color=black,domain=1e-2:1e2, samples=101,unbounded coords=jump]{-atan2(x,1)};
+        \addplot[ultra thick,color=black,domain=1e-2:1e2, samples=101]{-atan2(x,1)};
             \draw[blue,dashed] (1e1,{-atan2(1e1,1)})  -- node[left,yshift=0.5em] {$\omega_2$} (1e1,77) ; 
             \draw[red,dashed]  (2e0,{-atan2(2e0,1)})  -- node[left,yshift=-0.5em] {$\omega_1$} (2e0,100) ; 
         \draw[blue,dashed] (1e-2,{-atan2(1e1,1)}) node[left] {$\phi(\omega_2)$} -- (1e1,{-atan2(1e1,1)}) ; 
@@ -1125,8 +1152,8 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
     major grid style={black!40}
 ]
     \addplot[ultra thick,blue,domain=1e-3:1e3, samples=101] {-atan2(x,1)};
-    \addplot[line width=2pt,red,dashed,domain=1e-1:1e0,samples=101,unbounded coords=jump] {0};
-    \addplot[line width=2pt,red,dashed,domain=1e0:1e1,samples=101,unbounded coords=jump] {-90};
+    \addplot[line width=2pt,red,dashed,domain=1e-1:1e0,samples=101] {0};
+    \addplot[line width=2pt,red,dashed,domain=1e0:1e1,samples=101] {-90};
     \draw[line width=2pt,red,dashed] (axis cs:1,0) -- (axis cs:1,-90);
 \end{axis}
 \end{tikzpicture}
@@ -1716,10 +1743,10 @@ Cependant il dépend de la pulsation $\omega$.
     \node [below right]       at (axis cs:  0, 0)   {$\omega\rightarrow+\infty$};
     \node [above right]       at (axis cs:  0, 0)   {$\omega\rightarrow-\infty$};
     \addplot [blue, mark = *] coordinates {(0, 0)} {};
-    \addplot[blue,thick,domain=0.01:0.2,samples=50,-{Latex[length=3mm]},unbounded coords=jump] (0,{-1/x});
-    \addplot[blue,thick,domain=0.1:100,samples=50,unbounded coords=jump] (0,{-1/x});
-    \addplot [dashed,blue,thick,domain=-100:-0.2,-{Latex[length=3mm]},samples=100,unbounded coords=jump](0,{-1/x});
-    \addplot [dashed,blue,thick,domain=-0.2:-0.01,samples=100,unbounded coords=jump](0,{-1/x});
+    \addplot[blue,thick,domain=0.01:0.2,samples=50,-{Latex[length=3mm]}] (0,{-1/x});
+    \addplot[blue,thick,domain=0.1:100,samples=50] (0,{-1/x});
+    \addplot [dashed,blue,thick,domain=-100:-0.2,-{Latex[length=3mm]},samples=100](0,{-1/x});
+    \addplot [dashed,blue,thick,domain=-0.2:-0.01,samples=100](0,{-1/x});
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -2221,19 +2248,22 @@ Les parties réels et imaginaire de la fonction de transfert sont:
     \foreach \tu in {0.5,1.0,2.0}
     {
     \addplot+[thick,domain=0:1,samples=200] 
-    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},{-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
+    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
+     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
     \addplot+[thick,domain=1:{10/\tu^2},samples=200] 
-    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},{-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
+    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
+     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
 }
 \end{axis}                                                                          
 \end{tikzpicture}                                                                   
 \end{center}
-    \caption{Effet d'un retard sur le diagramme de Nyquist d'un système du premier ordre 
-         pour différentes valeurs de retard. (bleu) $\tau_1=0.5$, (rouge) $\tau_1=1.0$ 
-         et (noir) $\tau_1=2.0$
-         Avec $K=1$, $\tau=1$ et $\tau_1=2$. Le lieu de Nyquist est représenté par 
-         une spirale. Par souci de clarté, nous n'avons ici représenté que l'intervalle $\omega\in[0,\dfrac{10}{\tau_1}]$ 
-         \label{fig-nyquist_effet_retard_2}}
+    \caption{Effet d'un retard sur le diagramme de Nyquist d'un système du 
+             premier ordre pour différentes valeurs de retard. (bleu) 
+             $\tau_1=0.5$, (rouge) $\tau_1=1.0$ et (noir) $\tau_1=2.0$.
+             Avec $K=1$, $\tau=1$ et $\tau_1=2$. Le lieu de Nyquist est 
+             représenté par une spirale. Par souci de clarté, nous n'avons 
+             ici représenté que l'intervalle $\omega\in[0,\dfrac{10}{\tau_1}]$ 
+             \label{fig-nyquist_effet_retard_2}}
 \end{figure}
 
 
@@ -2244,8 +2274,6 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2254,22 +2282,20 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-(hors programme)
-\acpl
+\acplhp
 %c.f pdf/[AnaHSLCI][CO]Analyse_harmonique_des_SLCI.pdf
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Exemple d'un système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acpl
+\acplhp
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Exemple d'un système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acpl
+\acplhp
 
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
