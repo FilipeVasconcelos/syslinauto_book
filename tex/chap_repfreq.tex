@@ -103,9 +103,10 @@ $H(-\jw)=\overline{H(\jw)}$).
 
 La réponse temporelle peut alors s'écrire sous la forme 
 \begin{align*}
-    s(t)=E_0|H(\jw)|\left(\dfrac{e^{j(\omega t+\phi)}-e^{-j(\omega t+\phi)}}{2j}\right)
+s(t)=E_0|H(\jw)|\left(\dfrac{e^{j(\omega t+\phi)}
+    -e^{-j(\omega t+\phi)}}{2j}\right)
 \end{align*}
-où l'on reconnaît la forme exponentielle de la fonction sinus qui nous permet 
+où l'on reconnaît la forme exponentielle de la fonction sinus qui nous permet
 d'écrire :
 \begin{bequation}[ams align]
     s(t)=E_0|H(\jw)|\sin{(\omega t+\phi)}\label{eq-rh}
@@ -164,18 +165,19 @@ particulières de $\omega$
     \begin{center}
     \begin{tabular}{M{2.0cm}M{2.0cm}M{2.0cm}M{2.0cm}}
         \hhline{====}
-        $\omega \si{[\radian\per\second]}$ & $\omega=0.1$    & $\omega=1$    & $\omega=10$ \\[0em]
+$\omega\si{[\radian\per\second]}$&$\omega=0.1$&$\omega=1$&$\omega=10$\\[0em]
         \hline
         $G(\omega)$     & 0.99          & 0.70       & 0.1 \\ [0em]
         \hline
    $\phi(\omega)$      &-5.7\degree  &-45\degree&-84.3\degree \\[0em]
         \hhline{====}
     \end{tabular}
-    \caption{Quelques valeurs particulières du gain et de la phase de la fonction de 
-    transfert du premier ordre, pour $K=1$ et $\tau=\SI{1}{\second}$\label{tab-1ertemp}.}
+    \caption{Quelques valeurs particulières du gain et de la phase de la 
+             fonction de transfert du premier ordre, pour $K=1$ et 
+             $\tau=\SI{1}{\second}$\label{tab-1ertemp}.}
     \end{center}
 \end{table}
-D'après ces valeurs, nous constatons que le rapport des amplitudes décroit et 
+D'après ces valeurs, nous constatons que le rapport des amplitudes décroit et
 que le déphasage augmente lorsque la pulsation de l'excitation augmente.
 
 La~\cref{fig-repham} présente la forme des réponses temporelles de ce système 
@@ -315,18 +317,20 @@ la réponse harmonique (en régime permanent) d'un \gls{slci}~dans le domaine
 temporel et observer la variation d'amplitude et du 
 déphasage qui dépend de la pulsation d'excitation. Ces variations 
 d'amplitude et de phase sont totalement déterminées par la 
-connaissance du module et de l'argument du nombre complexe $H(\jw)$, c'est ce qui constitue 
-l'analyse fréquentielle des \gls{slci}.
+connaissance du module et de l'argument du nombre complexe $H(\jw)$, 
+c'est ce qui constitue l'analyse fréquentielle des \gls{slci}.
 
-Dans cette partie, nous présenterons trois types de représentations graphiques, notamment :
+Dans cette partie, nous présenterons trois types de représentations graphiques, 
+notamment :
 \begin{itemize}
     \item le diagramme de Bode,
     \item le diagramme de Nyquist,
-    \item et le diagramme de Black-Nichols\footnote{\index{Nichols, Nathaniel}Nathaniel B. Nichols, (1914–1997) ingénieur américain.}. 
+    \item et le diagramme de Black-Nichols\footnote{
+    \index{Nichols, Nathaniel}Nathaniel B. Nichols, (1914–1997) 
+           ingénieur américain.}. 
 \end{itemize}
-Nous étudierons en détail les diagrammes des 
-modèles usuels que nous avons déjà rencontrés 
-au chapitre précédent (\Cref{chap-model})
+Nous étudierons en détail les diagrammes des modèles usuels que nous 
+avons déjà rencontrés au chapitre précédent (\Cref{chap-model})
 
 %Remarquons que la représentation 
 Le terme \textbf{lieu de transfert} est communément utilisé pour parler du 
@@ -339,10 +343,10 @@ points de coordonnées $(\omega, \phi(\omega),G(\omega))$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Un diagramme de Bode\footnote{\index{Bode, Hendrik}Hendrik Wade Bode (1905-1982), ingénieur, chercheur 
-et inventeur américain} permet de représenter le comportement fréquentielle 
-d'un système quelconque en fonction de la fréquence d'excitation en entrée.
-Il se compose de deux graphiques :
+Un diagramme de Bode\footnote{\index{Bode, Hendrik}Hendrik Wade Bode 
+(1905-1982), ingénieur, chercheur et inventeur américain} permet de 
+représenter le comportement fréquentielle d'un système quelconque en fonction 
+de la fréquence  d'excitation en entrée. Il se compose de deux graphiques :
 \begin{itemize}
     \item[i)] le tracé du gain en décibel en fonction de la pulsation $\omega$:
         \begin{bequation}[ams align] 
@@ -353,10 +357,11 @@ Il se compose de deux graphiques :
         \phi(\omega)=\arg{H(\jw)}
         \end{bequation}
 \end{itemize}
-L'axe des pulsations étant généralement représenté par une échelle logarithmique 
-pour permmettre la représentation de la réponse harmonique sur une large plage de valeurs en pulsation
-(\Cref{annexe-log}). Le calcul de la phase passe lui par la détermination 
-de l'argument principale (\Cref{annexe-NC}).
+L'axe des pulsations étant généralement représenté par une échelle 
+logarithmique pour permmettre la représentation de la réponse harmonique sur 
+une large plage de valeurs en pulsation (\Cref{annexe-log}). Le calcul de la
+phase passe lui par la détermination de l'argument principale 
+(\Cref{annexe-NC}).
 
 \begin{figure}[!h]
 %\begin{center}
@@ -383,9 +388,12 @@ de l'argument principale (\Cref{annexe-NC}).
         ylabel style={left,rotate=-90,yshift=2.25em},
         clip=false,
         ]
-        \addplot[ultra thick,color=black,domain=1e-2:1e2, samples=101]{-10*log10(1+x*x)};
-        \draw[blue,dashed] (1e-2,{-10*log10(1+100)}) node[left] {$G_{dB}(\omega_2)$} -- (1e1,{-10*log10(1+100)}) ; 
-        \draw[red ,dashed] (1e-2,{-10*log10(1+4)})   node[left] {$G_{dB}(\omega_1)$}   -- (2e0,{-10*log10(1+4)}) ; 
+\addplot[ultra thick,color=black,domain=1e-2:1e2, samples=101]
+        {-10*log10(1+x*x)};
+\draw[blue,dashed] (1e-2,{-10*log10(1+100)}) node[left] {$G_{dB}(\omega_2)$} --
+        (1e1,{-10*log10(1+100)}) ; 
+\draw[red ,dashed] (1e-2,{-10*log10(1+4)})   node[left] {$G_{dB}(\omega_1)$} --
+        (2e0,{-10*log10(1+4)}) ; 
         \addplot [red, mark = *]  coordinates {(2e0,{-10*log10(1+4)})} {};
         \addplot [blue, mark = *] coordinates {(1e1,{-10*log10(1+100)})} {};
         \end{axis}
@@ -411,41 +419,37 @@ de l'argument principale (\Cref{annexe-NC}).
         ylabel style={left,rotate=-90,yshift=2.25em},
         clip=false,
         ]
-        \addplot[ultra thick,color=black,domain=1e-2:1e2, samples=101]{-atan2(x,1)};
-            \draw[blue,dashed] (1e1,{-atan2(1e1,1)})  -- node[left,yshift=0.5em] {$\omega_2$} (1e1,77) ; 
-            \draw[red,dashed]  (2e0,{-atan2(2e0,1)})  -- node[left,yshift=-0.5em] {$\omega_1$} (2e0,100) ; 
-        \draw[blue,dashed] (1e-2,{-atan2(1e1,1)}) node[left] {$\phi(\omega_2)$} -- (1e1,{-atan2(1e1,1)}) ; 
-        \draw[red,dashed]  (1e-2,{-atan2(2e0,1)}) node[left] {$\phi(\omega_1)$} -- (2e0,{-atan2(2e0,1)}) ; 
+\addplot[ultra thick,color=black,domain=1e-2:1e2, samples=101]{-atan2(x,1)};
+\draw[blue,dashed] (1e1,{-atan2(1e1,1)})  -- 
+            node[left,yshift=0.5em] {$\omega_2$} (1e1,77) ; 
+\draw[red,dashed]  (2e0,{-atan2(2e0,1)})  -- 
+            node[left,yshift=-0.5em] {$\omega_1$} (2e0,100) ; 
+\draw[blue,dashed] (1e-2,{-atan2(1e1,1)}) node[left] {$\phi(\omega_2)$} -- 
+            (1e1,{-atan2(1e1,1)}) ; 
+\draw[red,dashed]  (1e-2,{-atan2(2e0,1)}) node[left] {$\phi(\omega_1)$} -- 
+            (2e0,{-atan2(2e0,1)}) ; 
         \addplot [red, mark = *]  coordinates {(2e0,{-atan2(2e0,1)})} {};
         \addplot [blue, mark = *] coordinates {(1e1,{-atan2(1e1,1)})} {};
         \end{axis}
 \end{tikzpicture}
 %\end{center}
-\caption{Représentation schématique d'un diagramme de Bode. Le gain en décibel et la phase 
-    associé à une fonction de transfert sont représentés en fonction de la pulsation (à l'échelle log) 
-    sur deux repères distincts.\label{fig-sche_bode}}
+\caption{Représentation schématique d'un diagramme de Bode. Le gain en 
+         décibel et la phase associé à une fonction de transfert sont 
+         représentés en fonction de la pulsation (à l'échelle log) sur 
+         deux repères distincts.\label{fig-sche_bode}}
 \end{figure}
 
-La principale propriété du diagramme de Bode est de permettre de simplifier un grand nombre calcul.
-En effet, dans le cas par exemple où deux systèmes $H_1$ et $H_2$ sont mis en série,
-$$                                                                                                                    
+La principale propriété du diagramme de Bode est de permettre de 
+simplifier un grand nombre calcul. En effet, dans le cas par exemple où 
+deux systèmes $H_1$ et $H_2$ sont mis en série,
+$$
 H(\jw)=H_1(\jw)H_2(\jw),
-$$      
+$$
 Le diagramme de Bode de $H(\jw)$ est la somme de deux diagrammes indépendants:
 $$
 \mathrm{Bode}(total)=\mathrm{Bode}(1)+\mathrm{Bode}(2)
 $$
-%$$
-%les gains en décibels s'ajoutent :                                  
-%$$                                                                                                                   
-%G_{dB}(\omega)=20\log{|H_1(\jw)|} + 20\log{|H_2(\jw)|} = G_{dB1}(\omega) +  G_{dB2}(\omega) 
-%$$                                                                                                                    
-%de même pour la phase,                                                                                      
-%$$                                                                                                                    
-%\phi(\omega)=\arg{H_1(\jw)} + \arg{H_2(\jw)} = \phi_1(\omega) + \phi_2(\omega).
-%$$                                                                                                                    
 %\newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Diagramme de Nyquist}
@@ -453,18 +457,21 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-Un diagramme de Nyquist\footnote{\index{Nyquist, Harry}Harry Nyquist (1889-1976), électronicien, ingénieur américain.} 
-présente la partie imaginaire et la partie réelle de $H(\jw)$ pour différentes valeurs paramétrées de $\omega$.
-Il a l'avantage de combiner les deux graphiques du diagramme 
-de Bode en un seul. En effet, la phase et l'amplitude d'un point dans 
-le plan complexe peut être déterminé graphiquement par respectivement l'angle 
-avec l'axe des réels et la distance à l'origine (\Cref{annexe-NC}). 
-Cette représentation graphique est communément appelée \textbf{le lieu de Nyquist}.
-Le lieu de Nyquist complet est le tracé théorique des parties réel et imaginaire de $H(\jw)$, en considérant
-les pulsations négatives, c'est à dire entre $\omega\rightarrow-\infty$ et $\omega\rightarrow+\infty$. 
+Un diagramme de Nyquist\footnote{\index{Nyquist, Harry}Harry 
+Nyquist (1889-1976), électronicien, ingénieur américain.} 
+présente la partie imaginaire et la partie réelle de $H(\jw)$ pour différentes 
+valeurs paramétrées de $\omega$. Il a l'avantage de combiner les deux 
+graphiques du diagramme de Bode en un seul. En effet, la phase et l'amplitude 
+d'un point dans le plan complexe peut être déterminé graphiquement par 
+respectivement l'angle avec l'axe des réels et la distance à l'origine 
+(\Cref{annexe-NC}). Cette représentation graphique est communément appelée 
+\textbf{le lieu de Nyquist}. Le lieu de Nyquist complet est le tracé théorique 
+des parties réel et imaginaire de $H(\jw)$, en considérant les pulsations 
+négatives, c'est à dire entre $\omega\rightarrow-\infty$ et 
+$\omega\rightarrow+\infty$. 
 
-\begin{figure}[!h]                                                                                                           
-\begin{center}                                                                                                               
+\begin{figure}[!h]
+\begin{center}
 \tikzsetnextfilename{sche_nyquist_1-chap3_ext}
 \begin{tikzpicture}
 \begin{axis}
@@ -488,25 +495,30 @@ les pulsations négatives, c'est à dire entre $\omega\rightarrow-\infty$ et $\o
     \def\yu{3.24525022405}
     \def\xd{-2.6946926406}
     \def\yd{5.13601319826}
-    \addplot [black, mark = *] coordinates {( 0, 0)} {};
-    \node    [below]       at (axis cs:  7.853981633974483, 0)   {\scriptsize$\omega=0$};                
-    \addplot [black, mark = *] coordinates {(7.853981633974483, 0)} {};                          
-    \node    [below]       at (axis cs:  -2.2, 0) {\scriptsize$\omega\rightarrow\infty$};
-    \addplot [red, mark = *] coordinates {(\xu,\yu)} {};
-    \node    [above right, red]       at (axis cs:  \xu,\yu) {\scriptsize$\omega_1$};
-    \draw    [red,thick] (axis cs:0,0) -- (axis cs: \xu,\yu)   node[midway,yshift=1.1em,xshift=0.6em] {\scriptsize$G(\omega_1)$};
-    \draw    [red,thick] (axis cs:2.6,0) arc (0:18:1cm)      node[midway,yshift=0.23em,xshift=1.6em] {\scriptsize$\phi(\omega_1)$};
-    \addplot [blue, mark = *] coordinates {( \xd,\yd)} {};
-    \node    [above left, blue]       at (axis cs:  \xd,\yd) {\scriptsize$\omega_2$};
-    \draw    [blue,thick] (axis cs:0,0) -- (axis cs:  \xd,\yd) node[midway,yshift=-0.5em,xshift=-1em] {\scriptsize$G(\omega_2)$};
-    \draw    [blue,thick] (axis cs:1.9,0) arc (0:119:1.9)    node[midway,yshift=-1.7em,xshift=-1.85em] {\scriptsize$\phi(\omega_2)$};
-    \addplot [postaction={decorate, decoration={markings,
+    \addplot[black, mark = *] coordinates {( 0, 0)} {};
+    \node[below] at (axis cs:  7.853981633974483, 0) {\scriptsize$\omega=0$};
+    \addplot[black, mark = *] coordinates {(7.853981633974483, 0)} {};
+    \node[below] at (axis cs:  -2.2, 0) {\scriptsize$\omega\rightarrow\infty$};
+    \addplot[red, mark = *] coordinates {(\xu,\yu)} {};
+    \node[above right, red] at (axis cs:  \xu,\yu) {\scriptsize$\omega_1$};
+    \draw[red,thick] (axis cs:0,0) -- (axis cs: \xu,\yu) 
+        node[midway,yshift=1.1em,xshift=0.6em] {\scriptsize$G(\omega_1)$};
+    \draw[red,thick] (axis cs:2.6,0) arc (0:18:1cm) 
+        node[midway,yshift=0.23em,xshift=1.6em] {\scriptsize$\phi(\omega_1)$};
+    \addplot[blue, mark = *] coordinates {( \xd,\yd)} {};
+    \node[above left, blue]  at (axis cs:  \xd,\yd) {\scriptsize$\omega_2$};
+    \draw[blue,thick] (axis cs:0,0) -- (axis cs:\xd,\yd) 
+        node[midway,yshift=-0.5em,xshift=-1em] {\scriptsize$G(\omega_2)$};
+    \draw[blue,thick] (axis cs:1.9,0) arc (0:119:1.9)    
+        node[midway,yshift=-1.7em,xshift=-1.85em] {\scriptsize$\phi(\omega_2)$};
+    \addplot[postaction={decorate, decoration={markings,
               mark=at position 0.105 with {\arrow[rotate=-180]{latex};},
               mark=at position 0.31 with  {\arrow[rotate=-180]{latex};},
               mark=at position 0.51 with  {\arrow[rotate=-180]{latex};},
               mark=at position 0.71 with  {\arrow[rotate=-180]{latex};},
               mark=at position 0.9 with   {\arrow[rotate=-180]{latex};}
-              }},thick,domain=0:7.853981633974483,samples=100]({x*sin(deg(x))},{x*cos(deg(x))});
+              }},thick,domain=0:7.853981633974483,samples=100]
+              ({x*sin(deg(x))},{x*cos(deg(x))});
 \end{axis}
 \end{tikzpicture}%
 \hspace{0cm}
@@ -540,21 +552,25 @@ les pulsations négatives, c'est à dire entre $\omega\rightarrow-\infty$ et $\o
             mark=at position 0.51 with  {\arrow[rotate=-180]{latex};},
             mark=at position 0.71 with  {\arrow[rotate=-180]{latex};},
             mark=at position 0.9 with   {\arrow[rotate=-180]{latex};}
-             }},thick,domain=0:7.853981633974483,samples=100]({x*sin(deg(x))},{x*cos(deg(x))});
+             }},thick,domain=0:7.853981633974483,samples=100]
+             ({x*sin(deg(x))},{x*cos(deg(x))});
     \addplot [postaction={decorate, decoration={markings,
             mark=at position 0.105 with {\arrow{latex};},
             mark=at position 0.31 with  {\arrow{latex};},
             mark=at position 0.51 with  {\arrow{latex};},
             mark=at position 0.71 with  {\arrow{latex};},
             mark=at position 0.9 with   {\arrow{latex};}
-      }},dashed,thick,domain=0:7.853981633974483,samples=100]({x*sin(deg(x))},{-x*cos(deg(x))});
+      }},dashed,thick,domain=0:7.853981633974483,samples=100]
+      ({x*sin(deg(x))},{-x*cos(deg(x))});
 \end{axis}
 \end{tikzpicture}
 \end{center}
-    \caption{ (gauche) Représentation schématique d'un diagramme de Nyquist. Le nombre complexe 
-    $H(\jw)$ est représenté dans le plan complexe pour différentes valeurs de la 
-    pulsation $\omega$ de 0 à $\infty$. (droite) Représentation schématique du lieu complet de Nyquist, 
-    symmétrique par rapport à l'axe des réels.\label{fig-sche_nyquist}}
+    \caption{(gauche) Représentation schématique d'un diagramme de Nyquist. 
+             Le nombre complexe $H(\jw)$ est représenté dans le plan 
+             complexe pour différentes valeurs de la pulsation $\omega$ de 
+             0 à $\infty$. (droite) Représentation schématique du lieu 
+             complet de Nyquist, symmétrique par rapport à l'axe des réels.
+             \label{fig-sche_nyquist}}
 \end{figure}
 
 
@@ -565,19 +581,20 @@ les pulsations négatives, c'est à dire entre $\omega\rightarrow-\infty$ et $\o
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Le diagramme de Black-Nichols\footnote{Il également simplement appelé diagramme de Black.} 
-consiste à tracer le gain en décibel $G_{dB}(\omega)$ 
-en fonction de la phase, paramétré par la pulsation $\omega$. À l'instar du diagramme de Nyquist, le diagramme 
-de Black à l'avantage de combiner les deux graphiques du diagramme de Bode.
-La diagramme de Black est habituellement utilisé dans l'étude des systèmes asservis (\Cref{chap-asservis}) 
-pour déterminer le lieu de transfert dans le plan de Black d'un système en boucle fermée (FTBF) à partir 
-de la connaissance du lieu de transfert dans le plan de Black de la Fonction de Transfert en Boucle ouverte (FTBO).
-
+Le diagramme de Black-Nichols\footnote{Il également simplement appelé diagramme 
+de Black.} consiste à tracer le gain en décibel $G_{dB}(\omega)$ en fonction de 
+la phase, paramétré par la pulsation $\omega$. À l'instar du diagramme de 
+Nyquist, le diagramme de Black à l'avantage de combiner les deux graphiques 
+du diagramme de Bode. La diagramme de Black est habituellement utilisé dans 
+l'étude des systèmes asservis (\Cref{chap-asservis}) pour déterminer le lieu 
+de transfert dans le plan de Black d'un système en boucle fermée (FTBF) à 
+partir de la connaissance du lieu de transfert dans le plan de Black de la 
+Fonction de Transfert en Boucle ouverte (FTBO).
 %(moins important dans une premiere découverte des \SLCI.
 %Il pourra être introduit séparemment dans le cas des systèmes asservis.)
 
-\begin{figure}[!h]                                                                                                           
-\begin{center}                                                                                                               
+\begin{figure}[!h]
+\begin{center}
 \tikzsetnextfilename{sche_black-chap3_ext}
 \begin{tikzpicture}
 \begin{axis}
@@ -600,38 +617,41 @@ de la connaissance du lieu de transfert dans le plan de Black de la Fonction de 
     xmin=-100,
     xmax=+20
     ]     
-    \addplot [thick,domain=0:10,samples=100] ({-atan2(x,1)},{-10*log10(1+x*x)});
-    \addplot [thick,domain=10:100,samples=100,-latex] ({-atan2(x,1)},{-10*log10(1+x*x)});
-    \addplot [thick,domain=100:1000,samples=100] ({-atan2(x,1)},{-10*log10(1+x*x)});
-    \addplot [black, mark = *] coordinates {( 0, 0)} {};                    
-    \addplot [black, mark = *,blue] coordinates {({-atan2(10,1)},{-10*log10(1+10*10)} )} {};                    
-    \draw[thick,blue,dashed] (axis cs: {-atan2(10,1)},{-10*log10(1+10*10)}) -- 
-                            (axis cs: {-atan2(10,1)},0)  
-                            node[above] {$\phi(\omega_2)$};
-    \draw[thick,blue,dashed] (axis cs: {-atan2(10,1)},{-10*log10(1+10*10)}) -- 
-                            (axis cs: 0,{-10*log10(1+10*10)}) 
-                            node[right] {$G_{dB}(\omega_2)$} ;
-    \addplot [black, mark = *,red] coordinates {({-atan2(2,1)},{-10*log10(1+4)} )} {};                    
+    \addplot[thick,domain=0:10,samples=100] 
+    ({-atan2(x,1)},{-10*log10(1+x*x)});
+    \addplot[thick,domain=10:100,samples=100,-latex] 
+    ({-atan2(x,1)},{-10*log10(1+x*x)});
+    \addplot[thick,domain=100:1000,samples=100] 
+    ({-atan2(x,1)},{-10*log10(1+x*x)});
+    \addplot[black, mark = *] coordinates {(0,0)} {};                    
+    \addplot[black, mark = *,blue] coordinates 
+    {({-atan2(10,1)},{-10*log10(1+10*10)} )} {};                    
+    \draw[thick,blue,dashed] (axis cs: {-atan2(10,1)},{-10*log10(1+10*10)}) --
+    (axis cs: {-atan2(10,1)},0) node[above] {$\phi(\omega_2)$};
+    \draw[thick,blue,dashed] (axis cs: {-atan2(10,1)},{-10*log10(1+10*10)}) --
+    (axis cs: 0,{-10*log10(1+10*10)}) node[right] {$G_{dB}(\omega_2)$};
+    \addplot [black, mark = *,red] coordinates 
+    {({-atan2(2,1)},{-10*log10(1+4)} )} {};
     \draw[thick,red,dashed] (axis cs: {-atan2(2,1)},{-10*log10(5)}) -- 
-                             (axis cs: {-atan2(2,1)},0) 
+                            (axis cs: {-atan2(2,1)},0) 
                             node[above] {$\phi(\omega_1)$};
-    \draw[thick,red,dashed] (axis cs: {-atan2(2,1)},{-10*log10(5)}) -- 
+    \draw[thick,red,dashed] (axis cs: {-atan2(2,1)},{-10*log10(5)}) --
                              (axis cs: 0,{-10*log10(5)}) 
-                            node[right] {$G_{dB}(\omega_1)$} ;
+                            node[right] {$G_{dB}(\omega_1)$};
     \node [above right]  at (axis cs: 0 , 0)   {$\omega=0$}; 
     \node [above right]  at (axis cs:-90, -60) {$\omega\rightarrow+\infty$}; 
 
 \end{axis}
 \end{tikzpicture}
 \end{center}
-\caption{Représentation schématique d'un diagramme de Black. Le gain et la phase 
-    de la fonction de transfert $H(\jw)$ sont représentés sur le lieu de Black 
-    pour différentes valeurs de la pulsation $\omega$ de 0 à $\infty$.\label{fig-sche_black}}
+\caption{Représentation schématique d'un diagramme de Black. Le gain et 
+         la phase de la fonction de transfert $H(\jw)$ sont représentés sur 
+         le lieu de Black pour différentes valeurs de la pulsation $\omega$ 
+         de 0 à $\infty$.\label{fig-sche_black}}
 \end{figure}
 
 
 \newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -641,10 +661,10 @@ de la connaissance du lieu de transfert dans le plan de Black de la Fonction de 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-Nous allons ici présenter la forme canonique des diagrammes fréquentielles (Bode, Nyquist et Black-Nichols) pour 
-les modèles usuels rencontrées dans l'étude des \gls{slci}. Les diagrammes de Bode restent l'outil principale et fera 
-l'objet d'une présentation plus détaillée.
-
+Nous allons ici présenter la forme canonique des diagrammes fréquentielles 
+(Bode, Nyquist et Black-Nichols) pour les modèles usuels rencontrées dans 
+l'étude des \gls{slci}. Les diagrammes de Bode restent l'outil principale et 
+fera l'objet d'une présentation plus détaillée.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Diagrammes de Bode : méthodologie générale}
@@ -653,12 +673,17 @@ l'objet d'une présentation plus détaillée.
 Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
 \begin{itemize}
     \item Définir la fonction de transfert $H(p)$ du modèle pour $p=\jw$
-    \item \'Etablir la fonction du gain $G(\omega)$ à partir du module de $|H(\jw)|$
-    \item \'Etablir la fonction de la phase $\phi(\omega)$ à partir de l'argument principale de $|H(\jw)|$.
+    \item \'Etablir la fonction du gain $G(\omega)$ à partir du 
+          module de $|H(\jw)|$
+    \item \'Etablir la fonction de la phase $\phi(\omega)$ à partir de 
+          l'argument principale de $|H(\jw)|$.
           L'argument principale est définit à l'\Cref{annexe-NC}.
-    \item Si les fonctions $G(\omega)$ et $\phi(\omega)$ ne sont pas de simples constantes, réalisér une étude
-        asymptotique pour $\omega\rightarrow 0$ et $\omega\rightarrow +\infty$.
-    \item Tracer le diagramme de Bode \textbf{réel} et le diagramme de Bode \textbf{asymptotique}.
+    \item Si les fonctions $G(\omega)$ et $\phi(\omega)$ ne sont pas de 
+          simples constantes, réalisér une étude
+          asymptotique pour $\omega\rightarrow 0$ et 
+          $\omega\rightarrow +\infty$.
+    \item Tracer le diagramme de Bode \textbf{réel} et le diagramme 
+          de Bode \textbf{asymptotique}.
 \end{itemize}
 
 \newpage
@@ -675,8 +700,9 @@ $$
 d'où le gain $G_{dB}$ en décibel :
 \begin{bequation}[ams align*]
 G_{dB}(\omega)= 20\log{K}
-\end{bequation} ce qui correspond à une constante en gain (\Cref{fig-bode_gain}) 
-et la phase s'obtient à partir de l'argument principale du nombre complexe $H(\jw)$:
+\end{bequation} ce qui correspond à une constante en gain 
+(\Cref{fig-bode_gain}) et la phase s'obtient à partir de l'argument 
+principale du nombre complexe $H(\jw)$:
 \begin{bequation}[ams align*]
 \phi(\omega) = 0
 \end{bequation}
@@ -692,7 +718,8 @@ et la phase s'obtient à partir de l'argument principale du nombre complexe $H(\
     ylabel={Gain (\si{\decibel})},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     yticklabels={-60,-40,-20,0,20,40,60}, 
     xmode=log,ymode=normal,
     xmin=1e-3, xmax=1e3,
@@ -700,9 +727,9 @@ et la phase s'obtient à partir de l'argument principale du nombre complexe $H(\
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, black,domain=1e-3:1e3, samples=101] {20*log10(0.1)}; 
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101]  {20*log10(1.0)}; 
-    \addplot[ultra thick, red,domain=1e-3:1e3, samples=101]   {20*log10(10)}; 
+    \addplot[ultra thick,black,domain=1e-3:1e3,samples=101]{20*log10(0.1)}; 
+    \addplot[ultra thick,blue ,domain=1e-3:1e3,samples=101]{20*log10(1.0)}; 
+    \addplot[ultra thick,red  ,domain=1e-3:1e3,samples=101]{20*log10(10)}; 
 \end{axis}
 \end{tikzpicture}
 
@@ -1835,23 +1862,25 @@ est la rotation infinie sur ce cercle. La \og vitesse angulaire\fg dépend de $\
     xmax=+1.5,
     grid=both,
     ]     
-    \node    [right]       at (axis cs:  1, 0)   {\scriptsize$\omega=0$};                
-    \addplot [blue, mark = *] coordinates {(1, 0)} {};                          
-    \addplot [blue,thick,domain=pi/2:-pi/2-0.2,samples=50,-{Latex[length=3mm]}]({cos(deg(x))},{sin(deg(x)}); 
-    \addplot [blue,thick,domain=-pi/2:-3*pi/2-0.2,samples=50,-{Latex[length=3mm]}]({cos(deg(x))},{sin(deg(x)}); 
+\node[right]       at (axis cs:  1, 0)   {\scriptsize$\omega=0$};
+\addplot[blue, mark = *] coordinates {(1, 0)} {};                          
+\addplot[blue,thick,domain=pi/2:-pi/2-0.2,samples=50,-{Latex[length=3mm]}]
+    ({cos(deg(x))},{sin(deg(x)}); 
+\addplot [blue,thick,domain=-pi/2:-3*pi/2-0.2,samples=50,-{Latex[length=3mm]}]
+    ({cos(deg(x))},{sin(deg(x)}); 
 \end{axis}
 \end{tikzpicture}
 \end{center}
 \caption{Diagramme de Nyquist d'un retard pur. Le lieu de Nyquist 
-    est représenté par le cercle unité dans le plan complexe.\label{fig-nyquist_4}}
+         est représenté par le cercle unité dans le plan complexe.
+         \label{fig-nyquist_4}}
 \end{figure}
 
-On remarquera cependant que ce modèle est fondamentalement \textbf{instable} puisque 
-le module $|H(\jw)|$ ne s'annule pas lorsque $\omega\to\infty$, de ce fait nous 
-le trouverons jamais seul.
+On remarquera cependant que ce modèle est fondamentalement 
+\textbf{instable} puisque le module $|H(\jw)|$ ne s'annule pas 
+lorsque $\omega\to\infty$, de ce fait nous le trouverons jamais seul.
 
 \newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1861,16 +1890,18 @@ La fonction de transfert d'un système du premier ordre s'écrit:
 $$
 H(\jw)=\dfrac{K}{1+j\tau\omega}
 $$
-Les parties réelle et imaginaire de cette fonction de transfert sont données par:
+Les parties réelle et imaginaire de cette fonction de transfert sont données 
+par:
 \begin{align*}
     \Re{H(\jw)}&=\dfrac{K}{1+\tau^2\omega^2}\\
     \Im{H(\jw)}&=-\dfrac{K\tau\omega}{1+\tau^2\omega^2}\\
 \end{align*}
-Nous avons regroupé dans le~\cref{tab-nyquist-vp_1er} quelques valeurs particulières 
-de $\Re{H(\jw)}$ et $\Im{H(\jw)}$ pour quelques valeurs de $\omega$.
+Nous avons regroupé dans le~\cref{tab-nyquist-vp_1er} quelques valeurs 
+particulières de $\Re{H(\jw)}$ et $\Im{H(\jw)}$ pour quelques valeurs 
+de $\omega$.
 
-Le lieu complet de Nyquist d'un système du premier ordre à la forme d'un cercle, nous allons établir
-ses caractéristiques\cite{9782729860127}.
+Le lieu complet de Nyquist d'un système du premier ordre à la forme d'un cercle, 
+nous allons établir ses caractéristiques\cite{9782729860127}.
 
 Posons tout d'abord,
 $$
@@ -1888,7 +1919,8 @@ on obtient une relation entre $Y$ et $X$:
 $$
 Y^2=\left(\dfrac{K}{X}-1\right)X^2
 $$
-on reconnaît alors l'équation d'un cercle de centre $(K/2,0)$ et de rayon $K/2$
+on reconnaît alors l'équation d'un cercle de centre $(K/2,0)$ et 
+de rayon $K/2$
 $$
 \left(X-\dfrac{K}{2}\right)^2+Y^2=\left(\dfrac{K}{2}\right)^2
 $$
@@ -1896,11 +1928,11 @@ $$
     \begin{center}
     \begin{tabular}{M{2.0cm}M{2.0cm}M{2.0cm}M{2.0cm}}
         \hhline{====}
-                                     & $\omega=0$  & $\omega\to\infty$    & $\omega=\dfrac{1}{\tau}$ \\[0em]
+        & $\omega=0$  & $\omega\to\infty$ & $\omega=\dfrac{1}{\tau}$ \\[0em]
         \hline
-        $\Re{H(\jw)}$     & $K$         & 0                    & $K/2$                    \\[0em]
+        $\Re{H(\jw)}$ & $K$               & 0               & $K/2$  \\[0em]
         \hline
-        $\Im{H(\jw)}$     & 0           & 0                    & $-K/2$                   \\[0em]
+        $\Im{H(\jw)}$ & 0                 & 0               & $-K/2$ \\[0em]
         \hhline{====}
     \end{tabular}
     \caption{Quelques valeurs particulières de $\Re{H(\jw)}$ et $\Im{H(\jw)}$
@@ -1924,31 +1956,35 @@ $$
     clip=false,                                                                     
     grid=both
     ]                                                                               
-    \addplot [blue,thick,domain=0:1.1,samples=100,-{Latex[length=3mm]}]({1/(1+x*x)},{-x/(1+x*x)}); 
-    \addplot [blue,thick,domain=0.5:5,samples=100]({1/(1+x*x)},{-x/(1+x*x)}); 
-    \addplot [blue,thick,domain=5:10,samples=100]({1/(1+x*x)},{-x/(1+x*x)}); 
-    \addplot [blue,thick,domain=10:100,samples=100]({1/(1+x*x)},{-x/(1+x*x)}); 
-
+    \addplot [blue,thick,domain=0:1.1,samples=100,-{Latex[length=3mm]}]
+    ({1/(1+x*x)},{-x/(1+x*x)}); 
+    \addplot [blue,thick,domain=0.5:5,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
+    \addplot [blue,thick,domain=5:10,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
+    \addplot [blue,thick,domain=10:100,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
     \addplot [dashed,blue,thick,domain=-100:-10,samples=100]({1/(1+x*x)},{-x/(1+x*x)}); 
-    \addplot [dashed,blue,thick,domain=-10:-5,samples=100]({1/(1+x*x)},{-x/(1+x*x)}); 
-    \addplot [dashed,blue,thick,domain=-5:-0.5,samples=100,-{Latex[length=3mm]}]({1/(1+x*x)},{-x/(1+x*x)}); 
+    \addplot [dashed,blue,thick,domain=-10:-5,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
+    \addplot [dashed,blue,thick,domain=-5:-0.5,samples=100,-{Latex[length=3mm]}]
+    ({1/(1+x*x)},{-x/(1+x*x)}); 
     \addplot [dashed,blue,thick,domain=-0.5:0,samples=100]({1/(1+x*x)},{-x/(1+x*x)}); 
 
-    \node [above left,xshift=0.2em] at (axis cs:  0, 0)  {\scriptsize$\omega\rightarrow-\infty$};         
-    \node [below left,xshift=0.2em] at (axis cs:  0, 0)  {\scriptsize$\omega\rightarrow+\infty$};         
+    \node [above left,xshift=0.2em] 
+    at (axis cs:  0, 0)  {\scriptsize$\omega\rightarrow-\infty$};         
+    \node [below left,xshift=0.2em] 
+    at (axis cs:  0, 0)  {\scriptsize$\omega\rightarrow+\infty$};         
     \node [right]       at (axis cs:  1, 0) {\scriptsize$\omega=0$};                        
-    \addplot [blue, mark = *] coordinates {(0, 0)} {};                             
-    \addplot [blue, mark = *] coordinates {(1, 0)} {};                             
+    \addplot[blue, mark = *] coordinates {(0, 0)} {};
+    \addplot[blue, mark = *] coordinates {(1, 0)} {};
 %    \draw[blue,ultra thick,-latex] (axis cs:  0,  0 ) -- (axis cs:  0, 5 );        
 %    \draw[blue,ultra thick] (axis cs:  0,  4 ) -- (axis cs:  0, 9 );               
 \end{axis}                                                                          
 \end{tikzpicture}                                                                   
 \end{center}
 \caption{Diagramme de Nyquist d'un système du premier ordre. 
-    Avec $K=1$ et $\tau=1$. Le lieu de Nyquist 
-    est représenté par un demi cercle idans le plan des nombres 
-    imaginaires négatifs. Le lieu de Nyquist complet correspond à un cercle de rayon $K/2$ et de centre $(K/2,0)$ 
-    \label{fig-nyquist_1er}}
+         Avec $K=1$ et $\tau=1$. Le lieu de Nyquist 
+         est représenté par un demi cercle idans le plan des nombres 
+         imaginaires négatifs. Le lieu de Nyquist complet 
+         correspond à un cercle de rayon $K/2$ et de centre $(K/2,0)$ 
+         \label{fig-nyquist_1er}}
 \end{figure}
 
 
@@ -1965,8 +2001,11 @@ H(\jw)=\dfrac{K\omega_0^2}{(\omega_0^2-\omega^2)+j2\xi\omega_0\omega}
 $$
 Les parties réel et imaginaire de cette fonction de transfert sont données par:
 \begin{align*}
-    \Re{H(\jw)}&=\dfrac{K\omega_0^2(\omega_0^2-\omega^2)}{(\omega_0^2-\omega^2)^2+4\xi^2\omega_0^2\omega^2}\\
-    \Im{H(\jw)}&=\dfrac{-2\xi\omega_0^2\omega^2}{(\omega_0^2-\omega^2)^2+4\xi^2\omega_0^2\omega^2}\\
+    \Re{H(\jw)}&=
+    \dfrac{K\omega_0^2(\omega_0^2-\omega^2)}{(\omega_0^2-\omega^2)^2
+    +4\xi^2\omega_0^2\omega^2}\\
+    \Im{H(\jw)}&=\dfrac{-2\xi\omega_0^2\omega^2}{(\omega_0^2-\omega^2)^2
+    +4\xi^2\omega_0^2\omega^2}\\
 \end{align*}
 \begin{figure}[!h]                                                                                                           
 \begin{center}                                                                                                               
@@ -1990,27 +2029,36 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     \tikzstyle{lieu_c}=[dashed,blue,thick,samples=150]
     
     \def\xi{0.5}
-    \addplot[lieua,domain=0:1]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
-    \addplot[lieu, domain=0.99:5]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
-    \addplot[lieu,domain=5:10]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
-    \addplot[lieu,domain=10:100]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
+\addplot[lieua,domain=0:1]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
+\addplot[lieu, domain=0.99:5]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
+\addplot[lieu,domain=5:10]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
+\addplot[lieu,domain=10:100]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
 
-    \addplot[lieu_c,domain=-100:-10]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
-    \addplot[lieu_c,domain=-10:-5]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
-    \addplot[lieua_c,domain=-5:-0.99]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
-    \addplot[lieu_c,domain=-0.99:0]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+\addplot[lieu_c,domain=-100:-10]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
+\addplot[lieu_c,domain=-10:-5]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
+\addplot[lieua_c,domain=-5:-0.99]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
+\addplot[lieu_c,domain=-0.99:0]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
 
-    \node [above right] at (axis cs:  0, 0)  {\scriptsize$\omega\rightarrow-\infty$};
-    \node [right]       at (axis cs:  1, 0)  {\scriptsize$\omega=0$};       
-    \node [below right] at (axis cs:  0, 0)  {\scriptsize$\omega\rightarrow+\infty$};
-    \addplot [blue, mark = *] coordinates {(0, 0)} {};                  
-    \addplot [blue, mark = *] coordinates {(1, 0)} {};                  
+\node[above right] at (axis cs:  0, 0){\scriptsize$\omega\rightarrow-\infty$};
+\node[right]       at (axis cs:  1, 0){\scriptsize$\omega=0$};       
+\node[below right] at (axis cs:  0, 0){\scriptsize$\omega\rightarrow+\infty$};
+\addplot[blue, mark = *] coordinates {(0, 0)} {};                  
+\addplot[blue, mark = *] coordinates {(1, 0)} {};                  
 \end{axis}                                                                          
 \end{tikzpicture}                                                                   
 \end{center}
 \caption{Diagramme de Nyquist d'un système du second ordre. 
-    Avec $K=1$ et $\tau=1$. Le lieu de Nyquist est représenté par une demi cardio\"iode dans le plan
-    des nombres imaginaires négatifs.\label{fig-nyquist_2nd_1}}
+         Avec $K=1$ et $\tau=1$. Le lieu de Nyquist est représenté par 
+         une demi cardio\"iode dans le plan des nombres imaginaires 
+         négatifs.\label{fig-nyquist_2nd_1}}
 \end{figure}
 
 \begin{figure}[!h]                                                                                                           
@@ -2073,17 +2121,25 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
                                                                                                                              
     \foreach \xi in {0.4,0.6,0.8,1.0} 
     {
-    \addplot+[lieua,domain=0:1]       ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu, domain=0.99:5]    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu,domain=5:10]       ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu,domain=10:100]     ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieua,domain=0:1]  
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu, domain=0.99:5] 
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu,domain=5:10]    
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu,domain=10:100] 
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
                                                                                                                               
-    \addplot+[lieu_c,domain=-100:-10] ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-10:-5]   ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieua_c,domain=-5:-0.99]({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-0.99:0]  ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu_c,domain=-100:-10]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu_c,domain=-10:-5] 
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieua_c,domain=-5:-0.99]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu_c,domain=-0.99:0] 
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
     }
-    \legend{,$\xi=0.4$,,,,,,,,$\xi=0.6$,,,,,,,,$\xi=0.8$,,,,,,,,$\xi=1.0$,,,,,,,} 
+\legend{,$\xi=0.4$,,,,,,,,$\xi=0.6$,,,,,,,,$\xi=0.8$,,,,,,,,$\xi=1.0$,,,,,,,} 
 \end{axis}                                                                          
         \pgfplotscreateplotcyclelist{mycolorlist}{%
             blue\\%
@@ -2134,21 +2190,28 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     \foreach \xi in {0.05,0.07,0.1,0.2} 
 %    \foreach \xi in {0.05} 
     {
-    \addplot+[lieu,domain=0:0.5]      ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieua, domain=0.5:1]    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu, domain=0.99:2]    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu,domain=0:0.5]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieua, domain=0.5:1]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu, domain=0.99:2]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
     
-    \addplot+[lieua_c,domain=-2:-1.0]   ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-1.0:-0.5]  ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-0.5:0]   ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieua_c,domain=-2:-1.0] 
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu_c,domain=-1.0:-0.5]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+    \addplot+[lieu_c,domain=-0.5:0] 
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
     }
     \legend{$\xi=0.05$,,,,,,$\xi=0.07$,,,,,,$\xi=0.1$,,,,,,$\xi=0.2$,,,,,,} 
-\end{axis}                                                                          
+\end{axis}
 \end{tikzpicture}                                                                   
 \end{center}
-\caption{Diagramme de Nyquist d'un système du second ordre pour différentes valeurs du 
-    taux d'amortissement $\xi$. Avec $K=1$ et $\tau=1$. Le lieu de Nyquist est 
-    représenté par une demi cardio\"iode dans le plan des imaginaires négatifs.\label{fig-nyquist_2nd_2}}
+\caption{Diagramme de Nyquist d'un système du second ordre pour différentes 
+         valeurs du taux d'amortissement $\xi$. Avec $K=1$ et $\tau=1$. Le 
+         lieu de Nyquist est représenté par une demi cardio\"iode dans le 
+         plan des imaginaires négatifs.\label{fig-nyquist_2nd_2}}
 \end{figure}
 
 \newpage
@@ -2161,62 +2224,74 @@ $$
 H_R(\jw)=e^{-j\tau_1\omega}=\cos{\tau_1\omega}-j\sin{\tau_1\omega}
 $$
 avec $\tau_1$ le retard. 
-\'Etudions l'effet de ce retard sur le diagramme de Nyquist d'un système du premier ordre $H(\jw)$.
-La fonction de transfert modifié est:
+\'Etudions l'effet de ce retard sur le diagramme de Nyquist d'un système 
+du premier ordre $H(\jw)$. La fonction de transfert modifié est:
 $$
-H(\jw)=\dfrac{K}{1+j\tau\omega}H_R(\jw)=\dfrac{K}{1+j\tau\omega}\left(\cos{\tau\omega}-j\sin{\tau\omega}\right)
+H(\jw)=\dfrac{K}{1+j\tau\omega}H_R(\jw)=
+\dfrac{K}{1+j\tau\omega}\left(\cos{\tau\omega}-j\sin{\tau\omega}\right)
 $$
 Les parties réels et imaginaire de la fonction de transfert sont:
 \begin{align*}
-    \Re{H(\jw)}&=\dfrac{K\left(\cos{\tau_1\omega-\tau\omega\sin{\tau_1\omega}}\right)}{1+\tau^2\omega^2}\\
-    \Im{H(\jw)}&=\dfrac{-K\left(\tau\omega\cos{\tau_1\omega+\sin{\tau_1\omega}}\right)}{1+\tau^2\omega^2}\\
+\Re{H(\jw)}&=
+\dfrac{K\left(\cos{\tau_1\omega-\tau\omega\sin{\tau_1\omega}}\right)}
+      {1+\tau^2\omega^2}\\
+\Im{H(\jw)}&=
+\dfrac{-K\left(\tau\omega\cos{\tau_1\omega+\sin{\tau_1\omega}}\right)}
+{1+\tau^2\omega^2}\\
 \end{align*}
 
-\begin{figure}[!h]                                                                                                           
-\begin{center}                                                                                                               
+\begin{figure}[!h]
+\begin{center}
 \tikzsetnextfilename{nyquist_effet_retard_1-chap3_ext}
-\begin{tikzpicture}                                                                 
-\begin{axis}                                                                        
-    [                                                                               
-    axis line style = thick,                                                        
-    xlabel=$\Re{H(\jw)}$,                                                
-    ylabel=$\Im{H(\jw)}$,                                                
-    ymin=-1,                                                                       
-    ymax=1,                                                                       
-    xmin=-0.8,                                                                       
-    xmax=+1.3,                                                                       
+\begin{tikzpicture}
+\begin{axis}
+    [
+    axis line style = thick,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
+    ymin=-1,
+    ymax=1,
+    xmin=-0.8,
+    xmax=+1.3,
     grid=both,
-    ]                                                                               
+    ]
     \def\t{1.0}
     \def\tu{1.1}
     \addplot[blue,thick,domain=0:1,samples=200] 
-    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},{-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
+    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
+     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
     \addplot[blue,thick,domain=1:10,samples=200] 
-    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},{-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
-    \addplot[blue,thick,domain=10:20,samples=200] 
-    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},{-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
-    \addplot[blue,thick,domain=20:50,samples=200] 
-    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},{-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
-    \addplot[blue,thick,domain=50:100,samples=200] 
-    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},{-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
-    \node [above]       at (axis cs:  1, 0)   {$\omega=0$};       
-    \addplot [blue, mark = *] coordinates {(1, 0)} {};                             
-    \node [below right] (A) at (axis cs:  0.5, 0.5)  {$\omega\rightarrow+\infty$};
+    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
+     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
+    \addplot[blue,thick,domain=10:20,samples=200]
+    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
+     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
+    \addplot[blue,thick,domain=20:50,samples=200]
+    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
+     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
+    \addplot[blue,thick,domain=50:100,samples=200]
+    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
+     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
+    \node[above]       at (axis cs:  1, 0)   {$\omega=0$};
+    \addplot[blue, mark = *] coordinates {(1, 0)} {};
+    \node[below right] (A) at (axis cs:  0.5, 0.5) 
+    {$\omega\rightarrow+\infty$};
     \node (B) at (axis cs:  0, 0)  {};
     \draw[->] (A) -- (B);
-\end{axis}                                                                          
-\end{tikzpicture}                                                                   
+\end{axis}
+\end{tikzpicture}
 \end{center}
-\caption{Effet d'un retard sur le diagramme de Nyquist d'un système du premier ordre. 
-    Avec $K=1$, $\tau=1$ et $\tau_1=2$. Le lieu de Nyquist est représenté par 
-    une spirale.\label{fig-nyquist_effet_retard_1}}
+\caption{Effet d'un retard sur le diagramme de Nyquist d'un système 
+         du premier ordre. Avec $K=1$, $\tau=1$ et $\tau_1=2$. Le lieu 
+         de Nyquist est représenté par une spirale.
+         \label{fig-nyquist_effet_retard_1}}
 \end{figure}
 
-\begin{figure}[!h]                                                                                                           
-\begin{center}                                                                                                               
+\begin{figure}[!h]
+\begin{center}
 \tikzsetnextfilename{nyquist_effet_retard_2-chap3_ext}
-\begin{tikzpicture}                                                                 
-        \pgfplotscreateplotcyclelist{mycolorlist}{%
+\begin{tikzpicture}
+\pgfplotscreateplotcyclelist{mycolorlist}{%
             blue\\%
             blue\\%
             red\\%
@@ -2230,32 +2305,32 @@ Les parties réels et imaginaire de la fonction de transfert sont:
             red!60!yellow\\
             red!60!yellow\\
         }
-\begin{axis}                                                                        
-    [                                                                               
-    axis line style = thick,                                                        
-    xlabel=$\Re{H(\jw)}$,                                                
-    ylabel=$\Im{H(\jw)}$,                                                
-    ymin=-1,                                                                       
-    ymax=1,                                                                       
-    xmin=-0.8,                                                                       
-    xmax=+1.3,                                                                       
+\begin{axis}
+    [
+    axis line style = thick,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
+    ymin=-1,
+    ymax=1,
+    xmin=-0.8,
+    xmax=+1.3,
     grid=both,
     cycle list name=mycolorlist,
-    ]                                                                               
+    ]
     \def\t{1.0}
     \def\tu{0.5}
 
     \foreach \tu in {0.5,1.0,2.0}
     {
-    \addplot+[thick,domain=0:1,samples=200] 
+    \addplot+[thick,domain=0:1,samples=200]
     ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
      {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
     \addplot+[thick,domain=1:{10/\tu^2},samples=200] 
     ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
      {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
 }
-\end{axis}                                                                          
-\end{tikzpicture}                                                                   
+\end{axis}
+\end{tikzpicture}
 \end{center}
     \caption{Effet d'un retard sur le diagramme de Nyquist d'un système du 
              premier ordre pour différentes valeurs de retard. (bleu) 
