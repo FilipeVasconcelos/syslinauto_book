@@ -131,17 +131,17 @@ du premier ordre aux signaux usuels présentés au chapitre~\cref{chap_slci}.
     ylabel={$s(t)$},
     label style={font=\Large},
     ]
-\addplot[thick,color=blue,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=blue,domain=0:11.5,samples=101]
         {exp(-x)};
-\addplot[thick,color=green,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=green,domain=0:11.5,samples=101]
         {(exp(-x/2))/2};
-\addplot[thick,color=cyan,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=cyan,domain=0:11.5,samples=101]
         {(exp(-x/3))/3};
-\addplot[thick,color=red,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=red,domain=0:11.5,samples=101]
         {(exp(-x/4))/4};
-\addplot[thick,color=magenta,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=magenta,domain=0:11.5,samples=101]
         {(exp(-x/5))/5};
-\addplot[thick,color=black,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=black,domain=0:11.5,samples=101]
         {(exp(-x/6))/6};
     \legend{$\tau=1$,$\tau=2$,$\tau=3$,$\tau=4$,$\tau=5$,$\tau=6$}
     \end{axis}
@@ -231,17 +231,17 @@ $\dfrac{s(t)}{KE_0}$ & 0.606 & 0.368  & 0.05      & $\sim$ 0& \\ [1.5em]
     label style={font=\Large},
     legend cell align={left},
 ]%
-\addplot[thick,color=black,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=black,domain=0:11.5,samples=101]
 {{1}};
-\addplot[thick,color=blue,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=blue,domain=0:11.5,samples=101]
 {1-exp(-x)};
-\addplot[thick,color=green,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=green,domain=0:11.5,samples=101]
 {(1-exp(-x/2))};
-\addplot[thick,color=cyan,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=cyan,domain=0:11.5,samples=101]
 {(1-exp(-x/3))};
-\addplot[thick,color=red,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=red,domain=0:11.5,samples=101]
 {(1-exp(-x/4))};
-\addplot[thick,color=magenta,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=magenta,domain=0:11.5,samples=101]
 {(1-exp(-x/5))};
 \legend{échelon,$\tau=1$,$\tau=2$,$\tau=3$,$\tau=4$,$\tau=5$}
 \end{axis}%
@@ -264,13 +264,13 @@ $\dfrac{s(t)}{KE_0}$ & 0.606 & 0.368  & 0.05      & $\sim$ 0& \\ [1.5em]
     label style={font=\Large},
     legend cell align={left},
 ]%
-\addplot[thick,color=black,domain=0:11.5, samples=101,unbounded coords=jump]
+\addplot[thick,color=black,domain=0:11.5, samples=101]
 {{1}};%
-\addplot[thick,color=blue,domain=0:11.5, samples=101,unbounded coords=jump]
+\addplot[thick,color=blue,domain=0:11.5, samples=101]
 {0.5*(1-exp(-x))};
-\addplot[thick,color=green,domain=0:11.5, samples=101,unbounded coords=jump]
+\addplot[thick,color=green,domain=0:11.5, samples=101]
 {1-exp(-x)};
-\addplot[thick,color=cyan,domain=0:11.5, samples=101,unbounded coords=jump]
+\addplot[thick,color=cyan,domain=0:11.5, samples=101]
 {2*(1-exp(-x))};
 \legend{échelon,$K=0.5$,$K=1$,$K=2$}
 \end{axis}
@@ -370,17 +370,17 @@ $$
     label style={font=\Large},
     legend cell align={left},
 ]%
-\addplot[thick,color=black,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=black,domain=0:11.5,samples=101]
 {x};
-\addplot[thick,color=blue,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=blue,domain=0:11.5,samples=101]
 {x-(1-exp(-x))};
-\addplot[thick,color=green,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=green,domain=0:11.5,samples=101]
 {x-2*(1-exp(-x/2))};
-\addplot[thick,color=cyan,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=cyan,domain=0:11.5,samples=101]
 {x-3*(1-exp(-x/3))};
-\addplot[thick,color=red,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=red,domain=0:11.5,samples=101]
 {x-4*(1-exp(-x/4))};
-\addplot[thick,color=magenta,domain=0:11.5, samples=101,unbounded coords=jump]
+\addplot[thick,color=magenta,domain=0:11.5, samples=101]
 {x-5*(1-exp(-x/5))};
 \legend{rampe,$\tau=1$,$\tau=2$,$\tau=3$,$\tau=4$,$\tau=5$}
 \end{axis}%
@@ -403,13 +403,13 @@ $$
     label style={font=\Large},
     legend cell align={left},
 ]%
-\addplot[thick,color=black,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=black,domain=0:11.5,samples=101]
 {x};
-\addplot[thick,color=green,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=green,domain=0:11.5,samples=101]
 {0.5*(x-(1-exp(-x)))};
-\addplot[thick,color=blue,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=blue,domain=0:11.5,samples=101]
 {x-(1-exp(-x))};
-\addplot[thick,color=cyan,domain=0:11.5,samples=101,unbounded coords=jump]
+\addplot[thick,color=cyan,domain=0:11.5,samples=101]
 {2*(x-(1-exp(-x)))};
 \legend{rampe,$K=0.5$,$K=1$,$K=2$}
 \end{axis}
@@ -911,63 +911,63 @@ du second ordre en régime pseudo-périodique s'écrit :
     \def\b{0.99}
     \def\w{0.994987437107}
     \def\p{1.47062890563}
-    \addplot+[thick,domain=0:20, samples=101,unbounded coords=jump]
+    \addplot+[thick,domain=0:20, samples=101]
     {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
 
     \def\a{0.2}
     \def\b{0.96}
     \def\w{0.979795897113}
     \def\p{1.369438406}
-    \addplot+[thick,domain=0:20, samples=101,unbounded coords=jump]
+    \addplot+[thick,domain=0:20, samples=101]
     {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
 
     \def\a{0.3}
     \def\b{0.91}
     \def\w{0.953939201417}
     \def\p{1.26610367278}
-    \addplot+[thick,domain=0:20, samples=101,unbounded coords=jump]
+    \addplot+[thick,domain=0:20, samples=101]
     {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
 
     \def\a{0.4}
     \def\b{0.84}
     \def\w{0.916515138991}
     \def\p{1.15927948073}
-    \addplot+[thick,domain=0:20, samples=101,unbounded coords=jump]
+    \addplot+[thick,domain=0:20, samples=101]
     {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
     
     \def\a{0.5}
     \def\b{0.75}
     \def\w{0.866025403784}
     \def\p{1.0471975512}
-    \addplot+[thick,domain=0:20, samples=101,unbounded coords=jump]
+    \addplot+[thick,domain=0:20, samples=101]
     {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
 
     \def\a{0.6}
     \def\b{0.64}
     \def\w{0.8}
     \def\p{0.927295218002}
-    \addplot+[thick,domain=0:20, samples=101,unbounded coords=jump]
+    \addplot+[thick,domain=0:20, samples=101]
     {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
 
     \def\a{0.7}
     \def\b{0.51}
     \def\w{0.714142842854}
     \def\p{0.795398830184}
-    \addplot+[thick,domain=0:20, samples=101,unbounded coords=jump]
+    \addplot+[thick,domain=0:20, samples=101]
     {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
 
     \def\a{0.8}
     \def\b{0.3599999999999999}
     \def\w{0.6}
     \def\p{0.643501108793}
-    \addplot+[thick,domain=0:20, samples=101,unbounded coords=jump]
+    \addplot+[thick,domain=0:20, samples=101]
     {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
 
     \def\a{0.9}
     \def\b{0.18999999999999995}
     \def\w{0.435889894354}
     \def\p{0.451026811796}
-    \addplot+[thick,domain=0:20, samples=101,unbounded coords=jump]
+    \addplot+[thick,domain=0:20, samples=101]
     {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
 
     \legend{$\xi=0.1$,$\xi=0.2$, $\xi=0.3$, $\xi=0.4$, $\xi=0.5$, 
@@ -1047,13 +1047,13 @@ il nous faut d'abord déterminer le temps du premier maximum $t_1$.
         yticklabels={0,$KE_0$,$2KE_0$},
         ytick={0.001,1,2}
         ]
-\addplot[thick,color=blue,domain=0:20,samples=101,unbounded coords=jump]
+\addplot[thick,color=blue,domain=0:20,samples=101]
         {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
-\addplot[thick,dotted,domain=0:20,samples=101,unbounded coords=jump]
+\addplot[thick,dotted,domain=0:20,samples=101]
         {1+exp(-\a*x)};
-\addplot[thick,dotted,domain=0:20,samples=101,unbounded coords=jump]
+\addplot[thick,dotted,domain=0:20,samples=101]
         {1-exp(-\a*x)};
-\addplot[thick,domain=0:20,samples=101,unbounded coords=jump]
+\addplot[thick,domain=0:20,samples=101]
         {1};
         \draw[ultra thick,red]   (axis cs:\tu,1)  -- (axis cs:\tu,\du) 
         node[above] {$D_1$};
@@ -1167,20 +1167,20 @@ temps de réponse pour $\xi\sim 0.7$
             yticklabels={0,$KE_0$,2},
             ytick={0.001,1,2}
         ]
-    \addplot [thick,color=blue,domain=0:20, samples=101,unbounded coords=jump]
+    \addplot [thick,color=blue,domain=0:20, samples=101]
     {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
-    \addplot [thick,domain=0:20, samples=101,unbounded coords=jump]
+    \addplot [thick,domain=0:20, samples=101]
     {1};
-    \addplot [dotted,domain=0:20, samples=101,unbounded coords=jump]
+    \addplot [dotted,domain=0:20, samples=101]
     {1.05};
-    \addplot [dotted,domain=0:20, samples=101,unbounded coords=jump]
+    \addplot [dotted,domain=0:20, samples=101]
     {0.95};
         
     \def\a{0.5}
     \def\b{0.75}
     \def\w{0.866025403784}
     \def\p{1.0471975512}
-    \addplot [thick,domain=0:20, color=red,samples=101,unbounded coords=jump]
+    \addplot [thick,domain=0:20, color=red,samples=101]
     {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
     \draw[blue,thick] (axis cs:13.74,0) -- (axis cs:13.74,2);
     \draw[red,thick] (axis cs:5.29,0) -- (axis cs:5.29,2);
@@ -1352,10 +1352,10 @@ et 31 du tableau de l'\cref{annexe-lap}), nous permet de déterminer la
 réponse à une rampe du régime pseudo-périodique :
 \begin{align*}
 s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+
-	             \dfrac{2\xi\sqrt{1-\xi^2}}{\omega_d}
-				 e^{-\alpha t}\cos{\omega_d t}+
-				 \dfrac{2\xi^2-1}{\omega_d}e^{-\alpha t}\sin{\omega_d t}
-				 \right)\\
+\dfrac{2\xi\sqrt{1-\xi^2}}{\omega_d}
+e^{-\alpha t}\cos{\omega_d t}+
+\dfrac{2\xi^2-1}{\omega_d}e^{-\alpha t}\sin{\omega_d t}
+\right)\\
 \end{align*}
 en posant à nouveau : 
 \begin{align*}
@@ -1391,16 +1391,16 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+
         label style={font=\Large},
         cycle list name=color list,
         ]
-\addplot[thick,color=black,domain=0:10, samples=101,unbounded coords=jump]{x};
+\addplot[thick,color=black,domain=0:10, samples=101]{x};
 % xi=2 
 \def\a{0.28867513459481292}
 \def\u{3.73205080757}
 \def\d{0.267949192431}
 \def\us{13.928203230275509}
 \def\ds{0.07179676972449088}
-\addplot[thick,color=blue,domain=0:20, samples=101,unbounded coords=jump]
+\addplot[thick,color=blue,domain=0:20, samples=101]
 {x+-\u-\d+\a*(\us*exp(-x/\u)-\ds*exp(-x/\d))};
-\addplot[thick,color=green,domain=0:20, samples=101,unbounded coords=jump]
+\addplot[thick,color=green,domain=0:20, samples=101]
 {((x-2)+(x+2)*exp(-x))};
 
 \def\a{0.1}
@@ -1408,7 +1408,7 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+
 \def\w{0.994987437107}
 \def\p{1.47062890563}
 
-\addplot[thick,color=red,domain=0:20, samples=101,unbounded coords=jump]
+\addplot[thick,color=red,domain=0:20, samples=101]
 {x-2*\a+\a/\w*exp(-\a*x)*sin(\w*deg(x)+deg(\p))-
 (1/\w)*exp(-\a*x)*sin(\w*deg(x))};
 
@@ -1563,10 +1563,8 @@ $$
     ylabel={$s(t)$},
     label style={font=\Large},
 ]%
-\addplot[very thick,color=blue,domain=-1:0, samples=10,unbounded coords=jump]
-{{0}};
-\addplot[very thick,color=blue,domain=0:11.5, samples=10,unbounded coords=jump]
-{{1}};
+\addplot[very thick,color=blue,domain=-1:0, samples=10]{{0}};
+\addplot[very thick,color=blue,domain=0:11.5, samples=10]{{1}};
 \draw[dashed,very thick,blue]   (axis cs:0,0)--(axis cs:0,1);
 \draw[dblarw={black}{2pt}{2pt}] (axis cs:0,0)--(axis cs:0,1);
 \end{axis}%
@@ -1583,15 +1581,11 @@ $$
     ylabel near ticks, yticklabel pos=right,
     label style={font=\Large},
 ]%
-\addplot[very thick,color=blue,domain=-1:0,samples=10,unbounded coords=jump]
-{{0}};
-\addplot[very thick,color=blue,domain=0:11.5,samples=10,unbounded coords=jump]
-{{x}};
+\addplot[very thick,color=blue,domain=-1:0,samples=10]{{0}};
+\addplot[very thick,color=blue,domain=0:11.5,samples=10]{{x}};
 \draw[dashed,very thick,black] (axis cs:0,0)--(axis cs:0,1);
-\addplot[very thick,color=black,domain=-1:0,samples=10,unbounded coords=jump]
-{{0}};
-\addplot[very thick,color=black,domain=0:11.5,samples=10,unbounded coords=jump]
-{{1}};
+\addplot[very thick,color=black,domain=-1:0,samples=10]{{0}};
+\addplot[very thick,color=black,domain=0:11.5,samples=10]{{1}};
 \end{axis}
 \end{tikzpicture}
 \caption{(gauche) Réponse impulsionnelle 
