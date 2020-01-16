@@ -744,7 +744,8 @@ principale du nombre complexe $H(\jw)$:
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-90,-45,0,45,90}, 
     yticklabels={-90,-45,0,45,90},
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     xmode=log,ymode=normal,
     xmin=1e-3, xmax=1e3,
     ymin=-90, ymax=90,
@@ -755,9 +756,9 @@ principale du nombre complexe $H(\jw)$:
 \end{axis}
 \end{tikzpicture}
     \caption{Diagramme de Bode d'un gain pur avec (noir) 
-    $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons que la phase reste 
-    inchangée lorsque le gain statique $K$ varie et que seul le gain $G_{dB}(\omega)$
-    est modifié. \label{fig-bode_gain}}
+             $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons que la 
+             phase reste inchangée lorsque le gain statique $K$ varie et que 
+             seul le gain $G_{dB}(\omega)$ est modifié. \label{fig-bode_gain}}
 \end{figure}
 \newpage
 
@@ -767,16 +768,17 @@ principale du nombre complexe $H(\jw)$:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-La fonction de transfert d'un intégrateur pur est de la forme $H(\jw)=\frac{K}{\jw}$,
-le gain est donc simplement donné par 
+La fonction de transfert d'un intégrateur pur est de la forme 
+$H(\jw)=\frac{K}{\jw}$, le gain est donc simplement donné par 
 $$
 G(\omega)=|H(\jw)|=\frac{K}{\omega}
 $$ 
 d'où le gain $G_{dB}$ en décibel :
 \begin{bequation}[ams align*]
 G_{dB}(\omega)= 20\log{K} - 20\log{\omega}
-\end{bequation} ce qui correspond à une pente de -20dB/décade (\Cref{fig-bode_int}) 
-et la phase s'obtient à partir de l'argument principale du nombre complexe $H(\jw)$:
+\end{bequation} ce qui correspond à une pente de -20dB/décade 
+(\Cref{fig-bode_int}) et la phase s'obtient à partir de l'argument principale 
+du nombre complexe $H(\jw)$:
 \begin{bequation}[ams align*]
 \phi(\omega) = -\dfrac{\pi}{2}
 \end{bequation}
@@ -792,7 +794,8 @@ et la phase s'obtient à partir de l'argument principale du nombre complexe $H(\
     ylabel={Gain (dB)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     yticklabels={-60,-40,-20,0,20,40,60}, 
     xmode=log,ymode=normal,
     xmin=1e-3, xmax=1e3,
@@ -800,9 +803,12 @@ et la phase s'obtient à partir de l'argument principale du nombre complexe $H(\
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, black,domain=1e-3:1e3, samples=101]   {20*log10(0.1)-20*log10(x)}; 
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101]  {-20*log10(x)}; 
-    \addplot[ultra thick, red,domain=1e-3:1e3, samples=101]   {20*log10(10)-20*log10(x)}; 
+    \addplot[ultra thick,black,domain=1e-3:1e3, samples=101]
+    {20*log10(0.1)-20*log10(x)}; 
+    \addplot[ultra thick,blue,domain=1e-3:1e3, samples=101]
+    {-20*log10(x)}; 
+    \addplot[ultra thick,red,domain=1e-3:1e3, samples=101]
+    {20*log10(10)-20*log10(x)}; 
 \end{axis}
 \end{tikzpicture}
 
@@ -817,19 +823,21 @@ et la phase s'obtient à partir de l'argument principale du nombre complexe $H(\
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-180,-135,-90,-45,0}, 
     yticklabels={-180,-135,-90,-45,0},
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     xmode=log,ymode=normal,
     xmin=1e-3, xmax=1e3,
     ymin=-180, ymax=0,
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {-atan(1000000)}; 
+    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {-atan(1000000)};
 \end{axis}
 \end{tikzpicture}
     \caption{Diagramme de Bode d'un intégrateur pur avec (noir) 
-    $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons que le                                    
-    gain s'annule pour $\omega=K$ et que la phase reste inchangée.\label{fig-bode_int}}
+             $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons 
+             que le gain s'annule pour $\omega=K$ et que la phase reste 
+             inchangée.\label{fig-bode_int}}
 \end{figure}
 
 
@@ -864,7 +872,8 @@ la phase s'écrit simplement
     ylabel={Gain (dB)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     yticklabels={-60,-40,-20,0,20,40,60}, 
     xmode=log,ymode=normal,
     xmin=1e-3, xmax=1e3,
@@ -872,9 +881,11 @@ la phase s'écrit simplement
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, black,domain=1e-3:1e3, samples=101] {20*log10(0.1)+20*log10(x)}; 
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {20*log10(x)}; 
-    \addplot[ultra thick, red,domain=1e-3:1e3, samples=101] {20*log10(10)+20*log10(x)}; 
+    \addplot[ultra thick, black,domain=1e-3:1e3, samples=101]
+    {20*log10(0.1)+20*log10(x)}; 
+    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {20*log10(x)};
+    \addplot[ultra thick, red,domain=1e-3:1e3, samples=101] 
+    {20*log10(10)+20*log10(x)};
 \end{axis}
 \end{tikzpicture}
 
@@ -889,19 +900,21 @@ la phase s'écrit simplement
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={0,45,90,135,180}, 
     yticklabels={0,45,90,135,180}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     xmode=log,ymode=normal,
     xmin=1e-3, xmax=1e3,
     ymin=0, ymax=180,
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {atan(1000000)}; 
+    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {atan(1000000)};
 \end{axis}
 \end{tikzpicture}
 \caption{Diagramme de Bode d'un dérivateur pur 
-    avec (noir) $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons que le
-    gain s'annule pour $\omega=\frac{1}{K}$ et que la phase reste inchangée.\label{fig-bode_deriv}}
+         avec (noir) $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons que 
+         le gain s'annule pour $\omega=\frac{1}{K}$ et que la phase reste 
+         inchangée.\label{fig-bode_deriv}}
 \end{figure}
 
 
@@ -909,10 +922,8 @@ la phase s'écrit simplement
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système à retard pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \index{Retard pur!diagramme de Bode}
-La fonction de transfert d'un retard pur 
-est de la forme $H(\jw)=e^{-\jtw}$,
+La fonction de transfert d'un retard pur est de la forme $H(\jw)=e^{-\jtw}$,
 le gain est donc simplement donné par
 $$
 G(\omega)=|H(\jw)|=1
@@ -938,7 +949,8 @@ et la phase s'écrit simplement
     ylabel={Gain (dB)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3},
     ytick={-60,-40,-20,0,20,40,60},
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     yticklabels={-60,-40,-20,0,20,40,60},
     xmode=log,ymode=normal,
     xmin=1e-2, xmax=1e3,
@@ -972,8 +984,9 @@ et la phase s'écrit simplement
 \end{axis}
 \end{tikzpicture}
     \caption{Diagramme de Bode d'un retard pur 
-    avec $\tau=1$. Remarquons que le gain est constant pour toutes 
-    pulsations et le déphasage est monotone décroissant en fonction de la pulsation\label{fig-bode_retard_1}.}
+             avec $\tau=1$. Remarquons que le gain est constant pour toutes 
+             pulsations et le déphasage est monotone décroissant en fonction 
+             de la pulsation\label{fig-bode_retard_1}.}
 \end{figure}
 
 
@@ -983,9 +996,7 @@ et la phase s'écrit simplement
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \index{Système du premier ordre!diagramme de Bode}
-
 Un système du premier ordre présente une fonction de transfert de la forme:
 \begin{align}
 H(\jw)=\dfrac{K}{1+j\tau\omega }\label{eq-1er_ftjw}
@@ -1001,34 +1012,36 @@ et la phase est simplement donné par la fonction tangente réciproque:
 \begin{bequation}[ams align]
     \phi(\omega)=\arg{H(\jw)}=-\arctan{(\tau\omega)}\label{eq-phase_1er} 
 \end{bequation}
-Ce sont ces deux fonctions de la fréquence que nous traçons sur un diagramme de Bode.
-Elles sont représentés sur les~\cref{fig-bode_1er_1,fig-bode_1er_2}, pour respectivement différentes valeurs 
-du gain statique $K$ et du temps caractéristique $\tau$.
+Ce sont ces deux fonctions de la fréquence que nous traçons sur un diagramme
+de Bode. Elles sont représentés sur les~\cref{fig-bode_1er_1,fig-bode_1er_2}, 
+pour respectivement différentes valeurs du gain statique $K$ et du temps 
+caractéristique $\tau$.
 \newline
 
 Il est cependant recommandé de déterminer les asymptotes 
 de ces deux fonctions à basse et haute fréquence. 
-Pour celà, nous introduisons une \textbf{fréquence de cassure} $\omega_c=\dfrac{1}{\tau}$ 
-qui délimite ces deux domaines.
-\`A cette fréquence, le gain en décibel est de $G_{dB}(\omega_c)=20\log{K}-3$ et la phase 
-$\phi(\omega)=\arctan{(1)}=\dfrac{\pi}{4}$. 
-Le gain de -3dB est la valeur approximative de $20\log{\sqrt{2}}$, communément utilisée pour définir la 
-\textbf{fréquence de coupure}.
+Pour celà, nous introduisons une \textbf{fréquence de cassure} 
+$\omega_c=\dfrac{1}{\tau}$ qui délimite ces deux domaines.
+\`A cette fréquence, le gain en décibel est de $G_{dB}(\omega_c)=20\log{K}-3$ 
+et la phase $\phi(\omega)=\arctan{(1)}=\dfrac{\pi}{4}$.
+Le gain de -3dB est la valeur approximative de $20\log{\sqrt{2}}$, communément
+utilisée pour définir la \textbf{fréquence de coupure}.
 
-\`A basse fréquence, c'est à dire lorsque $\tau\omega\ll1$ ou encore $\omega\ll\omega_0$, 
-le gain et la phase se comporte comme, 
+\`A basse fréquence, c'est à dire lorsque $\tau\omega\ll1$ ou 
+encore $\omega\ll\omega_0$, le gain et la phase se comporte comme, 
 \begin{bequation}[ams align*]
     G_{dB}(\omega)&\sim20\log{K} \\
     \phi(\omega)&\sim0\si{\degree}.
 \end{bequation} 
 
-\`A haute fréquence, c'est à dire lorsque $\tau\omega\gg1$ ou encore $\omega\gg\omega_0$,
-le gain et la phase se comporte comme,
+\`A haute fréquence, c'est à dire lorsque $\tau\omega\gg1$ ou 
+encore $\omega\gg\omega_0$, le gain et la phase se comporte comme,
 \begin{bequation}[ams align*]
     G_{dB}(\omega)&\sim20\log{K}-20\log{\frac{\omega}{\omega_0}} \\
     \phi(\omega)&\sim-\dfrac{\pi}{2}.
 \end{bequation} 
-La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes réels et les courbes asymptotiques.
+La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes 
+réels et les courbes asymptotiques.
 
 \begin{figure}[!t]
 \centering
@@ -1041,7 +1054,8 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
     ylabel={Gain (dB)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     yticklabels={-60,-40,-20,0,20,40,60}, 
     xmode=log,ymode=normal,
     xmin=1e-3, xmax=1e3,
@@ -1049,9 +1063,12 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, black,domain=1e-3:1e3, samples=101] {20*log10(0.1)-20*log10(sqrt(1+x*x))}; 
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {-20*log10(sqrt(1+x*x))}; 
-    \addplot[ultra thick, red,domain=1e-3:1e3, samples=101] {20*log10(10)-20*log10(sqrt(1+x*x))}; 
+    \addplot[ultra thick, black,domain=1e-3:1e3, samples=101]
+    {20*log10(0.1)-20*log10(sqrt(1+x*x))}; 
+    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101]
+    {-20*log10(sqrt(1+x*x))}; 
+    \addplot[ultra thick, red,domain=1e-3:1e3, samples=101]
+    {20*log10(10)-20*log10(sqrt(1+x*x))}; 
 \end{axis}
 \end{tikzpicture}
 
@@ -1066,7 +1083,8 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-90,-45,0}, 
     yticklabels={-90,-45,0},
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     xmode=log,ymode=normal,
     xmin=1e-3, xmax=1e3,
     ymin=-90, ymax=0,
@@ -1076,10 +1094,10 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
     \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {-atan2(x,1)}; 
 \end{axis}
 \end{tikzpicture}
-    \caption{Diagramme de Bode d'un système du premier ordre (\Cref{eq-1er_ftjw})
-    avec (noir) $K=0.1$ (bleu) 
-    $K=1$ et (rouge) $K=10$. L'effet du gain $K$ est de décaler 
-    verticalement la courbe de gain.\label{fig-bode_1er_1}}
+    \caption{Diagramme de Bode d'un système du premier ordre 
+             (\Cref{eq-1er_ftjw}) avec (noir) $K=0.1$ (bleu) $K=1$ et 
+             (rouge) $K=10$. L'effet du gain $K$ est de décaler verticalement 
+             la courbe de gain.\label{fig-bode_1er_1}}
 \end{figure}
 \begin{figure}[!b]
 \centering
@@ -1092,7 +1110,8 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
     ylabel={Gain (dB)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     yticklabels={-60,-40,-20,0,20,40,60}, 
     xmode=log,ymode=normal,
     xmin=1e-3, xmax=1e3,
@@ -1100,9 +1119,12 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, black,domain=1e-3:1e3, samples=101] {-20*log10(sqrt(1+10*x*x))}; 
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {-20*log10(sqrt(1+x*x))}; 
-    \addplot[ultra thick, red,domain=1e-3:1e3, samples=101] {-20*log10(sqrt(1+0.1*x*x))}; 
+    \addplot[ultra thick, black,domain=1e-3:1e3, samples=101] 
+    {-20*log10(sqrt(1+10*x*x))}; 
+    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] 
+    {-20*log10(sqrt(1+x*x))}; 
+    \addplot[ultra thick, red,domain=1e-3:1e3, samples=101] 
+    {-20*log10(sqrt(1+0.1*x*x))}; 
 \end{axis}
 \end{tikzpicture}
 
@@ -1117,24 +1139,29 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-90,-45,0}, 
     yticklabels={-90,-45,0},
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     xmode=log,ymode=normal,
     xmin=1e-3, xmax=1e3,
     ymin=-90, ymax=0,
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, black,domain=1e-3:1e3, samples=101] {-atan2(10*x,1)}; 
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {-atan2(x,1)}; 
-    \addplot[ultra thick, red,domain=1e-3:1e3, samples=101] {-atan2(0.1*x,1)}; 
+    \addplot[ultra thick, black,domain=1e-3:1e3, samples=101] 
+    {-atan2(10*x,1)}; 
+    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] 
+    {-atan2(x,1)}; 
+    \addplot[ultra thick, red,domain=1e-3:1e3, samples=101] 
+    {-atan2(0.1*x,1)}; 
 \end{axis}
 \end{tikzpicture}
-    \caption{Diagramme de Bode d'un système du premier ordre (\Cref{eq-1er_ftjw}) 
-    avec (noir) $\tau=10$ (bleu) $\tau=1$ et (rouge) $\tau=0.1$. L'effet du temps caractéristique 
-    $\tau$ est de décaler horizontalement la courbe de phase.\label{fig-bode_1er_2}}
+    \caption{Diagramme de Bode d'un système du premier ordre 
+             (\Cref{eq-1er_ftjw}) avec (noir) $\tau=10$ (bleu) $\tau=1$ et 
+             (rouge) $\tau=0.1$. L'effet du temps caractéristique $\tau$ est 
+             de décaler horizontalement la courbe de phase.
+             \label{fig-bode_1er_2}}
 \end{figure}
 \afterpage{\clearpage}
-
 \begin{figure}[!t]
 \centering
 \tikzsetnextfilename{bode_1er_5-chap3_ext}
@@ -1154,9 +1181,11 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick,blue,domain=1e-3:1e3, samples=101] {-20*log10(sqrt(1+x*x))};
+    \addplot[ultra thick,blue,domain=1e-3:1e3, samples=101] 
+    {-20*log10(sqrt(1+x*x))};
     \addplot[line width=2pt,red,dashed,domain=1e-1:1e0, samples=101] {0};
-    \addplot[line width=2pt,red,dashed,domain=1e0:1e1, samples=101] {-20*log10(x)};
+    \addplot[line width=2pt,red,dashed,domain=1e0:1e1, samples=101] 
+    {-20*log10(x)};
 \end{axis}
 \end{tikzpicture}
 
@@ -1185,24 +1214,31 @@ La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes r
 \end{axis}
 \end{tikzpicture}
 \caption{Diagramme de Bode d'un système du premier ordre 
-    (\Cref{eq-1er_ftjw}) (i.e $K=1$, $\tau=1$ et $\omega_c=1$) avec (bleu) le diagramme réel 
-    et (rouge) le diagramme asymptotique. On vérifie que les valeurs
-    asymptotiques sont de bonnes approximations à basse et haute fréquence. Il est également 
-    possible de lire un gain de -3 dB et une phase de -45\si{\degree} à la fréquence de coupure.\label{fig-bode_1er_3}}
+         (\Cref{eq-1er_ftjw}) (i.e $K=1$, $\tau=1$ et $\omega_c=1$) avec 
+         (bleu) le diagramme réel et (rouge) le diagramme asymptotique. On 
+         vérifie que les valeurs asymptotiques sont de bonnes approximations 
+         à basse et haute fréquence. Il est également possible de lire un 
+         gain de \SI{-3}{\dB} et une phase de -45\si{\degree} à la fréquence 
+         de coupure.\label{fig-bode_1er_3}}
 \end{figure}
-%\caption{Diagramme de Bode d'un système du premier ordre $H(p)=(1-\tau p)^{-1}$\label{fig-bode_1er_ms}}
-%\caption{Diagramme de Bode d'un système du premier ordre passe-bas $H(p)=(1+\tau p)^{-1}$.\label{fig-bode_1er_ps}}
-%\caption{Diagramme de Bode d'un système du premier ordre (passe-haut).\label{fig-bode_int}}
+%\caption{Diagramme de Bode d'un système du premier ordre 
+%$H(p)=(1-\tau p)^{-1}$\label{fig-bode_1er_ms}}
+%\caption{Diagramme de Bode d'un système du premier ordre passe-bas 
+%$H(p)=(1+\tau p)^{-1}$.\label{fig-bode_1er_ps}}
+%\caption{Diagramme de Bode d'un système du premier ordre (passe-haut).
+%\label{fig-bode_int}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode de deux systèmes du premier ordre en série }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La fonction de transfert globale de deux systèmes du premier ordre en série s'écrit:
+La fonction de transfert globale de deux systèmes du premier ordre en série 
+s'écrit:
 \begin{align}
-    H(\jw)=\dfrac{K_1K_2}{(1+j\tau_1\omega)(1+j\tau_2\omega)}\label{eq-1er_serie}
+H(\jw)=\dfrac{K_1K_2}{(1+j\tau_1\omega)(1+j\tau_2\omega)}\label{eq-1er_serie}
 \end{align}
-On utilise la propriété du logarithme pour écrire le gain globale $G_{dB}(\omega)$ comme une somme de 
-gain de deux systèmes du premier ordre, soit
+On utilise la propriété du logarithme pour écrire le gain globale 
+$G_{dB}(\omega)$ comme une somme de gain de deux systèmes du premier ordre, 
+soit
 $$
 G_{dB}(\omega) = G_{dB1}(\omega) + G_{dB2}(\omega)
 $$
@@ -1212,7 +1248,8 @@ $$
 $$
 En reprenant les~\cref{eq-gain_1er,eq-phase_1er} on établit facilement que,
 \begin{bequation}[ams align*]
-    G_{dB}(\omega) = 20\log{K_1K_2}-20\log{\sqrt{1+\tau_1^2\omega^2}}-20\log{\sqrt{1+\tau_2^2\omega^2}}
+G_{dB}(\omega) = 20\log{K_1K_2}-20\log{\sqrt{1+\tau_1^2\omega^2}}
+                -20\log{\sqrt{1+\tau_2^2\omega^2}}
 \end{bequation}
 et
 \begin{bequation}[ams align*]
@@ -1221,8 +1258,10 @@ et
 
 L'étude asymptotique se fait en considérant deux fréquences de coupures 
 $\omega_{c1}=\frac{1}{\tau_1}$ et $\omega_{c2}=\frac{1}{\tau_2}$.
-Supposons d'abord, sans perte de généralité, que $\omega_{c2}>\omega_{c1}$ et considérons 
-les trois domaines de fréquence ainsi définits selon que $\omega\ll\omega_{c1}$, $\omega_{c1}<\omega<\omega_{c1}$ ou 
+Supposons d'abord, sans perte de généralité, que $\omega_{c2}>\omega_{c1}$ et 
+considérons 
+les trois domaines de fréquence ainsi définits selon que 
+$\omega\ll\omega_{c1}$, $\omega_{c1}<\omega<\omega_{c1}$ ou 
 $\omega\gg\omega_{c2}$
 
 \paragraph{Pour $\omega\ll\omega_{c1}$}
@@ -1233,24 +1272,28 @@ G_{dB}(\omega)&\sim20\log{K_1K_2}\\
 
 \paragraph{Pour $\omega_{c1}<\omega<\omega_{c1}$}
 \begin{bequation}[ams align*]
-    G_{dB}(\omega)&\sim20\log{K_1K_2}-20\log{\dfrac{\omega}{\omega_{c1}\omega_{c2}}}\\
-    \phi(\omega)&\sim-90\si{\degree}
+G_{dB}(\omega)&\sim20\log{K_1K_2}-20\log{\dfrac{\omega}
+                                               {\omega_{c1}\omega_{c2}}}\\
+\phi(\omega)&\sim-90\si{\degree}
 \end{bequation}
-
 \paragraph{Pour $\omega\gg\omega_{c2}$}
 \begin{bequation}[ams align*]
-    G_{dB}(\omega)&\sim20\log{K_1K_2}-40\log{\dfrac{\omega}{\omega_{c1}\omega_{c2}}}\\
-    \phi(\omega)&\sim-180\si{\degree}
+G_{dB}(\omega)&\sim20\log{K_1K_2}-40\log{\dfrac{\omega}
+                                               {\omega_{c1}\omega_{c2}}}\\
+\phi(\omega)&\sim-180\si{\degree}
 \end{bequation}
 
-La~\cref{fig-bode_1er_serie} présente le diagramme de Bode réel et asymptotique 
-de deux systèmes du premier ordre en cascade. On remarquera que l'approximation asymptotique est suffisante 
-pour décrire le gain de ce genre de système. En marquant la discontinuité dans le graphe de la phase, 
-on distingue plus facilement les différentes zones et les changements de pente du gain. Pour la phase, il suffit de déterminer
-sa valeur pour quelques valeurs particulières de la pulsation. 
+La~\cref{fig-bode_1er_serie} présente le diagramme de Bode réel et 
+asymptotique de deux systèmes du premier ordre en cascade. On remarquera 
+que l'approximation asymptotique est suffisante pour décrire le gain de ce 
+genre de système. En marquant la discontinuité dans le graphe de la phase, 
+on distingue plus facilement les différentes zones et les changements de 
+pente du gain. Pour la phase, il suffit de déterminer sa valeur pour 
+quelques valeurs particulières de la pulsation. 
 
-Comme nous l'avons déjà rencontré, l'étude de deux systèmes du premier ordre en série correspond à l'étude d'un système
-du second ordre en régime apériodique.
+Comme nous l'avons déjà rencontré, l'étude de deux systèmes du premier 
+ordre en série correspond à l'étude d'un système du second ordre en 
+régime apériodique.
 
 \begin{figure}[!t]
 \centering
@@ -1263,7 +1306,8 @@ du second ordre en régime apériodique.
     ylabel={Gain (dB)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-80,-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     yticklabels={-80,-60,-40,-20,0,20,40,60}, 
     xmode=log,ymode=normal,
     xmin=1e-3, xmax=1e3,
@@ -1271,12 +1315,17 @@ du second ordre en régime apériodique.
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {-20*log10(sqrt(1+100*x*x))-20*log10(sqrt(1+0.01*x*x))}; 
-    \addplot[line width=2pt,red,dashed,domain=1e-3:1e-1, samples=101] {0};
-    \addplot[line width=2pt,red,dashed,domain=1e-1:1e1, samples=101] {-20*log10(x/0.1)};
-    \addplot[line width=2pt,red,dashed,domain=1e1:1e3, samples=101] {-20*log10(x/0.1)-20*log10(x/10)};
-    \node[right,xshift=1em,yshift=-0.1em] at (axis cs:0.1,-70) {{\large \textbf{-20dB/décade}}};
-    \node[right,xshift=1em,yshift=-0.1em] at (axis cs:10,-10) {{\large \textbf{-40dB/décade}}};
+    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101]
+    {-20*log10(sqrt(1+100*x*x))-20*log10(sqrt(1+0.01*x*x))}; 
+    \addplot[line width=2pt,red,dashed,domain=1e-3:1e-1, samples=101]{0};
+    \addplot[line width=2pt,red,dashed,domain=1e-1:1e1, samples=101]
+    {-20*log10(x/0.1)};
+    \addplot[line width=2pt,red,dashed,domain=1e1:1e3, samples=101]
+    {-20*log10(x/0.1)-20*log10(x/10)};
+    \node[right,xshift=1em,yshift=-0.1em] at (axis cs:0.1,-70)
+    {{\large \textbf{-20dB/décade}}};
+    \node[right,xshift=1em,yshift=-0.1em] at (axis cs:10,-10)
+    {{\large \textbf{-40dB/décade}}};
 \end{axis}
 \end{tikzpicture}
 
@@ -1291,59 +1340,70 @@ du second ordre en régime apériodique.
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-180,-135,-90,-45,0}, 
     yticklabels={-180,-135,-90,-45,0},
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     xmode=log,ymode=normal,
     xmin=1e-3, xmax=1e3,
     ymin=-180, ymax=0,
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {-atan2(x,1)-atan2(x,0.1)}; 
-    \addplot[line width=2pt,red,dashed,domain=1e-3:1e-1, samples=101] {0};
+    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101]
+    {-atan2(x,1)-atan2(x,0.1)}; 
+    \addplot[line width=2pt,red,dashed,domain=1e-3:1e-1, samples=101]{0};
     \addplot[line width=2pt,red,dashed,domain=1e-1:1e1, samples=101] {-90};
     \addplot[line width=2pt,red,dashed,domain=1e1:1e3, samples=101] {-180};
     \draw[line width=2pt,red,dashed] (axis cs:0.1,0) -- (axis cs:0.1,-90);
     \draw[line width=2pt,red,dashed] (axis cs:10,-90) -- (axis cs:10,-180);
 \end{axis}
 \end{tikzpicture}
-    \caption{Diagramme de Bode de systèmes du premier ordre en série (\Cref{eq-1er_serie}) 
-    avec $\tau_1=10$ et $\tau_2=0.1$ (bleu) le diagramme réel et (rouge) 
-    le diagramme asymptotique.\label{fig-bode_1er_serie}}
+    \caption{Diagramme de Bode de systèmes du premier ordre en série 
+    (\Cref{eq-1er_serie}) avec $\tau_1=10$ et $\tau_2=0.1$ (bleu) le 
+    diagramme réel et (rouge) le diagramme asymptotique.
+    \label{fig-bode_1er_serie}}
 \end{figure}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système second d'ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La fonction de transfert d'un système du second ordre (\Cref{eq-2nd_ft}) est donnée par :
+La fonction de transfert d'un système du second ordre (\Cref{eq-2nd_ft}) 
+est donnée par :
 \begin{align}
-    H(\jw)=\dfrac{K\omega^2_0}{(\omega^2_0-\omega^2)+j2\xi\omega_0\omega}\label{eq-2nd_ftjw}
+H(\jw)=\dfrac{K\omega^2_0}{(\omega^2_0-\omega^2)+j2\xi\omega_0\omega}
+\label{eq-2nd_ftjw}
 \end{align}
 Le gain s'obtient en calculant le module de ce nombre complexe :
 $$
-G(\omega)=\dfrac{K\omega^2_0}{\sqrt{(\omega^2_0-\omega^2)^2+(2\xi\omega_0\omega)^2}}
+G(\omega)=\dfrac{K\omega^2_0}{\sqrt{(\omega^2_0-\omega^2)^2
+         +(2\xi\omega_0\omega)^2}}
 $$
 Le gain en décibel s'écrit alors :
 \begin{bequation}[ams align*]
-G_{db}(\omega)=20\log{K\omega_0^2}-20\log{\sqrt{(\omega^2_0-\omega^2)^2+(2\xi\omega_0\omega)^2}}
+G_{db}(\omega)=20\log{K\omega_0^2}-20\log{\sqrt{(\omega^2_0-\omega^2)^2
+              +(2\xi\omega_0\omega)^2}}
 \end{bequation}
 et la phase par l'argument princiale:
 \begin{bequation}[ams align*]
 \phi(\omega)=
 \begin{cases}
-    -\arctan{\left(\dfrac{2\xi\omega_0\omega}{\omega_0^2-\omega^2}\right)}     &\,\,\,\,\text{si $\omega^2<\omega^2_0$}\\
-    -\arctan{\left(\dfrac{2\xi\omega_0\omega}{\omega_0^2-\omega^2}\right)}+\pi &\,\,\,\,\text{si $\omega^2>\omega^2_0$}\\
-    -\dfrac{\pi}{2}                                                            &\,\,\,\,\text{si $\omega^2=\omega^2_0$}
+    -\arctan{\left(\dfrac{2\xi\omega_0\omega}{\omega_0^2-\omega^2}\right)}     
+    &\,\,\,\,\text{si $\omega^2<\omega^2_0$}\\
+    -\arctan{\left(\dfrac{2\xi\omega_0\omega}{\omega_0^2-\omega^2}\right)}+\pi 
+    &\,\,\,\,\text{si $\omega^2>\omega^2_0$}\\
+    -\dfrac{\pi}{2}                                                            
+    &\,\,\,\,\text{si $\omega^2=\omega^2_0$}
 \end{cases}
 \end{bequation}
 
-Comme précdemment, il est recommandé d'étudier les valeurs asymptotiques du gain et de la phase.
+Comme précdemment, il est recommandé d'étudier les valeurs asymptotiques 
+du gain et de la phase.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pour $\omega \ll\omega_0$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{bequation}[ams align*]
 G_{dB}(\omega)&\sim20\log{K}\\
-    \phi(\omega)&\sim0\si{\degree}
+\phi(\omega)&\sim0\si{\degree}
 \end{bequation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1353,10 +1413,13 @@ G_{dB}(\omega)&\sim20\log{K}\\
 G_{dB}(\omega)&\sim20\log{K\omega^2_0}-40\log\omega\\
     \phi(\omega)&\sim-180\si{\degree}
 \end{bequation}
-La~\cref{fig-bode_2nd_1} présente le diagramme de Bode associé à ces deux fonctions pour $\xi=1$, ainsi que le
-diagramme de Bode asymptotique. La~\cref{fig-bode_2nd_2} présente l'effet du taux d'amortissement $\xi$ sur le diagramme 
-de Bode. Il est possible d'observer une augmentation de la valeur maximum du gain proche de la fréquence de coupure.
-C'est ce phénomène de résonance que nous allons discuter dans la prochaine partie.
+La~\cref{fig-bode_2nd_1} présente le diagramme de Bode associé à ces deux 
+fonctions pour $\xi=1$, ainsi que le diagramme de Bode asymptotique. 
+La~\cref{fig-bode_2nd_2} présente l'effet du taux d'amortissement $\xi$ sur 
+le diagramme de Bode. Il est possible d'observer une augmentation de la valeur 
+maximum du gain proche de la fréquence de coupure.
+C'est ce phénomène de résonance que nous allons discuter dans la 
+prochaine partie.
 
 
 \begin{figure}[!t]
@@ -1370,7 +1433,8 @@ C'est ce phénomène de résonance que nous allons discuter dans la prochaine pa
     ylabel={Gain (dB)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-120,-100,-80,-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     yticklabels={-120,-100,-80,-60,-40,-20,0,20,40,60}, 
     xmode=log,ymode=normal,
     xmin=1e-3, xmax=1e3,
@@ -1379,11 +1443,12 @@ C'est ce phénomène de résonance que nous allons discuter dans la prochaine pa
     major grid style={black!40},
     cycle list name=color list,
 ]
-    \addplot[line width=2pt,red,dashed,domain=1e-3:1e0, samples=101] {0};
-    \addplot[line width=2pt,red,dashed,domain=1e0:1e3, samples=101] {-40*log10(x)};
-
+    \addplot[line width=2pt,red,dashed,domain=1e-3:1e0, samples=101]{0};
+    \addplot[line width=2pt,red,dashed,domain=1e0:1e3, samples=101] 
+    {-40*log10(x)};
     \foreach \a in {1.0}
-        \addplot[thick,domain=1e-3:1e3, blue,samples=101] {-20*log10(sqrt( (1-x*x)^2 +(2*\a*x)^2 )  )}; 
+        \addplot[thick,domain=1e-3:1e3, blue,samples=101] 
+        {-20*log10(sqrt( (1-x*x)^2 +(2*\a*x)^2 )  )}; 
 \end{axis}
 \end{tikzpicture}
 
@@ -1399,12 +1464,9 @@ C'est ce phénomène de résonance que nous allons discuter dans la prochaine pa
     ylabel={Phase (deg)},
     xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
     ytick={-180,-135,-90,-45,0}, 
-    %ytick={0,45,90,135,180}, 
-    %ytick={-90,-45,0}, 
     yticklabels={-180,-135,-90,-45,0},
-    %yticklabels={0,45,90,135,180}, 
-    %yticklabels={-90,-45,0},
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
     xmode=log,ymode=normal,
     xmin=1e-3, xmax=1e3,
     ymin=-180, ymax=0,
@@ -1416,7 +1478,8 @@ C'est ce phénomène de résonance que nous allons discuter dans la prochaine pa
     \addplot[line width=2pt,red,dashed,domain=1e0:1e3, samples=101] {-180};
     \draw[line width=2pt,red,dashed] (axis cs:1,0) -- (axis cs:1,-180);
     \foreach \a in {1.0}
-        \addplot+[thick,blue,domain=1e-3:1e3, samples=101] {-atan2(2*\a*x,(1-x*x))}; 
+        \addplot+[thick,blue,domain=1e-3:1e3, samples=101] 
+        {-atan2(2*\a*x,(1-x*x))}; 
 \end{axis}
 \end{tikzpicture}
     \caption{Diagramme de Bode d'une fonction de transfert second ordre 
@@ -1428,30 +1491,34 @@ C'est ce phénomène de résonance que nous allons discuter dans la prochaine pa
 \centering
 \tikzsetnextfilename{bode_2nd_3-chap3_ext}
     \input{tikz/bode_2nd_3.tex}
-    \caption{Diagramme de Bode d'une fonction de transfert du second ordre (\Cref{eq-2nd_ftjw}) pour 
-    différentes valeurs de $\xi$ avec $K=1$ et $\omega_0=1$\label{fig-bode_2nd_2}}
+    \caption{Diagramme de Bode d'une fonction de transfert du second ordre 
+             (\Cref{eq-2nd_ftjw}) pour différentes valeurs de $\xi$ avec 
+             $K=1$ et $\omega_0=1$\label{fig-bode_2nd_2}}
 \end{figure}
 \afterpage{\clearpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Phénomène de résonance}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Le gain d'un système du second ordre présente un maximum pour certaines valeurs du taux 
-d'amortissement $\xi$. Nous allons établir en détail les différentes 
+Le gain d'un système du second ordre présente un maximum pour certaines valeurs 
+du taux d'amortissement $\xi$. Nous allons établir en détail les différentes 
 grandeurs caractéristiques de ce phénomène de résonance. 
 L'approche suivante s'inspire en partie de~\cite{laroche}.
 
 Partons du gain naturel $G(\omega)$ d'un système du second ordre pour lequel,
 $$
-G(\omega)=\dfrac{K\omega^2_0}{\sqrt{(\omega^2_0-\omega^2)^2+(2\xi\omega_0\omega)^2}}
+G(\omega)=\dfrac{K\omega^2_0}{\sqrt{(\omega^2_0-\omega^2)^2
++(2\xi\omega_0\omega)^2}}
 $$
-on pose $X=\omega^2$, et on porte le gain au carré pour éliminer la racine carrée. 
+on pose $X=\omega^2$, et on porte le gain au carré pour éliminer la 
+racine carrée. 
 On obtient alors,
 $$
 (G(\omega))^2=\dfrac{K^2\omega^4_0}{(\omega^2_0-X)^2+(2\xi\omega_0)^2X}
 $$
-Le numérateur étant constant, le gain présentera un maximum si le dénominateur 
-présente un minimum. Notons $D(X)$, ce dénominateur qui s'écrit:
+Le numérateur étant constant, le gain présentera un maximum si le 
+dénominateur présente un minimum. Notons $D(X)$, ce dénominateur qui 
+s'écrit:
 $$
 D(X)=(\omega^2_0-X)^2+(2\xi\omega_0)^2X
 $$
@@ -1463,8 +1530,9 @@ qui s'annule pour
 $$
 X=X_0=\omega^2_0(1-2\xi^2).
 $$
-La dérivée seconde étant positive, le dénominateur $D(X)$ présente un minimum en $X_0$.
-Puisque $X>0$ et $\omega^2_0>0$ alors la condition sur le taux d'amortissement est 
+La dérivée seconde étant positive, le dénominateur $D(X)$ présente un 
+minimum en $X_0$. Puisque $X>0$ et $\omega^2_0>0$ alors la condition sur le 
+taux d'amortissement est 
 \begin{bequation}[ams align]
     \xi<\dfrac{\sqrt{2}}{2}
 \end{bequation}
@@ -1476,26 +1544,32 @@ La valeur du gain maximal est obtenue à la pulsation de résonance,
 $$
 G(\omega_r)=\dfrac{K}{2\xi\sqrt{1-\xi^2}},
 $$
-ce qui permet de définir le \textbf{facteur de surtension} $Q$ qui est le rapport entre le maximum atteint par
-le gain et la valeur de l'asymptote à basse fréquence, d'où 
+ce qui permet de définir le \textbf{facteur de surtension} $Q$ qui est le 
+rapport entre le maximum atteint par le gain et la valeur de l'asymptote 
+à basse fréquence, d'où 
 \begin{bequation}[ams align]
     Q=\dfrac{1}{2\xi\sqrt{1-\xi^2}}
 \end{bequation}
 
-D'après ces dernières expressions, on observe qu'à la limite $\xi\to0$, la pulsation de résonance 
-$\omega_r$ tend vers $\omega_0$, et le gain maximal tend lui vers l'infini.
-La pulsation $\omega_0$ est donc la valeur pour lequel le phénomène de résonance est le plus intense.
-La~\cref{fig-gain_2nd} présente la position du gain  maximum à la pulsation de résonance pour différentes
-valeurs du taux d'amortissement.
+D'après ces dernières expressions, on observe qu'à la limite $\xi\to0$, 
+la pulsation de résonance $\omega_r$ tend vers $\omega_0$, et le gain 
+maximal tend lui vers l'infini.
+La pulsation $\omega_0$ est donc la valeur pour lequel le phénomène de 
+résonance est le plus intense.
+La~\cref{fig-gain_2nd} présente la position du gain  maximum à la pulsation 
+de résonance pour différentes valeurs du taux d'amortissement.
 
 \begin{figure}[!h]
     \centering
 \tikzsetnextfilename{gain_resonance-chap3_ext}
     \input{tikz/gain_resonance.tex}
-    \caption{\'Evolution du gain en décibel en fonction de la pulsation pour différentes
-    valeurs du taux d'amortissement du régime pseudo-périodique. Le gain maximal à la pulsation 
-    de résonance $\omega_r$ est représenté par une pastille noir sur chacune des courbes pour $\xi<\sqrt{2}/2$.
-    On remarquera l'utilisation exceptionnelle d'une échelle linéaire pour les pulsations.\label{fig-gain_2nd}}
+    \caption{\'Evolution du gain en décibel en fonction de la pulsation 
+             pour différentes valeurs du taux d'amortissement du régime 
+             pseudo-périodique. Le gain maximal à la pulsation de résonance 
+             $\omega_r$ est représenté par une pastille noir sur chacune des 
+             courbes pour $\xi<\sqrt{2}/2$. On remarquera l'utilisation 
+             exceptionnelle d'une échelle linéaire pour les pulsations.
+             \label{fig-gain_2nd}}
 \end{figure}
 \afterpage{\clearpage}
 \newpage
@@ -1503,48 +1577,56 @@ valeurs du taux d'amortissement.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système d'ordre quelconque}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Dans le cas d'un système d'ordre supérieur à deux, nous allons utiliser les propriétés d'additivité des diagrammes 
-de Bode, en décomposant la fonction de transfert en différents modèles simples.
+Dans le cas d'un système d'ordre supérieur à deux, nous allons utiliser 
+les propriétés d'additivité des diagrammes de Bode, en décomposant la fonction 
+de transfert en différents modèles simples.
 
-Il est notamment toujours possible d'écrire une fonction de transfert (~\cref{chap-model}) 
-sous la forme d'un produit de gains purs, 
+Il est notamment toujours possible d'écrire une fonction de transfert 
+(~\cref{chap-model}) sous la forme d'un produit de gains purs, 
 d'intégrateurs, de dérivateurs, de systèmes du premier et du second ordre: 
 \begin{bequation}[ams align]
-H(p)= K_0p^{\alpha}\prod_{i} (1+\tau_ip)^{n_i}\prod_{j} (1+2\xi_j\tau_jp+\tau_jp^2)^{n_j}
+H(p)= K_0p^{\alpha}\prod_{i} (1+\tau_ip)^{n_i}\prod_{j} 
+      (1+2\xi_j\tau_jp+\tau_jp^2)^{n_j}
 \end{bequation}
 où les exposants $\alpha$, $n_i$ et $n_j$ peuvent être positifs et négatifs. 
 
-Nous listons ci-dessous l'effet sur le gain et la phase d'un diagramme de Bode 
-pour chacuns de ces élements selon le signe des exposants $\alpha$, $n_i$, et $n_j$.
+Nous listons ci-dessous l'effet sur le gain et la phase d'un diagramme de 
+Bode pour chacuns de ces élements selon le signe des exposants $\alpha$, 
+$n_i$, et $n_j$.
 
 \begin{itemize}
     \item le terme $K_0$ (i.e gain pur) provoque:
-        \begin{itemize}
-            \item gain  : $+20\log{K_0}$
-            \item phase : rien 
-        \end{itemize}
-    \item le terme $K_0p^{\alpha}$ (i.e intégrateur si $\alpha<0$ ou dérivateur si $\alpha>0$)
-        provoque :
+    \begin{itemize}
+        \item gain  : $+20\log{K_0}$
+        \item phase : rien 
+    \end{itemize}
+    \item le terme $K_0p^{\alpha}$ (i.e intégrateur si $\alpha<0$ ou 
+          dérivateur si $\alpha>0$) provoque :
         \begin{itemize}
             \item gain  : pente de 20$\alpha$ dB/décade 
             \item phase : 90$\alpha$\si{\degree}
         \end{itemize}
-    \item un terme $\dfrac{1}{(1+\tau_ip)}$ (i.e premier ordre au dénominateur si $n_i=-1$) provoque, en $\omega=\frac{1}{\tau_i}$
+    \item un terme $\dfrac{1}{(1+\tau_ip)}$ (i.e premier ordre au 
+          dénominateur si $n_i=-1$) provoque, en $\omega=\frac{1}{\tau_i}$
         \begin{itemize}
             \item gain  : une rupture de pente de -20 dB/décade 
             \item phase : un saut de -90\si{\degree}
         \end{itemize}
-    \item un terme $(1+\tau_ip)$ (i.e premier ordre au numérateur si $n_i=1$) provoque, en $\omega=\frac{1}{\tau_i}$
+    \item un terme $(1+\tau_ip)$ (i.e premier ordre au numérateur si $n_i=1$) 
+          provoque, en $\omega=\frac{1}{\tau_i}$
         \begin{itemize}
             \item gain  : une rupture de pente de +20 dB/décade 
             \item phase : un saut de +90\si{\degree}
         \end{itemize}
-    \item un terme $\dfrac{1}{(1+2\xi_j\tau_jp+\tau_jp^2)}$ (i.e second ordre au dénominateur si $n_j=-1$) provoque, en $\omega=\frac{1}{\tau_j}$
+    \item un terme $\dfrac{1}{(1+2\xi_j\tau_jp+\tau_jp^2)}$ 
+          (i.e second ordre au dénominateur si $n_j=-1$) provoque, 
+          en $\omega=\frac{1}{\tau_j}$
         \begin{itemize}
             \item gain  : une rupture de pente de -40 dB/décade 
             \item phase : un saut de -180\si{\degree}
         \end{itemize}
-    \item un terme $(1+2\xi_j\tau_jp+\tau_jp^2)$ (i.e second ordre au numérateur si $n_j=-1$) provoque, en $\omega=\frac{1}{\tau_j}$
+    \item un terme $(1+2\xi_j\tau_jp+\tau_jp^2)$ (i.e second ordre au 
+          numérateur si $n_j=-1$) provoque, en $\omega=\frac{1}{\tau_j}$
         \begin{itemize}
             \item gain  : une rupture de pente de +40 dB/décade 
             \item phase : un saut de +180\si{\degree}
@@ -1562,22 +1644,24 @@ Soit la fonction de transfert $H(p)$ telle que
 \begin{align}
     H(p) = \dfrac{100(p+1)^2}{(100p+1)(10p+1)(0.01p+1)}\label{eq-ft_qq}
 \end{align}
-La première étape consiste à ordonner les temps caractéristiques par ordre décroissant 
-cela nous permettra d'obtenir les pulsations propres par ordre croissant. 
-Ensuite, il faut identifier les différents modèles.
+La première étape consiste à ordonner les temps caractéristiques par ordre 
+décroissant cela nous permettra d'obtenir les pulsations propres par ordre 
+croissant. Ensuite, il faut identifier les différents modèles.
 Pour cet exemple, nous identifions :
 \begin{itemize}
     \item un gain pur $K_0=100$
-    \item un second ordre double au numérateur de temps caractéristique $\tau=1$
-    \item trois premier ordre au dénominateur de temps caractéristique $\tau=\{0.01,10,100\}$
+    \item un second ordre double au numérateur de temps caractéristique 
+          $\tau=1$
+    \item trois premier ordre au dénominateur de temps caractéristique 
+          $\tau=\{0.01,10,100\}$
 \end{itemize}
 
-Enfin, nous regroupons dans un tableau l'effet 
-sur le gain et la phase pour chaque domaines en pulsations compris entre les 
-différentes pulsations caractéristiques.
-On adopte la notation suivante : $\tau_1=100$, $\tau_2=10$, $\tau_3=1$ et $\tau_4=0.01$, avec $\omega_i=1/\tau_i$, 
-on obtient alors:
-$\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$
+Enfin, nous regroupons dans un tableau l'effet sur le gain et la phase pour 
+chaque domaines en pulsations compris entre les différentes pulsations 
+caractéristiques.
+On adopte la notation suivante : $\tau_1=100$, $\tau_2=10$, $\tau_3=1$ 
+et $\tau_4=0.01$, avec $\omega_i=1/\tau_i$, on obtient alors:
+$\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$.
 
 \begin{table}[!h]
     \resizebox{\linewidth}{!}{
@@ -1589,13 +1673,17 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$
     & $\omega_3<\omega<\omega_4$ 
     & $\omega\gg\omega_4$ \\[0em]
     \hhline{======}
-    $G_{dB}(\omega)$ (pente) & 0(40dB)       &-20dB/décade    & -20dB/décade    & +40dB/décade & -20dB/décade \\[0em]
+    $G_{dB}(\omega)$ (pente) & 0(40dB)       &-20dB/décade    & -20dB/décade 
+                             & +40dB/décade & -20dB/décade \\[0em]
     \hline
-        $\phi(\omega)$       & 0\si{\degree} &-90\si{\degree} & -90\si{\degree} & +180\degree  & -90\degree   \\[0em]
+        $\phi(\omega)$       & 0\si{\degree} &-90\si{\degree} & -90\si{\degree} 
+                             & +180\degree  & -90\degree   \\[0em]
     \hhline{======}
-    $G_{dB}(\omega)$ total   & 0(40dB)       &-20dB/décade    & -40dB/décade    & 0(-20dB)     & -20dB/décade \\[0em]
+    $G_{dB}(\omega)$ total   & 0(40dB)       &-20dB/décade    & -40dB/décade    
+                             & 0(-20dB)     & -20dB/décade \\[0em]
     \hline
-    $\phi(\omega)$   total   & 0\degree      &-90\degree      & -180\degree     & 0            & -90\degree   \\[0em]
+    $\phi(\omega)$   total   & 0\degree      &-90\degree      & -180\degree     
+                             & 0            & -90\degree   \\[0em]
     \hhline{======}
     \end{tabular}}
 \end{table}
@@ -1612,7 +1700,8 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$
     ylabel={Gain (dB)},
     xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5}, 
     ytick={-80,-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
+    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
     yticklabels={-80,-60,-40,-20,0,20,40,60}, 
     xmode=log,ymode=normal,
     xmin=1e-4, xmax=1e5,
@@ -1620,12 +1709,19 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$
     grid=both,
     major grid style={black!40}
     ]
-    \addplot[ultra thick, blue,domain=1e-4:1e5, samples=201] {40+20*log10(1+x*x)-10*log10(1+10000*x*x)-10*log10(1+100*x*x)-10*log10(1+0.0001*x*x)}; 
-    \addplot[line width=2pt,red,dashed,domain=1e-4:1e-2, samples=101] {40};
-    \addplot[line width=2pt,red,dashed,domain=1e-2:1e-1, samples=101] {-20*log10(x)};
-    \addplot[line width=2pt,red,dashed,domain=1e-1:1e0 , samples=101] {-40*log10(x)-20*log10(10)};
-    \addplot[line width=2pt,red,dashed,domain=1e0:1e2  , samples=101] {-20};
-    \addplot[line width=2pt,red,dashed,domain=1e2:1e5  , samples=101] {-20*log10(x)+20*log10(10)};
+    \addplot[ultra thick, blue,domain=1e-4:1e5, samples=201] 
+    {40+20*log10(1+x*x)-10*log10(1+10000*x*x)-10*log10(1+100*x*x)-
+     10*log10(1+0.0001*x*x)}; 
+    \addplot[line width=2pt,red,dashed,domain=1e-4:1e-2, samples=101]
+    {40};
+    \addplot[line width=2pt,red,dashed,domain=1e-2:1e-1, samples=101]
+    {-20*log10(x)};
+    \addplot[line width=2pt,red,dashed,domain=1e-1:1e0 , samples=101]
+    {-40*log10(x)-20*log10(10)};
+    \addplot[line width=2pt,red,dashed,domain=1e0:1e2  , samples=101]
+    {-20};
+    \addplot[line width=2pt,red,dashed,domain=1e2:1e5  , samples=101]
+    {-20*log10(x)+20*log10(10)};
 \end{axis}
 \end{tikzpicture}
 
@@ -1640,19 +1736,17 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$
     ylabel={Phase (deg)},
     xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5}, 
     ytick={-180,-135,-90,-45,0}, 
-    %ytick={0,45,90,135,180}, 
-    %ytick={-90,-45,0}, 
-    %yticklabels={-180,-135,-90,-45,0},
-    %yticklabels={0,45,90,135,180}, 
     yticklabels={-180,-135,-90,-45,0},
-    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
+    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
     xmode=log,ymode=normal,
     xmin=1e-4, xmax=1e5,
     ymin=-180, ymax=0,
     grid=both,
     major grid style={black!40}
     ]
-    \addplot[ultra thick, blue,domain=1e-4:1e5, samples=201] {2*atan2(x,1)-atan2(100*x,1)-atan2(10*x,1)-atan2(0.01*x,1)}; 
+    \addplot[ultra thick, blue,domain=1e-4:1e5, samples=201] 
+    {2*atan2(x,1)-atan2(100*x,1)-atan2(10*x,1)-atan2(0.01*x,1)}; 
     \addplot[line width=2pt,red,dashed,domain=1e-4:1e-2, samples=101] {0};
     \addplot[line width=2pt,red,dashed,domain=1e-2:1e-1, samples=101] {-90};
     \addplot[line width=2pt,red,dashed,domain=1e-1:1e0 , samples=101] {-180};
@@ -1664,55 +1758,60 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$
     \draw[line width=2pt,red,dashed] (axis cs:100,0)   -- (axis cs:100,-90);
 \end{axis}
 \end{tikzpicture}
-    \caption{Diagramme de Bode du système d'ordre quelconque de l'\cref{eq-ft_qq} (bleu) diagramme de Bode réel et (rouge) 
-    diagramme de Bode asymptotique.\label{fig-bode_qq}}
+    \caption{Diagramme de Bode du système d'ordre quelconque de 
+             l'\cref{eq-ft_qq} (bleu) diagramme de Bode réel et (rouge) 
+             diagramme de Bode asymptotique.\label{fig-bode_qq}}
 \end{figure}
 
-Il est également possible de déterminer la forme analytique du gain et de la phase.
+Il est également possible de déterminer la forme analytique du gain et 
+de la phase.
 \begin{bequation}[ams align]
-    G_{dB}(\omega)=40+20\log{(1+\tau_3^2\omega^2)}-10\log{(1+\tau_1^2\omega^2)(1+\tau_2^2\omega^2)(1+\tau_4^2\omega^2)}
+G_{dB}(\omega)=40+20\log{(1+\tau_3^2\omega^2)}
+                 -10\log{(1+\tau_1^2\omega^2)
+                 (1+\tau_2^2\omega^2)(1+\tau_4^2\omega^2)}
 \end{bequation}
 et
 \begin{bequation}[ams align]
-\phi(\omega)=2\arctan{\tau_3\omega}-\arctan{\tau_1\omega}-\arctan{\tau_2\omega}-\arctan{\tau_4\omega} 
+\phi(\omega)=2\arctan{\tau_3\omega}-\arctan{\tau_1\omega}
+             -\arctan{\tau_2\omega}-\arctan{\tau_4\omega} 
 \end{bequation}
 
 \clearpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Diagrammes de Nyquist: méthodologie générale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
-\begin{itemize}                                                                                                               
-    \item Définir la fonction de transfert $H(p)$ du modèle pour $p=\jw$                                                      
-    \item \'Etablir la partie réelle et imaginaire du nombre complexe $H(\jw)$                                          
-    \item Tracer le lieu de Nyquist point par point, pour différentes valeurs de 
+\begin{itemize}
+    \item Définir la fonction de transfert $H(p)$ du modèle pour $p=\jw$
+    \item \'Etablir la partie réelle et imaginaire du nombre complexe $H(\jw)$
+    \item Tracer le lieu de Nyquist point par point, pour différentes valeurs de
         $\omega$ de 0 à $+\infty$, c'est à dire $\Re{H(\jw)}$ 
           et $\Im{H(\jw)}$ dans le plan complexe.
 \end{itemize}
-Dans chacuns des exemples suivants nous reproduisons le lieu de Nyquist complet le domaine des pulsations
-négatives étant représenté en pointillé. Dans la pratique, il suffit de tracer le symétrique par rapport à 
-l'axe des réels et d'inverser le sens de la flêche pour obtenir le sens de la pulsation de $-\infty\to 0$. 
+Dans chacuns des exemples suivants nous reproduisons le lieu de Nyquist 
+complet le domaine des pulsations négatives étant représenté en pointillé. 
+Dans la pratique, il suffit de tracer le symétrique par rapport à 
+l'axe des réels et d'inverser le sens de la flêche pour obtenir le sens de la 
+pulsation de $-\infty\to 0$. 
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un gain pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Le diagramme de Nyquist d'un gain pur est trivial. En effet le nombre complexe $H(\jw)$ étant égal 
-à une constante réel $K$, le diagramme de Nyquist ce limite à un point sur l'axe des réels quelque soit la valeur de $\omega$.
+Le diagramme de Nyquist d'un gain pur est trivial. En effet le nombre complexe 
+$H(\jw)$ étant égal à une constante réel $K$, le diagramme de Nyquist ce 
+limite à un point sur l'axe des réels quelque soit la valeur de $\omega$.
 Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
 \begin{align*}
     \Re{H(\jw)}&=K\\
     \Im{H(\jw)}&=0\\
 \end{align*}
 
-\begin{figure}[!h]                                                                                                           
-\begin{center}                                                                                                               
+\begin{figure}[!h]
+\begin{center}
 \tikzsetnextfilename{nyquist_gainpur-chap3_ext}
 \begin{tikzpicture}
 \begin{axis}
@@ -1726,19 +1825,19 @@ Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
     xmax=+10,
     grid=both,
     ]     
-    \node [below]       at (axis cs:  5, 0)   {$\forall\omega$};                
-    \node [above,blue]       at (axis cs:  5, 0)   {$K$};                
-    \addplot [blue, mark = *] coordinates {(5, 0)} {};                          
+    \node [below]       at (axis cs:  5, 0)   {$\forall\omega$};
+    \node [above,blue]       at (axis cs:  5, 0)   {$K$};
+    \addplot [blue, mark = *] coordinates {(5, 0)} {};
 \end{axis}
 \end{tikzpicture}
 \end{center}
-\caption{Diagramme de Nyquist d'un gain pur. Le nombre complexe 
-    $H(\jw)$ est représenté par un point sur l'axe des réels à la valeur $K$ (ici $K=5$).\label{fig-nyquist_1}}
+\caption{Diagramme de Nyquist d'un gain pur. Le nombre complexe $H(\jw)$ est 
+         représenté par un point sur l'axe des réels à la valeur $K$ 
+         (ici $K=5$). \label{fig-nyquist_1}}
 \end{figure}
 
 
 \newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un intégrateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1765,25 +1864,27 @@ Cependant il dépend de la pulsation $\omega$.
     xmax=+10,
     grid=both,
     ] 
-    \node [above right] at (axis cs:  0, -10)       {$\omega=0^+$};
-    \node [below right] at (axis cs:  0,  10)       {$\omega=0^-$};
-    \node [below right]       at (axis cs:  0, 0)   {$\omega\rightarrow+\infty$};
-    \node [above right]       at (axis cs:  0, 0)   {$\omega\rightarrow-\infty$};
-    \addplot [blue, mark = *] coordinates {(0, 0)} {};
-    \addplot[blue,thick,domain=0.01:0.2,samples=50,-{Latex[length=3mm]}] (0,{-1/x});
-    \addplot[blue,thick,domain=0.1:100,samples=50] (0,{-1/x});
-    \addplot [dashed,blue,thick,domain=-100:-0.2,-{Latex[length=3mm]},samples=100](0,{-1/x});
-    \addplot [dashed,blue,thick,domain=-0.2:-0.01,samples=100](0,{-1/x});
+    \node [above right] at (axis cs:  0, -10)     {$\omega=0^+$};
+    \node [below right] at (axis cs:  0,  10)     {$\omega=0^-$};
+    \node [below right]       at (axis cs:  0, 0) {$\omega\rightarrow+\infty$};
+    \node [above right]       at (axis cs:  0, 0) {$\omega\rightarrow-\infty$};
+\addplot [blue, mark = *] coordinates {(0, 0)}{};
+\addplot[blue,thick,domain=0.01:0.2,samples=50,-{Latex[length=3mm]}]
+    (0,{-1/x});
+\addplot[blue,thick,domain=0.1:100,samples=50]
+    (0,{-1/x});
+\addplot[dashed,blue,thick,domain=-100:-0.2,-{Latex[length=3mm]},samples=100]
+    (0,{-1/x});
+\addplot[dashed,blue,thick,domain=-0.2:-0.01,samples=100](0,{-1/x});
 \end{axis}
 \end{tikzpicture}
 \end{center}
 \caption{Diagramme de Nyquist d'un intégrateur pur. Le lieu de Nyquist 
-    est représenté par une demi droite sur l'axe des nombres 
-    imaginaires purs négatifs.\label{fig-nyquist_2}}
+         est représenté par une demi droite sur l'axe des nombres 
+         imaginaires purs négatifs.\label{fig-nyquist_2}}
 \end{figure}
 
 \newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un dérivateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1795,8 +1896,8 @@ de ce nombre complexe sont :
     \Re{H(\jw)}&=0\\
     \Im{H(\jw)}&=K\omega
 \end{align*}
-\begin{figure}[!h]                                                                                                           
-\begin{center}                                                                                                               
+\begin{figure}[!h]
+\begin{center}
 \tikzsetnextfilename{nyquist_deriv-chap3_ext}
 \begin{tikzpicture}
 \begin{axis}
@@ -1810,24 +1911,25 @@ de ce nombre complexe sont :
     xmax=+10,
     grid=both,
     ]     
-    \node [below right] at (axis cs:  0, 10)  {$\omega\rightarrow\infty$};                
-    \node [above right] at (axis cs:  0,-10)  {$\omega\rightarrow-\infty$};                
-    \node [below right]       at (axis cs:  0, 0)   {$\omega=0$};                
-    \addplot [blue, mark = *] coordinates {(0, 0)} {};                          
-    \addplot [blue,thick,domain=0:5,samples=50,-{Latex[length=3mm]}](0,{x}); 
-    \addplot [blue,thick,domain=4:10,samples=50](0,{x}); 
-    \addplot [dashed,blue,thick,domain=-10:-5,samples=50,-{Latex[length=3mm]}](0,{x}); 
-    \addplot [dashed,blue,thick,domain=-6:0,samples=50](0,{x}); 
+    \node [below right] at (axis cs:  0, 10)  {$\omega\rightarrow\infty$};
+    \node [above right] at (axis cs:  0,-10)  {$\omega\rightarrow-\infty$};
+    \node [below right]       at (axis cs:  0, 0)   {$\omega=0$};
+    \addplot [blue, mark = *] coordinates {(0, 0)} {};
+    \addplot [blue,thick,domain=0:5,samples=50,-{Latex[length=3mm]}](0,{x});
+    \addplot [blue,thick,domain=4:10,samples=50](0,{x});
+    \addplot [dashed,blue,thick,domain=-10:-5,samples=50,-{Latex[length=3mm]}]
+    (0,{x});
+    \addplot [dashed,blue,thick,domain=-6:0,samples=50]
+    (0,{x}); 
 \end{axis}
 \end{tikzpicture}
 \end{center}
 \caption{Diagramme de Nyquist d'un dérivateur pur. Le lieu de Nyquist 
-    est représenté par une demi droite sur l'axe des nombres 
-    imaginaires purs positifs.\label{fig-nyquist_3}}
+         est représenté par une demi droite sur l'axe des nombres 
+         imaginaires purs positifs.\label{fig-nyquist_3}}
 \end{figure}
 
 \newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un retard pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1845,10 +1947,11 @@ Les parties réelles et imaginaires sont simplement donnés par :
 
 Ces coordonnées dans le plan complexe sont celles du cercle unité 
 centré sur l'origine. Le lieu de transfert (c.a.d $\omega\to\infty$) 
-est la rotation infinie sur ce cercle. La \og vitesse angulaire\fg dépend de $\tau$.
+est la rotation infinie sur ce cercle. La \og vitesse angulaire\fg dépend 
+de $\tau$.
 
-\begin{figure}[!h]                                                                                                           
-\begin{center}                                                                                                               
+\begin{figure}[!h]
+\begin{center}
 \tikzsetnextfilename{nyquist_retard-chap3_ext}
 \begin{tikzpicture}
 \begin{axis}
@@ -1863,7 +1966,7 @@ est la rotation infinie sur ce cercle. La \og vitesse angulaire\fg dépend de $\
     grid=both,
     ]     
 \node[right]       at (axis cs:  1, 0)   {\scriptsize$\omega=0$};
-\addplot[blue, mark = *] coordinates {(1, 0)} {};                          
+\addplot[blue, mark = *] coordinates {(1, 0)} {};
 \addplot[blue,thick,domain=pi/2:-pi/2-0.2,samples=50,-{Latex[length=3mm]}]
     ({cos(deg(x))},{sin(deg(x)}); 
 \addplot [blue,thick,domain=-pi/2:-3*pi/2-0.2,samples=50,-{Latex[length=3mm]}]
@@ -1900,10 +2003,10 @@ Nous avons regroupé dans le~\cref{tab-nyquist-vp_1er} quelques valeurs
 particulières de $\Re{H(\jw)}$ et $\Im{H(\jw)}$ pour quelques valeurs 
 de $\omega$.
 
-Le lieu complet de Nyquist d'un système du premier ordre à la forme d'un cercle, 
-nous allons établir ses caractéristiques\cite{9782729860127}.
+Le lieu complet de Nyquist d'un système du premier ordre à la forme d'un 
+cercle, nous allons établir ses caractéristiques\cite{9782729860127}.
 
-Posons tout d'abord,
+Posons tout d'abord, 
 $$
 X=\Re{H(\jw)}=\dfrac{K}{1+\tau^2\omega^2}
 $$
@@ -1940,44 +2043,47 @@ $$
     \end{center}
 \end{table}
 
-\begin{figure}[!h]                                                                                                           
-\begin{center}                                                                                                               
+\begin{figure}[!h]
+\begin{center}
 \tikzsetnextfilename{nyquist_1er-chap3_ext}
-\begin{tikzpicture}                                                                 
-\begin{axis}                                                                        
-    [                                                                               
-    axis line style = thick,                                                        
-    xlabel=$\Re{H(\jw)}$,                                                
-    ylabel=$\Im{H(\jw)}$,                                                
-    ymin=-0.75,                                                                       
-    ymax=+0.75,                                                                       
-    xmin=-0.3,                                                                       
-    xmax=+1.3,                                                                       
-    clip=false,                                                                     
+\begin{tikzpicture}
+\begin{axis}
+    [
+    axis line style = thick,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
+    ymin=-0.75,
+    ymax=+0.75,
+    xmin=-0.3,
+    xmax=+1.3,
+    clip=false,
     grid=both
-    ]                                                                               
+    ]
     \addplot [blue,thick,domain=0:1.1,samples=100,-{Latex[length=3mm]}]
     ({1/(1+x*x)},{-x/(1+x*x)}); 
     \addplot [blue,thick,domain=0.5:5,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
     \addplot [blue,thick,domain=5:10,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
     \addplot [blue,thick,domain=10:100,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
-    \addplot [dashed,blue,thick,domain=-100:-10,samples=100]({1/(1+x*x)},{-x/(1+x*x)}); 
-    \addplot [dashed,blue,thick,domain=-10:-5,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
+    \addplot [dashed,blue,thick,domain=-100:-10,samples=100]
+    ({1/(1+x*x)},{-x/(1+x*x)});
+    \addplot [dashed,blue,thick,domain=-10:-5,samples=100]
+    ({1/(1+x*x)},{-x/(1+x*x)});
     \addplot [dashed,blue,thick,domain=-5:-0.5,samples=100,-{Latex[length=3mm]}]
     ({1/(1+x*x)},{-x/(1+x*x)}); 
-    \addplot [dashed,blue,thick,domain=-0.5:0,samples=100]({1/(1+x*x)},{-x/(1+x*x)}); 
+    \addplot [dashed,blue,thick,domain=-0.5:0,samples=100]
+    ({1/(1+x*x)},{-x/(1+x*x)});
 
     \node [above left,xshift=0.2em] 
     at (axis cs:  0, 0)  {\scriptsize$\omega\rightarrow-\infty$};         
     \node [below left,xshift=0.2em] 
     at (axis cs:  0, 0)  {\scriptsize$\omega\rightarrow+\infty$};         
-    \node [right]       at (axis cs:  1, 0) {\scriptsize$\omega=0$};                        
+    \node [right]       at (axis cs:  1, 0) {\scriptsize$\omega=0$};
     \addplot[blue, mark = *] coordinates {(0, 0)} {};
     \addplot[blue, mark = *] coordinates {(1, 0)} {};
-%    \draw[blue,ultra thick,-latex] (axis cs:  0,  0 ) -- (axis cs:  0, 5 );        
-%    \draw[blue,ultra thick] (axis cs:  0,  4 ) -- (axis cs:  0, 9 );               
-\end{axis}                                                                          
-\end{tikzpicture}                                                                   
+%    \draw[blue,ultra thick,-latex] (axis cs:  0,  0 ) -- (axis cs:  0, 5 );
+%    \draw[blue,ultra thick] (axis cs:  0,  4 ) -- (axis cs:  0, 9 );
+\end{axis}
+\end{tikzpicture}
 \end{center}
 \caption{Diagramme de Nyquist d'un système du premier ordre. 
          Avec $K=1$ et $\tau=1$. Le lieu de Nyquist 
@@ -2007,22 +2113,22 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     \Im{H(\jw)}&=\dfrac{-2\xi\omega_0^2\omega^2}{(\omega_0^2-\omega^2)^2
     +4\xi^2\omega_0^2\omega^2}\\
 \end{align*}
-\begin{figure}[!h]                                                                                                           
-\begin{center}                                                                                                               
+\begin{figure}[!h]
+\begin{center}
 \tikzsetnextfilename{nyquist_2nd_1-chap3_ext}
-\begin{tikzpicture}                                                                 
-\begin{axis}                                                                        
-    [                                                                               
-    axis line style = thick,                                                        
-    xlabel=$\Re{H(\jw)}$,                                                
-    ylabel=$\Im{H(\jw)}$,                                                
-    ymin=-1.5,                                                                       
-    ymax=+1.5,                                                                       
-    xmin=-0.5,                                                                       
-    xmax=+1.3,                                                                       
-    clip=false,                                                                     
+\begin{tikzpicture}
+\begin{axis}
+    [
+    axis line style = thick,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
+    ymin=-1.5,
+    ymax=+1.5,
+    xmin=-0.5,
+    xmax=+1.3,
+    clip=false,
     grid=both
-    ]                                                                               
+    ]
     \tikzstyle{lieua}=[blue,thick,samples=150,-{Latex[length=3mm]}]
     \tikzstyle{lieu}=[blue,thick,samples=150]
     \tikzstyle{lieua_c}=[dashed,blue,thick,samples=150,-{Latex[length=3mm]}]
@@ -2052,19 +2158,18 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
 \node[below right] at (axis cs:  0, 0){\scriptsize$\omega\rightarrow+\infty$};
 \addplot[blue, mark = *] coordinates {(0, 0)} {};                  
 \addplot[blue, mark = *] coordinates {(1, 0)} {};                  
-\end{axis}                                                                          
-\end{tikzpicture}                                                                   
+\end{axis}
+\end{tikzpicture}
 \end{center}
 \caption{Diagramme de Nyquist d'un système du second ordre. 
          Avec $K=1$ et $\tau=1$. Le lieu de Nyquist est représenté par 
          une demi cardio\"iode dans le plan des nombres imaginaires 
          négatifs.\label{fig-nyquist_2nd_1}}
 \end{figure}
-
-\begin{figure}[!h]                                                                                                           
-\begin{center}                                                                                                               
+\begin{figure}[!h]
+\begin{center}
 \tikzsetnextfilename{nyquist_2nd_2-chap3_ext}
-\begin{tikzpicture}                                                                 
+\begin{tikzpicture}
         \pgfplotscreateplotcyclelist{mycolorlist}{%
             blue\\%
             blue\\%
@@ -2099,8 +2204,8 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
             black\\%
             black\\%
             }
-\begin{axis}                                                                        
-    [                                                                               
+\begin{axis}
+    [
     name=nyq1,
     axis line style = thick,
     xlabel=$\Re{H(\jw)}$,
@@ -2111,14 +2216,13 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     xmax=+1.3,
     grid=both,
     cycle list name=mycolorlist,
-    legend style={draw=none,yshift=1em},    
+    legend style={draw=none,yshift=1em},
     legend pos=outer north east, 
-    ]                                                                               
+    ]
     \tikzstyle{lieua}=[thick,samples=100,-{Latex[length=3mm]}]
     \tikzstyle{lieu}=[thick,samples=100]
     \tikzstyle{lieua_c}=[dashed,thick,samples=100,-{Latex[length=3mm]}]
     \tikzstyle{lieu_c}=[dashed,thick,samples=100]
-                                                                                                                             
     \foreach \xi in {0.4,0.6,0.8,1.0} 
     {
     \addplot+[lieua,domain=0:1]  
@@ -2129,7 +2233,6 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
     \addplot+[lieu,domain=10:100] 
     ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-                                                                                                                              
     \addplot+[lieu_c,domain=-100:-10]
     ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
     \addplot+[lieu_c,domain=-10:-5] 
@@ -2140,7 +2243,7 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
     }
 \legend{,$\xi=0.4$,,,,,,,,$\xi=0.6$,,,,,,,,$\xi=0.8$,,,,,,,,$\xi=1.0$,,,,,,,} 
-\end{axis}                                                                          
+\end{axis}
         \pgfplotscreateplotcyclelist{mycolorlist}{%
             blue\\%
             blue\\%
@@ -2167,8 +2270,8 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
             black\\%
             black\\%
             }
-\begin{axis}                                                                        
-    [                                                                               
+\begin{axis}
+    [
     at={(nyq1.below south west)},yshift=-0.2cm,anchor=north west,
     axis line style = thick,
     xlabel=$\Re{H(\jw)}$,
@@ -2179,16 +2282,14 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     xmax=+6,
     grid=both,
     cycle list name=mycolorlist,
-    legend style={draw=none,yshift=1em},    
-    legend pos=outer north east, 
+    legend style={draw=none,yshift=1em},
+    legend pos=outer north east,
     ]
     \tikzstyle{lieua}=[thick,samples=200,-{Latex[length=3mm]}]
     \tikzstyle{lieu}=[thick,samples=200]
     \tikzstyle{lieua_c}=[dashed,thick,samples=200,-{Latex[length=3mm]}]
     \tikzstyle{lieu_c}=[dashed,thick,samples=200]
-                                                                                                                             
     \foreach \xi in {0.05,0.07,0.1,0.2} 
-%    \foreach \xi in {0.05} 
     {
     \addplot+[lieu,domain=0:0.5]
     ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
@@ -2206,7 +2307,7 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     }
     \legend{$\xi=0.05$,,,,,,$\xi=0.07$,,,,,,$\xi=0.1$,,,,,,$\xi=0.2$,,,,,,} 
 \end{axis}
-\end{tikzpicture}                                                                   
+\end{tikzpicture}
 \end{center}
 \caption{Diagramme de Nyquist d'un système du second ordre pour différentes 
          valeurs du taux d'amortissement $\xi$. Avec $K=1$ et $\tau=1$. Le 
