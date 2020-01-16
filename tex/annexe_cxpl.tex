@@ -1,13 +1,26 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Rappel sur les nombres complexes\label{annexe-NC}}
-\paragraph[Représentation d'un nombre complexe]{Représentation géométrique d'un nombre complexe}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph[Représentation d'un nombre complexe]
+          {Représentation géométrique d'un nombre complexe}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Un nombre complexe $z$ est définit par un couple 
 de nombre réel $(x,y)$, tel que 
 $$
 z=x+jy,
 $$
-où $j$ est le nombre imaginaire pur tel que $j^2=-1$\footnote{En mathématiques et en physique, le nombre 
-imaginaire pur est généralement noté $i$. Ici nous utilisons la convention des automaticiens et des électroniciens pour ne
+où $j$ est le nombre imaginaire pur tel que $j^2=-1$\footnote{En mathématiques 
+et en physique, le nombre imaginaire pur est généralement noté $i$. Ici nous 
+utilisons la convention des automaticiens et des électroniciens pour ne
 pas confondre $i$ avec l'intensité du courant.}.
 
 Un nombre complexe est donc composé d'une partie 
@@ -17,14 +30,16 @@ Un nombre complexe peut être représenté géométriquement dans un plan
 (dit complexe), pour lequel l'abscisse et l'ordonné d'un 
 point du plan correspondent respectivement 
 à la la partie réelle et imaginaire (\Cref{fig-plan_complexe}).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Définition du conjugué d'un nombre complexe}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le conjugué de $z$ est le nombre noté $\bar{z}$ tel que :
 $$
 \bar{z}=\Re{z}-j\Im{z}=x-jy
 $$
 
-Dans la représentation géométrique le conjugé $\bar{z}$ est le symétrique de $z$ 
-par rapport à l'axe des réels (\Cref{fig-plan_complexe}).
+Dans la représentation géométrique le conjugé $\bar{z}$ est le symétrique 
+de $z$ par rapport à l'axe des réels (\Cref{fig-plan_complexe}).
 
 
 \begin{figure}[!h]
@@ -34,10 +49,7 @@ par rapport à l'axe des réels (\Cref{fig-plan_complexe}).
 \begin{tikzpicture}
 \begin{axis}
     [
-%    ytick ={-7,...,8}, 
-    %yticklabels={$-7i$, $-6i$, $-5i$, $-4i$, $-3i$, $-2i$, $-i$, $0$, $i$, $2i$, $3i$, $+3i$, $+4i$, $+5i$, $+6i$, $+7i$, $+8i$},
     axis lines = center,
-%    grid=both,
     minor tick num=1,
     ticks=both,
     xlabel=$\Re{z}$,
@@ -69,7 +81,9 @@ par rapport à l'axe des réels (\Cref{fig-plan_complexe}).
    \label{fig-plan_complexe}}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Définition du module d'un nombre complexe}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le module d'un nombre complexe noté $|z|$ est la 
 racine carrée de la somme des carrés de $\Re{z}$ et de $\Im{z}$, 
 autrement dit, 
@@ -83,7 +97,9 @@ point correspondant à $z$ dans le plan complexe.
 
 %Le module de $\bar{z}$ est égale au module de $z$.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Propriétés du module}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Soient $z_1$ et $z_2$ deux nombres complexes.
 \begin{itemize}
@@ -101,10 +117,7 @@ Soient $z_1$ et $z_2$ deux nombres complexes.
 \begin{tikzpicture}
 \begin{axis}
     [
-%    ytick ={-7,...,8}, 
-    %yticklabels={$-7i$, $-6i$, $-5i$, $-4i$, $-3i$, $-2i$, $-i$, $0$, $i$, $2i$, $3i$, $+3i$, $+4i$, $+5i$, $+6i$, $+7i$, $+8i$},
     axis lines = center,
-%    grid=both,
     minor tick num=1,
     ticks=both,
     xlabel=$\Re{z}$,
@@ -120,7 +133,6 @@ Soient $z_1$ et $z_2$ deux nombres complexes.
     \node [below left, red] at (axis cs:  0, 0) {$0$};
     \node [above, red]       at (axis cs:  2, 3) {$2+3j$};
     \node [below, red]       at (axis cs:  2,-3) {$2-3j$};
-    %\draw(axis cs:0,0) circle[red, radius=3.6055];
     \draw[red] (axis cs:0,0) -- (axis cs:  2, 3) node[midway,yshift=1.1em,xshift=-0.2em] {$|z|$};
     \draw[red] (axis cs:0,0) -- (axis cs:  2,-3) node[midway,yshift=-1.1em,xshift=-0.2em] {$|\bar{z}|$};
     \draw[red] (axis cs:1.0,0) arc (0:40:1cm) node[midway,yshift=0.2em,xshift=0.6em] {$\theta$};
@@ -133,13 +145,17 @@ Soient $z_1$ et $z_2$ deux nombres complexes.
     avec $|z|=\sqrt{x^2+y^2}=\sqrt{13}$ et $\theta=\arccos{\left(\frac{x}{|z|}\right)}=\arcsin{\left(\frac{y}{|z|}\right)}=\arctan{\left(\frac{y}{x}\right)}$.\label{fig-plan_complexe2}}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Définition de l'argument d'un nombre complexe}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 L'argument $\arg{(z)}$ d'un nombre complexe $z$ est l'angle qui, dans la représentation géométrique, sépare l'axe des réels du vecteur représentatif de $z$ (\Cref{fig-plan_complexe2}).
 Le couple $(|z|,\theta=\arg{(z)})$ sont donc les coordonnées polaires de la représentation géométrique d'un nombre complexe.
 L'argument est définit à $2\pi$ près. On appelle argument principal celui qui est compris entre $[-\pi,\pi]$
 
 \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Propriétés de l'argument}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soient $z$, $z_1$ et $z_2$ des nombres complexes.
 \begin{itemize}
     \item $\cos\theta=\dfrac{\Re(z)}{|z|}$; $\sin\theta=\dfrac{\Im{z}}{|z|}$
@@ -213,7 +229,9 @@ Rappelons la représentation graphique de la fonction $\arctan$:
 \end{figure}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Forme exponentielle ou polaire d'un nombre complexe}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La formule d'Euler 
 $$
 e^{i\theta}=\cos\theta+i\sin\theta
