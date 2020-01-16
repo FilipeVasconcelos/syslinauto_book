@@ -50,7 +50,7 @@ concept de BIBO (\og bounded input bounded output\fg)}
 \textbf{Un système est dit stable lorsque écarté de sa position d'équilibre, il 
 tend à y revenir}
 
-Rappel sur les réponses temporelles du premier ordre et du second ordre ...
+Rappel sur les réponses temporelles du premier ordre et du second ordre \ldots
 \acpl
 
 \begin{criteria}{Condition fondamentale de stabilité}
@@ -89,8 +89,8 @@ H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{a_mp^m+a_{m-1}p^{m-1}+\ldots+a_1p+a_0}
 $$
 
 \begin{criteria}{Condition de stabilité d'un système asservi (1)}
-    \textbf{Un système asservi est stable si sa fonction de transfert en boucle 
-            fermée ne possède aucun pôles à partie réelle positive.}
+    \textbf{Un système asservi est stable si sa fonction de transfert en 
+            boucle fermée ne possède aucun pôles à partie réelle positive.}
 \end{criteria}
 
 
@@ -106,37 +106,40 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Le critère de Routh\footnote{\index{Routh, Edward}Edward John Routh (1831-1907), 
-mathématicien anglais.} est dit algébrique car il s'établit dirctement sur la 
-fonction de transfert en 
-boucle fermée du système asservi. 
+Le critère de Routh\footnote{\index{Routh, Edward}Edward John Routh 
+(1831-1907), mathématicien anglais.} est dit algébrique car il s'établit 
+dirctement sur la fonction de transfert en boucle fermée du système asservi. 
 
-Pour appliquer le critère fondamentale de stabilité à cette fonction de transfert,
-il nous faut étudier \textbf{le polynôme caractéristique}:
+Pour appliquer le critère fondamentale de stabilité à cette fonction de 
+transfert, il nous faut étudier \textbf{le polynôme caractéristique}:
 \begin{align}
     D(p)&=0 \nonumber\\
     b_np^n+b_{n-1}p^{n-1}+\ldots+b_1p+b_0 &= 0
 \end{align}
 pour déterminer si ce polynôme possède des racines toutes à partie réelle 
 strictement négative. Les polynômes de ce type sont dits en mathématiques 
-de dit de Hurwitz\footnote{\index{Hurwitz, Adolf}Adolf Hurwitz (1859-1919), mathématicien allemand.}\footnote{Un polynôme de 
-Hurwitz est un polynôme à coefficients 
-réels dont les racines sont toutes à partie réelle strictement négative.}.
-C'est pourquoi le critère suivant est également connu sous le nom de \textbf{critère de Routh-Hurwitz}.
+de dit de Hurwitz\footnote{\index{Hurwitz, Adolf}Adolf Hurwitz (1859-1919), 
+mathématicien allemand.}\footnote{Un polynôme de Hurwitz est un polynôme à 
+coefficients réels dont les racines sont toutes à partie réelle strictement 
+négative.}.
+C'est pourquoi le critère suivant est également connu sous le nom de 
+\textbf{critère de Routh-Hurwitz}.
 
 Il est possible de conclure sur la nature des racines d'un polynôme 
-en étudiant ses coefficients. Le critère de Routh-Hurwitz se base sur cette propriété en 
-posant deux conditions pour établir qu'un polynôme est un polynôme de Hurwitz.
-Dans le cas de l'application de la stabilité des systèmes linéaires asservis, la première condition s'énonce 
+en étudiant ses coefficients. Le critère de Routh-Hurwitz se base sur 
+cette propriété en posant deux conditions pour établir qu'un polynôme est 
+un polynôme de Hurwitz. Dans le cas de l'application de la stabilité des 
+systèmes linéaires asservis, la première condition s'énonce 
 de la façon suivante :
 \begin{criteria}{Condition nécessaire de Routh-Hurwitz }
     \textbf{Un système asservi d'ordre $n$ est stable en boucle fermée 
-    si tous les coefficients ($b_i\forall i\neq n$) de son équation caractéristique 
-    sont de même signe que $b_n$.}
+    si tous les coefficients ($b_i\forall i\neq n$) de son équation 
+    caractéristique sont de même signe que $b_n$.}
 \end{criteria}
 
-Cette condition nécessaire s'avère suffisante si le système est du premier ou du second ordre.
-Pour un ordre supérieur il faut construire le tableau de Routh à partir des coefficients de $D(p)$,
+Cette condition nécessaire s'avère suffisante si le système est du 
+premier ou du second ordre. Pour un ordre supérieur il faut construire le 
+tableau de Routh à partir des coefficients de $D(p)$,
 pour appliquer une condition supplémentaire. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -144,8 +147,9 @@ pour appliquer une condition supplémentaire.
 \subsection{Tableau de Routh}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Dans le cas où la condition nécessaire est respectée et $n>2$, il faut constuire le \textbf{tableau de Routh}
-à partir des coefficients de l'équation caractéristique de la fonction de transfert en boucle fermée.
+Dans le cas où la condition nécessaire est respectée et $n>2$, il faut 
+constuire le \textbf{tableau de Routh} à partir des coefficients de l'équation 
+caractéristique de la fonction de transfert en boucle fermée.
 
 Le tableau de Routh est constitué de $n$ lignes et de $k$ colonnes 
 où $k=n/2+1$\footnote{On réalise ici une division entière. Par exemple 
@@ -162,17 +166,18 @@ si $n=5$, $k=2+1=3$ et si $n=6$, $k=3+1=4$}. L'élément $A_{ij}$ correspond
     p^0    \\
 \end{matrix}
 \begin{vmatrix}
-    A_{11}     & A_{12}     & A_{13}     & \cdots & A_{1(k-1)}     & A_{1k}      \\
-    A_{21}     & A_{22}     & A_{23}     & \cdots & A_{2(k-1)}     & A_{2k}      \\
-    A_{31}     & A_{32}     & A_{33}     & \cdots & A_{3(k-1)}     & A_{3k}      \\
-    A_{41}     & A_{42}     & A_{43}     & \cdots & A_{4(k-1)}     & A_{4k}      \\
-    \vdots     & \vdots     & \vdots     & A_{ij} & \vdots         & \vdots      \\
-    A_{(n-1)1} & A_{(n-1)2} & A_{(n-1)3} & \cdots & A_{(n-1)(k-1)} & A_{(n-1)k}  \\
-    A_{n1}     & A_{n2}     & A_{n3}     & \cdots & A_{n(k-1)}     & A_{nk}
+  A_{11}     & A_{12}     & A_{13}     & \cdots & A_{1(k-1)}     & A_{1k}  \\
+  A_{21}     & A_{22}     & A_{23}     & \cdots & A_{2(k-1)}     & A_{2k}  \\
+  A_{31}     & A_{32}     & A_{33}     & \cdots & A_{3(k-1)}     & A_{3k}  \\
+  A_{41}     & A_{42}     & A_{43}     & \cdots & A_{4(k-1)}     & A_{4k}  \\
+  \vdots     & \vdots     & \vdots     & A_{ij} & \vdots         & \vdots  \\
+  A_{(n-1)1} & A_{(n-1)2} & A_{(n-1)3} & \cdots & A_{(n-1)(k-1)} & A_{(n-1)k}\\
+  A_{n1}     & A_{n2}     & A_{n3}     & \cdots & A_{n(k-1)}     & A_{nk}
 \end{vmatrix}
 \]
 
-Les deux premières lignes du tableau sont directement construites à partir des coefficients de $D(p)$.
+Les deux premières lignes du tableau sont directement construites à partir 
+des coefficients de $D(p)$.
 \[
     \textbf{paire}\qquad\quad
 \begin{matrix}
@@ -182,10 +187,10 @@ Les deux premières lignes du tableau sont directement construites à partir des
     \vdots \\
 \end{matrix}
 \begin{vmatrix}
-    b_n       & b_{n-2}    & b_{n-4}    & \cdots & b_2            & b_0         \\
-    b_{n-1}   & b_{n-3}    & b_{n-5}    & \cdots & b_1            & 0           \\
+    b_n       & b_{n-2}    & b_{n-4}    & \cdots & b_2        & b_0  \\
+    b_{n-1}   & b_{n-3}    & b_{n-5}    & \cdots & b_1        & 0    \\
     \hline
-    \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots      \\
+    \vdots    & \vdots     & \vdots     & \vdots & \vdots     & \vdots  \\
     \end{vmatrix}
 \]
 si $n$ est impaire la dernière colonne de la seconde ligne est non-nulle:
@@ -198,16 +203,17 @@ si $n$ est impaire la dernière colonne de la seconde ligne est non-nulle:
     \vdots \\
 \end{matrix}
 \begin{vmatrix}
-    b_n       & b_{n-2}    & b_{n-4}    & \cdots & b_3            & b_1         \\
-    b_{n-1}   & b_{n-3}    & b_{n-5}    & \cdots & b_2            & b_0         \\
+    b_n       & b_{n-2}    & b_{n-4}    & \cdots & b_3            & b_1    \\
+    b_{n-1}   & b_{n-3}    & b_{n-5}    & \cdots & b_2            & b_0    \\
     \hline
-    \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots      \\
+    \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots \\
     \end{vmatrix}
 \]
 
 Les éléments de la troisième ligne sont construits à partir du 
-déterminant\footnote{Le déterminant d'une matrice 2$\times$2 est tel que 
-$\begin{vmatrix} a & b \\ c & d \end{vmatrix}=ad-bc$} des élements des deux premières lignes.
+déterminant\footnote{Le déterminant d'une matrice 2$\times$2 
+est tel que $\begin{vmatrix} a & b \\ c & d \end{vmatrix}=ad-bc$} des 
+élements des deux premières lignes.
 \[
 \begin{matrix}
     p^n    \\
@@ -217,15 +223,19 @@ $\begin{vmatrix} a & b \\ c & d \end{vmatrix}=ad-bc$} des élements des deux pre
     \vdots \\
 \end{matrix}
 \begin{vmatrix}
-    \textcolor{red}{b_n}       & \textcolor{red}{b_{n-2}}    & b_{n-4}    & \cdots & b_3            & b_1         \\
-    \textcolor{red}{b_{n-1}}   & \textcolor{red}{b_{n-3}}    & b_{n-5}    & \cdots & b_2            & b_0         \\
+    \textcolor{red}{b_n}       & \textcolor{red}{b_{n-2}}    & b_{n-4}    
+                               & \cdots & b_3            & b_1         \\
+    \textcolor{red}{b_{n-1}}   & \textcolor{red}{b_{n-3}}    & b_{n-5}    
+                               & \cdots & b_2            & b_0         \\
     \hline
-    %\hmm{A_{31}}{red}   & A_{32}     & A_{33}     & \cdots & \cdots         & \cdots      \\
-    A_{31}  & A_{32}     & A_{33}     & \cdots & \cdots         & \cdots      \\
-    \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots      \\
+    %\hmm{A_{31}}{red}   & A_{32}     & A_{33} & \cdots & \cdots  & \cdots \\
+    A_{31}  & A_{32}     & A_{33}     & \cdots & \cdots         & \cdots   \\
+    \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots \\
 \end{vmatrix}
 \Rightarrow
-A_{31}=-\dfrac{1}{b_{n-1}}\begin{vmatrix} b_{n}  & b_{n-2} \\ b_{n-1} & b_{n-3}\end{vmatrix}
+A_{31}=-\dfrac{1}{b_{n-1}}
+\begin{vmatrix} b_{n}  & b_{n-2} \\ b_{n-1} & b_{n-3}
+\end{vmatrix}
 \]
 
 \[
@@ -237,15 +247,18 @@ A_{31}=-\dfrac{1}{b_{n-1}}\begin{vmatrix} b_{n}  & b_{n-2} \\ b_{n-1} & b_{n-3}\
     \vdots \\
 \end{matrix}
 \begin{vmatrix}
-    \textcolor{blue}{b_n}       & b_{n-2}    & \textcolor{blue}{b_{n-4}}    & \cdots & b_3            & b_1         \\
-    \textcolor{blue}{b_{n-1}}   & b_{n-3}    & \textcolor{blue}{b_{n-5}}    & \cdots & b_2            & b_0         \\
+    \textcolor{blue}{b_n}       & b_{n-2}    & \textcolor{blue}{b_{n-4}}    
+    & \cdots & b_3        & b_1         \\
+    \textcolor{blue}{b_{n-1}}   & b_{n-3}    & \textcolor{blue}{b_{n-5}}    
+    & \cdots & b_2            & b_0         \\
     \hline
-    %A_{31}    & \hmm{A_{32}}{blue}     & A_{33}     & \cdots & \cdots         & \cdots      \\
-    A_{31}    & A_{32}     & A_{33}     & \cdots & \cdots         & \cdots      \\
-    \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots      \\
+    %A_{31}    & \hmm{A_{32}}{blue}     & A_{33} & \cdots & \cdots& \cdots  \\
+    A_{31}    & A_{32}     & A_{33}     & \cdots & \cdots         & \cdots  \\
+    \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots  \\
 \end{vmatrix}
 \Rightarrow
-A_{32}=-\dfrac{1}{b_{n-1}}\begin{vmatrix} b_{n}  & b_{n-4} \\ b_{n-1} & b_{n-5}\end{vmatrix}
+A_{32}=-\dfrac{1}{b_{n-1}}\begin{vmatrix} b_{n}  & b_{n-4} \\ b_{n-1} & b_{n-5}
+\end{vmatrix}
 \]
 
 On construit de la même manière la quatrième ligne :
@@ -259,16 +272,20 @@ On construit de la même manière la quatrième ligne :
     \vdots \\
 \end{matrix}
 \begin{vmatrix}
-    b_n       & b_{n-2}    & b_{n-4}    & \cdots & b_3            & b_1         \\
-     \textcolor{red}{b_{n-1}}   &  \textcolor{red}{b_{n-3}}    & b_{n-5}    & \cdots & b_2            & b_0         \\
+    b_n       & b_{n-2}    & b_{n-4}    & \cdots & b_3            & b_1 \\
+     \textcolor{red}{b_{n-1}}   & \textcolor{red}{b_{n-3}}    & b_{n-5}    
+                                & \cdots & b_2            & b_0         \\
     \hline
-     \textcolor{red}{A_{31}}     &  \textcolor{red}{A_{32}}    & A_{33}    & \cdots & \cdots         & \cdots      \\
-    %\hmm{A_{41}}{red}      & A_{42}     & A_{43}    & \cdots & \cdots         & \cdots      \\
-    A_{41}      & A_{42}     & A_{43}    & \cdots & \cdots         & \cdots      \\
-    \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots      \\
+     \textcolor{red}{A_{31}}    &  \textcolor{red}{A_{32}}    & A_{33}    
+                                & \cdots & \cdots         & \cdots      \\
+    A_{41}   & A_{42}     & A_{43}    & \cdots & \cdots   & \cdots      \\
+    \vdots   & \vdots     & \vdots    & \vdots & \vdots   & \vdots      \\
     \end{vmatrix}
 \Rightarrow
-A_{41}=-\dfrac{1}{A_{31}}\begin{vmatrix} A_{21} & A_{22} \\ A_{31} & A_{22} \end{vmatrix}
+A_{41}=-\dfrac{1}{A_{31}}
+\begin{vmatrix} 
+A_{21} & A_{22} \\ A_{31} & A_{22}
+\end{vmatrix}
 \]
 
 \[
@@ -281,16 +298,20 @@ A_{41}=-\dfrac{1}{A_{31}}\begin{vmatrix} A_{21} & A_{22} \\ A_{31} & A_{22} \end
     \vdots \\
 \end{matrix}
 \begin{vmatrix}
-    b_n       & b_{n-2}    & b_{n-4}    & \cdots & b_3            & b_1         \\
-     \textcolor{blue}{b_{n-1}}   &  b_{n-3}    & \textcolor{blue}{b_{n-5}}    & \cdots & b_2            & b_0         \\
+    b_n       & b_{n-2}    & b_{n-4}    & \cdots & b_3            & b_1  \\
+    \textcolor{blue}{b_{n-1}}   &  b_{n-3}    & \textcolor{blue}{b_{n-5}}    
+    & \cdots & b_2            & b_0         \\
     \hline
-     \textcolor{blue}{A_{31}}     &  A_{32}    & \textcolor{blue}{A_{33}}    & \cdots & \cdots         & \cdots      \\
-    %A_{41}      & \hmm{A_{42}}{blue}     & A_{43}    & \cdots & \cdots         & \cdots      \\
-    A_{41}      & A_{42}     & A_{43}    & \cdots & \cdots         & \cdots      \\
-    \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots      \\
+    \textcolor{blue}{A_{31}}     &  A_{32}    & \textcolor{blue}{A_{33}}    
+    & \cdots & \cdots         & \cdots      \\
+    A_{41}      & A_{42}     & A_{43}    & \cdots & \cdots    & \cdots   \\
+    \vdots    & \vdots     & \vdots     & \vdots & \vdots     & \vdots   \\
     \end{vmatrix}
 \Rightarrow
-A_{42}=-\dfrac{1}{A_{31}}\begin{vmatrix} A_{21} & A_{23} \\ A_{31} & A_{33} \end{vmatrix}
+A_{42}=-\dfrac{1}{A_{31}}
+\begin{vmatrix} 
+A_{21} & A_{23} \\ A_{31} & A_{33} 
+\end{vmatrix}
 \]
 
 Et ainsi de suite jusque la dernière ligne du tableau. 
@@ -298,7 +319,11 @@ Et ainsi de suite jusque la dernière ligne du tableau.
 La formule générale pour obtenir l'élément $A_{ij}$ est alors :
 
 \begin{bequation}[ams align]
-A_{ij}=-\dfrac{1}{A_{(i-1)1}}\begin{vmatrix} A_{(i-2)1} & A_{(i-2)(j+1)} \\ A_{(i-1)1} & A_{(i-1)(j+1)} \end{vmatrix}
+A_{ij}=-\dfrac{1}{A_{(i-1)1}}
+\begin{vmatrix} 
+A_{(i-2)1} & A_{(i-2)(j+1)} \\ 
+A_{(i-1)1} & A_{(i-1)(j+1)} 
+\end{vmatrix}
 \end{bequation}
 
 \newcommand*{\DoTikzmarkU}[1]{%
@@ -314,8 +339,9 @@ A_{ij}=-\dfrac{1}{A_{(i-1)1}}\begin{vmatrix} A_{(i-2)1} & A_{(i-2)(j+1)} \\ A_{(
 \tikzset{external/export next=false}
   \tikz[overlay,remember picture, line width=40pt]
     \draw[shorten >=-1.25em, shorten <=-.5em, #1] (#2.north)--(#3.north);
-}                                                                                                                             
-Le critère s'applique sur la première colonne ainsi construit dite \textbf{colonne des pivots} du tableau de Routh. 
+}
+Le critère s'applique sur la première colonne ainsi construit dite 
+\textbf{colonne des pivots} du tableau de Routh. 
 \[
 \begin{matrix}
     p^n    \\
@@ -327,13 +353,13 @@ Le critère s'applique sur la première colonne ainsi construit dite \textbf{col
     p^0    \\
 \end{matrix}
 \begin{vmatrix}
-    b_n\DoTikzmarkU{n1}  & b_{n-2}    & b_{n-4}    & \cdots & b_2        & b_0         \\
-    b_{n-1}                 & b_{n-3}    & b_{n-5}    & \cdots & b_1        & 0           \\
-    A_{31}                  & A_{32}     & A_{33}     & \cdots & A_{3(k-1)} & 0           \\
-    A_{41}                  & A_{42}     & A_{43}     & \cdots & 0          & 0           \\
-    \vdots                  & \vdots     & \vdots     & \vdots & \vdots     & 0           \\
-    A_{(n-1)1}              & A_{(n-1)2} & 0          & \cdots & 0          & 0           \\
-    b_0\DoTikzmarkD{n2}  & 0          & 0          & \cdots & 0          & 0
+    b_n\DoTikzmarkU{n1}  & b_{n-2}    & b_{n-4}    & \cdots & b_2      & b_0\\
+    b_{n-1}              & b_{n-3}    & b_{n-5}    & \cdots & b_1      & 0 \\
+    A_{31}               & A_{32}     & A_{33}     & \cdots & A_{3(k-1)} & 0 \\
+    A_{41}               & A_{42}     & A_{43}     & \cdots & 0        & 0 \\
+    \vdots               & \vdots     & \vdots     & \vdots & \vdots   & 0 \\
+    A_{(n-1)1}           & A_{(n-1)2} & 0          & \cdots & 0        & 0 \\
+    b_0\DoTikzmarkD{n2}  & 0          & 0          & \cdots & 0        & 0
 \end{vmatrix}
 \]
 \colrow[green,opacity=.2]{n1}{n2}
@@ -348,8 +374,8 @@ Le critère s'applique sur la première colonne ainsi construit dite \textbf{col
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Remarques:}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Le nombre de changement de signe, nous donne le nombre de pôles à partie réelle positives (instables)
-de la fonction de transfert en boucle fermée.
+Le nombre de changement de signe, nous donne le nombre de pôles à partie 
+réelle positives (instables) de la fonction de transfert en boucle fermée.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -361,26 +387,29 @@ pour faciliter ou permettre l'application du critère dans
 des cas particuliers~\cite{Ostertag}. 
 
 \begin{itemize}
-    \item Pour simplifier les calculs, il est possible de factorisée par un entier une ligne du tableau.
+    \item Pour simplifier les calculs, il est possible de factorisée par un 
+          entier une ligne du tableau.
     \item Dans le cas où le tableau présente un zéro dans la première 
-          colonne, il est possible de remplacer par une variable $\epsilon$, et de prendre la limite
-          lorsque $\epsilon\rightarrow 0^+$ ou $\epsilon\rightarrow 0^-$ selon le signe de la colonne des pivots
+          colonne, il est possible de remplacer par une variable $\epsilon$, 
+          et de prendre la limite lorsque $\epsilon\rightarrow 0^+$ ou 
+          $\epsilon\rightarrow 0^-$ selon le signe de la colonne des pivots
           qui respecterait le critère.
-    \item Une ligne de zéros pour les coefficients de l'avant-dernière ligne du tableau de
-    Routh indique que le polynôme du dénominateur de la fonction de transfert 
-        possède une paire de pôles, qui sont racines de l'équation auxiliaire :
+    \item Une ligne de zéros pour les coefficients de l'avant-dernière ligne 
+          du tableau de Routh indique que le polynôme du dénominateur de la 
+          fonction de transfert possède une paire de pôles, qui sont racines de 
+          l'équation auxiliaire :
     $$
     Ap^2+B=0
     $$
-    où $A$ et $B$ sont les coefficients de la ligne précédente du tableau. On peut alors 
-    continuer le tableau en remplaçant la
-    ligne de coefficients nuls par les coefficients de la dérivée de l'équation auxiliaire.
+    où $A$ et $B$ sont les coefficients de la ligne précédente du tableau. 
+    On peut alors continuer le tableau en remplaçant la ligne de coefficients 
+    nuls par les coefficients de la dérivée de l'équation auxiliaire. 
     
-    Une ligne de zéro implique la présence d'une paire de racines imaginaires pures
-    donnant lieu à une forme sinuso\"idale dans la réponse transitoire.
-    Le système diverge en oscillant s'il y a au moins une racine à partie réelle positive,
-    ou il converge vers des oscillations entretenues si les autres racines ont toutes une partie réelle négative.
-
+    Une ligne de zéro implique la présence d'une paire de racines imaginaires 
+    pures donnant lieu à une forme sinuso\"idale dans la réponse transitoire.
+    Le système diverge en oscillant s'il y a au moins une racine à partie 
+    réelle positive, ou il converge vers des oscillations entretenues si les 
+    autres racines ont toutes une partie réelle négative.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -389,13 +418,14 @@ des cas particuliers~\cite{Ostertag}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-La particularité du critère de Routh-Hurwitz est de permettre d'étudier les conditions
-de stabilité d'un système en fonction des paramètres de la fonction de 
-transfert en boucle ouverte.
+La particularité du critère de Routh-Hurwitz est de permettre d'étudier les 
+conditions de stabilité d'un système en fonction des paramètres de la fonction 
+de transfert en boucle ouverte.
 
-Dans l'exemple ci-dessous, nous allons considérer un système asservi caractérisé 
-par fonction de transfert en boucle ouverte défini par un gain $K$
-dont l'on souhaite déterminer la valeur pour assurer la stabilité du système en boucle fermée.
+Dans l'exemple ci-dessous, nous allons considérer un système asservi 
+caractérisé par fonction de transfert en boucle ouverte défini par un gain $K$
+dont l'on souhaite déterminer la valeur pour assurer la stabilité du système en 
+boucle fermée.
 
 Soit un système asservi défini par le schéma-bloc suivant :
 \begin{center}
@@ -428,8 +458,9 @@ Nous constatons que le système est d'ordre 3 de coefficients :
     b_1&=3\\
     b_0&=K
 \end{align*}
-Le critère nécessaire de Routh est donc respecté pour $K>0$. L'équation caractéristique 
-étant d'ordre 3, il nous faut construire le tableau de Routh, afin de vérifier le critère supplémentaire :
+Le critère nécessaire de Routh est donc respecté pour $K>0$. L'équation 
+caractéristique étant d'ordre 3, il nous faut construire le tableau de Routh, 
+afin de vérifier le critère supplémentaire :
 
 \[
 \begin{matrix}
@@ -486,8 +517,9 @@ $$
 \]
 \colrow[green,opacity=.2]{n3}{n4}
 
-La colonne des pivots sont tous de même signe si $3-K>0$ et $K>0$ (déjà établie par la condition nécessaire de Routh).
-La condition sur $K$ pour que le système soit stable en boucle fermée est donc :
+La colonne des pivots sont tous de même signe si $3-K>0$ et $K>0$ (déjà établie 
+par la condition nécessaire de Routh). La condition sur $K$ pour que le 
+système soit stable en boucle fermée est donc :
 \[
 0<K<3
 \]
@@ -502,10 +534,11 @@ La condition sur $K$ pour que le système soit stable en boucle fermée est donc
 
 Routh s'applique sur la fonction de transfert en boucle fermée. 
 Les critères graphiques que nous allons maintenant établir 
-permettent d'étudier la stabilité du système en boucle fermée en considérant le système en boucle ouverte.
+permettent d'étudier la stabilité du système en boucle fermée en considérant 
+le système en boucle ouverte.
 
 Pour celà considèrons la boucle de contre réaction unitaire 
-pour l'asservissement d'un système de fonction de transfert $H(p)$, telle que : 
+pour l'asservissement d'un système de fonction de transfert $H(p)$, telle que :
 \begin{center}
 \tikzsetnextfilename{sb_revers-chap6_ext}
     \begin{tikzpicture}
@@ -520,32 +553,38 @@ pour l'asservissement d'un système de fonction de transfert $H(p)$, telle que :
 \end{tikzpicture}
 \end{center}
 
-la fonction de transfert en boucle ouverte $H_{BO}(p)$ est simplement donné par $H(p)$, et comme nous l'avons 
-déjà rencontré à plusieurs occasions, la fonction de transfert en boucle fermée $H_{BF}(p)$ est égale à 
+la fonction de transfert en boucle ouverte $H_{BO}(p)$ est simplement donné 
+par $H(p)$, et comme nous l'avons déjà rencontré à plusieurs occasions, la 
+fonction de transfert en boucle fermée $H_{BF}(p)$ est égale à 
 $$
 H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{H_{BO}(p)}{1+H_{BO}(p)},
 $$
-\'Etudier les pôles de l'équation caractéristique $D(p)=0$ est équivalent à étudier l'équation $1+H_{BO}(p)=0$, ou encore
+\'Etudier les pôles de l'équation caractéristique $D(p)=0$ est équivalent 
+à étudier l'équation $1+H_{BO}(p)=0$, ou encore 
 $$
 D(p)=0\Leftrightarrow1+H_{BO}(p)=0\Leftrightarrow H_{BO}(p)=-1
 $$
-Il est alors possible d'étudier la fonction de transfert en boucle ouverte par rapport au \textbf{point critique}\index{Point critique}
+Il est alors possible d'étudier la fonction de transfert en boucle ouverte par 
+rapport au \textbf{point critique}\index{Point critique}
 du plan complexe $(-1,0)$ de $H_{BO}(p)$.
-Remarquons que les zéros de $1+H_{BO}(p)$ sont les pôles de la fonction de transfert en boucle fermée $H_{BF}(p)$ et
-que les pôles de $1+H_{BO}(p)$ co\"incident avec les pôles de $H_{BO}(p)$.
-Il est donc possible de réinterpréter la condition stabilité d'un système asservi :
+Remarquons que les zéros de $1+H_{BO}(p)$ sont les pôles de la fonction 
+de transfert en boucle fermée $H_{BF}(p)$ et que les pôles de $1+H_{BO}(p)$ 
+co\"incident avec les pôles de $H_{BO}(p)$. Il est donc possible de 
+réinterpréter la condition stabilité d'un système asservi :
 
 \begin{criteria}{Condition de stabilité d'un système asservi (2)}
-    \textbf{Un système asservi est stable en boucle fermée si sa fonction de transfert 
-    en boucle ouverte ne possède aucun \emph{zéros} à partie réelle positive.}
+    \textbf{Un système asservi est stable en boucle fermée si sa fonction 
+    de transfert en boucle ouverte ne possède aucun \emph{zéros} à partie 
+    réelle positive.}
 \end{criteria}
 
-Nous allons établir un critère que nous pourrons appliquer sur la réponse harmonique et 
-ses différentes représentations graphiques.
+Nous allons établir un critère que nous pourrons appliquer sur la réponse 
+harmonique et ses différentes représentations graphiques.
 
-Supposons le système asservi précédent décrit 
-par la fonction de transfert en boucle ouverte $H_{BO}(p)$. Par définition cette fonction 
-de transfert est le rapport de la sortie $S(p)$ sur l'écart $\epsilon(p)$ que l'on souhaite minimiser.
+Supposons le système asservi précédent décrit par la fonction de transfert 
+en boucle ouverte $H_{BO}(p)$. Par définition cette fonction de transfert 
+est le rapport de la sortie $S(p)$ sur l'écart $\epsilon(p)$ que l'on 
+souhaite minimiser.
 
 $$
 S(p)=H_{BO}(p)\epsilon(p)
@@ -563,9 +602,8 @@ en régime permanent la sortie est alors de la forme (c.f~\cref{chap-anafreq}) :
 $$
 s(t)=E_0|H_{BO}(\jw)|\sin{(\omega t+\phi)}
 $$
-
-l'écart $\epsilon(t)=e(t)-s(t)$ est maximum pour une sortie en opposition de phase.
-Il existe donc une pulsation $\omega_p$ pour laquelle:
+l'écart $\epsilon(t)=e(t)-s(t)$ est maximum pour une sortie en opposition 
+de phase. Il existe donc une pulsation $\omega_p$ pour laquelle:
 \begin{align*}
     \phi=\arg{H_{BO}(j\omega_p)}=-\pi\\
     |H_{BO}(j\omega_p)|=K    
@@ -586,35 +624,38 @@ L'écart dans le domaine de Laplace devient:
     \epsilon(p)&=E(p)+K\epsilon(p)
 \end{align*}
 
-Remplaçons à nouveau $\epsilon(p)$ par sa définition (pour simuler une deuxième boucle) : 
+Remplaçons à nouveau $\epsilon(p)$ par sa définition (pour simuler une 
+deuxième boucle) : 
 \begin{align*}
     \epsilon(p)&=E(p)+K(E(p)-S(p))=E(p)(1+K)+K^2\epsilon(p)
 \end{align*}
 et ainsi de suite :
 \begin{align*}
-    \epsilon(p)&=E(p)(1+K)+K^2\left(E(p)-S(p)\right)=E(p)(1+K+K^2)+K^3\epsilon(p)\\
+    \epsilon(p)&=E(p)(1+K)+K^2\left(E(p)-S(p)\right)
+                =E(p)(1+K+K^2)+K^3\epsilon(p)\\
 \end{align*}
 on obtient après $n$ substitutions :
 $$
 \epsilon(p)=E(p)\sum_{i=0}^{n}K^i+K^n\epsilon(p)
 $$
-La somme diverge si $K\leq1$ et converge si $K<1$. Autrement dit le système est stable 
-en boucle fermée pour $|H_{BO}(\jw)|<1$.
+La somme diverge si $K\leq1$ et converge si $K<1$. 
+Autrement dit le système est stable en boucle fermée pour $|H_{BO}(\jw)|<1$.
 
 Nous pouvons donc énoncer le critère de stabilité dit du revers :
 
 \begin{criteria}{Critère de stabilité du revers}
-    \textbf{Un système est stable en boucle fermée si lorque le déphasage en boucle 
-    ouverte est de -180\degree~le module $|H_{BO}(\jw)|$ est strictement inférieur à 1.}
-    Pour $\omega_p$ telle que $\phi=\arg{\left(H_{BO}(j\omega_p)\right)}=-\pi$ stable 
-    si  $|H_{BO}(j\omega_p)|<1$ ou $20\log{|H_{BO}(j\omega_p)|}<0$ 
+    \textbf{Un système est stable en boucle fermée si lorque le 
+    déphasage en boucle ouverte est de -180\degree~le module $|H_{BO}(\jw)|$ 
+    est strictement inférieur à 1.}
+    Pour $\omega_p$ telle que $\phi=\arg{\left(H_{BO}(j\omega_p)\right)}=-\pi$ 
+    stable si  $|H_{BO}(j\omega_p)|<1$ ou $20\log{|H_{BO}(j\omega_p)|}<0$ 
 \end{criteria}
 
 Dans le plan complexe, un  déphasage de -180\degree~et un module de 1 
 correspond au point critique de coordonnées $(1,0)$.
 
-Nous allons maintenant voir comment appliquer ce critère aux différentes représentations graphiques
-de la réponse harmonique.
+Nous allons maintenant voir comment appliquer ce critère aux différentes 
+représentations graphiques de la réponse harmonique.
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -624,13 +665,15 @@ de la réponse harmonique.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Pour énoncer le critère du revers dans le plan de Nyquist. Il nous faut tracer
-le lieu de Nyquist de la fonction de transfert en boucle ouverte et observer comment il 
-se comporte par rapport au point critique de coordonnées (-1,0) dans le plan complexe de $H_{BO}(\jw)$.
-La~\cref{fig-nyquist_revers} présente les lieux de Nyquist de trois systèmes: stable, instable et critique.
-Observons que dans le cas stable, le lieu de déphasage $\phi=-\pi$ (c.a.d lorsque le lieu coupe l'axe des réels négatifs), 
-le module ou le gain naturel $G(\omega)$ (ou encore la distance à l'origine) est inférieur à 1. 
-Dans le cas instable ce gain est supérieur à 1. Nous appelerons critique le système dont le lieu de Nyquist passe par le
-point critique de oordonnées (-1,0).
+le lieu de Nyquist de la fonction de transfert en boucle ouverte et observer 
+comment il se comporte par rapport au point critique de coordonnées (-1,0) 
+dans le plan complexe de $H_{BO}(\jw)$. La~\cref{fig-nyquist_revers} présente 
+les lieux de Nyquist de trois systèmes: stable, instable et critique. Observons
+que dans le cas stable, le lieu de déphasage $\phi=-\pi$ (c.a.d lorsque le lieu
+coupe l'axe des réels négatifs), le module ou le gain naturel $G(\omega)$ (ou 
+encore la distance à l'origine) est inférieur à 1. Dans le cas instable ce gain 
+est supérieur à 1. Nous appelerons critique le système dont le lieu de Nyquist 
+passe par le point critique de oordonnées (-1,0).
 
 \begin{figure}[!h]
 \begin{center}
@@ -655,8 +698,7 @@ point critique de oordonnées (-1,0).
     clip=false
     ]     
     \addplot [black, mark = *] coordinates {( -1, 0)} {};
-    \node [above left,xshift=1ex]  at (axis cs:  -1, 0)   {$(-1,0)$};                
-    
+    \node [above left,xshift=1ex]  at (axis cs:  -1, 0)   {$(-1,0)$};
     % instable
     \def\xu{-0.2}
     \def\yu{1.75}
@@ -665,21 +707,30 @@ point critique de oordonnées (-1,0).
     \def\xt{-2.25}
     \def\yt{-4}
     \addplot [-latex,red,thick,domain=1:0.8,samples=25]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
+    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
+    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
+    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
+    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
     \addplot [-latex,red,thick,domain=0.81:0.5,samples=25]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
+    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
+    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
+    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
+    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
     \addplot [-latex,red,thick,domain=0.51:0.3,samples=25]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
+    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
+    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
+    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
+    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
     \addplot [red,thick,domain=0.31:0,samples=25]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
+    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
+    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
+    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
+    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
 
-    \node [red,left]  at (axis cs:  -2.3, -3.5)   {\textbf{instable}};                
+    \node [red,left]  at (axis cs:  -2.3, -3.5)   {\textbf{instable}};
     \addplot [red, mark = *]  coordinates   {(-1.7,0)} {};
-    \draw[dblarw={red}{2pt}{2pt}] (0,1.9) -- node[midway,above]  {$G(\omega)>1$} (-1.7,1.9) ;
+    \draw[dblarw={red}{2pt}{2pt}] (0,1.9) -- node[midway,above] 
+    {$G(\omega)>1$} (-1.7,1.9) ;
     \draw[red,dashed] (-1.7,1.9)--(-1.7,0);
 
     % critique 
@@ -690,16 +741,23 @@ point critique de oordonnées (-1,0).
     \def\xt{-1.495}
     \def\yt{-4}
     \addplot [-latex,blue,thick,domain=1:0.8,samples=50]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
+    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
+     x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
+    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
+    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
     \addplot [-latex,blue,thick,domain=0.81:0.3,samples=25]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
+    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
+    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
+    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
+    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
     \addplot [blue,thick,domain=0.31:0,samples=25]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \node [blue,left]  at (axis cs:  -1.45, -3.5)   {\textbf{critique}};                
-    \draw[dblarw={blue}{2pt}{2pt}] (0,1.2) -- node[midway,above]  {$G(\omega)=1$} (-1,1.2) ;
+    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
+    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
+    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
+    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
+    \node[blue,left]  at (axis cs:  -1.45, -3.5)   {\textbf{critique}};
+    \draw[dblarw={blue}{2pt}{2pt}] (0,1.2) -- node[midway,above]
+    {$G(\omega)=1$} (-1,1.2);
     \draw[blue,dashed] (-1,1.2)--(-1,0);
 
     %stable
@@ -710,25 +768,33 @@ point critique de oordonnées (-1,0).
     \def\xt{-1}
     \def\yt{-4}
     \addplot [-latex,green!50!black,thick,domain=1:0.8,samples=50]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
+    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
+    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
+    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
+    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
     \addplot [-latex,green!50!black,thick,domain=0.81:0.3,samples=50]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
+    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
+    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
+    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
+    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
     \addplot [color=green!50!black,thick,domain=0.31:0,samples=50]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
+    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
+    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
+    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
+    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
 
-    \addplot [green!50!black, mark = *]  coordinates     {(-0.47,0)} {};
+    \addplot[green!50!black, mark = *] coordinates {(-0.47,0)} {};
 
-    \node [green!50!black,right]  at (axis cs:  -1.0, -3.5)   {\textbf{stable}};                
-    \draw[dblarw={green!50!black}{2pt}{2pt}] (0,-0.5) -- node[midway,below]  {$G(\omega)<1$} (-0.47,-0.5) ;
+    \node[green!50!black,right] at (axis cs:-1.0,-3.5) {\textbf{stable}};
+    \draw[dblarw={green!50!black}{2pt}{2pt}] (0,-0.5) -- node[midway,below]
+    {$G(\omega)<1$} (-0.47,-0.5) ;
     \draw[green!50!black,dashed] (-0.47,-0.5)--(-0.47,0);
 \end{axis}
 \end{tikzpicture}
 \end{center}
-\caption{Représentation schématique de lieux de Nyquist de la fonction de transfert en boucle ouverte de  
-trois systèmes asservis: stable, critique et instable. 
+\caption{Représentation schématique de lieux de Nyquist de la 
+         fonction de transfert en boucle ouverte de 
+         trois systèmes asservis: stable, critique et instable. 
 \label{fig-nyquist_revers}}
 \end{figure}
 
@@ -737,10 +803,13 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
 \begin{criteria}{Critère du revers de Nyquist}
 \textbf{Un système est stable en boucle fermée si lorsque parcourant 
         le lieu de Nyquist de la boucle ouverte dans le sens des 
-        pulsations croissantes, on laisse le point critique sur la \emph{gauche}.}
+        pulsations croissantes, on laisse le point critique sur la 
+        \emph{gauche}.}
 \end{criteria}
-% (1-x)*((1-x)*(x*\x1)+x*((1-x)*\x1+x*\x2))+x*((1-x)*((1-x)*\x1+x*\x2)+x*((1-x)*\x2+x*\x3)),
-% (1-x)*((1-x)*(x*\y1)+x*((1-x)*\y1+x*\y2))+x*((1-x)*((1-x)*\y1+x*\y2)+x*((1-x)*\y2+x*\y3))
+% (1-x)*((1-x)*(x*\x1)+x*((1-x)*\x1+x*\x2))+
+%x*((1-x)*((1-x)*\x1+x*\x2)+x*((1-x)*\x2+x*\x3)),
+% (1-x)*((1-x)*(x*\y1)+x*((1-x)*\y1+x*\y2))+
+%x*((1-x)*((1-x)*\y1+x*\y2)+x*((1-x)*\y2+x*\y3))
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -748,9 +817,7 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
 \subsection{Critère du revers dans le plan de Black}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \acpl
-
 \begin{figure}[!h]
 \begin{center}
 \tikzsetnextfilename{critere_revers_black-chap6_ext}
@@ -777,37 +844,64 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
     \def\dk{4}
     \def\dpp{1.35}
     \def\colru{red}
-    \addplot[\colru,thick,domain=1e-2:1e-1,samples=100]({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
-    \addplot[\colru,thick,domain=1e-1:1e0,samples=100,-{Latex[length=2mm]}] ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
-    \addplot[\colru,thick,domain=0.9e0:1e1,samples=100]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-    \addplot[\colru,thick,domain=1e1:1e2,samples=100]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-%    \addplot[blue,thick,domain=1e2:1e4,samples=200]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \addplot[\colru,thick,domain=1e-2:1e-1,samples=100]
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colru,thick,domain=1e-1:1e0,samples=100,-{Latex[length=2mm]}] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colru,thick,domain=0.9e0:1e1,samples=100]  
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \addplot[\colru,thick,domain=1e1:1e2,samples=100]  
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+%    \addplot[blue,thick,domain=1e2:1e4,samples=200]  
+%    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+%     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
     %\addplot[domain=1e1:1e5,samples=100] ({-10*log10(1+x*x)},{x});
     %\draw[dashed,thick] (axis cs:-180,-200) -- (axis cs:-180,20) ;
-    \node [\colru,right]  at (axis cs:  -260, 40.0)   {\textbf{instable}};                
+    \node [\colru,right]  at (axis cs:  -260, 40.0) {\textbf{instable}};
 
     \def\da{0.6}
     \def\db{1.0}
     \def\dk{1.5}
     \def\dpp{0.95}
     \edef\colrd{green!50!black}
-    \addplot[\colrd,thick,domain=1e-2:1e-1,samples=100]({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
-    \addplot[\colrd,thick,domain=1e-1:1e0,samples=100] ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
-    \addplot[\colrd,thick,domain=1e0:1e1,samples=100,-{Latex[length=2mm]}]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-    \addplot[\colrd,thick,domain=0.9e1:1e2,samples=100]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-    \node [\colrd,right]  at (axis cs:  -140, -60.0)   {\textbf{stable}};                
+    \addplot[\colrd,thick,domain=1e-2:1e-1,samples=100]
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colrd,thick,domain=1e-1:1e0,samples=100] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colrd,thick,domain=1e0:1e1,samples=100,-{Latex[length=2mm]}] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \addplot[\colrd,thick,domain=0.9e1:1e2,samples=100] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \node [\colrd,right]  at (axis cs:  -140, -60.0)   {\textbf{stable}};
 
     \def\da{0.6}
     \def\db{4.0}
     \def\dk{1.75}
     \def\dpp{1.15}
     \edef\colrt{blue}
-    \addplot[\colrt,thick,domain=1e-2:1e-1,samples=100]({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
-    \addplot[\colrt,thick,domain=1e-1:1e0,samples=100] ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
-    \addplot[\colrt,thick,domain=1e0:1e1,samples=100,-{Latex[length=2mm]}]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-    \addplot[\colrt,thick,domain=0.9e1:1e2,samples=100]  ({-\dpp*atan2(\da*x,(1-\db*x*x))},{-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-    \draw[draw=none,fill=black] (axis cs:-180,0) circle (2pt) node[above] {$(-180,0\mathrm{dB})$};
-    \node [\colrt,right]  at (axis cs:  -200, -140.0)   {\textbf{critique}};                
+    \addplot[\colrt,thick,domain=1e-2:1e-1,samples=100]
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colrt,thick,domain=1e-1:1e0,samples=100] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colrt,thick,domain=1e0:1e1,samples=100,-{Latex[length=2mm]}] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \addplot[\colrt,thick,domain=0.9e1:1e2,samples=100] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \draw[draw=none,fill=black] (axis cs:-180,0) circle (2pt) node[above] 
+    {$(-180,0\mathrm{dB})$};
+    \node [\colrt,right]  at (axis cs:  -200, -140.0) {\textbf{critique}};
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -820,7 +914,8 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
 \begin{criteria}{Critère du revers de Black}
 \textbf{Un système est stable en boucle fermée si lorsque parcourant 
         le lieu de Black de la boucle ouverte dans le sens des 
-        pulsations croissantes, on laisse le point critique sur la \emph{droite}.}
+        pulsations croissantes, on laisse le point critique sur 
+        la \emph{droite}.}
 \end{criteria}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -831,19 +926,22 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
 
 Il est possible d'appliquer le critère du revers au lieu de transfert de Bode
 en boucle ouverte. Le point critique
-dans le plan de Bode est représenté par deux verticales coupant les deux graphes en gain et en déphasage.
-De ce fait il faut vérifier deux conditions pour respecter le critère du revers dans le plan de Bode
-
+dans le plan de Bode est représenté par deux verticales coupant les deux 
+graphes en gain et en déphasage. De ce fait il faut vérifier deux conditions 
+pour respecter le critère du revers dans le plan de Bode 
 \begin{criteria}{Critère du revers de Bode (1)}
-\textbf{Un système est stable en boucle fermée si, pour la pulsation $\omega_{1}$ telle que le module 
-    de la fonction de transfert en boucle ouverte est égal à 1 (c.a.d $H_{BO}(\omega_{1})=1$ 
-    ou $\SI{0}{\dB}$), le déphasage $\phi(\omega_1)$ est supérieur à -180\degree}
+\textbf{Un système est stable en boucle fermée si, pour la pulsation 
+        $\omega_{1}$ telle que le module de la fonction de transfert en boucle 
+        ouverte est égal à 1 (c.a.d $H_{BO}(\omega_{1})=1$ ou $\SI{0}{\dB}$), 
+        le déphasage $\phi(\omega_1)$ est supérieur à -180\degree}
 \end{criteria}
 
 \begin{criteria}{Critère du revers de Bode (2)}
-    \textbf{Un système est stable en boucle fermée si, pour la pulsation $\omega_{c}$ (pulsation critique)
-    telle que l'argument de la fonction de transfert en boucle ouverte (déphasage) est 
-    égale à -180\degree (c.a.d $\phi(\omega_c)=-180\degree$), le gain $G_{dB}(\omega_c)$ est négatif.}
+    \textbf{Un système est stable en boucle fermée si, pour la pulsation 
+    $\omega_{c}$ (pulsation critique) telle que l'argument de la fonction de 
+    transfert en boucle ouverte (déphasage) est égale à -180\degree 
+    (c.a.d $\phi(\omega_c)=-180\degree$), le gain $G_{dB}(\omega_c)$ est 
+    négatif.}
 \end{criteria}
 
 \begin{figure}[!h]
@@ -871,21 +969,33 @@ De ce fait il faut vérifier deux conditions pour respecter le critère du rever
         clip=false,
         ]
         \def\dk{9}
-        \addplot[ultra thick,color=red,domain=1e-2:1e2  , samples=101]{\dk+50-20*log10(1+10*x*x)};
-        \addplot[ultra thick,color=blue,domain=1e-2:1e2  , samples=101]{\dk+30-20*log10(1+10*x*x)};
-        \addplot[ultra thick,color=green!50!black,domain=1e-2:1e2,samples=101]{\dk+10-20*log10(1+10*x*x)};
-        \addplot [green!50!black, mark = *]  coordinates {(3.0077,{\dk+10-20*log10(1+10*3.0077*3.0077)})} {};
-        \addplot [blue, mark = *]            coordinates {(3.0077,{\dk+30-20*log10(1+10*3.0077*3.0077)})} {};
-        \addplot [red, mark = *]             coordinates {(3.0077,{\dk+50-20*log10(1+10*3.0077*3.0077)})} {};
-        \draw[green!50!black,dashed] (1e-2,{\dk+10-20*log10(1+10*3.0077*3.0077)}) 
-        node[left] {$G(\omega_c)$} -- (3.0077,{\dk+10-20*log10(1+10*3.0077*3.0077)}) ;
+        \addplot[ultra thick,color=red,domain=1e-2:1e2  , samples=101]
+        {\dk+50-20*log10(1+10*x*x)};
+        \addplot[ultra thick,color=blue,domain=1e-2:1e2  , samples=101]
+        {\dk+30-20*log10(1+10*x*x)};
+        \addplot[ultra thick,color=green!50!black,domain=1e-2:1e2,samples=101]
+        {\dk+10-20*log10(1+10*x*x)};
+        \addplot [green!50!black, mark = *]  coordinates 
+        {(3.0077,{\dk+10-20*log10(1+10*3.0077*3.0077)})} {};
+        \addplot [blue, mark = *]            coordinates 
+        {(3.0077,{\dk+30-20*log10(1+10*3.0077*3.0077)})} {};
+        \addplot [red, mark = *]             coordinates 
+        {(3.0077,{\dk+50-20*log10(1+10*3.0077*3.0077)})} {};
+        \draw[green!50!black,dashed] 
+        (1e-2,{\dk+10-20*log10(1+10*3.0077*3.0077)}) 
+        node[left] {$G(\omega_c)$} -- 
+        (3.0077,{\dk+10-20*log10(1+10*3.0077*3.0077)});
         \draw[red,dashed] (1e-2,{\dk+50-20*log10(1+10*3.0077*3.0077)}) 
-        node[left] {$G(\omega_c)$} -- (3.0077,{\dk+50-20*log10(1+10*3.0077*3.0077)}) ;
+        node[left] {$G(\omega_c)$} -- 
+        (3.0077,{\dk+50-20*log10(1+10*3.0077*3.0077)}) ;
         \node (pt1) at (axis cs:3.0077,80) {};
-        \draw[]  (1e-2,0)  node[left] {\SI{0}{\dB}} -- (1e2,0) ;
-        \node [green!50!black,right]  at (axis cs: 1e2, -80.0) {\textbf{stable}  };                
-        \node [blue          ,right]  at (axis cs: 1e2, -60.0) {\textbf{critique}};                
-        \node [red           ,right]  at (axis cs: 1e2, -40.0) {\textbf{instable}};                
+        \draw[]  (1e-2,0)  node[left] {\SI{0}{\dB}} -- (1e2,0);
+        \node [green!50!black,right]  at (axis cs: 1e2, -80.0) 
+        {\textbf{stable}  };                
+        \node [blue          ,right]  at (axis cs: 1e2, -60.0) 
+        {\textbf{critique}};                
+        \node [red           ,right]  at (axis cs: 1e2, -40.0) 
+        {\textbf{instable}};                
         \end{axis}
         \begin{axis}[
         at={(axx.below south west)},yshift=-0.2cm,anchor=north west,
@@ -907,29 +1017,35 @@ De ce fait il faut vérifier deux conditions pour respecter le critère du rever
         ylabel style={left,rotate=-90,yshift=3.25em},
         clip=false,
         ]
-        \addplot[ultra thick,color=black,domain=1e-2:1e2, samples=101,unbounded coords=jump]{-2.5*atan2(x,1)};
-%        \draw[blue,dashed] (1e1,{-atan2(1e1,1)})  -- node[left,yshift=0.5em] {$\omega_2$} (1e1,77) ;
-%        \draw[red,dashed]  (2e0,{-atan2(2e0,1)})  -- node[left,yshift=-0.5em] {$\omega_1$} (2e0,100) ;
-%        \draw[blue,dashed] (1e-2,{-atan2(1e1,1)}) node[left] {$\phi(\omega_2)$} -- (1e1,{-atan2(1e1,1)}) ;
+        \addplot[ultra thick,color=black,domain=1e-2:1e2, samples=101]
+        {-2.5*atan2(x,1)};
         \def\ttt{0.865}
         \def\ddd{9.1}
-        \addplot [green!50!black, mark = *]  coordinates {(\ttt,{-2.5*atan2(\ttt,1)})} {};
-        \addplot [blue, mark = *]            coordinates {(3.0077,{-2.5*atan2(3.0077,1)})} {};
-        \addplot [red, mark = *]             coordinates {(\ddd,{-2.5*atan2(\ddd,1)})} {};
-     \draw[green!50!black,dashed] (1e-2,{-2.5*atan2(\ttt,1)}) node[left] {$\phi(\omega_1)$} -- (\ttt,{-2.5*atan2(\ttt,1)}) ;
-     \draw[red,dashed]  (1e-2,{-2.5*atan2(\ddd,1)}) node[left] {$\phi(\omega_1)$} -- (\ddd,{-2.5*atan2(\ddd,1)}) ;
-        \draw[black,dashed]  (1e-2,-180)  node[left] {-180$\degree$} -- (1e2,-180) ;
+        \addplot [green!50!black, mark = *]  coordinates 
+        {(\ttt,{-2.5*atan2(\ttt,1)})} {};
+        \addplot [blue, mark = *]            coordinates 
+        {(3.0077,{-2.5*atan2(3.0077,1)})} {};
+        \addplot [red, mark = *]             coordinates 
+        {(\ddd,{-2.5*atan2(\ddd,1)})} {};
+        \draw[green!50!black,dashed] (1e-2,{-2.5*atan2(\ttt,1)}) 
+        node[left] {$\phi(\omega_1)$} -- (\ttt,{-2.5*atan2(\ttt,1)}) ;
+        \draw[red,dashed]  (1e-2,{-2.5*atan2(\ddd,1)}) 
+        node[left] {$\phi(\omega_1)$} -- (\ddd,{-2.5*atan2(\ddd,1)}) ;
+        \draw[black,dashed] (1e-2,-180)  
+        node[left] {-180$\degree$} -- (1e2,-180) ;
         \end{axis}
-        \draw[green!50!black,dashed] ($(pt1)+(-1,0)$) node[above] {$\omega_1$} -- + (0,-7.5cm) ;
-        \draw[blue ,dashed] ($(pt1)+(0,0)$) node[above,text width=1cm,align=center] {$\omega_c$\\$\omega_1$} -- + (0,-7.5cm) ;
-        \draw[red,dashed] ($(pt1)+(0.9,0)$) node[above] {$\omega_1$} -- + (0,-7.5cm) ;
+        \draw[green!50!black,dashed] ($(pt1)+(-1,0)$) 
+        node[above] {$\omega_1$} -- + (0,-7.5cm) ;
+        \draw[blue ,dashed] ($(pt1)+(0,0)$) 
+        node[above,text width=1cm,align=center] 
+        {$\omega_c$\\$\omega_1$} -- + (0,-7.5cm) ;
+        \draw[red,dashed] ($(pt1)+(0.9,0)$) 
+        node[above] {$\omega_1$} -- + (0,-7.5cm) ;
 \end{tikzpicture}
-\caption{Représentation schématique de lieux de Bode de la
-    fonction de transfert en boucle ouverte de trois systèmes
-        asservis: stable, critique et instable.}
+\caption{Représentation schématique de lieux de Bode de la fonction 
+         de transfert en boucle ouverte de trois systèmes asservis: 
+         stable, critique et instable.}
 \end{figure}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -940,36 +1056,40 @@ De ce fait il faut vérifier deux conditions pour respecter le critère du rever
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Le critère de Nyquist généralise le critère du revers.
-Il s'appui sur le principe de l'argument de Cauchy\footnote{Nous ne donnerons qu'une 
-présentation élémentaire et sans démonstration
-de ce théorème. Un cours d'analyse complexe permettra de compléter cette présentation. On 
-trouvera dans \cite{laas_pc7bis,reg}, 
-une introduction plus détaillée ainsi qu'une bibliographie très fournie sur le sujet.}.
-Nous suivrons la présentation \og graphique\fg~ de ce théorème et du critère de Nyquist donné par~\cite{reg}. 
+Il s'appui sur le principe de l'argument de Cauchy
+\footnote{Nous ne donnerons qu'une présentation élémentaire et sans 
+démonstration de ce théorème. Un cours d'analyse complexe permettra de 
+compléter cette présentation. On trouvera dans \cite{laas_pc7bis,reg}, 
+une introduction plus détaillée ainsi qu'une bibliographie très fournie 
+sur le sujet.}. Nous suivrons la présentation \og graphique\fg~ de ce théorème 
+et du critère de Nyquist donné par~\cite{reg}. 
 
 \subsubsection{Principe de l'argument de Cauchy}
 
 Soit un contour $\mathcal{C}$ parcourant le plan complexe de 
-la variable $p$ dans le sens des aiguilles d'une montre et $F(p)$ une fonction rationnelle 
-ne possédant ni pôle ni zéro sur $\mathcal{C}$. Le théorème du principe de 
-l'argument de Cauchy permet de relier, le nombre de pôles $P$ et de zéros $Z$ entourées par le contour $\mathcal{C}$ 
-au comportement de la courbe $F(\mathcal{C})$ image $F(p)$ de $\mathcal{C}$.
+la variable $p$ dans le sens des aiguilles d'une montre et $F(p)$ une fonction 
+rationnelle ne possédant ni pôle ni zéro sur $\mathcal{C}$. Le théorème du 
+principe de l'argument de Cauchy permet de relier, le nombre de pôles $P$ et 
+de zéros $Z$ entourées par le contour $\mathcal{C}$ au comportement de la 
+courbe $F(\mathcal{C})$ image $F(p)$ de $\mathcal{C}$.
 
 \begin{theorem}{\'Enoncé du principe de l'argument de Cauchy} 
-    Si un contour $\mathcal{C}$ contient $Z$ zéros et $P$ pôles d'une fonction analytique $F(p)$ 
-    sans en traverser aucun, alors quand on le parcourt dans le sens anti-trigonométrique, le contour $\Gamma=F(\mathcal{C})$ 
-    fait un nombre de tours $N$ autour de l'origine dans le sens trigonométrique égal à,
+    Si un contour $\mathcal{C}$ contient $Z$ zéros et $P$ pôles d'une fonction 
+    analytique $F(p)$ sans en traverser aucun, alors quand on le parcourt dans 
+    le sens anti-trigonométrique, le contour $\Gamma=F(\mathcal{C})$ fait un 
+    nombre de tours $N$ autour de l'origine dans le sens trigonométrique égal 
+    à,
     $$
     N=Z-P
     $$
 \end{theorem}
 
-On se rapportera à la~\cref{fig-contour_cauchy} pour un exemple d'application de ce principe.
-Dans cet exemple la fonction analytique $F(p)$ possède 2 pôles 
+On se rapportera à la~\cref{fig-contour_cauchy} pour un exemple d'application 
+de ce principe. Dans cet exemple la fonction analytique $F(p)$ possède 2 pôles 
 et 3 zéros. Le contour entoure $Z=3$ zéros et $P=1$ pôle.
 Le contour $\Gamma=F(\mathcal{C})$ fait alors $N=Z-P=2$ tours autour 
-de l'origine dans le sens trigonométrique ($N>0$). Remarquons que les tours sont 
-comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours}).
+de l'origine dans le sens trigonométrique ($N>0$). Remarquons que les tours 
+sont comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours}).
 
 \begin{figure}[!h]
 \begin{center}
@@ -994,9 +1114,11 @@ comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours}).
     xmax=8
     ]     
     \pgfmathsetseed{3}
-    \draw [
-        decoration={markings,mark=at position 0.2 with {\arrow[line width=2pt]{latex}}},
-        decoration={markings,mark=at position 0.6 with {\arrow[line width=2pt]{latex}}},
+    \draw[
+        decoration={markings,mark=at position 0.2 with 
+        {\arrow[line width=2pt]{latex}}},
+        decoration={markings,mark=at position 0.6 with 
+        {\arrow[line width=2pt]{latex}}},
            postaction={decorate},
            thick,
            red,
@@ -1006,8 +1128,10 @@ comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours}).
            xshift=3cm,
            yshift=3cm] plot (\x*360/11+5*rnd:1.25cm+0.75cm*rnd) ;
     \node[red] (ct) at (axis cs:-4,2) {\Large$\mathcal{C}$};
-    \addplot[mark=x,ultra thick,only marks,mark size=5pt] coordinates{ (-3.0,-0.5) (-6,-1)};
-    \addplot[mark=o,ultra thick,only marks,mark size=5pt] coordinates{ (1,0) (-1,1.2) (-2.1,-1.7) };
+    \addplot[mark=x,ultra thick,only marks,mark size=5pt] 
+    coordinates{ (-3.0,-0.5) (-6,-1)};
+    \addplot[mark=o,ultra thick,only marks,mark size=5pt] 
+    coordinates{ (1,0) (-1,1.2) (-2.1,-1.7) };
 \end{axis}
 \begin{axis}
     [
@@ -1030,8 +1154,10 @@ comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours}).
     \def\m{1.0}
     \def\n{2.1}
     \addplot[
-    decoration={markings,mark=at position 0.1 with {\arrowreversed[line width=2pt]{latex}}},
-    decoration={markings,mark=at position 0.5 with {\arrowreversed[line width=2pt]{latex}}},
+    decoration={markings,mark=at position 0.1 with 
+    {\arrowreversed[line width=2pt]{latex}}},
+    decoration={markings,mark=at position 0.5 with 
+    {\arrowreversed[line width=2pt]{latex}}},
     postaction={decorate},
     blue,
     thick,
@@ -1045,12 +1171,15 @@ comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours}).
 \end{axis}
 \end{tikzpicture}
 \end{center}
-    \caption{Représentation de la transformation d'un contour $\mathcal{C}$ en son image 
-    par une fonction analytique $F(p)$. Dans cet exemple, on observe (droite) 
-    que $\mathcal{C}$ entoure $Z=3$ zéros et $P=1$ pôle 
-    (gauche) l'image fait alors $N=3-1=2$ tours autour de l'origine.
-   % Dans cet exemple la fonction analytique $F(p)$ possède 2 pôles et 3 zéros. Le contour entoure $Z=3$ zéros et $P=1$ pôle.
-   % Le contour $\Gamma=F(\mathcal{C})$ fait alors $N=Z-P=2$ tours autour de l'origine dans le sens trigonométrique ($N>0$).
+    \caption{Représentation de la transformation d'un contour $\mathcal{C}$ 
+             en son image par une fonction analytique $F(p)$. Dans cet exemple,
+             on observe (droite) que $\mathcal{C}$ entoure $Z=3$ zéros et 
+             $P=1$ pôle (gauche) l'image fait alors $N=3-1=2$ tours autour de 
+             l'origine.
+   % Dans cet exemple la fonction analytique $F(p)$ possède 2 pôles et 3 zéros. 
+   % Le contour entoure $Z=3$ zéros et $P=1$ pôle.
+   % Le contour $\Gamma=F(\mathcal{C})$ fait alors $N=Z-P=2$ tours autour de 
+   % l'origine dans le sens trigonométrique ($N>0$).
     \label{fig-contour_cauchy}}
 \end{figure}
 
@@ -1059,16 +1188,19 @@ comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours}).
 \centering
 \tikzsetnextfilename{nyquist_ntours_1-chap6_ext}
 \begin{tikzpicture}
-\begin{axis}[ticks=none,
-axis line style = thick,
-axis lines = center,
-height=4.8cm,
-width=4.8cm,
-ymin=-1.4,
-ymax=1.4,
-xmin=-1.4,
-xmax=1.4,
-clip=false]
+\begin{axis}
+    [
+    ticks=none,
+    axis line style = thick,
+    axis lines = center,
+    height=4.8cm,
+    width=4.8cm,
+    ymin=-1.4,
+    ymax=1.4,
+    xmin=-1.4,
+    xmax=1.4,
+    clip=false
+            ]
 \input{tikz/3tours_r.tex}
 \draw[draw=none,fill=black] (axis cs:0.0,0.0) circle (2pt);
 \node[below] at (axis cs:0,-1.4) {$N=-3$};
@@ -1166,20 +1298,23 @@ est celui du sens trigonométrique.\label{fig-ntours}}
 \end{figure}
 
 \clearpage
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Contours de Nyquist et de Bromwich}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Pour pouvoir appliquer le critère de Nyquist par l'intermédiaire du principe de l'argument 
-de Cauchy, il nous faut définir le contour orienté dans le plan $p$ qui entoure la zone instable 
-(c.a.d le demi-plan à partie réelle positive).
-Nous présentons deux types de contours le contour de Nyquist et ceux de Bromwich\footnote{Thomas 
-John I'Anson Bromwich (1875-1929), mathématicien anglais.}
+Pour pouvoir appliquer le critère de Nyquist par l'intermédiaire du principe 
+de l'argument de Cauchy, il nous faut définir le contour orienté dans le plan 
+$p$ qui entoure la zone instable (c.a.d le demi-plan à partie réelle positive).
+Nous présentons deux types de contours le contour de Nyquist et ceux de 
+Bromwich\footnote{Thomas John I'Anson Bromwich (1875-1929), mathématicien 
+anglais.}
 
-La~\cref{fig-contours} présente les contours classiques pour l'application du critère de Nyquist.
-Ces contours sont composés de tout l'axe des imaginaires,
-d'un demi cercle de rayon infini centré sur l'origine et dans le
-cas où $p=0$ est un pôle ou un zéro de la fonction de transfert en boucle ouverte, le contour
-est également composé d'un cercle de rayon $r\rightarrow0$ centré sur les pôles nuls.
+La~\cref{fig-contours} présente les contours classiques pour l'application 
+du critère de Nyquist. Ces contours sont composés de tout l'axe des 
+imaginaires, d'un demi cercle de rayon infini centré sur l'origine et dans le
+cas où $p=0$ est un pôle ou un zéro de la fonction de transfert en boucle 
+ouverte, le contour est également composé d'un cercle de rayon 
+$r\rightarrow0$ centré sur les pôles nuls.
 
 \captionsetup{width=.9\linewidth} 
 \begin{figure}[!h]
@@ -1202,16 +1337,24 @@ est également composé d'un cercle de rayon $r\rightarrow0$ centré sur les pô
     xmin=-0.8,
     xmax=2.4,
     clip=false]
-    \draw[blue,thick,-{Latex[length=2.5mm]}] (axis cs:0,-1.4) -- (axis cs:0,-0.8) ;
-    \draw[blue,thick,-{Latex[length=2.5mm]}] (axis cs:0,-0.85) -- (axis cs:0,0.8) ;
-    \draw[blue,thick]                        (axis cs:0,0.75) -- (axis cs:0,1.4) ;
-    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=90:60] ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=62:-60] ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[blue,very thick,domain=-58:-90] ({1.4*cos(x)},{1.4*sin(x)});
-    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)}) 
-        node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
+    \draw[blue,thick,-{Latex[length=2.5mm]}]
+    (axis cs:0,-1.4) -- (axis cs:0,-0.8);
+    \draw[blue,thick,-{Latex[length=2.5mm]}]
+    (axis cs:0,-0.85) -- (axis cs:0,0.8);
+    \draw[blue,thick]                       
+    (axis cs:0,0.75) -- (axis cs:0,1.4);
+    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=90:60] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=62:-60] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[blue,very thick,domain=-58:-90] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \draw[dashed,thick] (axis cs:0,0) -- 
+    (axis cs:{1.4*cos(20)},{1.4*sin(20)}) 
+    node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
     \node[below, text width=6cm,text justified,
-    align=center] at (axis cs:0,-1.6) {(a) $H_{BO}$ ne possède aucun pôle ou zéro };
+    align=center] at (axis cs:0,-1.6) 
+    {(a) $H_{BO}$ ne possède aucun pôle ou zéro };
     \end{axis}
     \begin{axis}[
     name=aaa2,
@@ -1230,22 +1373,34 @@ est également composé d'un cercle de rayon $r\rightarrow0$ centré sur les pô
     xmin=-0.8,
     xmax=2.4,
     clip=false]
-    \draw[blue,thick,-{Latex[length=2.5mm]}] (axis cs:0,-1.4) -- (axis cs:0,-0.7) ;
-    \draw[blue,thick] (axis cs:0,-0.75) -- (axis cs:0,-0.15) ;
-    \addplot[blue,very thick,domain=-90:-50,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[blue,very thick,domain=-51:-52,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[blue,very thick,domain=-50:60,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[blue,very thick,domain=54:90,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
-    \draw[blue,thick,-{Latex[length=2.5mm]}]        (axis cs:0,0.15) -- (axis cs:0,0.7) ;
-    \draw[blue,thick]        (axis cs:0,0.65) -- (axis cs:0,1.4) ;
-    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[blue,very thick,domain=-58:-90,samples=10] ({1.4*cos(x)},{1.4*sin(x)});
-    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)}) 
-        node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
-    \addplot[mark=x,black,ultra thick,only marks,mark size=4pt] coordinates{ (0,0) };
-    \node[below, text width=6cm,text justified,align=center] at (axis cs:0,-1.6) 
-        {(b) 0 est un pôle\\ ou zéro de $H_{BO}$};
+    \draw[blue,thick,-{Latex[length=2.5mm]}] 
+    (axis cs:0,-1.4) -- (axis cs:0,-0.7);
+    \draw[blue,thick] 
+    (axis cs:0,-0.75) -- (axis cs:0,-0.15) ;
+    \addplot[blue,very thick,domain=-90:-50,samples=10] 
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[blue,very thick,domain=-51:-52,samples=10] 
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[blue,very thick,domain=-50:60,samples=10] 
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[blue,very thick,domain=54:90,samples=10] 
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \draw[blue,thick,-{Latex[length=2.5mm]}]        
+    (axis cs:0,0.15) -- (axis cs:0,0.7) ;
+    \draw[blue,thick] (axis cs:0,0.65) -- (axis cs:0,1.4) ;
+    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[blue,very thick,domain=-58:-90,samples=10] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \draw[dashed,thick] 
+    (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)}) 
+    node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
+    \addplot[mark=x,black,ultra thick,only marks,mark size=4pt] 
+    coordinates{(0,0)};
+    \node[below, text width=6cm,text justified,align=center] at 
+    (axis cs:0,-1.6) {(b) 0 est un pôle\\ ou zéro de $H_{BO}$};
     \end{axis}
     \begin{axis}[
     at={(aaa2.south east)},xshift=4ex,
@@ -1263,76 +1418,107 @@ est également composé d'un cercle de rayon $r\rightarrow0$ centré sur les pô
     xmin=-0.8,
     xmax=2.4,
     clip=false]
-    \draw[blue,thick,-{Latex[length=2.5mm]}] (axis cs:0,-1.4) -- (axis cs:0,-1.0) ;
+    \draw[blue,thick,-{Latex[length=2.5mm]}] 
+    (axis cs:0,-1.4) -- (axis cs:0,-1.0);
     \draw[blue,thick] (axis cs:0,-1.1) -- (axis cs:0,-0.85) ;
-    \addplot[blue,very thick,domain=-90:-50,samples=10] ({0.15*cos(x)},{-0.7+0.15*sin(x)});
-    \addplot[blue,very thick,domain=-51:-52,samples=10] ({0.15*cos(x)},{-0.7+0.15*sin(x)});
-    \addplot[blue,very thick,domain=-50:60,samples=10]  ({0.15*cos(x)},{-0.7+0.15*sin(x)});
-    \addplot[blue,very thick,domain=54:90,samples=10] ({0.15*cos(x)},{-0.7+0.15*sin(x)});
-    \draw[blue,thick,-{Latex[length=2.5mm]}] (axis cs:0,-0.55) -- (axis cs:0,-0.3) ;
+    \addplot[blue,very thick,domain=-90:-50,samples=10] 
+    ({0.15*cos(x)},{-0.7+0.15*sin(x)});
+    \addplot[blue,very thick,domain=-51:-52,samples=10] 
+    ({0.15*cos(x)},{-0.7+0.15*sin(x)});
+    \addplot[blue,very thick,domain=-50:60,samples=10]  
+    ({0.15*cos(x)},{-0.7+0.15*sin(x)});
+    \addplot[blue,very thick,domain=54:90,samples=10] 
+    ({0.15*cos(x)},{-0.7+0.15*sin(x)});
+    \draw[blue,thick,-{Latex[length=2.5mm]}] 
+    (axis cs:0,-0.55) -- (axis cs:0,-0.3) ;
     \draw[blue,thick] (axis cs:0,-0.35) -- (axis cs:0,-0.15) ;
-    \addplot[blue,very thick,domain=-90:-50,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[blue,very thick,domain=-51:-52,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[blue,very thick,domain=-50:60,samples=10]  ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[blue,very thick,domain=54:90,samples=10]   ({0.15*cos(x)},{0.15*sin(x)});
-    \draw[blue,thick,-{Latex[length=2.5mm]}]    (axis cs:0,0.15) -- (axis cs:0,0.4) ;
-    \draw[blue,thick]        (axis cs:0,0.35) -- (axis cs:0,0.55) ;
-    \addplot[blue,very thick,domain=-90:-50,samples=10] ({0.15*cos(x)},{0.7+0.15*sin(x)});
-    \addplot[blue,very thick,domain=-51:-52,samples=10] ({0.15*cos(x)},{0.7+0.15*sin(x)});
-    \addplot[blue,very thick,domain=-50:60,samples=10]  ({0.15*cos(x)},{0.7+0.15*sin(x)});
-    \addplot[blue,very thick,domain=54:90,samples=10]   ({0.15*cos(x)},{0.7+0.15*sin(x)});
-    \draw[blue,thick,-{Latex[length=2.5mm]}]    (axis cs:0,0.85) -- (axis cs:0,1.1) ;
+    \addplot[blue,very thick,domain=-90:-50,samples=10] 
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[blue,very thick,domain=-51:-52,samples=10] 
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[blue,very thick,domain=-50:60,samples=10]  
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[blue,very thick,domain=54:90,samples=10]   
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \draw[blue,thick,-{Latex[length=2.5mm]}]    
+    (axis cs:0,0.15) -- (axis cs:0,0.4) ;
+    \draw[blue,thick]        
+    (axis cs:0,0.35) -- (axis cs:0,0.55) ;
+    \addplot[blue,very thick,domain=-90:-50,samples=10] 
+    ({0.15*cos(x)},{0.7+0.15*sin(x)});
+    \addplot[blue,very thick,domain=-51:-52,samples=10] 
+    ({0.15*cos(x)},{0.7+0.15*sin(x)});
+    \addplot[blue,very thick,domain=-50:60,samples=10]  
+    ({0.15*cos(x)},{0.7+0.15*sin(x)});
+    \addplot[blue,very thick,domain=54:90,samples=10]   
+    ({0.15*cos(x)},{0.7+0.15*sin(x)});
+    \draw[blue,thick,-{Latex[length=2.5mm]}]    
+    (axis cs:0,0.85) -- (axis cs:0,1.1) ;
     \draw[blue,thick]        (axis cs:0,1.0) -- (axis cs:0,1.4) ;
-    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[blue,very thick,domain=-58:-90,samples=10] ({1.4*cos(x)},{1.4*sin(x)});
-    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)}) 
-        node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
-    \addplot[mark=x,black,ultra thick,only marks,mark size=4pt] coordinates{ (0,0) (0,-0.7) (0,0.7) };
+    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[blue,very thick,domain=-58:-90,samples=10] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)})
+    node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
+    \addplot[mark=x,black,ultra thick,only marks,mark size=4pt] 
+    coordinates {(0,0) (0,-0.7) (0,0.7)};
     \node[left] at (axis cs:0,0.7) {$p_1$};
     \node[left] at (axis cs:0,-0.7) {$p_2$};
-    \node[below, text width=6cm,text justified,align=center] at (axis cs:0,-1.6) 
-        {(c) 0, $p_1$ et $p_2$ sont des pôles\\ ou zéros de $H_{BO}$};
+    \node[below, text width=6cm,text justified,align=center] at 
+    (axis cs:0,-1.6) 
+    {(c) 0, $p_1$ et $p_2$ sont des pôles\\ ou zéros de $H_{BO}$};
     \end{axis}
 \end{tikzpicture}
 \end{center}
-\caption{(a) Contour de Nyquist et (b,c) contours de Bromwich.\label{fig-contours}} 
+\caption{
+    (a) Contour de Nyquist et (b,c) contours de Bromwich.
+    \label{fig-contours}} 
 \end{figure}
 \captionsetup{width=.85\linewidth} 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Contour de Nyquist}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-La~\cref{fig-contours} (a) présente le contour de Nyquist. Celui-ci est composé de 3 portions:
+La~\cref{fig-contours} (a) présente le contour de Nyquist. Celui-ci est 
+composé de 3 portions:
 \begin{itemize}
-    \item \textbf{I} : l'axe des imaginaires positifs pour laquelle $p=\jw$ avec $\omega\in[0,\infty[$,
-    \item \textbf{II}: un demi-cercle de rayon $R$ entourant tout le demi-plan complexe de partie réelle positive
-                        et pour lequel $p=Re^{j\theta}$ avec $R\rightarrow\infty$ et $\theta\in[0,\pi/2]$,
-    \item \textbf{III}: l'axe des imaginaires négatifs  pour laquelle $p=-\jw$ avec $\omega\in]-\infty,0]$, 
-                        symétrique de \textbf{I}
+    \item \textbf{I} : l'axe des imaginaires positifs pour laquelle $p=\jw$ 
+          avec $\omega\in[0,\infty[$,
+    \item \textbf{II}: un demi-cercle de rayon $R$ entourant tout le 
+          demi-plan complexe de partie réelle positive et pour lequel 
+          $p=Re^{j\theta}$ avec $R\rightarrow\infty$ et $\theta\in[0,\pi/2]$,
+    \item \textbf{III}: l'axe des imaginaires négatifs  pour laquelle $p=-\jw$ 
+          avec $\omega\in]-\infty,0]$, symétrique de \textbf{I}
 \end{itemize}
 
 
 %La courbe image d'une fonction de transfert $H_{BO}(p)$
 %en boucle ouverte de ces deux portions. 
-L'image de la portion \textbf{I} est donné par $H_{BO}(\boldsymbol{\mathrm{I}})=H_{BO}(\jw)$, 
-ce qui correspond au lieu de Nyquist pour $\omega\in[0,\infty[$. 
-L'image de la portion \textbf{II} est l'origine du plan en 0. L'image de la 
-portion \textbf{III} peut être déterminé à partir de l'image de la 
-portion \textbf{I} par symétrie par rapport à l'axe des réels\footnote{On notera 
-en effet que $H_{BO}(-\jw)=\Re{H_{BO}(\jw)}-\Im{H_{BO}(\jw)}$}.
+L'image de la portion \textbf{I} est donné par 
+$H_{BO}(\boldsymbol{\mathrm{I}})=H_{BO}(\jw)$, ce qui correspond au lieu de 
+Nyquist pour $\omega\in[0,\infty[$. L'image de la portion \textbf{II} est 
+l'origine du plan en 0. L'image de la portion \textbf{III} peut être 
+déterminé à partir de l'image de la portion \textbf{I} par symétrie par 
+rapport à l'axe des réels\footnote{On notera en effet que 
+$H_{BO}(-\jw)=\Re{H_{BO}(\jw)}-\Im{H_{BO}(\jw)}$}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Déterminons l'image par le contour de Bromwich de la fonction de transfert suivante :
-$H_1(p)=\dfrac{1}{1+p}$
+Déterminons l'image par le contour de Bromwich de la fonction de transfert 
+suivante : $H_1(p)=\dfrac{1}{1+p}$
 
 \begin{figure}[!h]
 \centering
 \tikzsetnextfilename{nyquist_contours_exemple_1-chap6_ext}
 \begin{tikzpicture}
-\begin{axis}[
+\begin{axis}
+    [
     name=aaa1,
     ticks=none,
     axis line style = thick,
@@ -1348,21 +1534,31 @@ $H_1(p)=\dfrac{1}{1+p}$
     xmin=-0.8,
     xmax=2.4,
     clip=false]
-    \draw[dashed,blue,very thick,-{Latex[length=2.5mm]}] (axis cs:0,-1.4) -- (axis cs:0,-0.8) node[left] {\textbf{III}} ;
-    \draw[dashed,blue,very thick,-{Latex[length=2.5mm]}] (axis cs:0,-0.85) -- (axis cs:0,0) ;
-    \draw[blue,very thick,-{Latex[length=2.5mm]}] (axis cs:0,0) -- (axis cs:0,0.8) node[left] {\textbf{I}};
-    \draw[blue,very thick]                        (axis cs:0,0.75) -- (axis cs:0,1.4) ;
-    \addplot[red,very thick,-{Latex[length=2.5mm]},domain=90:60] ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[red,very thick,domain=62:0] ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[red,very thick,-{Latex[length=2.5mm]},domain=0:-60] ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[red,very thick,domain=-58:-90] ({1.4*cos(x)},{1.4*sin(x)});
-%    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)})
-%        node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
-    \node[right,xshift=0.5em,red] at (axis cs:{1.4*cos(50)},{1.4*sin(50)}) {\textbf{II}};
-    \node[left,red] at (axis cs:{1.4*cos(90)},{1.4*sin(90)}) {\scriptsize $p\rightarrow+j\infty$};
-    \node[left,red] at (axis cs:{1.4*cos(-90)},{1.4*sin(-90)}) {\scriptsize $p\rightarrow-j\infty$};
-\end{axis}
-    \draw[dblarw={black}{3pt}{3pt}] (5.5,2.18) -- node[midway,above]  {$H_1(p)$} (7.5,2.18) ;
+    \draw[dashed,blue,very thick,-{Latex[length=2.5mm]}] 
+    (axis cs:0,-1.4) -- (axis cs:0,-0.8) node[left] {\textbf{III}} ;
+    \draw[dashed,blue,very thick,-{Latex[length=2.5mm]}] 
+    (axis cs:0,-0.85) -- (axis cs:0,0) ;
+    \draw[blue,very thick,-{Latex[length=2.5mm]}] 
+    (axis cs:0,0) -- (axis cs:0,0.8) node[left] {\textbf{I}};
+    \draw[blue,very thick]                        
+    (axis cs:0,0.75) -- (axis cs:0,1.4) ;
+    \addplot[red,very thick,-{Latex[length=2.5mm]},domain=90:60] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[red,very thick,domain=62:0] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[red,very thick,-{Latex[length=2.5mm]},domain=0:-60] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[red,very thick,domain=-58:-90] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \node[right,xshift=0.5em,red] at 
+    (axis cs:{1.4*cos(50)},{1.4*sin(50)}) {\textbf{II}};
+    \node[left,red] at (axis cs:{1.4*cos(90)},{1.4*sin(90)}) 
+    {\scriptsize $p\rightarrow+j\infty$};
+    \node[left,red] at (axis cs:{1.4*cos(-90)},{1.4*sin(-90)}) 
+    {\scriptsize $p\rightarrow-j\infty$};
+    \end{axis}
+    \draw[dblarw={black}{3pt}{3pt}] (5.5,2.18) -- 
+    node[midway,above]  {$H_1(p)$} (7.5,2.18) ;
 \begin{axis}[
     name=aaa2,
     at={(aaa1.south east)},xshift=24ex,
@@ -1389,43 +1585,58 @@ $H_1(p)=\dfrac{1}{1+p}$
     ({1/(1+\ttt*x*x)},{-x/(1+\ttt*x*x)});
     \addplot[dashed,blue,very thick,domain=0:0.9,samples=201] 
     ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
-    \addplot[dashed,blue,very thick,domain=0.89:10,samples=201,{Latex[length=2.5mm]}-] 
+    \addplot[dashed,blue,very thick,domain=0.89:10,samples=201,
+    {Latex[length=2.5mm]}-] 
     ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
     \addplot[dashed,blue,very thick,domain=10:20,samples=201] 
     ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
-    \draw[draw=none,fill=red] (axis cs:0,0) circle (2pt) node[above left,red] {\textbf{II}};
-    \node[right,xshift=0.5em,blue] at (axis cs:{0.9*cos(30)},{0.9*sin(30)}) {\textbf{III}};
-    \node[right,xshift=0.5em,blue] at (axis cs:{0.9*cos(30)},{-0.9*sin(30)}) {\textbf{I}};
-    \node[right,red] at (axis cs:{0.1*cos(90)},{0.1*sin(90)}) {\scriptsize $p\rightarrow-j\infty$};
-    \node[right,red] at (axis cs:{0.1*cos(-90)},{0.1*sin(-90)}) {\scriptsize $p\rightarrow+j\infty$};
-    \node[blue] at (axis cs:{1.2*cos(10)},{1.2*sin(10)})   {\scriptsize $p\rightarrow0^-$};
-    \node[blue] at (axis cs:{1.2*cos(-10)},{1.2*sin(-10)}) {\scriptsize $p\rightarrow0^+$};
+    \draw[draw=none,fill=red] (axis cs:0,0) circle (2pt) node[above left,red] 
+    {\textbf{II}};
+    \node[right,xshift=0.5em,blue] at (axis cs:{0.9*cos(30)},{0.9*sin(30)}) 
+    {\textbf{III}};
+    \node[right,xshift=0.5em,blue] at (axis cs:{0.9*cos(30)},{-0.9*sin(30)}) 
+    {\textbf{I}};
+    \node[right,red] at (axis cs:{0.1*cos(90)},{0.1*sin(90)}) 
+    {\scriptsize $p\rightarrow-j\infty$};
+    \node[right,red] at (axis cs:{0.1*cos(-90)},{0.1*sin(-90)}) 
+    {\scriptsize $p\rightarrow+j\infty$};
+    \node[blue] at (axis cs:{1.2*cos(10)},{1.2*sin(10)})   
+    {\scriptsize $p\rightarrow0^-$};
+    \node[blue] at (axis cs:{1.2*cos(-10)},{1.2*sin(-10)}) 
+    {\scriptsize $p\rightarrow0^+$};
 \end{axis}
 \end{tikzpicture}
-    \caption{Exemple de représentation d'un lieu complet de Nyquist d'une fonction de transfert 
-	$H_1(p)$ par l'image du contour de Nyquist. \label{fig-nyquist_complet_contour} }
+    \caption{Exemple de représentation d'un lieu complet de Nyquist d'une 
+             fonction de transfert $H_1(p)$ par l'image du contour de 
+             Nyquist. \label{fig-nyquist_complet_contour}}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Contour de Bromwich}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-La~\cref{fig-contours} (b) présente un contour de Bromwich dans le cas $p=0$ est pôle de la fonction de transfert. 
-Celui-ci est composé de 4 portions:
+La~\cref{fig-contours} (b) présente un contour de Bromwich dans le cas $p=0$ 
+est pôle de la fonction de transfert. Celui-ci est composé de 4 portions:
 \begin{itemize}
-    \item \textbf{I} : l'axe des imaginaires positifs pour laquelle $p=\jw$ avec $\omega\in[0,\infty[$,
-    \item \textbf{II}: un demi cercle de rayon $R$ entourant tout le demi-plan complexe de partie réelle positive 
-        et pour lequel $p=Re^{j\theta}$ avec $R\rightarrow\infty$ et $\theta\in[0,\pi/2]$,
-    \item \textbf{III}: l'axe des imaginaires négatifs  pour laquelle $p=-\jw$ avec $\omega\in]-\infty,0]$, symétrique de \textbf{I}
+    \item \textbf{I} : l'axe des imaginaires positifs pour laquelle 
+          $p=\jw$ avec $\omega\in[0,\infty[$,
+    \item \textbf{II}: un demi cercle de rayon $R$ entourant tout le demi-plan 
+          complexe de partie réelle positive 
+          et pour lequel $p=Re^{j\theta}$ avec $R\rightarrow\infty$ et 
+          $\theta\in[0,\pi/2]$,
+    \item \textbf{III}: l'axe des imaginaires négatifs  pour laquelle $p=-\jw$ 
+          avec $\omega\in]-\infty,0]$, symétrique de \textbf{I}
     \item \textbf{IV}:  un demi cercle de rayon $r$ contournant l'origine 
-        pour lequel $p=re^{j\theta}$ avec $r\rightarrow0$ et$\omega\in]-\infty,0]$.
+          pour lequel $p=re^{j\theta}$ avec $r\rightarrow0$ et 
+          $\omega\in]-\infty,0]$.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Déterminons l'image par le contour de Bromwich de la fonction de transfert suivante :
-$H_2(p)=\dfrac{1}{p(1+p)}$
-
+Déterminons l'image par le contour de Bromwich de la fonction de transfert 
+suivante : $H_2(p)=\dfrac{1}{p(1+p)}$
 \begin{figure}[!h]
 \centering
 \tikzsetnextfilename{nyquist_contours_exemple_2-chap6_ext}
@@ -1446,25 +1657,41 @@ $H_2(p)=\dfrac{1}{p(1+p)}$
     xmin=-0.8,
     xmax=2.4,
     clip=false]
-    \draw[dashed,blue,very thick,-{Latex[length=2.5mm]}] (axis cs:0,-1.4) -- (axis cs:0,-0.7) node[left] {\textbf{III}};
+    \draw[dashed,blue,very thick,-{Latex[length=2.5mm]}] 
+    (axis cs:0,-1.4) -- (axis cs:0,-0.7) node[left] {\textbf{III}};
     \draw[dashed,blue,very thick] (axis cs:0,-0.75) -- (axis cs:0,-0.15) ;
-    \addplot[green!50!black,very thick,domain=-90:-50,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[green!50!black,very thick,domain=-51:-52,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[green!50!black,very thick,domain=-50:60,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[green!50!black,very thick,domain=54:90,samples=10] ({0.15*cos(x)},{0.15*sin(x)});
-    \draw[blue,thick,-{Latex[length=2.5mm]}]        (axis cs:0,0.15) -- (axis cs:0,0.7) node[left] {\textbf{I}} ;
+    \addplot[green!50!black,very thick,domain=-90:-50,samples=10] 
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[green!50!black,very thick,domain=-51:-52,samples=10] 
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[green!50!black,very thick,domain=-50:60,samples=10] 
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[green!50!black,very thick,domain=54:90,samples=10] 
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \draw[blue,thick,-{Latex[length=2.5mm]}]  
+    (axis cs:0,0.15) -- (axis cs:0,0.7) node[left] {\textbf{I}} ;
     \draw[blue,thick]        (axis cs:0,0.65) -- (axis cs:0,1.4) ;
-    \addplot[red,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[red,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[red,very thick,domain=-58:-90,samples=10] ({1.4*cos(x)},{1.4*sin(x)});
-    \node[right,xshift=0.5em,red] at (axis cs:{1.4*cos(50)},{1.4*sin(50)}) {\textbf{II}};
-    \node[right,green!50!black] at (axis cs:{0.20*cos(60)},{0.20*sin(60)}) {\textbf{IV}};
-    \node[left,green!50!black] at (axis cs:{-0.15*cos(90)},{0.15*sin(90)}) {\scriptsize $p\rightarrow0^+$};
-    \node[left,green!50!black] at (axis cs:{-0.15*cos(-90)},{0.15*sin(-90)}) {\scriptsize $p\rightarrow0^-$};
-    \node[left,red] at (axis cs:{1.4*cos(90)},{1.4*sin(90)}) {\scriptsize $p\rightarrow+j\infty$};
-    \node[left,red] at (axis cs:{1.4*cos(-90)},{1.4*sin(-90)}) {\scriptsize $p\rightarrow-j\infty$};
+    \addplot[red,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[red,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[red,very thick,domain=-58:-90,samples=10] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \node[right,xshift=0.5em,red] at 
+    (axis cs:{1.4*cos(50)},{1.4*sin(50)}) {\textbf{II}};
+    \node[right,green!50!black] at 
+    (axis cs:{0.20*cos(60)},{0.20*sin(60)}) {\textbf{IV}};
+    \node[left,green!50!black] at (axis cs:{-0.15*cos(90)},{0.15*sin(90)}) 
+    {\scriptsize $p\rightarrow0^+$};
+    \node[left,green!50!black] at (axis cs:{-0.15*cos(-90)},{0.15*sin(-90)}) 
+    {\scriptsize $p\rightarrow0^-$};
+    \node[left,red] at (axis cs:{1.4*cos(90)},{1.4*sin(90)}) 
+    {\scriptsize $p\rightarrow+j\infty$};
+    \node[left,red] at (axis cs:{1.4*cos(-90)},{1.4*sin(-90)}) 
+    {\scriptsize $p\rightarrow-j\infty$};
 \end{axis}
-    \draw[dblarw={black}{3pt}{3pt}] (5.5,2.18) -- node[midway,above]  {$H_2(p)$} (7.5,2.18) ;
+    \draw[dblarw={black}{3pt}{3pt}] (5.5,2.18) -- node[midway,above] 
+    {$H_2(p)$} (7.5,2.18) ;
 \begin{axis}[
     name=aaa2,
     at={(aaa1.south east)},xshift=24ex,
@@ -1482,10 +1709,14 @@ $H_2(p)=\dfrac{1}{p(1+p)}$
     xmin=-0.8,
     xmax=2.4,
     clip=false]
-    \node[right,xshift=0.5em,green!50!black] at (axis cs:{1.3*cos(35)},{1.3*sin(35)}) {\textbf{IV}};
-    \node[blue] at (axis cs:{-1.2*cos(20)},{1.2*sin(20)}) {\textbf{III}};
-    \node[blue] at (axis cs:{-1.2*cos(20)},{-1.2*sin(20)}) {\textbf{I}};
-    \draw[draw=none,fill=red] (axis cs:0,0) circle (2pt) node[above right,red,yshift=0.7em] {\textbf{II}};
+    \node[right,xshift=0.5em,green!50!black] at 
+    (axis cs:{1.3*cos(35)},{1.3*sin(35)}) {\textbf{IV}};
+    \node[blue] at (axis cs:{-1.2*cos(20)},{1.2*sin(20)}) 
+    {\textbf{III}};
+    \node[blue] at (axis cs:{-1.2*cos(20)},{-1.2*sin(20)}) 
+    {\textbf{I}};
+    \draw[draw=none,fill=red] (axis cs:0,0) circle (2pt) 
+    node[above right,red,yshift=0.7em] {\textbf{II}};
     \def\ttt{1.0}
     \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=0.6:0.9,samples=201] 
     ({-1/(1+\ttt*x*x)},{-1/(x*(1+\ttt*x*x))});
@@ -1493,24 +1724,33 @@ $H_2(p)=\dfrac{1}{p(1+p)}$
     ({-1/(1+\ttt*x*x)},{-1/(x*(1+\ttt*x*x))});
     \addplot[dashed,blue,very thick,domain=0.6:0.9,samples=201] 
     ({-1/(1+\ttt*x*x)},{1/(x*(1+\ttt*x*x))});
-    \addplot[dashed,blue,very thick,domain=0.8:10,samples=201,{Latex[length=2.5mm]}-] 
+    \addplot[dashed,blue,very thick,domain=0.8:10,samples=201,
+    {Latex[length=2.5mm]}-] 
     ({-1/(1+\ttt*x*x)},{1/(x*(1+\ttt*x*x))});
     \begin{scope}
-        \clip (axis cs:-0.7,-1.7)  rectangle (1.4,1.7);
+        \clip (axis cs:-0.7,-1.7) rectangle (1.4,1.7);
         \draw[green!50!black,very thick,
-        decoration={markings,mark=at position 0.2 with {\arrowreversed[line width=2pt]{latex}}},
-        decoration={markings,mark=at position 0.7 with {\arrowreversed[line width=2pt]{latex}}},
-        decoration={markings,mark=at position 0.9 with {\arrowreversed[line width=2pt]{latex}}},
+        decoration={markings,mark=at position 0.2 with 
+        {\arrowreversed[line width=2pt]{latex}}},
+        decoration={markings,mark=at position 0.7 with 
+        {\arrowreversed[line width=2pt]{latex}}},
+        decoration={markings,mark=at position 0.9 with 
+        {\arrowreversed[line width=2pt]{latex}}},
         postaction={decorate}] (axis cs:0,0) circle (1.4);
     \end{scope}
-    \node[left,green!50!black] at (axis cs:{1.4*cos(120)},{1.4*sin(120)})   {\scriptsize $p\rightarrow0^-$};
-    \node[left,green!50!black] at (axis cs:{1.4*cos(-120)},{1.4*sin(-120)}) {\scriptsize $p\rightarrow0^+$};
-    \node[right,red] at (axis cs:{0.15*cos(90)},{0.15*sin(90)}) {\scriptsize $p\rightarrow-j\infty$};
-    \node[right,red] at (axis cs:{0.15*cos(-90)},{0.15*sin(-90)}) {\scriptsize $p\rightarrow+j\infty$};
+    \node[left,green!50!black] at (axis cs:{1.4*cos(120)},{1.4*sin(120)})   
+    {\scriptsize $p\rightarrow0^-$};
+    \node[left,green!50!black] at (axis cs:{1.4*cos(-120)},{1.4*sin(-120)}) 
+    {\scriptsize $p\rightarrow0^+$};
+    \node[right,red] at (axis cs:{0.15*cos(90)},{0.15*sin(90)}) 
+    {\scriptsize $p\rightarrow-j\infty$};
+    \node[right,red] at (axis cs:{0.15*cos(-90)},{0.15*sin(-90)}) 
+    {\scriptsize $p\rightarrow+j\infty$};
 \end{axis}
 \end{tikzpicture}
-    \caption{Exemple de représentation d'un lieu complet de Nyquist d'une fonction de transfert $H_2(p)$ 
-	possédant un pôle nul par l'image du contour de Bromwich. 
+    \caption{Exemple de représentation d'un lieu complet de Nyquist 
+             d'une fonction de transfert $H_2(p)$ possédant un pôle nul par 
+             l'image du contour de Bromwich. 
     \label{fig-nyquist_complet_contour} }
 \end{figure}
 
