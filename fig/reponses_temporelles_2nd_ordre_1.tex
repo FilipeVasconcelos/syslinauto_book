@@ -1,41 +1,42 @@
 \begin{landscape}
-\newcommand{\mysize}{\footnotesize}
-\captionsetup{width=1.2\textwidth}
+        \newcommand{\mysize}{\footnotesize}
+        \captionsetup{width=1.2\textwidth}
         \small
         \centering
         \captionof{table}{Formes caractéristiques des réponses temporelles d'un système du %}
         second ordre pour les différents régimes. }
-        \begin{tabular}{M{2.75cm}M{5.25cm}M{5.25cm}M{5.25cm}}%
-        \hhline{====}
-             Réponse   & Régime apérodique        ($\xi>1$)  & Régime critique ($\xi=1$) & 
-                         Régime pseudo-périodique ($0<\xi<1$) \\[0em]
-        \hline
+        \setlength{\ltmp}{0.25\textwidth}
+        \newlength{\ldtmp}
+        \setlength{\ldtmp}{0.34\textwidth}
+        \begin{tabular}{@{}P{\ltmp}P{\ldtmp}P{\ldtmp}P{\ldtmp}@{}}%
+        \toprule
+        Réponse   & Régime apérodique        ($\xi>1$)  & Régime critique ($\xi=1$) & 
+                    Régime pseudo-périodique ($0<\xi<1$) \\
+        \midrule
         Réponse impulsionnelle & 
-            \resizebox{0.9\linewidth}{!}{\input{tikz/1-1.tex}} 
-            {\mysize $$ s(t)=\dfrac{1}{\tau_1-\tau_2}\left(e^{-\frac{t}{\tau_1}}-e^{-\frac{t}{\tau_2}}\right)$$} &  
-            \resizebox{0.9\linewidth}{!}{\input{tikz/1-2.tex}} 
-            {\mysize $$s(t)=\dfrac{t}{\tau^2}e^{-\frac{t}{\tau}}$$} &  
-            \resizebox{0.9\linewidth}{!}{\input{tikz/1-3.tex}} 
-            {\mysize $$s(t)=\dfrac{\omega_d}{1-\xi^2}e^{-\xi\omega_0 t}\sin{\omega_d t}$$}\\[0em]
-        \hline
+        \raisebox{-.5\height}{\resizebox{0.9\linewidth}{!}{\input{tikz/1-1.tex}}} 
+        $$s(t)=\dfrac{1}{\tau_1-\tau_2}\left(e^{-\frac{t}{\tau_1}}-e^{-\frac{t}{\tau_2}}\right)$$ &
+        \raisebox{-.5\height}{\resizebox{0.9\linewidth}{!}{\input{tikz/1-2.tex}}} 
+        {\mysize $$s(t)=\dfrac{t}{\tau^2}e^{-\frac{t}{\tau}}$$} &  
+        \raisebox{-.5\height}{\resizebox{0.9\linewidth}{!}{\input{tikz/1-3.tex}}} 
+        {\mysize $$s(t)=\dfrac{\omega_d}{1-\xi^2}e^{-\xi\omega_0 t}\sin{\omega_d t}$$}\\
+        \midrule
         Réponse indicielle &  
-            \resizebox{0.9\linewidth}{!}{\input{tikz/2-1.tex}} 
-            {\mysize $$s(t)=1+\dfrac{1}{\tau_1-\tau_2}\left(\tau_2e^{-\frac{t}{\tau_2}}-\tau_1e^{-\frac{t}{\tau_1}}\right)$$} &  
-            \resizebox{0.9\linewidth}{!}{\input{tikz/2-2.tex}} 
-            {\mysize $$s(t)=1-e^{-\frac{t}{\tau}}-\dfrac{t}{\tau}e^{-\frac{t}{\tau}}$$ } &  
-            \resizebox{0.9\linewidth}{!}{\input{tikz/2-3.tex}} 
-            {\mysize $$s(t) = 1 - \dfrac{e^{-\xi\omega_0 t}}{\sqrt{1-\xi^2}}\sin{(\omega_d t+\phi)}$$}\\[0em]
-        \hhline{====}
+        \raisebox{-.5\height}{\resizebox{0.9\linewidth}{!}{\input{tikz/2-1.tex}}} 
+        {\mysize $$s(t)=1+\dfrac{1}{\tau_1-\tau_2}\left(\tau_2e^{-\frac{t}{\tau_2}}-\tau_1e^{-\frac{t}{\tau_1}}\right)$$} &  
+        \raisebox{-.5\height}{\resizebox{0.9\linewidth}{!}{\input{tikz/2-2.tex}}} 
+        {\mysize $$s(t)=1-e^{-\frac{t}{\tau}}-\dfrac{t}{\tau}e^{-\frac{t}{\tau}}$$ } &  
+        \raisebox{-.5\height}{\resizebox{0.9\linewidth}{!}{\input{tikz/2-3.tex}}} 
+        {\mysize $$s(t) = 1 - \dfrac{e^{-\xi\omega_0 t}}{\sqrt{1-\xi^2}}\sin{(\omega_d t+\phi)}$$}\\
+        \bottomrule
         \end{tabular}
-        
         \hspace{4em} 
-        
         \begin{minipage}{18cm}
-        \noindent
-        \scriptsize
-         \textbf{Paramètres : } (pour tous) $K=1$, $E_0=1$ (apériodique) 
-         $\xi=2$, $\omega_0=1$ (i.e $\tau_1=3.73$ et $\tau_2=0.26$)
-         (critique) $\xi=1$, $\omega_0=1$ (i.e $\tau=1$) (pseudo-périodique) $\xi=0.3$ et $\omega_0=1$
+            \noindent
+            \scriptsize
+            \textbf{Paramètres : } (pour tous) $K=1$, $E_0=1$ (apériodique) 
+            $\xi=2$, $\omega_0=1$ (i.e $\tau_1=3.73$ et $\tau_2=0.26$)
+            (critique) $\xi=1$, $\omega_0=1$ (i.e $\tau=1$) (pseudo-périodique) $\xi=0.3$ et $\omega_0=1$
         \end{minipage}
 \end{landscape}
 \captionsetup{width=0.85\textwidth}
