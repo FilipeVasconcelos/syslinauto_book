@@ -17,11 +17,11 @@
         clip bounding box=upper bound,
         enlargelimits=false
         ]
-        \addplot [very thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};
-        \addplot [very thick,color=blue,domain=0:2, samples=101,unbounded coords=jump]{0.5*x};
-        \addplot [very thick,color=blue,domain=2:6, samples=101,unbounded coords=jump]{-0.5*x+2};
-        \addplot [very thick,color=blue,domain=6:10, samples=101,unbounded coords=jump]{0.5*x-4};
-        \addplot [very thick,color=blue,domain=10:14, samples=101,unbounded coords=jump]{-0.5*x+6};
+        \addplot [very thick,color=blue,domain=-2:0, samples=101]{0};
+        \addplot [very thick,color=blue,domain=0:2, samples=101]{0.5*x};
+        \addplot [very thick,color=blue,domain=2:6, samples=101]{-0.5*x+2};
+        \addplot [very thick,color=blue,domain=6:10, samples=101]{0.5*x-4};
+        \addplot [very thick,color=blue,domain=10:14, samples=101]{-0.5*x+6};
         \draw[blue] (axis cs:2,1) -- (axis cs:2,1.25);
         \draw[blue] (axis cs:10,1) -- (axis cs:10,1.25);
         \draw[blue,ultra thick, latex-latex] (axis cs:2,1.25) --node[above,yshift=+0.2em]{$T$} (axis cs:10,1.25);

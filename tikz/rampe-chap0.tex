@@ -16,8 +16,8 @@
         xlabel style={below right},
         ylabel style={above left},
         ]
-        \addplot [ultra thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};
-        \addplot [ultra thick,color=blue,domain=0:15, samples=101,unbounded coords=jump]{x};
+        \addplot [ultra thick,color=blue,domain=-2:0, samples=101]{0};
+        \addplot [ultra thick,color=blue,domain=0:15, samples=101]{x};
         \end{axis}
         \begin{axis}[
         at={(ax2.south east)},
@@ -38,7 +38,7 @@
         xticklabels={$\tau$},
         xtick={2},
         ]
-        \addplot [ultra thick,color=blue,domain=-2:2, samples=101,unbounded coords=jump]{0};
-        \addplot [ultra thick,color=blue,domain=2:17, samples=101,unbounded coords=jump]{x-2};
+        \addplot [ultra thick,color=blue,domain=-2:2, samples=101]{0};
+        \addplot [ultra thick,color=blue,domain=2:17, samples=101]{x-2};
         \end{axis}
     \end{tikzpicture}

@@ -20,11 +20,11 @@
         xticklabels={},
         ]
 
-            \addplot [very thick,color=blue,domain=-2:0, samples=11,unbounded coords=jump]{0};
-            \addplot [very thick,color=blue,domain=0:4*pi, samples=501,unbounded coords=jump]{exp(-0.2*x)*sin(3.5*deg(x))};
-            \addplot [dashed,very thick,color=blue,domain=0:4*pi, samples=501,unbounded coords=jump]{exp(-0.2*x)};
-            \addplot [dashed,very thick,color=blue,domain=0:4*pi, samples=501,unbounded coords=jump]{-exp(-0.2*x)};
-            %\addplot [thick,color=red,domain=0:4*pi, samples=501,unbounded coords=jump]{exp(-0.2*x)*sin(deg(4*x-pi*0.5))};
+            \addplot [very thick,color=blue,domain=-2:0, samples=11]{0};
+            \addplot [very thick,color=blue,domain=0:4*pi, samples=501]{exp(-0.2*x)*sin(3.5*deg(x))};
+            \addplot [dashed,very thick,color=blue,domain=0:4*pi, samples=501]{exp(-0.2*x)};
+            \addplot [dashed,very thick,color=blue,domain=0:4*pi, samples=501]{-exp(-0.2*x)};
+            %\addplot [thick,color=red,domain=0:4*pi, samples=501]{exp(-0.2*x)*sin(deg(4*x-pi*0.5))};
 %            \draw[blue,] (axis cs:pi*0.5,1) -- (axis cs:pi*0.5,1.25);
 %            \draw[blue] (axis cs:pi*2.5,1) -- (axis cs:pi*2.5,1.25);
 %            \draw[blue,ultra thick, latex-latex] (axis cs:pi*0.5,1.2) --node[above,yshift=+0.2em]{$\dfrac{2\pi}{\omega}$} (axis cs:pi*2.5,1.2);

@@ -20,9 +20,9 @@
         xticklabels={},
         ]
 
-            \addplot [ultra thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};
-            \addplot [ultra thick,color=blue,domain=0:4*pi, samples=101,unbounded coords=jump]{sin(deg(x))};
-            \addplot [ultra thick,color=red,domain=0:4*pi, samples=101,unbounded coords=jump]{0.7*sin(deg(x-pi*0.5))};
+            \addplot [ultra thick,color=blue,domain=-2:0, samples=101]{0};
+            \addplot [ultra thick,color=blue,domain=0:4*pi, samples=101]{sin(deg(x))};
+            \addplot [ultra thick,color=red,domain=0:4*pi, samples=101]{0.7*sin(deg(x-pi*0.5))};
         %    \draw[blue,] (axis cs:pi*0.5,1) -- (axis cs:pi*0.5,1.25);
         %    \draw[blue] (axis cs:pi*2.5,1) -- (axis cs:pi*2.5,1.25);
         %    \draw[blue,ultra thick, latex-latex] (axis cs:pi*0.5,1.2) --node[above,yshift=+0.2em]{$\dfrac{2\pi}{\omega}$} (axis cs:pi*2.5,1.2);

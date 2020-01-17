@@ -1,5 +1,5 @@
-    \begin{tikzpicture}
-        \begin{axis}[
+\begin{tikzpicture}
+    \begin{axis}[
         axis line style = thick,
 	ticks=none,
         height=5cm,
@@ -14,18 +14,16 @@
         ylabel={$s(t)$},
         xlabel style={below right},
         ylabel style={above left},
-        %clip bounding box=upper bound,
-        %enlargelimits=false
         clip=false,
         ]
         \draw[white!90!black,fill=white!95!black]   (axis cs:-3,-1.5) rectangle (axis cs:0,3);
         \draw[white!90!blue,fill=white!90!blue] (axis cs:0,-1.5) rectangle (axis cs:10.5,3);
         \draw[thick,-latex]   (axis cs:-3.0,0) -- (axis cs:10,0);
         \draw[thick,-latex]   (axis cs:0,-1.5) -- (axis cs:0,3);
-        \addplot[very thick,color=black,domain=-3:0, samples=101,unbounded coords=jump]{0};                                
-	\addplot[very thick,color=blue,domain=0:10, samples=501,unbounded coords=jump]{sin(3*deg(x))*exp(-0.5*x)+1};
+        \addplot[very thick,color=black,domain=-3:0, samples=101]{0};                                
+	\addplot[very thick,color=blue,domain=0:10, samples=501]{sin(3*deg(x))*exp(-0.5*x)+1};
         \draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1); 
         \node[black] at (axis cs:-1.5,2.0) {$s(t)=0$};
         \node[blue] at (axis cs:5.0,2.0) {$s(t)\ne0$};
-        \end{axis}
-    \end{tikzpicture}
+    \end{axis}
+\end{tikzpicture}

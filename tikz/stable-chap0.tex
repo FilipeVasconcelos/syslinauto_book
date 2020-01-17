@@ -15,8 +15,8 @@
         xlabel style={below right},
         ylabel style={above left},
         ]
-        \addplot [very thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};
-	\addplot [very thick,color=blue,domain=0:10, samples=501,unbounded coords=jump]{sin(3*deg(x))*exp(-x)+1};
+        \addplot [very thick,color=blue,domain=-2:0, samples=101]{0};
+	\addplot [very thick,color=blue,domain=0:10, samples=501]{sin(3*deg(x))*exp(-x)+1};
 	\draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1);
         \end{axis}
 \end{tikzpicture}

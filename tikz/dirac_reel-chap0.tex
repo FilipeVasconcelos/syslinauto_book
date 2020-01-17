@@ -15,9 +15,9 @@
         xlabel style={below right},
         ylabel style={above left},
         ]
-        \addplot [thick,color=red,domain=-2:0, samples=101,unbounded coords=jump]{0};
-        \addplot [thick,color=red,domain=0:2 , samples=101,unbounded coords=jump]{2};
-        \addplot [thick,color=red,domain=2:5 , samples=101,unbounded coords=jump]{0};
+        \addplot [thick,color=red,domain=-2:0, samples=101]{0};
+        \addplot [thick,color=red,domain=0:2 , samples=101]{2};
+        \addplot [thick,color=red,domain=2:5 , samples=101]{0};
 	\draw[dotted,thick,red] (axis cs:0,0) -- (axis cs:0,2);
 	\draw[dotted,thick,red] (axis cs:2,2) -- (axis cs:2,0);
         \node[red] at (axis cs:2,-0.5) {$a$};

@@ -1,6 +1,6 @@
 \begin{tikzpicture}
-        \pgfmathsetmacro{\pi}{3.141592653589793}     % dépassement d4 
-        \begin{axis}[
+    \pgfmathsetmacro{\pi}{3.141592653589793}     % dépassement d4 
+    \begin{axis}[
             xmode=log,
             ymode=log,
         legend style={draw=none},
@@ -17,11 +17,11 @@
         grid style={line width=.1pt, draw=gray!50},
         major grid style={line width=.2pt,draw=gray!50},
         ]
-            \addplot[thick,color=red,domain=0.0001:1, samples=101,unbounded coords=jump]{exp(-(x*\pi)/(sqrt(1-x*x)))};
-            \addplot[thick,color=blue,domain=0.0001:1, samples=101,unbounded coords=jump]{exp(-(2*x*\pi)/(sqrt(1-x*x)))};
-            \addplot[thick,color=green,domain=0.0001:1, samples=101,unbounded coords=jump]{exp(-(3*x*\pi)/(sqrt(1-x*x)))};
-            \addplot[thick,color=black,domain=0.0001:1, samples=101,unbounded coords=jump]{exp(-(4*x*\pi)/(sqrt(1-x*x)))};
-            \legend{$k=1$,$k=2$,$k=3$,$k=4$}
-\end{axis}
+        \addplot[thick,color=red,domain=0.0001:1, samples=101]{exp(-(x*\pi)/(sqrt(1-x*x)))};
+        \addplot[thick,color=blue,domain=0.0001:1, samples=101]{exp(-(2*x*\pi)/(sqrt(1-x*x)))};
+        \addplot[thick,color=green,domain=0.0001:1, samples=101]{exp(-(3*x*\pi)/(sqrt(1-x*x)))};
+        \addplot[thick,color=black,domain=0.0001:1, samples=101]{exp(-(4*x*\pi)/(sqrt(1-x*x)))};
+        \legend{$k=1$,$k=2$,$k=3$,$k=4$}
+    \end{axis}
 \end{tikzpicture}
 

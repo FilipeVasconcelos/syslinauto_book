@@ -18,8 +18,8 @@
         xlabel style={below right},
         ylabel style={above left},
         ]
-        \addplot [very thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};
-		\addplot [very thick,color=blue,domain=0:10, samples=201,unbounded coords=jump]{sin(3*deg(x))*exp(-x)+1};
+        \addplot [very thick,color=blue,domain=-2:0, samples=101]{0};
+		\addplot [very thick,color=blue,domain=0:10, samples=201]{sin(3*deg(x))*exp(-x)+1};
 		\draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1);
         \end{axis}
 \end{tikzpicture}
@@ -41,8 +41,8 @@
         xlabel style={below right},
         ylabel style={above left},
         ]
-        \addplot [very thick,color=red,domain=-2:0, samples=101,unbounded coords=jump]{0};
-		\addplot [very thick,color=red,domain=0:10, samples=101,unbounded coords=jump]{0.5*x};
+        \addplot [very thick,color=red,domain=-2:0, samples=101]{0};
+		\addplot [very thick,color=red,domain=0:10, samples=101]{0.5*x};
         \end{axis}
 \end{tikzpicture}
 
@@ -64,8 +64,8 @@
         xlabel style={below right},
         ylabel style={above left},
         ]                                                                                                                     
-        \addplot [very thick,color=blue,domain=-2:0, samples=101,unbounded coords=jump]{0};
-        \addplot [very thick,color=blue,domain=0:10, samples=201,unbounded coords=jump]{0.5*x};
+        \addplot [very thick,color=blue,domain=-2:0, samples=101]{0};
+        \addplot [very thick,color=blue,domain=0:10, samples=201]{0.5*x};
 	\draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1);
         \end{axis}
 \end{tikzpicture}
@@ -87,8 +87,8 @@
         xlabel style={below right},
         ylabel style={above left},
         ]
-\addplot[very thick,color=red,domain=-2:0, samples=101,unbounded coords=jump]{0};
-\addplot [very thick,color=red,domain=0:10, samples=101,unbounded coords=jump]{0.8*sin(3*deg(x))*exp(0.2*x)+1};
+\addplot[very thick,color=red,domain=-2:0, samples=101]{0};
+\addplot [very thick,color=red,domain=0:10, samples=101]{0.8*sin(3*deg(x))*exp(0.2*x)+1};
 \draw[dotted,very thick,red] (axis cs:0,0) -- (axis cs:0,1);
 \end{axis}
 \end{tikzpicture}
