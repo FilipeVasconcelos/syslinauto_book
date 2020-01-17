@@ -32,10 +32,10 @@ physiques indépendantes.
 
 \begin{table}[!h]
     \centering
-    \begin{tabular*}{15cm}{M{6cm}M{2.5cm}M{2.5cm}M{2.5cm}N}
-        \hhline{====}
+    \begin{tabular}{@{}P{6cm}P{2.5cm}P{2.5cm}P{2.5cm}@{}}
+        \toprule
         Grandeur & Nom & Symbole & Dimension \\
-        \hhline{----}
+        \midrule
         Longeur & mètre & \si{\meter} & [L] \\
         Masse & kilogramme & \si{\kilogram} & [M] \\
         Temps & seconde & \si{\second} & [T] \\
@@ -43,8 +43,8 @@ physiques indépendantes.
         Température thermodynamique & kelvin & \si{\kelvin} & [$\Theta$] \\
         Quantité de matière & mole & \si{\mole} & [N] \\
         Intensité lumineuse & candela & \si{\candela} & [J] \\
-        \hhline{====}
-    \end{tabular*}
+        \bottomrule
+    \end{tabular}
     \caption{Les unités de base du Système International}
 \end{table}
 
@@ -58,11 +58,11 @@ physiques indépendantes.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{table}[!h]
-\centering
-\begin{tabular*}{15cm}{M{5.5cm}M{4cm}M{1.5cm}M{2cm}N}
-\hhline{====}
-Grandeur & Nom & Symbole & Dimension \\
-\hhline{----}
+    \centering
+    \begin{tabular}{@{}P{5.5cm}P{4cm}P{1.5cm}P{2cm}@{}}
+    \toprule
+    Grandeur & Nom & Symbole & Dimension \\
+    \midrule
 Vitesse          & mètre par seconde & \si{\meter\per\second}&[LT$^{-1}$]     \\
 Accélération     & mètre par 
                     seconde carré    & \si{\meter\per
@@ -78,8 +78,8 @@ Moment d'inertie & kilogramme-mètre
                                             \meter\squared}   &[ML$^2$]       \\
 Quantité 
 de mouvement     & newton-seconde    & \si{\newton\second}   &[MLT$^{-1}$]    \\
-\hhline{====}
-\end{tabular*}
+\bottomrule
+\end{tabular}
 \caption{Grandeurs dérivées du système international.}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -688,37 +688,44 @@ et $\phi$ sa phase (\si{\radian}).
 \begin{table}[!h]
 \ra{1.3}
 \centering
-\begin{tabular}{@{}cccccc@{}}
+\begin{tabular}{@{}ccc@{}}
 %\begin{tabular}{M{2cm}M{4cm}M{9cm}N}
 %\hhline{====}
 \toprule
-Déphasage       & Terminologie         & Graphe &  \\
+Déphasage       & Terminologie         & Graphe \\
 %\hhline{====}
 \midrule
 $\Delta\phi=0$  
 &\og en phase\fg      
-&\tikzsetnextfilename{sinusoide_enp-chap0-ext}
- \raisebox{-.5\height}{\input{tikz/sinusoide_enp-chap0.tex}}  & \\
+&
+{\tikzset{external/export=false}       
+    \raisebox{-.5\height}{\input{tikz/sinusoide_enp-chap0.tex}}
+}  \\
 \midrule
 $\Delta\phi=\pm\pi$         
 & \og en opposition de phase\fg 
-& \tikzsetnextfilename{sinusoide_enop-chap0-ext}
-\raisebox{-.5\height}{\input{tikz/sinusoide_enop-chap0.tex}}   & \\
+&
+{\tikzset{external/export=false}       
+\raisebox{-.5\height}{\input{tikz/sinusoide_enop-chap0.tex}} 
+}  \\
 \midrule
 $\Delta\phi=-\dfrac{\pi}{2}$ 
 &\begin{tabular}{@{}c@{}}\og en quadrature de phase\fg \\
                          (retard de phase)
 \end{tabular} 
-&\tikzsetnextfilename{sinusoide_enqp-chap0-ext}
-\raisebox{-.5\height}{  \input{tikz/sinusoide_enqp-chap0.tex}}& \\
+&
+{\tikzset{external/export=false}       
+\raisebox{-.5\height}{  \input{tikz/sinusoide_enqp-chap0.tex}}
+}\\
 \midrule
 $\Delta\phi=\dfrac{\pi}{2}$ 
 & \begin{tabular}{@{}c@{}}\og en quadrature de phase\fg \\ 
                           (avance de phase)
   \end{tabular} 
-& \tikzsetnextfilename{sinusoide_enqp2-chap0-ext}
-\raisebox{-.5\height}{\input{tikz/sinusoide_enqp2-chap0.tex}}  & \\
-%\hhline{====}
+& 
+{\tikzset{external/export=false}       
+\raisebox{-.5\height}{\input{tikz/sinusoide_enqp2-chap0.tex}} 
+}\\
 \bottomrule
 \end{tabular}
 \caption{Différents types de déphasage d'un (rouge) signal sinusoidal 
