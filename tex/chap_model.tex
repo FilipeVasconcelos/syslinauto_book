@@ -337,13 +337,13 @@ $$
     \setlength{\ltmp}{0.15\textwidth}
     \begin{tabular}{@{}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}@{}}
         \toprule
-        & $t=0.5\tau$        & $t=\tau$    & $t=3\tau$ & $t=7\tau$\\
+        & $t=0.5\tau$        & $t=\tau$    & $t=3\tau$ & $t=7\tau$      \\
         \midrule
         $\dfrac{s(t)}{KE_0}$ & 0.393       & 0.632     & 0.950  & 0.999 \\
         \bottomrule
     \end{tabular}
     \caption{Quelques valeurs particulières de la réponse indicielle 
-             d'un système du premier ordre\label{tab-1er_ind}. }
+             d'un système du premier ordre\label{tab-1er_ind}.}
 \end{table}
 
 Le temps de montée $t_m$ (temps au bout duquel la réponse de 10\% 
@@ -538,76 +538,33 @@ Le~\cref{tab-poles_2nd} résume les différents types de pôles rencontrées dan
 les différents régimes du système du second ordre.
 
 \begin{table}[!h]
-    \begin{center}
-\resizebox{\textwidth}{!}{
-    \begin{tabular}{M{4cm}M{4.0cm}M{8.0cm}N}
-        \hhline{===}
-Régime                     & Pôles   & Carte des pôles  & \\[1.5em]
-        \hline
-Régime apériodique$$\xi>1$$ & 
-Deux pôles réels $$p_{1,2}=-\xi\omega_0\pm\omega_0\sqrt{\xi^2-1}$$ &  
-        \begin{center}
-        \tikzsetnextfilename{2nd_pole1-chap2_ext}
-        \begin{tikzpicture}
-            \draw[very thick,-latex] (0,-1.5) -- (0,2.0) node[left] {Im};
-            \draw[very thick,-latex] (-2.5,0) -- (1.0,0) node[below] {Re};
-            \node at (-0.5,0) [thick,cross=5pt,blue] {};
-            \node at (-0.5,0) [blue,below,yshift=-0.5em]     {$p_1$};
-            \node at (-1.5,0) [thick,cross=5pt,blue] {};
-            \node at (-1.5,0) [blue,below,yshift=-0.5em]     {$p_2$};
-        \end{tikzpicture}
-        \end{center} &\\ [1.5em]
-        \hline
-        Régime apériodique critique $$\xi=1$$ & 
-        Un pôle double réel$$p_1=p_2=-\omega_0$$ & 
-        \begin{center}
-        \tikzsetnextfilename{2nd_pole2-chap2_ext}
-        \begin{tikzpicture}
-            \draw[very thick,-latex] (0,-1.5) -- (0,2.0) node[left] {Im};
-            \draw[very thick,-latex] (-2.5,0) -- (1.0,0) node[below] {Re};
-            \draw[red,thick] (0,0) circle [radius=1.5];
-            \draw[red,thick] (0,0) -- (-0.75,1.30)
-            node[midway,xshift=-1em] {$\omega_0$}; 
-            \node at (-1.5,0) [thick,cross=5pt,blue] {};
-            \node at (-1.5,0) [blue,below,yshift=-0.5em]     {$p_1=p_2$};
-        \end{tikzpicture} 
-        \end{center} &\\ [1.5em]
-        \hline
-        Régime pseudo-périodique $$0<\xi<1$$ & Deux pôles complexes conjugués 
-        $$p_{1,2}=-\alpha\pm j\omega_d$$         
-        avec $\alpha=\xi\omega_0$ et $\omega_d=\omega_0\sqrt{1-\xi^2}$ &
-        \tikzsetnextfilename{2nd_pole3-chap2_ext}
-\begin{tikzpicture}
-	\coordinate (o) at (0.0,0.0);
-    \coordinate (p1) at (-1.0,1.0);
-    \coordinate (p2) at (-1.0,-1.0);
-\draw[very thick,-latex] (0,-1.5) -- (0,2.0) coordinate (im2)  
-node(im) [left] {Im};
-\draw[very thick,-latex] (-2.5,0) -- (1.0,0) node(re) [below] {Re};
-\draw[blue,very thick,dotted] (p1) -- (p2) 
-node[blue,midway,xshift=-1em,yshift=-0.8em] {$-\alpha$};
-\draw[very thick] (o) -- (p1) ;
-\draw[very thick] (o) -- (p2) ;
-\draw[red,very thick,dotted] (p1) --(0.0,1.0)   
-node[blue,xshift=1.2em,yshift=0em] {$\omega_d$} ;
-\draw[red,very thick,dotted] (p2) -- (0.0,-1.0) 
-node[blue,xshift=1.2em,yshift=0em] {$-\omega_d$};
-\draw[red,thick] (0,0) circle [radius=1.41421356237];
-\node at (p1) [thick,cross=5pt,blue] {};
-\node at (p1) [blue,left,xshift=-0.5em]     {$p_1$};
-\node at (p2) [thick,cross=5pt,blue] {};
-\node at (p2) [blue,left,xshift=-0.5em]     {$p_2$};
-\pic [draw, -latex, "$\phi$", angle radius=0.5cm , 
-	 angle eccentricity=1.5] {angle = im2--o--p1};
-%\pic [draw, ->, "$\phi$", angle eccentricity=1.5] {angle = p2--o--im};
-\end{tikzpicture}   &\\ [1.5em]
-%        \end{center} &\\ [1.5em]
-        \hhline{===}
+    \ra{1.3}
+    \centering
+    \setlength{\ltmp}{0.3\textwidth}
+    \begin{tabular}{@{}P{\ltmp}P{\ltmp}P{\ltmp}@{}}
+    \toprule
+    Régime  & Pôles   & Carte des pôles                                \\
+    \midrule
+    Régime apériodique$$\xi>1$$                                        &
+    Deux pôles réels $$p_{1,2}=-\xi\omega_0\pm\omega_0\sqrt{\xi^2-1}$$ & 
+    {\tikzset{external/export=false}
+     \raisebox{-.5\height}{\input{tikz/poles_reels.tex}}}              \\
+    \midrule
+    Régime apériodique critique $$\xi=1$$                              & 
+    Un pôle double réel$$p_1=p_2=-\omega_0$$                           & 
+    {\tikzset{external/export=false}
+     \raisebox{-.5\height}{\input{tikz/poles_double.tex}}}             \\
+    \midrule
+    Régime pseudo-périodique $$0<\xi<1$$                               & 
+    Deux pôles complexes conjugués $$p_{1,2}=-\alpha\pm j\omega_d$$         
+    avec $\alpha=\xi\omega_0$ et $\omega_d=\omega_0\sqrt{1-\xi^2}$     &
+    {\tikzset{external/export=false}
+     \raisebox{-.5\height}{\input{tikz/poles_complexes.tex}}}          \\
+    \bottomrule
     \end{tabular}
-}
-    \end{center}
-    \caption{Pôles de la fonction de transfert d'un système du second ordre 
-    selon le régime associé à l'amortissement.\label{tab-poles_2nd}}
+    \caption{Pôles de la fonction de transfert d'un système du second 
+             ordre selon le régime associé à l'amortissement.
+             \label{tab-poles_2nd}}
 \end{table}
 Quelque soit le régime du système du second ordre, on peut écrire la fonction 
 de transfert de la façon suivante en utilsant les pôles appropriés:
