@@ -1,8 +1,22 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Transformation de Laplace\label{annexe-lap}}
 \chaptermark{Transformation de Laplace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Définitions} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Soit f une fonction de la variable réelle t définie sur $\mathbb{R}$ 
 et supossée  nulle pour $t<0$, on appelle transformée de Laplace de $f$, la fonction $F$ définie par :
@@ -37,7 +51,13 @@ dans le domaine de Laplace\footnote{Plusieurs termes sont utilisés dans la litt
 de domaine complexe, domaine fréquentielle ou de domaine symbolique. On choisit dans ce document 
 de ne parler que du domaine de Laplace} et on notera $\laplacei{F(p)}$ la transformée de Laplace inverse.
 %\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Propriétés} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
 %\item \emph{unicité} : a une fonction $f(t)$ il correspond une unique transformée de Laplace 	
 %\item \emph{addition} : 
@@ -92,94 +112,105 @@ $$
 \end{itemize}
 où $F_0(p)$ est la transformée de Laplace du motif $f_0(t)$ égal à 
 $f(t)$ sur le segment $[0,T]$ et nul partout ailleurs.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Table des transformées de Laplace}
-\renewcommand{\arraystretch}{2.25}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\clearpage
 \begin{table}[H]
 \centering
+\ra{2.3}
 %\resizebox{0.9\textwidth}{!}{
-\begin{tabular}{@{}|P{0.5cm}|P{3.9cm}|P{8.9cm}|@{}}
-\hline
+\begin{tabular}{@{}P{0.5cm}P{3.9cm}P{8.9cm}@{}}
+\toprule
     & $F(p)$ & $f(t)=\laplacei{F(p)}$ \\
-\hline
+\midrule
     1 & 1 & $\delta(t)$ \tabularnewline
-\hline
+%\hline
     2 & $e^{-\tau p}$ & $\delta(t-\tau)$ \tabularnewline
-\hline
+%\hline
     3 & $\dfrac{1}{p}$ & 1 \tabularnewline
-\hline
+%\hline
     4 & $\dfrac{1}{p^2}$ & t \tabularnewline
-\hline
+%\hline
     5 & $\dfrac{1}{p^3}$ & $\dfrac{1}{2}t^2$ \tabularnewline
-\hline
+%\hline
     6 & $\dfrac{1}{p^n}$ & $\dfrac{1}{(n-1)!}t^{n-1}$ \tabularnewline
-\hline
+%\hline
     7 & $\dfrac{1}{p+a}$ & $e^{-at}$ \tabularnewline
-\hline
+%\hline
     8 & $\dfrac{1}{(p+a)^2}$ & $te^{-at}$ \tabularnewline
-\hline
+%\hline
     9 & $\dfrac{1}{(p+a)^3}$ & $\dfrac{1}{2}t^2e^{-at}$ \tabularnewline
-\hline
+%\hline
     10 & $\dfrac{1}{(p+a)^n}$ & $\dfrac{1}{(n-1)!}t^{n-1}e^{-at}$ \tabularnewline
-\hline
+%\hline
     11 & $\dfrac{a}{p(p+a)}$ & $1-e^{-at}$ \tabularnewline
-\hline
+%\hline
     12 & $\dfrac{a}{p^2(p+a)}$ & $\dfrac{1}{a}\left[at-\left(1-e^{-at}\right)\right]$ \tabularnewline
-\hline
+%\hline
     13 & $\dfrac{p}{(p+a)^2}$ & $(1-at)e^{-at}$ \tabularnewline
-\hline
+%\hline
     14 & $\dfrac{a^2}{p(p+a)^2}$ & $1-(1+at)e^{-at}$ \tabularnewline
-\hline
+%\hline
     15 & $\dfrac{a^2(p+z)}{p(p+a)^2}$ & $z-\left(z+a(z-a)t\right)e^{-at}$ \tabularnewline
-\hline
+%\hline
     16 & $\dfrac{b-a}{(p+a)(p+b)}$ & $e^{-at}-e^{-bt}$ \tabularnewline
-\hline
+\bottomrule
 \end{tabular}
 %}
 \captionof{table}{Table de transformées de Laplace d'après\cite{Ostertag}}
 \end{table}
 %\clearpage
-\renewcommand{\arraystretch}{2.25}
+%\renewcommand{\arraystretch}{2.25}
 \begin{table}[H]
+\ra{2.3}
 \centering
 %\resizebox{0.9\textwidth}{!}{
-\begin{tabular}{|P{0.5cm}|P{3.9cm}|P{8.9cm}|}
-\hline
+\begin{tabular}{@{}P{0.5cm}P{3.9cm}P{8.9cm}@{}}
+\toprule
+& $F(p)$ & $f(t)=\laplacei{F(p)}$ \\
+\midrule
 17 & $\dfrac{(b-a)p}{(p+a)(p+b)}$ & $-ae^{-at}+be^{-bt}$\\
-\hline
+%\hline
 18 & $\dfrac{(b-a)(p+z)}{(p+a)(p+b)}$ & $(z-a)e^{-at}-(z-b)e^{-bt}$\\
-\hline
+%\hline
 19 & $\dfrac{ab}{p(p+a)(p+b)}$      & $1+\dfrac{be^{-at}-ae^{-bt}}{a-b}$ \\
-\hline
+%\hline
 20 & $\dfrac{ab(p+z)}{p(p+a)(p+b)}$ & $z+\dfrac{b(z-a)e^{-at}-a(z-b)e^{-bt}}{a-b}$ \\
-\hline
+%\hline
 21 & $\dfrac{1}{(p+a)(p+b)(p+c)}$   & $\dfrac{e^{-at}}{(b-a)(c-a)}+\dfrac{e^{-bt}}{(c-b)(a-b)}+\dfrac{e^{-ct}}{(a-c)(b-c)}$ \\
-\hline
+%\hline
 22 & $\dfrac{p+z}{(p+a)(p+b)(p+c)}$& $\dfrac{(z-a)e^{-at}}{(b-a)(c-a)}+\dfrac{(z-b)e^{-bt}}{(c-b)(a-b)}+\dfrac{(z-c)e^{-ct}}{(a-c)(b-c)}$ \\
-\hline
+%\hline
 23 & $\dfrac{\omega}{p^2+\omega^2}$ & $\sin\omega t$ \\
-\hline
+%\hline
 24 & $\dfrac{p}{p^2+\omega^2}$ & $\cos\omega t$ \\
-\hline
+%\hline
 25 & $\dfrac{p+z}{p^2+\omega^2}$ & $\sqrt{\dfrac{z^2+\omega^2}{\omega^2}}\sin{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z}}$ \\
-\hline
+%\hline
 26 & $\dfrac{\omega^2}{p(p^2+\omega^2)}$ & $1-\cos\omega t$\\
-\hline
+%\hline
 27 & $\dfrac{\omega^2(p+z)}{p(p^2+\omega)^2}$ & $z-\sqrt{\dfrac{z^2+\omega^2}{\omega^2}}\cos{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z}}$\\
-\hline
+%\hline
 %28 & $\dfrac{\omega}{p^2-\omega^2}$ & $\sinh{\omega t}$&\\[20pt]
 %\hline
 %29 & $\dfrac{p}{p^2-\omega^2}$ & $\cosh{\omega t}$&\\[20pt]
 %\hline
 28 & $\dfrac{\omega}{(p+a)^2+\omega^2}$ & $e^{-at}\sin{\omega t}$ \\
-\hline
+%\hline
 29 & $\dfrac{p+a}{(p+a)^2+\omega^2}$ & $e^{-at}\cos{\omega t}$ \\
-\hline
+%\hline
 30 & $\dfrac{p+z}{(p+a)^2+\omega^2}$ & $\sqrt{\dfrac{(z-a)^2+\omega^2}{\omega^2}}e^{-at}\sin{(\omega t+\phi)}$ avec $\phi=\arctan{\dfrac{\omega}{z-a}}$\\
-\hline
+%\hline
 31 & $\dfrac{\omega^2}{p^2+2\xi\omega p +\omega^2}$ avec $\xi<1$& $\dfrac{\omega}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t}$\\
-\hline
+%\hline
 32 & $\dfrac{\omega^2}{p(p^2+2\xi\omega p +\omega^2)}$ avec $\xi<1$ & $1-\dfrac{1}{\sqrt{1-\xi^2}}e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2}t+\phi}$ avec $\phi=\arccos{\xi}$\\
-\hline
+\bottomrule
 \end{tabular}
 %}
 \captionof{table}{(suite) Table de transformées de Laplace d'après~\cite{Ostertag}}
