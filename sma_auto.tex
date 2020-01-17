@@ -1,3 +1,9 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                               SMA Automatique
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  auteur : Filipe Manuel Vasconcelos
+%  date   : 2017-2018-2019-2020
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[a4paper,12pt]{scrbook}
 \usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc}
@@ -5,7 +11,8 @@
 \usepackage[french]{babel}
 \addto\captionsfrench{\renewcommand{\bibname}{Références}}
 \addto\captionsfrench{\def\tablename{Tableau}}
-\addto\captionsfrench{\renewcommand\appendixname{Annexe}\renewcommand\appendixpagename{Annexes}
+\addto\captionsfrench{\renewcommand\appendixname{Annexe}
+                      \renewcommand\appendixpagename{Annexes}
 }
 \usepackage[type={CC},
             modifier={by-sa},
@@ -67,6 +74,8 @@
 \usepackage{etoolbox}
 \usepackage[french,nameinlink,noabbrev]{cleveref}
 
+
+
 \usepackage{pgf,tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
@@ -94,35 +103,35 @@ ps2eps -f "\image.ps"
 
 %\usepackage[]{hypdvips}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\usepackage{booktabs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{booktabs}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 \usepackage{array,multirow,makecell}
 \setcellgapes{1pt}
 %\makegapedcells
 \usepackage{hhline}
 %\renewcommand\cellalign{cc}
 \usepackage{tabularx}
+\newlength{\ltmp}
 \usepackage{footnote}
 \renewcommand{\footnoterule}{%
     \kern -3pt  % call this kerna
     \hrule height 0.4pt width 0.6\columnwidth
     \kern 2.6pt % call this kernb
 }
-\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}b{#1}}
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash}b{#1}}
-\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 
-\newcolumntype{K}[1]{>{\centering\arraybackslash}p{#1}}
-\newcolumntype{M}[1]{>{\centering\arraybackslash}p{#1}}
-\newcolumntype{N}{@{}m{0pt}@{}}
+%\newcolumntype{K}[1]{>{\centering\arraybackslash}p{#1}}
+%\newcolumntype{M}[1]{>{\centering\arraybackslash}p{#1}}
+%\newcolumntype{N}{@{}m{0pt}@{}}
 
 \def\fup#1{\raise+2pt\hbox{\footnotesize #1}}
 
 \usepackage[a4paper,headheight=16pt]{geometry}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -134,8 +143,8 @@ ps2eps -f "\image.ps"
 \fancyhead{} % get rid of headers
 \renewcommand{\headrulewidth}{0pt} % and the line
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \let\origprintindex\printindex
 \renewcommand*{\printindex}{%
@@ -157,9 +166,11 @@ ps2eps -f "\image.ps"
 %\newcommand*{\SLCI}{\emph{{\scshape Slci}}}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% fmv *.sty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages fmv
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{mathfmv}
 \usepackage{schemabloc}
 \sbStyleBloc{thick}
@@ -173,12 +184,11 @@ ps2eps -f "\image.ps"
 \renewcommand{\question}{\ques[\sffamily]}
 \usepackage{routhtab}
 \usepackage{poles}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \loadglsentries{tex/glossary}
 \loadglsentries{tex/symbole}
-
 
 \makeatletter
 \addtocounter{secnumdepth}{1}
@@ -194,8 +204,8 @@ ps2eps -f "\image.ps"
 \renewcommand{\theequation}{\thechapter.\arabic{equation}}
 \parindent0pt
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % footnote and hyperref
 \let\oldFootnote\footnote
 \newcommand\nextToken\relax
@@ -206,14 +216,14 @@ ps2eps -f "\image.ps"
 \newcommand\isFootnote{%
     \ifx\footnote\nextToken\textsuperscript{,}\fi}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %COLOR BOX 
 \usepackage[many,listings,skins,breakable]{tcolorbox}
 \usepackage{tcolorfmv}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Cover picture
 \newcommand\BackgroundPic{%
@@ -229,8 +239,8 @@ ps2eps -f "\image.ps"
 \input{tikz/cover}
 \vfill
 }}}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %red
 \newcommand{\hmr}[1]{%
@@ -241,6 +251,7 @@ ps2eps -f "\image.ps"
   \ooalign{\hss\makebox[0pt]{\fcolorbox{white}{blue!30}{$#1$}}\hss\cr\phantom{$#1$}}%
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %page page
 %\newcommand*\cleartoleftpage{\clearpage\ifodd\c@page
