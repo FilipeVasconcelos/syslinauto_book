@@ -1,22 +1,22 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Initiation à Scilab\label{annexe-scilab}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section[Présentation générale]
         {Présentation générale 
         (source \href{https://fr.wikipedia.org/wiki/Scilab}{Wikipédia})}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Scilab est un logiciel libre
 de calcul numérique fournissant un environnement de
 calcul pour des applications scientifiques. 
@@ -36,21 +36,24 @@ Scilab est complété par un environnement graphique Xcos comparable
 à l'environnement graphique Simulink fourni avec Matlab. 
 
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Syntaxe : console}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Les instructions sont tapées après le prompt \verb?-->?. Le résultat est donné sauf si l'instruction se termine par 
-un point-virgule auquel cas le résultat est caché.
-Les variables sont sensibles à la casse.
-\verb?ans? est la variable qui contient le dernier résultat.
-Un commentaire commence par  \verb?\\?. 
-La plupart des opérateurs sont communs avec d'autres langages (affectation~\verb?=?, addition~\verb?+?, soustraction~\verb?-?, multiplication~\verb?*?, puissance~\verb?** ou ^? ).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Les instructions sont tapées après le prompt \verb?-->?. Le résultat est donné 
+sauf si l'instruction se termine par un point-virgule auquel cas le résultat 
+est caché. Les variables sont sensibles à la casse. \verb?ans? est la variable 
+qui contient le dernier résultat. Un commentaire commence par  \verb?\\?. 
+La plupart des opérateurs sont communs avec d'autres langages 
+(affectation~\verb?=?, addition~\verb?+?, soustraction~\verb?-?, 
+multiplication~\verb?*?, puissance~\verb?** ou ^? ).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemples :}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{code}
 \begin{verbatim}
 -->// ceci n'est pas un commentaire
@@ -72,8 +75,9 @@ La plupart des opérateurs sont communs avec d'autres langages (affectation~\ver
 \end{verbatim}
 \end{code}
 
-Il existe quelques variables prédéfinies sous Scilab, elles sont appelées à l'aide du symbole \og\verb?%?\fg.
-La liste de ces variables est accessible par la fonction \verb?whos -name %?
+Il existe quelques variables prédéfinies sous Scilab, elles sont appelées à 
+l'aide du symbole \og\verb?%?\fg. La liste de ces variables est accessible 
+par la fonction \verb?whos -name %?
 \begin{code}
 \begin{verbatim}
 %e    // constante d'Euler
@@ -124,24 +128,27 @@ Quelques opérateurs logiques :
 \end{code}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Polynômes et fractions rationnelles}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 En automatique, la définition de la fonction de transfert 
 fait intervenir des polynômes et des fractions rationnelles.
 
 La déclaration d'un polynôme se fait à l'aide de deux instructions. 
-La première utilise la fonction \verb?poly(0, "p")? qui définit \og \verb?p?\fg comme 
-l'indéterminée d'un polynôme. 
+La première utilise la fonction \verb?poly(0, "p")? qui définit 
+\og \verb?p?\fg comme l'indéterminée d'un polynôme. 
 La seconde instuction est l'énoncé du polynôme utilisant cette indéterminée. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple :}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-On définit deux polynômes $D(p)=1+2p+3p^2$ et $N(p)=1+p$ de la façon suivante :
+On définit deux polynômes $D(p)=1+2p+3p^2$ et $N(p)=1+p$ de la façon 
+suivante :
 \begin{code}
 \begin{verbatim}
 -->p = poly(0, 'p');
@@ -188,8 +195,9 @@ Scilab gère de la même manière les fractions rationnelles :
 \end{verbatim}
 \end{code}
 
-Il est possible d'extraire les numérateurs et dénominateurs de $H(p)=N(p)/D(p)$ 
-par les variables \verb?H.num? et \verb?H.den? respectivement :
+Il est possible d'extraire les numérateurs et dénominateurs de 
+$H(p)=N(p)/D(p)$ par les variables \verb?H.num? et \verb?H.den? 
+respectivement :
 \begin{code}
 \begin{verbatim}
 -->roots(H.den)               // pôles
@@ -205,42 +213,49 @@ par les variables \verb?H.num? et \verb?H.den? respectivement :
 \end{verbatim}
 \end{code}
 
-Il est également possible de définir un polynôme à partir de ces racines ou de ces coefficients 
-en appelant seulement la fonction \verb?poly?.
+Il est également possible de définir un polynôme à partir de ces racines 
+ou de ces coefficients en appelant seulement la fonction \verb?poly?.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{\`A partir de ses racines:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{code}                                                                                                                  
+\begin{code}
 \begin{verbatim}
 -->poly([1 2],'p')    // polynôme dont les racines sont 1 et 2
  ans  =
  
               2  
-    2 - 3p + p   
-\end{verbatim}                                                                                                                
-\end{code}      
+    2 - 3p + p 
+\end{verbatim}
+\end{code}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{\`A partir des ses coefficient:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{code}                                                                                                                  
+\begin{code}
 \begin{verbatim}
 -->poly([1 2],'p','c')    // option 'c' nécessaire
  ans  =
  
-    1 + 2p   
-\end{verbatim}                                                                                                                
-\end{code}     
+    1 + 2p
+\end{verbatim}
+\end{code}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Remarque:}
-Lorsque que l'on écrit \verb?p=poly(0,'p')?, on définit la variable \verb?p? comme le polynôme dont la racine est nulle.
-\begin{code}                                                                                                                  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Lorsque que l'on écrit \verb?p=poly(0,'p')?, on définit la variable \verb?p? 
+comme le polynôme dont la racine est nulle.
+\begin{code}
 \begin{verbatim}
--->p=poly(0,'p')  
+-->p=poly(0,'p')
  ans  =
- 
+
     p
-\end{verbatim}                                                                                                                
-\end{code}     
+\end{verbatim}
+\end{code}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -307,7 +322,8 @@ Le vecteur ou la liste nul est simplement déclaré par :
 
 
 Les parenthèses permettent d'accéder aux élément d'une matrice et le 
-symbole \og\verb?:?\fg permet d'accéder à toute ou une partie d'une ligne ou d'une colonne
+symbole \og\verb?:?\fg permet d'accéder à toute ou une partie d'une 
+ligne ou d'une colonne
 \begin{code}
 \begin{verbatim}
 -->v(1)
@@ -355,12 +371,15 @@ Pour concaténer deux vecteurs ou matrices :
 \end{code}
 
 Les opérateurs mathématiques de bases peuvent être utilisés 
-sur les vecteur et matrices mais doivent respecter une certaine cohérence des dimensions 
-des objets de chaque coté de l'opérateur. Notamment, les opérations \verb?*? et \verb?/? sont
-des opérations matricielles. Pour faire des opérations élément par élément,
+sur les vecteur et matrices mais doivent respecter une certaine 
+cohérence des dimensions des objets de chaque coté de l'opérateur. 
+Notamment, les opérations \verb?*? et \verb?/? sont des opérations 
+matricielles. Pour faire des opérations élément par élément,
 on fera précéder le signe opératoire d'un point : \verb?.*? \verb?./?.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple :}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{code}
 \begin{verbatim}
 // définition de l'indéterminée du polynôme
@@ -384,8 +403,8 @@ on fera précéder le signe opératoire d'un point : \verb?.*? \verb?./?.
 \end{code}
 
 Scilab a été conçu pour le calcul matriciel et numérique. 
-Il existe de nombreuses opérations spécifiques aux matrices et à la résolution 
-numériques que nous ne traiterons pas dans ce document.
+Il existe de nombreuses opérations spécifiques aux matrices et à la 
+résolution numériques que nous ne traiterons pas dans ce document.
 
 Pour accéder à l'aide en ligne, cliquez sur \verb/ ? >Aide Scilab/ 
 dans la barre de menus, ou tapez   dans la console :
@@ -403,9 +422,12 @@ dans la barre de menus, ou tapez   dans la console :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On utilisera les fonctions \verb?scf? et \verb?clf?  pour respectivement
-créer une nouvelle fenêtre graphique et éffacer le contenu d'une fenêtre graphique.
+créer une nouvelle fenêtre graphique et éffacer le contenu d'une fenêtre 
+graphique.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple : plot de deux fenêtres (sinus/cosinus)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{code}
 \begin{verbatim}
 
@@ -450,22 +472,25 @@ au menu de la fenêtre graphique après l'avoir générée.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Scilab est également un langage de programmation, il accepte un certain nombre 
-d'instructions autres que mathématiques, permettant la formulation et l'exécution d'algorithmes : 
-\verb?for, while, if, do, do, case?\ldots ou définition de fonction.
+d'instructions autres que mathématiques, permettant la formulation et 
+l'exécution d'algorithmes : \verb?for, while, if, do, do, case?\ldots ou 
+définition de fonction.
 
 L'écriture de programmes se fait idéalement avec l'éditeur de 
 texte SciNotes; celui-ci met en exergue les instructions en couleurs, 
 les parenthésages (correspondance entre les paires de parenthèses 
 et de crochets), et surligne les lignes continuées avec un fond jaune. 
 On peut aussi utiliser un autre éditeur de texte en sauvegardant le fichier 
-avec l'extension \verb?.sce? ou \verb?.sci?. Lorsque l'environnement le permet, on peut faire 
-du copier-coller depuis l'éditeur de texte externe vers SciNotes 
+avec l'extension \verb?.sce? ou \verb?.sci?. Lorsque l'environnement le permet,
+on peut faire du copier-coller depuis l'éditeur de texte externe vers SciNotes 
 ou bien l'éditeur de ligne de commande.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Syntaxe d'une fonction :}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-La fonction doit commencer par le mot réservé \verb?function? et finir par \verb?endfunction? 
-sous la forme :
+La fonction doit commencer par le mot réservé \verb?function? et finir par 
+\verb?endfunction? sous la forme :
 \begin{code}
 \begin{verbatim}
 function [out1,out2,...,outN]=nomfonction(in1,in2,...,inP)
@@ -482,8 +507,11 @@ Une façon usuelle de définir des fonctions est de mettre
 celles-ci dans un fichier à extension \verb?.sci?. 
 Il faut alors la charger avec la fonction \verb?exec()?.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Appel d'une fonction :}
-Pour exécuter une fonction il suffit de l'appeler en passant les arguments nécessaires .
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour exécuter une fonction il suffit de l'appeler en passant les arguments 
+nécessaires.
 \begin{code}
 \begin{verbatim}
 function [u,v]=mafonction(a,b)
@@ -519,7 +547,8 @@ Pour obtenir les deux valeurs escomptées il faut faire un appel sous la forme  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Scilab permet de réaliser des études avancées des systèmes linéaires continus et invariants.
+Scilab permet de réaliser des études avancées des systèmes linéaires continus 
+et invariants.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -539,19 +568,24 @@ sl=syslin(dom,H)
             \end{code}
         \item Paramètres :
             \begin{itemize}
-                \item \verb?dom? : chaîne de caractères \verb?('c','d')?, ou \verb?[]? ou un scalaire.
+                \item \verb?dom? : chaîne de caractères \verb?('c','d')?, 
+                      ou \verb?[]? ou un scalaire.
                 \item \verb?N,D? : matrices polynomiales
                 \item \verb?H?   : matrice rationnelle
-                \item \verb?sl?  : tlist (liste de type "\verb?syslin?") représentant le système dynamique
+                \item \verb?sl?  : tlist (liste de type "\verb?syslin?") 
+                      représentant le système dynamique
             \end{itemize}
         \item Description : 
             \begin{itemize}
-                \item \verb?syslin? définit un système dynamique linéaire en tant que liste typée, 
-                    et vérifie la consistance des données.
+                \item \verb?syslin? définit un système dynamique linéaire en 
+                      tant que liste typée, et vérifie la consistance des 
+                      données.
                 \item \verb?dom? spécifie le domaine temporel :
-                    \verb?dom='c'? pour un système à temps continu, \verb?dom='d'? pour un système à temps discret, 
-                    \verb?n? pour un système échantillonné à la période n (en secondes), 
-                    \verb?dom=[]? si le domaine temporel n'est pas défini
+                      \verb?dom='c'? pour un système à temps continu, 
+                      \verb?dom='d'? pour un système à temps discret, 
+                      \verb?n? pour un système échantillonné à la période n 
+                      (en secondes), 
+                      \verb?dom=[]? si le domaine temporel n'est pas défini
             \end{itemize}
     \end{itemize}
 
@@ -561,13 +595,11 @@ sl=syslin(dom,H)
 
 \newpage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Simulation temporelle d'un système linéaire}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{doc}
 \paragraph{Fonction csim (extrait de la doc officiel (en anglais): help csim )}
@@ -581,18 +613,21 @@ sl=syslin(dom,H)
     \item Parameters :
     \begin{itemize}
         \item \verb?u?  function, list or string (control)
-        \item \verb?t?  real vector specifying times with, \verb?t(1)? is the initial time \verb?(x0=x(t(1)))?.
+        \item \verb?t?  real vector specifying times with, \verb?t(1)? is the 
+              initial time \verb?(x0=x(t(1)))?.
         \item \verb?sl? syslin list (SIMO linear system) in continuous time.
         \item \verb?y?  a matrix such that \verb?y=[y(t(i)], i=1,..,n?
         \item \verb?x?  a matrix such that \verb?x=[x(t(i)], i=1,..,n?
-        \item \verb?tol? a 2 vector \verb?[atol rtol]? defining absolute and relative tolerances for \verb?ode? solver
+        \item \verb?tol? a 2 vector \verb?[atol rtol]? defining absolute and 
+              relative tolerances for \verb?ode? solver
     \end{itemize}
 
     \item Description :
 
     \begin{itemize} 
-        \item \verb?csim? simulation of the controlled linear system \verb?sl?. 
-              \verb?sl? is assumed to be a continuous-time system represented by a \verb?syslin? list.
+        \item \verb?csim? simulation of the controlled linear system \verb?sl?.
+              \verb?sl? is assumed to be a continuous-time system represented 
+              by a \verb?syslin? list.
         \item \verb?u?  is the control and \verb?x0? the initial state.
         \item \verb?y?  is the output and \verb?x? the state.
     \end{itemize}
@@ -600,29 +635,33 @@ sl=syslin(dom,H)
     The control can be:
     \begin{itemize}
         \item a function : \verb?[inputs]=u(t)?
-        \item a list : \verb?list(ut,parameter1,....,parametern)? such that: \verb?inputs=ut(t,parameter1,....,parametern)? 
+        \item a list : \verb?list(ut,parameter1,....,parametern)? such that:
+              \verb?inputs=ut(t,parameter1,....,parametern)? 
     (\verb?ut? is a function)
-        \item the string \verb?"impuls"? for impulse response calculation (here \verb?sl? must have a single input and \verb?x0=0?). For systems with direct feedthrough, the infinite pulse at \verb?t=0? is ignored.
-        \item the string \verb?"step"? for step response calculation (here \verb?sl? must have a single input and \verb?x0=0?)
-        \item a vector giving the values of \verb?u? corresponding to each \verb?t? value.
+        \item the string \verb?"impuls"? for impulse response calculation 
+              (here \verb?sl? must have a single input and \verb?x0=0?). 
+              For systems with direct feedthrough, the infinite pulse at 
+              \verb?t=0? is ignored.
+        \item the string \verb?"step"? for step response calculation (here 
+              \verb?sl? must have a single input and \verb?x0=0?)
+        \item a vector giving the values of \verb?u? corresponding to each 
+              \verb?t? value.
 \end{itemize}
 \end{itemize}
 \end{doc}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Système du premier ordre}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit, un système du premier ordre définit par la fonction de transfert : 
 $$
 H(p)=\dfrac{K}{1+\tau p }
 $$
-La définition sous Scilab de ce système se fait simplement par les quelques instructions suivantes :
+La définition sous Scilab de ce système se fait simplement par les quelques 
+instructions suivantes :
 \begin{code}
 \begin{verbatim}
 // ======================================
@@ -641,11 +680,9 @@ PremierOrdre=syslin('c',H)      // définition du SLCI
 
 Nous allons maintenant étudier les réponses temporelles 
 à différentes excitations du système du premier ordre.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse impulsionnnelle}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{code}
 \begin{verbatim}
 // ------------------------
@@ -664,11 +701,9 @@ title('réponse impulsionnelle',"fontsize",4);
 \end{verbatim}
 \end{code}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{code}
 \begin{verbatim}
 
@@ -696,11 +731,9 @@ title('réponse indicielle',"fontsize",4);
 \end{code}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse à une excitation sinuso\"idale}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{code}
 \begin{verbatim}
 // -----------------------------------------
@@ -735,12 +768,12 @@ end
 \end{code}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse fréquentielle}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Scilab permet de tracer facilement les différents diagrammes de la réponse fréquentielle d'un système.
-Nous donnons ici les fonctions les plus importantes : 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Scilab permet de tracer facilement les différents diagrammes de la réponse 
+fréquentielle d'un système. Nous donnons ici les fonctions les 
+plus importantes : 
 \begin{code}
 \begin{verbatim}
 fMin =0.01,fMax=100;
@@ -768,46 +801,39 @@ evans(PremierOrdre) ;
 \end{verbatim}
 \end{code}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Carte des pôles et zéros}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{doc}                                                                       
-\paragraph{Fonction plzr (extrait de la doc officiel (en anglais): help plzr )}   
-\begin{itemize}                                                                   
-    \item Syntax :                                                                
-    \begin{code}                                                                  
-\begin{verbatim}                                                                  
-plzr(sl)                                                                          
-\end{verbatim}                                                                    
-    \end{code}                                                                    
-    \item Arguments :                                                             
-    \begin{itemize}                                                               
-        \item \verb?sl? syslin list (SIMO linear system) in continuous time.      
-    \end{itemize}                                                                 
-    \item Description :                                                           
-                                                                                  
-    \begin{itemize}                                                               
-        \item \verb?plzr(sl)? produces a pole-zero plot of the linear system sl.  
-    \end{itemize}                                                                 
-\end{itemize}                                                                     
-                                                                                  
-\end{doc}                                                                         
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Asservissement}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{doc}
-\paragraph{Fonction feedback (extrait de la doc officiel (en anglais): help feedback)}
+\paragraph{Fonction plzr (extrait de la doc officiel (en anglais): help plzr )}
+\begin{itemize}
+    \item Syntax :
+    \begin{code}
+\begin{verbatim}
+plzr(sl)
+\end{verbatim}
+    \end{code}
+    \item Arguments :
+    \begin{itemize}
+        \item \verb?sl? syslin list (SIMO linear system) in continuous time.
+    \end{itemize}
+    \item Description :
+    \begin{itemize}
+        \item \verb?plzr(sl)? produces a pole-zero plot of the linear system sl.
+    \end{itemize}
+\end{itemize}
+\end{doc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Asservissement}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{doc}
+\paragraph{Fonction feedback (extrait de la doc officiel (en anglais): 
+           help feedback)}
 \begin{itemize}
     \item Syntax :
     \begin{code}
@@ -817,20 +843,23 @@ Sl=Sl1/.Sl2
     \end{code}
     \item Parameters :
     \begin{itemize}
-        \item \verb?Sl1,Sl2?  linear systems (syslin list) in state-space or transfer form, or ordinary gain matrices.
-        \item \verb?Sl? linear system (syslin list) in state-space or transfer form.
+        \item \verb?Sl1,Sl2?  linear systems (syslin list) in state-space or 
+              transfer form, or ordinary gain matrices.
+        \item \verb?Sl? linear system (syslin list) in state-space or 
+              transfer form.
     \end{itemize}
 
     \item Description :
 
     \begin{itemize} 
         \item The feedback operation is denoted by /. (slashdot). 
-        \item This command returns \verb?Sl=Sl1*(I+Sl2*Sl1)^-1?, i.e the (negative) feedback 
-        of \verb?Sl1? and \verb?Sl2?. \verb?Sl? is the transfer \verb?v -> y? for \verb?y = Sl1 u?, \verb?u = v - Sl2 y?.
-
+        \item This command returns \verb?Sl=Sl1*(I+Sl2*Sl1)^-1?, i.e 
+              the (negative) feedback of \verb?Sl1? and \verb?Sl2?. \verb?Sl? 
+              is the transfer \verb?v -> y? for 
+              \verb?y = Sl1 u?, \verb?u = v - Sl2 y?.
         \item The result is the same as \verb?Sl=LFT([0,I;I,-Sl2],Sl1)?.
-
-        \item Caution: do not use with decimal point (e.g. \verb?1/.1? is ambiguous!)
+        \item Caution: do not use with decimal point (e.g. \verb?1/.1? 
+              is ambiguous!)
     \end{itemize}
 
 \end{itemize}
@@ -838,53 +867,50 @@ Sl=Sl1/.Sl2
 
 
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Scilab-Xcos}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous présentons ici le module Xcos intégré à Scilab. Xcos inclut un 
 éditeur graphique pour facilement représenté les schémas fonctionnels
-en connectant des blocs entre eux. Cette présentation/tutoriel étant loin d'être complète,
-nous renvoyons le lecteur à la documentation officielle de Xcos pour obtenir davantage de détails~\cite{steer2014scilab,premier,xcos}. 
+en connectant des blocs entre eux. Cette présentation/tutoriel étant loin 
+d'être complète, nous renvoyons le lecteur à la documentation officielle de Xcos
+pour obtenir davantage de détails~\cite{steer2014scilab,premier,xcos}. 
 %sur l'utilisation de ce module (notamment les références
-%suivantes~\cite{steer2014scilab,premier,xcos}, sur lesquelles est basé le petit tuto suivant.)
+%suivantes~\cite{steer2014scilab,premier,xcos}, sur lesquelles est basé le 
+petit tuto suivant.)
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Lancer Xcos}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Après avoir lancé Scilab, éxécuter une des instructions suivantes :
 \begin{itemize}
     \item Taper la commande \verb?xcos? dans la console;
-    \item Cliquer sur l'icône : \raisebox{-\mydepth}{\fbox{\includegraphics[height=\myheight]{fig/xcos.eps}}}
+    \item Cliquer sur l'icône : \raisebox{-\mydepth}{\fbox{
+          \includegraphics[height=\myheight]{fig/xcos.eps}}}
     \item Menu $\rightarrow$ Applications $\rightarrow$ Xcos
 \end{itemize}
 
 Xcos ouvre par défaut le navigateur de palettes et une fenêtre d'édition. 
-Pour construire le diagramme il suffit de faire glisser les blocs dans la fenêtre d'édition.
+Pour construire le diagramme il suffit de faire glisser les blocs dans la 
+fenêtre d'édition.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Diagramme simple}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Le module inclut un grand nombre de blocs (c.f Navigateur de palettes).
-Il est possible de construire des super-blocs qui incorpore d'autres blocs pour faciliter la lecture d'un
-diagramme complexe. \newline
-Nous allons créer un diagramme simple. Pour celà, placer les blocs suivants dans la fenêtre d'édition:
+Il est possible de construire des super-blocs qui incorpore d'autres blocs pour
+faciliter la lecture d'un diagramme complexe. \newline
+Nous allons créer un diagramme simple. Pour celà, placer les blocs suivants 
+dans la fenêtre d'édition:
 
 \begin{table}[!h]
     \centering
@@ -892,18 +918,39 @@ Nous allons créer un diagramme simple. Pour celà, placer les blocs suivants da
     \toprule
     Désignation   & Représentation & Sous-palette \\
     \midrule
-    \'Echelon     & \begin{minipage}{6cm}\centering \includegraphics[width=0.25\linewidth]{fig/scilab05.eps}\end{minipage} & Sources / STEP\_FUNCTION \\
+    \'Echelon     & 
+    \begin{minipage}{6cm}
+    \centering
+    \includegraphics[width=0.25\linewidth]{fig/scilab05.eps}
+    \end{minipage} &
+    Sources / STEP\_FUNCTION \\
     \midrule
-    Fonction de transfert continue     & \begin{minipage}{6cm}\centering \includegraphics[width=0.25\linewidth]{fig/scilab06.eps}\end{minipage} & Systèmes à temps continu / CLR \\
+    Fonction de transfert continue     & 
+    \begin{minipage}{6cm}
+    \centering
+    \includegraphics[width=0.25\linewidth]{fig/scilab06.eps}
+    \end{minipage} & 
+    Systèmes à temps continu / CLR \\
     \midrule
-    Horloge       & \begin{minipage}{6cm}\centering \includegraphics[width=0.2\linewidth]{fig/scilab07.eps}\end{minipage} & Sources / Clock\_c \\
+    Horloge       & 
+    \begin{minipage}{6cm}
+    \centering
+    \includegraphics[width=0.2\linewidth]{fig/scilab07.eps}
+    \end{minipage} & 
+    Sources / Clock\_c \\
     \midrule
-    Visualisation & \begin{minipage}{6cm}\centering \includegraphics[width=0.25\linewidth]{fig/scilab08.eps}\end{minipage} & Sinks / CSCOPE \\
+    Visualisation & 
+    \begin{minipage}{6cm}
+    \centering
+    \includegraphics[width=0.25\linewidth]{fig/scilab08.eps}
+    \end{minipage} & 
+    Sinks / CSCOPE \\
     \bottomrule
 \end{tabular}
 \end{table}
 
-Connecter les blocs pour obtenir le schéma bloc Xcos de la figure~\ref{fig-simple}.
+Connecter les blocs pour obtenir le schéma bloc Xcos de la 
+figure~\ref{fig-simple}.
 
 \begin{figure}
     \centering
@@ -914,36 +961,37 @@ Connecter les blocs pour obtenir le schéma bloc Xcos de la figure~\ref{fig-simp
 Il faut maintenant simuler et visualiser les résultats.  
 
 %\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Simulation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Pour lancer une simulation : cliquer sur l'icône : 
-\raisebox{-\mydepth}{\fbox{\includegraphics[height=\myheight]{fig/demarrage.eps}}}
+\raisebox{-\mydepth}{
+    \fbox{\includegraphics[height=\myheight]{fig/demarrage.eps}}
+}
 
 Pour arrêter une simulation : cliquer sur l'icône : 
-\raisebox{-\mydepth}{\fbox{\includegraphics[height=\myheight]{fig/stop.eps}}}
+\raisebox{-\mydepth}{
+    \fbox{\includegraphics[height=\myheight]{fig/stop.eps}}
+}
 
 Plusieurs paramètres peuvent être ajustés :
 \begin{itemize}
-    \item La durée de la simulation : Simulation $\rightarrow$ Configurer $\rightarrow$ Temps d'intégration final
+    \item La durée de la simulation : Simulation $\rightarrow$ 
+          Configurer $\rightarrow$ Temps d'intégration final
     \item La période d'échantillonage : Cliquer sur l'horloge.
     \item La fonction échelon  : Cliquer sur le bloc de la fonction échelon
     \item Les paramètres de la fonction de transfert : Cliquer sur le bloc CLR 
-        (N'oubliez pas d'ajouter un contexte si vous utiliser des variables)
+          (N'oubliez pas d'ajouter un contexte si vous utiliser des variables)
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Blocs \og To Workspace \fg~ou \og From Workspace\fg}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 On utilisera les blocs particuliers dans le cas où l'on souhaite 
 utiliser des données à partir de Scilab (\og From Workspace\fg) 
@@ -955,6 +1003,3 @@ ou récupérer ces données après la simulation (\og To Workspace \fg).
     \includegraphics[width=0.25\textwidth]{fig/TOWS_c.eps}
     \caption{Blocs d'échange avec Scilab\label{fig-workspace}}
 \end{figure}
-
-
-
