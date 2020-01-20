@@ -1,23 +1,38 @@
-\chapter{Équations différentielles à coefficients constants\label{annexe-eqndiff}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Équations différentielles à coefficients constants
+        \label{annexe-eqndiff}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chaptermark{Équations différentielles}
-
-La forme générale d'une équation différentielle à coefficients constants est donnée
-par :
+La forme générale d'une équation différentielle à coefficients constants est 
+donnée par :
 \begin{align}
 \sum_{i=0}^{n}a_i\devi{s(t)}{i}=\sum_{i=0}^{m}b_i\devi{e(t)}{i}
 \end{align}
 
-avec $a_i$ et $b_i$ des coefficients réels et $m$ et $n$ des entiers naturels tels que $m\le n$.
-L'ordre de l'équation est donnée par $n$.
+avec $a_i$ et $b_i$ des coefficients réels et $m$ et $n$ des entiers naturels 
+tels que $m\le n$. L'ordre de l'équation est donnée par $n$.
 
 Nous allons dans cette annexe, présenter la résolution direct 
 des formes canoniques du premier et du second ordre. La méthodologie consiste
-à déterminer la solution générale de l'équation homogène (c.a.d sans second membre)
-puis de chercher une solution particulière pour l'équation avec second membre.
-Nous nous limiterons à l'étude des solutions pour des seconds membres correspondant
-aux signaux usuels présentés dans ce document au~\Cref{chap-slci} (c.a.d Impulsion de Dirac, échelon-unité et rampe) .
+à déterminer la solution générale de l'équation homogène (c.a.d sans second 
+membre) puis de chercher une solution particulière pour l'équation avec second 
+membre. Nous nous limiterons à l'étude des solutions pour des seconds membres 
+correspondant aux signaux usuels présentés dans ce document 
+au~\Cref{chap-slci} (c.a.d Impulsion de Dirac, échelon-unité et rampe).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Résolution équation différentielle du premier ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 La forme générale d'une équation différentielle du premier ordre est
 donnée par : 
@@ -34,7 +49,11 @@ La forme canonique d'une équation différentielle du premier ordre est alors :
 \end{bequation}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Sans second membre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 La solution générale de l'équation sans second membre est de la forme :
 $$
@@ -48,7 +67,6 @@ $$
 $$
 avec pour condition initiale $s(0)=s_0$.
 On cherche à déterminer la réponse indicielle de ce système.
-                                                                                                                                          
 La réponse libre du système $s_1(t)$ satisfait l'équation différentielle
 $$
 \devi{s_1(t)}{}=-as_1(t)
@@ -58,20 +76,18 @@ Cette solution est donc de la forme :
 $$
 s_1(t)=Ce^{-at}
 $$
-avec $C$ une constante réel. La réponse doit satisfaire la condition initiale $s(0)=s_0$.
-Ce qui impose :
+avec $C$ une constante réel. La réponse doit satisfaire la condition 
+initiale $s(0)=s_0$. Ce qui impose :
 $$
 s_1(t)=s_0e^{-at}
 $$
-                                                                                                                                          
-La réponse indicielle est donnée pour $e(t)=u(t)$. Pour $t>0$, l'équation différentielle
-avec second membre est alors :
+La réponse indicielle est donnée pour $e(t)=u(t)$. Pour $t>0$, l'équation 
+différentielle avec second membre est alors :
 $$
 \devi{s(t)}{}+as(t)=b
 $$
-                                                                                                                                          
-Déterminons une solution particulière $s_2(t)$ de cette
-équation différentielle de la forme :
+Déterminons une solution particulière $s_2(t)$ de cette équation 
+différentielle de la forme :
 $$
 s_2(t)=\lambda(t)e^{-at}.
 $$
@@ -91,7 +107,6 @@ avec $C$ une constante d'intégration.
 $$
 s_2(t)=\dfrac{b}{a}+Ce^{-at}.
 $$
-                                                                                                                                          
 La solution générale est donnée par la somme des deux réponses précédentes :
 \begin{align*}
     s(t)&=s_1(t)+s_2(t)\\
@@ -103,41 +118,47 @@ s(t)=s_0e^{-at}+\dfrac{b}{a}\left(1-e^{-at}\right)
 $$
 \begin{center}
 {\tikzset{external/export=false}       
-        \begin{tikzpicture}
-                \pgfmathsetmacro{\t}{8}             
-                \begin{axis}
-                    [
-                    height=7.5cm,
-                    width=10cm,
-                    grid=both,
-                    minor tick num=4,
-                    xmin=0,
-                    xmax=\t,
-                    ymin=0,
-                    ymax=1.0,
-                    xlabel={$t$},
-                    ylabel={$s(t)$},
-                    %clip=false
-                    ]
-                    \addplot [very thick,color=blue,domain=-1:0, samples=101]{0};
-                    \pgfmathsetmacro{\a}{0.5}             
-                    \pgfmathsetmacro{\b}{0.25}           
+    \begin{tikzpicture}
+        \pgfmathsetmacro{\t}{8}             
+        \begin{axis}
+        [
+            height=7.5cm,
+            width=10cm,
+            grid=both,
+            minor tick num=4,
+            xmin=0,
+            xmax=\t,
+            ymin=0,
+            ymax=1.0,
+            xlabel={$t$},
+            ylabel={$s(t)$},
+            %clip=false
+        ]
+        \addplot [very thick,color=blue,domain=-1:0, samples=101]{0};
+        \pgfmathsetmacro{\a}{0.5}             
+        \pgfmathsetmacro{\b}{0.25}           
                     
-                    \foreach\s in {-2,-1.8,...,3.0}
-                    {
-                    %\pgfmathsetmacro{\s}{0.0}           
-                    \addplot[thin,color=blue,domain=0:\t,samples=101]{\s*exp(-\a*x)+(\b/\a)*(1-exp(-\a*x)} ;
-                    }
-                \end{axis}
-                \node[] at (9,3 ) {$\dfrac{b}{a}$};
-        \end{tikzpicture}
+        \foreach\s in {-2,-1.8,...,3.0}
+        {
+            %\pgfmathsetmacro{\s}{0.0}           
+            \addplot[thin,color=blue,domain=0:\t,samples=101]
+            {\s*exp(-\a*x)+(\b/\a)*(1-exp(-\a*x)};
         }
+        \end{axis}
+        \node[] at (9,3 ) {$\dfrac{b}{a}$};
+        \end{tikzpicture}
+}
 \end{center}
-
 Sur les trois termes de la solution générale, un seul est non
 nul pour $t\to\infty$. Il correspond au régime permanent de
 la réponse. Les deux autres correspondent au régime transitoire.
 \begin{align*}
-    s(t)=\textcolor{orange}{s_0e^{-at}-\dfrac{b}{a}e^{-at}}&+\textcolor{magenta}{\dfrac{b}{a}}\\
+    s(t)=\textcolor{orange}{s_0e^{-at}-\dfrac{b}{a}e^{-at}}&+
+    \textcolor{magenta}{\dfrac{b}{a}}\\
     \textcolor{orange}{transitoire} &\quad\textcolor{magenta}{permanent}
 \end{align*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%annexe_equa_diff.tex

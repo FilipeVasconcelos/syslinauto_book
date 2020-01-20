@@ -18,7 +18,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Les performances qui vont nous interesser dans 
 ce chapitre sont  
 Par \emph{performances} on entend dans le cadre de ce chapitre
@@ -31,7 +30,6 @@ les performances de précision et de rapidité.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Un système est précis si l'écart que l'on note $\epsilon(t)$ 
 entre l'entrée $e(t)$ et la sortie $s(t)$ est nul.
 Dans le domaine de Laplace, cet écart devient :
@@ -94,11 +92,9 @@ $$
 \epsilon(\infty)=\lim\limits_{p\to 0} p\big(E(p)-H(p)E(p)\big)
                 =\lim\limits_{p\to 0} p\big(1-H(p)\big)E(p)
 $$
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Exemple d'un premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %Rappelons qu'il est possible de corriger la précision 
 %d'un système en boucle ouverte. 
 Prenons l'exemple d'un système du 1er ordre de fonction de transfert canonique 
@@ -357,7 +353,7 @@ de sa partie réelle est largement plus petite que celle de tout autre pôles
 du système\footnote{Dans la pratique un rapport de 5 est 
 suffisant pour considérer une domination d'un pôle sur les autres}
 \begin{bequation}[ams align]
-	\big|\Re{p_i}\big| \ll \big|\Re{p_j}\big|\;\; \forall j\neq i
+    \big|\Re{p_i}\big| \ll \big|\Re{p_j}\big|\;\; \forall j\neq i
 \end{bequation}
 
 Pour observer l'influence d'un pôle dominant sur 
@@ -406,7 +402,8 @@ de ces trois fonctions de transfert.
     label style={font=\Large},
     legend cell align={left},
 ]%
-\addplot[thick,color=black,domain=0:30, samples=101,unbounded coords=jump]{{1}};
+\addplot[thick,color=black,domain=0:30, samples=101,unbounded coords=jump]
+{{1}};
 \addplot[thick,color=cyan,domain=0:30, samples=101,unbounded coords=jump]
 {6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
 \addplot[thick,color=green,domain=0:30, samples=101,unbounded coords=jump]
@@ -459,4 +456,8 @@ de ces trois fonctions de transfert.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%chap_perf.tex
