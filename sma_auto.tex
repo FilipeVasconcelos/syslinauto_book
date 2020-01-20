@@ -43,8 +43,8 @@
 \usepackage{eso-pic,calc}                
 \usepackage{imakeidx}
 \makeindex[columnsep=20pt,columnseprule]
-\usepackage[colorlinks]{hyperref}  % à remettre dans la version finale
-\usepackage{url} % url dans bibtex
+\usepackage[colorlinks]{hyperref}  
+\usepackage{url} 
 \usepackage[hyphenbreaks]{breakurl} 
 \usepackage[abbreviations,symbols,nogroupskip,nonumberlist]{glossaries-extra}
 \setabbreviationstyle[acronym]{long-short}
@@ -101,17 +101,13 @@ ps2eps -f "\image.ps"
 \tikzset{external/optimize command away=\AddToShipoutPicture}
 \tikzexternalize[prefix=fig/]
 
-%\usepackage[]{hypdvips}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{booktabs}
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 \usepackage{array,multirow,makecell}
 \setcellgapes{1pt}
-%\makegapedcells
 \usepackage{hhline}
-%\renewcommand\cellalign{cc}
 \usepackage{tabularx}
 \newlength{\ltmp}
 \newlength{\ldtmp}
@@ -122,10 +118,6 @@ ps2eps -f "\image.ps"
     \kern 2.6pt % call this kernb
 }
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
-
-%\newcolumntype{K}[1]{>{\centering\arraybackslash}p{#1}}
-%\newcolumntype{M}[1]{>{\centering\arraybackslash}p{#1}}
-%\newcolumntype{N}{@{}m{0pt}@{}}
 
 \def\fup#1{\raise+2pt\hbox{\footnotesize #1}}
 
@@ -164,7 +156,6 @@ ps2eps -f "\image.ps"
 \newcommand*{\acpl}{\emph{à compléter}\ldots}
 \newcommand*{\acplhp}{\emph{à compléter (hors programme)}\ldots}
 \newcommand*{\todo}[1]{\emph{TODO : #1}}
-%\newcommand*{\SLCI}{\emph{{\scshape Slci}}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -256,10 +247,7 @@ ps2eps -f "\image.ps"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%page page
-%\newcommand*\cleartoleftpage{\clearpage\ifodd\c@page
-%\hbox{}\vspace*{\fill}\thispagestyle{empty}
-%\newpage\fi}
+%page
 \newcommand*\cleartoleftpage{%
 \clearpage
 \ifodd\value{page}\hbox{}\newpage\fi
@@ -273,7 +261,7 @@ ps2eps -f "\image.ps"
 %\includeonly{tex/chap_slci}            % Système linéaire
 %\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
 %\includeonly{tex/chap_model}           % Modèles Usuels    
-%\includeonly{tex/chap_repfreq}           % Réponse harmonique
+%\includeonly{tex/chap_repfreq}         % Réponse harmonique
 %\includeonly{tex/chap_asserv}          % Asservissement 
 %\includeonly{tex/chap_perf}            % Perf. des sys asservis 
 %\includeonly{tex/chap_stab}            % Stabilité des sys. asservis 
@@ -448,3 +436,8 @@ $\,$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%sma_auto.tex
