@@ -14,8 +14,8 @@
         ylabel={$D_k$},
         label style={font=\Large},
         grid=both,
-        grid style={line width=.1pt, draw=gray!50},
-        major grid style={line width=.2pt,draw=gray!50},
+        grid style={line width=.2pt, draw=black},
+        major grid style={line width=.2pt,draw=black},
         ]
         \addplot[thick,color=red,domain=0.0001:1, samples=101]{exp(-(x*\pi)/(sqrt(1-x*x)))};
         \addplot[thick,color=blue,domain=0.0001:1, samples=101]{exp(-(2*x*\pi)/(sqrt(1-x*x)))};
