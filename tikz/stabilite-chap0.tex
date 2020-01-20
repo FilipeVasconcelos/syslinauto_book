@@ -2,8 +2,8 @@
 \begin{center}
 \tikzsetnextfilename{stable-chap0_ext}
 \begin{tikzpicture}
-        \begin{axis}[
-		ticks=none,
+	\begin{axis}
+	[	ticks=none,
         axis line style = thick,
         height=5cm,
         width=5cm,
@@ -17,11 +17,11 @@
         ylabel={$s(t)$},
         xlabel style={below right},
         ylabel style={above left},
-        ]
-        \addplot [very thick,color=blue,domain=-2:0, samples=101]{0};
-		\addplot [very thick,color=blue,domain=0:10, samples=201]{sin(3*deg(x))*exp(-x)+1};
-		\draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1);
-        \end{axis}
+	]
+	\addplot[very thick,blue,domain=-2:0, samples=101]{0};
+	\addplot[very thick,blue,domain=0:10, samples=201]{sin(3*deg(x))*exp(-x)+1};
+	\draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1);
+	\end{axis}
 \end{tikzpicture}
 \tikzsetnextfilename{stable2-chap0_ext}
 \begin{tikzpicture}
@@ -48,8 +48,8 @@
 
 \tikzsetnextfilename{instable-chap0_ext}
 \begin{tikzpicture}
-        \begin{axis}[
-	ticks=none,
+	\begin{axis}
+	[	ticks=none,
         axis line style = thick,
         height=5cm,
         width=5cm,
@@ -63,16 +63,16 @@
         ylabel={$s(t)$},
         xlabel style={below right},
         ylabel style={above left},
-        ]                                                                                                                     
-        \addplot [very thick,color=blue,domain=-2:0, samples=101]{0};
-        \addplot [very thick,color=blue,domain=0:10, samples=201]{0.5*x};
+    ]
+    \addplot [very thick,blue,domain=-2:0, samples=101]{0};
+    \addplot [very thick,blue,domain=0:10, samples=201]{0.5*x};
 	\draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1);
-        \end{axis}
+	\end{axis}
 \end{tikzpicture}
-    {\tikzset{external/export=false}
+{\tikzset{external/export=false}
 \begin{tikzpicture}%
-        \begin{axis}[
-	ticks=none,
+	\begin{axis}
+	[	ticks=none,
         axis line style = thick,
         height=5cm,
         width=5cm,
@@ -86,13 +86,15 @@
         ylabel={$s(t)$},
         xlabel style={below right},
         ylabel style={above left},
-        ]
-\addplot[very thick,color=red,domain=-2:0, samples=101]{0};
-\addplot [very thick,color=red,domain=0:10, samples=101]{0.8*sin(3*deg(x))*exp(0.2*x)+1};
-\draw[dotted,very thick,red] (axis cs:0,0) -- (axis cs:0,1);
-\end{axis}
+	]
+	\addplot[very thick,color=red,domain=-2:0, samples=101]{0};
+	\addplot[very thick,domain=0:10, samples=101]	{0.8*sin(3*deg(x))*exp(0.2*x)+1};
+	\draw[dotted,very thick,red] (axis cs:0,0) -- (axis cs:0,1);
+	\end{axis}
 \end{tikzpicture}
 }
-\caption{Trois exemples de réponses d'un slci à une sollicitation bornée : (en bleu) réponses stables (en rouge) réponses instables}
+\caption{Trois exemples de réponses d'un slci à une sollicitation bornée : 
+         (en bleu)  réponses stables 
+		 (en rouge) réponses instables}
 \end{center}                
 \end{figure}

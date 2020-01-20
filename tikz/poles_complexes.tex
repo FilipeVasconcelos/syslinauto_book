@@ -6,19 +6,27 @@
     node(im) [left]                                               {Im};
     \draw[very thick,-latex] (-2.5,0) -- (1.0,0) node(re) [below] {Re};
     \draw[blue,very thick,dotted] (p1) -- (p2) 
-    node[blue,midway,xshift=-1em,yshift=-0.8em]                   {$-\alpha$};
+    node[blue,midway,xshift=-1em,yshift=-0.8em] {$-\alpha$};
     \draw[very thick] (o) -- (p1);
     \draw[very thick] (o) -- (p2);
-    \draw[red,very thick,dotted] (p1) --(0.0,1.0)   
-    node[blue,xshift=1.2em,yshift=0em]                            {$\omega_d$};
+    \draw[red,very thick,dotted] (p1) -- (0.0,1.0)   
+    node[blue,xshift=1.2em,yshift=0em] {$\omega_d$};
     \draw[red,very thick,dotted] (p2) -- (0.0,-1.0) 
-    node[blue,xshift=1.2em,yshift=0em]                            {$-\omega_d$};
+    node[blue,xshift=1.2em,yshift=0em] {$-\omega_d$};
     \draw[red,thick] (0,0) circle [radius=1.41421356237];
-    \node at (p1) [thick,cross=5pt,blue]                          {};
-    \node at (p1) [blue,left,xshift=-0.5em]                       {$p_1$};
-    \node at (p2) [thick,cross=5pt,blue]                          {};
-    \node at (p2) [blue,left,xshift=-0.5em]                       {$p_2$};
-    \pic [draw, -latex, "$\phi$", angle radius=0.5cm , 
-    angle eccentricity=1.5]                                       {angle = im2--o--p1};
-    \pic [draw, ->, "$\phi$", angle eccentricity=1.5]             {angle = p2--o--im};
+    \node at (p1) [thick,cross=5pt,blue] {};
+    \node at (p1) [blue,left,xshift=-0.5em] {$p_1$};
+    \node at (p2) [thick,cross=5pt,blue]    {};
+    \node at (p2) [blue,left,xshift=-0.5em] {$p_2$};
+    \pic[draw,
+         -latex,
+         "$\phi$",
+         angle radius=0.5cm,
+         angle eccentricity=1.5] 
+    {angle = im2--o--p1};
+    \pic[draw,
+         -latex,
+         "$\phi$",
+         angle eccentricity=1.5] 
+    {angle = p2--o--im};
 \end{tikzpicture}  

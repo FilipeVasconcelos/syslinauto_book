@@ -1,7 +1,8 @@
-    \begin{tikzpicture}
-        \begin{axis}[
-        axis line style = thick,
-        %clip=false,
+\begin{tikzpicture}
+    \tikzset{signal}=[very thick,blue,samples=101]
+    \tikzset{envelop}=[dashed,very thick,blue,samples=101]
+    \begin{axis}
+    [   axis line style = thick,
         height=5cm,
         width=10cm,
         axis x line=center,
@@ -19,17 +20,9 @@
         xtick={},
         xticklabels={},
         ]
-
-            \addplot [very thick,color=blue,domain=-2:0, samples=11]{0};
-            \addplot [very thick,color=blue,domain=0:4*pi, samples=501]{exp(-0.2*x)*sin(3.5*deg(x))};
-            \addplot [dashed,very thick,color=blue,domain=0:4*pi, samples=501]{exp(-0.2*x)};
-            \addplot [dashed,very thick,color=blue,domain=0:4*pi, samples=501]{-exp(-0.2*x)};
-            %\addplot [thick,color=red,domain=0:4*pi, samples=501]{exp(-0.2*x)*sin(deg(4*x-pi*0.5))};
-%            \draw[blue,] (axis cs:pi*0.5,1) -- (axis cs:pi*0.5,1.25);
-%            \draw[blue] (axis cs:pi*2.5,1) -- (axis cs:pi*2.5,1.25);
-%            \draw[blue,ultra thick, latex-latex] (axis cs:pi*0.5,1.2) --node[above,yshift=+0.2em]{$\dfrac{2\pi}{\omega}$} (axis cs:pi*2.5,1.2);
-%            \draw[blue,] (axis cs:pi*1.5,-1) -- (axis cs:pi*1.5,-1.25);
-%            \draw[blue] (axis cs:pi*1.5+pi*0.5,-1) -- (axis cs:pi*1.5+pi*0.5,-1.25);
-%            \draw[blue,ultra thick, latex-latex] (axis cs:pi*1.5,-1.2) --node[below,yshift=-0.2em]{$\dfrac{\Delta\phi}{\omega}$} (axis cs:pi*1.5+pi*0.5,-1.2);
-        \end{axis}
-    \end{tikzpicture}
+    \addplot [signal,domain=-2:0]    {0};            
+    \addplot [signal,domain=0:4*pi]  {exp(-0.2*x)*sin(3.5*deg(x))};
+    \addplot [envelop,domain=0:4*pi] {exp(-0.2*x)};
+    \addplot [envelop,domain=0:4*pi] {-exp(-0.2*x)};
+    \end{axis}
+\end{tikzpicture}

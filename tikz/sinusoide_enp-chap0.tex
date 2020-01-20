@@ -1,6 +1,6 @@
 \begin{tikzpicture}
-\begin{axis}[
-        axis line style = thick,
+	\begin{axis}
+	[	axis line style = thick,
         clip=false,
         height=5cm,
         width=9cm,
@@ -18,10 +18,9 @@
         yticklabels={},
         xtick={},
         xticklabels={},
-        ]
-
-            \addplot [ultra thick,color=blue,domain=-2:0, samples=101]{0};
-            \addplot [ultra thick,color=blue,domain=0:4*pi, samples=101]{sin(deg(x))};
-            \addplot [ultra thick,color=red,domain=0:4*pi, samples=101]{0.7*sin(deg(x))};
-        \end{axis}
+	]
+    \addplot[ultra thick,blue,domain=-2:0,samples=101]{0};
+    \addplot[ultra thick,blue,domain=0:4*pi,samples=101]{sin(deg(x))};
+    \addplot[ultra thick,red,domain=0:4*pi,samples=101]{0.7*sin(deg(x))};
+	\end{axis}
 \end{tikzpicture}

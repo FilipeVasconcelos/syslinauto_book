@@ -1,15 +1,31 @@
 \begin{tikzpicture}
-\tikzset{both/.style={draw,minimum width=4cm,minimum height=2cm,rounded corners=.1cm,inner sep=0.5pt,text width=4cm,align=center}}
+\tikzset{both/.style={draw,
+                      minimum width=4cm,
+                      minimum height=2cm,
+                      rounded corners=.1cm,
+                      inner sep=0.5pt,
+                      text width=4cm,
+                      align=center}
+}
 \tikzstyle{temp}=[both,fill=blue!25!white]
 \tikzstyle{lapl}=[both,fill=red!25!white]
-\node[temp] (a) at (0,0)  {\small\'Equation différentielle\\ (domaine temporel)};
-\node[temp] (b) at (7,0)  {\small Solution $s(t)$\\(domaine temporel)};
-\node[lapl] (c) at  (0,-4){\small \'Equation algébrique\\ (domaine de Laplace)};
-\node[lapl] (d) at (7,-4) {\small Solution $S(p)$\\(domaine de Laplace)};
-\draw[very thick,-{Latex[length=3.5mm]}] (a) --node[above,align=center,text width=2cm] {Résolution\\direct} (b);
-\draw[very thick,-{Latex[length=3.5mm]}] (d) --node[right] {\Large$\mathscr{L}^{-1}$} (b);
-\draw[very thick,-{Latex[length=3.5mm]}] (a) --node[left] {\Large$\mathscr{L}$} (c);
-\draw[very thick,-{Latex[length=3.5mm]}] (c) --node[below,align=center,text width=2cm] {Résolution\\algébrique} (d);
+\tikzstyle{temp2}=[very thick,-{Latex[length=3.5mm]}]
+\node[temp] (a) at (0,0)  {\small\'Equation différentielle\\
+                                 (domaine temporel) };
+\node[temp] (b) at (7,0)  {\small Solution $s(t)$\\
+                                  (domaine temporel)};
+\node[lapl] (c) at (0,-4) {\small \'Equation algébrique\\ 
+                                  (domaine de Laplace)};
+\node[lapl] (d) at (7,-4) {\small Solution $S(p)$\\
+                                  (domaine de Laplace)};
+\draw[temp2] (a) -- 
+node[above,align=center,text width=2cm] {Résolution\\direct} (b);
+\draw[temp2] (d) -- 
+node[right] {\Large$\mathscr{L}^{-1}$} (b);
+\draw[temp2] (a) -- 
+node[left]  {\Large$\mathscr{L}$} (c);
+\draw[temp2] (c) -- 
+node[below,align=center,text width=2cm] {Résolution\\algébrique} (d);
 \end{tikzpicture}
 
 

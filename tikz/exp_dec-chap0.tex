@@ -1,7 +1,6 @@
-    \begin{tikzpicture}
-        \begin{axis}[
-        axis line style = thick,
-%        clip=false,
+\begin{tikzpicture}
+    \begin{axis}
+    [   axis line style = thick,
         height=4cm,
         width=8cm,
         axis x line=center,
@@ -20,11 +19,11 @@
         legend style={draw=none,yshift=1em},
         legend pos=outer north east,
         legend cell align={left},
-        ]
-            \addplot [ultra thick,color=blue,domain=-1:0, samples=101]{0};
-            \addplot [ultra thick,color=green!50!black,domain=0:6, samples=101]{exp(-2*x)};
-            \addplot [ultra thick,color=blue,domain=0:6, samples=101]{exp(-x)};
-            \addplot [ultra thick,color=red,domain=0:6, samples=101] {exp(-0.5*x)};
-            \legend{,$a=2$,$a=1$,$a=0.5$}
-        \end{axis}
-    \end{tikzpicture}
+    ]
+    \addplot[ultra thick,blue,domain=-1:0, samples=101]{0};
+    \addplot[ultra thick,green!50!black,domain=0:6, samples=101]{exp(-2*x)};
+    \addplot[ultra thick,blue,domain=0:6, samples=101]{exp(-x)};
+    \addplot[ultra thick,red,domain=0:6, samples=101] {exp(-0.5*x)};
+    \legend{,$a=2$,$a=1$,$a=0.5$}
+    \end{axis}
+\end{tikzpicture}

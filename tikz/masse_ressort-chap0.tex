@@ -1,21 +1,25 @@
-\begin{tikzpicture}                                                                                                           
+\begin{tikzpicture}
     \begin{scope}[local bounding box=scope1]
-    \draw[thick] (0,-0.5) -- (0,2);                                                                                           
-    \draw[thick] (0,1.5) -- (1.0,1.5);                                                                                        
-  \draw [thick,decorate,decoration={zigzag,segment length=10,amplitude=5.0}] (1,1.5) -- (2.5,1.5)                             
-    node[midway,above,yshift=+0.8em] {$k_r$};                                                                                 
-    \draw[thick] (2.5,1.5) -- (3.0,1.5);                                                                                      
-                                                                                                                              
-    \draw[thick] (0,0) -- (1.0,0);                                                                                            
-    \draw[thick] (1,-0.3) -- (1.0,0.3);                                                                                       
-    \draw[thick] (1,-0.3) -- (2.5,-0.3);                                                                                      
-    \draw[thick] (1,0.3) -- (2.5,0.3) node[midway,above,yshift=+0.2em] {$b$};                                                 
-    \draw[thick] (2.3,-0.25) -- (2.3,0.25);                                                                                   
-    \draw[thick] (2.3,0.0) -- (3.0,0.0);                                                                                      
-        \draw[thick,fill=gray] (3.0,-0.5) rectangle (3.5,2.0) node[xshift=-1ex,above] {$m$};                                                                    
-        \draw[thick,-latex] (3.25,-1) -- (4.5,-1) node[midway,above] {$\xx{}$};                                                       
-    \draw[thick] (3.25,-1.2) -- (3.25,-0.8);                                                                                  
-        \draw[very thick,-latex] (3.5,1) -- (5.0,1) node[midway,above] {$\vect{F}(t)$};                                              
+    \draw[thick] (0,-0.5) -- (0,2);
+    \draw[thick] (0,1.5) -- (1.0,1.5);
+    \draw[thick,
+          decorate,
+          decoration={zigzag,segment length=10,amplitude=5.0}
+          ] (1,1.5) -- (2.5,1.5) node[midway,above,yshift=+0.8em] {$k_r$};
+    \draw[thick] (2.5,1.5) -- (3.0,1.5);
+    \draw[thick] (0,0) -- (1.0,0);
+    \draw[thick] (1,-0.3) -- (1.0,0.3);
+    \draw[thick] (1,-0.3) -- (2.5,-0.3);
+    \draw[thick] (1,0.3) -- (2.5,0.3) node[midway,above,yshift=+0.2em] {$b$};
+    \draw[thick] (2.3,-0.25) -- (2.3,0.25);
+    \draw[thick] (2.3,0.0) -- (3.0,0.0);
+    \draw[thick,fill=gray] (3.0,-0.5) rectangle (3.5,2.0) 
+    node[xshift=-1ex,above] {$m$};
+    \draw[thick,-latex] (3.25,-1) -- (4.5,-1) 
+    node[midway,above] {$\xx{}$};
+    \draw[thick] (3.25,-1.2) -- (3.25,-0.8);
+    \draw[very thick,-latex] (3.5,1) -- (5.0,1) 
+    node[midway,above] {$\vect{F}(t)$};
     \end{scope}
     \begin{scope}[shift={($(scope1.east)+(1.5,0)$)}]
         \sbEntree{E4}
@@ -24,4 +28,4 @@
         \sbSortie[4]{S4}{B4}
         \sbRelier[$x(t)$]{B4}{S4}
     \end{scope}
-\end{tikzpicture}    
+\end{tikzpicture}

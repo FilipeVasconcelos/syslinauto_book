@@ -1,6 +1,6 @@
-    \begin{tikzpicture}
-        \begin{axis}[
-        name=ax2,
+\begin{tikzpicture}
+    \begin{axis}
+    [   name=ax2,
         axis line style = thick,
         height=4cm,
         width=5cm,
@@ -17,13 +17,12 @@
         ylabel={$s(t)$},
         xlabel style={below right},
         ylabel style={above left},
-        ]
-        \addplot [ultra thick,color=blue,domain=-2:0, samples=101]{0};
-            \addplot [ultra thick,color=blue,domain=0:16, samples=101]{1-exp(-x)};
-%	\draw[dotted,ultra thick,blue] (axis cs:0,0) -- (axis cs:0,1);
-        \end{axis}
-        \begin{axis}[
-        at={(ax2.south east)},
+    ]
+    \addplot [ultra thick,color=blue,domain=-2:0, samples=101]{0};
+    \addplot [ultra thick,color=blue,domain=0:16, samples=101]{1-exp(-x)};
+    \end{axis}
+    \begin{axis}
+    [   at={(ax2.south east)},
         xshift=4em,
         ytick=\empty,
         axis line style = thick,
@@ -43,9 +42,8 @@
         ylabel style={above left},
 	xticklabels={$\tau$},
         xtick={2},
-        ]
-        \addplot [ultra thick,color=blue,domain=-2:2, samples=101]{0};
-            \addplot [ultra thick,color=blue,domain=2:16, samples=101]{1-exp(-(x-2))};
-%	\draw[dotted,ultra thick,blue] (axis cs:2,0) -- (axis cs:2,1);
-        \end{axis}
-    \end{tikzpicture}
+    ]
+    \addplot [ultra thick,color=blue,domain=-2:2, samples=101]{0};
+    \addplot [ultra thick,color=blue,domain=2:16, samples=101]{1-exp(-(x-2))};
+    \end{axis}
+\end{tikzpicture}
