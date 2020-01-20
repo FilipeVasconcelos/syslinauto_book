@@ -245,11 +245,13 @@ ps2eps -f "\image.ps"
 
 %red
 \newcommand{\hmr}[1]{%
-  \ooalign{\hss\makebox[0pt]{\fcolorbox{white}{red!30}{$#1$}}\hss\cr\phantom{$#1$}}%
+\ooalign{\hss\makebox[0pt]{
+\fcolorbox{white}{red!30}{$#1$}}\hss\cr\phantom{$#1$}}%
 }
 %blue
 \newcommand{\hmb}[1]{%
-  \ooalign{\hss\makebox[0pt]{\fcolorbox{white}{blue!30}{$#1$}}\hss\cr\phantom{$#1$}}%
+\ooalign{\hss\makebox[0pt]{
+\fcolorbox{white}{blue!30}{$#1$}}\hss\cr\phantom{$#1$}}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -268,20 +270,20 @@ ps2eps -f "\image.ps"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\includeonly{tex/avantpropos}
-%\includeonly{tex/chap_slci}                % Système linéaire
-%\includeonly{tex/chap_model}               % Modèles Usuels    
-%\includeonly{tex/chap_asserv}              % Asservissement 
-%\includeonly{tex/chap_perf}                % Précision rapidité 
-%\includeonly{tex/annexe_alphagrec}         % Alphabet grec    
-%\includeonly{tex/annexe_usi}               % Unités du Système International    
-%\includeonly{tex/annexe_laplace}           % Transformation de Laplace
-%\includeonly{tex/annexe_cxpl}              % Rappel sur les nombres complexes
-%\includeonly{tex/annexe_equa_diff}          % Equation différentielle à coefficient constant
-%\includeonly{tex/annexe_des}               % Décomposition en éléments simples
-%\includeonly{tex/annexe_2nd}               % Système du second ordre
-%\includeonly{tex/annexe_scilab}            % Scilab
-%\includeonly{tex/annexe_log}               % Echelle log
-%\includeonly{tex/annexe_invL}              % Inverse Laplace 
+%\includeonly{tex/chap_slci}            % Système linéaire
+%\includeonly{tex/chap_model}           % Modèles Usuels    
+%\includeonly{tex/chap_asserv}          % Asservissement 
+%\includeonly{tex/chap_perf}            % Précision rapidité 
+%\includeonly{tex/annexe_alphagrec}     % Alphabet grec    
+%\includeonly{tex/annexe_usi}           % Unités du Système International    
+\includeonly{tex/annexe_laplace}       % Transformation de Laplace
+%\includeonly{tex/annexe_cxpl}          % Rappel sur les nombres complexes
+%\includeonly{tex/annexe_equa_diff}     % Eq. diff. à coefficient constant
+%\includeonly{tex/annexe_des}           % Décomposition en éléments simples
+%\includeonly{tex/annexe_2nd}           % Système du second ordre
+%\includeonly{tex/annexe_scilab}        % Scilab
+%\includeonly{tex/annexe_log}           % Echelle log
+%\includeonly{tex/annexe_invL}          % Inverse Laplace 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\includeonly{tex/chap_model,tex/annexe_laplace}         
 %\includeonly{tex/chap_bloc}
@@ -290,7 +292,7 @@ ps2eps -f "\image.ps"
 %\includeonly{tex/chap_slci,tex/chap_perf}     
 %\setcounter{chapter}{-1}
 
-%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  % utile pour l'annnexe 5
 \newlength\myheight
 \newlength\mydepth
@@ -357,7 +359,7 @@ ps2eps -f "\image.ps"
 \include{tex/annexe_laplace_irl}       % Pierre-Simon de Laplace 
 \include{tex/annexe_laplace}           % Transformation de Laplace 
 \include{tex/annexe_cxpl}              % Rappel sur les nombres complexes
-\include{tex/annexe_equa_diff}         % Equation différentielle à coefficient constant
+\include{tex/annexe_equa_diff}         % Eq. diff. à coefficient constant
 \include{tex/annexe_des}               % Décomposition en éléments simples
 \include{tex/annexe_2nd}               % Système du second ordre
 {\tikzset{external/export=false}       
