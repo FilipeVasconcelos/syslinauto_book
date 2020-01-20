@@ -1,3 +1,22 @@
 #!/bin/bash
-echo $1
-grep "%%" $1 | awk 'length < 80 { min=length;row=NR;print row}'
+echo "-------------------------------------------------------------------------"
+echo Traitement du fichier $1
+echo "-------------------------------------------------------------------------"
+grep -n "%%" $1 | awk 'BEGIN{
+                                            FS=":";sep_non=0
+                                           } 
+                                           {
+                                              if (length($2) !=80) 
+                                              {
+                                                  sep_non+=1; 
+                                                  print $1,$2,length($2) 
+                                              }
+                                           }
+                                      END  {
+                                            print "nombre de séparateurs != 80",sep_non;
+                                           }
+                                      '
+
+echo "-------------------------------------------------------------------------"
+./check_sep.py $1
+echo 
