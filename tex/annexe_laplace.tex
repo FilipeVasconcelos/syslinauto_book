@@ -27,21 +27,21 @@ En automatique, on n'utilise que la transformée de Laplace restreinte qui
 ne s'applique qu'aux fonctions causales.
 Pour transformer une fonction quelconque en fonction causale, 
 on la combine avec la fonction de Heaviside $u(t)$ qui est telle que :
+$$u(t)=\begin{cases}0\qquad\forall t<0\\1 \qquad\forall t\geq 0\end{cases} $$
 
-{\tikzset{external/export=false}
-\begin{center}
-\begin{tikzpicture}
-\draw[-{Latex[scale=1.3,angle'=45]},] (-2,0) -- (3.75,0) ;
-\draw[-{Latex[scale=1.3,angle'=45]}] (0,-1) -- (0,2.5)  ;
-\draw[line width =2pt,domain=-1.5:0,smooth,variable=\x,blue] plot ({\x},{0});
-\draw[line width =2pt,domain=0:3.5,smooth,variable=\x,blue] plot ({\x},{1});
-\node[left,blue] at (2.5,1.4)  (ft)  {\large $u(t)$};
-\node[below] at (3.5,0)  (t)     {\large $t$};
-\node[below] at (-5.0,1.5) 
-{$u(t)=\begin{cases}0\qquad\forall t<0\\1 \qquad\forall t\geq 0\end{cases} $};
-\end{tikzpicture}
-\end{center}
-}
+%{\tikzset{external/export=false}
+%\begin{center}
+%\begin{tikzpicture}
+%\draw[-{Latex[scale=1.3,angle'=45]},] (-2,0) -- (3.75,0) ;
+%\draw[-{Latex[scale=1.3,angle'=45]}] (0,-1) -- (0,2)  ;
+%\draw[line width =2pt,domain=-2:0,smooth,variable=\x,blue] plot ({\x},{0});
+%\draw[line width =2pt,domain=0:3.5,smooth,variable=\x,blue] plot ({\x},{1});
+%\node[left,blue] at (2.5,1.4)  (ft)  {\large $u(t)$};
+%\node[below] at (3.5,0)  (t)     {\large $t$};
+%\node[below] at (-5.0,1.5) 
+%\end{tikzpicture}
+%\end{center}
+%}
 
 On note $F(p)=\laplace{f(t)}$, la transformée de Laplace de $f(t)$ et on dit 
 de $F(p)$ qu'elle est l'image de $f(t)$ dans le domaine de 
@@ -113,7 +113,7 @@ $$
 \end{itemize}
 où $F_0(p)$ est la transformée de Laplace du motif $f_0(t)$ égal à 
 $f(t)$ sur le segment $[0,T]$ et nul partout ailleurs.
-
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -121,10 +121,9 @@ $f(t)$ sur le segment $[0,T]$ et nul partout ailleurs.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[H]
+\begin{table}[!h]
 \centering
-\ra{2.3}
-%\resizebox{0.9\textwidth}{!}{
+\ra{1.9}
 \begin{tabular}{@{}P{0.5cm}P{3.9cm}P{8.9cm}@{}}
 \toprule
     & $F(p)$ & $f(t)=\laplacei{F(p)}$ \\
@@ -184,8 +183,8 @@ $f(t)$ sur le segment $[0,T]$ et nul partout ailleurs.
 \end{table}
 %\clearpage
 %\renewcommand{\arraystretch}{2.25}
-\begin{table}[H]
-\ra{2.3}
+\begin{table}[!htb]
+\ra{1.9}
 \centering
 %\resizebox{0.9\textwidth}{!}{
 \begin{tabular}{@{}P{0.5cm}P{3.9cm}P{8.9cm}@{}}
