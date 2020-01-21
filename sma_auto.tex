@@ -257,9 +257,9 @@ ps2eps -f "\image.ps"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % includeonly individuel
 %\includeonly{tex/avantpropos}
-\includeonly{tex/chap_slci}            % Système linéaire
+%\includeonly{tex/chap_slci}            % Système linéaire
 %\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
-%\includeonly{tex/chap_model}           % Modèles Usuels    
+\includeonly{tex/chap_model}           % Modèles Usuels    
 %\includeonly{tex/chap_repfreq}         % Réponse harmonique
 %\includeonly{tex/chap_asserv}          % Asservissement 
 %\includeonly{tex/chap_perf}            % Perf. des sys asservis 
@@ -371,11 +371,11 @@ ps2eps -f "\image.ps"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{tex/avantpropos}                % Introduction Générale 
 \include{tex/chap_slci}                % SLCI
-\end{document}
 {\tikzset{external/export=false}
 \include{tex/chap_bloc}                % Schémas fonctionnels-blocs
 }
 \include{tex/chap_model}               % Modèles de SLCI
+\end{document}
 \include{tex/chap_repfreq}             % Réponse Harmonique
 \include{tex/chap_asserv}              % Asservissement
 \include{tex/chap_perf}                % Perf. des sys. asservis 
