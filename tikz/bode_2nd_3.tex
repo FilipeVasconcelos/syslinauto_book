@@ -18,7 +18,7 @@
     cycle list name=color list,
 ]
     \foreach \a in {0.02,0.1,0.2,0.3,0.4,0.5,0.6}
-    \addplot+[domain=1e-1:1e1, samples=201] 
+    \addplot+[thick,domain=1e-1:1e1, samples=201] 
     {-20*log10(sqrt((1-x*x)^2+(2*\a*x)^2))};
 \end{axis}
 \begin{axis}[

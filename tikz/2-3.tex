@@ -15,7 +15,7 @@
             ylabel={$s(t)$},
             label style={font=\Large},
         ]
-        \addplot [thick,color=blue,domain=0:12, samples=101]
+        \addplot[very thick,color=blue,domain=0:12, samples=101]
         {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
         \end{axis}
 \end{tikzpicture}

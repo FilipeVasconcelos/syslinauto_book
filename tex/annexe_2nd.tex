@@ -7,11 +7,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Nous regroupons dans cette annexe les différents résultats obtenus lors de 
+l'étude des système linéaires du second ordre. Ces ré
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Abaques}
+\section{Abaques de la réponse temporelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -22,7 +24,7 @@
 \begin{figure}[!h]
 \begin{center}
         \tikzsetnextfilename{2nd_depassement_2-chap2_ext}
-        \input{depassement_amortissement.tex}
+        \input{tikz/depassement_amortissement.tex}
 \end{center}
 \end{figure}
 
@@ -34,13 +36,6 @@
     \includegraphics[width=0.7\textwidth]{fig_temps_de_reduit.eps}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Reponses temporelles}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{fig/reponses_temporelles_2nd_ordre.tex}
 
 %\clearpage
@@ -59,7 +54,7 @@
 \begin{figure}[!h]
 \centering
 \tikzsetnextfilename{bode_2nd_3-chap3_ext}
-\input{bode_2nd_3.tex}
+\input{tikz/bode_2nd_3.tex}
 %\caption{Diagramme de Bode d'une fonction de transfert du 2nd ordre 
 %(\Cref{eq-2nd_ftjw}) pour
 %différentes valeurs de $\xi$ avec $K=1$ et $\omega_0=1$\label{fig-bode_1er_2}}
@@ -71,8 +66,8 @@
 
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{gain_resonance-chap3_ext}
-    \input{gain_resonance.tex}
+    %\tikzsetnextfilename{gain_resonance-chap3_ext}
+    \input{tikz/gain_resonance.tex}
 %\caption{\'Evolution du gain en décibel en fonction de la pulsation pour 
 %différentes valeur du taux d'amortissement du régime pseudo-périodique. 
 %Le gain maximal à la pulsation de résonance $\omega_r$ est représenté par 
