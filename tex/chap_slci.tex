@@ -1655,6 +1655,7 @@ de ces trois fonctions de transfert.
 \begin{center}
 %{\tikzset{external/export=false}       
 \tikzsetnextfilename{pole_dominant-chap0_ext}
+\tikzstyle{signal}=[thick,domain=0:30,samples=201]
 \begin{tikzpicture}
 \begin{axis}[%
     legend style={draw=none,font=\normalsize},
@@ -1670,10 +1671,10 @@ de ces trois fonctions de transfert.
     label style={font=\Large},
     legend cell align={left},
 ]%
-\addplot[thick,color=black,domain=0:30,samples=101]{{1}};
-\addplot[thick,color=cyan,domain=0:30,samples=101]{6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
-\addplot[thick,color=green,domain=0:30,samples=101]{1.25*(1-exp(-x))};
-\addplot[thick,color=blue,domain=0:30,samples=101]{6.25*(1-exp(-x/5))};
+\addplot[black,signal] {1};
+\addplot[cyan,signal ] {6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
+\addplot[green,signal] {1.25*(1-exp(-x))};
+\addplot[blue,signal ] {6.25*(1-exp(-x/5))};
 \legend{échelon,$s(t)$,$s_1(t)$,$s_2(t)$}
 \end{axis}%
 \end{tikzpicture}
