@@ -33,11 +33,12 @@ l'étude des système linéaires du second ordre. Ces ré
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[!hb]
     \centering
-    \includegraphics[width=0.7\textwidth]{fig_temps_de_reduit.eps}
+    \includegraphics[width=0.7\textwidth]{fig/fig_temps_de_reduit.eps}
 \end{figure}
 
-\input{fig/reponses_temporelles_2nd_ordre.tex}
-
+{\tikzset{external/export=false}
+\input{tikz/reponses_temporelles_2nd_ordre.tex}
+}
 %\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -66,7 +67,7 @@ l'étude des système linéaires du second ordre. Ces ré
 
 \begin{figure}[!h]
     \centering
-    %\tikzsetnextfilename{gain_resonance-chap3_ext}
+    \tikzsetnextfilename{gain_resonance-chap3_ext}
     \input{tikz/gain_resonance.tex}
 %\caption{\'Evolution du gain en décibel en fonction de la pulsation pour 
 %différentes valeur du taux d'amortissement du régime pseudo-périodique. 
