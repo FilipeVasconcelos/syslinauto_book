@@ -32,9 +32,9 @@ Celle-ci nous conduiera naturellement à la définition
 de la \textbf{fonction de transfert} qui caractérisera de façon univoque 
 les systèmes dynamiques linéaires.
 
+{\tikzset{external/export=false}
 \begin{figure}[!h]
 \begin{center}
-    \tikzsetnextfilename{systeme-chap0-ext}
     \input{tikz/systeme-chap0.tex}
 \end{center}
 \caption{Représentation d'un système en intéraction avec son environnement. 
@@ -43,7 +43,7 @@ les systèmes dynamiques linéaires.
 	 de l'environnement et des mesures de son état pourront être considérés.
 	 \label{fig-systeme}}
 \end{figure}
-
+}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -785,7 +785,6 @@ Cette fonction est donc le produit d'une exponentielle décroissante et
 d'une sinuso\"ide.
 \begin{figure}[!h]
 \begin{center}
-\tikzsetnextfilename{sinusoide_amortie-chap0-ext}
 \input{tikz/sinusoide_amortie-chap0.tex}
 \end{center}
     \caption{Représentation d'un sinuso\"ide amortie. L'enveloppe en pointillé 
@@ -1654,8 +1653,8 @@ de ces trois fonctions de transfert.
 
 \begin{figure}[!h]
 \begin{center}
-{\tikzset{external/export=false}       
-\tikzsetnextfilename{test-chap2_ext}
+%{\tikzset{external/export=false}       
+\tikzsetnextfilename{pole_dominant-chap0_ext}
 \begin{tikzpicture}
 \begin{axis}[%
     legend style={draw=none,font=\normalsize},
@@ -1672,26 +1671,26 @@ de ces trois fonctions de transfert.
     legend cell align={left},
 ]%
 \addplot[thick,color=black,domain=0:30,samples=101]{{1}};
-\addplot[thick,color=cyan,domain=0:30,samples=101]
-{6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
+\addplot[thick,color=cyan,domain=0:30,samples=101]{6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
 \addplot[thick,color=green,domain=0:30,samples=101]{1.25*(1-exp(-x))};
 \addplot[thick,color=blue,domain=0:30,samples=101]{6.25*(1-exp(-x/5))};
 \legend{échelon,$s(t)$,$s_1(t)$,$s_2(t)$}
 \end{axis}%
 \end{tikzpicture}
-}
+%}
 \end{center}
 \caption{}
 \end{figure}
 
 \begin{center}
-{\tikzset{external/export=false}       
+%{\tikzset{external/export=false}       
+\tikzsetnextfilename{carte2-chap0_ext}
 \begin{tikzpicture}[scale=1.2]
     \carte[l]
     \dpole{-2}{0}{1}[blue]
     \dpole{-0.5}{0}{2}[blue]
 \end{tikzpicture}
-}
+%}
 \end{center}
 
 

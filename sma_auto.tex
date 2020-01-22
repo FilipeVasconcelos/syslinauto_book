@@ -40,7 +40,8 @@
 \usepackage{siunitxfmv}
 \usepackage{afterpage}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{eso-pic,calc}                
+\usepackage{eso-pic}              %\AddToShipoutPicture  
+\usepackage{calc}                
 \usepackage{imakeidx}
 \makeindex[columnsep=20pt,columnseprule]
 \usepackage[colorlinks]{hyperref}  
@@ -74,10 +75,9 @@
 \usepackage{etoolbox}
 \usepackage[french,nameinlink,noabbrev]{cleveref}
 
-
-
 \usepackage{pgf,tikz}
 \usepackage{pgfplots}
+%\usepgfplotslibrary{external}
 \pgfplotsset{compat=1.15}
 \usepackage{tikzfmv}
 \usepackage{tkz-euclide}
@@ -93,13 +93,17 @@
 \usetkzobj{all} 
 \usetikzlibrary{external}
 \crefname{appchap}{Annexe}{Annexes}
-\tikzset{external/system call={latex \tikzexternalcheckshellescape 
--halt-on-error  -interaction=batchmode -jobname "\image" "\texsource"; 
-dvips -o "\image".ps "\image".dvi;
-ps2eps -f "\image.ps"
+%\tikzset{external/system call={latex \tikzexternalcheckshellescape 
+%-halt-on-error  -interaction=batchmode -jobname "\image" "\texsource"; 
+%dvips -o "\image".ps "\image".dvi;
+%ps2eps -f "\image.ps"
+%}}
+\tikzset{external/system call={pdflatex -shell-escape 
+-halt-on-error -interaction=batchmode -jobname "\image" "\texsource"; 
+pdf2eps 1 "\image"
 }}
 \tikzset{external/optimize command away=\AddToShipoutPicture}
-\tikzexternalize[prefix=fig/]
+\tikzexternalize[prefix=./figtikz/]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -253,15 +257,15 @@ ps2eps -f "\image.ps"
 \ifodd\value{page}\hbox{}\newpage\fi
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\graphicspath{{./fig/}{./scilab/}}
+\graphicspath{{./fig/}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % includeonly individuel
 %\includeonly{tex/avantpropos}
 %\includeonly{tex/chap_slci}            % Système linéaire
 %\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
-\includeonly{tex/chap_model}           % Modèles Usuels    
+%\includeonly{tex/chap_model}           % Modèles Usuels    
 %\includeonly{tex/chap_repfreq}         % Réponse harmonique
-%\includeonly{tex/chap_asserv}          % Asservissement 
+%\includeonly{tex/chap_asserv_tmp}          % Asservissement 
 %\includeonly{tex/chap_perf}            % Perf. des sys asservis 
 %\includeonly{tex/chap_stab}            % Stabilité des sys. asservis 
 %\includeonly{tex/chap_correction}      % Correction des sys. asservis 
@@ -330,6 +334,7 @@ ps2eps -f "\image.ps"
 %\includeonly{tex/chap_slci,tex/chap_perf}     
 %\setcounter{chapter}{-1}
 
+%\includeonly{tex/chap_repfreq,tex/chap_asserv_tmp}          % Asservissement 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  % utile pour l'annnexe 5
 \newlength\myheight
@@ -339,6 +344,8 @@ ps2eps -f "\image.ps"
 \setlength\fboxsep{0pt}
 
 \begin{document}
+%\include{tex/chap_asserv_tmp}              % Asservissement
+%\end{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{tex/pagedegarde}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -371,11 +378,10 @@ ps2eps -f "\image.ps"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{tex/avantpropos}                % Introduction Générale 
 \include{tex/chap_slci}                % SLCI
-{\tikzset{external/export=false}
+%{\tikzset{external/export=false}
 \include{tex/chap_bloc}                % Schémas fonctionnels-blocs
-}
+%}
 \include{tex/chap_model}               % Modèles de SLCI
-\end{document}
 \include{tex/chap_repfreq}             % Réponse Harmonique
 \include{tex/chap_asserv}              % Asservissement
 \include{tex/chap_perf}                % Perf. des sys. asservis 
@@ -394,10 +400,10 @@ ps2eps -f "\image.ps"
 \include{tex/annexe_cxpl}              % Rappel sur les nombres complexes
 \include{tex/annexe_equa_diff}         % Eq. diff. à coefficient constant
 \include{tex/annexe_des}               % Décomposition en éléments simples
-{\tikzset{external/export=false}       
+%{\tikzset{external/export=false}       
 \include{tex/annexe_2nd}               % Système du second ordre
 \include{tex/annexe_scilab}            % Scilab
-}
+%}
 \include{tex/annexe_log}               % Echelle log  
 \include{tex/annexe_invL}              % Laplace inverse 
 %\include{tex/todo}

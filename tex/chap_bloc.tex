@@ -198,27 +198,29 @@ sont équivalents.
 
 \begin{center}
 \tikzsetnextfilename{sb_reduc_serie_1-chap1_ext}
-    \begin{tikzpicture} 
+\begin{tikzpicture} 
     \sbEntree{E1}
     \sbBloc[3]{B1}{$H_1$}{E1}
-        \sbRelier[$E$]{E1}{B1}
+    \sbRelier[$E$]{E1}{B1}
     \sbBloc[3]{B2}{$H_2$}{B1}
-        \sbRelier{B1}{B2}
+    \sbRelier{B1}{B2}
     \sbBloc[3]{B3}{$H_3$}{B2}
-        \sbRelier{B2}{B3}
+    \sbRelier{B2}{B3}
     \sbSortie[3]{S1}{B3}
-        \sbRelier[$S$]{B3}{S1}
-        \node at (B2|-0,-1) {\rotatebox{90}{\LARGE$\equiv$}};
-    \end{tikzpicture}
+    \sbRelier[$S$]{B3}{S1}
+%    \node at (B2|-0,-1) {\rotatebox{90}{\LARGE$\equiv$}};
+\end{tikzpicture}
+\end{center}
 
+\begin{center}
 \tikzsetnextfilename{sb_reduc_serie_2-chap1_ext}
-    \begin{tikzpicture} 
+\begin{tikzpicture} 
     \sbEntree{E1}
-        \sbBloc[3]{B1}{$H=H_1H_2H_3$}{E1}
-        \sbRelier[$E$]{E1}{B1}
+    \sbBloc[3]{B1}{$H=H_1H_2H_3$}{E1}
+    \sbRelier[$E$]{E1}{B1}
     \sbSortie[3]{S1}{B1}
-        \sbRelier[$S$]{B1}{S1}
-    \end{tikzpicture}
+    \sbRelier[$S$]{B1}{S1}
+\end{tikzpicture}
 \end{center}
 
 Nous laissons au lecteur la démonstration triviale à partir des relations 
@@ -253,7 +255,7 @@ sont équivalents.
     \sbSortie[3]{S1}{C1}
     \sbRelier[$S$]{C1}{S1}
     \node at (E1|-2.0,0.35) {$E$};
-    \node at (B3|-0,-2.75) {\rotatebox{90}{\LARGE$\equiv$}};
+%    \node at (B3|-0,-2.75) {\rotatebox{90}{\LARGE$\equiv$}};
 %    \draw[fill=black] (1.325,0) circle[radius=2.0pt];
     \end{tikzpicture}
 
@@ -858,7 +860,7 @@ On considère le schéma fonctionnel suivant qui est exactement celui traité
 précédemment mais en ayant incorporer une nouvelle entrée $P$.
 
 \begin{center}
-    \tikzsetnextfilename{exemple_1-chap1_ext}
+    \tikzsetnextfilename{exemple_7-chap1_ext}
     \begin{tikzpicture}
     \sbEntree{E}
     \sbComp{comp1}{E}
@@ -903,6 +905,7 @@ $$
 Le schéma fonctionnel réduit pour $E\equiv0$ est maintenant :
 
 \begin{center}
+    \tikzsetnextfilename{exemple_8-chap1_ext}
     \begin{tikzpicture}
         \sbEntree{P}
         \sbComp{comp1}{P}
