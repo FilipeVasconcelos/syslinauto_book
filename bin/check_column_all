@@ -1,0 +1,6 @@
+#!/bin/bash
+for file in $1/*.tex
+do
+    bin/check_column $file
+    echo "-----------------------------------"
+done

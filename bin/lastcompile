@@ -1,0 +1,6 @@
+#!/bin/bash
+filename=`ls -ltr figtikz/*.eps | tail -n 1 | awk '{print $NF}'`
+echo $filename
+file=${filename%.*}
+gv $file.eps
+mupdf $file.pdf
