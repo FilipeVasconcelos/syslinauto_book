@@ -39,5 +39,4 @@ figtikz/*.dpth
 test/*
 sma_auto.pdf_save
 sma_auto.pdf
-
-
+figsonly.tex
