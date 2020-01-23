@@ -503,9 +503,22 @@ Nous ne limiterons à dire qu'un signal stable est un signal
 borné. Il va sans dire que les signaux usuels en entrée
 de nos systèmes sont bornés et donc stables.
 
-\input{tikz/stabilite-chap0.tex}
+La~\cref{fig-stabilite_signaux} présente un exemple qualitatif de réponses 
+stables et instables pour deux sollicitations bornées ( respectivement une 
+sollicitation constante et une sollicitation oscillante).
 
-%\clearpage
+
+\begin{figure}[!ht]
+\begin{center}
+\input{tikz/stabilite-chap0.tex}
+\caption{Trois exemples de réponses d'un SLCI à des sollicitations bornées : 
+         (en bleu)  réponses stables 
+         (en rouge) réponses instables.\label{fig-stabilite_signaux}}
+\end{center}                
+\end{figure}
+
+
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Signaux usuels rencontrés\ldots\label{sec-signaux_usuels}}
@@ -569,9 +582,9 @@ de l'impulsion de Dirac dont l'unité dépend de la nature du problème considé
 \begin{center}
 \tikzsetnextfilename{dirac_reel-chap0_ext}
 \input{tikz/dirac_reel-chap0.tex}
-    \caption{Représentation de l'impulsion de Dirac approchée. 
-    Celle-ci tend vers l'impulsion de Dirac pour $a\to0$. On remarquera 
-    que l'aire du rectangle est toujours égale à 1.\label{fig-dirac2}}
+\caption{Représentation de l'impulsion de Dirac approchée. 
+Celle-ci tend vers l'impulsion de Dirac pour $a\to0$. On remarquera 
+que l'aire du rectangle est toujours égale à 1.\label{fig-dirac2}}
 \end{center}
 \end{figure}
 
@@ -1181,7 +1194,7 @@ ce que l'on nomme \textbf{la loi fréquentielle} du système :
 La résolution algébrique de cette équation est simplement donnée par :
 \begin{bequation}[ams align]
 S(p)=\dfrac{\sum\limits_{i=0}^{m}b_ip^i}
-{\sum\limits_{i=0}^{n}a_ip^i}E(p)\label{eq-lfreq}
+{\sum\limits_{i=0}^{n}a_ip^i}E(p)\label{eq-lfreq2}
 \end{bequation}
 La solution dans le domaine temporelle $s(t)$ de l'équation différentielle 
 est alors simplement obtenue par transformée de Laplace inverse de $S(p)$.
@@ -1653,9 +1666,7 @@ de ces trois fonctions de transfert.
 
 \begin{figure}[!h]
 \begin{center}
-%{\tikzset{external/export=false}       
 \tikzsetnextfilename{pole_dominant-chap0_ext}
-\tikzstyle{signal}=[thick,domain=0:30,samples=201]
 \begin{tikzpicture}
 \begin{axis}[%
     legend style={draw=none,font=\normalsize},
@@ -1671,27 +1682,24 @@ de ces trois fonctions de transfert.
     label style={font=\Large},
     legend cell align={left},
 ]%
-\addplot[black,signal] {1};
-\addplot[cyan,signal ] {6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
-\addplot[green,signal] {1.25*(1-exp(-x))};
-\addplot[blue,signal ] {6.25*(1-exp(-x/5))};
+\addplot[signal,domain=0:30,black] {1};
+\addplot[signal,domain=0:30,cyan] {6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
+\addplot[signal,domain=0:30,green] {1.25*(1-exp(-x))};
+\addplot[signal,domain=0:30,blue] {6.25*(1-exp(-x/5))};
 \legend{échelon,$s(t)$,$s_1(t)$,$s_2(t)$}
 \end{axis}%
 \end{tikzpicture}
-%}
 \end{center}
 \caption{}
 \end{figure}
 
 \begin{center}
-%{\tikzset{external/export=false}       
 \tikzsetnextfilename{carte2-chap0_ext}
 \begin{tikzpicture}[scale=1.2]
     \carte[l]
     \dpole{-2}{0}{1}[blue]
     \dpole{-0.5}{0}{2}[blue]
 \end{tikzpicture}
-%}
 \end{center}
 
 

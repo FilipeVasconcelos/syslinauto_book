@@ -470,7 +470,6 @@ s(t) = \laplacei{S(p)}=e^{-t}-e^{-2t}+2e^{-2t}=e^{-t}+e^{-2t}
 $$
 \begin{center}
     \tikzsetnextfilename{exercice_7_corrige-chap0-ext}
-    \tikzstyle{signal}=[very thick,domain=0:10, samples=201]
     \begin{tikzpicture}
     \begin{axis}
     [   scaled y ticks = false,
@@ -492,8 +491,8 @@ $$
         xticklabels={0,1,2,3},
         y tick label style={anchor=east}
     ]
-    \addplot [blue ] {exp(-x)+exp(-2*x)};
-    \addplot [black] {exp(-x)};
+    \addplot [signal,domain=0:10 ] {exp(-x)+exp(-2*x)};
+    \addplot [envelop,domain=0:10] {exp(-x)};
     \end{axis}
     \end{tikzpicture}
 \end{center}
