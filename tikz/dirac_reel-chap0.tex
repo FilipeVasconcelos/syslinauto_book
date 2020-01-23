@@ -1,6 +1,6 @@
-    \begin{tikzpicture}
-        \begin{axis}[
-        ticks=none,
+\begin{tikzpicture}
+    \begin{axis}
+    [   ticks=none,
         axis line style = thick,
         height=5cm,
         width=5cm,
@@ -13,14 +13,14 @@
         xlabel={$t$},
         ylabel={$\delta_a(t)$},
         xlabel style={below right},
-        ylabel style={above left},
-        ]
-        \addplot [thick,color=red,domain=-2:0, samples=101]{0};
-        \addplot [thick,color=red,domain=0:2 , samples=101]{2};
-        \addplot [thick,color=red,domain=2:5 , samples=101]{0};
-	\draw[dotted,thick,red] (axis cs:0,0) -- (axis cs:0,2);
-	\draw[dotted,thick,red] (axis cs:2,2) -- (axis cs:2,0);
-        \node[red] at (axis cs:2,-0.5) {$a$};
-        \node[red] at (axis cs:-0.5,2) {$\dfrac{1}{a}$};
-        \end{axis}
-    \end{tikzpicture}
+        ylabel style={above left}
+    ]
+    \addplot [signal,domain=-2:0] {0};
+    \addplot [signal,domain=0:2 ] {2};
+    \addplot [signal,domain=2:5 ] {0};
+    \draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,2);
+    \draw[dotted,very thick,blue] (axis cs:2,2) -- (axis cs:2,0);
+    \node[blue] at (axis cs:2,-0.5) {$a$};
+    \node[blue] at (axis cs:-0.5,2) {$\dfrac{1}{a}$};
+    \end{axis}
+\end{tikzpicture}
