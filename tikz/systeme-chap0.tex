@@ -1,26 +1,25 @@
 \tikzsetnextfilename{systeme-chap0-ext}
 \begin{tikzpicture}
-\tikzset{sys/.style={draw,
-					 minimum width=5cm,
-					 minimum height=3cm,
-					 rounded corners=15pt,
-					 inner sep=0.5pt,
-					 text width=4cm,
-					 align=center}
+\tikzset{sys/.style={draw,minimum width=5cm,
+                     minimum height=3cm,
+                     rounded corners=15pt,
+                     inner sep=0.5pt,
+                     text width=4cm,
+                     align=center}
 }
 \node[sys,ultra thick] (S) at (0,0) {\LARGE\scshape Système};
 \node[above of=S,yshift=4em]  {\large Perturbations};
 \node[below of=S,yshift=-4em] {\large Mesures};
 \node[left of=S,xshift=-8em,yshift=2.5em]  (e1) {\large Entrée 1};
 \node[left of=S,xshift=-8em,yshift=1em]    (e2) {\large Entrée 2};
-\node[left of=S,xshift=-8em,yshift=-0.5em] (ed) {\large \rotatebox{90}{\ldots}};
+\node[left of=S,xshift=-8em,yshift=-0.5em] (ed) {\large \vdots};
 \node[left of=S,xshift=-8em,yshift=-2em]   (en) {\large Entrée n};
 \draw[-{Latex[length=2.5mm]}] (e1) -- (e1-|S.west);
 \draw[-latex] (e2) -- (e2-|S.west);
 \draw[-latex] (en) -- (en-|S.west);
 \node[right of=S,xshift=8em,yshift=2.5em]  (s1) {\large Sortie 1};
 \node[right of=S,xshift=8em,yshift=1em]    (s2) {\large Sortie 2};
-\node[right of=S,xshift=8em,yshift=-0.5em] (sd) {\large \rotatebox{90}{\ldots}};
+\node[right of=S,xshift=8em,yshift=-0.5em] (sd) {\large \vdots};
 \node[right of=S,xshift=8em,yshift=-2em]   (sn) {\large Sortie n};
 \draw[latex-] (s1) -- (s1-|S.east);
 \draw[latex-] (s2) -- (s2-|S.east);
