@@ -36,6 +36,7 @@ fig/*_ext*.eps
 fig/*-ext*.eps
 figtikz/*.md5
 figtikz/*.dpth
+figtikz/*.gz
 test/*
 sma_auto.pdf_save
 sma_auto.pdf
