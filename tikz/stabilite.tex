@@ -5,11 +5,14 @@
 \captionsetup{width=1.15\linewidth}
 \begin{figure}[!h]
     \centering
+    \tikzsetnextfilename{stabilite_plan-complexe-chap6_ext}
     \begin{tikzpicture}
     \tikzstyle{marktmp}=[mark=x,ultra thick,only marks,mark size=7pt]
     \tikzstyle{thickdotted}=[ultra thick,dotted]
     \tikzstyle{colstab}=[white!90!blue]
     \tikzstyle{colinstab}=[white!90!black]
+    \tikzstyle{fcolstab}=[fill=white!90!blue]
+    \tikzstyle{fcolinstab}=[fill=white!90!black]
     \begin{axis}[ticks=none,
         width=1.6\textheight,
         height=\textwidth,
@@ -24,8 +27,8 @@
         xlabel style={right},
         ylabel style={above}]
     % two rectangles (stable/instable)
-    \draw[colstab,fill=colstab]   (axis cs:-12.5,-5) rectangle (axis cs:0,5);
-    \draw[colinstab,fill=colinstab] (axis cs:0,-5) rectangle (axis cs:12.5,5);
+    \draw[colstab,fcolstab]   (axis cs:-12.5,-5) rectangle (axis cs:0,5);
+    \draw[colinstab,fcolinstab] (axis cs:0,-5) rectangle (axis cs:12.5,5);
 
     \draw[ultra thick,-latex] (axis cs:-12.5,0) -- (axis cs:12.5,0);
     \draw[ultra thick,-latex] (axis cs:0,-5) -- (axis cs:0,5);

@@ -63,7 +63,7 @@ schéma-blocs. Elles peuvent être ornées de la grandeur mathématique qui leur
 sont associée. 
 Celles-ci peuvent être des grandeurs temporelles ou dans le domaine de Laplace. 
 \begin{center}
-\tikzsetnextfilename{sb_fleche-chap1_ext}
+\tikzsetnextfilename{sb_fleche-chap2-ext}
 \begin{tikzpicture}
     \draw[-latex] (-3,0) -- (-1,0) node[midway,above] {$e(t)$};
     \draw[-latex] (0,0) -- (2,0) node[midway,above] {$E(p)$};
@@ -96,7 +96,7 @@ de ce même chapitre, ont était fortement inspiré par ce même auteur.}
 suivant:
 
 \begin{center}
-\tikzsetnextfilename{sb_bloc-chap1_ext}
+\tikzsetnextfilename{sb_bloc-chap2-ext}
 \begin{tikzpicture}
     \sbEntree{E1}
     \sbBloc[3]{B1}{$H$}{E1}
@@ -122,7 +122,7 @@ S = E_1-E_2
 $$
 est équivalente au comparateur suivant :
 \begin{center}
-\tikzsetnextfilename{sb_comp-chap1_ext}
+\tikzsetnextfilename{sb_comp-chap2-ext}
     \begin{tikzpicture}
         \coordinate (pt) at (0,-1);
         \sbEntree{E1}
@@ -140,7 +140,7 @@ S = E_1+E_2
 $$
 est équivalente au sommateur suivant :
 \begin{center}
-\tikzsetnextfilename{sb_somm-chap1_ext}
+\tikzsetnextfilename{sb_somm-chap2-ext}
     \begin{tikzpicture}
         \coordinate (pt) at (0,-1);
         \sbEntree{E1}
@@ -162,7 +162,7 @@ sa valeur. Par exemple, la jonction suivante (représentée par un point) donne
 lieu à deux branches auxquelles sont associées la même grandeur $S$.
 
 \begin{center}
-\tikzsetnextfilename{sb_point-chap1_ext}
+\tikzsetnextfilename{sb_point-chap2-ext}
     \begin{tikzpicture} 
     \draw[fill=black] (1,0) circle[radius=2.0pt];
     \draw[-latex] (0, 0) -- (2, 0) node[above] {branche 1 : $S$};
@@ -197,7 +197,7 @@ transfert mis en jeu. Par exemple, les deux schémas fonctionnels suivants
 sont équivalents.
 
 \begin{center}
-\tikzsetnextfilename{sb_reduc_serie_1-chap1_ext}
+\tikzsetnextfilename{sb_reduc_serie_1-chap2-ext}
 \begin{tikzpicture} 
     \sbEntree{E1}
     \sbBloc[3]{B1}{$H_1$}{E1}
@@ -213,7 +213,7 @@ sont équivalents.
 \end{center}
 
 \begin{center}
-\tikzsetnextfilename{sb_reduc_serie_2-chap1_ext}
+\tikzsetnextfilename{sb_reduc_serie_2-chap2-ext}
 \begin{tikzpicture} 
     \sbEntree{E1}
     \sbBloc[3]{B1}{$H=H_1H_2H_3$}{E1}
@@ -237,7 +237,7 @@ mis en jeu. Par exemple, les deux schémas fonctionnels suivants
 sont équivalents.
 
 \begin{center}
-\tikzsetnextfilename{sb_reduc_para_1-chap1_ext}
+\tikzsetnextfilename{sb_reduc_para_1-chap2-ext}
     \begin{tikzpicture} 
     \sbEntree{E1}
     \sbBloc[6]{B1}{$H_1$}{E1}
@@ -259,7 +259,7 @@ sont équivalents.
 %    \draw[fill=black] (1.325,0) circle[radius=2.0pt];
     \end{tikzpicture}
 
-\tikzsetnextfilename{sb_reduc_para_2-chap1_ext}
+\tikzsetnextfilename{sb_reduc_para_2-chap2-ext}
     \begin{tikzpicture} 
       \sbEntree{E1}
     \sbBloc[3]{B1}{$H=H_1+H_2+H_3$}{E1}
@@ -282,7 +282,7 @@ de transfert. Considérons un système définit par le schéma-bloc ci-dessous,
 composé des différents élements de bases.
 
 \begin{center}
-    \tikzsetnextfilename{boucle-chap1_ext}
+    \tikzsetnextfilename{boucle-chap2-ext}
     \begin{tikzpicture}
     \sbEntree{E}
     \sbCompSum[5.0]{comp}{E}{}{\pm}{+}{}
@@ -336,7 +336,7 @@ selon que la boucle est positive ou négative.
 La boucle de contre-réaction est donc équivalente au schéma-bloc 
 simplifié suivant :
 \begin{center}
-    \tikzsetnextfilename{boucle_eq-chap1_ext}
+    \tikzsetnextfilename{boucle_eq-chap2-ext}
     \begin{tikzpicture}
         \sbEntree{E1}
         \sbBloc[3]{B1}{$\dfrac{H_1}{1\mp H_1H_2}$}{E1}
@@ -355,7 +355,7 @@ Une boucle de contre-réaction unitaire est une boucle de contre-réaction sans
 fonction de transfert de retour (ex: dans le cas présenté précedemment $H_2=1$).
 
 \begin{center}
-    \tikzsetnextfilename{boucle_uni-chap1_ext}
+    \tikzsetnextfilename{boucle_uni-chap2-ext}
     \begin{tikzpicture}
     \sbEntree{E}
     \sbComp[5.0]{comp}{E}
@@ -388,7 +388,7 @@ pourront appliquer au schéma-bloc. Ces manipulations peuvent
 
 Considérons le schéma-bloc suivant :
 \begin{center}
-    \tikzsetnextfilename{dep_comp1-chap1_ext}
+    \tikzsetnextfilename{dep_comp1-chap2-ext}
     \begin{tikzpicture}
         \coordinate (pt) at (0,-1);
         \sbEntree{E1}
@@ -411,7 +411,7 @@ la sortie globale $S$. Le schéma fonctionnel précédent est donc équivalent
 au schéma ci-dessous :
 
 \begin{center}
-    \tikzsetnextfilename{dep_comp2-chap1_ext}
+    \tikzsetnextfilename{dep_comp2-chap2-ext}
     \begin{tikzpicture}
         \sbEntree{E1}
         \sbComp[4]{comp}{E1}
@@ -433,7 +433,7 @@ la fonction de transfert après le comparateur. Par exemple, les deux
 schémas-blocs suivants sont équivalents: 
 
 \begin{center}
-    \tikzsetnextfilename{dep_comp3-chap1_ext}
+    \tikzsetnextfilename{dep_comp3-chap2-ext}
     \begin{tikzpicture}
         \begin{scope}[local bounding box=scope1]
             \sbEntree{E1}
@@ -451,7 +451,7 @@ schémas-blocs suivants sont équivalents:
             \node at ( $(S)+(1,-0.75)$) {\LARGE$\equiv$};
         \end{scope}
 %    \end{tikzpicture}
-%    \tikzsetnextfilename{dep_comp4-chap1_ext}
+%    \tikzsetnextfilename{dep_comp4-chap2-ext}
 %    \begin{tikzpicture}
         \begin{scope}[shift={($(scope1.east)+(-3,0.8)$)}]
             \sbEntree[8.0]{E1}
@@ -472,7 +472,7 @@ schémas-blocs suivants sont équivalents:
 
 Considérons le schéma-bloc suivant :
 \begin{center}
-    \tikzsetnextfilename{dep_jonc1-chap1_ext}
+    \tikzsetnextfilename{dep_jonc1-chap2-ext}
     \begin{tikzpicture}
         \sbEntree[7.0]{E1}
         \sbBloc[4.0]{K1}{$K$}{E1}
@@ -492,7 +492,7 @@ Considérons le schéma-bloc suivant :
 \end{center}
 Il est aisé de déplacer le bloc $K$ devant le point de prélèvement:  
 \begin{center}
-    \tikzsetnextfilename{dep_jonc2-chap1_ext}
+    \tikzsetnextfilename{dep_jonc2-chap2-ext}
     \begin{tikzpicture}
         \sbEntree[1.0]{E1}
         \sbBloc[4.0]{K}{$K$}{E1}
@@ -514,7 +514,7 @@ il faut réduire la branche non affectée après avoir déplacer le point
 de prélèvement. Ansi les deux schémas-blocs ci-dessous sont équivalents:
 
 \begin{center}
-    \tikzsetnextfilename{dep_jonc3-chap1_ext}
+    \tikzsetnextfilename{dep_jonc3-chap2-ext}
     \begin{tikzpicture}
         \begin{scope}[local bounding box=scope1]
             \sbEntree[1.0]{E1}
@@ -532,7 +532,7 @@ de prélèvement. Ansi les deux schémas-blocs ci-dessous sont équivalents:
             \node at ( $(S1)+(1,-0.75)$) {\LARGE$\equiv$};
         \end{scope}
 %    \end{tikzpicture}
-%    \tikzsetnextfilename{dep_jonc4-chap1_ext}
+%    \tikzsetnextfilename{dep_jonc4-chap2-ext}
 %    \begin{tikzpicture}
         \begin{scope}[shift={($(scope1.east)+(-0.25,0.8)$)}]
             \sbEntree[1.0]{E1}
@@ -566,7 +566,7 @@ lorsque toutes les autres sont considérées comme nulles.
 
 Considérons le schéma-blocs suivant :
 \begin{center}
-    \tikzsetnextfilename{reduc_mult1-chap1_ext}
+    \tikzsetnextfilename{reduc_mult1-chap2-ext}
 \begin{tikzpicture}
     \sbEntree{E}
     \sbComp{a}{E}
@@ -590,7 +590,7 @@ Considérons le schéma-blocs suivant :
 
 Dans un premier temps, on considère l'entrée $P$ nulle, le schéma-bloc devient :
 \begin{center}
-    \tikzsetnextfilename{reduc_mult2-chap1_ext}
+    \tikzsetnextfilename{reduc_mult2-chap2-ext}
 \begin{tikzpicture}
     \sbEntree{E}
     \sbComp{a}{E}
@@ -615,7 +615,7 @@ $$
 Dans le cas où l'on considère maintenant l'entrée $E$ comme nulle,
 le schéma-bloc se réduit de la façon suivante :
 \begin{center}
-    \tikzsetnextfilename{reduc_mult3-chap1_ext}
+    \tikzsetnextfilename{reduc_mult3-chap2-ext}
 \begin{tikzpicture}
     \sbEntree{E}
     \sbComp{a}{E}
@@ -681,7 +681,7 @@ Nous allons appliquer étape par étape cette méthodologie à la réduction du
 schéma-bloc, à une seule entrée, suivant :
 
 \begin{center}
-    \tikzsetnextfilename{exemple_1-chap1_ext}
+    \tikzsetnextfilename{exemple_1-chap2-ext}
 \begin{tikzpicture}
     \sbEntree{E}
     \sbComp{a}{E}
@@ -718,7 +718,7 @@ schéma-bloc, à une seule entrée, suivant :
 Regroupons d'abord les blocs en cascades :
 
 \begin{center}
-    \tikzsetnextfilename{exemple_2-chap1_ext}
+    \tikzsetnextfilename{exemple_2-chap2-ext}
 \begin{tikzpicture}
     \sbEntree{E}
     \sbComp{a}{E}
@@ -754,7 +754,7 @@ Déplaçons le point de prélèvement de la boucle de retour inférieur vers
 la droite  : 
 
 \begin{center}
-    \tikzsetnextfilename{exemple_3-chap1_ext}
+    \tikzsetnextfilename{exemple_3-chap2-ext}
 \begin{tikzpicture}
     \sbEntree{E}
     \sbComp{a}{E}
@@ -786,7 +786,7 @@ L'étape précédente nous permet d'identifier une boucle de contre-réaction
 locale ($B_1$). Après réduction de cette boucle, le schéma-blocs dévient : 
 
 \begin{center}
-    \tikzsetnextfilename{exemple_4-chap1_ext}
+    \tikzsetnextfilename{exemple_4-chap2-ext}
 \begin{tikzpicture}
     \sbEntree{E}
     \sbComp{a}{E}
@@ -812,7 +812,7 @@ locale ($B_1$). Après réduction de cette boucle, le schéma-blocs dévient :
 \`A nouveau il est possible d'identifier une boucle de contre-réaction $B_2$ :
 
 \begin{center}
-    \tikzsetnextfilename{exemple_5-chap1_ext}
+    \tikzsetnextfilename{exemple_5-chap2-ext}
 \begin{tikzpicture}
     \sbEntree{E}
     \sbComp{a}{E}
@@ -840,7 +840,7 @@ Enfin, il nous suffit de réduire la boucle de contre-réaction $B_2$ par la
 formule de Black:
 
 \begin{center}
-    \tikzsetnextfilename{exemple_6-chap1_ext}
+    \tikzsetnextfilename{exemple_6-chap2-ext}
 \begin{tikzpicture}
 	\sbEntree{E1}
         \sbBloc[3]{B1}{$\dfrac{H_1H_2H_3H_4}{1+R_1H_3H_4+R_2R_3H_1H_2H_3}$}{E1}
@@ -860,7 +860,7 @@ On considère le schéma fonctionnel suivant qui est exactement celui traité
 précédemment mais en ayant incorporer une nouvelle entrée $P$.
 
 \begin{center}
-    \tikzsetnextfilename{exemple_7-chap1_ext}
+    \tikzsetnextfilename{exemple_7-chap2-ext}
     \begin{tikzpicture}
     \sbEntree{E}
     \sbComp{comp1}{E}
@@ -905,7 +905,7 @@ $$
 Le schéma fonctionnel réduit pour $E\equiv0$ est maintenant :
 
 \begin{center}
-    \tikzsetnextfilename{exemple_8-chap1_ext}
+    \tikzsetnextfilename{exemple_8-chap2-ext}
     \begin{tikzpicture}
         \sbEntree{P}
         \sbComp{comp1}{P}
@@ -974,7 +974,7 @@ L'\cref{eq-ES} reliant une entrée et sortie par l'intermédiaire d'une fonction
 de transfert se représente par le graphe de fluence suivant:
 
 \begin{center}
-    \tikzsetnextfilename{gf_1-chap1_ext}
+    \tikzsetnextfilename{gf_1-chap2-ext}
 \begin{tikzpicture}
     \gfEntree{$E$}{E}
     \gfSortie[6]{$S$}{E}{S}
@@ -994,7 +994,7 @@ différentes définitions:
 
 \begin{figure}[!h]
 \begin{center}
-    \tikzsetnextfilename{gf_source-chap1_ext}
+    \tikzsetnextfilename{gf_source-chap2-ext}
 \begin{tikzpicture}
     \gfEntree{$E$}{E}
     \gfNoeud{$X_1$}[-][-0.7]{E}{X1}
@@ -1052,7 +1052,7 @@ graphes de fluence.
 La valeur d'un noeud est égale à la somme de tous les signaux convergeant 
 vers ce noeud.
 \begin{center}
-    \tikzsetnextfilename{gf_add-chap1_ext}
+    \tikzsetnextfilename{gf_add-chap2-ext}
 \begin{tikzpicture}
     \gfEntree[0][0][]{}{E}
     \gfEntree[0][1.5][+]{$E_1$}{E1}
@@ -1070,7 +1070,7 @@ Le comparateur/sommateur présentait précedemment est équivalent au graphe
 de fluence suivant:
 
 \begin{center}
-    \tikzsetnextfilename{sb_gf-chap1_ext}
+    \tikzsetnextfilename{sb_gf-chap2-ext}
 \begin{tikzpicture}
         \coordinate (pt) at (0,-1);
         \sbEntree{E1}
@@ -1097,7 +1097,7 @@ de fluence suivant:
 
 La valeur d'un noeud est transmise par chaque branche quittant ce noeud.
 \begin{center}
-    \tikzsetnextfilename{gf_distrib-chap1_ext}
+    \tikzsetnextfilename{gf_distrib-chap2-ext}
 \begin{tikzpicture}
     \gfEntree[0][0][]{}{E}
     \gfEntree[0][1.5][+]{$E_1$}{E1}
@@ -1128,7 +1128,7 @@ fonction de transfert est égale au produit des fonctions de transfert des
 diverses branches.
 
 \begin{center}
-    \tikzsetnextfilename{gf_branche_serie-chap1_ext}
+    \tikzsetnextfilename{gf_branche_serie-chap2-ext}
     \begin{tikzpicture}
         \gfEntree{$E$}{E}
         \gfNoeud{$X$}{E}{X}
@@ -1152,7 +1152,7 @@ unique, dont la fonction de transfert est égale à la somme des fonctions de
 transfert des diverses branches. 
 
 \begin{center}
-    \tikzsetnextfilename{gf_branche_para-chap1_ext}
+    \tikzsetnextfilename{gf_branche_para-chap2-ext}
     \begin{tikzpicture}
         \gfEntree{$E$}{E}
         \gfSortie[5]{$S$}{E}{S}
@@ -1172,7 +1172,7 @@ Un noeud qui n'est ni une source ni un puits peut être supprimé de la
 manière suivante :
 
 \begin{center}
-    \tikzsetnextfilename{gf_absorption-chap1_ext}
+    \tikzsetnextfilename{gf_absorption-chap2-ext}
 \begin{tikzpicture}
     \gfEntree[0][0][]{}{E}
     \gfEntree[0][1.5][+]{$E_1$}{E1}
@@ -1199,7 +1199,7 @@ manière suivante :
 Considérons la boucle de contre-réaction définit par le schéma fonctionnel et 
 le graphe de fluence équivalent:
 \begin{center}
-    \tikzsetnextfilename{gf_boucle1-chap1_ext}
+    \tikzsetnextfilename{gf_boucle1-chap2-ext}
     \begin{tikzpicture}[scale=0.8, every node/.style={scale=0.8}]
         \begin{scope}[local bounding box=scope1]
             \sbEntree{E}
@@ -1215,7 +1215,7 @@ le graphe de fluence équivalent:
             \sbRelierxy[$M$]{B2}{comp}
         \end{scope}
 %    \end{tikzpicture}
-%    \tikzsetnextfilename{gf_boucle2-chap1_ext}
+%    \tikzsetnextfilename{gf_boucle2-chap2-ext}
 %    \begin{tikzpicture}
         \begin{scope}[shift={($(scope1.east)+(1.6,0.7)$)}]
             \gfEntree[0][-2][]{}{E0}
@@ -1235,7 +1235,7 @@ le graphe de fluence équivalent:
 La variable $M$ du graphe de fluence peut être réduit, ce qui donne :
 
 \begin{center}
-    \tikzsetnextfilename{gf_boucle3-chap1_ext}
+    \tikzsetnextfilename{gf_boucle3-chap2-ext}
     \begin{tikzpicture}
         \gfEntree{$E$}{E}
         \gfNoeud[4]{$\epsilon$}{E}{X}
@@ -1249,7 +1249,7 @@ La variable $M$ du graphe de fluence peut être réduit, ce qui donne :
 Il est possible d'éliminer le noeud porté par la variable $\epsilon$:
 
 \begin{center}
-    \tikzsetnextfilename{gf_boucle4-chap1_ext}
+    \tikzsetnextfilename{gf_boucle4-chap2-ext}
     \begin{tikzpicture}
         \gfEntree[2]{$E$}{E}
         \gfSortie[6]{$S$}{E}{S}
@@ -1268,7 +1268,7 @@ $$
 
 qui se représente simplement par le graphe de fluence :
 \begin{center}
-    \tikzsetnextfilename{gf_boucle5-chap1_ext}
+    \tikzsetnextfilename{gf_boucle5-chap2-ext}
     \begin{tikzpicture}
         \gfEntree[0][-4]{$E$}{E}
         \gfSortie[6]{$S$}{E}{S}
@@ -1278,7 +1278,7 @@ qui se représente simplement par le graphe de fluence :
 Comme nous l'avons déjà discuté, dans le cas d'une boucle 
 de contre-réaction unitaire, la branche de retour est égale à 1
 \begin{center}
-    \tikzsetnextfilename{gf_boucle6-chap1_ext}
+    \tikzsetnextfilename{gf_boucle6-chap2-ext}
     \begin{tikzpicture}[scale=0.8, every node/.style={scale=0.8}]
         \sbEntree{E}
         \sbCompSum[5.0]{comp}{E}{}{-}{+}{}
@@ -1293,7 +1293,7 @@ de contre-réaction unitaire, la branche de retour est égale à 1
 De la même manière que précedemment, le graphe de fluence se limite à 
 deux noeud et deux branches (dont une boucle élémentaire).
 \begin{center}
-    \tikzsetnextfilename{gf_boucle7-chap1_ext}
+    \tikzsetnextfilename{gf_boucle7-chap2-ext}
     \begin{tikzpicture}
         \gfEntree[2][0][+]{$E$}{E}
         \gfSortie[6]{$S$}{E}{S}
@@ -1318,7 +1318,7 @@ seulement si $|H|<1$. Cette dernière condition pourra être interprétée
 comme une limite de stabilité du gain de la fonction de transfert dans 
 le cas d'un système dans une boucle de contre réaction.}
 \begin{center}
-    \tikzsetnextfilename{gf_boucle8-chap1_ext}
+    \tikzsetnextfilename{gf_boucle8-chap2-ext}
     \begin{tikzpicture}
         \gfEntree[0][-10][+]{$E$}{E}
         \gfSortie[6]{$S$}{E}{S}
@@ -1400,7 +1400,7 @@ où
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{center}
-    \tikzsetnextfilename{gf_mason1-chap1_ext}
+    \tikzsetnextfilename{gf_mason1-chap2-ext}
     \begin{tikzpicture}
         \gfEntree{$E$}{E}
         \gfNoeud[3]{}{E}{X1}
@@ -1442,7 +1442,7 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{center}
-    \tikzsetnextfilename{gf_mason2-chap1_ext}
+    \tikzsetnextfilename{gf_mason2-chap2-ext}
     \begin{tikzpicture}
         \gfEntree{$E$}{E}
         \gfNoeud[4]{}{E}{X1}
