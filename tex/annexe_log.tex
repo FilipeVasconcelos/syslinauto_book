@@ -63,7 +63,7 @@ graduations dont la \textbf{différence} ($\Delta$ ci-dessous) vaut 10 sont à
 égales distances. 
 
 \begin{center}
-\tikzsetnextfilename{log_1-annexe6_ext}
+\tikzsetnextfilename{log_1-annexeJ-ext}
 \begin{tikzpicture}
     \draw[-latex] (0,0) -- (11,0) ;
     \foreach \x in {0,...,20}
@@ -92,7 +92,7 @@ Sur une \textbf{échelle logarithmique} décimale, des couples de graduations
 dont le \textbf{rapport} ($\alpha$ ci-dessous) vaut 10 sont à égales distances.
 
 \begin{center}
-\tikzsetnextfilename{log_2-annexe6_ext}
+\tikzsetnextfilename{log_2-annexeJ-ext}
 \begin{tikzpicture}
     \draw[-latex] (0,0) -- (11,0) ;
     \foreach \x in {1.0,10.0,100.0} {
@@ -129,7 +129,7 @@ On généralise cette l'égalité entre le rapport et n'importe quelle
 distance constante sur l'axe à échelle logarithmique.
 
 \begin{center}
-\tikzsetnextfilename{log_3-annexe6_ext}
+\tikzsetnextfilename{log_3-annexeJ-ext}
 \begin{tikzpicture}
     \draw[-latex] (0,0) -- (11,0) ;
     \foreach \x in {2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,
@@ -272,24 +272,24 @@ marque la \og séparation\fg entre basses et hautes fréquences.
 
 \begin{figure}[!t]
 \centering
-\tikzsetnextfilename{bode_1-annexe6_ext}
+\tikzsetnextfilename{bode_1-annexeJ-ext}
 \begin{tikzpicture}
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=\textwidth,
-    height=0.3\textheight,
-    ylabel={Gain (dB)},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    ytick={-60,-50,-40,-30,-20,-10,0,10}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+\begin{axis}
+    [   ticklabel style = {font=\footnotesize},
+        width=\textwidth,
+        height=0.3\textheight,
+        ylabel={Gain (dB)},
+        xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
+        ytick={-60,-50,-40,-30,-20,-10,0,10}, 
+        xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
                  $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    yticklabels={-60,-50,-40,-30,-20,-10,0,10},
-    xmode=log,ymode=normal,
-    xmin=1e-3, xmax=1e3,
-    ymin=-60, ymax=10,
-    grid=both,
-    major grid style={black!40}
-]
+        yticklabels={-60,-50,-40,-30,-20,-10,0,10},
+        xmode=log,ymode=normal,
+        xmin=1e-3, xmax=1e3,
+        ymin=-60, ymax=10,
+        grid=both,
+        major grid style={black!40}
+    ]
     \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] 
     {-20*log10(sqrt(1+x*x))}; 
     \addplot[line width=2pt,red,dashed,domain=1e-3:1e0, samples=101] 
@@ -298,7 +298,7 @@ marque la \og séparation\fg entre basses et hautes fréquences.
     {-20*log10(x)};
 \end{axis}
 \end{tikzpicture}
-\tikzsetnextfilename{bode_2-annexe6_ext}
+\tikzsetnextfilename{bode_2-annexeJ-ext}
 \begin{tikzpicture}
 \begin{axis}[
     ticklabel style = {font=\footnotesize},

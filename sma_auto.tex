@@ -94,8 +94,8 @@
 \usetkzobj{all} 
 \usetikzlibrary{external}
 \crefname{appchap}{Annexe}{Annexes}
-\tikzset{external/system call={pdflatex -shell-escape 
--halt-on-error -interaction=batchmode -jobname "\image" "\texsource"; 
+\tikzset{external/system call={pdflatex -shell-escape -synctex=1 -halt-on-error 
+-interaction=batchmode -jobname "\image" "\texsource"; 
 pdf2eps 1 "\image"
 }}
 \tikzset{external/optimize command away=\AddToShipoutPicture}
@@ -229,7 +229,7 @@ pdf2eps 1 "\image"
 \put(0,0){%
 \parbox[b][\paperheight]{\paperwidth}{%
 \begin{picture}(0,0)
-\put(50,-130){\includegraphics[width=4cm]{fig/LOGO_ESME_QUADRI.EPS}}
+\put(50,-130){\includegraphics[width=4cm]{fig/LOGO_ESME_QUADRI.eps}}
 \end{picture}
 \vfill
 \centering
@@ -268,7 +268,7 @@ pdf2eps 1 "\image"
 %\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
 %\includeonly{tex/chap_model}           % Modèles Usuels    
 %\includeonly{tex/chap_repfreq}         % Réponse harmonique
-%\includeonly{tex/chap_asserv_tmp}          % Asservissement 
+%\includeonly{tex/chap_asserv}          % Asservissement 
 %\includeonly{tex/chap_perf}            % Perf. des sys asservis 
 %\includeonly{tex/chap_stab}            % Stabilité des sys. asservis 
 %\includeonly{tex/chap_correction}      % Correction des sys. asservis 
@@ -380,33 +380,35 @@ pdf2eps 1 "\image"
 %\mainmatter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{tex/avantpropos}                % Introduction Générale 
-\include{tex/chap_slci}                % SLCI
-\include{tex/chap_bloc}                % Schémas fonctionnels-blocs
-\include{tex/chap_model}               % Modèles de SLCI
-\include{tex/chap_repfreq}             % Réponse Harmonique
-\include{tex/chap_asserv}              % Asservissement
-\include{tex/chap_perf}                % Perf. des sys. asservis 
-\include{tex/chap_stab}                % Stabilité des sys. asservis
-\include{tex/chap_correction}          % Correction des sys. asservis
-\include{tex/chap_etat}                % Représentation d'état.
+\input{tex/avantpropos}                %0 Introduction Générale 
+\include{tex/chap_slci}                %1 SLCI                
+\include{tex/chap_bloc}                %2 Schémas fonctionnels-blocs
+\include{tex/chap_model}               %3 Modèles de SLCI
+\include{tex/chap_repfreq}             %4 Réponse Harmonique
+\include{tex/chap_asserv}              %5 Asservissement
+\include{tex/chap_perf}                %6 Perf. des sys. asservis 
+\include{tex/chap_stab}                %7 Stabilité des sys. asservis
+\include{tex/chap_correction}          %8 Correction des sys. asservis
+\include{tex/chap_etat}                %9 Représentation d'état.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{appendices}
-\input{tex/annexe_alphagrec}           % Alphabet grec
-\include{tex/annexe_usi}               % Unités du Système International 
-\include{tex/annexe_laplace_irl}       % Pierre-Simon de Laplace 
-\include{tex/annexe_laplace}           % Transformation de Laplace 
-\include{tex/annexe_cxpl}              % Rappel sur les nombres complexes
-\include{tex/annexe_equa_diff}         % Eq. diff. à coefficient constant
-\include{tex/annexe_des}               % Décomposition en éléments simples
-\include{tex/annexe_2nd}               % Système du second ordre
-\include{tex/annexe_scilab}            % Scilab
-\include{tex/annexe_log}               % Echelle log  
-\include{tex/annexe_invL}              % Laplace inverse 
-\include{tex/todo}
+\input{tex/annexe_alphagrec}           %A Alphabet grec
+\include{tex/annexe_usi}               %B Unités du Système International 
+\include{tex/annexe_laplace_irl}       %C Pierre-Simon de Laplace 
+\include{tex/annexe_laplace}           %D Transformation de Laplace 
+\include{tex/annexe_cxpl}              %E Rappel sur les nombres complexes
+\include{tex/annexe_equa_diff}         %F Eq. diff. à coefficient constant
+\include{tex/annexe_des}               %G Décomposition en éléments simples
+\include{tex/annexe_2nd}               %H Système du second ordre
+{\tikzset{external/export=false} 
+\include{tex/annexe_scilab}            %I Scilab
+}
+\include{tex/annexe_log}               %J Echelle log  
+\include{tex/annexe_invL}              %L Laplace inverse 
+\include{tex/todo}                     %M TODO
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

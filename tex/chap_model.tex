@@ -116,7 +116,7 @@ du premier ordre aux signaux usuels présentés au chapitre~\cref{chap_slci}.
 
 \begin{figure}[!t]
 \begin{center}
-\tikzsetnextfilename{1er_imp-chap2_ext}
+\tikzsetnextfilename{1er_imp-chap3-ext}
 \begin{tikzpicture}
     \begin{axis}[
     legend style={draw=none},
@@ -216,7 +216,7 @@ considère que le signal est nul).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
 \centering
-\tikzsetnextfilename{1er_ind1-chap2_ext}
+\tikzsetnextfilename{1er_ind1-chap3-ext}
 \begin{tikzpicture}
 \begin{axis}[%
     legend style={draw=none,font=\scriptsize},
@@ -248,7 +248,7 @@ considère que le signal est nul).
 \end{axis}%
 \end{tikzpicture}%
 \hfill
-\tikzsetnextfilename{1er_ind2-chap2_ext}
+\tikzsetnextfilename{1er_ind2-chap3-ext}
 \begin{tikzpicture}
 \begin{axis}[
     legend style={draw=none,font=\scriptsize},
@@ -356,7 +356,7 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
 \centering
-\tikzsetnextfilename{1er_ramp1-chap2_ext}
+\tikzsetnextfilename{1er_ramp1-chap3-ext}
 \begin{tikzpicture}
 \begin{axis}[%
     legend style={draw=none,font=\scriptsize},
@@ -388,7 +388,7 @@ $$
 \end{axis}%
 \end{tikzpicture}%
 \hfill
-\tikzsetnextfilename{1er_ramp2-chap2_ext}
+\tikzsetnextfilename{1er_ramp2-chap3-ext}
 \begin{tikzpicture}
 \begin{axis}[
     legend style={draw=none,font=\scriptsize},
@@ -629,7 +629,7 @@ les constante de temps de deux systèmes du premier ordre fictifs
 placés en série :
 
 \begin{center}
-        \tikzsetnextfilename{2nd_sb_imp-chap2_ext}
+        \tikzsetnextfilename{2nd_sb_imp-chap3-ext}
 \begin{tikzpicture}
     \sbEntree{E}
     \sbBloc[3]{H1}{$\dfrac{K_1}{1+\tau_1 p}$}{E}
@@ -848,7 +848,7 @@ du second ordre en régime pseudo-périodique s'écrit :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[!t]
 \begin{center}
-\tikzsetnextfilename{2nd_pp-chap2_ext}
+\tikzsetnextfilename{2nd_pp-chap3-ext}
 
 \pgfmathdeclarefunction{func}{1}{%
 \pgfmathparse{%
@@ -913,7 +913,7 @@ il nous faut d'abord déterminer le temps du premier maximum $t_1$.
 
 \begin{figure}[!h]
 \begin{center}
-        \tikzsetnextfilename{2nd_depassement_1-chap2_ext}
+        \tikzsetnextfilename{2nd_depassement_1-chap3-ext}
     \begin{tikzpicture}
         \pgfmathsetmacro{\a}{0.2}             % amortissement xi
         \pgfmathsetmacro{\b}{0.96}            % 1-xi^2 
@@ -987,7 +987,7 @@ il nous faut d'abord déterminer le temps du premier maximum $t_1$.
 
 \begin{figure}[!h]
 \begin{center}
-        \tikzsetnextfilename{2nd_depassement_2-chap2_ext}
+        \tikzsetnextfilename{2nd_depassement_2-chap3-ext}
         \input{tikz/depassement_amortissement.tex}
 \caption{Variation de la valeur $D_k$ du k-ème dépassement en fonction du taux 
     d'amortissement $\xi$. \label{fig-2nd_depassement_2}}
@@ -1052,7 +1052,7 @@ temps de réponse pour $\xi\sim 0.7$
 
 \begin{figure}[!h]
 \begin{center}
-    \tikzsetnextfilename{2nd_t5pc-chap2_ext}
+    \tikzsetnextfilename{2nd_t5pc-chap3-ext}
     \begin{tikzpicture}
         \pgfmathsetmacro{\a}{0.2}             % amortissement xi
         \pgfmathsetmacro{\b}{0.96}            % 1-xi^2 
@@ -1287,7 +1287,7 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+
 
 \begin{figure}[!t]
 \begin{center}
-        \tikzsetnextfilename{2nd_ramp-chap2_ext}
+        \tikzsetnextfilename{2nd_ramp-chap3-ext}
 \begin{tikzpicture}
 \begin{axis}[
         legend style={draw=none},
@@ -1460,7 +1460,7 @@ s(t)=KE_0\int\limits_0^t u(\tau)\dd{\tau}=KE_0\left[\tau\right]_0^t=KE_0t
 $$
 \begin{figure}
 \centering
-\tikzsetnextfilename{integrateur_1-chap2_ext}
+\tikzsetnextfilename{integrateur_1-chap3-ext}
 \begin{tikzpicture}
 \begin{axis}[%
     name=first,

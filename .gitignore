@@ -31,9 +31,8 @@
 *.nav
 *.snm
 *.vrb
-fig/sma_auto-figure*.eps
-fig/*_ext*.eps
-fig/*-ext*.eps
+figtikz/*_ext*.eps
+figtikz/*-ext*.eps
 figtikz/*.md5
 figtikz/*.dpth
 figtikz/*.gz
