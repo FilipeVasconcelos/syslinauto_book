@@ -1,8 +1,6 @@
 \begin{tikzpicture}
-    \pgfplotsset{untmp/.style={domain=0.0001:1,
-                              samples=101,
-                              unbounded coords=jump,
-                              thick}
+    \pgfplotsset{signaltmp/.style={signal,domain=0.0001:1,
+                              unbounded coords=jump}
                 }
     \pgfmathsetmacro{\pi}{3.141592653589793}     % dépassement d4 
     \begin{axis}
@@ -22,10 +20,10 @@
         grid style={line width=.4pt, draw=black},
         major grid style={line width=.4pt,draw=black},
     ]
-    \addplot[red,untmp  ] {exp(-(x*\pi)/(sqrt(1-x*x)))};
-    \addplot[blue,untmp ] {exp(-(2*x*\pi)/(sqrt(1-x*x)))};
-    \addplot[green,untmp] {exp(-(3*x*\pi)/(sqrt(1-x*x)))};
-    \addplot[black,untmp] {exp(-(4*x*\pi)/(sqrt(1-x*x)))};
+    \addplot[signaltmp,red  ] {exp(-(x*\pi)/(sqrt(1-x*x)))};
+    \addplot[signaltmp,blue ] {exp(-(2*x*\pi)/(sqrt(1-x*x)))};
+    \addplot[signaltmp,green] {exp(-(3*x*\pi)/(sqrt(1-x*x)))};
+    \addplot[signaltmp,black] {exp(-(4*x*\pi)/(sqrt(1-x*x)))};
     \legend{$k=1$,$k=2$,$k=3$,$k=4$}
     \end{axis}
 \end{tikzpicture}
