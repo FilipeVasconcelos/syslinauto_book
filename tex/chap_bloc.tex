@@ -65,8 +65,9 @@ Celles-ci peuvent être des grandeurs temporelles ou dans le domaine de Laplace.
 \begin{center}
 \tikzsetnextfilename{sb_fleche-chap2-ext}
 \begin{tikzpicture}
-    \draw[-latex] (-3,0) -- (-1,0) node[midway,above] {$e(t)$};
-    \draw[-latex] (0,0) -- (2,0) node[midway,above] {$E(p)$};
+    \draw[-latex,thick] (-3,0) -- (-1,0) node[midway,above] {$e(t)$};
+    \draw[-latex,thick] (0,0)  -- (2,0) node[midway,above] {$E(p)$};
+    \node[] at (0,-0.5) {};
 \end{tikzpicture}    
 \end{center}
 Cependant, nous nous limiterons à l'usage de ces schémas fonctionnelles pour la 
@@ -100,9 +101,9 @@ suivant:
 \begin{tikzpicture}
     \sbEntree{E1}
     \sbBloc[3]{B1}{$H$}{E1}
-        \sbRelier[$E$]{E1}{B1}
+    \sbRelier[$E$]{E1}{B1}
     \sbSortie[3]{S1}{B1}
-        \sbRelier[$S$]{B1}{S1}
+    \sbRelier[$S$]{B1}{S1}
 \end{tikzpicture}    
 \end{center}
 
@@ -130,7 +131,7 @@ est équivalente au comparateur suivant :
         \sbRelier[$E_1$]{E1}{comp}
         \sbSortie[2.5]{S}{comp}
         \sbRelier[$S$]{comp}{S}
-        \draw[-latex](comp|-0,-1.5)--(comp.south) node[midway,left]{$E_2$};
+        \draw[-latex,thick](comp|-0,-1.5)--(comp.south) node[midway,left]{$E_2$};
     \end{tikzpicture}
 \end{center}
 
@@ -148,7 +149,7 @@ est équivalente au sommateur suivant :
         \sbRelier[$E_1$]{E1}{comp}
         \sbSortie[2.5]{S}{comp}
         \sbRelier[$S$]{comp}{S}
-        \draw[-latex] (comp|-0,-1.5)--(comp.south)node[midway,left]{$E_2$};
+        \draw[-latex,thick] (comp|-0,-1.5)--(comp.south)node[midway,left]{$E_2$};
     \end{tikzpicture}
 \end{center}
 
@@ -165,9 +166,9 @@ lieu à deux branches auxquelles sont associées la même grandeur $S$.
 \tikzsetnextfilename{sb_point-chap2-ext}
     \begin{tikzpicture} 
     \draw[fill=black] (1,0) circle[radius=2.0pt];
-    \draw[-latex] (0, 0) -- (2, 0) node[above] {branche 1 : $S$};
-    \draw         (1, 0) -- (1,-1);
-    \draw[-latex] (1,-1) -- (0,-1) node[below] {branche 2 : $S$};
+    \draw[-latex,thick] (0, 0) -- (2, 0) node[above] {branche 1 : $S$};
+    \draw               (1, 0) -- (1,-1);
+    \draw[-latex,thick] (1,-1) -- (0,-1) node[below] {branche 2 : $S$};
     \end{tikzpicture}
 \end{center}
 
@@ -208,7 +209,7 @@ sont équivalents.
     \sbRelier{B2}{B3}
     \sbSortie[3]{S1}{B3}
     \sbRelier[$S$]{B3}{S1}
-    \node at (B2|-0,-1) {\LARGE$\equiv$};
+    \node at (B2|-0,-1.5) {\LARGE$\equiv$};
 \end{tikzpicture}
 \end{center}
 
@@ -237,35 +238,36 @@ mis en jeu. Par exemple, les deux schémas fonctionnels suivants
 sont équivalents.
 
 \begin{center}
-\tikzsetnextfilename{sb_reduc_para_1-chap2-ext}
+    \tikzsetnextfilename{sb_reduc_para_1-chap2-ext}
     \begin{tikzpicture} 
-    \sbEntree{E1}
-    \sbBloc[6]{B1}{$H_1$}{E1}
-    \sbRelier{E1}{B1}
-    \sbDecaleNoeudy[-4]{B1}{r1}
-    \sbBloc[-1.6]{B2}{$H_2$}{r1}
-    \sbRelieryx{E1-B1}{B2.west}
-    \sbDecaleNoeudy[4]{B1}{r2}
-    \sbBloc[-1.6]{B3}{$H_3$}{r2}
-    \sbRelieryx{E1-B1}{B3.west}
-    \sbCompSum[5]{C1}{B1}{+}{+}{+}{ }
-    \sbRelier{B1}{C1}
-    \sbRelierxy{B2}{C1}
-    \sbRelierxy{B3}{C1}
-    \sbSortie[3]{S1}{C1}
-    \sbRelier[$S$]{C1}{S1}
-    \node at (E1|-2.0,0.35) {$E$};
-    \node at (B3|-0,-2.75) {\LARGE$\equiv$};
-%    \draw[fill=black] (1.325,0) circle[radius=2.0pt];
+        \sbEntree{E1}
+        \sbBloc[6]{B1}{$H_1$}{E1}
+        \sbRelier{E1}{B1}
+        \sbDecaleNoeudy[-4]{B1}{r1}
+        \sbBloc[-1.6]{B2}{$H_2$}{r1}
+        \sbRelieryx{E1-B1}{B2.west}
+        \sbDecaleNoeudy[4]{B1}{r2}
+        \sbBloc[-1.6]{B3}{$H_3$}{r2}
+        \sbRelieryx{E1-B1}{B3.west}
+        \sbCompSum[5]{C1}{B1}{+}{+}{+}{ }
+        \sbRelier{B1}{C1}
+        \sbRelierxy{B2}{C1}
+        \sbRelierxy{B3}{C1}
+        \sbSortie[3]{S1}{C1}
+        \sbRelier[$S$]{C1}{S1}
+        \node at (E1|-2.0,0.35) {$E$};
+        \node at (B3|-0,-3) {\LARGE$\equiv$};
     \end{tikzpicture}
+\end{center}
 
-\tikzsetnextfilename{sb_reduc_para_2-chap2-ext}
+\begin{center}
+    \tikzsetnextfilename{sb_reduc_para_2-chap2-ext}
     \begin{tikzpicture} 
-      \sbEntree{E1}
-    \sbBloc[3]{B1}{$H=H_1+H_2+H_3$}{E1}
-    \sbRelier[$E$]{E1}{B1}
-    \sbSortie[3]{S1}{B1}
-    \sbRelier[$S$]{B1}{S1}
+        \sbEntree{E1}
+        \sbBloc[3]{B1}{$H=H_1+H_2+H_3$}{E1}
+        \sbRelier[$E$]{E1}{B1}
+        \sbSortie[3]{S1}{B1}
+        \sbRelier[$S$]{B1}{S1}
     \end{tikzpicture}
 \end{center}
 
@@ -531,9 +533,6 @@ de prélèvement. Ansi les deux schémas-blocs ci-dessous sont équivalents:
             \sbRelier[$S_2$]{G2}{S2}
             \node at ( $(S1)+(1,-0.75)$) {\LARGE$\equiv$};
         \end{scope}
-%    \end{tikzpicture}
-%    \tikzsetnextfilename{dep_jonc4-chap2-ext}
-%    \begin{tikzpicture}
         \begin{scope}[shift={($(scope1.east)+(-0.25,0.8)$)}]
             \sbEntree[1.0]{E1}
             \sbBloc[4.0]{K}{$K$}{E1}
@@ -936,6 +935,84 @@ Le schéma fonctionnel réduit pour $E\equiv0$ est maintenant :
     \end{tikzpicture}
 \end{center}
 
+Déplaçons le point de jonction situé entre les blocs $H_3$ et $H_4$ 
+vers la droite et réduisons les blocs en série :
+
+\begin{center}
+    \tikzsetnextfilename{exemple_9-chap2-ext}
+    \begin{tikzpicture}
+        \sbEntree{P}
+        \sbComp{comp1}{P}
+        \sbRelier[$P$]{P}{comp1}
+        \sbStyleBloc{green!70!black}
+        \sbBloc{h2}{$H_2$}{comp1}
+        \sbRelier{comp1}{h2}
+        \sbComph{comp2}{h2} 
+        \sbRelier{h2}{comp2}
+        \sbStyleBloc{blue}
+        \sbBlocL{h3}{$H_3$}{comp2}
+        \sbBlocL{h4}{$H_4$}{h3}
+        \sbSortie[5]{S1}{h4}
+        \sbRelier{h4}{S1}
+        \sbNomLien[0.8]{S1}{$S$}
+        \sbDecaleNoeudy[-4]{h4}{u}
+        \sbDecaleNoeudy{h3}{v}
+        \sbBlocr{r1}{$R_1$}{u}
+        \sbStyleBloc{red}
+        \sbBlocr[-1.5]{r2}{$H_1R_2R_3$}{v}
+        \sbStyleBloc{green!70!black}
+        \sbRelieryx{h4-S1}{r1}
+        \sbRelierxy[$n_1$]{r1}{comp2}
+        \sbRelieryx{h4-S1}{r2}
+        \sbRelierxy[$n_2$]{r2}{comp1}
+    \end{tikzpicture}
+\end{center}
+
+La réduction de la boucle de contre réaction interne nous donne :
+
+\begin{center}
+    \tikzsetnextfilename{exemple_10-chap2-ext}
+    \begin{tikzpicture}
+        \sbEntree{P}
+        \sbComp{comp1}{P}
+        \sbRelier[$P$]{P}{comp1}
+        \sbStyleBloc{green!70!black}
+        \sbBloc{h2}{$H_2$}{comp1}
+        \sbRelier{comp1}{h2}
+        \sbStyleBloc{blue}
+        \sbBlocL{h4}{$\dfrac{H_3H_4}{1+R_1H_3H_4}$}{h2}
+        \sbSortie[5]{S1}{h4}
+        \sbRelier{h4}{S1}
+        \sbNomLien[0.8]{S1}{$S$}
+        \sbDecaleNoeudy{h4}{v}
+        \sbStyleBloc{red}
+        \sbBlocr[1]{r2}{$H_1R_2R_3$}{v}
+        \sbStyleBloc{green!70!black}
+        \sbRelieryx{h4-S1}{r2}
+        \sbRelierxy[$n_2$]{r2}{comp1}
+    \end{tikzpicture}
+\end{center}
+
+La réduction de cette dernière boucle de contre réaction nous donne alors
+la fonction de transfert globale pour $E\equiv0$. 
+En utilisant le principe de superposition, on montre alors que la fonction 
+de transfert globale pour les deux entrées est:
+\begin{align*}
+    S&=S_{P\equiv 0}+S_{E\equiv 0} \\
+    S&=\dfrac{H_1H_2H_3H_4}{1+R_1H_3H_4+R_2R_3H_1H_2H_3} E + 
+       \dfrac{H_2H_3H_4}{1+R_1H_3H_4+R_2R_3H_1H_2H_3} P 
+\end{align*}
+
+%\begin{center}
+%    \tikzsetnextfilename{exemple_11-chap2-ext}
+%    \begin{tikzpicture}
+%	\sbEntree{E1}
+%        \sbBloc[3]{B1}{$\dfrac{H_2H_3H_4}{1+R_1H_3H_4+R_2R_3H_1H_2H_3}$}{E1}
+%        \sbRelier[$P$]{E1}{B1}
+%	\sbSortie[3]{S1}{B1}
+%        \sbRelier[$S_{E\equiv0}$]{B1}{S1}
+%    \end{tikzpicture}
+%\end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -985,7 +1062,6 @@ S=HE
 $$
 \end{center}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Source, puits et parcours}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1013,8 +1089,8 @@ différentes définitions:
 \end{figure}
 
 \begin{itemize}
-    \item Une \textbf{source} ou noeud d'entrée est un noeud dont 
-          toutes les branches sont divergentes. Exemple: le noeud 
+    \item Une \textbf{source} ou noeud d'entrée est un noeud 
+          dont toutes les branches sont divergentes. Exemple: le noeud 
           $E$ est une source.
     \item Un \textbf{puits} ou noeud de sortie est un noeud dont toutes 
     les branches sont convergentes. Exemple: le noeud $S$ est un puits.
