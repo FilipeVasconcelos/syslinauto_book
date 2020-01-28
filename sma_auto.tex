@@ -94,8 +94,8 @@
 \usetkzobj{all} 
 \usetikzlibrary{external}
 \crefname{appchap}{Annexe}{Annexes}
-\tikzset{external/system call={pdflatex -shell-escape -synctex=1 -halt-on-error 
--interaction=batchmode -jobname "\image" "\texsource"; 
+\tikzset{external/system call={pdflatex -shell-escape 
+-halt-on-error -interaction=batchmode -jobname "\image" "\texsource"; 
 pdf2eps 1 "\image"
 }}
 \tikzset{external/optimize command away=\AddToShipoutPicture}
@@ -178,7 +178,13 @@ pdf2eps 1 "\image"
 \usepackage{poles}
 
 
-\tikzstyle{signal}=[very thick,blue,samples=201]
+\tikzstyle{signalr}=[very thick,red,samples=201]
+\tikzstyle{signalg}=[very thick,green,samples=201]
+\tikzstyle{signalb}=[very thick,blue,samples=201]
+\tikzstyle{signalc}=[very thick,cyan,samples=201]
+\tikzstyle{signalm}=[very thick,magenta,samples=201]
+\tikzstyle{signaly}=[very thick,yellow,samples=201]
+\tikzstyle{signaln}=[very thick,black,samples=201]
 \tikzstyle{envelop}=[very thick,black,samples=201,dotted]
 \tikzstyle{signaljump}=[dashed,very thick,blue]
 \tikzstyle{utr}=[ultra thick,red]
