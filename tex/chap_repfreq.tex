@@ -194,118 +194,23 @@ Nous allons maintenant généraliser cette analyse sans pour autant avoir à
 tracer la réponse temporelle pour toutes les pulsations que l'on souhaite 
 étudier.
 
+% ------------------------------------------------------------------------------
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{repham_1-chap4-ext}
-    \begin{tikzpicture}
-        \begin{axis}[
-        ticks=none,
-        axis line style = thick,
-        height=4cm,
-        width=12cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-2,
-        xmax=12,
-        ymin=-1.25,
-        ymax=1.25,
-        xlabel={$t$},
-        ylabel={\textcolor{red}{$s(t)$} \textcolor{blue}{$e(t)$}},
-        xlabel style={below right},
-        ylabel style={right},
-        ]
-    \addplot[thick,color=blue,domain=0:11.5,samples=101]
-            {sin(deg(x))};
-    \addplot[thick,color=red,domain=0:11.5,samples=101]
-            {0.9950371902099892*sin(deg(x)-5.7)};
-    \node[left] at (axis cs:0,0.5)  {$\omega=0.1$};
-        \end{axis}
-    \end{tikzpicture}
-\tikzsetnextfilename{repham_2-chap4-ext}
-    \begin{tikzpicture}
-        \begin{axis}[
-        ticks=none,
-        axis line style = thick,
-        height=4cm,
-        width=12cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-2,
-        xmax=12,
-        ymin=-1.25,
-        ymax=1.25,
-        xlabel={$t$},
-        xlabel style={below right},
-        ylabel={\hphantom{\textcolor{red}{$s(t)$} \textcolor{blue}{$e(t)$}}},
-        ylabel style={right},
-        ]
-            \addplot[thick,color=blue,domain=0:11.5,samples=101]
-            {sin(deg(x))};
-            \addplot[thick,color=red,domain=0:11.5,samples=101]
-            {0.707106*sin(deg(x)-45)};
-            \node[left] at (axis cs:0,0.5) {$\omega=1$};
-        \end{axis}
-    \end{tikzpicture}
-\tikzsetnextfilename{repham_3-chap4-ext}
-    \begin{tikzpicture}
-        \begin{axis}[
-        ticks=none,
-        axis line style = thick,
-        height=4cm,
-        width=12cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-2,
-        xmax=12,
-        ymin=-1.25,
-        ymax=1.25,
-        xlabel={$t$},
-        xlabel style={below right},
-        ylabel={\hphantom{\textcolor{red}{$s(t)$} \textcolor{blue}{$e(t)$}}},
-        ylabel style={right},
-        ]
-      \addplot[thick,color=blue,domain=0:11.5,samples=101]
-            {sin(deg(x))};
-      \addplot[thick,color=red,domain=0:11.5,samples=101]
-          {0.2*sin(deg(x)-84.2894)};
-      \node[left] at (axis cs:0,0.5)  {$\omega=10$};
-      \node[left] at (axis cs:11.5,0.5)  {\textcolor{red}{$s(t)\times 2$}};
-      \end{axis}
-    \end{tikzpicture}
+    \centering
+    \tikzsetnextfilename{repham_1-chap4-ext}
+    \input{tikz/repham_1-chap4.tex}
+    \tikzsetnextfilename{repham_2-chap4-ext}
+    \input{tikz/repham_2-chap4.tex}
+    \tikzsetnextfilename{repham_3-chap4-ext}
+    \input{tikz/repham_3-chap4.tex}
 \caption{Réponse harmonique (en régime permanent) (\Cref{eq-rh}) d'un système 
          du premier ordre pour différentes pulsations d'excitation de la forme 
          $e(t)=\sin{\omega t}$, (données du~\cref{tab-1ertemp}). Cette figure
          permet d'observer l'augmentation du déphasage et la diminution de 
          l'amplitude lorsque la fréquence d'excitations augmente. (bleu) 
          excitation $e(t)$ (rouge) sortie $s(t)$.\label{fig-repham}}
-\end{center}
 \end{figure}
-
-%>>> np.arctan(0.1)
-%0.09966865249116204
-%>>> np.arctan(1)
-%0.7853981633974483
-%>>> np.arctan(10)
-%1.4711276743037347
-
-%>>> np.arctan(0.1)*180/np.pi
-%5.710593137499643
-%>>> np.arctan(1)*180/np.pi
-%45.0
-%>>> np.arctan(10)*180/np.pi
-%84.28940686250037
-%>>> np.arctan(100)*180/np.pi
-%89.42706130231653
-
-%>>> abs(1./complex(1,0.1))
-%0.9950371902099892
-%>>> abs(1./complex(1,1))
-%0.7071067811865476
-%>>> abs(1./complex(1,10))
-%0.09950371902099892
-
-
-
+% ------------------------------------------------------------------------------
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -368,81 +273,17 @@ une large plage de valeurs en pulsation (\Cref{annexe-log}). Le calcul de la
 phase passe lui par la détermination de l'argument principale 
 (\Cref{annexe-NC}).
 
+% ------------------------------------------------------------------------------
 \begin{figure}[!h]
-%\begin{center}
-\centering
-\tikzsetnextfilename{sche_bode-chap4-ext}
-\begin{tikzpicture}
-    \begin{axis}[
-        name=axx,
-        ticks=none,
-        axis line style = thick,
-        xmode=log,
-        enlargelimits=false,
-        height=4.cm,
-        width=9cm,
-        axis x line=center,
-        axis y line=left,
-        xmin=1e-2,
-        xmax=1e2,
-        ymin=-40,
-        ymax=10,
-        xlabel={$\log\omega$},
-        xlabel style={below right},
-        ylabel={$G_{dB}(\omega)$},
-        ylabel style={left,rotate=-90,yshift=2.25em},
-        clip=false,
-        ]
-\addplot[ultra thick,color=black,domain=1e-2:1e2, samples=101]
-        {-10*log10(1+x*x)};
-\draw[blue,dashed] (1e-2,{-10*log10(1+100)}) node[left] {$G_{dB}(\omega_2)$} --
-        (1e1,{-10*log10(1+100)}) ; 
-\draw[red ,dashed] (1e-2,{-10*log10(1+4)})   node[left] {$G_{dB}(\omega_1)$} --
-        (2e0,{-10*log10(1+4)}) ; 
-        \addplot [red, mark = *]  coordinates {(2e0,{-10*log10(1+4)})} {};
-        \addplot [blue, mark = *] coordinates {(1e1,{-10*log10(1+100)})} {};
-        \end{axis}
-%\end{tikzpicture}
-%\begin{tikzpicture}
-        \begin{axis}[
-        at={(axx.below south west)},yshift=-0.2cm,anchor=north west,
-        ticks=none,
-        axis line style = thick,
-        xmode=log,
-        enlargelimits=false,
-        height=4.cm,
-        width=9cm,
-        axis x line=center,
-        axis y line=left,
-        xmin=1e-2,
-        xmax=1e2,
-        ymin=-90,
-        ymax=20,
-        xlabel={$\log\omega$},
-        xlabel style={below right},
-        ylabel={$\hphantom{_DB}\phi(\omega)$},
-        ylabel style={left,rotate=-90,yshift=2.25em},
-        clip=false,
-        ]
-\addplot[ultra thick,color=black,domain=1e-2:1e2, samples=101]{-atan2(x,1)};
-\draw[blue,dashed] (1e1,{-atan2(1e1,1)})  -- 
-            node[left,yshift=0.5em] {$\omega_2$} (1e1,77) ; 
-\draw[red,dashed]  (2e0,{-atan2(2e0,1)})  -- 
-            node[left,yshift=-0.5em] {$\omega_1$} (2e0,100) ; 
-\draw[blue,dashed] (1e-2,{-atan2(1e1,1)}) node[left] {$\phi(\omega_2)$} -- 
-            (1e1,{-atan2(1e1,1)}) ; 
-\draw[red,dashed]  (1e-2,{-atan2(2e0,1)}) node[left] {$\phi(\omega_1)$} -- 
-            (2e0,{-atan2(2e0,1)}) ; 
-        \addplot [red, mark = *]  coordinates {(2e0,{-atan2(2e0,1)})} {};
-        \addplot [blue, mark = *] coordinates {(1e1,{-atan2(1e1,1)})} {};
-        \end{axis}
-\end{tikzpicture}
-%\end{center}
+    \centering
+    \tikzsetnextfilename{sche_bode-chap4-ext}
+    \input{tikz/sche_bode-chap4.tex}
 \caption{Représentation schématique d'un diagramme de Bode. Le gain en 
          décibel et la phase associé à une fonction de transfert sont 
          représentés en fonction de la pulsation (à l'échelle log) sur 
          deux repères distincts.\label{fig-sche_bode}}
 \end{figure}
+% ------------------------------------------------------------------------------
 
 La principale propriété du diagramme de Bode est de permettre de 
 simplifier un grand nombre calcul. En effet, dans le cas par exemple où 
@@ -475,101 +316,14 @@ des parties réel et imaginaire de $H(\jw)$, en considérant les pulsations
 négatives, c'est à dire entre $\omega\rightarrow-\infty$ et 
 $\omega\rightarrow+\infty$. 
 
+% ------------------------------------------------------------------------------
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{sche_nyquist_1-chap4-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    height=6.5cm,
-    width=0.45\textwidth,
-    axis lines = center,
-    ticks=none,
-    axis line style = thick,
-    enlargelimits=false,
-    xlabel=$\Re{H(\jw)}$,
-    ylabel=$\Im{H(\jw)}$,
-    xlabel style={below right},
-    ylabel style={left},
-    ymin=-10,
-    ymax=+10,
-    xmin=-10,
-    xmax=+10
-    ]     
-    \def\xu{6.65043990901}
-    \def\yu{3.24525022405}
-    \def\xd{-2.6946926406}
-    \def\yd{5.13601319826}
-    \addplot[black, mark = *] coordinates {( 0, 0)} {};
-    \node[below] at (axis cs:  7.853981633974483, 0) {\scriptsize$\omega=0$};
-    \addplot[black, mark = *] coordinates {(7.853981633974483, 0)} {};
-    \node[below] at (axis cs:  -2.2, 0) {\scriptsize$\omega\rightarrow\infty$};
-    \addplot[red, mark = *] coordinates {(\xu,\yu)} {};
-    \node[above right, red] at (axis cs:  \xu,\yu) {\scriptsize$\omega_1$};
-    \draw[red,thick] (axis cs:0,0) -- (axis cs: \xu,\yu) 
-        node[midway,yshift=1.1em,xshift=0.6em] {\scriptsize$G(\omega_1)$};
-    \draw[red,thick] (axis cs:2.6,0) arc (0:18:1cm) 
-        node[midway,yshift=0.23em,xshift=1.6em] {\scriptsize$\phi(\omega_1)$};
-    \addplot[blue, mark = *] coordinates {( \xd,\yd)} {};
-    \node[above left, blue]  at (axis cs:  \xd,\yd) {\scriptsize$\omega_2$};
-    \draw[blue,thick] (axis cs:0,0) -- (axis cs:\xd,\yd) 
-        node[midway,yshift=-0.5em,xshift=-1em] {\scriptsize$G(\omega_2)$};
-    \draw[blue,thick] (axis cs:1.9,0) arc (0:119:1.9)    
-        node[midway,yshift=-1.7em,xshift=-1.85em] {\scriptsize$\phi(\omega_2)$};
-    \addplot[postaction={decorate, decoration={markings,
-              mark=at position 0.105 with {\arrow[rotate=-180]{latex};},
-              mark=at position 0.31 with  {\arrow[rotate=-180]{latex};},
-              mark=at position 0.51 with  {\arrow[rotate=-180]{latex};},
-              mark=at position 0.71 with  {\arrow[rotate=-180]{latex};},
-              mark=at position 0.9 with   {\arrow[rotate=-180]{latex};}
-              }},thick,domain=0:7.853981633974483,samples=100]
-              ({x*sin(deg(x))},{x*cos(deg(x))});
-\end{axis}
-\end{tikzpicture}%
-\hspace{0cm}
-\tikzsetnextfilename{sche_nyquist_2-chap4-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    height=6.5cm,
-    %width=8cm,
-    width=0.45\textwidth,
-    axis lines = center,
-    ticks=none,
-    axis line style = thick,
-    enlargelimits=false,
-    xlabel=$\Re{H(\jw)}$,
-    ylabel=$\Im{H(\jw)}$,
-    xlabel style={below right},
-    ylabel style={left},
-    ymin=-10,
-    ymax=+10,
-    xmin=-10,
-    xmax=+10
-    ]     
-    \def\xu{6.65043990901}
-    \def\yu{3.24525022405}
-    \def\xd{-2.6946926406}
-    \def\yd{5.13601319826}
-    \addplot [postaction={decorate, decoration={markings,
-            mark=at position 0.105 with {\arrow[rotate=-180]{latex};},
-            mark=at position 0.31 with  {\arrow[rotate=-180]{latex};},
-            mark=at position 0.51 with  {\arrow[rotate=-180]{latex};},
-            mark=at position 0.71 with  {\arrow[rotate=-180]{latex};},
-            mark=at position 0.9 with   {\arrow[rotate=-180]{latex};}
-             }},thick,domain=0:7.853981633974483,samples=100]
-             ({x*sin(deg(x))},{x*cos(deg(x))});
-    \addplot [postaction={decorate, decoration={markings,
-            mark=at position 0.105 with {\arrow{latex};},
-            mark=at position 0.31 with  {\arrow{latex};},
-            mark=at position 0.51 with  {\arrow{latex};},
-            mark=at position 0.71 with  {\arrow{latex};},
-            mark=at position 0.9 with   {\arrow{latex};}
-      }},dashed,thick,domain=0:7.853981633974483,samples=100]
-      ({x*sin(deg(x))},{-x*cos(deg(x))});
-\end{axis}
-\end{tikzpicture}
-\end{center}
+    \centering
+    \tikzsetnextfilename{sche_nyquist_1-chap4-ext}
+    \input{tikz/sche_nyquist_1-chap4.tex}
+    \hspace{0cm}
+    \tikzsetnextfilename{sche_nyquist_2-chap4-ext}
+    \input{tikz/sche_nyquist_2-chap4.tex}
     \caption{(gauche) Représentation schématique d'un diagramme de Nyquist. 
              Le nombre complexe $H(\jw)$ est représenté dans le plan 
              complexe pour différentes valeurs de la pulsation $\omega$ de 
@@ -577,7 +331,7 @@ $\omega\rightarrow+\infty$.
              complet de Nyquist, symmétrique par rapport à l'axe des réels.
              \label{fig-sche_nyquist}}
 \end{figure}
-
+% ------------------------------------------------------------------------------
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

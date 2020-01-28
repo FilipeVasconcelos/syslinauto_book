@@ -107,9 +107,9 @@ nous représenterons simplement de la façon suivante :
 \begin{tikzpicture}
     \sbEntree{E1}
     \sbBloc[3]{B1}{\Large$\Sigma$}{E1}
-        \sbRelier[$e(t)$]{E1}{B1}
+    \sbRelier[$e(t)$]{E1}{B1}
     \sbSortie[3]{S1}{B1}
-        \sbRelier[$s(t)$]{B1}{S1}
+    \sbRelier[$s(t)$]{B1}{S1}
 \end{tikzpicture}
 \end{center}
 où $e(t)$ et $s(t)$ sont respectivement les signaux d'entrée et de sortie 
@@ -173,34 +173,15 @@ Un système est dit linéaire si il respecte les deux principes suivants:
 
     Une nouvelle fois, il est possible d'exprimer ce principe de la façon 
     suivante pour un système linéaire $\Sigma$:
+% ------------------------------------------------------------------------------
     \begin{center}
     \tikzsetnextfilename{sb_bloc_e1-chap1-ext}
-    \begin{tikzpicture}
-        \begin{scope}[local bounding box=scope1]
-            \sbEntree{E1}
-            \sbBloc[3]{B1}{\Large$\Sigma$}{E1}
-            \sbRelier[$e_1(t)$]{E1}{B1}
-            \sbSortie[3]{S1}{B1}
-            \sbRelier[$s_1(t)$]{B1}{S1}
-        \end{scope}
-        \begin{scope}[shift={($(E1)+(0,-2cm)$)}]
-            \sbEntree{E2}
-            \sbBloc[3]{B2}{\Large$\Sigma$}{E2}
-            \sbRelier[$e_2(t)$]{E2}{B2}
-            \sbSortie[3]{S2}{B2}
-            \sbRelier[$s_2(t)$]{B2}{S2}
-        \end{scope}
-        \begin{scope}[shift={($(scope1.east)+(1,-1cm)$)}]
-            \sbEntree{E3}
-            \sbBloc[6]{B3}{\Large$\Sigma$}{E3}
-            \sbRelier[$e_1(t)+e_2(t)$]{E3}{B3}
-            \sbSortie[6]{S3}{B3}
-            \sbRelier[$s_1(t)+s_2(t)$]{B3}{S3}
-        \end{scope}
-    \end{tikzpicture}
+    \input{tikz/sb_bloc_e1-chap1.tex}
     \end{center}
+% ------------------------------------------------------------------------------
 
     Notons que ceci reste vrai pour une combinaison linéaire des entrées :
+% ------------------------------------------------------------------------------
     \begin{center}
     \tikzsetnextfilename{sb_bloc_e2-chap1-ext}
     \begin{tikzpicture}
@@ -211,6 +192,7 @@ Un système est dit linéaire si il respecte les deux principes suivants:
             \sbRelier[$\alpha s_1(t)+\beta s_2(t)$]{B4}{S4}
     \end{tikzpicture}
     \end{center}
+% ------------------------------------------------------------------------------
     avec $\alpha\ \text{et}\ \beta\in\mathbb{R}$, ou un nombre quelconques 
     d'entrées.
    % $$
@@ -1664,35 +1646,16 @@ Par définition, le pôle dominant est donné par $H_1(p)$.
 Pour observer son effet traçons les réponses indicielles 
 de ces trois fonctions de transfert.
 
+% ------------------------------------------------------------------------------
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{pole_dominant-chap1-ext}
-\begin{tikzpicture}
-\begin{axis}[%
-    legend style={draw=none,font=\normalsize},
-    legend pos=outer north east,
-    axis line style = thick,
-    width=0.6\textwidth,
-    xmin=0,
-    xmax=30,
-    ymin=0,
-    ymax=7,
-    xlabel={$t$},
-    ylabel={$s(t)$},
-    label style={font=\Large},
-    legend cell align={left},
-]%
-\addplot[signal,domain=0:30,black] {1};
-\addplot[signal,domain=0:30,cyan] {6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
-\addplot[signal,domain=0:30,green] {1.25*(1-exp(-x))};
-\addplot[signal,domain=0:30,blue] {6.25*(1-exp(-x/5))};
-\legend{échelon,$s(t)$,$s_1(t)$,$s_2(t)$}
-\end{axis}%
-\end{tikzpicture}
-\end{center}
-\caption{}
+    \centering
+    \tikzsetnextfilename{pole_dominant-chap1-ext}
+    \input{tikz/pole_dominant-chap1.tex}
+    \caption{}
 \end{figure}
+% ------------------------------------------------------------------------------
 
+% ------------------------------------------------------------------------------
 \begin{center}
 \tikzsetnextfilename{carte2-chap1-ext}
 \begin{tikzpicture}[scale=1.2]
@@ -1701,6 +1664,7 @@ de ces trois fonctions de transfert.
     \dpole{-0.5}{0}{2}[blue]
 \end{tikzpicture}
 \end{center}
+% ------------------------------------------------------------------------------
 
 
 %Exercice
