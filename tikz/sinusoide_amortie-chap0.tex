@@ -3,7 +3,7 @@
     \begin{axis}
     [   axis line style = thick,
         height=5cm,
-        width=10cm,
+        width=9cm,
         axis x line=center,
         axis y line=center,
         xmin=-2,
@@ -19,8 +19,8 @@
         xtick={},
         xticklabels={},
         ]
-    \addplot [signal,domain=-2:0]    {0};            
-    \addplot [signal,domain=0:4*pi]  {exp(-0.2*x)*sin(3.5*deg(x))};
+    \addplot [signalb,domain=-2:0]    {0};            
+    \addplot [signalb,domain=0:4*pi]  {exp(-0.2*x)*sin(3.5*deg(x))};
     \addplot [envelop,domain=0:4*pi] {exp(-0.2*x)};
     \addplot [envelop,domain=0:4*pi] {-exp(-0.2*x)};
     \end{axis}
