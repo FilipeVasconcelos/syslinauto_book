@@ -1,7 +1,7 @@
 \tikzsetnextfilename{2nd_rep_1_2_ext}
-    \begin{tikzpicture}
-        \begin{axis}[
-        legend style={draw=none},
+\begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none},
         axis line style = thick,
         xmin=0,
         xmax=10,
@@ -10,7 +10,10 @@
         xlabel={$t$},
         ylabel={$s(t)$},
         label style={font=\Large},
-        ]
-        \addplot[very thick,color=blue,domain=0:11.5, samples=101]{x*exp(-x)};
-        \end{axis}
+        grid=both,
+        grid style={line width=.4pt, draw=black},
+        major grid style={line width=.4pt,draw=black},
+    ]
+    \addplot[signalb,domain=0:10] {x*exp(-x)};
+    \end{axis}
 \end{tikzpicture}

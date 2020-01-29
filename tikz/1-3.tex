@@ -1,11 +1,7 @@
 \tikzsetnextfilename{2nd_rep_1_3_ext}
 \begin{tikzpicture}
-        \def\a{0.3}            
-        \def\b{0.91}           
-        \def\w{0.953939201417} 
-        \def\p{1.26610367278}  
-        \begin{axis}[
-        legend style={draw=none},
+    \begin{axis}
+    [   legend style={draw=none},
         axis line style = thick,
         xmin=0,
         xmax=12,
@@ -14,8 +10,13 @@
         xlabel={$t$},
         ylabel={$s(t)$},
         label style={font=\Large},
-        ]
-        \addplot[very thick,color=blue,domain=0:20, samples=101]
-        {(\w/\b)*exp(-\a*x)*sin(deg(x)*\w)};
-        \end{axis}
+        grid=both,
+        grid style={line width=.4pt, draw=black},
+        major grid style={line width=.4pt,draw=black},
+    ]
+    \def\a{0.3}            
+    \def\b{0.91}           
+    \def\w{0.953939201417} 
+    \addplot[signalb,domain=0:12] {(\w/\b)*exp(-\a*x)*sin(deg(x)*\w)};
+    \end{axis}
 \end{tikzpicture}
