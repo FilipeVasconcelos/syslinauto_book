@@ -104,6 +104,17 @@ pdf2eps 1 "\image"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% définition de l'année scolaire 
+\newcommand\lastyear{\advance\year by -1 \the\year\advance\year by 1}
+\newcommand\nextyear{\advance\year by 1 \the\year\advance\year by -1}
+\newcommand{\anneescolaire}{%
+    \ifthenelse{\month<7}
+    {\lastyear--\the\year}
+    {\the\year--\nextyear}
+}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{booktabs}
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 \usepackage{array,multirow,makecell}
@@ -356,9 +367,9 @@ pdf2eps 1 "\image"
 \settodepth\mydepth{Xygp}
 \setlength\fboxsep{0pt}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-%\include{tex/chap_asserv_tmp}              % Asservissement
-%\end{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{tex/pagedegarde}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
