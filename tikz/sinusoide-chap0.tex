@@ -19,9 +19,9 @@
         xtick={},
         xticklabels={},
     ]
-    \addplot[ultra thick,blue,domain=-2:0, samples=101]{0};
-    \addplot[ultra thick,blue,domain=0:4*pi, samples=101]{sin(deg(x))};
-    \addplot[ultra thick,red,domain=0:4*pi, samples=101]{sin(deg(x-pi*0.5))};
+    \addplot[signalb,domain=-2:0]    {0};
+    \addplot[signalb,domain=0:4*pi]  {sin(deg(x))};
+    \addplot[signalr,domain=0:4*pi]  {sin(deg(x-pi*0.5))};
     \draw[blue] (axis cs:pi*0.5,1) -- (axis cs:pi*0.5,1.25);
     \draw[blue] (axis cs:pi*2.5,1) -- (axis cs:pi*2.5,1.25);
     \draw[blue,ultra thick, latex-latex] (axis cs:pi*0.5,1.2) -- 

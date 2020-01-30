@@ -32,6 +32,7 @@
 \usepackage{subcaption}
 \usepackage{lscape}
 \usepackage{enumitem}
+\setlist[itemize]{label=\textbullet}
 \usepackage{pifont}
 \usepackage{setspace}
 \usepackage{rotating}
@@ -94,12 +95,23 @@
 \usetkzobj{all} 
 \usetikzlibrary{external}
 \crefname{appchap}{Annexe}{Annexes}
-\tikzset{external/system call={pdflatex -shell-escape -synctex=1 -halt-on-error 
--interaction=batchmode -jobname "\image" "\texsource"; 
+\tikzset{external/system call={pdflatex -shell-escape 
+-halt-on-error -interaction=batchmode -jobname "\image" "\texsource"; 
 pdf2eps 1 "\image"
 }}
 \tikzset{external/optimize command away=\AddToShipoutPicture}
 \tikzexternalize[prefix=./figtikz/]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% définition de l'année scolaire 
+\newcommand\lastyear{\advance\year by -1 \the\year\advance\year by 1}
+\newcommand\nextyear{\advance\year by 1 \the\year\advance\year by -1}
+\newcommand{\anneescolaire}{%
+    \ifthenelse{\month<7}
+    {\lastyear--\the\year}
+    {\the\year--\nextyear}
+}%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -177,19 +189,6 @@ pdf2eps 1 "\image"
 \usepackage{routhtab}
 \usepackage{poles}
 
-
-\tikzstyle{signalr}=[very thick,red,samples=201]
-\tikzstyle{signalb}=[very thick,blue,samples=201]
-\tikzstyle{signalg}=[very thick,green,samples=201]
-\tikzstyle{signalc}=[very thick,cyan,samples=201]
-\tikzstyle{signalm}=[very thick,magenta,samples=201]
-\tikzstyle{signaln}=[very thick,black,samples=201]
-\tikzstyle{envelop}=[very thick,black,samples=201,dotted]
-\tikzstyle{signaljump}=[dashed,very thick,blue]
-\tikzstyle{utred}=[ultra thick,red]
-\tikzstyle{utblue}=[ultra thick,blue]
-\tikzstyle{utgreen}=[ultra thick,green]
-\tikzstyle{utblack}=[ultra thick,black]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -356,9 +355,9 @@ pdf2eps 1 "\image"
 \settodepth\mydepth{Xygp}
 \setlength\fboxsep{0pt}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-%\include{tex/chap_asserv_tmp}              % Asservissement
-%\end{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{tex/pagedegarde}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -417,7 +416,7 @@ pdf2eps 1 "\image"
 }
 \include{tex/annexe_log}               %J Echelle log  
 \include{tex/annexe_invL}              %L Laplace inverse 
-\include{tex/todo}                     %M TODO
+%\include{tex/todo}                     %M TODO
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

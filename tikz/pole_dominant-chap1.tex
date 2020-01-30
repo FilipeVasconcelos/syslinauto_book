@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        axis line style = thick,
+        width=0.6\textwidth,
+        xmin=0,
+        xmax=30,
+        ymin=0,
+        ymax=7,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        label style={font=\Large},
+        legend cell align={left},
+    ]%
+    \addplot[signal,domain=0:30,black] {1};
+    \addplot[signal,domain=0:30,cyan] {6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
+    \addplot[signal,domain=0:30,green] {1.25*(1-exp(-x))};
+    \addplot[signal,domain=0:30,blue] {6.25*(1-exp(-x/5))};
+    \legend{échelon,$s(t)$,$s_1(t)$,$s_2(t)$}
+    \end{axis}%
+\end{tikzpicture}

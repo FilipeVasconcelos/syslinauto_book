@@ -40,4 +40,5 @@ test/*
 sma_auto.pdf_save
 sma_auto.pdf
 figsonly.tex
-an.py #script de calcul
+an.py
+test.tex
