@@ -32,7 +32,7 @@ Celle-ci nous conduiera naturellement à la définition
 de la \textbf{fonction de transfert} qui caractérisera de façon univoque 
 les systèmes dynamiques linéaires.
 
-%{\tikzset{external/export=false}
+% ------------------------------------------------------------------------------
 \begin{figure}[!h]
 \begin{center}
     \input{tikz/systeme-chap0.tex}
@@ -43,7 +43,7 @@ les systèmes dynamiques linéaires.
 	 de l'environnement et des mesures de son état pourront être considérés.
 	 \label{fig-systeme}}
 \end{figure}
-%}
+% ------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -102,6 +102,7 @@ introduite au~\cref{chap-repreEtat}.
 Pour résumer, nous ne traiterons dans ce document 
 que des systèmes monovariables que 
 nous représenterons simplement de la façon suivante :
+% ------------------------------------------------------------------------------
 \begin{center}
 \tikzsetnextfilename{sb_bloc-chap1-ext}
 \begin{tikzpicture}
@@ -112,6 +113,7 @@ nous représenterons simplement de la façon suivante :
     \sbRelier[$s(t)$]{B1}{S1}
 \end{tikzpicture}
 \end{center}
+% ------------------------------------------------------------------------------
 où $e(t)$ et $s(t)$ sont respectivement les signaux d'entrée et de sortie 
 dépendants du temps et $\Sigma$ est le système traitant l'entrée $e(t)$ et 
 élaborant la sortie $s(t)$ délimité par un bloc. 
@@ -142,8 +144,9 @@ Un système est dit linéaire si il respecte les deux principes suivants:
         
     On exprime, schématiquement, ce principe de la façon suivante pour 
     un système linéaire $\Sigma$:
+% ------------------------------------------------------------------------------
     \begin{center}
-    {\tikzset{external/export=false}
+    \tikzsetnextfilename{principe_linearite-chap1-ext}
     \begin{tikzpicture}
         \begin{scope}[local bounding box=scope1]
             \sbEntree{E1}
@@ -162,8 +165,8 @@ Un système est dit linéaire si il respecte les deux principes suivants:
             \sbRelier[$\alpha s(t)$]{B3}{S3}
         \end{scope}
     \end{tikzpicture}
-    }
     \end{center}
+% ------------------------------------------------------------------------------
 
 
     \item \emph{Principe de superposition :}
@@ -225,6 +228,7 @@ explicitement du temps autrement que par l'intermédiaire de l'entrée.}
 On représente, schématiquement, un système invariant $\Sigma$, à 
 l'aide d'un schéma-bloc ci-dessous 
 (avec $\tau$ une temps quelconque.): 
+% ------------------------------------------------------------------------------
 \begin{center}
 \tikzsetnextfilename{sb_bloc_e3-chap1-ext}
 \begin{tikzpicture}
@@ -235,6 +239,7 @@ l'aide d'un schéma-bloc ci-dessous
         \sbRelier[$s(t+\tau)$]{B4}{S4}
 \end{tikzpicture}
 \end{center}
+% ------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -317,12 +322,14 @@ On observe alors la décharge du condensateur à travers une resistance $R$.
 
 On souhaite suivre la quantité de charge aux bornes du condensateur au 
 cours du temps.
+% ------------------------------------------------------------------------------
 \begin{figure}[!h]      
     \centering
     \tikzsetnextfilename{decharge_condensateur-chap0-ext}
     \input{tikz/decharge_condensateur-chap0.tex}
     \caption{Circuit RC ouvert.\label{fig-decharge_condensateur}}
 \end{figure}
+% ------------------------------------------------------------------------------
 
 La somme des tensions aux bornes du condensateur et de la résistance 
 étant nulle, on a :
@@ -421,7 +428,7 @@ si ce signal est nul pour tout $t<0$.
 %$$
 %s(t)=0\,\,\,\,\forall t<0
 %$$
-{
+% ------------------------------------------------------------------------------
 \begin{figure}[htb]
 \centering
 \tikzsetnextfilename{causal-chap1-ext}
@@ -429,7 +436,7 @@ si ce signal est nul pour tout $t<0$.
 %\caption{Exemple d'}
 \end{figure}
 \setlength\intextsep{0pt}
-}
+% ------------------------------------------------------------------------------
 Pour un signal en entrée, le temps $t=0$ permet de 
 définir une origine des temps.
 
