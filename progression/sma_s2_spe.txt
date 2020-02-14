@@ -73,7 +73,7 @@
                 - erreur indicielle
                 - erreur de poursuite
                 - erreur en accélération 
-            - Discuter du rejet de la perturbation (en TD)
+            - Discuter du rejet de la perturbation (exercice TD) 
  ------------------------------------------------------------------------------
   TD 11 (à faire) 
  ------------------------------------------------------------------------------
