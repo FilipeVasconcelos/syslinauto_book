@@ -250,7 +250,7 @@ Le système est donc prècis.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 L'erreur d'accélération est l'erreur statique d'un système soumis à un signal
-parabolique $e(t)=r(t)=E_0t^2 u(t)$ de transformée de Laplace 
+parabolique $e(t)=E_0t^2 u(t)$ de transformée de Laplace 
 $E(p)=\dfrac{2E_0}{p^3}$
 
 Pour une telle entrée, l'erreur statique devient :
@@ -273,7 +273,7 @@ $$
 et s'annule pour $\alpha>2$
 
 \begin{table}
-    \ra{1.5}
+    \ra{2.0}
     \centering
     \begin{tabular}{@{}P{2cm}P{2cm}P{2cm}P{2cm}P{2cm}@{}}
     \toprule
@@ -281,7 +281,7 @@ et s'annule pour $\alpha>2$
     \midrule
     $\dfrac{E_0}{p}$&$\dfrac{E_0}{1+K}$&0&0&0\\
     $\dfrac{E_0}{p^2}$&$+\infty$&$\dfrac{E_0}{K}$&0&0\\
-    $\dfrac{E_0}{p^3}$&$+\infty$&$+\infty$&$\dfrac{2E_0}{K}$&0\\
+    $\dfrac{2E_0}{p^3}$&$+\infty$&$+\infty$&$\dfrac{2E_0}{K}$&0\\
     \bottomrule
     \end{tabular}
 \caption{Résumé des erreurs statiques pour différentes 
@@ -293,27 +293,26 @@ et s'annule pour $\alpha>2$
 \subsection{Effet d'une perturbation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On considère maintenant l'effet d'une perturbation sur la précision d'un 
+système asservis. 
+
+Sans perte de généralité, on considère une perturbation 
+en entrée (c'est à dire en amont d'un système linéaire défini par une fonction 
+de transfert $H_2(p)$, la présence d'un correcteur $H_1(p)$ n'est pas 
+obligatoire mais facilite l'interprétation de 
 
 \begin{center}
 \tikzsetnextfilename{reduc_mult1-chap6-ext}
 \begin{tikzpicture}
-    \sbEntree{E}
-    \sbComp{a}{E}
-    \sbRelier[$E$]{E}{a}
-    \sbBloc{b}{$H_1$}{a}
-    \sbRelier{a}{b}
-    \sbCompSum{d}{b}{+}{}{+}{}
-    \sbRelier{b}{d}
-    \sbBlocL{e}{$H_2$}{d}
-    \sbSortie[5]{S1}{e}
-    \sbRelier{e}{S1}
-    \sbNomLien[0.8]{S1}{$S$}
-    \sbDecaleNoeudy{e}{v}
-    \sbBlocr{r2}{$R_1$}{v}
-    \sbRelieryx{e-S1}{r2}
-    \sbRelierxy{r2}{a}
-    \node[above =of d] (aa) {}; 
-    \draw[thick,-latex] (aa) node[right,yshift=-1em] {$P$} --(d.north) ;
+    \cpbruni[$E(p)$]
+        [$\epsilon(p)$]
+        [$H_1(p)$]
+        [Correcteur]
+        [ ]
+        [$P(p)$]
+        [$H_2(p)$]
+        [Système]
+        [$S(p)$]
 \end{tikzpicture}
 \end{center}
 
