@@ -49,8 +49,9 @@
 \usepackage[colorlinks]{hyperref}  
 \usepackage{url} 
 \usepackage[hyphenbreaks]{breakurl} 
-\usepackage[abbreviations,symbols,nogroupskip,nonumberlist]{glossaries-extra}
-\setabbreviationstyle[acronym]{long-short}
+\usepackage[acronym,symbols,nogroupskip,nonumberlist]{glossaries-extra}
+\usepackage{glossary-superragged}
+%\setabbreviationstyle[acronym]{long-short}
 \makeglossaries
 \usepackage{tocbibind}
 \usepackage{float}
@@ -177,6 +178,7 @@ pdf2eps 1 "\image"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{mathfmv}
 \usepackage{schemabloc}
+\usepackage{schemablocfmv}
 \sbStyleBloc{thick}
 \sbStyleLien{thick}
 \usepackage{gfluence}
@@ -192,8 +194,8 @@ pdf2eps 1 "\image"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\loadglsentries{tex/glossary}
+\loadglsentries{tex/acronyme}
+\loadglsentries{tex/glossaire}
 \loadglsentries{tex/symbole}
 
 \makeatletter
@@ -339,22 +341,14 @@ pdf2eps 1 "\image"
 %\premierS
 %\secondS
 
-%\includeonly{tex/chap_model,tex/annexe_laplace}         
-%\includeonly{tex/chap_bloc}
-
-%\includeonly{tex/chap_asserv,tex/chap_stab}     
-%\includeonly{tex/chap_slci,tex/chap_model}     
-%\setcounter{chapter}{-1}
-
-%\includeonly{tex/chap_repfreq,tex/chap_asserv_tmp}          % Asservissement 
+\includeonly{tex/chap_asserv,tex/chap_perf}  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- % utile pour l'annnexe 5
+% utile pour l'annnexe 5
 \newlength\myheight
 \newlength\mydepth
 \settototalheight\myheight{Xygp}
 \settodepth\mydepth{Xygp}
 \setlength\fboxsep{0pt}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -412,11 +406,11 @@ pdf2eps 1 "\image"
 \include{tex/annexe_des}               %G Décomposition en éléments simples
 \include{tex/annexe_2nd}               %H Système du second ordre
 {\tikzset{external/export=false} 
-%\include{tex/annexe_scilab}            %I Scilab
+%\include{tex/annexe_scilab}           %I Scilab
 }
 \include{tex/annexe_log}               %J Echelle log  
 \include{tex/annexe_invL}              %L Laplace inverse 
-%\include{tex/todo}                     %M TODO
+%\include{tex/todo}                    %M TODO
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -436,9 +430,16 @@ pdf2eps 1 "\image"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
-\setlength{\glsdescwidth}{0.8\textwidth}
+%\setlength{\glsdescwidth}{0.8\textwidth}
+\glsaddall
+\renewcommand{\glsnamefont}[1]{\textbf{#1}}
 \doublespacing
-\printglossary[title={Glossaire}]
+\printglossary[title={Acronyme},type=\acronymtype]
+\singlespacing
+%\printglossary[title={Glossaire},type=main,style=long]
+\setlength{\glsdescwidth}{0.8\hsize}
+\printglossary[title={Glossaire},type=main,style=superragged]
+\doublespacing
 \printunsrtglossary[type=symbols,style=long,title={Liste des Symboles}]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
