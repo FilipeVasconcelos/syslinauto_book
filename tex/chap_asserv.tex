@@ -40,8 +40,8 @@ L'idée sous-jacente est de permettre le contrôle automatique d'un système
 sans l'intervention d'un opérateur humain dans l'établissement d'une commande
 d'un système. 
 
-La figure~\ref{fig-hist} montre un exemple historique de 
-régulateur de vitesse ( également connu comme le régulateur à boules de Watt). 
+La figure~\ref{fig-hist} montre un exemple historique de régulateur de 
+vitesse ( également connu comme le régulateur à boules de Watt). 
 La particularité de ce régulateur est d'avoir était utilisé dans l'industrie
 du 18ème siècle bien avant les premières avancées théoriques dans le domaine 
 de l'automatique. Dans le contexte des premières machines à vapeurs, 
@@ -49,99 +49,137 @@ il était important de contrôler la vitesse angulaire des turbines à vapeur.
 Le mécanisme de Watt permet avec un dispositif de retroaction d'agir sur la 
 valve d'arrivée de la vapeur en fonction de la vitesse de l'axe de la turbine.
 
-En effet, jusqu'à présent nous nous sommes intéressés à l'étude de système 
+\clearpage
+Jusqu'à présent nous nous sommes intéressés à l'étude de système 
 linéaire \og isolé\fg (de fonction de transfert $H(p)$) 
-qui pour une entrée $E(p)$, élaborait une sortie $S(p)$\footnote{On conserve 
-la représentation dans le domaine de Laplace de nos systèmes linéaires et 
-des signaux mis en jeu physiquement dans le domaine temporel}.
+qui pour une entrée $E(p)$, élaborait une sortie $S(p)$\footnote{Nous
+continuerons, dans ce chapitre et les suivants, de représenter 
+les signaux et systèmes linéaires dans le domaine de Laplace. Une approche temporelle
+sera introduite au~\cref{chap-repreEtat}}.
+Dans le contexte du contrôle de ces systèmes l'entrée est appelée 
+\textbf{consigne} et la sortie est la \textbf{réponse}. Le problème de 
+\textbf{l'asservissement} consiste à faire en sorte que la réponse suive 
+la consigne au cours du temps.
 
+La \textbf{régulation} est un cas particulier d'asservissement, consistant
+à contrôler la sortie d'un système pour une consigne fixe quelque soit 
+les perturbations auxquelles serait soumis le système.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Nom des noeuds
+%                                      
+%                                      
+%   E ---- a ---- S
+%
+% E : entrée
+% a : système 
+% S : sortie
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{center}
 \tikzsetnextfilename{sb_bloc0-chap5-ext}
 \begin{tikzpicture}
-    \sbEntree{E1}
-    \sbBloc[3]{B1}{$H(p)$}{E1}
-    \sbRelier[$E(p)$]{E1}{B1}
-    \sbSortie[3]{S1}{B1}
-    \sbRelier[$S(p)$]{B1}{S1}
+    \sbEntree{E}
+    \sbBloc[3]{a}{$H(p)$}{E}
+    \sbRelier[$E(p)$]{E}{a}
+    \sbSortie[3]{S}{a}
+    \sbRelier[$S(p)$]{a}{S}
 \end{tikzpicture}
 \end{center}
 
 Nous avons pu caractériser la sortie en fonction de différentes 
-performances: rapidité, précision, stabilité et dépassement. 
-La question est de savoir maintenant comment agir sur le 
-signal $E(p)$ pour contrôler la sortie $S(p)$ en fonction de critères
-de performances choisis initialement.
+critères de performances: rapidité, précision, stabilité et dépassement\ldots
+pour différents systèmes linéaires modèle (c.f~\cref{chap_model}). 
+La question est de savoir comment agir sur le 
+signal $E(p)$ pour contrôler la sortie $S(p)$ en fonction de 
+ces exigences de performances choisis initialement.
 
-Il existe deux approches pour élaborer la commande 
-d'un système linéaire soit en boucle ouverte ou en boucle fermée.
+Il existe deux approches pour élaborer la \textbf{commande} 
+d'un système linéaire :% soit en boucle ouverte soit en boucle fermée.
 
 \begin{itemize}
     \item En \textbf{boucle ouverte}: on place un correcteur $C(p)$
           en amont du système pour élaborer 
-          la commande (que nous noterons $U(p)$) du système que l'on 
-          souhaite contrôler. \`A noter que l'entrée du système appelée 
-          dans le cadre de l'asservissement consigne est maintenant 
+          sa commande (notée $U(p)$).
+          Remarquons que la consigne est maintenant
           l'entrée du correcteur.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Nom des noeuds
+%                                      
+%                                      
+%   E ---- a ---- b ---- S
+%
+% E : entrée
+% a : correcteur 
+% b : système 
+% S : sortie
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{center}
 \tikzsetnextfilename{sb_bloc1-chap5-ext}
 \begin{tikzpicture}
     \sbEntree{E}
-	\sbBloc[3]{C}{$C(p)$}{E}
-    \sbRelier[$E(p)$]{E}{C}
-	\sbBloc[3]{H}{$H(p)$}{C}
-    \sbRelier[$U(p)$]{C}{H}
-    \sbSortie[3]{S}{H}
-    \sbRelier[$S(p)$]{H}{S}
-    \node[yshift=-0.8em] at (C.south) {\small Correcteur};
-    \node[yshift=-0.8em] at (H.south) {\small Système};
+    \sbBloc[3]{a}{$C(p)$}{E}
+    \sbRelier[$E(p)$]{E}{a}
+    \sbBloc[3]{b}{$H(p)$}{a}
+    \sbRelier[$U(p)$]{a}{b}
+    \sbSortie[3]{S}{b}
+    \sbRelier[$S(p)$]{b}{S}
+    \node[yshift=-0.8em] at (a.south) {\small Correcteur};
+    \node[yshift=-0.8em] at (b.south) {\small Système};
 \end{tikzpicture}
 \end{center}
 
-    \item En \textbf{boucle fermée}: le principe consiste à mesurer le signal 
-          de sortie pour ajuster le signal de commande. Pour celà, on place le
-          système (corrigée ou non) dans une boucle de contre-réaction 
-          \cref{chap-schemabloc}.
+    \item En \textbf{boucle fermée}: le principe consiste à récupérer 
+          le signal de sortie pour ajuster le signal de commande. 
+          Pour celà, on place le système (corrigée ou non) dans une 
+          boucle de contre-réaction (négative). 
+          Les relations entre la sortie et la consigne dans une telle 
+          boucle ont été largement étudiées au \cref{chap-schemabloc}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Nom des noeuds
+%                                      
+%                                      
+%   E ---- a ---- b ---- c ---- S
+%          |                    |
+%          |                    |
+%          ---------------------
+%
+% E : entrée
+% a : comparateur
+% b : correcteur
+% c : système
+% S : sortie
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{center}
 \tikzsetnextfilename{sb_bloc2-chap5-ext}
 \begin{tikzpicture}
     \sbEntree{E}
-	\sbComp{comp1}{E}
-	\sbRelier[$E(p)$]{E}{comp1}
-	\sbBloc[3]{C}{$C(p)$}{comp1}
-    \sbRelier[$\epsilon(p)$]{comp1}{C}
-	\sbBloc[3]{H}{$H(p)$}{C}
-    \sbRelier[$U(p)$]{C}{H}
-    \sbSortie[3]{S}{H}
-    \sbRelier[$S(p)$]{H}{S}
-	\sbRenvoi{H-S}{comp1}{}
-    \node[yshift=-0.8em] at (C.south) {\small Correcteur};
-    \node[yshift=-0.8em] at (H.south) {\small Système};
+    \sbComp{a}{E}
+    \sbRelier[$E(p)$]{E}{a}
+    \sbBloc[3]{b}{$C(p)$}{a}
+    \sbRelier[$\epsilon(p)$]{a}{b}
+    \sbBloc[3]{c}{$H(p)$}{b}
+    \sbRelier[$U(p)$]{b}{c}
+    \sbSortie[3]{S}{c}
+    \sbRelier[$S(p)$]{c}{S}
+    \sbRenvoi{c-S}{a}{}
+    \node[yshift=-0.8em] at (b.south) {\small Correcteur};
+    \node[yshift=-0.8em] at (c.south) {\small Système};
 \end{tikzpicture}
 \end{center}
-
+          Le signal correspondant à la différence entre la consigne
+          et la réponse globale du système en boucle fermée est
+          appelée l'\textbf{écart} $\epsilon(p)$.
 \end{itemize}
 
-%En d'autre mot, 
-%Dans un sens, le signal $e(t)$ est la commande du système 
-%De tel système
-
-La \textbf{régulation} consiste à contrôler la sortie d'un système
-pour une consigne fixe quelque soit les perturbations variables au 
-cours du temps.
-
-L'\textbf{asservissement} consiste à suivre une consigne variable 
-au cours du temps.
-
-%Imaginons que l'on souhaite étudier la température de l'eau 
-%fournie par une douche. 
-
-%Dans ce chapitre, nous allons aborder la notion d'asservissement des 
-%systèmes linéaires que nous avons maitenant caractérisé, modélisisé et
-%analysé dans les chapitres précédents.
-%L'idée d'asservissement 
-
+La rétroaction\footnote{\emph{feedback} (en anglais)} est
+devenu incontournable dans les applications industrielles                                                                     
+et technologiques.
+Par abus de langage c'est le système en boucle fermée
+que l'on nomme asservissement. Cependant, la 
+définition précédente de l'asservissement s'applique très bien dans 
+le cas de la boucle ouverte.
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,7 +196,14 @@ au cours du temps.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Classiquement, un asservissement se représente par le schéma fonctionnel de 
+la figure (\cref{fig-reg}). Celui-ci comporte en générale un \textbf{régulateur}
+permettant de comparer l'image de la sortie obtenue par un capteur à la consigne.
+Ce régulateur est en générale accompagné d'un \textbf{correcteur} permettant de corriger
+la boucle ouverte du système linéaire.
+
 \begin{figure}[!h]
+\centering
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Nom des noeuds
 %                                      
@@ -174,68 +219,54 @@ au cours du temps.
 % d : capteur
 % r : noeud décalé pour le retour
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{center}
-%    \begin{tikzpicture}
-%        \sbEntree{E}
-%        \sbComp{a}{E}
-%        \sbRelier[$E(p)$]{E}{a}           % entree
-%        \sbBloc[3]{b}{$C(p)$}{a}
-%        \sbRelier[$\epsilon(p)$]{a}{b}    % ecart
-%        \sbBloc[3]{c}{$H(p)$}{b}
-%        \sbRelier[$U(p)$]{b}{c}           % commande
-%        \sbSortie[4]{S}{c}
-%        \sbRelier{c}{S}
-%        \sbNomLien[0.8]{S}{$S(p)$}
-%        \sbDecaleNoeudy[6]{b-c}{r}
-%        \sbBlocr[-1.6]{d}{$G(p)$}{r}
-%        \sbRelieryx{c-S}{d}              
-%        \sbRelierxy[$M(p)$]{d}{a}         % mesure (image de S)
-%        \node[yshift=-0.8em] at (b.south) {\small Correcteur};
-%        \node[yshift=-0.8em] at (c.south) {\small Système};
-%        \node[yshift=-0.8em] at (d.south) {\small Capteur};
-%        \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
-%        \node[yshift=-0.8em] at (S.south) {\small Sortie};
-%    \end{tikzpicture}
-%\end{center}
-
 %avec cadre régulateur
-    \begin{center}
-    \tikzsetnextfilename{reg_1-chap5-ext}
-        \begin{tikzpicture}
-            \sbEntree{E}
-            \sbComp{a}{E}
-            \sbRelier[$E(p)$]{E}{a}           % entree
-            \sbBloc[3]{b}{$C(p)$}{a}
-            \sbRelier[$\epsilon(p)$]{a}{b}    % ecart
-            \sbBloc[4.2]{c}{$H(p)$}{b}
-            \sbRelier[$U(p)$]{b}{c}           % commande
-            \sbSortie[4]{S}{c}
-            \sbRelier{c}{S}
-            \sbNomLien[0.8]{S}{$S(p)$}
-            \sbDecaleNoeudy[7]{b-c}{r}
-            \sbBlocr[-1.6]{d}{$G(p)$}{r}
-            \sbRelieryx{c-S}{d}              
-            \sbRelierxy[$M(p)$]{d}{a}         % mesure (image de S)
-            \node[yshift=-0.8em] at (b.south) {\small Correcteur};
-            \node[yshift=-0.8em] at (c.south) {\small Système};
-            \node[yshift=-0.8em] at (d.south) {\small Capteur};
-            \draw[dashed,very thick,blue] (1.15,-1.8) rectangle 
-            node[blue,xshift=-1.9em,yshift=4em] {\textbf{Régulateur}} (4.9,1);
-            \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
-            \node[yshift=-0.8em] at (S.south) {\small Sortie};
-        \end{tikzpicture}
-    \end{center}
-    \caption{Schéma fonctionnel classique de l'asservissement d'un système 
-             présentant un correcteur et un capteur.\label{fig-reg}}
+\tikzsetnextfilename{reg_1-chap5-ext}
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{a}{E}
+    \sbRelier[$E(p)$]{E}{a}           % entree
+    \sbBloc[3]{b}{$C(p)$}{a}
+    \sbRelier[$\epsilon(p)$]{a}{b}    % ecart
+    \sbBloc[4.2]{c}{$H(p)$}{b}
+    \sbRelier[$U(p)$]{b}{c}           % commande
+    \sbSortie[4]{S}{c}
+    \sbRelier{c}{S}
+    \sbNomLien[0.8]{S}{$S(p)$}
+    \sbDecaleNoeudy[7]{b-c}{r}
+    \sbBlocr[-1.6]{d}{$G(p)$}{r}
+    \sbRelieryx{c-S}{d}              
+    \sbRelierxy[$M(p)$]{d}{a}         % mesure (image de S)
+    \node[yshift=-0.8em] at (b.south) {\small Correcteur};
+    \node[yshift=-0.8em] at (c.south) {\small Système};
+    \node[yshift=-0.8em] at (d.south) {\small Capteur};
+    \draw[dvtb] (1.05,-1.65) rectangle node[blue,above,yshift=4em] {\textbf{Régulateur}} (4.65,0.9);
+    \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
+    \node[yshift=-0.8em] at (S.south) {\small Sortie};
+\end{tikzpicture}
+\caption{Schéma fonctionnel classique de l'asservissement d'un système 
+         présentant un correcteur et un capteur. (c.f~\cref{tab-asser})
+         \label{fig-reg}}
 \end{figure}
+
+
+La \textbf{mesure} $M(p)$ est l'image de la sortie par l'intermédiaire
+du capteur. Il est alors en générale nécessaire d'adapter la consigne pour
+que l'écart $\epsilon(p)$ soit représentatif de l'écart entre la consigne
+et la sortie et non de son image. Ainsi, on retrouvera très souvent 
+un \textbf{adaptateur} permmettant d'obtenir l'image de la consigne.
+Le procédé/système peux nécéssité d'un \textbf{actionneur} qui agit en 
+transmettant/convertissant l'énergie nécéssaire à son action. 
+La~\cref{fig-reg2} présente une forme augmentée de schéma fonctionnel
+présentant ces nouveaux constituants.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Nom des noeuds
 %                                      
 %                                      
 %   E ---- a ---- b ---- c ---- d ---- e ---- S
-%                 |                       |
-%                 |                       |
+%                 |                           |
+%                 |                           |
 %                  --------- f -----------
 % E : entrée
 % a : adaptateur 
@@ -247,35 +278,173 @@ au cours du temps.
 % f : capteur
 % r : noeud décalé pour le retour
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{center}
-%    \begin{tikzpicture}
-%        \sbEntree{E}
-%        \sbBloc[3]{a}{$A_d(p)$}{E}
-%        \sbRelier[$E(p)$]{E}{a}
-%        \sbComp{b}{a}
-%        \sbRelier{a}{b}
-%        \sbBloc[3]{c}{$C(p)$}{b}
-%        \sbRelier[$\epsilon(p)$]{b}{c}
-%        \sbBloc[3]{d}{$A_c(p)$}{c}
-%        \sbRelier[$\epsilon'(p)$]{c}{d}
-%        \sbBloc[3]{e}{$H(p)$}{d}
-%        \sbRelier[$U(p)$]{d}{e}
-%        \sbSortie[4]{S}{e}
-%        \sbRelier{e}{S}
-%        \sbDecaleNoeudy[5]{d}{r}
-%        \sbBlocr[-1.6]{f}{$G(p)$}{r}
-%        \sbRelieryx{e-S}{f}              
-%        \sbRelierxy[$M(p)$]{f}{b}        % Mesure
-%        \sbNomLien[0.8]{S}{$S(p)$}
-%        \node[yshift=-0.8em] at (a.south) {\small Adaptateur};
-%        \node[yshift=-0.8em] at (c.south) {\small Correcteur};
-%        \node[yshift=-0.8em] at (d.south) {\small Actionneur};
-%        \node[yshift=-0.8em] at (e.south) {\small Système};
-%        \node[yshift=-0.8em] at (f.south) {\small Capteur};
-%        \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
-%        \node[yshift=-0.8em] at (S.south) {\small Sortie};
-%    \end{tikzpicture}
-%\end{center}
+\begin{figure}[!h]
+\centering
+\tikzsetnextfilename{reg_2-chap5-ext}
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbBloc[3]{a}{$A_d(p)$}{E}
+    \sbRelier[$E(p)$]{E}{a}
+    \sbComp{b}{a}
+    \sbRelier{a}{b}
+    \sbBloc[3]{c}{$C(p)$}{b}
+    \sbRelier[$\epsilon(p)$]{b}{c}
+    \sbBloc[3]{d}{$A_c(p)$}{c}
+    \sbRelier{c}{d}
+    \sbBloc[3]{e}{$H(p)$}{d}
+    \sbRelier[$U(p)$]{d}{e}
+    \sbSortie[4]{S}{e}
+    \sbRelier{e}{S}
+    \sbDecaleNoeudy[5]{d}{r}
+    \sbBlocr[-1.6]{f}{$G(p)$}{r}
+    \sbRelieryx{e-S}{f}              
+    \sbRelierxy[$M(p)$]{f}{b}        % Mesure
+    \sbNomLien[0.8]{S}{$S(p)$}
+    \node[yshift=-0.8em] at (a.south) {\small Adaptateur};
+    \node[yshift=-0.8em] at (c.south) {\small Correcteur};
+    \node[yshift=-0.8em] at (d.south) {\small Actionneur};
+    \node[yshift=-0.8em] at (e.south) {\small Système};
+    \node[yshift=-0.8em] at (f.south) {\small Capteur};
+    \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
+    \node[yshift=-0.8em] at (S.south) {\small Sortie};
+\end{tikzpicture}
+\caption{Schéma fonctionnel de l'asservissement d'un système 
+         présentant un adaptateur et actionneur. (c.f~\cref{tab-asser})
+         \label{fig-reg2}}
+\end{figure}
+
+\subsection{Présence d'une perturbation : la régulation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Nom des noeuds
+%                        P             
+%                        |             
+%                        |              
+%   E ---- a ---- b ---- c ---- d ---- S
+%          |                           |
+%          |                           |
+%           ------------ e ------------ 
+%                        
+%                        
+% E : entrée
+% a : comparateur/régulateur
+% b : correcteur 
+% c : sommateur (perturbation)
+% d : système 
+% e : capteur
+% P : noeud décalé pour la perturbation
+% S : sortie
+% r : noeud décalé pour le retour
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{pert-chap5-ext}
+    \begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp[4.5]{a}{E}
+    \sbRelier[$E(p)$]{E}{a}
+    \sbBloc[3]{b}{$C(p)$}{a}
+    \sbRelier[$\epsilon(p)$]{a}{b}
+    \sbCompSum[5.0]{c}{b}{+}{}{+}{}
+    \sbRelier[$U(p)$]{b}{c}
+    \sbBloc[3]{d}{$H(p)$}{c}
+    \sbRelier{c}{d}
+    \sbSortie[6]{S}{d}
+    \sbRelier[$S(p)$]{d}{S}
+    \sbDecaleNoeudy{c}{r}
+    \sbBlocr[-1.5]{e}{$G(p)$}{r}
+    \sbRelieryx{d-S}{e}
+    \sbRelierxy[$M(p)$]{e}{a}
+    \node[yshift=-0.8em] at (b.south) {\small Correcteur};
+    \node[yshift=-0.8em] at (d.south) {\small Système};
+    \node[yshift=-0.8em] at (e.south) {\small Capteur};
+    \sbDecaleNoeudy[-3]{c}{P}
+    \sbRenvoiF[-3]{P}{c}{$P(p)$}
+    \node[right,yshift=2.5em]   at (P.east){\small Perturbation};
+    \end{tikzpicture}
+\caption{Schéma fonctionnel de l'asservissement d'un système 
+         présentant une perturbation.\label{fig-pert}}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Nom des noeuds
+%                        P1            P2 
+%                        |             |
+%                        |             | 
+%   E ---- a ---- b ---- c ---- d ---- e ---- S
+%          |                                  |
+%          |                                  |
+%           ------------ g ---- f ------------ 
+%                        |
+%                        |
+%                        P3
+% E  : entrée
+% a  : comparateur/régulateur
+% b  : correcteur 
+% c  : sommateur1 (perturbation)
+% d  : système 
+% e  : sommateur2 (perturbation)
+% f  : capteur
+% g  : sommateur3 (perturbation/bruit)
+% P1 : noeud décalé pour la perturbation
+% P2 : noeud décalé pour la perturbation
+% P3 : noeud décalé pour la perturbation
+% S  : sortie
+% r  : noeud décalé pour le retour
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!h]
+\centering
+\tikzsetnextfilename{pert2-chap5-ext}
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp[4.5]{a}{E}
+    \sbRelier[$E(p)$]{E}{a}
+    \sbBloc[3]{b}{$C(p)$}{a}
+    \sbRelier[$\epsilon(p)$]{a}{b}
+    \sbStyleSum{red}
+    \sbCompSum[5.0]{c}{b}{+}{}{+}{}
+    \sbRelier[$U(p)$]{b}{c}
+    \sbBloc[3]{d}{$H(p)$}{c}
+    \sbRelier{c}{d}
+    \sbStyleSum{blue}
+    \sbCompSum[5.0]{e}{d}{+}{}{+}{}
+    \sbRelier[]{d}{e}
+    \sbSortie[6]{S}{e}
+    \sbRelier[$S(p)$]{e}{S}
+    \sbDecaleNoeudy{c}{r}
+    \sbBlocr[-7]{f}{$G(p)$}{r}
+    \sbRelieryx{e-S}{f}
+    \sbStyleSum{green}
+    \sbCompSum[-5.5]{g}{f}{}{+}{}{+}
+    \sbRelier[]{f}{g}
+    \sbRelierxy[$M(p)$]{g}{a}
+    \node[yshift=-0.8em] at (b.south) {\small Correcteur};
+    \node[yshift=-0.8em] at (d.south) {\small Système};
+    \node[yshift=-0.8em] at (f.south) {\small Capteur};
+    \sbDecaleNoeudy[-3]{c}{P1}
+    \sbStyleLien{red}
+    \sbRenvoiF[-3]{P1}{c}{$P_1(p)$}
+    \sbDecaleNoeudy[-3]{e}{P2}
+    \sbStyleLien{blue}
+    \sbRenvoiF[-3]{P2}{e}{$P_2(p)$}
+    \sbDecaleNoeudy[3]{g}{P3}
+    \sbStyleLien{green}
+    \sbRenvoiF[2]{P3}{g}{$P_3(p)$}
+    \node[right,yshift=2.5em,red]   at (P1.east){\small Perturbation en entrée};
+    \node[right,yshift=2.5em,blue]  at (P2.east){\small Perturbation en sortie};
+    \node[right,yshift=-2.5em,green]at (P3.east){\small Bruit de mesure};
+\end{tikzpicture}
+\caption{Schéma fonctionnel de l'asservissement d'un système 
+         présentant différents types de perturbations. \label{fig-pert2}}
+\end{figure}
+
+
+\subsection{Schéma fonctionnel complet}
+
+En regroupant les différents constituants d'un asservissement
+nous pouvons réaliser le découpage du schéma fonctionnel en 
+chaîne d'énergie et en chaîne d'information comme présenté par 
+la~\cref{fig-asser}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Nom des noeuds
@@ -283,9 +452,9 @@ au cours du temps.
 %                                      |
 %                                      |
 %   E ---- a ---- b ---- c ---- d ---- e ---- f ---- S
-%                 |                              |
-%                 |                              |
-%                  ------------ g ---------------
+%                 |                                  |
+%                 |                                  |
+%                  ------------ g -------------------
 % E : entrée
 % a : adaptateur 
 % b : comparateur
@@ -298,11 +467,11 @@ au cours du temps.
 % g : capteur
 % r : noeud décalé pour le retour
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{landscape}
-%\vspace*{\fill}
+\begin{landscape}
+\vspace*{\fill}
 \begin{center}
-\tikzsetnextfilename{asser-chap5-ext}
-    \begin{tikzpicture}
+    \tikzsetnextfilename{asser-chap5-ext}
+    \begin{tikzpicture}[scale=1.1,every node/.style={scale=1.1}]
         \sbEntree{E}
         \sbBloc[3]{a}{$A_d(p)$}{E}
         \sbRelier[$E(p)$]{E}{a}
@@ -311,7 +480,6 @@ au cours du temps.
         \sbBloc[3]{c}{$C(p)$}{b}
         \sbRelier[$\epsilon(p)$]{b}{c}
         \sbBloc[3]{d}{$A_c(p)$}{c}
-%        \sbRelier[$\epsilon'(p)$]{c}{d}
         \sbRelier{c}{d}
         \sbSumh[6.7]{e}{d}
         \sbDecaleNoeudy[-3]{e}{P}
@@ -323,8 +491,8 @@ au cours du temps.
         \sbRelier{f}{S}
         \sbDecaleNoeudy[5]{c}{r}
         \sbBlocr[-1.6]{g}{$G(p)$}{r}
-        \sbRelieryx{f-S}{g}              
-        \sbRelierxy[$M(p)$]{g}{b}        
+        \sbRelieryx{f-S}{g}
+        \sbRelierxy[$M(p)$]{g}{b}
         \sbNomLien[0.8]{S}{$S(p)$}
         \node[yshift=-0.8em] at (a.south) {\small Adaptateur};
         \node[yshift=-0.8em] at (c.south) {\small Correcteur};
@@ -334,29 +502,26 @@ au cours du temps.
         \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
         \node[yshift=-0.8em] at (S.south) {\small Sortie};
         \node[yshift=2em,xshift=2.8em] at (P.east) {\small Perturbation};
-        \draw[dashed,very thick,blue](-0.8,-4) 
-        rectangle node[blue,xshift=-3.2em,yshift=7em]
-        {\textbf{Chaîne d'information}}(6.9,2.5);
-        \draw[dashed,very thick,red](7.3,-4)
-        rectangle node[red,xshift=-5.9em,yshift=7em]  
-        {\textbf{Chaîne d'énergie}    }(15.9,2.5);
-        \draw[very thick,green!50!black,dashed,-latex] (4,1)   -- 
-        node[green!50!black,above] {Chaîne direct} (14,1) ;
-        \draw[very thick,green!50!black,dashed,-latex] (14,-3.7) -- 
-        node[green!50!black,above] {Chaîne de retour} (4,-3.7) ;
+        \draw[dvtb]  (-0.8,-4) rectangle node[blue,xshift=-3.2em,yshift=7em] {\textbf{Chaîne d'information}}(6.45,2.5);
+        \draw[dvtr]  (6.7,-4)  rectangle node[red,xshift=-5.9em,yshift=7em]  {\textbf{Chaîne d'énergie}    }(14.8,2.5);
+        \draw[dvtgf] (4,1)     -- node[green,above] {Chaîne direct}    (14,1) ;
+        \draw[dvtgf] (14,-3.7) -- node[green,above] {Chaîne de retour} (4,-3.7) ;
     \end{tikzpicture}
 \end{center}
     \captionof{figure}{Décomposition en chaîne d'information et chaîne 
                        d'énergie d'un schéma bloc d'asservissement 
-                       complet\label{fig-asser}}
+                       complet (c.f~\cref{tab-asser}). \label{fig-asser}}
+\vspace*{\fill}
+\end{landscape}
+
 
 \begin{table}[!h]
     \ra{1.5}
     \centering
     \begin{tabular}{@{}P{3cm}m{8.5cm}P{3cm}@{}}
-        \toprule
+    \toprule
 Composants      & Description & Fonction de transfert ou signal associés\\
-        \midrule
+    \midrule
 Consigne/Entrée & La valeur que l'on souhaite atteindre en sortie 
                   du système asservi. Cette consigne peut être constante 
                   ou dépendante du temps. 
