@@ -15,7 +15,7 @@ do
     
     echo "\begin{figure}[!htbp]"                 >> ${texname}.tex  
     echo "\centering"                            >> ${texname}.tex  
-    if [ $larg -gt 480 ]
+    if [ $larg -gt 400 ]
     then
         echo "larger" $larg $file
         echo "\includegraphics[width=\textwidth]{$file}"      >> ${texname}.tex
