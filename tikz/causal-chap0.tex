@@ -23,7 +23,7 @@
     \draw[thick,-latex]   (axis cs:-3.0,0) -- (axis cs:10,0);
     \draw[thick,-latex]   (axis cs:0,-1.5) -- (axis cs:0,3);
     \addplot[black,domain=-3:0] {0};                                
-    \addplot[signal,blue,domain=0:10] {sin(3*deg(x))*exp(-0.5*x)+1};
+    \addplot[signalb,domain=0:10] {sin(3*deg(x))*exp(-0.5*x)+1};
     \draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1); 
     \node[black] at (axis cs:-1.5,2.0) {$s(t)=0$};
     \node[blue] at (axis cs:5.0,2.0) {$s(t)\ne0$};

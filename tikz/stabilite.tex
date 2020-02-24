@@ -85,7 +85,6 @@
     }
 
     % pt1
-    \tikzstyle{colpt1}=[black!60!green]
     \node[anchor=south west] at (pt1) 
     {
         \begin{tikzpicture}
@@ -93,14 +92,13 @@
         [   xmin=-0.5,xmax=6.5,
             ymin=-1.5,ymax=1.5
 	]
-        \addplot[signal,colpt1,domain=0:6] {1.2*sin(4.5*deg(x))*exp(-0.7*x)};
+        \addplot[signaln6g,domain=0:6] {1.2*sin(4.5*deg(x))*exp(-0.7*x)};
         \addplot[envelop,domain=0:6]       {1.2*exp(-0.7*x)};
         \addplot[envelop,domain=0:6]       {-1.2*exp(-0.7*x)};
         \end{axis}
         \end{tikzpicture}
     };
     % pt2
-    \tikzstyle{colpt2}=[black!10!green]
     \node[anchor=south west] at (pt2) 
     {
     	\begin{tikzpicture}
@@ -108,7 +106,7 @@
         [   xmin=-0.5,xmax=6.5,
             ymin=-1.5,ymax=1.5
 	]
-        \addplot[signal,colpt2,domain=0:6] {1.2*sin(2.5*deg(x))*exp(-0.5*x)};
+        \addplot[signaln1g,domain=0:6] {1.2*sin(2.5*deg(x))*exp(-0.5*x)};
         \addplot[envelop,domain=0:6]       {1.2*exp(-0.5*x)};
         \addplot[envelop,domain=0:6]       {-1.2*exp(-0.5*x)};
         \end{axis}
@@ -122,7 +120,7 @@
 	[   xmin=-0.5,xmax=6.5,
 	    ymin=-0.5,ymax=3
         ]
-	\addplot [signal,black!30!red,domain=0:6]  {2*exp(-0.75*x)};
+	\addplot [signaln3r,domain=0:6]  {2*exp(-0.75*x)};
 	\end{axis}
 	\end{tikzpicture}
     };
@@ -134,7 +132,7 @@
         [   xmin=-0.5,xmax=6.5,
             ymin=-0.5,ymax=3
         ]
-        \addplot [signal,red,domain=0:6] {2*exp(-0.25*x)};
+        \addplot [signalr,domain=0:6] {2*exp(-0.25*x)};
         \end{axis}
         \end{tikzpicture}
     };
@@ -146,7 +144,7 @@
         [   xmin=-0.5,xmax=6.5,
 	    ymin=-0.5,ymax=3
         ]
-        \addplot[signal,black,domain=0:6] {1.5};
+        \addplot[signaln,domain=0:6] {1.5};
         \end{axis}
         \end{tikzpicture}
     };
@@ -158,12 +156,11 @@
         [   xmin=-0.5,xmax=15,
             ymin=-0.5,ymax=6,
         ]
-	\addplot[signal,black,domain=0:15] {1+exp(0.1*x)};
+	\addplot[signaln,domain=0:15] {1+exp(0.1*x)};
         \end{axis}
         \end{tikzpicture}
     };
     % pt6
-    \tikzstyle{colpt6}=[black!10!green]
     \node[anchor=south west] at (pt6) 
     {
     	\begin{tikzpicture}
@@ -171,7 +168,7 @@
 	[   xmin=-0.5,xmax=8,
             ymin=-20,ymax=20,
         ]
-        \addplot[signal,colpt6,domain=0:8]  {sin(2.5*deg(x))*exp(0.40*x)+1};
+        \addplot[signaln1g,domain=0:8]  {sin(2.5*deg(x))*exp(0.40*x)+1};
         \addplot[envelop,domain=0:8]        {exp(0.4*x)+1};
         \addplot[envelop,domain=0:8]        {-exp(0.4*x)+1};
         \end{axis}
@@ -185,7 +182,7 @@
         [   xmin=-0.5,xmax=6.5,
 	    ymin=-2.5,ymax=2.5,
         ]
-        \addplot[signal,black!50!white,domain=0:6.5] {sin(2.5*deg(x))};
+        \addplot[signaln5w,domain=0:6.5] {sin(2.5*deg(x))};
         \end{axis}
         \end{tikzpicture}
 	};
@@ -197,7 +194,7 @@
         [   xmin=-0.5,xmax=8.0,
 	    ymin=-20,ymax=20
         ]
-	\addplot[signal,blue,domain=0:8]   {sin(2.5*deg(x))*exp(0.40*x)+1};
+	\addplot[signalb,domain=0:8]   {sin(2.5*deg(x))*exp(0.40*x)+1};
 	\addplot[envelop,domain=0:8] {exp(0.4*x)+1};
 	\addplot[envelop,domain=0:8] {-exp(0.4*x)+1};
         \end{axis}
@@ -211,7 +208,7 @@
 	[   xmin=-0.5,xmax=15,
 	    ymin=-0.5,ymax=6,
         ]
-        \addplot[signal,orange,domain=0:15] {1+exp(0.1*x)};
+        \addplot[signalo,domain=0:15] {1+exp(0.1*x)};
         \end{axis}
         \end{tikzpicture}
     };
