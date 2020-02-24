@@ -4,6 +4,7 @@ texname=figsonly
 cat > ${texname}.tex <<EOF
 \documentclass[a4paper]{article}
 \usepackage{graphicx}
+\usepackage[a4paper,headheight=16pt]{geometry}
 \usepackage{verbatim}
 \begin{document}
 EOF
@@ -15,7 +16,7 @@ do
     
     echo "\begin{figure}[!htbp]"                 >> ${texname}.tex  
     echo "\centering"                            >> ${texname}.tex  
-    if [ $larg -gt 400 ]
+    if [ $larg -gt 300 ]
     then
         echo "larger" $larg $file
         echo "\includegraphics[width=\textwidth]{$file}"      >> ${texname}.tex
