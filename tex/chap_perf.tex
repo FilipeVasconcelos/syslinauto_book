@@ -14,12 +14,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Contexte}
+\section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Les performances qui vont nous interesser dans 
-ce chapitre sont la \textbf{précision} et la \textbf{rapidité}
+ce chapitre sont la \textbf{précision} et la \textbf{rapidité}.
+Dans les deux cas, nous allons observer que les performances
+en boucle fermée dépendent du système en boucle ouverte. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -78,7 +80,7 @@ est sollicité par l'entrée $E(p)$. La sortie $S(p)$ est alors donnée par :
 \tikzsetnextfilename{sb_bloc1-chap6-ext}
 \begin{tikzpicture}
     \sbEntree{E}
-	\sbBloc[3]{H}{$H(p)$}{E}
+    \sbBloc[3]{H}{$H(p)$}{E}
     \sbRelier[$E(p)$]{E}{H}
     \sbSortie[3]{S}{H}
     \sbRelier[$S(p)$]{H}{S}
@@ -139,13 +141,13 @@ par une boucle de contre-réaction à retour unitaire.
 \tikzsetnextfilename{sb_bloc3-chap6-ext}
 \begin{tikzpicture}
     \sbEntree{E}
-	\sbComp{comp1}{E}
-	\sbRelier[$E(p)$]{E}{comp1}
-	\sbBloc[3]{H}{$H(p)$}{comp1}
+    \sbComp{comp1}{E}
+    \sbRelier[$E(p)$]{E}{comp1}
+    \sbBloc[3]{H}{$H(p)$}{comp1}
     \sbRelier[$\epsilon(p)$]{comp1}{H}
     \sbSortie[3]{S}{H}
     \sbRelier[$S(p)$]{H}{S}
-	\sbRenvoi[4]{H-S}{comp1}{}
+    \sbRenvoi[4]{H-S}{comp1}{}
 \end{tikzpicture}
 \end{center}
 
@@ -293,13 +295,21 @@ et s'annule pour $\alpha>2$
 \subsection{Effet d'une perturbation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Cas générale}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 On considère maintenant l'effet d'une perturbation sur la précision d'un 
 système asservis. 
 
 Sans perte de généralité, on considère une perturbation 
 en entrée (c'est à dire en amont d'un système linéaire défini par une fonction 
 de transfert $H_2(p)$, la présence d'un correcteur $H_1(p)$ n'est pas 
-obligatoire mais facilite l'interprétation de 
+obligatoire mais facilite l'interprétation des résultats. 
+
+Soit le schéma-bloc suivant, présentant un système asservi par la consigne 
+$E(p)$ et soumis à une perturbation $P(p)$.
 
 \begin{center}
 \tikzsetnextfilename{reduc_mult1-chap6-ext}
@@ -307,15 +317,228 @@ obligatoire mais facilite l'interprétation de
     \cpbruni[$E(p)$]
         [$\epsilon(p)$]
         [$H_1(p)$]
-        [Correcteur]
+        [ ]
         [ ]
         [$P(p)$]
         [$H_2(p)$]
-        [Système]
+        []
         [$S(p)$]
 \end{tikzpicture}
 \end{center}
 
+On se donne les formes canoniques suivantes pour les deux fonctions de 
+transferts $H_1(p)$ et $H_2(p)$ tels que :
+\begin{align*}
+H_1(p)=\dfrac{K_1}{p^{\alpha_1}}\dfrac{N_1(p)}{D_1(p)}\\
+H_2(p)=\dfrac{K_2}{p^{\alpha_2}}\dfrac{N_2(p)}{D_2(p)}
+\end{align*}
+avec $K_i$, $\alpha_i$, $N_i(p)$ et $D_i(p)$ respectivement les gains statiques,
+la classe et les polynômes en $p$ tels que $N_i(0)=1$ et $D_i(0)=1$.
+
+Pour déterminer l'écart, il nous faut déterminer la sortie globale $S(p)$ pour
+des entrées multiples (c.f~\Cref{chap-schemabloc}-\cref{sec-multE}).
+Cette sortie est sous la forme :
+$$
+S(p)=H_{P=0}E(p)+H_{E=0}P(p)
+$$
+c'est à dire que c'est la somme des contributions des deux entrées prises
+séparemment.
+L'écart est alors donné par 
+$$
+\epsilon(p)=E(p)-S(p)=\left(1-H_{P=0}\right)E(p)-H_{E=0}P(p)
+$$
+Le premier terme correspond à l'écart de l'asservissement que nous avons 
+déjà étudié précedemment, le second terme, que l'on note $\epsilon_P(p)$, 
+est la contribution à l'écart dû à la perturbation.
+La fonction de transfert de l'asservissement est donnée par :
+$$
+H_{P=0}=\dfrac{H_1H_2(p)}{1+H_1(p)H_2(p)} 
+$$
+
+Dans le cas de la régulation d'un système asservis, il est nécessaire de 
+rejeter cette contribution.
+
+La fonction de transfert $H_{E=0}$, de la régulation, correspondant à une 
+consigne nulle, s'obtient en considérant le schéma-bloc suivant :
+
+\begin{center}                                                  
+\tikzsetnextfilename{pert1-chap6-ext}
+    \begin{tikzpicture}                                         
+        \bbr[$P(p)$][][$H_2(p)$][][$S(p)$][$H_1(p)$][][ ] 
+    \end{tikzpicture}                                           
+\end{center}                                                    
+
+\newcommand{\pau}{p^{\alpha_1}}
+\newcommand{\pad}{p^{\alpha_2}}
+en boucle fermée, on a alors:
+$$
+H_{E=0}(p)=\dfrac{H_2(p)}{1+H_1(p)H_2(p)}
+$$
+en remplaçant par leurs formes canoniques générales :
+$$
+H_{E=0}(p)=
+\dfrac{\pau K_2N_2(p)D_1(p)}{\pau\pad D_1(p)D_2(p)+K_1K_2N_1(p)N_2(p)}
+$$
+
+Examinons l'erreur en régime permanent pour une perturbation constante.
+C'est à dire pour perturbation $P(p)$ en échelon telle que 
+$P(p)=\dfrac{P_0}{p}$. L'erreur dû à la perturbation en régime permanent 
+est alors :
+\begin{align*}
+\epsilon_P&=\lim\limits_{p\to0} p\epsilon_P\\
+\epsilon_P&=\lim\limits_{p\to0} -H_{E=0}P_0\\
+\epsilon_P&=\lim\limits_{p\to0}\dfrac{\pau K_2}{\pau\pad+K_1K_2}P_0
+\end{align*}
+\textbf{La perturbation est rejétée si $\alpha_1>0$, c'est à dire s'il existe
+au moins un intégrateur en amont de la perturbation.}
+En effet si $\alpha_1=0$, l'erreur dû à la perturbation est finie et 
+donnée par :
+$$
+\epsilon_P=\lim\limits_{p\to0}\dfrac{K_2}{\pau\pad+K_1K_2}P_0
+$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Exemple de rejet de perturbation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Nous allons voir ici le rejet d'une perturbation d'un système du premier ordre. 
+On considère le système du premier ordre, en boucle ouverte, placé dans une 
+boucle de contre réaction unitaire avec un intégrateur comme ci-dessous :
+\begin{center}                           
+\tikzsetnextfilename{pert2-chap6-ext}
+    \begin{tikzpicture}                  
+    \sbEntree{E}
+    \sbComp{comp1}{E}
+    \sbRelier[$E(p)$]{E}{comp1}
+    \sbBloc[3]{C}{$\dfrac{1}{p}$}{comp1}
+    \sbRelier[$\epsilon(p)$]{comp1}{C}
+    \sbBloc[3]{H}{$\dfrac{1}{p+1}$}{C}
+    \sbRelier[]{C}{H}
+    \sbSortie[3]{S}{H}
+    \sbRelier[$S(p)$]{H}{S}
+    \sbRenvoi[4]{H-S}{comp1}{}
+    \end{tikzpicture}                    
+\end{center}                             
+On souhaite réguler ce système pour une consigne en échelon.
+D'après les résultats précédents, l'erreur statique de position est nulle 
+en asservissement puisque le système présente au moins un intégrateur. 
+Pour observer le rejet de la perturbation, nous allons considérer 
+deux positions possibles pour la perturbation (avant et après 
+l'intégrateur). On considère une perturbation constante telle 
+que $P(p)=e^{-\tau p}\dfrac{P_0}{p}$ retardée d'un temps $\tau>0$. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Si l'intégrateur est en aval de la perturbation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Dans un tel cas l'erreur dû à la perturbation est donnée par :
+$$
+\epsilon_P=\lim\limits_{p\to0}p\epsilon_P(p)=
+\lim\limits_{p\to0}\dfrac{e^{-\tau p}}{p(p+1)+1}P_0=P_0
+$$
+L'erreur statique de position totale est donc non nulle. La perturbation
+n'est pas rejétée comme on peut le voir sur la simulation de la réponse
+temporelle globale de ce système (c.f~\cref{fig-pert1}).
+\begin{figure}[!h]
+\centering
+\tikzsetnextfilename{pert1_data-chap6-ext}
+\begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        axis line style = thick,
+        width=0.45\textwidth,
+        xmin=0,
+        xmax=30,
+        ymin=0,
+        ymax=1.75,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        label style={font=\Large},
+        legend cell align={left},
+    ]%
+        \addplot[mark=none,vtb] table {scilab/pert1_data.tab};
+        \addplot[red,thick,domain=0:15] {1};   %échelon
+        \addplot[red,thick,domain=15:30] {1.5}; %pertubation
+        \addplot[red,thick,domain=-2:0] {0};
+        \draw[red,thick,dashed] (0,0)--(0,1);   %échelon
+        \draw[red,thick,dashed] (15,1)--(15,1.5);   %échelon
+    \end{axis}
+    \begin{scope}[shift={(-10,2.3)}]
+        \sbEntree{E}
+        \sbCompSum{comp1}{E}{+}{-}{+}{}
+        \sbRelier[$E(p)$]{E}{comp1}
+        \sbBloc[2.5]{C}{$\dfrac{1}{p}$}{comp1}
+        \sbRelier[$\epsilon(p)$]{comp1}{C}
+        \sbBloc[3]{H}{$\dfrac{1}{p+1}$}{C}
+        \sbRelier[]{C}{H}
+        \sbSortie[3]{S}{H}
+        \sbRelier[$S(p)$]{H}{S}
+        \sbRenvoi[4]{H-S}{comp1}{}
+        \sbDecaleNoeudy[-2.5]{comp1}{P}
+        \sbRenvoiF[-2.5]{P}{comp1}{$P(p)$}
+    \end{scope}
+\end{tikzpicture}
+\caption{Effet de la perturbation sur la réponse temporelle dans le cas
+         où l'intégrateur est en aval de la perturbation. La simulation 
+         de la réponse temporelle est obtenue pour les paramètres suivants:
+         $E_0=1$, $\tau=15$\label{fig-pert1}}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Si l'intégrateur est en amont de la perturbation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Dans un tel cas l'erreur dû à la perturbation est donnée par :
+$$
+\epsilon_P=\lim\limits_{p\to0}\dfrac{pe^{-\tau p}}{p(p+1)+1}P_0=0
+$$
+L'erreur statique de position totale est donc nulle. La perturbation
+est rejétée, comme on peut le voir sur la simulation de la réponse
+temporelle globale de ce système (c.f~\cref{fig-pert2}).
+\begin{figure}[!h]
+\centering
+\tikzsetnextfilename{pert2_data-chap6-ext}
+\begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        axis line style = thick,
+        width=0.45\textwidth,
+        xmin=0,
+        xmax=30,
+        ymin=0,
+        ymax=1.75,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        label style={font=\Large},
+        legend cell align={left},
+    ]%
+        \addplot[mark=none,vtb] table {scilab/pert2_data.tab};
+        \addplot[red,thick,domain=0:15] {1};   %échelon
+        \addplot[red,thick,domain=15:30] {1.5}; %pertubation
+        \addplot[red,thick,domain=-2:0] {0};
+        \draw[red,thick,dashed] (0,0)--(0,1);   %échelon
+        \draw[red,thick,dashed] (15,1)--(15,1.5);   %échelon
+    \end{axis}
+    \begin{scope}[shift={(-10,2.3)}]
+        \sbEntree{E1}
+        \sbComp{comp}{E1}
+        \sbRelier[$E(p)$]{E1}{comp}
+        \sbBloc[2]{C1}{$\dfrac{1}{p}$}{comp}
+        \sbRelier[$\epsilon(p)$]{comp}{C1}
+        \sbCompSum[4.0]{pert}{C1}{+}{}{+}{}
+        \sbRelier[]{C1}{pert}
+        \sbBloc[1.5]{B1}{$\dfrac{1}{p+1}$}{pert}
+        \sbRelier{pert}{B1}
+        \sbSortie[2.5]{S1}{B1}
+        \sbRelier[$S(p)$]{B1}{S1}
+        \sbRenvoi[4]{B1-S1}{comp}{}
+        \sbDecaleNoeudy[-2.5]{pert}{P}
+        \sbRenvoiF[-2.5]{P}{pert}{$P(p)$}
+    \end{scope}
+\end{tikzpicture}
+\caption{Effet de la perturbation sur la réponse temporelle dans le cas
+         où l'intégrateur est en amont de la perturbation. La simulation
+         de la réponse temporelle est obtenue pour les paramètres suivants: 
+         $E_0=1$, $\tau=15$\label{fig-pert2}}
+\end{figure}
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -323,12 +546,49 @@ obligatoire mais facilite l'interprétation de
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La rapidité est un critère important dans le contexte du contrôle des 
+systèmes dynamiques. Cette rapidité correspond à la durée que met un 
+système pour atteindre le régime permanent. Ce critère de performance 
+dépend donc directement du régime transitoire. En générale, la valeur finale 
+de la réponse d'un système est atteinte de façon asymptotique. C'est pourquoi,
+ce critère est généralement évalué relativement (en pourcentage de la valeur 
+finale). 
+Dans le cas des systèmes en boucle ouverte, nous ne rappelerons que les 
+résultats obtenues dans les chapitres précédents. 
+L'objectif principale est ici d'évaluer l'effet du bouclage sur ce critère 
+de performance.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Réponse temporelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Système du premier ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Effet du bouclage sur un système du premier ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Nous avons montré au ~\Cref{chap-asservis} que les paramètres de 
+la~\gls{ftbf} d'un système du premier ordre $(K_{BF},\tau_{BF})$ peuvent 
+être obtenues à partir des paramètres de la~\gls{ftbo}. Notamment que :
+\begin{align*}
+       K_{BF}&=\dfrac{K}{1+K}\\
+    \tau_{BF}&=\dfrac{\tau}{1+K}
+\end{align*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Système du second ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Effet du bouclage sur un système du second ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{align*}
+       K_{BF}&=\dfrac{K}{1+K}\\
+    \omega_{0,BF}&=\omega_0\sqrt{1+K}\\
+    \xi_{BF}&=\dfrac{\xi}{\sqrt{1+K}}
+\end{align*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -361,9 +621,9 @@ Une telle fonction de transfert est équivalente à deux
 systèmes du premier ordre en série.
 
 Prenons l'exemple de la fonction de transfert définie par  
-$$
-H(p)=\dfrac{5}{(p+1)(5p+1)}
-$$
+\begin{equation}
+H(p)=\dfrac{5}{(p+1)(5p+1)}\label{eq-ft-chap6}
+\end{equation}
 et de décomposition en éléments simples telle que :
 $$
 H(p)=\dfrac{A}{p+1}+\dfrac{B}{5p+1}
@@ -377,43 +637,56 @@ deux fonctions de transferts $H_1(p)$ et $H_2(p)$ tel que :
 \end{align*}
 
 Par définition, le pôle dominant est donné par $H_1(p)$.
-Pour observer son effet traçons les réponses indicielles 
-de ces trois fonctions de transfert.
+Pour observer, l'effet de chacuns des pôles, nous avons tracé 
+les réponses indicielles de ces trois fonctions de transfert
+(c.f~\cref{fig-poles_dominants})
+Nous constatons que la réponse indicielle $s_1(t)$ de la fonction
+de transfert $H_1(p)$ domine le temps de réponse de la sortie
+globale $s(t)$.
 
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{pole_dominant-chap1-ext.}
-\begin{tikzpicture}
+\centering
+    \tikzsetnextfilename{pole_dominant-chap6-ext}
+    \begin{tikzpicture}[shift={(5,0)}]
     \begin{axis}
     [   legend style={draw=none,font=\normalsize},
-        legend pos=outer north east,
+        legend pos=north west,
         axis line style = thick,
-        width=0.6\textwidth,
+        width=0.65\textwidth,
         xmin=0,
         xmax=30,
         ymin=0,
-        ymax=7,
+        ymax=8,
         xlabel={$t$},
         ylabel={$s(t)$},
         label style={font=\Large},
         legend cell align={left},
     ]%
-    \addplot[signal,black,domain=0:30] {{1}};
-    \addplot[signal,cyan,domain=0:30]  {6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
-    \addplot[signal,green,domain=0:30] {1.25*(1-exp(-x))};
-    \addplot[signal,blue,domain=0:30] {6.25*(1-exp(-x/5))};
+    \addplot[signaln,domain=0:30] {{1}};
+    \addplot[signalc,domain=0:30] {6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
+    \addplot[signalb,domain=0:30] {6.25*(1-exp(-x/5))};
+    \addplot[signalg,domain=0:30] {1.25*(1-exp(-x))};
     \legend{échelon,$s(t)$,$s_1(t)$,$s_2(t)$}
     \end{axis}%
+    \begin{scope}[shift={()}]
+        \carte[l]
+        \dpole{-2}{0}{1}[blue]
+        \dpole{-0.5}{0}{2}[blue]
+    \end{scope}
 \end{tikzpicture}
-\end{center}
-\caption{}
+\caption{Réponse indicielle $s(t)$ de la fonction de transfert donnée 
+         par~\cref{eq-ft-chap6}, ainsi que les réponses indicielles
+         $s_1(t)$ et $s_2(t)$ des fonctions de transferts de 
+         sa décomposition en éléments simples. On constate que 
+         la réponse du pôle dominant ($s_1(t)$) présente un temps de 
+         réponse proche de la réponse globale.\label{fig-poles_dominants}}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Influence du bouclage}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+En conclusion, l'étude des pôles dominants de la fonction de transfert 
+d'un système est, en première approximation, suffisante pour caractériser 
+la rapidité d'un système que se soit en boucle ouverte ou en boucle fermée.
+
+
 
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
