@@ -824,7 +824,9 @@ figure~\cref{fig-2nd_temps_reponse_2}
 %------------------------------------------------------------------------------
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{fig/fig_temps_de_reduit.eps}
+\begin{tikzpicture}
+\node at (0,0) {\includegraphics[width=\textwidth]{fig/fig_temps_de_reduit.eps}};
+\end{tikzpicture}
 \caption{Temps de réponse à 5\% réduit en fonction du taux 
          d'amortissement $\xi$. Le minimum est atteint pour $\xi\sim0.7$ 
          pour lequel $\omega_0\cdot t_{5\%}\sim3$.
@@ -832,6 +834,46 @@ figure~\cref{fig-2nd_temps_reponse_2}
 \end{figure}
 %------------------------------------------------------------------------------
 
+%------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\tikzsetnextfilename{rapidite_tr_2ndordre-chap6-ext}
+\begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        axis line style = thick,
+        width=0.65\textwidth,
+        xmin=1e-1,
+        xmax=1e1,
+        ymin=1e0,
+        ymax=1e2,
+        xlabel={$\xi$},
+        ylabel={$t_{5\%}\cdot\omega_0$},
+        label style={font=\Large},
+        legend cell align={left},
+        xmode=log,
+        ymode=log,
+        grid=both,
+        grid style={line width=.4pt, draw=black},
+        major grid style={line width=.4pt,draw=black},
+    ]%
+        \addplot[mark=none,vtb,smooth]   table {python/tr.tab};
+        \addplot[mark=none,vtr,smooth]   table {python/tm.tab};
+        \addplot[mark=none,vtn6g,smooth] table {python/tp.tab};
+    \end{axis}
+\end{tikzpicture}
+\caption{Caractérisation de la rapidité d'un système du second ordre en
+         fonction du taux d'amortissement $\xi$: par
+         (bleu) le temps de réponse à 5\%, (vert) 
+         le temps de pic $t_p$ et (rouge) le temps de montée $t_m$.
+         d'amortissement $\xi$. Ces trois temps sont donnés en unité réduite
+         par la pulsation propre $\omega_0$.
+         Le minimum du temps de réponse à 5\% est atteint pour $\xi\sim0.7$ 
+         pour lequel $\omega_0\cdot t_{5\%}\sim3$. 
+         \label{fig-2nd_temps_reponse_2}}
+\end{figure}
+%------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Effet du bouclage sur un système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
