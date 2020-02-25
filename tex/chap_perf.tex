@@ -549,10 +549,10 @@ temporelle globale de ce système (c.f~\cref{fig-pert2}).
 La rapidité est un critère important dans le contexte du contrôle des 
 systèmes dynamiques. Cette rapidité correspond à la durée que met un 
 système pour atteindre le régime permanent. Ce critère de performance 
-dépend donc directement du régime transitoire. En générale, la valeur finale 
-de la réponse d'un système est atteinte de façon asymptotique. C'est pourquoi,
-ce critère est généralement évalué relativement (en pourcentage de la valeur 
-finale). 
+dépend donc directement du transitoire de la réponse temporelle. 
+En générale, la valeur finale de la réponse d'un système est atteinte de 
+façon asymptotique. C'est pourquoi, ce critère est généralement évalué 
+relativement à la valeur finale de la réponse. 
 Dans le cas des systèmes en boucle ouverte, nous ne rappelerons que les 
 résultats obtenues dans les chapitres précédents. 
 L'objectif principale est ici d'évaluer l'effet du bouclage sur ce critère 
@@ -562,24 +562,275 @@ de performance.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Réponse temporelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Dans la pratique, on caractérise la rapidité d'une réponse temporelle par 
+l'intermédiaire de deux valeurs : $t_{5\%}$ le \textbf{temps de réponse à 5\%}
+et $t_m$ le \textbf{temps de montée}. 
+On rappel ici les définitions de ces deux temps ainsi que 
+les résultats obtenues au~\cref{chap-model} pour les systèmes modèles.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Temps de réponse à 5\% et temps de montée}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Le temps de réponse à 5\% d'un système correspond au temps mis par la réponse 
+pour atteindre 5\% de sa valeur finale $s(\infty)$. Dans le cas où la réponse 
+tend asymptotiquement en oscillant vers la valeur finale, le temps de
+réponse à 5\% correspond au temps pour lequel le signal de la réponse reste
+dans une bande à 5\% autour de la valeur finale. 
+
+\begin{figure}[!h]
+\centering
+\tikzsetnextfilename{rapidite_t5pc_1-chap6-ext}
+\begin{tikzpicture}
+    \pgfmathsetmacro{\kk}{1.75}
+    \pgfmathsetmacro{\t}{1.0}
+    \pgfmathsetmacro{\mc}{0.95*\kk}
+    \pgfmathsetmacro{\pc}{1.05*\kk}
+    \begin{axis}
+    [   axis line style = thick,
+	ticks=none,
+        width=0.45\textwidth,
+        axis x line=center,
+        axis y line=center,
+        xmin=-1,
+        xmax=6,
+        ymin=0,
+        ymax=2.25,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={above left},
+        clip=false,
+    ]
+    \addplot[signalb,domain=-1:0] {0};
+    \addplot[signalb,domain=0:6]  {\kk*(1-exp(-x/\t))};
+    \draw[dtb] (axis cs:0,\mc) -- (axis cs:6,\mc);
+    \draw[dtb] (axis cs:0,\pc) -- (axis cs:6,\pc);
+    \draw[dvtr] (axis cs:3*\t,0) node[below] {$t_{5\%}$} -- (axis cs:3*\t,\mc);
+    \node[right] at (axis cs:6,\kk) {$s(\infty)$};
+    \draw[dtb,{Latex[length=1.25mm]}-{Latex[length=1.25mm]}](axis cs:-0.25,\mc) 
+    -- node[midway,left] {$\pm5\%$} (axis cs:-0.25,\pc);
+    \draw[fill=red,red] (axis cs:3*\t,\mc) circle (1.5pt);
+    \end{axis}
+\end{tikzpicture}
+\tikzsetnextfilename{rapidite_t5pc_2-chap6-ext}
+\pgfmathdeclarefunction{func}{1}{%
+    \pgfmathparse{%
+    1-((1./sqrt(1-#1*#1))*exp(-#1*x)*
+    sin(deg(x)*sqrt(1-#1*#1)+atan(sqrt(1-#1*#1)/#1)))
+    }%
+}
+\begin{tikzpicture}
+    \pgfmathsetmacro{\kk}{1.75}
+    \pgfmathsetmacro{\xm}{10.0}
+    \pgfmathsetmacro{\ym}{1.5*\kk}
+    \pgfmathsetmacro{\mc}{0.95*\kk}
+    \pgfmathsetmacro{\pc}{1.05*\kk}
+    \pgfmathsetmacro{\a}{0.48}               % amortissement xi
+    \pgfmathsetmacro{\tr}{5.2}               % temps de réponse à 5%
+    \begin{axis}
+    [   axis line style = thick,
+        axis x line=center,
+        axis y line=center,
+	ticks=none,
+        width=0.45\textwidth,
+        xmin=-1.0,
+        xmax=\xm,
+        ymin=0,
+        ymax=2.25,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={left},
+        clip=false,
+    ]
+    \addplot[signalb,domain=-1:0] {0}                ;
+    \addplot [signalb,domain=0:\xm] {\kk*func(\a)}   ;
+    \draw[dtb] (axis cs:0,\mc) -- (axis cs:\xm,\mc)  ;
+    \draw[dtb] (axis cs:0,\pc) -- (axis cs:\xm,\pc)  ;
+    \node[right] at (axis cs:\xm,\kk) {$s(\infty)$}  ;
+    \draw[dvtr] (axis cs:\tr,0) node[below] {$t_{5\%}$} -- (axis cs:\tr,\pc);
+    \draw[dtb,{Latex[length=1.25mm]}-{Latex[length=1.25mm]}](axis cs:-0.25,\mc) 
+    -- node[midway,left] {$\pm5\%$} (axis cs:-0.25,\pc);
+    \draw[fill=red,red] (axis cs:\tr,\pc) circle (1.5pt);
+    \end{axis}
+\end{tikzpicture}
+\caption{Définition du temps de réponse à 5\% : (à gauche) dans le cas
+         d'une résonse temporelle sans pseudo-oscillations et (à droite) 
+         dans le cas d'un réponse temporelle avec pseudo-oscillations}
+\end{figure}
+
+Il apparait clair que dans le cas d'une réponse présentant des oscillations,
+le temps de réponse à 5\% va dépendre de l'amplitude et la période des 
+pseudo-oscillations. Dans le cas où l'on souhaite caractériser la rapidité
+indépendamment de ces oscillations, on utilisera le temps de montée.
+
+Le temps de montée $t_m$ est le temps mis par réponse temporelle d'un système 
+pour passer de 10\% à 90\% de la valeur finale.\footnote{Il existe une autre 
+définition du temps de montée moins courante. Pour celle-ci le temps de montée 
+correspond à la durée au bout de laquelle la réponse passe pour la première fois 
+par la valeur finale. Cependant, l'inconvénient est que pour certaine réponse 
+la valeur finale n'est jamais atteinte en un temps fini.}
+
+\begin{figure}[!h]
+\centering
+\tikzsetnextfilename{rapidite_tm_1-chap6-ext}
+\begin{tikzpicture}
+    \pgfmathsetmacro{\kk}{1.75}
+    \pgfmathsetmacro{\t}{1.5}
+    \pgfmathsetmacro{\mc}{0.10*\kk}
+    \pgfmathsetmacro{\pc}{0.90*\kk}
+    \pgfmathsetmacro{\xm}{10}
+    \pgfmathsetmacro{\tu}{0.15}  % tm = td-tu
+    \pgfmathsetmacro{\td}{3.5} 
+    \begin{axis}
+    [   axis line style = thick,
+	ticks=none,
+        width=0.45\textwidth,
+        axis x line=center,
+        axis y line=center,
+        xmin=-1,
+        xmax=\xm,
+        ymin=0,
+        ymax=2.25,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={above left},
+        clip=false,
+    ]
+    \addplot[signalb,domain=-1:0] {0};
+    \addplot[signalb,domain=0:\xm]  {\kk*(1-exp(-x/\t))};
+    \draw[dtb] (axis cs:0,\mc) node[left] {10\%}-- (axis cs:\xm,\mc);
+    \draw[dtb] (axis cs:0,\pc) node[left] {90\%}-- (axis cs:\xm,\pc);
+    \draw[dvtr] (axis cs:\tu,0) node[below] {$t_1$} -- (axis cs:\tu,\mc);
+    \draw[dvtr] (axis cs:\td,0) node[below] {$t_2$} -- (axis cs:\td,\pc);
+    \node[right] at (axis cs:\xm,\kk) {$s(\infty)$};
+    \draw[fill=red,red] (axis cs:\tu,\mc) circle (1.25pt);
+    \draw[fill=red,red] (axis cs:\td,\pc) circle (1.25pt);
+    \draw[vtr,{Latex[length=2mm]}-{Latex[length=2mm]}](axis cs:\tu,-0.4)
+    -- node[midway,below] {$t_m=t_2-t_1$} (axis cs:\td,-0.4);
+    \end{axis}
+\end{tikzpicture}
+\tikzsetnextfilename{rapidite_tm_2-chap6-ext}
+\pgfmathdeclarefunction{func}{1}{%
+    \pgfmathparse{%
+    1-((1./sqrt(1-#1*#1))*exp(-#1*x)*
+    sin(deg(x)*sqrt(1-#1*#1)+atan(sqrt(1-#1*#1)/#1)))
+    }%
+}
+\begin{tikzpicture}
+    \pgfmathsetmacro{\kk}{1.75}
+    \pgfmathsetmacro{\xm}{8.0}
+    \pgfmathsetmacro{\ym}{1.5*\kk}
+    \pgfmathsetmacro{\mc}{0.10*\kk}
+    \pgfmathsetmacro{\pc}{0.90*\kk}
+    \pgfmathsetmacro{\a}{0.45}               % amortissement xi
+    \pgfmathsetmacro{\tu}{0.51}  % tm = td-tu
+    \pgfmathsetmacro{\td}{2.05} 
+    \begin{axis}
+    [   axis line style = thick,
+        axis x line=center,
+        axis y line=center,
+	ticks=none,
+        width=0.45\textwidth,
+        xmin=-1.0,
+        xmax=\xm,
+        ymin=0,
+        ymax=2.25,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={left},
+        clip=false,
+    ]
+    \addplot[signalb,domain=-1:0] {0}                ;
+    \addplot [signalb,domain=0:\xm] {\kk*func(\a)}   ;
+    \draw[dtb] (axis cs:0,\mc) node[left] {10\%}-- (axis cs:\xm,\mc);
+    \draw[dtb] (axis cs:0,\pc) node[left] {90\%}-- (axis cs:\xm,\pc);
+    \node[right] at (axis cs:\xm,\kk) {$s(\infty)$}  ;
+    \draw[fill=red,red] (axis cs:\tu,\mc) circle (1.25pt);
+    \draw[fill=red,red] (axis cs:\td,\pc) circle (1.25pt);
+    \draw[dvtr] (axis cs:\tu,0) node[below] {$t_1$} -- (axis cs:\tu,\mc);
+    \draw[dvtr] (axis cs:\td,0) node[below] {$t_2$} -- (axis cs:\td,\pc);
+    \draw[vtr,{Latex[length=2mm]}-{Latex[length=2mm]}](axis cs:\tu,-0.4)
+    -- node[midway,below] {$t_m=t_2-t_1$} (axis cs:\td,-0.4);
+    \end{axis}
+\end{tikzpicture}
+\caption{Définition du temps de montée : (à gauche) dans le cas
+         d'une résonse temporelle sans pseudo-oscillations et (à droite) 
+         dans le cas d'un réponse temporelle avec pseudo-oscillations}
+\end{figure}
+
+Quelque soit la grandeur utilisée pour caractériser les performances de rapidité
+d'un système linéaire, on dira que \textbf{plus le temps de réponse à 5\% et le
+temps de montée $t_m$ seront faibles plus le système sera rapide.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La réponse indicielle $s(t)$, à un échelon unitaire, 
+d'un système du premier ordre est donnée par l'\cref{eq-1er_ind} 
+du~\cref{chap-model}, à savoir :
+$$
+s(t)=K\left(1-e^{-t/\tau}\right)
+$$
+Le temps de réponse à 5\% $t_{5\%}$ est tel que $s(t_{5\%})=0.95K$, 
+$$
+t_{5\%}=-\tau\log{0.05}\sim3\tau.
+$$
+
+Le temps de montée $t_m=t_2-t_1$ avec $t_1$ et $t_2$, les temps tels que :
+\begin{align*}
+    s(t_1)&=0.1K\\
+    s(t_2)&=0.9K\\
+    t_m   &=-\tau\log{\dfrac{0.1}{0.9}}\sim2.2\tau
+\end{align*}
+
+Le temps de réponse à 5\% et le temps de montée $t_m$ dépend directement
+de la constante. Ce qui permet de conclure que 
+\textbf{plus la constante de temps $\tau$ d'un système du premier
+ordre est faible plus le système est rapide.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Effet du bouclage sur un système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Nous avons montré au ~\Cref{chap-asservis} que les paramètres de 
+Nous avons montré au~\cref{chap-asservis} que les paramètres de 
 la~\gls{ftbf} d'un système du premier ordre $(K_{BF},\tau_{BF})$ peuvent 
-être obtenues à partir des paramètres de la~\gls{ftbo}. Notamment que :
+être obtenues à partir des paramètres de la~\gls{ftbo}. Notamment les relations
+suivantes :
 \begin{align*}
        K_{BF}&=\dfrac{K}{1+K}\\
     \tau_{BF}&=\dfrac{\tau}{1+K}
 \end{align*}
+
+Il est alors possible de modifier la constante de temps en boucle fermée en 
+modifiant la valeur du gain statique en boucle ouverte. Pour augmenter
+la rapidité d'un système, on augmentera le gain statique de la~\gls{ftbo} pour
+diminuer les temps de réponse et de montée.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Comme nous l'avons dejà souligné au~\cref{chap-model}, dans le cas d'un système  
+du second ordre, il n'existe pas de forme analytique simple pour déterminer 
+le temps de réponse à 5\%. Celui-ci dépend en effet de la valeur du coefficient 
+d'amortissement $\xi$ et de la pulsation propre du système $\omega_0$.
+
+Pour déterminer le temps de réponse à 5\%, on utilise l'abaque de la 
+figure~\cref{fig-2nd_temps_reponse_2}
+
+%------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{fig/fig_temps_de_reduit.eps}
+\caption{Temps de réponse à 5\% réduit en fonction du taux 
+         d'amortissement $\xi$. Le minimum est atteint pour $\xi\sim0.7$ 
+         pour lequel $\omega_0\cdot t_{5\%}\sim3$.
+	 \label{fig-2nd_temps_reponse_2}}
+\end{figure}
+%------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Effet du bouclage sur un système du second ordre}
