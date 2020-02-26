@@ -596,6 +596,17 @@ différents régimes du système du second ordre. Nous rappellons que l'étude
 de la réponse impulsionnelle revient à étudier la fonction de 
 transfert du système. 
 
+\`A l'aide du théorème de la valeur finale, 
+il est dors et déjà possible de déterminer la valeur finale de la réponse
+indicielle quelque soit le régime.
+$$
+s(\infty)=\lim\limits_{p\to 0} pS(p) = 0
+$$
+Un système du second ordre est intrinsèquement stable au vu de 
+la définition de la stabilité.
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $\xi>1$ (régime apériodique),}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -682,7 +693,7 @@ s(t)=\dfrac{K\omega_d}{1-\xi^2}e^{-\xi\omega_0 t}\sin{\omega_d t}
 \end{bequation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Réponse indicielle}
+\subsubsection{Réponse indicielle\label{subsubsec-2nd_ind}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du second ordre!réponse indicielle}
 La réponse indicielle d'un système du second ordre est, dans le domaine 
@@ -692,9 +703,16 @@ S(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}\cdot\dfrac{E_0}{p}
 $$
 où $E(p)=\dfrac{E_0}{p}$ est une entrée échelon.
 
-
 \'Etudions la forme analytique des réponses indicielles dans les différents 
 régimes du système du second ordre. 
+
+\`A l'aide du théorème de la valeur finale, 
+il est dors et déjà possible de déterminer la valeur finale de la réponse
+indicielle quelque soit le régime.
+$$
+s(\infty)=\lim\limits_{p\to 0} pS(p) = KE_0
+$$
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $\xi>1$ (régime apériodique),} 
@@ -838,6 +856,11 @@ du second ordre en régime pseudo-périodique s'écrit :
            e^{-\xi\omega_0 t}
            \sin{(\omega_d t+\phi)}\right)\label{eq-2-3_2nd} 
 \end{bequation}
+
+La valeur finale est obtenue pour 
+$$
+s(\infty)=\lim\limits_{p\to 0}pS(p)
+$$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[!t]
@@ -1084,7 +1107,30 @@ temps de réponse pour $\xi\sim 0.7$
 %------------------------------------------------------------------------------
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{fig/fig_temps_de_reduit.eps}
+\tikzsetnextfilename{rapidite_tr_2ndordre-chap3-ext}
+\begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        axis line style = thick,
+        width=0.75\textwidth,
+        xmin=1e-1,
+        xmax=1e1,
+        ymin=1e0,
+        ymax=1e2,
+        xlabel={$\xi$},
+        ylabel={$t_{5\%}\cdot\omega_0$},
+        label style={font=\Large},
+        legend cell align={left},
+        xmode=log,
+        ymode=log,
+        grid=both,
+        grid style={line width=.4pt, draw=black},
+        major grid style={line width=.4pt,draw=black},
+    ]%
+        \addplot[mark=none,vtb]   table {python/tr.tab};
+    \end{axis}
+\end{tikzpicture}
 \caption{Temps de réponse à 5\% réduit en fonction du taux 
          d'amortissement $\xi$. Le minimum est atteint pour $\xi\sim0.7$ 
          pour lequel $\omega_0\cdot t_{5\%}\sim3$.
