@@ -1,4 +1,5 @@
 import numpy as np
+import sys
 
 def second(t,w0,xi):
     a=xi**2-1
@@ -34,7 +35,7 @@ def dans_bande(v,x):
 def temps_de_reponse(xpct=5):
 
     pas_xi=0.01
-    pas_t=0.05
+    pas_t=0.01
     omega=1.0
     xis=[]
     twos=[]
@@ -48,7 +49,6 @@ def temps_de_reponse(xpct=5):
     xi=0.01
     while xi<0.6:
 #        print(xi)
-
         while dans_bande(second(t,omega,xi),xpct) :
             t-=pas_t
 
@@ -92,10 +92,18 @@ def temps_de_reponse(xpct=5):
 
     return xis,twos
 
+def status(index,tab):
+    n=len(tab)
+    period=n/8
+    pct=(index/n)*100
+    if (index % period) != 0 : return  
+    print('running : {0:04.1f}%'.format(pct))
 
 def temps_de_montee(xis,ts):
     tm=[]
+    period=0
     for xi in xis :
+        status(period,xis)
         find10=False
         find90=False
         k=0
@@ -109,56 +117,94 @@ def temps_de_montee(xis,ts):
                 find90=True
             k+=1
         tm.append(t90-t10)
+        period+=1
     return tm
+
+def temps_de_montee_vf(xis,ts):
+    tm=[]
+    period=0
+    for xi in xis :
+        status(period,xis)
+        find=False
+        k=0
+        while not find and k<len(ts) :
+            s=second(ts[k],1,xi)
+            if 1.0-s < 1e-8 :
+                t=ts[k]
+                find=True
+            k+=1
+        tm.append(t)
+        #print(xi,t)
+        period+=1
+    return tm
+
 
 def temps_de_pic(xis,ts):
     tp=[]
+    period=0
     for xi in xis :
+        status(period,xis)
         smax=-10
         k=0
         s=second(ts[k],1,xi)
-        #print(k,s,smax)
         while s >= smax and k < len(ts)-1 :
             smax = s
             k+=1
             s=second(ts[k],1,xi)
-        #    print(k,s,smax)
         tp.append(ts[k])
+        period+=1
     return tp
 
 
 if __name__=="__main__":
     
 
-    xis=np.linspace(0.1,1,10)
-    ts=np.linspace(0,100,1024)
+    xis=np.linspace(0.01,1,10)
+    ts=np.linspace(0,1000,8192)
     tracer_reponses(xis,ts)
     print("reponses temporelles : all.tab")
     
-    xim=np.linspace(0.01,10,2048)
-    ts=np.linspace(0,100,2048)
-    tm=temps_de_montee(xim,ts)
-    f=open("tm.tab","w")
-    for xi,t in zip(xim,tm):
-        f.write(str(xi)+' '+str(t)+'\n')
-    f.close()
-    print("temps de montee done : tm.tab")
+    # Temps de montée entre 10%-90%
+    if False :
+        xim=np.linspace(0.01,10,4096)
+        ts=np.linspace(0,400,4096)
+        tm=temps_de_montee(xim,ts)
+        f=open("tm.tab","w")
+        for xi,t in zip(xim,tm):
+            f.write(str(xi)+' '+str(t)+'\n')
+        f.close()
+        print("temps de montee done : tm.tab")
 
-    xip=np.linspace(0.01,1,2048)
-    ts=np.linspace(0,100,2048)
-    tp=temps_de_pic(xip,ts)
-    print("temps de pic done : tp.tab")
-    f=open("tp.tab","w")
-    for xi,t in zip(xip,tp):
-        f.write(str(xi)+' '+str(t)+'\n')
-    f.close()
+    # Temps de montée atteindre la valeur finale 
+    if True :
+        xim=np.linspace(0.01,1,4096)
+        ts=np.linspace(0,1000,8192)
+        tm=temps_de_montee_vf(xim,ts)
+        f=open("tm_vf.tab","w")
+        for xi,t in zip(xim,tm):
+            f.write(str(xi)+' '+str(t)+'\n')
+        f.close()
+        print("temps de montee (vf) done : tm_vf.tab")
 
-    xir,tr=temps_de_reponse()
-    print("temps de reponse à 5% done : tr.tab")
-    f=open("tr.tab","w")
-    for xi,t in zip(xir,tr):
-        f.write(str(xi)+' '+str(t)+'\n')
-    f.close()
+    # Temps de pic
+    if False :
+        xip=np.linspace(0.01,1,4096)
+        ts=np.linspace(0,100,4096)
+        tp=temps_de_pic(xip,ts)
+        print("temps de pic done : tp.tab")
+        f=open("tp.tab","w")
+        for xi,t in zip(xip,tp):
+            f.write(str(xi)+' '+str(t)+'\n')
+        f.close()
+
+    # Temps de reponse
+    if False :
+        xir,tr=temps_de_reponse()
+        print("temps de reponse à 5% done : tr.tab")
+        f=open("tr.tab","w")
+        for xi,t in zip(xir,tr):
+            f.write(str(xi)+' '+str(t)+'\n')
+        f.close()
 
 
 
