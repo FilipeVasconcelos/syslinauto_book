@@ -552,7 +552,7 @@ système pour atteindre le régime permanent. Ce critère de performance
 dépend donc directement du transitoire de la réponse temporelle. 
 En générale, la valeur finale de la réponse d'un système est atteinte de 
 façon asymptotique. C'est pourquoi, ce critère est généralement évalué 
-relativement à la valeur finale de la réponse. 
+relativement à la valeur finale de la réponse indicielle. 
 Dans le cas des systèmes en boucle ouverte, nous ne rappelerons que les 
 résultats obtenues dans les chapitres précédents. 
 L'objectif principale est ici d'évaluer l'effet du bouclage sur ce critère 
@@ -607,10 +607,10 @@ dans une bande à 5\% autour de la valeur finale.
     \addplot[signalb,domain=0:6]  {\kk*(1-exp(-x/\t))};
     \draw[dtb] (axis cs:0,\mc) -- (axis cs:6,\mc);
     \draw[dtb] (axis cs:0,\pc) -- (axis cs:6,\pc);
-    \draw[dvtr] (axis cs:3*\t,0) node[below] {$t_{5\%}$} -- (axis cs:3*\t,\mc);
-    \node[right] at (axis cs:6,\kk) {$s(\infty)$};
+    \draw[dvtr] (axis cs:3*\t,0) node[below] {\small $t_{5\%}$} -- (axis cs:3*\t,\mc);
+    \node[right] at (axis cs:6,\kk) {\small $s(\infty)$};
     \draw[dtb,{Latex[length=1.25mm]}-{Latex[length=1.25mm]}](axis cs:-0.25,\mc) 
-    -- node[midway,left] {$\pm5\%$} (axis cs:-0.25,\pc);
+    -- node[midway,left] {\small $\pm5\%$} (axis cs:-0.25,\pc);
     \draw[fill=red,red] (axis cs:3*\t,\mc) circle (1.5pt);
     \end{axis}
 \end{tikzpicture}
@@ -642,17 +642,17 @@ dans une bande à 5\% autour de la valeur finale.
         xlabel={$t$},
         ylabel={$s(t)$},
         xlabel style={below right},
-        ylabel style={left},
+        ylabel style={above left},
         clip=false,
     ]
     \addplot[signalb,domain=-1:0] {0}                ;
-    \addplot [signalb,domain=0:\xm] {\kk*func(\a)}   ;
+    \addplot[signalb,domain=0:\xm] {\kk*func(\a)}    ;
     \draw[dtb] (axis cs:0,\mc) -- (axis cs:\xm,\mc)  ;
     \draw[dtb] (axis cs:0,\pc) -- (axis cs:\xm,\pc)  ;
-    \node[right] at (axis cs:\xm,\kk) {$s(\infty)$}  ;
-    \draw[dvtr] (axis cs:\tr,0) node[below] {$t_{5\%}$} -- (axis cs:\tr,\pc);
+    \node[right] at (axis cs:\xm,\kk) {\small $s(\infty)$}  ;
+    \draw[dvtr] (axis cs:\tr,0) node[below] {\small $t_{5\%}$} -- (axis cs:\tr,\pc);
     \draw[dtb,{Latex[length=1.25mm]}-{Latex[length=1.25mm]}](axis cs:-0.25,\mc) 
-    -- node[midway,left] {$\pm5\%$} (axis cs:-0.25,\pc);
+    -- node[midway,left] {\small $\pm5\%$} (axis cs:-0.25,\pc);
     \draw[fill=red,red] (axis cs:\tr,\pc) circle (1.5pt);
     \end{axis}
 \end{tikzpicture}
@@ -667,11 +667,13 @@ pseudo-oscillations. Dans le cas où l'on souhaite caractériser la rapidité
 indépendamment de ces oscillations, on utilisera le temps de montée.
 
 Le temps de montée $t_m$ est le temps mis par réponse temporelle d'un système 
-pour passer de 10\% à 90\% de la valeur finale.\footnote{Il existe une autre 
-définition du temps de montée moins courante. Pour celle-ci le temps de montée 
-correspond à la durée au bout de laquelle la réponse passe pour la première fois 
-par la valeur finale. Cependant, l'inconvénient est que pour certaine réponse 
-la valeur finale n'est jamais atteinte en un temps fini.}
+pour passer de 10\% à 90\% de la valeur finale. Il existe une autre 
+définition du temps de montée. Pour celle-ci le temps de montée (que nous 
+noterons $t_{m,\infty}$ ) correspond à la durée au bout de laquelle la 
+réponse passe pour la première fois par la valeur finale. Cependant, 
+il faut remarquer que pour certaine réponse la valeur finale n'est 
+jamais atteinte en un temps fini. Cette dernière définition
+n'a donc de sens qu'en régime pseudo-périodique.
 
 \begin{figure}[!h]
 \centering
@@ -702,15 +704,15 @@ la valeur finale n'est jamais atteinte en un temps fini.}
     ]
     \addplot[signalb,domain=-1:0] {0};
     \addplot[signalb,domain=0:\xm]  {\kk*(1-exp(-x/\t))};
-    \draw[dtb] (axis cs:0,\mc) node[left] {10\%}-- (axis cs:\xm,\mc);
-    \draw[dtb] (axis cs:0,\pc) node[left] {90\%}-- (axis cs:\xm,\pc);
-    \draw[dvtr] (axis cs:\tu,0) node[below] {$t_1$} -- (axis cs:\tu,\mc);
-    \draw[dvtr] (axis cs:\td,0) node[below] {$t_2$} -- (axis cs:\td,\pc);
-    \node[right] at (axis cs:\xm,\kk) {$s(\infty)$};
+    \draw[dtb] (axis cs:0,\mc) node[left] {\small 10\%}-- (axis cs:\xm,\mc);
+    \draw[dtb] (axis cs:0,\pc) node[left] {\small 90\%}-- (axis cs:\xm,\pc);
+    \draw[dvtr] (axis cs:\tu,0) node[below] {\small $t_1$} -- (axis cs:\tu,\mc);
+    \draw[dvtr] (axis cs:\td,0) node[below] {\small $t_2$} -- (axis cs:\td,\pc);
+    \node[right] at (axis cs:\xm,\kk) {\small $s(\infty)$};
     \draw[fill=red,red] (axis cs:\tu,\mc) circle (1.25pt);
     \draw[fill=red,red] (axis cs:\td,\pc) circle (1.25pt);
     \draw[vtr,{Latex[length=2mm]}-{Latex[length=2mm]}](axis cs:\tu,-0.4)
-    -- node[midway,below] {$t_m=t_2-t_1$} (axis cs:\td,-0.4);
+    -- node[midway,below] {\small $t_m=t_2-t_1$} (axis cs:\td,-0.4);
     \end{axis}
 \end{tikzpicture}
 \tikzsetnextfilename{rapidite_tm_2-chap6-ext}
@@ -726,9 +728,10 @@ la valeur finale n'est jamais atteinte en un temps fini.}
     \pgfmathsetmacro{\ym}{1.5*\kk}
     \pgfmathsetmacro{\mc}{0.10*\kk}
     \pgfmathsetmacro{\pc}{0.90*\kk}
-    \pgfmathsetmacro{\a}{0.45}               % amortissement xi
+    \pgfmathsetmacro{\a}{0.55}               % amortissement xi
     \pgfmathsetmacro{\tu}{0.51}  % tm = td-tu
-    \pgfmathsetmacro{\td}{2.05} 
+    \pgfmathsetmacro{\td}{2.2} 
+    \pgfmathsetmacro{\tvf}{2.6} % tm,vf
     \begin{axis}
     [   axis line style = thick,
         axis x line=center,
@@ -742,18 +745,23 @@ la valeur finale n'est jamais atteinte en un temps fini.}
         xlabel={$t$},
         ylabel={$s(t)$},
         xlabel style={below right},
-        ylabel style={left},
+        ylabel style={above left},
         clip=false,
     ]
     \addplot[signalb,domain=-1:0] {0}                ;
     \addplot [signalb,domain=0:\xm] {\kk*func(\a)}   ;
-    \draw[dtb] (axis cs:0,\mc) node[left] {10\%}-- (axis cs:\xm,\mc);
-    \draw[dtb] (axis cs:0,\pc) node[left] {90\%}-- (axis cs:\xm,\pc);
-    \node[right] at (axis cs:\xm,\kk) {$s(\infty)$}  ;
+    \draw[dtb] (axis cs:0,\mc) node[left] {\small 10\%}-- (axis cs:\xm,\mc); % 10%
+    \draw[dtb] (axis cs:0,\pc) node[left] {\small 90\%}-- (axis cs:\xm,\pc); % 90%
+    \draw[dtn] (axis cs:0,\kk) -- (axis cs:\xm,\kk);                  % vf
+    \node[right] at (axis cs:\xm,\kk) {\small $s(\infty)$}  ;
     \draw[fill=red,red] (axis cs:\tu,\mc) circle (1.25pt);
     \draw[fill=red,red] (axis cs:\td,\pc) circle (1.25pt);
-    \draw[dvtr] (axis cs:\tu,0) node[below] {$t_1$} -- (axis cs:\tu,\mc);
-    \draw[dvtr] (axis cs:\td,0) node[below] {$t_2$} -- (axis cs:\td,\pc);
+    \draw[fill=black]   (axis cs:\tvf,\kk) circle (1.25pt);
+    \draw[dvtr] (axis cs:\tu,0) node[below] {\small$t_1$} -- (axis cs:\tu,\mc);
+    \draw[dvtr] (axis cs:\td,0) node[below,xshift=-0.5em] {\small$t_2$} 
+        -- (axis cs:\td,\pc);
+        \draw[dvtn] (axis cs:\tvf,0)node[below,xshift=0.75em]  {\small$t_{m,\infty}$} 
+        -- (axis cs:\tvf,\kk);
     \draw[vtr,{Latex[length=2mm]}-{Latex[length=2mm]}](axis cs:\tu,-0.4)
     -- node[midway,below] {$t_m=t_2-t_1$} (axis cs:\td,-0.4);
     \end{axis}
@@ -788,8 +796,8 @@ Le temps de montée $t_m=t_2-t_1$ avec $t_1$ et $t_2$, les temps tels que :
     t_m   &=-\tau\log{\dfrac{0.1}{0.9}}\sim2.2\tau
 \end{align*}
 
-Le temps de réponse à 5\% et le temps de montée $t_m$ dépend directement
-de la constante. Ce qui permet de conclure que 
+Le temps de réponse à 5\% et le temps de montée $t_m$ dépendent 
+directement de la constante. Ce qui permet de conclure que 
 \textbf{plus la constante de temps $\tau$ d'un système du premier
 ordre est faible plus le système est rapide.}
 
@@ -817,22 +825,23 @@ Comme nous l'avons dejà souligné au~\cref{chap-model}, dans le cas d'un systè
 du second ordre, il n'existe pas de forme analytique simple pour déterminer 
 le temps de réponse à 5\%. Celui-ci dépend en effet de la valeur du coefficient 
 d'amortissement $\xi$ et de la pulsation propre du système $\omega_0$.
+Il est cependant possible de tracer les relations entre les temps de réponse
+à 5\%, le temps de montée (les deux définitions 
 
 Pour déterminer le temps de réponse à 5\%, on utilise l'abaque de la 
-figure~\cref{fig-2nd_temps_reponse_2}
+figure~\cref{fig-2nd_temps_reponse_2}. Sur cette figure nous avons représenté
+le temps de réponse à 5\% et le temps de montée réduits par rapport à la
+pulsation propre $\omega_0$. \textbf{En effet pour un même coefficient 
+d'amortissement, plus la pulsation propre augmente plus le temps de réponse 
+diminue, donc plus le système est rapide.}
 
-%------------------------------------------------------------------------------
-%\begin{figure}
-%\centering
-%\begin{tikzpicture}
-%\node at (0,0) {\includegraphics[width=\textwidth]{fig/fig_temps_de_reduit.eps}};
-%\end{tikzpicture}
-%\caption{Temps de réponse à 5\% réduit en fonction du taux 
-%         d'amortissement $\xi$. Le minimum est atteint pour $\xi\sim0.7$ 
-%         pour lequel $\omega_0\cdot t_{5\%}\sim3$.
-%	 \label{fig-2nd_temps_reponse_2}}
-%\end{figure}
-%------------------------------------------------------------------------------
+Nous pouvons relever sur ces abaques les coefficients d'amortissement donnant
+lieu au système le plus rapide selon le régime du second ordre accepté.
+Dans le cas où les dépassements ne sont pas autorisés (c.a.d régime 
+apériodique ($\xi>1$)), le système est le plus rapide pour 
+$t_{5\%}\cdot\omega_0\sim5$. Dans le cas où un dépassement relatif est 
+autorisé, la temps de réponse minimal est obtenu pour $\xi\sim 0.7$ soit
+pour $t_{5\%}\cdot\omega_0\sim3$.
 
 %------------------------------------------------------------------------------
 \begin{figure}
@@ -843,7 +852,7 @@ figure~\cref{fig-2nd_temps_reponse_2}
     [   legend style={draw=none,font=\normalsize},
         legend pos=outer north east,
         axis line style = thick,
-        width=0.75\textwidth,
+        width=0.7001\textwidth,
         xmin=1e-1,
         xmax=1e1,
         ymin=1e0,
@@ -858,30 +867,143 @@ figure~\cref{fig-2nd_temps_reponse_2}
         grid style={line width=.4pt, draw=black},
         major grid style={line width=.4pt,draw=black},
     ]%
-        \addplot[mark=none,vtb,smooth]   table {python/tr.tab};
-        \addplot[mark=none,vtr,smooth]   table {python/tm.tab};
-        \addplot[mark=none,vtn6g,smooth] table {python/tp.tab};
+        \addplot[mark=none,vtb]   table {python/tr.tab};
+        \addplot[mark=none,vtr]   table {python/tm.tab};
+%        \addplot[mark=none,vtn6g] table {python/tp.tab}; % temps de pic
+%        \addplot[mark=none,vtn6g] table {python/tm_vf.tab};
+        \addplot[dutn,domain=0.1:1] {3/x};
     \end{axis}
 \end{tikzpicture}
 \caption{Caractérisation de la rapidité d'un système du second ordre en
          fonction du taux d'amortissement $\xi$: par
-         (bleu) le temps de réponse à 5\%, (vert) 
-         le temps de pic $t_p$ et (rouge) le temps de montée $t_m$.
-         d'amortissement $\xi$. Ces trois temps sont donnés en unité réduite
+         (bleu) le temps de réponse à 5\%,  
+         (rouge) le temps de montée $t_m$.
+         d'amortissement $\xi$ et (vert) le temps de montée à la valeur 
+         finale $t_{m,\infty}$. 
+         Ces trois temps sont donnés en unité réduite
          par la pulsation propre $\omega_0$.
          Le minimum du temps de réponse à 5\% est atteint pour $\xi\sim0.7$ 
-         pour lequel $\omega_0\cdot t_{5\%}\sim3$. 
+         pour lequel $\omega_0\cdot t_{5\%}\sim3$.
+         Le droite en pointillé représente l'équation approchée 
+         $t_{5\%}\cdot\omega_0\sim\dfrac{3}{\xi}$ pour les faibles valeurs de 
+         $\xi$.
          \label{fig-2nd_temps_reponse_2}}
 \end{figure}
 %------------------------------------------------------------------------------
+
+Il est possible de déterminer une relation analytique pour le temps
+de montée à la valeur finale $t_{m,\infty}$. Rappelons quelques résultats obtenus
+pour la réponse indicielle d'un système du second ordre en régime 
+pseudo-périodique (c.f~\Cref{chap-model}\cref{subsubsec-2nd_ind}) :
+\begin{itemize}
+\item La fonction de transfert d'un système du second ordre est donnée
+par:
+$$
+H(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}
+$$
+\item La réponse indicielle pour échelon unitaire tend vers le gain statique $K$ 
+\item La réponse indicielle pour une échelon unitaire et en régime 
+      pseudo-périodique est donnée par : 
+$$
+    s(t) = K \left( 1 - 
+           \dfrac{1}{\sqrt{1-\xi^2}} 
+           e^{-\xi\omega_0 t}
+           \sin{(\omega_d t+\phi)}\right)\label{eq-2-3_2nd} 
+$$
+\end{itemize}
+Le temps de montée à la valeur finale $t_{m,\infty}$ est tel que, 
+$$
+s(t_{m,\infty})=K
+$$
+ou encore  
+$$
+\dfrac{1}{\sqrt{1-\xi^2}}e^{-\xi\omega_0 t_{m,\infty}}\sin{(\omega_d t_{m,\infty}+\phi)}=0
+$$
+Cette expression est nulle que si $\sin{(\omega_d t_{m,\infty}+\phi)}=0$.
+On obtient alors :
+$$
+t_{m,\infty}=\dfrac{\pi-\phi}{\omega_d}
+$$
+
+%------------------------------------------------------------------------------
+\begin{figure}
+\centering
+\tikzsetnextfilename{rapidite_tr_2ndordre_2-chap6-ext}
+\pgfmathdeclarefunction{func2}{1}{%
+    \pgfmathparse{%
+        (3.14159265-rad(atan(sqrt(1-#1*#1)/#1)))/sqrt(1-#1*#1)
+    }%
+}
+\begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        axis line style = thick,
+        width=0.7\textwidth,
+        xmin=1e-1,
+        xmax=1e1,
+        ymin=1e0,
+        ymax=1e2,
+        xlabel={$\xi$},
+        ylabel={$t_{5\%}\cdot\omega_0$},
+        label style={font=\Large},
+        legend cell align={left},
+        xmode=log,
+        ymode=log,
+        grid=both,
+        grid style={line width=.4pt, draw=black},
+        major grid style={line width=.4pt,draw=black},
+    ]%
+        \addplot[mark=none,vtb]   table {python/tr.tab};
+        \addplot[vtr,domain=0.1:1,samples=500]   {func2(x)};
+    \end{axis}
+\end{tikzpicture}
+\caption{Caractérisation de la rapidité d'un système du second ordre en
+         fonction du taux d'amortissement $\xi$: par
+         (bleu) le temps de réponse à 5\%,  
+         (rouge) le temps de montée $t_m$.
+         d'amortissement $\xi$ et (vert) le temps de montée à la valeur 
+         finale $t_{m,\infty}$. 
+         Ces trois temps sont donnés en unité réduite
+         par la pulsation propre $\omega_0$.
+         Le minimum du temps de réponse à 5\% est atteint pour $\xi\sim0.7$ 
+         pour lequel $\omega_0\cdot t_{5\%}\sim3$.
+         Le droite en pointillé représente l'équation approchée 
+         $t_{5\%}\cdot\omega_0\sim\dfrac{3}{\xi}$ pour les faibles valeurs de 
+         $\xi$.
+         \label{fig-2nd_temps_reponse_2}}
+\end{figure}
+%------------------------------------------------------------------------------
+
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Effet du bouclage sur un système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+À l'instar des systèmes du premier ordre, nous avons montré 
+au~\cref{chap-asservis} que les paramètres de la~\gls{ftbf} d'un système 
+du second ordre $(K_{BF},\xi_{BF},\omega_{0,BF})$ peuvent 
+être obtenues à partir des paramètres de la~\gls{ftbo}. Notamment les relations
+suivantes :
 \begin{align*}
        K_{BF}&=\dfrac{K}{1+K}\\
     \omega_{0,BF}&=\omega_0\sqrt{1+K}\\
     \xi_{BF}&=\dfrac{\xi}{\sqrt{1+K}}
 \end{align*}
+En s'appuyant sur l'abaque discuté precedemment, il est possible 
+de modifier les performances de rapidité de la boucle fermée en modifiant 
+le gain de la boucle ouverte, notamment il est possible de rendre un 
+système plus rapide en boucle fermée,
+\textbf{
+\begin{itemize}
+    \item en augmentant la valeur de la pulsation propre du système 
+          par l'intermédiaire du gain $K$ de la~\gls{ftbo}.
+    \item en diminuant coefficient d'amortissement $\xi_{BF}$ pour 
+          $\xi_{BF}>0.7$
+\end{itemize}
+}
+
+Il est possible de déterminer une valeur 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
