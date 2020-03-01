@@ -294,12 +294,20 @@ et s'annule pour $\alpha>2$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On considère maintenant l'effet d'une perturbation sur la précision d'un 
-système asservis. 
-
-Sans perte de généralité, on considère une perturbation 
+système asservis.
+Sans perte de généralité, on ne considèrera que le cas d'une perturbation 
 en entrée (c'est à dire en amont d'un système linéaire défini par une fonction 
 de transfert $H_2(p)$, la présence d'un correcteur $H_1(p)$ n'est pas 
-obligatoire mais facilite l'interprétation de 
+obligatoire mais facilite l'interprétation des résultats.
+
+Considérons le schéma bloc suivant avec les fonctions de transfert $H_1(p)$ 
+et $H_2(p)$ de forme canonique :
+\begin{align*}
+    H_1(p)=\dfrac{K_1}{p^{\alpha_1}}\dfrac{N_1(p)}{D_1(p)} \\
+    H_2(p)=\dfrac{K_2}{p^{\alpha_2}}\dfrac{N_2(p)}{D_2(p)}
+\end{align*}
+de les gains statiques $K_i$, de classe $\alpha_i$, de polynômes $N_i(p)$
+et $D_i(p)$ tels que $N_i(0)=$ et $D_i(0)=0$.
 
 \begin{center}
 \tikzsetnextfilename{reduc_mult1-chap6-ext}
@@ -307,14 +315,18 @@ obligatoire mais facilite l'interprétation de
     \cpbruni[$E(p)$]
         [$\epsilon(p)$]
         [$H_1(p)$]
-        [Correcteur]
+        []
         [ ]
         [$P(p)$]
         [$H_2(p)$]
-        [Système]
+        []
         [$S(p)$]
 \end{tikzpicture}
 \end{center}
+
+Pour déterminer l'écart à la consigne d'un tel système, il faut déterminer
+la sortie globale du système asservis à deux entrées 
+(c.f~\cref{chap_bloc}~\cref{sec-bloc_multE}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
