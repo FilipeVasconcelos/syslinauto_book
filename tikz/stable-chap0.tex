@@ -16,8 +16,8 @@
         xlabel style={below right},
         ylabel style={above left},
 	]
-	\addplot[signal,domain=-2:0]      {0};
-	\addplot[signal,blue,domain=0:10] {sin(3*deg(x))*exp(-x)+1};
+	\addplot[signalb,domain=-2:0] {0};
+	\addplot[signalb,domain=0:10] {sin(3*deg(x))*exp(-x)+1};
 	\draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1);
 	\end{axis}
 \end{tikzpicture}

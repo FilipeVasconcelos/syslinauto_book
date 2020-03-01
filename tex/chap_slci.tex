@@ -119,7 +119,7 @@ dépendants du temps et $\Sigma$ est le système traitant l'entrée $e(t)$ et
 élaborant la sortie $s(t)$ délimité par un bloc. 
 Cette représentation, dite en \textbf{bloc} ou 
 \textbf{schema-bloc}, sera généralisée au~\cref{chap-schemabloc}.
-
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Système à temps continu}
@@ -1611,66 +1611,58 @@ La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Notion de pôles dominants}
+%\subsection{Notion de pôles dominants}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Soient $p_1,\ldots,p_n$ les pôles d'un système stable\footnote{À partir 
-des résultats obtenus dans ce chapitre il est déjà clair que la stabilité
-d'un système dépend également des pôles de sa fonction de transfert}.
-Le pôle $p_i$ est dit dominant si la valeur absolue
-de sa partie réelle est largement plus petite que celle de tout autre pôles 
-du système\footnote{Dans la pratique un rapport de 5 est 
-suffisant pour considérer une domination d'un pôle sur les autres}
-\begin{bequation}[ams align]
-	\big|\Re{p_i}\big| \ll \big|\Re{p_j}\big|\;\; \forall j\neq i
-\end{bequation}
+%Soient $p_1,\ldots,p_n$ les pôles d'un système stable\footnote{À partir 
+%des résultats obtenus dans ce chapitre il est déjà clair que la stabilité
+%d'un système dépend également des pôles de sa fonction de transfert}.
+%Le pôle $p_i$ est dit dominant si la valeur absolue
+%de sa partie réelle est largement plus petite que celle de tout autre pôles 
+%du système\footnote{Dans la pratique un rapport de 5 est 
+%suffisant pour considérer une domination d'un pôle sur les autres}
+%\begin{bequation}[ams align]
+%	\big|\Re{p_i}\big| \ll \big|\Re{p_j}\big|\;\; \forall j\neq i
+%\end{bequation}
 
-Pour observer l'influence d'un pôle dominant sur 
-la réponse temporelle d'un système linéaire, nous
-nous allons l'illustrer par l'étude d'une fonction 
-de transfert du second ordre en régime apériodique.
-Une telle fonction de transfert est équivalente à deux
-systèmes du premier ordre en série.
+%Pour observer l'influence d'un pôle dominant sur 
+%la réponse temporelle d'un système linéaire, nous
+%nous allons l'illustrer par l'étude d'une fonction 
+%de transfert du second ordre en régime apériodique.
+%Une telle fonction de transfert est équivalente à deux
+%systèmes du premier ordre en série.
 
-Prenons l'exemple de la fonction de transfert définie par  
-$$
-H(p)=\dfrac{5}{(p+1)(5p+1)}
-$$
-et de décomposition en éléments simples telle que :
-$$
-H(p)=\dfrac{A}{p+1}+\dfrac{B}{5p+1}
-$$
-Par identification on peut écrire $H(p)$ en fonction de
-deux fonctions de transferts $H_1(p)$ et $H_2(p)$ tel que :
-\begin{align*}
-	H(p)&=H_1(p)-H_2(p)\\
-	H_1(p)&=\dfrac{6.25}{5p+1}\\
-	H_2(p)&=\dfrac{1.25}{p+1}
-\end{align*}
+%Prenons l'exemple de la fonction de transfert définie par  
+%$$
+%H(p)=\dfrac{5}{(p+1)(5p+1)}
+%$$
+%et de décomposition en éléments simples telle que :
+%$$
+%H(p)=\dfrac{A}{p+1}+\dfrac{B}{5p+1}
+%$$
+%Par identification on peut écrire $H(p)$ en fonction de
+%deux fonctions de transferts $H_1(p)$ et $H_2(p)$ tel que :
+%\begin{align*}
+%	H(p)&=H_1(p)-H_2(p)\\
+%	H_1(p)&=\dfrac{6.25}{5p+1}\\
+%	H_2(p)&=\dfrac{1.25}{p+1}
+%\end{align*}
 
-Par définition, le pôle dominant est donné par $H_1(p)$.
-Pour observer son effet traçons les réponses indicielles 
-de ces trois fonctions de transfert.
-
-% ------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{pole_dominant-chap1-ext}
-    \input{tikz/pole_dominant-chap1.tex}
-    \caption{}
-\end{figure}
-% ------------------------------------------------------------------------------
+%Par définition, le pôle dominant est donné par $H_1(p)$.
+%Pour observer son effet traçons les réponses indicielles 
+%de ces trois fonctions de transfert.
 
 % ------------------------------------------------------------------------------
-\begin{center}
-\tikzsetnextfilename{carte2-chap1-ext}
-\begin{tikzpicture}[scale=1.2]
-    \carte[l]
-    \dpole{-2}{0}{1}[blue]
-    \dpole{-0.5}{0}{2}[blue]
-\end{tikzpicture}
-\end{center}
+%\begin{figure}[!h]
+%    \centering
+%    \tikzsetnextfilename{pole_dominant-chap1-ext}
+%    \input{tikz/pole_dominant-chap1.tex}
+%    \caption{}
+%\end{figure}
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
 % ------------------------------------------------------------------------------
 
 

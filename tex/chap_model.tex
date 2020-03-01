@@ -112,7 +112,7 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous allons maintenant établir les réponses temporelles d'un système 
-du premier ordre aux signaux usuels présentés au chapitre~\cref{chap_slci}.
+du premier ordre aux signaux usuels présentés au chapitre~\cref{chap-slci}.
 
 %------------------------------------------------------------------------------
 \begin{figure}[!t]
@@ -596,6 +596,17 @@ différents régimes du système du second ordre. Nous rappellons que l'étude
 de la réponse impulsionnelle revient à étudier la fonction de 
 transfert du système. 
 
+\`A l'aide du théorème de la valeur finale, 
+il est dors et déjà possible de déterminer la valeur finale de la réponse
+indicielle quelque soit le régime.
+$$
+s(\infty)=\lim\limits_{p\to 0} pS(p) = 0
+$$
+Un système du second ordre est intrinsèquement stable au vu de 
+la définition de la stabilité.
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $\xi>1$ (régime apériodique),}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -682,7 +693,7 @@ s(t)=\dfrac{K\omega_d}{1-\xi^2}e^{-\xi\omega_0 t}\sin{\omega_d t}
 \end{bequation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Réponse indicielle}
+\subsubsection{Réponse indicielle\label{subsubsec-2nd_ind}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du second ordre!réponse indicielle}
 La réponse indicielle d'un système du second ordre est, dans le domaine 
@@ -692,9 +703,16 @@ S(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}\cdot\dfrac{E_0}{p}
 $$
 où $E(p)=\dfrac{E_0}{p}$ est une entrée échelon.
 
-
 \'Etudions la forme analytique des réponses indicielles dans les différents 
 régimes du système du second ordre. 
+
+\`A l'aide du théorème de la valeur finale, 
+il est dors et déjà possible de déterminer la valeur finale de la réponse
+indicielle quelque soit le régime.
+$$
+s(\infty)=\lim\limits_{p\to 0} pS(p) = KE_0
+$$
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $\xi>1$ (régime apériodique),} 
@@ -839,6 +857,11 @@ du second ordre en régime pseudo-périodique s'écrit :
            \sin{(\omega_d t+\phi)}\right)\label{eq-2-3_2nd} 
 \end{bequation}
 
+La valeur finale est obtenue pour 
+$$
+s(\infty)=\lim\limits_{p\to 0}pS(p)
+$$
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[!t]
 \begin{center}
@@ -913,7 +936,7 @@ il nous faut d'abord déterminer le temps du premier maximum $t_1$.
         \pgfmathsetmacro{\a}{0.2}                    % amortissement xi
         \pgfmathsetmacro{\b}{0.96}                   % 1-xi^2 
         \pgfmathsetmacro{\w}{0.979795897113}         % w_d=w_0 sqrt(1-xi^2)
-        \pgfmathsetmacro{\p}{1.369438406}            % phi =arctan(xi/1-xi^2)
+        \pgfmathsetmacro{\p}{deg(1.369438406)}       % phi =arctan(xi/1-xi^2)
         \pgfmathsetmacro{\tu}{3.206374575405548}     % t1 = 
         \pgfmathsetmacro{\td}{6.4127491508093204}    % t2 = 2*t1
         \pgfmathsetmacro{\ttt}{9.619123726213981}    % t3 = 3*t1
@@ -927,7 +950,6 @@ il nous faut d'abord déterminer le temps du premier maximum $t_1$.
         %>>> 1-np.exp(-2*0.2*np.pi/np.sqrt((1-0.2*0.2)))+1
         %>>> 1+np.exp(-3*0.2*np.pi/np.sqrt((1-0.2*0.2)))+1
         %>>> 1-np.exp(-4*0.2*np.pi/np.sqrt((1-0.2*0.2)))+1
-
     \begin{axis}
     [   axis line style = thick,
         axis x line=center,
@@ -945,14 +967,14 @@ il nous faut d'abord déterminer le temps du premier maximum $t_1$.
         yticklabels={0,$KE_0$,$2KE_0$},
         ytick={0.001,1,2}
     ]
-    \addplot[signalb,domain=0:20] {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
+    \addplot[signalb,domain=0:20] {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+\p))};
     \addplot[envelop,domain=0:20] {1+exp(-\a*x)};
     \addplot[envelop,domain=0:20] {1-exp(-\a*x)};
     \addplot[thick,domain=0:20]   {1};
-    \draw[utred]   (axis cs:\tu,1)  -- (axis cs:\tu,\du)  node[above] {$D_1$};
-    \draw[utblue]  (axis cs:\td,1)  -- (axis cs:\td,\dd)  node[below] {$D_2$};
-    \draw[utgreen] (axis cs:\ttt,1) -- (axis cs:\ttt,\dt) node[above] {$D_3$};
-    \draw[utblack] (axis cs:\tq,1)  -- (axis cs:\tq,\dq)  node[below] {$D_4$};
+    \draw[utr] (axis cs:\tu,1)  -- (axis cs:\tu,\du)  node[above] {$D_1$};
+    \draw[utb] (axis cs:\td,1)  -- (axis cs:\td,\dd)  node[below] {$D_2$};
+    \draw[utg] (axis cs:\ttt,1) -- (axis cs:\ttt,\dt) node[above] {$D_3$};
+    \draw[utn] (axis cs:\tq,1)  -- (axis cs:\tq,\dq)  node[below] {$D_4$};
     \draw(axis cs:\tu,0) -- (axis cs:\tu,0.1);
     \draw(axis cs:\td,0) -- (axis cs:\td,0.1);
     \end{axis}
@@ -1041,7 +1063,7 @@ temps de réponse pour $\xi\sim 0.7$
     \pgfmathsetmacro{\a}{0.2}             % amortissement xi
     \pgfmathsetmacro{\b}{0.96}            % 1-xi^2 
     \pgfmathsetmacro{\w}{0.979795897113}  % w_d=w_0 sqrt(1-xi^2)
-    \pgfmathsetmacro{\p}{1.369438406}     % phi =arctan(xi/1-xi^2)
+        \pgfmathsetmacro{\p}{deg(1.369438406)}     % phi =arctan(xi/1-xi^2)
     \begin{axis}
     [   axis line style = thick,
         axis x line=center,
@@ -1059,7 +1081,7 @@ temps de réponse pour $\xi\sim 0.7$
         yticklabels={0,$KE_0$,2},
         ytick={0.001,1,2}
     ]
-    \addplot [signalb,domain=0:20] {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
+    \addplot [signalb,domain=0:20] {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+\p))};
     \addplot [thick,domain=0:20]   {1};
     \addplot [envelop,domain=0:20] {1.05};
     \addplot [envelop,domain=0:20] {0.95};
@@ -1067,8 +1089,8 @@ temps de réponse pour $\xi\sim 0.7$
     \def\a{0.5}
     \def\b{0.75}
     \def\w{0.866025403784}
-    \def\p{1.0471975512}
-    \addplot[signalr,domain=0:20] {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
+    \def\p{deg(1.0471975512)}
+    \addplot[signalr,domain=0:20] {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+\p))};
     \draw[blue,thick] (axis cs:13.74,0) -- (axis cs:13.74,2);
     \draw[red,thick]  (axis cs:5.29,0) -- (axis cs:5.29,2);
     \end{axis}
@@ -1085,7 +1107,30 @@ temps de réponse pour $\xi\sim 0.7$
 %------------------------------------------------------------------------------
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{fig/fig_temps_de_reduit.eps}
+\tikzsetnextfilename{rapidite_tr_2ndordre-chap3-ext}
+\begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        axis line style = thick,
+        width=0.75\textwidth,
+        xmin=1e-1,
+        xmax=1e1,
+        ymin=1e0,
+        ymax=1e2,
+        xlabel={$\xi$},
+        ylabel={$t_{5\%}\cdot\omega_0$},
+        label style={font=\Large},
+        legend cell align={left},
+        xmode=log,
+        ymode=log,
+        grid=both,
+        grid style={line width=.4pt, draw=black},
+        major grid style={line width=.4pt,draw=black},
+    ]%
+        \addplot[mark=none,vtb]   table {python/tr.tab};
+    \end{axis}
+\end{tikzpicture}
 \caption{Temps de réponse à 5\% réduit en fonction du taux 
          d'amortissement $\xi$. Le minimum est atteint pour $\xi\sim0.7$ 
          pour lequel $\omega_0\cdot t_{5\%}\sim3$.
@@ -1347,17 +1392,14 @@ de Laplace, donnée par
 $$
 S(p)=\dfrac{KE_0}{p^2+\omega_o^2}
 $$
-La réponse dans le domaine temporelle est donnée par :
+La réponse dans le domaine temporel est donnée par :
 $$
 s(t)=\laplace{S(p)}=\dfrac{KE_0}{\omega_0}\sin{\omega_0t}
 $$
-Ce qui correspond bien à l'oscillation incessante d'un oscillateur que l'on a 
-déplacé de son état d'équilibre.
+Ce qui correspond bien à l'oscillation incessante d'un oscillateur non amortie
+que l'on a déplacé de son état d'équilibre.
 
 \newpage
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1365,22 +1407,16 @@ déplacé de son état d'équilibre.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-Dans cette partie, nous allons présenter des modèles théoriques particuliers 
-qui physiquement ne se retrouveront jamais seuls. Cependant ils compléteront 
-les modèles du premier et second ordre discutés précedemment.
-
-
+%Dans cette partie, nous allons présenter des modèles théoriques particuliers 
+%qui physiquement ne se retrouveront jamais seuls. Cependant, nous aurons
+%la possibilité de les rencontrer conjointement avec les modèles du premier 
+%et du second ordre.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Gain pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \index{Gain pur}
 Dans le cas où l'équation différentielle\footnote{Bien évidemment 
 dans ce cas présent, l'équation différentielle est d'ordre 0. Ce qui est 
@@ -1389,11 +1425,9 @@ est de la forme :
 $$
 s(t)=Ke(t)
 $$
-avec $K$ un gain pur. Autrement dit, la sortie est proportionnelle à l'entrée 
-et de même nature.
-En effet, la réponse temporelle est trivialement donné par la définition 
-même du modèle, il est cependant possible de définir une fonction
-de transfert qui s'écrit :
+où $K$ est un constante. On a faire à un système dit à gain pur. 
+Autrement dit, la sortie est proportionnelle à l'entrée et de même nature.
+La fonction de transfert d'un tel système s'écrit :
 \begin{bequation}[ams align]
 H(p)=\dfrac{S(p)}{E(p)}=K
 \end{bequation}
@@ -1414,8 +1448,6 @@ $$
 \subsection{Intégrateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \index{Intégrateur pur}
 Dans le cas où l'équation différentielle régissant le système est de la forme :
 $$
@@ -1486,7 +1518,6 @@ $$
 %         \label{fig-integ}}
 %\end{figure}
 %------------------------------------------------------------------------------
-
 Autrement dit, le système est \textbf{instable}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1494,7 +1525,6 @@ Autrement dit, le système est \textbf{instable}.
 \subsection{Dérivateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \index{Dérivateur pur}
 Dans le cas où l'équation différentielle régissant le système est de la forme :
 $$
@@ -1514,29 +1544,23 @@ $$
 s(t)=K\delta(t)
 $$
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Retard pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \index{Retard pur}
-Un système retard est régit par l'équation différentielle :
+Un système régit par l'équation différentielle :
 $$
 s(t)=e(t-\tau)
 $$
-Sa fonction de transfert est donc de la forme :
+est dit à retard pur et sa fonction de transfert est de la forme :
 \begin{bequation}[ams align]
 H(p)=\dfrac{S(p)}{E(p)}=Ke^{-\tau p}
 \end{bequation}
-Les réponses temporelles sont donc de mêmes natures que leurs solliciations, 
-elles sont simplement retardés de $\tau$.
-
+Les réponses temporelles sont donc de mêmes natures que 
+leurs solliciations, elles sont simplement retardés de $\tau$.
 \newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1544,11 +1568,9 @@ elles sont simplement retardés de $\tau$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Nous venons d'analyser un grand nombre de systèmes d'ordre $n<2$. 
+Nous venons d'analyser un grand nombre de systèmes modèles d'ordre $n<2$. 
 Nous allons ici généraliser l'approche pour l'étude de ssystèmes d'ordre 
 supérieur à deux.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Systèmes d'ordre supérieur à 2}
@@ -1661,7 +1683,6 @@ de chacunes des performances attendues par non système asservis.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
