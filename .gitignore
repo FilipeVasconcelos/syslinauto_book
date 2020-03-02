@@ -36,9 +36,11 @@ figtikz/*-ext*.eps
 figtikz/*.md5
 figtikz/*.dpth
 figtikz/*.gz
+figtikz
 test/*
 sma_auto.pdf_save
 sma_auto.pdf
 figsonly.tex
 an.py
 test.tex
+beamer/c13

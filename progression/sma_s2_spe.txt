@@ -73,12 +73,12 @@
                 - erreur indicielle
                 - erreur de poursuite
                 - erreur en accélération 
-            - Discuter du rejet de la perturbation (en TD)
+            - Discuter du rejet de la perturbation (exercice TD) 
  ------------------------------------------------------------------------------
   TD 11 (à faire) 
  ------------------------------------------------------------------------------
             - Exercice sur le calcul de précision
-            - Un cas avec perturbations
+            - Un cas avec perturbation
  ==============================================================================
   Semaine 4  (02 Mar 2020) 
  ==============================================================================

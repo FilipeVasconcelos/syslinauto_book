@@ -15,9 +15,9 @@
         xlabel style={below right},
         ylabel style={above left}
     ]
-    \addplot [signal,domain=-2:0] {0};
-    \addplot [signal,domain=0:2 ] {2};
-    \addplot [signal,domain=2:5 ] {0};
+    \addplot [signalb,domain=-2:0] {0};
+    \addplot [signalb,domain=0:2 ] {2};
+    \addplot [signalb,domain=2:5 ] {0};
     \draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,2);
     \draw[dotted,very thick,blue] (axis cs:2,2) -- (axis cs:2,0);
     \node[blue] at (axis cs:2,-0.5) {$a$};

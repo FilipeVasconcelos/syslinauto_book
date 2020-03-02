@@ -4,31 +4,57 @@ texname=figsonly
 cat > ${texname}.tex <<EOF
 \documentclass[a4paper]{article}
 \usepackage{graphicx}
+\usepackage[a4paper,headheight=16pt]{geometry}
 \usepackage{verbatim}
 \begin{document}
 EOF
-for file in figtikz/*.eps
+k=1
+for file in figtikz/*.eps fig/*.eps
 do
     larg=`grep "%%BoundingBox:" $file | awk '{print $4-$2}'`
     larg=`echo $larg | sed -e 's/ //g'`
     larg=$(($larg+0))
+    echo "size bouding box" $larg $file
     
-    echo "\begin{figure}[!htbp]"                 >> ${texname}.tex  
+    echo "\begin{figure}[!ht]"                 >> ${texname}.tex  
     echo "\centering"                            >> ${texname}.tex  
-    if [ $larg -gt 480 ]
+    if [ $larg -gt 700 ]
     then
-        echo "larger" $larg $file
-        echo "\includegraphics[width=\textwidth]{$file}"      >> ${texname}.tex
+        echo larger 700
+        echo "\includegraphics[width=0.6\textwidth]{$file}"      >> ${texname}.tex
+    elif [ $larg -gt 600 ]
+    then
+        echo larger 600
+        echo "\includegraphics[width=0.65\textwidth]{$file}"      >> ${texname}.tex
+    elif [ $larg -gt 500 ]
+    then
+        echo larger 500
+        echo "\includegraphics[width=0.7\textwidth]{$file}"      >> ${texname}.tex
+    elif [ $larg -gt 400 ]
+    then
+        echo larger 400
+        echo "\includegraphics[width=0.75\textwidth]{$file}"      >> ${texname}.tex
+    elif [ $larg -gt 300 ]
+    then
+        echo larger 300
+        echo "\includegraphics[width=0.8\textwidth]{$file}"      >> ${texname}.tex
     else
+        echo small 
         echo "\includegraphics{$file}"             >> ${texname}.tex
     fi
-    echo "\verb?$file?"                          >> ${texname}.tex  
-    echo "\end{figure}"                          >> ${texname}.tex  
-    echo ""                                      >> ${texname}.tex
-    echo "\vspace{1cm}"                          >> ${texname}.tex
+    echo ""                                        >> ${texname}.tex  
+    echo "\verb?$file?"                            >> ${texname}.tex  
+    echo "\end{figure}"                            >> ${texname}.tex  
+    echo ""                                        >> ${texname}.tex
+    echo "\vspace{1cm}"                            >> ${texname}.tex
+    if [ $((k%10)) == 0 ]
+    then
+        echo "\clearpage" >> ${texname}.tex
+    fi
+    k=$((k+1))
 done
 echo "\end{document}" >> ${texname}.tex
 
-latex ${texname}.tex
+latex ${texname}.tex 
 dvips -o ${texname}.ps ${texname}.dvi &> /dev/null
 ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${texname}.ps &> /dev/null 
