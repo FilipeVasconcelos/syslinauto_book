@@ -949,10 +949,10 @@ il nous faut d'abord déterminer le temps du premier maximum $t_1$.
     \addplot[envelop,domain=0:20] {1+exp(-\a*x)};
     \addplot[envelop,domain=0:20] {1-exp(-\a*x)};
     \addplot[thick,domain=0:20]   {1};
-    \draw[utred]   (axis cs:\tu,1)  -- (axis cs:\tu,\du)  node[above] {$D_1$};
-    \draw[utblue]  (axis cs:\td,1)  -- (axis cs:\td,\dd)  node[below] {$D_2$};
-    \draw[utgreen] (axis cs:\ttt,1) -- (axis cs:\ttt,\dt) node[above] {$D_3$};
-    \draw[utblack] (axis cs:\tq,1)  -- (axis cs:\tq,\dq)  node[below] {$D_4$};
+    \draw[utr] (axis cs:\tu,1)  -- (axis cs:\tu,\du)  node[above] {$D_1$};
+    \draw[utb] (axis cs:\td,1)  -- (axis cs:\td,\dd)  node[below] {$D_2$};
+    \draw[utg] (axis cs:\ttt,1) -- (axis cs:\ttt,\dt) node[above] {$D_3$};
+    \draw[utn] (axis cs:\tq,1)  -- (axis cs:\tq,\dq)  node[below] {$D_4$};
     \draw(axis cs:\tu,0) -- (axis cs:\tu,0.1);
     \draw(axis cs:\td,0) -- (axis cs:\td,0.1);
     \end{axis}
