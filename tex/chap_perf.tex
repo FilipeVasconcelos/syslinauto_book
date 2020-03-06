@@ -837,11 +837,11 @@ diminue, donc plus le système est rapide.}
 
 Nous pouvons relever sur ces abaques les coefficients d'amortissement donnant
 lieu au système le plus rapide selon le régime du second ordre accepté.
-Dans le cas où les dépassements ne sont pas autorisés (c.a.d régime 
+\textbf{Dans le cas où les dépassements ne sont pas autorisés (c.a.d régime 
 apériodique ($\xi>1$)), le système est le plus rapide pour 
 $t_{5\%}\cdot\omega_0\sim5$. Dans le cas où un dépassement relatif est 
 autorisé, la temps de réponse minimal est obtenu pour $\xi\sim 0.7$ soit
-pour $t_{5\%}\cdot\omega_0\sim3$.
+pour $t_{5\%}\cdot\omega_0\sim3$.}
 
 %------------------------------------------------------------------------------
 \begin{figure}
@@ -929,8 +929,18 @@ t_{M}=\dfrac{\pi-\arctan{\dfrac{\sqrt{1-\xi^2}}{\xi}}}{\omega_0\sqrt{1-\xi^2}}
 $$
 ou encore sous sa forme réduite en $\omega_0$:
 \begin{bequation}[ams align]
-t_{M}\omega_0=\dfrac{\pi-\arctan{\dfrac{\sqrt{1-\xi^2}}{\xi}}}{\sqrt{1-\xi^2}}\label{eq-tM}
+t_{M}\omega_0=
+    \dfrac{\pi-\arctan{\dfrac{\sqrt{1-\xi^2}}{\xi}}}{\sqrt{1-\xi^2}}\label{eq-tM}
 \end{bequation}
+
+Remarquons que pour le temps de réponse à 5\% minimal, le temps de montée à 
+la valeur finale réduit sont proche. \textbf{Autrement dit, pour $\xi\sim0.7$ 
+on a :
+$$
+t_{M}=t_{5\%}.
+$$}
+
+
 %------------------------------------------------------------------------------
 \begin{figure}[!b]
 \centering

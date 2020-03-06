@@ -33,13 +33,13 @@ l'étude des système linéaires du second ordre. Ces ré
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
 \centering
-\tikzsetnextfilename{rapidite_tr_2ndordre-annexe-2nd-ext}
+\tikzsetnextfilename{rapidite_tr_2ndordre-annexe-2nd_1-ext}
 \begin{tikzpicture}
     \begin{axis}
     [   legend style={draw=none,font=\normalsize},
         legend pos=outer north east,
         axis line style = thick,
-        width=0.75\textwidth,
+        width=0.7\textwidth,
         xmin=1e-1,
         xmax=1e1,
         ymin=1e0,
@@ -54,7 +54,130 @@ l'étude des système linéaires du second ordre. Ces ré
         grid style={line width=.4pt, draw=black},
         major grid style={line width=.4pt,draw=black},
     ]%
-        \addplot[mark=none,vtb,smooth]   table {python/tr.tab};
+    \addplot[mark=none,vtq00] table {python/tr2.tab};
+    \addplot[mark=none,vtq10] table {python/tr5.tab};
+    \addplot[mark=none,vtq20] table {python/tr10.tab};
+    \addplot[mark=none,vtq30] table {python/tr20.tab};
+    \end{axis}
+\end{tikzpicture}
+\end{figure}
+\begin{figure}
+\centering
+\tikzsetnextfilename{rapidite_tr_2ndordre-annexe-2nd_2-ext}
+\begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        axis line style = thick,
+        width=0.7\textwidth,
+        xmin=1e-1,
+        xmax=1e1,
+        ymin=1e0,
+        ymax=1e2,
+        xlabel={$\xi$},
+        ylabel={$t_{5\%}\cdot\omega_0$},
+        label style={font=\Large},
+        legend cell align={left},
+        xmode=log,
+        ymode=log,
+        grid=both,
+        grid style={line width=.4pt, draw=black},
+        major grid style={line width=.4pt,draw=black},
+    ]%
+    \addplot[mark=none,vtq01] table {python/tr2.tab};
+    \addplot[mark=none,vtq11] table {python/tr5.tab};
+    \addplot[mark=none,vtq21] table {python/tr10.tab};
+    \addplot[mark=none,vtq31] table {python/tr20.tab};
+    \end{axis}
+\end{tikzpicture}
+\end{figure}
+\begin{figure}
+\centering
+\tikzsetnextfilename{rapidite_tr_2ndordre-annexe-2nd_3-ext}
+\begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        axis line style = thick,
+        width=0.7\textwidth,
+        xmin=1e-1,
+        xmax=1e1,
+        ymin=1e0,
+        ymax=1e2,
+        xlabel={$\xi$},
+        ylabel={$t_{5\%}\cdot\omega_0$},
+        label style={font=\Large},
+        legend cell align={left},
+        xmode=log,
+        ymode=log,
+        grid=both,
+        grid style={line width=.4pt, draw=black},
+        major grid style={line width=.4pt,draw=black},
+    ]%
+    \addplot[mark=none,vtq02] table {python/tr2.tab};
+    \addplot[mark=none,vtq12] table {python/tr5.tab};
+    \addplot[mark=none,vtq22] table {python/tr10.tab};
+    \addplot[mark=none,vtq32] table {python/tr20.tab};
+    \end{axis}
+\end{tikzpicture}
+\end{figure}
+\begin{figure}
+\centering
+\tikzsetnextfilename{rapidite_tr_2ndordre-annexe-2nd_4-ext}
+\begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        axis line style = thick,
+        width=0.7\textwidth,
+        xmin=1e-1,
+        xmax=1e1,
+        ymin=1e0,
+        ymax=1e2,
+        xlabel={$\xi$},
+        ylabel={$t_{5\%}\cdot\omega_0$},
+        label style={font=\Large},
+        legend cell align={left},
+        xmode=log,
+        ymode=log,
+        grid=both,
+        grid style={line width=.4pt, draw=black},
+        major grid style={line width=.4pt,draw=black},
+    ]%
+    \addplot[mark=none,vtq03] table {python/tr2.tab};
+    \addplot[mark=none,vtq13] table {python/tr5.tab};
+    \addplot[mark=none,vtq23] table {python/tr10.tab};
+    \addplot[mark=none,vtq33] table {python/tr20.tab};
+    \end{axis}
+\end{tikzpicture}
+\end{figure}
+\begin{figure}
+\centering
+\tikzsetnextfilename{rapidite_tr_2ndordre-annexe-2nd_5-ext}
+\begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        axis line style = thick,
+        width=0.7\textwidth,
+        xmin=1e-1,
+        xmax=1e1,
+        ymin=1e0,
+        ymax=1e2,
+        xlabel={$\xi$},
+        ylabel={$t_{5\%}\cdot\omega_0$},
+        label style={font=\Large},
+        legend cell align={left},
+        xmode=log,
+        ymode=log,
+        grid=both,
+        grid style={line width=.4pt, draw=black},
+        major grid style={line width=.4pt,draw=black},
+    ]%
+    \addplot[mark=none,vtq04] table {python/tr2.tab};
+    \addplot[mark=none,vtq14] table {python/tr5.tab};
+    \addplot[mark=none,vtq24] table {python/tr10.tab};
+    \addplot[mark=none,vtq34] table {python/tr20.tab};
     \end{axis}
 \end{tikzpicture}
 \end{figure}
