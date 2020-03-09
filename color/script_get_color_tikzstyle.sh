@@ -1,6 +1,7 @@
 #!/bin/bash
 filename=$1
-
+ncol=$2
+thickness=$3
 grep -v "####" $filename | \
 grep -v "\*\*\*" | \
 grep -v -E "^$" | \
