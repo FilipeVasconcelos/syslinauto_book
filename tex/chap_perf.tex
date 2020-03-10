@@ -617,7 +617,8 @@ dans une bande à 5\% autour de la valeur finale.
     \addplot[signalb,domain=0:6]  {\kk*(1-exp(-x/\t))};
     \draw[dtb] (axis cs:0,\mc) -- (axis cs:6,\mc);
     \draw[dtb] (axis cs:0,\pc) -- (axis cs:6,\pc);
-    \draw[dvtr] (axis cs:3*\t,0) node[below] {\small $t_{5\%}$} -- (axis cs:3*\t,\mc);
+    \draw[dvtr] (axis cs:3*\t,0) node[below] {\small $t_{5\%}$} 
+             -- (axis cs:3*\t,\mc);
     \node[right] at (axis cs:6,\kk) {\small $s(\infty)$};
     \draw[dtb,{Latex[length=1.25mm]}-{Latex[length=1.25mm]}](axis cs:-0.25,\mc) 
     -- node[midway,left] {\small $\pm5\%$} (axis cs:-0.25,\pc);
@@ -660,7 +661,8 @@ dans une bande à 5\% autour de la valeur finale.
     \draw[dtb] (axis cs:0,\mc) -- (axis cs:\xm,\mc)  ;
     \draw[dtb] (axis cs:0,\pc) -- (axis cs:\xm,\pc)  ;
     \node[right] at (axis cs:\xm,\kk) {\small $s(\infty)$}  ;
-    \draw[dvtr] (axis cs:\tr,0) node[below] {\small $t_{5\%}$} -- (axis cs:\tr,\pc);
+    \draw[dvtr] (axis cs:\tr,0) node[below] {\small $t_{5\%}$} 
+             -- (axis cs:\tr,\pc);
     \draw[dtb,{Latex[length=1.25mm]}-{Latex[length=1.25mm]}](axis cs:-0.25,\mc) 
     -- node[midway,left] {\small $\pm5\%$} (axis cs:-0.25,\pc);
     \draw[fill=red,red] (axis cs:\tr,\pc) circle (1.5pt);
@@ -760,8 +762,8 @@ n'a donc de sens qu'en régime pseudo-périodique.
     ]
     \addplot[signalb,domain=-1:0] {0}                ;
     \addplot [signalb,domain=0:\xm] {\kk*func(\a)}   ;
-    \draw[dtb] (axis cs:0,\mc) node[left] {\small 10\%}-- (axis cs:\xm,\mc); % 10%
-    \draw[dtb] (axis cs:0,\pc) node[left] {\small 90\%}-- (axis cs:\xm,\pc); % 90%
+    \draw[dtb] (axis cs:0,\mc) node[left] {\small 10\%}-- (axis cs:\xm,\mc);%10%
+    \draw[dtb] (axis cs:0,\pc) node[left] {\small 90\%}-- (axis cs:\xm,\pc);%90%
     \draw[dtn] (axis cs:0,\kk) -- (axis cs:\xm,\kk);                  % vf
     \node[right] at (axis cs:\xm,\kk) {\small $s(\infty)$}  ;
     \draw[fill=red,red] (axis cs:\tu,\mc) circle (1.25pt);
@@ -770,7 +772,7 @@ n'a donc de sens qu'en régime pseudo-périodique.
     \draw[dvtr] (axis cs:\tu,0) node[below] {\small$t_1$} -- (axis cs:\tu,\mc);
     \draw[dvtr] (axis cs:\td,0) node[below,xshift=-0.5em] {\small$t_2$} 
         -- (axis cs:\td,\pc);
-        \draw[dvtn] (axis cs:\tvf,0)node[below,xshift=0.75em]  {\small$t_{m,\infty}$} 
+    \draw[dvtn] (axis cs:\tvf,0)node[below,xshift=0.75em] {\small$t_{m,\infty}$}
         -- (axis cs:\tvf,\kk);
     \draw[vtr,{Latex[length=2mm]}-{Latex[length=2mm]}](axis cs:\tu,-0.4)
     -- node[midway,below] {$t_m=t_2-t_1$} (axis cs:\td,-0.4);
@@ -831,7 +833,7 @@ diminuer les temps de réponse et de montée.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Comme nous l'avons dejà souligné au~\cref{chap-model}, dans le cas d'un système  
+Comme nous l'avons dejà souligné au~\cref{chap-model}, dans le cas d'un système
 du second ordre, il n'existe pas de forme analytique simple pour déterminer 
 le temps de réponse à 5\%. Celui-ci dépend en effet de la valeur du coefficient 
 d'amortissement $\xi$ et de la pulsation propre du système $\omega_0$.
@@ -902,8 +904,8 @@ pour $t_{5\%}\cdot\omega_0\sim3$.
 %------------------------------------------------------------------------------
 
 Il est possible de déterminer une relation analytique pour le temps
-de montée à la valeur finale $t_{m,\infty}$. Rappelons quelques résultats obtenus
-pour la réponse indicielle d'un système du second ordre en régime 
+de montée à la valeur finale $t_{m,\infty}$. Rappelons quelques résultats 
+obtenus pour la réponse indicielle d'un système du second ordre en régime 
 pseudo-périodique (c.f~\Cref{chap-model}\cref{subsubsec-2nd_ind}) :
 \begin{itemize}
 \item La fonction de transfert d'un système du second ordre est donnée
@@ -911,7 +913,8 @@ par:
 $$
 H(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}
 $$
-\item La réponse indicielle pour échelon unitaire tend vers le gain statique $K$ 
+\item La réponse indicielle pour échelon unitaire tend vers 
+      le gain statique $K$ 
 \item La réponse indicielle pour une échelon unitaire et en régime 
       pseudo-périodique est donnée par : 
 $$
@@ -927,7 +930,9 @@ s(t_{m,\infty})=K
 $$
 ou encore  
 $$
-\dfrac{1}{\sqrt{1-\xi^2}}e^{-\xi\omega_0 t_{m,\infty}}\sin{(\omega_d t_{m,\infty}+\phi)}=0
+\dfrac{1}{\sqrt{1-\xi^2}}
+e^{-\xi\omega_0 t_{m,\infty}}
+\sin{(\omega_d t_{m,\infty}+\phi)}=0
 $$
 Cette expression est nulle que si $\sin{(\omega_d t_{m,\infty}+\phi)}=0$.
 On obtient alors :

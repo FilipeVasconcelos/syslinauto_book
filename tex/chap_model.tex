@@ -1105,6 +1105,7 @@ temps de réponse pour $\xi\sim 0.7$
 %------------------------------------------------------------------------------
 
 %------------------------------------------------------------------------------
+{\tikzset{external/export=false}
 \begin{figure}
 \centering
 \tikzsetnextfilename{rapidite_tr_2ndordre-chap3-ext}
@@ -1128,7 +1129,7 @@ temps de réponse pour $\xi\sim 0.7$
         grid style={line width=.4pt, draw=black},
         major grid style={line width=.4pt,draw=black},
     ]%
-        \addplot[mark=none,vtb]   table {python/tr.tab};
+        \addplot[mark=none,vtb] table {python/tr.tab};
     \end{axis}
 \end{tikzpicture}
 \caption{Temps de réponse à 5\% réduit en fonction du taux 
@@ -1136,6 +1137,7 @@ temps de réponse pour $\xi\sim 0.7$
          pour lequel $\omega_0\cdot t_{5\%}\sim3$.
 	 \label{fig-2nd_temps_reponse}}
 \end{figure}
+}
 %------------------------------------------------------------------------------
 
 %------------------------------------------------------------------------------
