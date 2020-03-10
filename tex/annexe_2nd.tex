@@ -22,43 +22,21 @@ l'étude des système linéaires du second ordre. Ces ré
 \paragraph{Dépassement}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[!h]
-\begin{center}
-        \tikzsetnextfilename{2nd_depassement_2-chap3-ext}
-        \input{tikz/depassement_amortissement.tex}
-\end{center}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Temps de réponse à 5\%}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}
 \centering
-\tikzsetnextfilename{rapidite_tr_2ndordre-annexe-2nd-ext}
-\begin{tikzpicture}
-    \begin{axis}
-    [   legend style={draw=none,font=\normalsize},
-        legend pos=outer north east,
-        axis line style = thick,
-        width=0.75\textwidth,
-        xmin=1e-1,
-        xmax=1e1,
-        ymin=1e0,
-        ymax=1e2,
-        xlabel={$\xi$},
-        ylabel={$t_{5\%}\cdot\omega_0$},
-        label style={font=\Large},
-        legend cell align={left},
-        xmode=log,
-        ymode=log,
-        grid=both,
-        grid style={line width=.4pt, draw=black},
-        major grid style={line width=.4pt,draw=black},
-    ]%
-        \addplot[mark=none,vtb,smooth]   table {python/tr.tab};
-    \end{axis}
-\end{tikzpicture}
+    \tikzsetnextfilename{2nd_depassement_2-chap3-ext}
+    \input{tikz/depassement_amortissement.tex}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Temps de réponse à x\%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!b]
+\centering
+    \tikzsetnextfilename{rapidite_tr_2ndordre-annexe-2nd-ext}
+    \input{tikz/temps_de_reponse_xpct_amortissement_2nd_ordre.tex}
+\end{figure}
+
+\clearpage
 {\tikzset{external/export=false}
 \input{tikz/reponses_temporelles_2nd_ordre.tex}
 }
@@ -79,9 +57,6 @@ l'étude des système linéaires du second ordre. Ces ré
 \centering
 \tikzsetnextfilename{bode_2nd_3-chap4-ext}
 \input{tikz/bode_2nd_3.tex}
-%\caption{Diagramme de Bode d'une fonction de transfert du 2nd ordre 
-%(\Cref{eq-2nd_ftjw}) pour
-%différentes valeurs de $\xi$ avec $K=1$ et $\omega_0=1$\label{fig-bode_1er_2}}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -89,15 +64,9 @@ l'étude des système linéaires du second ordre. Ces ré
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[!h]
-    \centering
+\centering
     \tikzsetnextfilename{gain_resonance-chap4-ext}
     \input{tikz/gain_resonance.tex}
-%\caption{\'Evolution du gain en décibel en fonction de la pulsation pour 
-%différentes valeur du taux d'amortissement du régime pseudo-périodique. 
-%Le gain maximal à la pulsation de résonance $\omega_r$ est représenté par 
-%une pastille noir sur chacune des courbes pour $\xi<\sqrt{2}/2$. 
-%On remarquera l'utilisation exceptionnel 
-%d'une échelle linéaire pour les pulsations.}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

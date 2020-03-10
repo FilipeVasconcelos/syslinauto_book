@@ -681,7 +681,7 @@ indépendamment de ces oscillations, on utilisera le temps de montée.
 Le temps de montée $t_m$ est le temps mis par réponse temporelle d'un système 
 pour passer de 10\% à 90\% de la valeur finale. Il existe une autre 
 définition du temps de montée. Pour celle-ci le temps de montée (que nous 
-noterons $t_{m,\infty}$ ) correspond à la durée au bout de laquelle la 
+noterons $t_{M}$ ) correspond à la durée au bout de laquelle la 
 réponse passe pour la première fois par la valeur finale. Cependant, 
 il faut remarquer que pour certaine réponse la valeur finale n'est 
 jamais atteinte en un temps fini. Cette dernière définition
@@ -772,7 +772,7 @@ n'a donc de sens qu'en régime pseudo-périodique.
     \draw[dvtr] (axis cs:\tu,0) node[below] {\small$t_1$} -- (axis cs:\tu,\mc);
     \draw[dvtr] (axis cs:\td,0) node[below,xshift=-0.5em] {\small$t_2$} 
         -- (axis cs:\td,\pc);
-    \draw[dvtn] (axis cs:\tvf,0)node[below,xshift=0.75em] {\small$t_{m,\infty}$}
+    \draw[dvtn] (axis cs:\tvf,0)node[below,xshift=0.75em]  {\small$t_{M}$} 
         -- (axis cs:\tvf,\kk);
     \draw[vtr,{Latex[length=2mm]}-{Latex[length=2mm]}](axis cs:\tu,-0.4)
     -- node[midway,below] {$t_m=t_2-t_1$} (axis cs:\td,-0.4);
@@ -841,7 +841,7 @@ Il est cependant possible de tracer les relations entre les temps de réponse
 à 5\%, le temps de montée (les deux définitions 
 
 Pour déterminer le temps de réponse à 5\%, on utilise l'abaque de la 
-figure~\cref{fig-2nd_temps_reponse_2}. Sur cette figure nous avons représenté
+figure~\cref{fig-2nd_temps_reponse_1}. Sur cette figure nous avons représenté
 le temps de réponse à 5\% et le temps de montée réduits par rapport à la
 pulsation propre $\omega_0$. \textbf{En effet pour un même coefficient 
 d'amortissement, plus la pulsation propre augmente plus le temps de réponse 
@@ -849,11 +849,11 @@ diminue, donc plus le système est rapide.}
 
 Nous pouvons relever sur ces abaques les coefficients d'amortissement donnant
 lieu au système le plus rapide selon le régime du second ordre accepté.
-Dans le cas où les dépassements ne sont pas autorisés (c.a.d régime 
+\textbf{Dans le cas où les dépassements ne sont pas autorisés (c.a.d régime 
 apériodique ($\xi>1$)), le système est le plus rapide pour 
 $t_{5\%}\cdot\omega_0\sim5$. Dans le cas où un dépassement relatif est 
 autorisé, la temps de réponse minimal est obtenu pour $\xi\sim 0.7$ soit
-pour $t_{5\%}\cdot\omega_0\sim3$.
+pour $t_{5\%}\cdot\omega_0\sim3$.}
 
 %------------------------------------------------------------------------------
 \begin{figure}
@@ -890,22 +890,21 @@ pour $t_{5\%}\cdot\omega_0\sim3$.
          fonction du taux d'amortissement $\xi$: par
          (bleu) le temps de réponse à 5\%,  
          (rouge) le temps de montée $t_m$.
-         d'amortissement $\xi$ et (vert) le temps de montée à la valeur 
-         finale $t_{m,\infty}$. 
-         Ces trois temps sont donnés en unité réduite
-         par la pulsation propre $\omega_0$.
+         Ces deux temps sont donnés en unité réduite
+         par rapport la pulsation propre $\omega_0$.
          Le minimum du temps de réponse à 5\% est atteint pour $\xi\sim0.7$ 
          pour lequel $\omega_0\cdot t_{5\%}\sim3$.
          Le droite en pointillé représente l'équation approchée 
          $t_{5\%}\cdot\omega_0\sim\dfrac{3}{\xi}$ pour les faibles valeurs de 
          $\xi$.
-         \label{fig-2nd_temps_reponse_2}}
+         \label{fig-2nd_temps_reponse_1}}
 \end{figure}
 %------------------------------------------------------------------------------
+\clearpage
 
 Il est possible de déterminer une relation analytique pour le temps
-de montée à la valeur finale $t_{m,\infty}$. Rappelons quelques résultats 
-obtenus pour la réponse indicielle d'un système du second ordre en régime 
+de montée à la valeur finale $t_{M}$. Rappelons quelques résultats obtenus
+pour la réponse indicielle d'un système du second ordre en régime 
 pseudo-périodique (c.f~\Cref{chap-model}\cref{subsubsec-2nd_ind}) :
 \begin{itemize}
 \item La fonction de transfert d'un système du second ordre est donnée
@@ -924,26 +923,42 @@ $$
            \sin{(\omega_d t+\phi)}\right)\label{eq-2-3_2nd} 
 $$
 \end{itemize}
-Le temps de montée à la valeur finale $t_{m,\infty}$ est tel que, 
+Le temps de montée à la valeur finale $t_{M}$ est tel que, 
 $$
-s(t_{m,\infty})=K
+s(t_{M})=K
 $$
 ou encore  
 $$
-\dfrac{1}{\sqrt{1-\xi^2}}
-e^{-\xi\omega_0 t_{m,\infty}}
-\sin{(\omega_d t_{m,\infty}+\phi)}=0
+\dfrac{1}{\sqrt{1-\xi^2}}e^{-\xi\omega_0 t_{M}}\sin{(\omega_d t_{M}+\phi)}=0
 $$
-Cette expression est nulle que si $\sin{(\omega_d t_{m,\infty}+\phi)}=0$.
+Cette expression est nulle que si $\sin{(\omega_d t_{M}+\phi)}=0$.
 On obtient alors :
+\begin{bequation}[ams align]
+t_{M}=\dfrac{\pi-\phi}{\omega_d}\label{eq-tM}
+\end{bequation}
+en fonction de $\xi$ uniquement cette relation devient :
 $$
-t_{m,\infty}=\dfrac{\pi-\phi}{\omega_d}
+t_{M}=\dfrac{\pi-\arctan{\dfrac{\sqrt{1-\xi^2}}{\xi}}}{\omega_0\sqrt{1-\xi^2}}
 $$
+ou encore sous sa forme réduite en $\omega_0$:
+\begin{bequation}[ams align]
+t_{M}\omega_0=
+    \dfrac{\pi-\arctan{\dfrac{\sqrt{1-\xi^2}}{\xi}}}{\sqrt{1-\xi^2}}\label{eq-tM}
+\end{bequation}
+
+Remarquons que pour le temps de réponse à 5\% minimal, le temps de montée à 
+la valeur finale réduit sont proche. \textbf{Autrement dit, pour $\xi\sim0.7$ 
+on a :
+$$
+t_{M}=t_{5\%}.
+$$}
+
 
 %------------------------------------------------------------------------------
-\begin{figure}
+\begin{figure}[!b]
 \centering
 \tikzsetnextfilename{rapidite_tr_2ndordre_2-chap6-ext}
+% temps de montée à la valeur finale
 \pgfmathdeclarefunction{func2}{1}{%
     \pgfmathparse{%
         (3.14159265-rad(atan(sqrt(1-#1*#1)/#1)))/sqrt(1-#1*#1)
@@ -976,16 +991,9 @@ $$
 \caption{Caractérisation de la rapidité d'un système du second ordre en
          fonction du taux d'amortissement $\xi$: par
          (bleu) le temps de réponse à 5\%,  
-         (rouge) le temps de montée $t_m$.
-         d'amortissement $\xi$ et (vert) le temps de montée à la valeur 
-         finale $t_{m,\infty}$. 
-         Ces trois temps sont donnés en unité réduite
-         par la pulsation propre $\omega_0$.
-         Le minimum du temps de réponse à 5\% est atteint pour $\xi\sim0.7$ 
-         pour lequel $\omega_0\cdot t_{5\%}\sim3$.
-         Le droite en pointillé représente l'équation approchée 
-         $t_{5\%}\cdot\omega_0\sim\dfrac{3}{\xi}$ pour les faibles valeurs de 
-         $\xi$.
+         (rouge) le temps de montée $t_M$ à la valeur finale.
+         Ce dernier est donné par la relation analytique établie dans le 
+         texte (c.f~\cref{eq-tM}). 
          \label{fig-2nd_temps_reponse_2}}
 \end{figure}
 %------------------------------------------------------------------------------
@@ -1013,18 +1021,28 @@ système plus rapide en boucle fermée,
     \item en augmentant la valeur de la pulsation propre du système 
           par l'intermédiaire du gain $K$ de la~\gls{ftbo}.
     \item en diminuant coefficient d'amortissement $\xi_{BF}$ pour 
-          $\xi_{BF}>0.7$
+          $\xi_{BF}>0.7$, c'est à dire en augmentant le gain en boucle ouverte
+          $K$.
 \end{itemize}
 }
 
-Il est possible de déterminer une valeur 
-
+Dans le cas où $\xi_{BF}<0.7$ une conclusion générale est impossible on 
+se reportera sur les abaques du temps de réponse ou du temps de montée en 
+fonction du coefficient d'amortissement pour établir la rapidité du système
+en boucle fermée.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Réponse harmonique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Définition de la bande passante à -x\si{\dB}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1098,25 +1116,24 @@ globale $s(t)$.
     \addplot[signalg,domain=0:30] {1.25*(1-exp(-x))};
     \legend{échelon,$s(t)$,$s_1(t)$,$s_2(t)$}
     \end{axis}%
-    \begin{scope}[shift={(8,3)}]
+    \begin{scope}[shift={(11,3)}]
         \carte[l]
+        \dpole{-0.4}{0}{2}[blue]
         \dpole{-2}{0}{1}[blue]
-        \dpole{-0.5}{0}{2}[blue]
     \end{scope}
 \end{tikzpicture}
-\caption{Réponse indicielle $s(t)$ de la fonction de transfert donnée 
-         par~\cref{eq-ft-chap6}, ainsi que les réponses indicielles
-         $s_1(t)$ et $s_2(t)$ des fonctions de transferts de 
-         sa décomposition en éléments simples. On constate que 
-         la réponse du pôle dominant ($s_1(t)$) présente un temps de 
-         réponse proche de la réponse globale.\label{fig-poles_dominants}}
+\caption{(à gauche) Réponse indicielle $s(t)$ de la fonction de 
+         transfert donnée par~\cref{eq-ft-chap6}, ainsi que les réponses 
+         indicielles $s_1(t)$ et $s_2(t)$ des fonctions de transferts de 
+         sa décomposition en éléments simples. On constate que la réponse 
+         du pôle dominant ($s_1(t)$) présente un temps de réponse proche 
+         de la réponse globale. (à droite) carte des pôles du système en 
+         question\label{fig-poles_dominants}}
 \end{figure}
 
 En conclusion, l'étude des pôles dominants de la fonction de transfert 
 d'un système est, en première approximation, suffisante pour caractériser 
 la rapidité d'un système que se soit en boucle ouverte ou en boucle fermée.
-
-
 
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
