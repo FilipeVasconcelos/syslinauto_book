@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+    \begin{axis}
+    [   ticks=none,
+        axis line style = thick,
+        height=5cm,
+        width=5cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-2,
+        xmax=10,
+        ymin=-2.0,
+        ymax=2.0,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={above left},
+    ]
+    \addplot[stable,domain=-2:0] {0};
+    \addplot[stable,domain=0:9.5] {0.8*sin(deg(2*x))};
+    \end{axis}
+\end{tikzpicture}
