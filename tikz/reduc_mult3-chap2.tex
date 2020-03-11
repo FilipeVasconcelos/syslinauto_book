@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{a}{E}
+    \sbRelier[$P$]{E}{a}
+    \sbBloc{b}{$H_2$}{a}
+    \sbRelier{a}{b}
+    \sbSortie[5]{S1}{b}
+    \sbRelier{b}{S1}
+    \sbNomLien[0.8]{S1}{$S_{E\equiv 0}$}
+    \sbDecaleNoeudy{b}{v}
+    \sbBlocr[-1.5]{r2}{$H_1R_1$}{v}
+    \sbRelieryx{b-S1}{r2}
+    \sbRelierxy{r2}{a}
+\end{tikzpicture}

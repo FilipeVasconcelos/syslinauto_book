@@ -1,0 +1,27 @@
+\begin{tikzpicture}[scale=0.8, every node/.style={scale=0.8}]
+    \begin{scope}[local bounding box=scope1]
+        \sbEntree{E}
+        \sbCompSum[5.0]{comp}{E}{}{-}{+}{}
+        \sbRelier[$E$]{E}{comp}
+        \sbBloc[2.5]{B}{$H_1$}{comp}
+        \sbRelier[$\epsilon$]{comp}{B}
+        \sbSortie[4.0]{S}{B}
+        \sbRelier[$S$]{B}{S}
+        \sbDecaleNoeudy[3.5]{B}{r1}
+        \sbBlocr[-1.6]{B2}{$H_2$}{r1}
+        \sbRelieryx{B-S}{B2}
+        \sbRelierxy[$M$]{B2}{comp}
+    \end{scope}
+    \begin{scope}[shift={($(scope1.east)+(1.6,0.7)$)}]
+        \gfEntree[0][-2][]{}{E0}
+        \gfEntree{$E$}{E}
+        \gfNoeud[4]{$\epsilon$}{E}{X}
+        \gfNoeud[6]{$M$}[-1]{E0}{M}
+        \gfSortie[4]{$S$}{X}{S}
+        \gfRelier[1]{E}{X}
+        \gfRelier[$H_1$]{X}{S}
+        %\gfRelierB[$-H_2$]{S}{X}
+        \gfRelierB[$H_2$][+][1.5][-1]{S}{M}[-90][0]
+        \gfRelierB[$-1$][-][-1.5][0.5]{M}{X}[180][90]
+    \end{scope}
+\end{tikzpicture}

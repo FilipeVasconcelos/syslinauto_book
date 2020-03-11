@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+    \sbEntree{E1}
+    \sbComp[4]{comp}{E1}
+    \sbRelier[$E$]{E1}{comp}
+    \sbBloc[3.0]{G}{$KG$}{comp}
+    \sbRelier[$\epsilon$]{comp}{G}
+    \sbSortie[2.5]{S}{G}
+    \sbRelier[$S$]{G}{S}
+    \sbDecaleNoeudy[4]{G}{r1}
+    \sbBlocr[-1.5]{B2}{$\dfrac{1}{K}$}{r1}
+    \sbRelierxy[$X_2$]{B2}{comp}
+\end{tikzpicture}

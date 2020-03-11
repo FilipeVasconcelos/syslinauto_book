@@ -1,0 +1,12 @@
+\begin{tikzpicture} 
+    \sbEntree{E1}
+    \sbBloc[3]{B1}{$H_1$}{E1}
+    \sbRelier[$E$]{E1}{B1}
+    \sbBloc[3]{B2}{$H_2$}{B1}
+    \sbRelier{B1}{B2}
+    \sbBloc[3]{B3}{$H_3$}{B2}
+    \sbRelier{B2}{B3}
+    \sbSortie[3]{S1}{B3}
+    \sbRelier[$S$]{B3}{S1}
+    \node at (B2|-0,-1.5) {\LARGE$\equiv$};
+\end{tikzpicture}

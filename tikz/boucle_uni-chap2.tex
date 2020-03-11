@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp[5.0]{comp}{E}
+    \sbRelier[$E$]{E}{comp}
+    \sbBloc[3.0]{B}{$H_1$}{comp}
+    \sbRelier[$\epsilon$]{comp}{B}
+    \sbSortie[5.0]{S}{B}
+    \sbRelier[$S$]{B}{S}
+    \sbRenvoi{B-S}{comp}{}
+\end{tikzpicture}

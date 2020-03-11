@@ -1,0 +1,10 @@
+\begin{tikzpicture}[scale=0.8, every node/.style={scale=0.8}]
+    \sbEntree{E}
+    \sbCompSum[5.0]{comp}{E}{}{-}{+}{}
+    \sbRelier[$E$]{E}{comp}
+    \sbBloc[2.5]{B}{$H$}{comp}
+    \sbRelier[$\epsilon$]{comp}{B}
+    \sbSortie[4.0]{S}{B}
+    \sbRelier[$S$]{B}{S}
+    \sbRenvoi{B-S}{comp}{}
+\end{tikzpicture}

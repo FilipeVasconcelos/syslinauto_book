@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+    \gfEntree{$E$}{E}
+    \gfNoeud{$X_1$}[-][-0.7]{E}{X1}
+    \gfNoeud{$X_2$}[-][0.7]{X1}{X2}
+    \gfSortie[6]{$S$}{X2}{S}
+    \gfRelier[$H_1$]{E}{X1}
+    \gfRelier[$H_2$]{X1}{X2}
+    \gfRelier[$H_3$]{X2}{S}
+    \gfRelierB[$R_1$]{X2}{X1}
+    \gfRelierB[$R_2$][+]{X1}{S}
+    \gfBoucleE[$R_3$][+][0.2][1.0]{X2}
+\end{tikzpicture}

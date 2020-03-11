@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+    \coordinate (pt) at (0,-1);
+    \sbEntree{E1}
+    \sbBloc[4.0]{K}{$K$}{E1}
+    \sbRelier[$E$]{E1}{K}
+    \sbComp[6]{comp}{K}
+    \sbRelier[$X_1$]{K}{comp}
+    \sbBloc[3.0]{G}{$G$}{comp}
+    \sbRelier[$\epsilon$]{comp}{G}
+    \sbSortie[2.5]{S}{G}
+    \sbRelier[$S$]{G}{S}
+    \draw[-latex] (comp|-0,-1.5) -- (comp.south)node[midway,left]{$X_2$};
+\end{tikzpicture}

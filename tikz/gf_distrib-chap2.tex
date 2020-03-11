@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+    \gfEntree[0][0][]{}{E}
+    \gfEntree[0][1.5][+]{$E_1$}{E1}
+    \gfEntree[0][-1.5][-]{$E_2$}{E2}
+    \gfNoeud[4]{$X_1$}{E}{X1}
+    \gfSortie[8]{$S_1$}{E1}{S1}
+    \gfSortie[8]{$S_2$}{E2}{S2}
+    \gfRelier[$H_1$]{E1}{X1}
+    \gfRelier[$H_2$][-][1.0]{E2}{X1}
+    \gfRelier[$H_3$]{X1}{S1}
+    \gfRelier[$H_4$][-]{X1}{S2}
+\end{tikzpicture}

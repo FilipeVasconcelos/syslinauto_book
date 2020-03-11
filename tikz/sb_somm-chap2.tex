@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+    \coordinate (pt) at (0,-1);
+    \sbEntree{E1}
+    \sbSumb[4.5]{comp}{E1}
+    \sbRelier[$E_1$]{E1}{comp}
+    \sbSortie[2.5]{S}{comp}
+    \sbRelier[$S$]{comp}{S}
+    \draw[-latex,thick] (comp|-0,-1.5)
+                      --(comp.south)node[midway,left]{$E_2$};
+\end{tikzpicture}

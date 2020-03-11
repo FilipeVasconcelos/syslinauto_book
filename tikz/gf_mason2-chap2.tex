@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+    \gfEntree{$E$}{E}
+    \gfNoeud[4]{}{E}{X1}
+    \gfNoeud[4]{}{X1}{X2}
+    \gfNoeud[4]{}{X2}{X3}
+    \gfSortie[4]{$S$}{X3}{S}
+    \gfRelier[$H_{1}$]{E}{X1}
+    \gfRelier[$H_{2}$]{X1}{X2}
+    \gfRelier[$H_{3}$]{X2}{X3}
+    \gfRelier[$H_{4}$]{X3}{S}
+    \gfRelierB[$R_{1}$][-]{X1}{X3}
+    \gfRelierB[$R_{2}$][+]{S}{X2}
+    \gfBoucleE[$R_{3}$][-][2.2][1]{S}
+\end{tikzpicture}

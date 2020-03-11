@@ -1,15 +1,14 @@
-{\tikzset{external/export=false}
-\begin{tikzpicture}[scale=1.2]
-    \sbStyleBloc{col4,very thick}
+\begin{tikzpicture}
     \sbEntree{E}
     \sbComp{a}{E}
     \sbRelier[$E$]{E}{a}
+    \sbStyleBloc{col3}
     \sbBloc{b}{$H_1$}{a}
     \sbRelier[$\epsilon$]{a}{b}
     \sbBlocL{c}{$H_2$}{b}
-    \sbStyleBloc{col1,very thick}
     \sbComph{d}{c}
-    \sbRelier[u]{c}{d}
+    \sbRelier{c}{d}
+    \sbStyleBloc{col1}
     \sbBlocL{e}{$H_3$}{d}
     \sbBlocL{f}{$H_4$}{e}
     \sbSortie[5]{S1}{f}
@@ -17,8 +16,8 @@
     \sbNomLien[0.8]{S1}{$S$}
     \sbDecaleNoeudy[-4]{f}{u}
     \sbDecaleNoeudy{e}{v}
-    \sbStyleBloc{col2,very thick}
     \sbBlocr{r1}{$R_1$}{u}
+    \sbStyleBloc{col4}
     \sbBlocr{r2}{$R_2$}{v}
     \sbBlocrL{r3}{$R_3$}{r2}
     \sbRelieryx{f-S1}{r1}
@@ -26,4 +25,3 @@
     \sbRelieryx{e-f}{r2}
     \sbRelierxy[$n_2$]{r3}{a}
 \end{tikzpicture}
-}

@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+    \gfEntree{$E$}{E}
+    \gfNoeud{$X$}{E}{X}
+    \gfSortie{$S$}{X}{S}
+    \gfRelier[$H_1$]{E}{X}
+    \gfRelier[$H_2$]{X}{S}
+    \node[right=of S] {$\equiv$};
+    \gfEntree[17]{$E$}{E}
+    \gfSortie{$S$}{E}{S}
+    \gfRelier[$H_1H_2$]{E}{S}
+\end{tikzpicture}

@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+    \sbEntree{P}
+    \sbComp{comp1}{P}
+    \sbRelier[$P$]{P}{comp1}
+    \sbStyleBloc{col3}
+    \sbBloc{h2}{$H_2$}{comp1}
+    \sbRelier{comp1}{h2}
+    \sbComph{comp2}{h2} 
+    \sbRelier{h2}{comp2}
+    \sbStyleBloc{col1}
+    \sbBlocL{h3}{$H_3$}{comp2}
+    \sbBlocL{h4}{$H_4$}{h3}
+    \sbSortie[5]{S1}{h4}
+    \sbRelier{h4}{S1}
+    \sbNomLien[0.8]{S1}{$S$}
+    \sbDecaleNoeudy[-4]{h4}{u}
+    \sbDecaleNoeudy{h3}{v}
+    \sbBlocr{r1}{$R_1$}{u}
+    \sbStyleBloc{col4}
+    \sbBlocr[-1.5]{r2}{$R_2$}{v}
+    \sbBlocrL{r3}{$R_3$}{r2}
+    \sbStyleBloc{col3}
+    \sbBlocrL{h1}{$H_1$}{r3}
+    \sbRelieryx{h4-S1}{r1}
+    \sbRelierxy[$n_1$]{r1}{comp2}
+    \sbRelieryx{h3-h4}{r2}
+    \sbRelierxy[$n_2$]{h1}{comp1}
+\end{tikzpicture}
