@@ -464,11 +464,11 @@ temporelle globale de ce système (c.f~\cref{fig-pert1}).
         legend cell align={left},
     ]%
         \addplot[mark=none,vtb] table {scilab/pert1_data.tab};
-        \addplot[red,thick,domain=0:15] {1};   %échelon
-        \addplot[red,thick,domain=15:30] {1.5}; %pertubation
-        \addplot[red,thick,domain=-2:0] {0};
-        \draw[red,thick,dashed] (0,0)--(0,1);   %échelon
-        \draw[red,thick,dashed] (15,1)--(15,1.5);   %échelon
+        \addplot[col4,thick,domain=0:15] {1};   %échelon
+        \addplot[col4,thick,domain=15:30] {1.5}; %pertubation
+        \addplot[col4,thick,domain=-2:0] {0};
+        \draw[col4,thick,dashed] (0,0)--(0,1);   %échelon
+        \draw[col4,thick,dashed] (15,1)--(15,1.5);   %échelon
     \end{axis}
     \begin{scope}[shift={(-10,2.3)}]
         \sbEntree{E}
@@ -519,11 +519,11 @@ temporelle globale de ce système (c.f~\cref{fig-pert2}).
         legend cell align={left},
     ]%
         \addplot[mark=none,vtb] table {scilab/pert2_data.tab};
-        \addplot[red,thick,domain=0:15] {1};   %échelon
-        \addplot[red,thick,domain=15:30] {1.5}; %pertubation
-        \addplot[red,thick,domain=-2:0] {0};
-        \draw[red,thick,dashed] (0,0)--(0,1);   %échelon
-        \draw[red,thick,dashed] (15,1)--(15,1.5);   %échelon
+        \addplot[col4,thick,domain=0:15] {1};   %échelon
+        \addplot[col4,thick,domain=15:30] {1.5}; %pertubation
+        \addplot[col4,thick,domain=-2:0] {0};
+        \draw[col4,thick,dashed] (0,0)--(0,1);   %échelon
+        \draw[col4,thick,dashed] (15,1)--(15,1.5);   %échelon
     \end{axis}
     \begin{scope}[shift={(-10,2.3)}]
         \sbEntree{E1}
@@ -622,7 +622,7 @@ dans une bande à 5\% autour de la valeur finale.
     \node[right] at (axis cs:6,\kk) {\small $s(\infty)$};
     \draw[dtb,{Latex[length=1.25mm]}-{Latex[length=1.25mm]}](axis cs:-0.25,\mc) 
     -- node[midway,left] {\small $\pm5\%$} (axis cs:-0.25,\pc);
-    \draw[fill=red,red] (axis cs:3*\t,\mc) circle (1.5pt);
+    \draw[fill=col4,col4] (axis cs:3*\t,\mc) circle (1.5pt);
     \end{axis}
 \end{tikzpicture}
 \tikzsetnextfilename{rapidite_t5pc_2-chap6-ext}
@@ -665,7 +665,7 @@ dans une bande à 5\% autour de la valeur finale.
              -- (axis cs:\tr,\pc);
     \draw[dtb,{Latex[length=1.25mm]}-{Latex[length=1.25mm]}](axis cs:-0.25,\mc) 
     -- node[midway,left] {\small $\pm5\%$} (axis cs:-0.25,\pc);
-    \draw[fill=red,red] (axis cs:\tr,\pc) circle (1.5pt);
+    \draw[fill=col4,col4] (axis cs:\tr,\pc) circle (1.5pt);
     \end{axis}
 \end{tikzpicture}
 \caption{Définition du temps de réponse à 5\% : (à gauche) dans le cas
@@ -721,8 +721,8 @@ n'a donc de sens qu'en régime pseudo-périodique.
     \draw[dvtr] (axis cs:\tu,0) node[below] {\small $t_1$} -- (axis cs:\tu,\mc);
     \draw[dvtr] (axis cs:\td,0) node[below] {\small $t_2$} -- (axis cs:\td,\pc);
     \node[right] at (axis cs:\xm,\kk) {\small $s(\infty)$};
-    \draw[fill=red,red] (axis cs:\tu,\mc) circle (1.25pt);
-    \draw[fill=red,red] (axis cs:\td,\pc) circle (1.25pt);
+    \draw[fill=col4,col4] (axis cs:\tu,\mc) circle (1.25pt);
+    \draw[fill=col4,col4] (axis cs:\td,\pc) circle (1.25pt);
     \draw[vtr,{Latex[length=2mm]}-{Latex[length=2mm]}](axis cs:\tu,-0.4)
     -- node[midway,below] {\small $t_m=t_2-t_1$} (axis cs:\td,-0.4);
     \end{axis}
@@ -766,8 +766,8 @@ n'a donc de sens qu'en régime pseudo-périodique.
     \draw[dtb] (axis cs:0,\pc) node[left] {\small 90\%}-- (axis cs:\xm,\pc);%90%
     \draw[dtn] (axis cs:0,\kk) -- (axis cs:\xm,\kk);                  % vf
     \node[right] at (axis cs:\xm,\kk) {\small $s(\infty)$}  ;
-    \draw[fill=red,red] (axis cs:\tu,\mc) circle (1.25pt);
-    \draw[fill=red,red] (axis cs:\td,\pc) circle (1.25pt);
+    \draw[fill=col4,col4] (axis cs:\tu,\mc) circle (1.25pt);
+    \draw[fill=col4,col4] (axis cs:\td,\pc) circle (1.25pt);
     \draw[fill=black]   (axis cs:\tvf,\kk) circle (1.25pt);
     \draw[dvtr] (axis cs:\tu,0) node[below] {\small$t_1$} -- (axis cs:\tu,\mc);
     \draw[dvtr] (axis cs:\td,0) node[below,xshift=-0.5em] {\small$t_2$} 
@@ -943,7 +943,7 @@ $$
 ou encore sous sa forme réduite en $\omega_0$:
 \begin{bequation}[ams align]
 t_{M}\omega_0=
-    \dfrac{\pi-\arctan{\dfrac{\sqrt{1-\xi^2}}{\xi}}}{\sqrt{1-\xi^2}}\label{eq-tM}
+\dfrac{\pi-\arctan{\dfrac{\sqrt{1-\xi^2}}{\xi}}}{\sqrt{1-\xi^2}}\label{eq-tM}
 \end{bequation}
 
 Remarquons que pour le temps de réponse à 5\% minimal, le temps de montée à 
@@ -1111,15 +1111,15 @@ globale $s(t)$.
         legend cell align={left},
     ]%
     \addplot[signaln,domain=0:30] {{1}};
-    \addplot[signalc,domain=0:30] {6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
+    \addplot[signalv,domain=0:30] {6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
     \addplot[signalb,domain=0:30] {6.25*(1-exp(-x/5))};
     \addplot[signalg,domain=0:30] {1.25*(1-exp(-x))};
     \legend{échelon,$s(t)$,$s_1(t)$,$s_2(t)$}
     \end{axis}%
     \begin{scope}[shift={(11,3)}]
         \carte[l]
-        \dpole{-0.4}{0}{2}[blue]
-        \dpole{-2}{0}{1}[blue]
+        \dpole{-0.4}{0}{2}[col1]
+        \dpole{-2}{0}{1}[col1]
     \end{scope}
 \end{tikzpicture}
 \caption{(à gauche) Réponse indicielle $s(t)$ de la fonction de 

@@ -20,18 +20,18 @@
     \centering
 \tikzsetnextfilename{stable_1-chap7-ext}
     \begin{tikzpicture}
-        \draw[green!50!black,line width=0.5mm] (0,0.25) circle (1.5ex);
+        \draw[col3,line width=0.5mm] (0,0.25) circle (1.5ex);
         \draw[thick] (0,0) parabola (1,1.75) ;
         \draw[thick] (0,0) parabola (-1,1.75) ;
         \node at (0,-2.5) {(a) stable};
         \begin{scope}[xshift=3.5cm]
-            \draw[red,line width=0.5mm] (0,0.25) circle (1.5ex);
+            \draw[col4,line width=0.5mm] (0,0.25) circle (1.5ex);
             \draw[thick] (0,0) parabola (1,-1.75) ;
             \draw[thick] (0,0) parabola (-1,-1.75) ;
             \node at (0,-2.5) {(b) instable};
         \end{scope}
         \begin{scope}[xshift=7cm]
-            \draw[blue,line width=0.5mm] (0,0.25) circle (1.5ex);
+            \draw[col1,line width=0.5mm] (0,0.25) circle (1.5ex);
             \draw[thick] (0,0) parabola (-1,1.75) ;
             \draw[thick] (0,0) parabola (0.5,0.2) ;
             \draw[thick] (0.5,0.2) parabola (1,-1.75) ;
@@ -221,12 +221,12 @@ est tel que $\begin{vmatrix} a & b \\ c & d \end{vmatrix}=ad-bc$} des
     \vdots \\
 \end{matrix}
 \begin{vmatrix}
-    \textcolor{red}{b_n}       & \textcolor{red}{b_{n-2}}    & b_{n-4}    
+    \textcolor{col4}{b_n}       & \textcolor{col4}{b_{n-2}}    & b_{n-4}    
                                & \cdots & b_3            & b_1         \\
-    \textcolor{red}{b_{n-1}}   & \textcolor{red}{b_{n-3}}    & b_{n-5}    
+    \textcolor{col4}{b_{n-1}}   & \textcolor{col4}{b_{n-3}}    & b_{n-5}    
                                & \cdots & b_2            & b_0         \\
     \hline
-    %\hmm{A_{31}}{red}   & A_{32}     & A_{33} & \cdots & \cdots  & \cdots \\
+    %\hmm{A_{31}}{col4}   & A_{32}     & A_{33} & \cdots & \cdots  & \cdots \\
     A_{31}  & A_{32}     & A_{33}     & \cdots & \cdots         & \cdots   \\
     \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots \\
 \end{vmatrix}
@@ -245,12 +245,12 @@ A_{31}=-\dfrac{1}{b_{n-1}}
     \vdots \\
 \end{matrix}
 \begin{vmatrix}
-    \textcolor{blue}{b_n}       & b_{n-2}    & \textcolor{blue}{b_{n-4}}    
+    \textcolor{col1}{b_n}       & b_{n-2}    & \textcolor{col1}{b_{n-4}}    
     & \cdots & b_3        & b_1         \\
-    \textcolor{blue}{b_{n-1}}   & b_{n-3}    & \textcolor{blue}{b_{n-5}}    
+    \textcolor{col1}{b_{n-1}}   & b_{n-3}    & \textcolor{col1}{b_{n-5}}    
     & \cdots & b_2            & b_0         \\
     \hline
-    %A_{31}    & \hmm{A_{32}}{blue}     & A_{33} & \cdots & \cdots& \cdots  \\
+    %A_{31}    & \hmm{A_{32}}{col1}     & A_{33} & \cdots & \cdots& \cdots  \\
     A_{31}    & A_{32}     & A_{33}     & \cdots & \cdots         & \cdots  \\
     \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots  \\
 \end{vmatrix}
@@ -271,10 +271,10 @@ On construit de la même manière la quatrième ligne :
 \end{matrix}
 \begin{vmatrix}
     b_n       & b_{n-2}    & b_{n-4}    & \cdots & b_3            & b_1 \\
-     \textcolor{red}{b_{n-1}}   & \textcolor{red}{b_{n-3}}    & b_{n-5}    
+     \textcolor{col4}{b_{n-1}}   & \textcolor{col4}{b_{n-3}}    & b_{n-5}    
                                 & \cdots & b_2            & b_0         \\
     \hline
-     \textcolor{red}{A_{31}}    &  \textcolor{red}{A_{32}}    & A_{33}    
+     \textcolor{col4}{A_{31}}    &  \textcolor{col4}{A_{32}}    & A_{33}    
                                 & \cdots & \cdots         & \cdots      \\
     A_{41}   & A_{42}     & A_{43}    & \cdots & \cdots   & \cdots      \\
     \vdots   & \vdots     & \vdots    & \vdots & \vdots   & \vdots      \\
@@ -297,10 +297,10 @@ A_{21} & A_{22} \\ A_{31} & A_{22}
 \end{matrix}
 \begin{vmatrix}
     b_n       & b_{n-2}    & b_{n-4}    & \cdots & b_3            & b_1  \\
-    \textcolor{blue}{b_{n-1}}   &  b_{n-3}    & \textcolor{blue}{b_{n-5}}    
+    \textcolor{col1}{b_{n-1}}   &  b_{n-3}    & \textcolor{col1}{b_{n-5}}    
     & \cdots & b_2            & b_0         \\
     \hline
-    \textcolor{blue}{A_{31}}     &  A_{32}    & \textcolor{blue}{A_{33}}    
+    \textcolor{col1}{A_{31}}     &  A_{32}    & \textcolor{col1}{A_{33}}    
     & \cdots & \cdots         & \cdots      \\
     A_{41}      & A_{42}     & A_{43}    & \cdots & \cdots    & \cdots   \\
     \vdots    & \vdots     & \vdots     & \vdots & \vdots     & \vdots   \\
@@ -360,7 +360,7 @@ Le critère s'applique sur la première colonne ainsi construit dite
     b_0\DoTikzmarkD{n2}  & 0          & 0          & \cdots & 0        & 0
 \end{vmatrix}
 \]
-\colrow[green,opacity=.2]{n1}{n2}
+\colrow[col3,opacity=.2]{n1}{n2}
 
 \begin{criteria}{Critère de Routh-Hurtwitz}
     \textbf{Un système asservi est stable en boucle fermée
@@ -513,7 +513,7 @@ $$
     K                        & 0    
     \end{vmatrix}
 \]
-\colrow[green,opacity=.2]{n3}{n4}
+\colrow[col3,opacity=.2]{n3}{n4}
 
 La colonne des pivots sont tous de même signe si $3-K>0$ et $K>0$ (déjà établie 
 par la condition nécessaire de Routh). La condition sur $K$ pour que le 
@@ -704,32 +704,32 @@ passe par le point critique de oordonnées (-1,0).
     \def\yd{1.75}
     \def\xt{-2.25}
     \def\yt{-4}
-    \addplot [-latex,red,thick,domain=1:0.8,samples=25]
+    \addplot [-latex,col4,thick,domain=1:0.8,samples=25]
     ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
     x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
     {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
     x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \addplot [-latex,red,thick,domain=0.81:0.5,samples=25]
+    \addplot [-latex,col4,thick,domain=0.81:0.5,samples=25]
     ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
     x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
     {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
     x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \addplot [-latex,red,thick,domain=0.51:0.3,samples=25]
+    \addplot [-latex,col4,thick,domain=0.51:0.3,samples=25]
     ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
     x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
     {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
     x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \addplot [red,thick,domain=0.31:0,samples=25]
+    \addplot [col4,thick,domain=0.31:0,samples=25]
     ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
     x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
     {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
     x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
 
-    \node [red,left]  at (axis cs:  -2.3, -3.5)   {\textbf{instable}};
-    \addplot [red, mark = *]  coordinates   {(-1.7,0)} {};
-    \draw[dblarw={red}{2pt}{2pt}] (0,1.9) -- node[midway,above] 
+    \node [col4,left]  at (axis cs:  -2.3, -3.5)   {\textbf{instable}};
+    \addplot [col4, mark = *]  coordinates   {(-1.7,0)} {};
+    \draw[dblarw={col4}{2pt}{2pt}] (0,1.9) -- node[midway,above] 
     {$G(\omega)>1$} (-1.7,1.9) ;
-    \draw[red,dashed] (-1.7,1.9)--(-1.7,0);
+    \draw[col4,dashed] (-1.7,1.9)--(-1.7,0);
 
     % critique 
     \def\xu{-0.5}
@@ -738,25 +738,25 @@ passe par le point critique de oordonnées (-1,0).
     \def\yd{0.8}
     \def\xt{-1.495}
     \def\yt{-4}
-    \addplot [-latex,blue,thick,domain=1:0.8,samples=50]
+    \addplot [-latex,col1,thick,domain=1:0.8,samples=50]
     ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
      x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
     {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
     x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \addplot [-latex,blue,thick,domain=0.81:0.3,samples=25]
+    \addplot [-latex,col1,thick,domain=0.81:0.3,samples=25]
     ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
     x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
     {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
     x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \addplot [blue,thick,domain=0.31:0,samples=25]
+    \addplot [col1,thick,domain=0.31:0,samples=25]
     ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
     x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
     {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
     x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \node[blue,left]  at (axis cs:  -1.45, -3.5)   {\textbf{critique}};
-    \draw[dblarw={blue}{2pt}{2pt}] (0,1.2) -- node[midway,above]
+    \node[col1,left]  at (axis cs:  -1.45, -3.5)   {\textbf{critique}};
+    \draw[dblarw={col1}{2pt}{2pt}] (0,1.2) -- node[midway,above]
     {$G(\omega)=1$} (-1,1.2);
-    \draw[blue,dashed] (-1,1.2)--(-1,0);
+    \draw[col1,dashed] (-1,1.2)--(-1,0);
 
     %stable
     \def\xu{-0.206}
@@ -765,28 +765,28 @@ passe par le point critique de oordonnées (-1,0).
     \def\yd{0.38}
     \def\xt{-1}
     \def\yt{-4}
-    \addplot [-latex,green!50!black,thick,domain=1:0.8,samples=50]
+    \addplot [-latex,col3,thick,domain=1:0.8,samples=50]
     ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
     x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
     {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
     x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \addplot [-latex,green!50!black,thick,domain=0.81:0.3,samples=50]
+    \addplot [-latex,col3,thick,domain=0.81:0.3,samples=50]
     ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
     x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
     {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
     x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \addplot [color=green!50!black,thick,domain=0.31:0,samples=50]
+    \addplot [col3,thick,domain=0.31:0,samples=50]
     ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
     x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
     {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
     x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
 
-    \addplot[green!50!black, mark = *] coordinates {(-0.47,0)} {};
+    \addplot[col3, mark = *] coordinates {(-0.47,0)} {};
 
-    \node[green!50!black,right] at (axis cs:-1.0,-3.5) {\textbf{stable}};
-    \draw[dblarw={green!50!black}{2pt}{2pt}] (0,-0.5) -- node[midway,below]
+    \node[col3,right] at (axis cs:-1.0,-3.5) {\textbf{stable}};
+    \draw[dblarw={col3}{2pt}{2pt}] (0,-0.5) -- node[midway,below]
     {$G(\omega)<1$} (-0.47,-0.5) ;
-    \draw[green!50!black,dashed] (-0.47,-0.5)--(-0.47,0);
+    \draw[col3,dashed] (-0.47,-0.5)--(-0.47,0);
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -837,7 +837,7 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
     \def\db{5.0}
     \def\dk{4}
     \def\dpp{1.35}
-    \def\colru{red}
+    \def\colru{col4}
     \addplot[\colru,thick,domain=1e-2:1e-1,samples=100]
     ({-\dpp*atan2(\da*x,(1-\db*x*x))},
      {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
@@ -850,7 +850,7 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
     \addplot[\colru,thick,domain=1e1:1e2,samples=100]  
     ({-\dpp*atan2(\da*x,(1-\db*x*x))},
      {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-%    \addplot[blue,thick,domain=1e2:1e4,samples=200]  
+%    \addplot[col1,thick,domain=1e2:1e4,samples=200]  
 %    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
 %     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
     %\addplot[domain=1e1:1e5,samples=100] ({-10*log10(1+x*x)},{x});
@@ -861,7 +861,7 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
     \def\db{1.0}
     \def\dk{1.5}
     \def\dpp{0.95}
-    \edef\colrd{green!50!black}
+    \edef\colrd{col3}
     \addplot[\colrd,thick,domain=1e-2:1e-1,samples=100]
     ({-\dpp*atan2(\da*x,(1-\db*x*x))},
      {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
@@ -880,7 +880,7 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
     \def\db{4.0}
     \def\dk{1.75}
     \def\dpp{1.15}
-    \edef\colrt{blue}
+    \edef\colrt{col1}
     \addplot[\colrt,thick,domain=1e-2:1e-1,samples=100]
     ({-\dpp*atan2(\da*x,(1-\db*x*x))},
      {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
@@ -963,32 +963,32 @@ pour respecter le critère du revers dans le plan de Bode
         clip=false,
         ]
         \def\dk{9}
-        \addplot[ultra thick,color=red,domain=1e-2:1e2  , samples=101]
+        \addplot[very thick,col4,domain=1e-2:1e2  , samples=101]
         {\dk+50-20*log10(1+10*x*x)};
-        \addplot[ultra thick,color=blue,domain=1e-2:1e2  , samples=101]
+        \addplot[very thick,col1,domain=1e-2:1e2  , samples=101]
         {\dk+30-20*log10(1+10*x*x)};
-        \addplot[ultra thick,color=green!50!black,domain=1e-2:1e2,samples=101]
+        \addplot[very thick,col3,domain=1e-2:1e2,samples=101]
         {\dk+10-20*log10(1+10*x*x)};
-        \addplot [green!50!black, mark = *]  coordinates 
+        \addplot [col3, mark = *]  coordinates 
         {(3.0077,{\dk+10-20*log10(1+10*3.0077*3.0077)})} {};
-        \addplot [blue, mark = *]            coordinates 
+        \addplot [col1, mark = *]            coordinates 
         {(3.0077,{\dk+30-20*log10(1+10*3.0077*3.0077)})} {};
-        \addplot [red, mark = *]             coordinates 
+        \addplot [col4, mark = *]             coordinates 
         {(3.0077,{\dk+50-20*log10(1+10*3.0077*3.0077)})} {};
-        \draw[green!50!black,dashed] 
+        \draw[col3,dashed] 
         (1e-2,{\dk+10-20*log10(1+10*3.0077*3.0077)}) 
         node[left] {$G(\omega_c)$} -- 
         (3.0077,{\dk+10-20*log10(1+10*3.0077*3.0077)});
-        \draw[red,dashed] (1e-2,{\dk+50-20*log10(1+10*3.0077*3.0077)}) 
+        \draw[col4,dashed] (1e-2,{\dk+50-20*log10(1+10*3.0077*3.0077)}) 
         node[left] {$G(\omega_c)$} -- 
         (3.0077,{\dk+50-20*log10(1+10*3.0077*3.0077)}) ;
         \node (pt1) at (axis cs:3.0077,80) {};
         \draw[]  (1e-2,0)  node[left] {\SI{0}{\dB}} -- (1e2,0);
-        \node [green!50!black,right]  at (axis cs: 1e2, -80.0) 
+        \node [col3,right]  at (axis cs: 1e2, -80.0) 
         {\textbf{stable}  };                
-        \node [blue          ,right]  at (axis cs: 1e2, -60.0) 
+        \node [col1          ,right]  at (axis cs: 1e2, -60.0) 
         {\textbf{critique}};                
-        \node [red           ,right]  at (axis cs: 1e2, -40.0) 
+        \node [col4           ,right]  at (axis cs: 1e2, -40.0) 
         {\textbf{instable}};                
         \end{axis}
         \begin{axis}[
@@ -1011,29 +1011,29 @@ pour respecter le critère du revers dans le plan de Bode
         ylabel style={left,rotate=-90,yshift=3.25em},
         clip=false,
         ]
-        \addplot[ultra thick,color=black,domain=1e-2:1e2, samples=101]
+        \addplot[very thick,col5,domain=1e-2:1e2, samples=101]
         {-2.5*atan2(x,1)};
         \def\ttt{0.865}
         \def\ddd{9.1}
-        \addplot [green!50!black, mark = *]  coordinates 
+        \addplot [col3, mark = *]  coordinates 
         {(\ttt,{-2.5*atan2(\ttt,1)})} {};
-        \addplot [blue, mark = *]            coordinates 
+        \addplot [col1, mark = *]            coordinates 
         {(3.0077,{-2.5*atan2(3.0077,1)})} {};
-        \addplot [red, mark = *]             coordinates 
+        \addplot [col4, mark = *]             coordinates 
         {(\ddd,{-2.5*atan2(\ddd,1)})} {};
-        \draw[green!50!black,dashed] (1e-2,{-2.5*atan2(\ttt,1)}) 
+        \draw[col3,dashed] (1e-2,{-2.5*atan2(\ttt,1)}) 
         node[left] {$\phi(\omega_1)$} -- (\ttt,{-2.5*atan2(\ttt,1)}) ;
-        \draw[red,dashed]  (1e-2,{-2.5*atan2(\ddd,1)}) 
+        \draw[col4,dashed]  (1e-2,{-2.5*atan2(\ddd,1)}) 
         node[left] {$\phi(\omega_1)$} -- (\ddd,{-2.5*atan2(\ddd,1)}) ;
         \draw[black,dashed] (1e-2,-180)  
         node[left] {-180$\degree$} -- (1e2,-180) ;
         \end{axis}
-        \draw[green!50!black,dashed] ($(pt1)+(-1,0)$) 
+        \draw[col3,dashed] ($(pt1)+(-1,0)$) 
         node[above] {$\omega_1$} -- + (0,-7.5cm) ;
-        \draw[blue ,dashed] ($(pt1)+(0,0)$) 
+        \draw[col1,dashed] ($(pt1)+(0,0)$) 
         node[above,text width=1cm,align=center] 
         {$\omega_c$\\$\omega_1$} -- + (0,-7.5cm) ;
-        \draw[red,dashed] ($(pt1)+(0.9,0)$) 
+        \draw[col4,dashed] ($(pt1)+(0.9,0)$) 
         node[above] {$\omega_1$} -- + (0,-7.5cm) ;
 \end{tikzpicture}
 \caption{Représentation schématique de lieux de Bode de la fonction 
@@ -1138,13 +1138,13 @@ sont comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours})
         {\arrow[line width=2pt]{latex}}},
            postaction={decorate},
            thick,
-           red,
+           col4,
            smooth cycle,
            samples=11,
            domain={11:1},
            xshift=3cm,
            yshift=3cm] plot (\x*360/11+5*rnd:1.25cm+0.75cm*rnd) ;
-    \node[red] (ct) at (axis cs:-4,2) {\Large$\mathcal{C}$};
+    \node[col4] (ct) at (axis cs:-4,2) {\Large$\mathcal{C}$};
     \addplot[mark=x,ultra thick,only marks,mark size=5pt] 
     coordinates{ (-3.0,-0.5) (-6,-1)};
     \addplot[mark=o,ultra thick,only marks,mark size=5pt] 
@@ -1176,14 +1176,14 @@ sont comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours})
     decoration={markings,mark=at position 0.5 with 
     {\arrowreversed[line width=2pt]{latex}}},
     postaction={decorate},
-    blue,
+    col1,
     thick,
     domain=1:3,
     samples=50,
     smooth cycle] coordinates 
     {(1.9,-1.5) (0,-2) (-0.75,0.35) (0.25,1.25) (1,0.25) (-0.25,-0.75) 
     (-1.1,-1.25) (-1.5,-1) (-2,0) (-1.5,1.5)  (0,2)  (0.75,1.9) (2,0)}; 
-    \node[blue] (ct) at (axis cs:-2.5,2) {\Large$\Gamma:F(\mathcal{C})$};
+    \node[col1] (ct) at (axis cs:-2.5,2) {\Large$\Gamma:F(\mathcal{C})$};
     \draw[draw=none,fill=black] (axis cs:0,0) circle (2pt);
 \end{axis}
 \end{tikzpicture}
@@ -1354,17 +1354,17 @@ $r\rightarrow0$ centré sur les pôles nuls.
     xmin=-0.8,
     xmax=2.4,
     clip=false]
-    \draw[blue,thick,-{Latex[length=2.5mm]}]
+    \draw[col1,thick,-{Latex[length=2.5mm]}]
     (axis cs:0,-1.4) -- (axis cs:0,-0.8);
-    \draw[blue,thick,-{Latex[length=2.5mm]}]
+    \draw[col1,thick,-{Latex[length=2.5mm]}]
     (axis cs:0,-0.85) -- (axis cs:0,0.8);
-    \draw[blue,thick]                       
+    \draw[col1,thick]                       
     (axis cs:0,0.75) -- (axis cs:0,1.4);
-    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=90:60] 
+    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=90:60] 
     ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=62:-60] 
+    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=62:-60] 
     ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[blue,very thick,domain=-58:-90] 
+    \addplot[col1,very thick,domain=-58:-90] 
     ({1.4*cos(x)},{1.4*sin(x)});
     \draw[dashed,thick] (axis cs:0,0) -- 
     (axis cs:{1.4*cos(20)},{1.4*sin(20)}) 
@@ -1390,26 +1390,26 @@ $r\rightarrow0$ centré sur les pôles nuls.
     xmin=-0.8,
     xmax=2.4,
     clip=false]
-    \draw[blue,thick,-{Latex[length=2.5mm]}] 
+    \draw[col1,thick,-{Latex[length=2.5mm]}] 
     (axis cs:0,-1.4) -- (axis cs:0,-0.7);
-    \draw[blue,thick] 
+    \draw[col1,thick] 
     (axis cs:0,-0.75) -- (axis cs:0,-0.15) ;
-    \addplot[blue,very thick,domain=-90:-50,samples=10] 
+    \addplot[col1,very thick,domain=-90:-50,samples=10] 
     ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[blue,very thick,domain=-51:-52,samples=10] 
+    \addplot[col1,very thick,domain=-51:-52,samples=10] 
     ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[blue,very thick,domain=-50:60,samples=10] 
+    \addplot[col1,very thick,domain=-50:60,samples=10] 
     ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[blue,very thick,domain=54:90,samples=10] 
+    \addplot[col1,very thick,domain=54:90,samples=10] 
     ({0.15*cos(x)},{0.15*sin(x)});
-    \draw[blue,thick,-{Latex[length=2.5mm]}]        
+    \draw[col1,thick,-{Latex[length=2.5mm]}]        
     (axis cs:0,0.15) -- (axis cs:0,0.7) ;
-    \draw[blue,thick] (axis cs:0,0.65) -- (axis cs:0,1.4) ;
-    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] 
+    \draw[col1,thick] (axis cs:0,0.65) -- (axis cs:0,1.4) ;
+    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] 
     ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] 
+    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] 
     ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[blue,very thick,domain=-58:-90,samples=10] 
+    \addplot[col1,very thick,domain=-58:-90,samples=10] 
     ({1.4*cos(x)},{1.4*sin(x)});
     \draw[dashed,thick] 
     (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)}) 
@@ -1435,48 +1435,48 @@ $r\rightarrow0$ centré sur les pôles nuls.
     xmin=-0.8,
     xmax=2.4,
     clip=false]
-    \draw[blue,thick,-{Latex[length=2.5mm]}] 
+    \draw[col1,thick,-{Latex[length=2.5mm]}] 
     (axis cs:0,-1.4) -- (axis cs:0,-1.0);
-    \draw[blue,thick] (axis cs:0,-1.1) -- (axis cs:0,-0.85) ;
-    \addplot[blue,very thick,domain=-90:-50,samples=10] 
+    \draw[col1,thick] (axis cs:0,-1.1) -- (axis cs:0,-0.85) ;
+    \addplot[col1,very thick,domain=-90:-50,samples=10] 
     ({0.15*cos(x)},{-0.7+0.15*sin(x)});
-    \addplot[blue,very thick,domain=-51:-52,samples=10] 
+    \addplot[col1,very thick,domain=-51:-52,samples=10] 
     ({0.15*cos(x)},{-0.7+0.15*sin(x)});
-    \addplot[blue,very thick,domain=-50:60,samples=10]  
+    \addplot[col1,very thick,domain=-50:60,samples=10]  
     ({0.15*cos(x)},{-0.7+0.15*sin(x)});
-    \addplot[blue,very thick,domain=54:90,samples=10] 
+    \addplot[col1,very thick,domain=54:90,samples=10] 
     ({0.15*cos(x)},{-0.7+0.15*sin(x)});
-    \draw[blue,thick,-{Latex[length=2.5mm]}] 
+    \draw[col1,thick,-{Latex[length=2.5mm]}] 
     (axis cs:0,-0.55) -- (axis cs:0,-0.3) ;
-    \draw[blue,thick] (axis cs:0,-0.35) -- (axis cs:0,-0.15) ;
-    \addplot[blue,very thick,domain=-90:-50,samples=10] 
+    \draw[col1,thick] (axis cs:0,-0.35) -- (axis cs:0,-0.15) ;
+    \addplot[col1,very thick,domain=-90:-50,samples=10] 
     ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[blue,very thick,domain=-51:-52,samples=10] 
+    \addplot[col1,very thick,domain=-51:-52,samples=10] 
     ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[blue,very thick,domain=-50:60,samples=10]  
+    \addplot[col1,very thick,domain=-50:60,samples=10]  
     ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[blue,very thick,domain=54:90,samples=10]   
+    \addplot[col1,very thick,domain=54:90,samples=10]   
     ({0.15*cos(x)},{0.15*sin(x)});
-    \draw[blue,thick,-{Latex[length=2.5mm]}]    
+    \draw[col1,thick,-{Latex[length=2.5mm]}]    
     (axis cs:0,0.15) -- (axis cs:0,0.4) ;
-    \draw[blue,thick]        
+    \draw[col1,thick]        
     (axis cs:0,0.35) -- (axis cs:0,0.55) ;
-    \addplot[blue,very thick,domain=-90:-50,samples=10] 
+    \addplot[col1,very thick,domain=-90:-50,samples=10] 
     ({0.15*cos(x)},{0.7+0.15*sin(x)});
-    \addplot[blue,very thick,domain=-51:-52,samples=10] 
+    \addplot[col1,very thick,domain=-51:-52,samples=10] 
     ({0.15*cos(x)},{0.7+0.15*sin(x)});
-    \addplot[blue,very thick,domain=-50:60,samples=10]  
+    \addplot[col1,very thick,domain=-50:60,samples=10]  
     ({0.15*cos(x)},{0.7+0.15*sin(x)});
-    \addplot[blue,very thick,domain=54:90,samples=10]   
+    \addplot[col1,very thick,domain=54:90,samples=10]   
     ({0.15*cos(x)},{0.7+0.15*sin(x)});
-    \draw[blue,thick,-{Latex[length=2.5mm]}]    
+    \draw[col1,thick,-{Latex[length=2.5mm]}]    
     (axis cs:0,0.85) -- (axis cs:0,1.1) ;
-    \draw[blue,thick]        (axis cs:0,1.0) -- (axis cs:0,1.4) ;
-    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] 
+    \draw[col1,thick]        (axis cs:0,1.0) -- (axis cs:0,1.4) ;
+    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] 
     ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] 
+    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] 
     ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[blue,very thick,domain=-58:-90,samples=10] 
+    \addplot[col1,very thick,domain=-58:-90,samples=10] 
     ({1.4*cos(x)},{1.4*sin(x)});
     \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)})
     node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
@@ -1551,27 +1551,27 @@ suivante : $H_1(p)=\dfrac{1}{1+p}$
     xmin=-0.8,
     xmax=2.4,
     clip=false]
-    \draw[dashed,blue,very thick,-{Latex[length=2.5mm]}] 
+    \draw[dashed,col1,very thick,-{Latex[length=2.5mm]}] 
     (axis cs:0,-1.4) -- (axis cs:0,-0.8) node[left] {\textbf{III}} ;
-    \draw[dashed,blue,very thick,-{Latex[length=2.5mm]}] 
+    \draw[dashed,col1,very thick,-{Latex[length=2.5mm]}] 
     (axis cs:0,-0.85) -- (axis cs:0,0) ;
-    \draw[blue,very thick,-{Latex[length=2.5mm]}] 
+    \draw[col1,very thick,-{Latex[length=2.5mm]}] 
     (axis cs:0,0) -- (axis cs:0,0.8) node[left] {\textbf{I}};
-    \draw[blue,very thick]                        
+    \draw[col1,very thick]                        
     (axis cs:0,0.75) -- (axis cs:0,1.4) ;
-    \addplot[red,very thick,-{Latex[length=2.5mm]},domain=90:60] 
+    \addplot[col4,very thick,-{Latex[length=2.5mm]},domain=90:60] 
     ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[red,very thick,domain=62:0] 
+    \addplot[col4,very thick,domain=62:0] 
     ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[red,very thick,-{Latex[length=2.5mm]},domain=0:-60] 
+    \addplot[col4,very thick,-{Latex[length=2.5mm]},domain=0:-60] 
     ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[red,very thick,domain=-58:-90] 
+    \addplot[col4,very thick,domain=-58:-90] 
     ({1.4*cos(x)},{1.4*sin(x)});
-    \node[right,xshift=0.5em,red] at 
+    \node[right,xshift=0.5em,col4] at 
     (axis cs:{1.4*cos(50)},{1.4*sin(50)}) {\textbf{II}};
-    \node[left,red] at (axis cs:{1.4*cos(90)},{1.4*sin(90)}) 
+    \node[left,col4] at (axis cs:{1.4*cos(90)},{1.4*sin(90)}) 
     {\scriptsize $p\rightarrow+j\infty$};
-    \node[left,red] at (axis cs:{1.4*cos(-90)},{1.4*sin(-90)}) 
+    \node[left,col4] at (axis cs:{1.4*cos(-90)},{1.4*sin(-90)}) 
     {\scriptsize $p\rightarrow-j\infty$};
     \end{axis}
     \draw[dblarw={black}{3pt}{3pt}] (5.5,2.18) -- 
@@ -1594,32 +1594,32 @@ suivante : $H_1(p)=\dfrac{1}{1+p}$
     xmax=1.1,
     clip=false]
     \def\ttt{1.0}
-    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=0:0.9,samples=201] 
+    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=0:0.9,samples=201] 
     ({1/(1+\ttt*x*x)},{-x/(1+\ttt*x*x)});
-    \addplot[blue,very thick,domain=0.89:10,samples=201] 
+    \addplot[col1,very thick,domain=0.89:10,samples=201] 
     ({1/(1+\ttt*x*x)},{-x/(1+\ttt*x*x)});
-    \addplot[blue,very thick,domain=10:20,samples=201] 
+    \addplot[col1,very thick,domain=10:20,samples=201] 
     ({1/(1+\ttt*x*x)},{-x/(1+\ttt*x*x)});
-    \addplot[dashed,blue,very thick,domain=0:0.9,samples=201] 
+    \addplot[dashed,col1,very thick,domain=0:0.9,samples=201] 
     ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
-    \addplot[dashed,blue,very thick,domain=0.89:10,samples=201,
+    \addplot[dashed,col1,very thick,domain=0.89:10,samples=201,
     {Latex[length=2.5mm]}-] 
     ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
-    \addplot[dashed,blue,very thick,domain=10:20,samples=201] 
+    \addplot[dashed,col1,very thick,domain=10:20,samples=201] 
     ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
-    \draw[draw=none,fill=red] (axis cs:0,0) circle (2pt) node[above left,red] 
+    \draw[draw=none,fill=col4] (axis cs:0,0) circle (2pt) node[above left,col4] 
     {\textbf{II}};
-    \node[right,xshift=0.5em,blue] at (axis cs:{0.9*cos(30)},{0.9*sin(30)}) 
+    \node[right,xshift=0.5em,col1] at (axis cs:{0.9*cos(30)},{0.9*sin(30)}) 
     {\textbf{III}};
-    \node[right,xshift=0.5em,blue] at (axis cs:{0.9*cos(30)},{-0.9*sin(30)}) 
+    \node[right,xshift=0.5em,col1] at (axis cs:{0.9*cos(30)},{-0.9*sin(30)}) 
     {\textbf{I}};
-    \node[right,red] at (axis cs:{0.1*cos(90)},{0.1*sin(90)}) 
+    \node[right,col4] at (axis cs:{0.1*cos(90)},{0.1*sin(90)}) 
     {\scriptsize $p\rightarrow-j\infty$};
-    \node[right,red] at (axis cs:{0.1*cos(-90)},{0.1*sin(-90)}) 
+    \node[right,col4] at (axis cs:{0.1*cos(-90)},{0.1*sin(-90)}) 
     {\scriptsize $p\rightarrow+j\infty$};
-    \node[blue] at (axis cs:{1.2*cos(10)},{1.2*sin(10)})   
+    \node[col1] at (axis cs:{1.2*cos(10)},{1.2*sin(10)})   
     {\scriptsize $p\rightarrow0^-$};
-    \node[blue] at (axis cs:{1.2*cos(-10)},{1.2*sin(-10)}) 
+    \node[col1] at (axis cs:{1.2*cos(-10)},{1.2*sin(-10)}) 
     {\scriptsize $p\rightarrow0^+$};
 \end{axis}
 \end{tikzpicture}
@@ -1674,37 +1674,37 @@ suivante : $H_2(p)=\dfrac{1}{p(1+p)}$
     xmin=-0.8,
     xmax=2.4,
     clip=false]
-    \draw[dashed,blue,very thick,-{Latex[length=2.5mm]}] 
+    \draw[dashed,col1,very thick,-{Latex[length=2.5mm]}] 
     (axis cs:0,-1.4) -- (axis cs:0,-0.7) node[left] {\textbf{III}};
-    \draw[dashed,blue,very thick] (axis cs:0,-0.75) -- (axis cs:0,-0.15) ;
-    \addplot[green!50!black,very thick,domain=-90:-50,samples=10] 
+    \draw[dashed,col1,very thick] (axis cs:0,-0.75) -- (axis cs:0,-0.15) ;
+    \addplot[col3,very thick,domain=-90:-50,samples=10] 
     ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[green!50!black,very thick,domain=-51:-52,samples=10] 
+    \addplot[col3,very thick,domain=-51:-52,samples=10] 
     ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[green!50!black,very thick,domain=-50:60,samples=10] 
+    \addplot[col3,very thick,domain=-50:60,samples=10] 
     ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[green!50!black,very thick,domain=54:90,samples=10] 
+    \addplot[col3,very thick,domain=54:90,samples=10] 
     ({0.15*cos(x)},{0.15*sin(x)});
-    \draw[blue,thick,-{Latex[length=2.5mm]}]  
+    \draw[col1,thick,-{Latex[length=2.5mm]}]  
     (axis cs:0,0.15) -- (axis cs:0,0.7) node[left] {\textbf{I}} ;
-    \draw[blue,thick]        (axis cs:0,0.65) -- (axis cs:0,1.4) ;
-    \addplot[red,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] 
+    \draw[col1,thick]        (axis cs:0,0.65) -- (axis cs:0,1.4) ;
+    \addplot[col4,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] 
     ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[red,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] 
+    \addplot[col4,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] 
     ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[red,very thick,domain=-58:-90,samples=10] 
+    \addplot[col4,very thick,domain=-58:-90,samples=10] 
     ({1.4*cos(x)},{1.4*sin(x)});
-    \node[right,xshift=0.5em,red] at 
+    \node[right,xshift=0.5em,col4] at 
     (axis cs:{1.4*cos(50)},{1.4*sin(50)}) {\textbf{II}};
-    \node[right,green!50!black] at 
+    \node[right,col3] at 
     (axis cs:{0.20*cos(60)},{0.20*sin(60)}) {\textbf{IV}};
-    \node[left,green!50!black] at (axis cs:{-0.15*cos(90)},{0.15*sin(90)}) 
+    \node[left,col3] at (axis cs:{-0.15*cos(90)},{0.15*sin(90)}) 
     {\scriptsize $p\rightarrow0^+$};
-    \node[left,green!50!black] at (axis cs:{-0.15*cos(-90)},{0.15*sin(-90)}) 
+    \node[left,col3] at (axis cs:{-0.15*cos(-90)},{0.15*sin(-90)}) 
     {\scriptsize $p\rightarrow0^-$};
-    \node[left,red] at (axis cs:{1.4*cos(90)},{1.4*sin(90)}) 
+    \node[left,col4] at (axis cs:{1.4*cos(90)},{1.4*sin(90)}) 
     {\scriptsize $p\rightarrow+j\infty$};
-    \node[left,red] at (axis cs:{1.4*cos(-90)},{1.4*sin(-90)}) 
+    \node[left,col4] at (axis cs:{1.4*cos(-90)},{1.4*sin(-90)}) 
     {\scriptsize $p\rightarrow-j\infty$};
 \end{axis}
     \draw[dblarw={black}{3pt}{3pt}] (5.5,2.18) -- node[midway,above] 
@@ -1726,27 +1726,27 @@ suivante : $H_2(p)=\dfrac{1}{p(1+p)}$
     xmin=-0.8,
     xmax=2.4,
     clip=false]
-    \node[right,xshift=0.5em,green!50!black] at 
+    \node[right,xshift=0.5em,col3] at 
     (axis cs:{1.3*cos(35)},{1.3*sin(35)}) {\textbf{IV}};
-    \node[blue] at (axis cs:{-1.2*cos(20)},{1.2*sin(20)}) 
+    \node[col1] at (axis cs:{-1.2*cos(20)},{1.2*sin(20)}) 
     {\textbf{III}};
-    \node[blue] at (axis cs:{-1.2*cos(20)},{-1.2*sin(20)}) 
+    \node[col1] at (axis cs:{-1.2*cos(20)},{-1.2*sin(20)}) 
     {\textbf{I}};
-    \draw[draw=none,fill=red] (axis cs:0,0) circle (2pt) 
-    node[above right,red,yshift=0.7em] {\textbf{II}};
+    \draw[draw=none,fill=col4] (axis cs:0,0) circle (2pt) 
+    node[above right,col4,yshift=0.7em] {\textbf{II}};
     \def\ttt{1.0}
-    \addplot[blue,very thick,-{Latex[length=2.5mm]},domain=0.6:0.9,samples=201] 
+    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=0.6:0.9,samples=201] 
     ({-1/(1+\ttt*x*x)},{-1/(x*(1+\ttt*x*x))});
-    \addplot[blue,very thick,domain=0.8:10,samples=201] 
+    \addplot[col1,very thick,domain=0.8:10,samples=201] 
     ({-1/(1+\ttt*x*x)},{-1/(x*(1+\ttt*x*x))});
-    \addplot[dashed,blue,very thick,domain=0.6:0.9,samples=201] 
+    \addplot[dashed,col1,very thick,domain=0.6:0.9,samples=201] 
     ({-1/(1+\ttt*x*x)},{1/(x*(1+\ttt*x*x))});
-    \addplot[dashed,blue,very thick,domain=0.8:10,samples=201,
+    \addplot[dashed,col1,very thick,domain=0.8:10,samples=201,
     {Latex[length=2.5mm]}-] 
     ({-1/(1+\ttt*x*x)},{1/(x*(1+\ttt*x*x))});
     \begin{scope}
         \clip (axis cs:-0.7,-1.7) rectangle (1.4,1.7);
-        \draw[green!50!black,very thick,
+        \draw[col3,very thick,
         decoration={markings,mark=at position 0.2 with 
         {\arrowreversed[line width=2pt]{latex}}},
         decoration={markings,mark=at position 0.7 with 
@@ -1755,13 +1755,13 @@ suivante : $H_2(p)=\dfrac{1}{p(1+p)}$
         {\arrowreversed[line width=2pt]{latex}}},
         postaction={decorate}] (axis cs:0,0) circle (1.4);
     \end{scope}
-    \node[left,green!50!black] at (axis cs:{1.4*cos(120)},{1.4*sin(120)})   
+    \node[left,col3] at (axis cs:{1.4*cos(120)},{1.4*sin(120)})   
     {\scriptsize $p\rightarrow0^-$};
-    \node[left,green!50!black] at (axis cs:{1.4*cos(-120)},{1.4*sin(-120)}) 
+    \node[left,col3] at (axis cs:{1.4*cos(-120)},{1.4*sin(-120)}) 
     {\scriptsize $p\rightarrow0^+$};
-    \node[right,red] at (axis cs:{0.15*cos(90)},{0.15*sin(90)}) 
+    \node[right,col4] at (axis cs:{0.15*cos(90)},{0.15*sin(90)}) 
     {\scriptsize $p\rightarrow-j\infty$};
-    \node[right,red] at (axis cs:{0.15*cos(-90)},{0.15*sin(-90)}) 
+    \node[right,col4] at (axis cs:{0.15*cos(-90)},{0.15*sin(-90)}) 
     {\scriptsize $p\rightarrow+j\infty$};
 \end{axis}
 \end{tikzpicture}

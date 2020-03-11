@@ -105,13 +105,7 @@ nous représenterons simplement de la façon suivante :
 % ------------------------------------------------------------------------------
 \begin{center}
 \tikzsetnextfilename{sb_bloc-chap1-ext}
-\begin{tikzpicture}
-    \sbEntree{E1}
-    \sbBloc[3]{B1}{\Large$\Sigma$}{E1}
-    \sbRelier[$e(t)$]{E1}{B1}
-    \sbSortie[3]{S1}{B1}
-    \sbRelier[$s(t)$]{B1}{S1}
-\end{tikzpicture}
+    \input{sb_bloc-chap1.tex}
 \end{center}
 % ------------------------------------------------------------------------------
 où $e(t)$ et $s(t)$ sont respectivement les signaux d'entrée et de sortie 
@@ -147,27 +141,9 @@ Un système est dit linéaire si il respecte les deux principes suivants:
 % ------------------------------------------------------------------------------
     \begin{center}
     \tikzsetnextfilename{principe_linearite-chap1-ext}
-    \begin{tikzpicture}
-        \begin{scope}[local bounding box=scope1]
-            \sbEntree{E1}
-            \node[] at ($(E1.west)+(-0.5,0)$) {Si};
-            \sbBloc[3]{B1}{\Large$\Sigma$}{E1}
-            \sbRelier[$e(t)$]{E1}{B1}
-            \sbSortie[3]{S1}{B1}
-            \sbRelier[$s(t)$]{B1}{S1}
-        \end{scope}
-        \begin{scope}[shift={($(scope1.east)+(1.5,0)$)}]
-            \sbEntree{E3}
-            \node[] at ($(E3.west)+(-0.5,0)$) {alors};
-            \sbBloc[3]{B3}{\Large$\Sigma$}{E3}
-            \sbRelier[$\alpha e(t)$]{E3}{B3}
-            \sbSortie[3]{S3}{B3}
-            \sbRelier[$\alpha s(t)$]{B3}{S3}
-        \end{scope}
-    \end{tikzpicture}
+    \input{tikz/principe_linearite-chap1.tex}
     \end{center}
 % ------------------------------------------------------------------------------
-
 
     \item \emph{Principe de superposition :}
      \textbf{Si l'entrée du système se décompose en une somme 
@@ -187,13 +163,7 @@ Un système est dit linéaire si il respecte les deux principes suivants:
 % ------------------------------------------------------------------------------
     \begin{center}
     \tikzsetnextfilename{sb_bloc_e2-chap1-ext}
-    \begin{tikzpicture}
-            \sbEntree{E4}
-            \sbBloc[7]{B4}{\Large$\Sigma$}{E4}
-            \sbRelier[$\alpha e_1(t)+\beta e_2(t)$]{E4}{B4}
-            \sbSortie[7]{S4}{B4}
-            \sbRelier[$\alpha s_1(t)+\beta s_2(t)$]{B4}{S4}
-    \end{tikzpicture}
+    \input{tikz/sb_bloc_e2-chap1.tex}
     \end{center}
 % ------------------------------------------------------------------------------
     avec $\alpha\ \text{et}\ \beta\in\mathbb{R}$, ou un nombre quelconques 
@@ -231,13 +201,7 @@ l'aide d'un schéma-bloc ci-dessous
 % ------------------------------------------------------------------------------
 \begin{center}
 \tikzsetnextfilename{sb_bloc_e3-chap1-ext}
-\begin{tikzpicture}
-        \sbEntree{E4}
-        \sbBloc[4]{B4}{\Large$\Sigma$}{E4}
-        \sbRelier[$e(t+\tau)$]{E4}{B4}
-        \sbSortie[4]{S4}{B4}
-        \sbRelier[$s(t+\tau)$]{B4}{S4}
-\end{tikzpicture}
+\input{tikz/sb_bloc_e3-chap1.tex}
 \end{center}
 % ------------------------------------------------------------------------------
 

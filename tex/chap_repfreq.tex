@@ -382,19 +382,19 @@ Fonction de Transfert en Boucle ouverte (FTBO).
     ({-atan2(x,1)},{-10*log10(1+x*x)});
     \addplot[thick,domain=100:1000,samples=100] 
     ({-atan2(x,1)},{-10*log10(1+x*x)});
-    \addplot[black, mark = *] coordinates {(0,0)} {};                    
-    \addplot[black, mark = *,blue] coordinates 
+    \addplot[col5, mark = *] coordinates {(0,0)} {};                    
+    \addplot[col5, mark = *,col1] coordinates 
     {({-atan2(10,1)},{-10*log10(1+10*10)} )} {};                    
-    \draw[thick,blue,dashed] (axis cs: {-atan2(10,1)},{-10*log10(1+10*10)}) --
+    \draw[thick,col1,dashed] (axis cs: {-atan2(10,1)},{-10*log10(1+10*10)}) --
     (axis cs: {-atan2(10,1)},0) node[above] {$\phi(\omega_2)$};
-    \draw[thick,blue,dashed] (axis cs: {-atan2(10,1)},{-10*log10(1+10*10)}) --
+    \draw[thick,col1,dashed] (axis cs: {-atan2(10,1)},{-10*log10(1+10*10)}) --
     (axis cs: 0,{-10*log10(1+10*10)}) node[right] {$G_{dB}(\omega_2)$};
-    \addplot [black, mark = *,red] coordinates 
+    \addplot [col5, mark = *,col4] coordinates 
     {({-atan2(2,1)},{-10*log10(1+4)} )} {};
-    \draw[thick,red,dashed] (axis cs: {-atan2(2,1)},{-10*log10(5)}) -- 
+    \draw[thick,col4,dashed] (axis cs: {-atan2(2,1)},{-10*log10(5)}) -- 
                             (axis cs: {-atan2(2,1)},0) 
                             node[above] {$\phi(\omega_1)$};
-    \draw[thick,red,dashed] (axis cs: {-atan2(2,1)},{-10*log10(5)}) --
+    \draw[thick,col4,dashed] (axis cs: {-atan2(2,1)},{-10*log10(5)}) --
                              (axis cs: 0,{-10*log10(5)}) 
                             node[right] {$G_{dB}(\omega_1)$};
     \node [above right]  at (axis cs: 0 , 0)   {$\omega=0$}; 
@@ -486,9 +486,9 @@ principale du nombre complexe $H(\jw)$:
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick,black,domain=1e-3:1e3,samples=101]{20*log10(0.1)}; 
-    \addplot[ultra thick,blue ,domain=1e-3:1e3,samples=101]{20*log10(1.0)}; 
-    \addplot[ultra thick,red  ,domain=1e-3:1e3,samples=101]{20*log10(10)}; 
+    \addplot[ultra thick,col5,domain=1e-3:1e3,samples=101]{20*log10(0.1)}; 
+    \addplot[ultra thick,col1 ,domain=1e-3:1e3,samples=101]{20*log10(1.0)}; 
+    \addplot[ultra thick,col4  ,domain=1e-3:1e3,samples=101]{20*log10(10)}; 
 \end{axis}
 \end{tikzpicture}
 
@@ -511,7 +511,7 @@ principale du nombre complexe $H(\jw)$:
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {0}; 
+    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101] {0}; 
 \end{axis}
 \end{tikzpicture}
     \caption{Diagramme de Bode d'un gain pur avec (noir) 
@@ -562,11 +562,11 @@ du nombre complexe $H(\jw)$:
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick,black,domain=1e-3:1e3, samples=101]
+    \addplot[ultra thick,col5,domain=1e-3:1e3, samples=101]
     {20*log10(0.1)-20*log10(x)}; 
-    \addplot[ultra thick,blue,domain=1e-3:1e3, samples=101]
+    \addplot[ultra thick,col1,domain=1e-3:1e3, samples=101]
     {-20*log10(x)}; 
-    \addplot[ultra thick,red,domain=1e-3:1e3, samples=101]
+    \addplot[ultra thick,col4,domain=1e-3:1e3, samples=101]
     {20*log10(10)-20*log10(x)}; 
 \end{axis}
 \end{tikzpicture}
@@ -590,7 +590,7 @@ du nombre complexe $H(\jw)$:
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {-atan(1000000)};
+    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101] {-atan(1000000)};
 \end{axis}
 \end{tikzpicture}
     \caption{Diagramme de Bode d'un intégrateur pur avec (noir) 
@@ -640,10 +640,10 @@ la phase s'écrit simplement
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, black,domain=1e-3:1e3, samples=101]
+    \addplot[ultra thick,col5,domain=1e-3:1e3, samples=101]
     {20*log10(0.1)+20*log10(x)}; 
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {20*log10(x)};
-    \addplot[ultra thick, red,domain=1e-3:1e3, samples=101] 
+    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101] {20*log10(x)};
+    \addplot[ultra thick, col4,domain=1e-3:1e3, samples=101] 
     {20*log10(10)+20*log10(x)};
 \end{axis}
 \end{tikzpicture}
@@ -667,7 +667,7 @@ la phase s'écrit simplement
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {atan(1000000)};
+    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101] {atan(1000000)};
 \end{axis}
 \end{tikzpicture}
 \caption{Diagramme de Bode d'un dérivateur pur 
@@ -717,7 +717,7 @@ et la phase s'écrit simplement
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, blue,domain=1e-2:1e3, samples=101] {0};
+    \addplot[ultra thick, col1,domain=1e-2:1e3, samples=101] {0};
 \end{axis}
 \end{tikzpicture}
 
@@ -739,7 +739,7 @@ et la phase s'écrit simplement
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, blue,domain=1e-1:1e3, samples=201] {-x};
+    \addplot[ultra thick, col1,domain=1e-1:1e3, samples=201] {-x};
 \end{axis}
 \end{tikzpicture}
     \caption{Diagramme de Bode d'un retard pur 
@@ -822,11 +822,11 @@ réels et les courbes asymptotiques.
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, black,domain=1e-3:1e3, samples=101]
+    \addplot[ultra thick,col5,domain=1e-3:1e3, samples=101]
     {20*log10(0.1)-20*log10(sqrt(1+x*x))}; 
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101]
+    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101]
     {-20*log10(sqrt(1+x*x))}; 
-    \addplot[ultra thick, red,domain=1e-3:1e3, samples=101]
+    \addplot[ultra thick, col4,domain=1e-3:1e3, samples=101]
     {20*log10(10)-20*log10(sqrt(1+x*x))}; 
 \end{axis}
 \end{tikzpicture}
@@ -850,7 +850,7 @@ réels et les courbes asymptotiques.
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] {-atan2(x,1)}; 
+    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101] {-atan2(x,1)}; 
 \end{axis}
 \end{tikzpicture}
     \caption{Diagramme de Bode d'un système du premier ordre 
@@ -878,11 +878,11 @@ réels et les courbes asymptotiques.
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, black,domain=1e-3:1e3, samples=101] 
+    \addplot[ultra thick, col5,domain=1e-3:1e3, samples=101] 
     {-20*log10(sqrt(1+10*x*x))}; 
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] 
+    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101] 
     {-20*log10(sqrt(1+x*x))}; 
-    \addplot[ultra thick, red,domain=1e-3:1e3, samples=101] 
+    \addplot[ultra thick, col4,domain=1e-3:1e3, samples=101] 
     {-20*log10(sqrt(1+0.1*x*x))}; 
 \end{axis}
 \end{tikzpicture}
@@ -906,11 +906,11 @@ réels et les courbes asymptotiques.
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, black,domain=1e-3:1e3, samples=101] 
+    \addplot[ultra thick, col5,domain=1e-3:1e3, samples=101] 
     {-atan2(10*x,1)}; 
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101] 
+    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101] 
     {-atan2(x,1)}; 
-    \addplot[ultra thick, red,domain=1e-3:1e3, samples=101] 
+    \addplot[ultra thick, col4,domain=1e-3:1e3, samples=101] 
     {-atan2(0.1*x,1)}; 
 \end{axis}
 \end{tikzpicture}
@@ -940,10 +940,10 @@ réels et les courbes asymptotiques.
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick,blue,domain=1e-3:1e3, samples=101] 
+    \addplot[ultra thick,col1,domain=1e-3:1e3, samples=101] 
     {-20*log10(sqrt(1+x*x))};
-    \addplot[line width=2pt,red,dashed,domain=1e-1:1e0, samples=101] {0};
-    \addplot[line width=2pt,red,dashed,domain=1e0:1e1, samples=101] 
+    \addplot[line width=2pt,col4,dashed,domain=1e-1:1e0, samples=101] {0};
+    \addplot[line width=2pt,col4,dashed,domain=1e0:1e1, samples=101] 
     {-20*log10(x)};
 \end{axis}
 \end{tikzpicture}
@@ -966,10 +966,10 @@ réels et les courbes asymptotiques.
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick,blue,domain=1e-3:1e3, samples=101] {-atan2(x,1)};
-    \addplot[line width=2pt,red,dashed,domain=1e-1:1e0,samples=101] {0};
-    \addplot[line width=2pt,red,dashed,domain=1e0:1e1,samples=101] {-90};
-    \draw[line width=2pt,red,dashed] (axis cs:1,0) -- (axis cs:1,-90);
+    \addplot[ultra thick,col1,domain=1e-3:1e3, samples=101] {-atan2(x,1)};
+    \addplot[line width=2pt,col4,dashed,domain=1e-1:1e0,samples=101] {0};
+    \addplot[line width=2pt,col4,dashed,domain=1e0:1e1,samples=101] {-90};
+    \draw[line width=2pt,col4,dashed] (axis cs:1,0) -- (axis cs:1,-90);
 \end{axis}
 \end{tikzpicture}
 \caption{Diagramme de Bode d'un système du premier ordre 
@@ -1080,12 +1080,12 @@ régime apériodique.
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101]
+    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101]
     {-20*log10(sqrt(1+100*x*x))-20*log10(sqrt(1+0.01*x*x))}; 
-    \addplot[line width=2pt,red,dashed,domain=1e-3:1e-1, samples=101]{0};
-    \addplot[line width=2pt,red,dashed,domain=1e-1:1e1, samples=101]
+    \addplot[line width=2pt,col4,dashed,domain=1e-3:1e-1, samples=101]{0};
+    \addplot[line width=2pt,col4,dashed,domain=1e-1:1e1, samples=101]
     {-20*log10(x/0.1)};
-    \addplot[line width=2pt,red,dashed,domain=1e1:1e3, samples=101]
+    \addplot[line width=2pt,col4,dashed,domain=1e1:1e3, samples=101]
     {-20*log10(x/0.1)-20*log10(x/10)};
     \node[right,xshift=1em,yshift=-0.1em] at (axis cs:0.1,-70)
     {{\large \textbf{-20dB/décade}}};
@@ -1113,13 +1113,13 @@ régime apériodique.
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[ultra thick, blue,domain=1e-3:1e3, samples=101]
+    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101]
     {-atan2(x,1)-atan2(x,0.1)}; 
-    \addplot[line width=2pt,red,dashed,domain=1e-3:1e-1, samples=101]{0};
-    \addplot[line width=2pt,red,dashed,domain=1e-1:1e1, samples=101] {-90};
-    \addplot[line width=2pt,red,dashed,domain=1e1:1e3, samples=101] {-180};
-    \draw[line width=2pt,red,dashed] (axis cs:0.1,0) -- (axis cs:0.1,-90);
-    \draw[line width=2pt,red,dashed] (axis cs:10,-90) -- (axis cs:10,-180);
+    \addplot[line width=2pt,col4,dashed,domain=1e-3:1e-1, samples=101]{0};
+    \addplot[line width=2pt,col4,dashed,domain=1e-1:1e1, samples=101] {-90};
+    \addplot[line width=2pt,col4,dashed,domain=1e1:1e3, samples=101] {-180};
+    \draw[line width=2pt,col4,dashed] (axis cs:0.1,0) -- (axis cs:0.1,-90);
+    \draw[line width=2pt,col4,dashed] (axis cs:10,-90) -- (axis cs:10,-180);
 \end{axis}
 \end{tikzpicture}
     \caption{Diagramme de Bode de systèmes du premier ordre en série 
@@ -1208,11 +1208,11 @@ prochaine partie.
     major grid style={black!40},
     cycle list name=color list,
 ]
-    \addplot[line width=2pt,red,dashed,domain=1e-3:1e0, samples=101]{0};
-    \addplot[line width=2pt,red,dashed,domain=1e0:1e3, samples=101] 
+    \addplot[signalr,dashed,domain=1e-3:1e0]{0};
+    \addplot[signalr,dashed,domain=1e0:1e3] 
     {-40*log10(x)};
     \foreach \a in {1.0}
-        \addplot[thick,domain=1e-3:1e3, blue,samples=101] 
+        \addplot[signalb,domain=1e-3:1e3] 
         {-20*log10(sqrt( (1-x*x)^2 +(2*\a*x)^2 )  )}; 
 \end{axis}
 \end{tikzpicture}
@@ -1239,11 +1239,11 @@ prochaine partie.
     major grid style={black!40},
     cycle list name=color list,
 ]
-    \addplot[line width=2pt,red,dashed,domain=1e-3:1e0, samples=101] {0};
-    \addplot[line width=2pt,red,dashed,domain=1e0:1e3, samples=101] {-180};
-    \draw[line width=2pt,red,dashed] (axis cs:1,0) -- (axis cs:1,-180);
+    \addplot[signalr,dashed,domain=1e-3:1e0] {0};
+    \addplot[signalr,dashed,domain=1e0:1e3] {-180};
+    \draw[signalr,dashed] (axis cs:1,0) -- (axis cs:1,-180);
     \foreach \a in {1.0}
-        \addplot+[thick,blue,domain=1e-3:1e3, samples=101] 
+        \addplot+[signalb,domain=1e-3:1e3] 
         {-atan2(2*\a*x,(1-x*x))}; 
 \end{axis}
 \end{tikzpicture}
@@ -1475,18 +1475,18 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$.
     grid=both,
     major grid style={black!40}
     ]
-    \addplot[ultra thick, blue,domain=1e-4:1e5, samples=201] 
+    \addplot[ultra thick, col1,domain=1e-4:1e5, samples=201] 
     {40+20*log10(1+x*x)-10*log10(1+10000*x*x)-10*log10(1+100*x*x)-
      10*log10(1+0.0001*x*x)}; 
-    \addplot[line width=2pt,red,dashed,domain=1e-4:1e-2, samples=101]
+    \addplot[line width=2pt,col4,dashed,domain=1e-4:1e-2, samples=101]
     {40};
-    \addplot[line width=2pt,red,dashed,domain=1e-2:1e-1, samples=101]
+    \addplot[line width=2pt,col4,dashed,domain=1e-2:1e-1, samples=101]
     {-20*log10(x)};
-    \addplot[line width=2pt,red,dashed,domain=1e-1:1e0 , samples=101]
+    \addplot[line width=2pt,col4,dashed,domain=1e-1:1e0 , samples=101]
     {-40*log10(x)-20*log10(10)};
-    \addplot[line width=2pt,red,dashed,domain=1e0:1e2  , samples=101]
+    \addplot[line width=2pt,col4,dashed,domain=1e0:1e2  , samples=101]
     {-20};
-    \addplot[line width=2pt,red,dashed,domain=1e2:1e5  , samples=101]
+    \addplot[line width=2pt,col4,dashed,domain=1e2:1e5  , samples=101]
     {-20*log10(x)+20*log10(10)};
 \end{axis}
 \end{tikzpicture}
@@ -1511,17 +1511,17 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$.
     grid=both,
     major grid style={black!40}
     ]
-    \addplot[ultra thick, blue,domain=1e-4:1e5, samples=201] 
+    \addplot[ultra thick, col1,domain=1e-4:1e5, samples=201] 
     {2*atan2(x,1)-atan2(100*x,1)-atan2(10*x,1)-atan2(0.01*x,1)}; 
-    \addplot[line width=2pt,red,dashed,domain=1e-4:1e-2, samples=101] {0};
-    \addplot[line width=2pt,red,dashed,domain=1e-2:1e-1, samples=101] {-90};
-    \addplot[line width=2pt,red,dashed,domain=1e-1:1e0 , samples=101] {-180};
-    \addplot[line width=2pt,red,dashed,domain=1e0:1e2  , samples=101] {0};
-    \addplot[line width=2pt,red,dashed,domain=1e2:1e5  , samples=101] {-90};
-    \draw[line width=2pt,red,dashed] (axis cs:0.01,0)  -- (axis cs:0.01,-90);
-    \draw[line width=2pt,red,dashed] (axis cs:0.1,-90) -- (axis cs:0.1,-180);
-    \draw[line width=2pt,red,dashed] (axis cs:1,-180)  -- (axis cs:1,0);
-    \draw[line width=2pt,red,dashed] (axis cs:100,0)   -- (axis cs:100,-90);
+    \addplot[line width=2pt,col4,dashed,domain=1e-4:1e-2, samples=101] {0};
+    \addplot[line width=2pt,col4,dashed,domain=1e-2:1e-1, samples=101] {-90};
+    \addplot[line width=2pt,col4,dashed,domain=1e-1:1e0 , samples=101] {-180};
+    \addplot[line width=2pt,col4,dashed,domain=1e0:1e2  , samples=101] {0};
+    \addplot[line width=2pt,col4,dashed,domain=1e2:1e5  , samples=101] {-90};
+    \draw[line width=2pt,col4,dashed] (axis cs:0.01,0)  -- (axis cs:0.01,-90);
+    \draw[line width=2pt,col4,dashed] (axis cs:0.1,-90) -- (axis cs:0.1,-180);
+    \draw[line width=2pt,col4,dashed] (axis cs:1,-180)  -- (axis cs:1,0);
+    \draw[line width=2pt,col4,dashed] (axis cs:100,0)   -- (axis cs:100,-90);
 \end{axis}
 \end{tikzpicture}
     \caption{Diagramme de Bode du système d'ordre quelconque de 
@@ -1592,8 +1592,8 @@ Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
     grid=both,
     ]     
     \node [below]       at (axis cs:  5, 0)   {$\forall\omega$};
-    \node [above,blue]       at (axis cs:  5, 0)   {$K$};
-    \addplot [blue, mark = *] coordinates {(5, 0)} {};
+    \node [above,col1]       at (axis cs:  5, 0)   {$K$};
+    \addplot [col1, mark = *] coordinates {(5, 0)} {};
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -1634,14 +1634,14 @@ Cependant il dépend de la pulsation $\omega$.
     \node [below right] at (axis cs:  0,  10)     {$\omega=0^-$};
     \node [below right]       at (axis cs:  0, 0) {$\omega\rightarrow+\infty$};
     \node [above right]       at (axis cs:  0, 0) {$\omega\rightarrow-\infty$};
-\addplot [blue, mark = *] coordinates {(0, 0)}{};
-\addplot[blue,thick,domain=0.01:0.2,samples=50,-{Latex[length=3mm]}]
+\addplot [col1, mark = *] coordinates {(0, 0)}{};
+\addplot[col1,thick,domain=0.01:0.2,samples=50,-{Latex[length=3mm]}]
     (0,{-1/x});
-\addplot[blue,thick,domain=0.1:100,samples=50]
+\addplot[col1,thick,domain=0.1:100,samples=50]
     (0,{-1/x});
-\addplot[dashed,blue,thick,domain=-100:-0.2,-{Latex[length=3mm]},samples=100]
+\addplot[dashed,col1,thick,domain=-100:-0.2,-{Latex[length=3mm]},samples=100]
     (0,{-1/x});
-\addplot[dashed,blue,thick,domain=-0.2:-0.01,samples=100](0,{-1/x});
+\addplot[dashed,col1,thick,domain=-0.2:-0.01,samples=100](0,{-1/x});
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -1680,12 +1680,12 @@ de ce nombre complexe sont :
     \node [below right] at (axis cs:  0, 10)  {$\omega\rightarrow\infty$};
     \node [above right] at (axis cs:  0,-10)  {$\omega\rightarrow-\infty$};
     \node [below right]       at (axis cs:  0, 0)   {$\omega=0$};
-    \addplot [blue, mark = *] coordinates {(0, 0)} {};
-    \addplot [blue,thick,domain=0:5,samples=50,-{Latex[length=3mm]}](0,{x});
-    \addplot [blue,thick,domain=4:10,samples=50](0,{x});
-    \addplot [dashed,blue,thick,domain=-10:-5,samples=50,-{Latex[length=3mm]}]
+    \addplot [col1, mark = *] coordinates {(0, 0)} {};
+    \addplot [col1,thick,domain=0:5,samples=50,-{Latex[length=3mm]}](0,{x});
+    \addplot [col1,thick,domain=4:10,samples=50](0,{x});
+    \addplot [dashed,col1,thick,domain=-10:-5,samples=50,-{Latex[length=3mm]}]
     (0,{x});
-    \addplot [dashed,blue,thick,domain=-6:0,samples=50]
+    \addplot [dashed,col1,thick,domain=-6:0,samples=50]
     (0,{x}); 
 \end{axis}
 \end{tikzpicture}
@@ -1732,10 +1732,10 @@ de $\tau$.
     grid=both,
     ]     
 \node[right]       at (axis cs:  1, 0)   {\scriptsize$\omega=0$};
-\addplot[blue, mark = *] coordinates {(1, 0)} {};
-\addplot[blue,thick,domain=pi/2:-pi/2-0.2,samples=50,-{Latex[length=3mm]}]
+\addplot[col1, mark = *] coordinates {(1, 0)} {};
+\addplot[col1,thick,domain=pi/2:-pi/2-0.2,samples=50,-{Latex[length=3mm]}]
     ({cos(deg(x))},{sin(deg(x)}); 
-\addplot [blue,thick,domain=-pi/2:-3*pi/2-0.2,samples=50,-{Latex[length=3mm]}]
+\addplot [col1,thick,domain=-pi/2:-3*pi/2-0.2,samples=50,-{Latex[length=3mm]}]
     ({cos(deg(x))},{sin(deg(x)}); 
 \end{axis}
 \end{tikzpicture}
@@ -1825,18 +1825,18 @@ $$
     clip=false,
     grid=both
     ]
-    \addplot [blue,thick,domain=0:1.1,samples=100,-{Latex[length=3mm]}]
+    \addplot [col1,thick,domain=0:1.1,samples=100,-{Latex[length=3mm]}]
     ({1/(1+x*x)},{-x/(1+x*x)}); 
-    \addplot [blue,thick,domain=0.5:5,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
-    \addplot [blue,thick,domain=5:10,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
-    \addplot [blue,thick,domain=10:100,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
-    \addplot [dashed,blue,thick,domain=-100:-10,samples=100]
+    \addplot [col1,thick,domain=0.5:5,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
+    \addplot [col1,thick,domain=5:10,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
+    \addplot [col1,thick,domain=10:100,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
+    \addplot [dashed,col1,thick,domain=-100:-10,samples=100]
     ({1/(1+x*x)},{-x/(1+x*x)});
-    \addplot [dashed,blue,thick,domain=-10:-5,samples=100]
+    \addplot [dashed,col1,thick,domain=-10:-5,samples=100]
     ({1/(1+x*x)},{-x/(1+x*x)});
-    \addplot [dashed,blue,thick,domain=-5:-0.5,samples=100,-{Latex[length=3mm]}]
+    \addplot [dashed,col1,thick,domain=-5:-0.5,samples=100,-{Latex[length=3mm]}]
     ({1/(1+x*x)},{-x/(1+x*x)}); 
-    \addplot [dashed,blue,thick,domain=-0.5:0,samples=100]
+    \addplot [dashed,col1,thick,domain=-0.5:0,samples=100]
     ({1/(1+x*x)},{-x/(1+x*x)});
 
     \node [above left,xshift=0.2em] 
@@ -1844,10 +1844,10 @@ $$
     \node [below left,xshift=0.2em] 
     at (axis cs:  0, 0)  {\scriptsize$\omega\rightarrow+\infty$};         
     \node [right]       at (axis cs:  1, 0) {\scriptsize$\omega=0$};
-    \addplot[blue, mark = *] coordinates {(0, 0)} {};
-    \addplot[blue, mark = *] coordinates {(1, 0)} {};
-%    \draw[blue,ultra thick,-latex] (axis cs:  0,  0 ) -- (axis cs:  0, 5 );
-%    \draw[blue,ultra thick] (axis cs:  0,  4 ) -- (axis cs:  0, 9 );
+    \addplot[col1, mark = *] coordinates {(0, 0)} {};
+    \addplot[col1, mark = *] coordinates {(1, 0)} {};
+%    \draw[col1,ultra thick,-latex] (axis cs:  0,  0 ) -- (axis cs:  0, 5 );
+%    \draw[col1,ultra thick] (axis cs:  0,  4 ) -- (axis cs:  0, 9 );
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -1895,10 +1895,10 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     clip=false,
     grid=both
     ]
-    \tikzstyle{lieua}=[blue,thick,samples=150,-{Latex[length=3mm]}]
-    \tikzstyle{lieu}=[blue,thick,samples=150]
-    \tikzstyle{lieua_c}=[dashed,blue,thick,samples=150,-{Latex[length=3mm]}]
-    \tikzstyle{lieu_c}=[dashed,blue,thick,samples=150]
+    \tikzstyle{lieua}=[col1,thick,samples=150,-{Latex[length=3mm]}]
+    \tikzstyle{lieu}=[col1,thick,samples=150]
+    \tikzstyle{lieua_c}=[dashed,col1,thick,samples=150,-{Latex[length=3mm]}]
+    \tikzstyle{lieu_c}=[dashed,col1,thick,samples=150]
     
     \def\xi{0.5}
 \addplot[lieua,domain=0:1]
@@ -1922,8 +1922,8 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
 \node[above right] at (axis cs:  0, 0){\scriptsize$\omega\rightarrow-\infty$};
 \node[right]       at (axis cs:  1, 0){\scriptsize$\omega=0$};       
 \node[below right] at (axis cs:  0, 0){\scriptsize$\omega\rightarrow+\infty$};
-\addplot[blue, mark = *] coordinates {(0, 0)} {};                  
-\addplot[blue, mark = *] coordinates {(1, 0)} {};                  
+\addplot[col1, mark = *] coordinates {(0, 0)} {};                  
+\addplot[col1, mark = *] coordinates {(1, 0)} {};                  
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -1937,38 +1937,38 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
 \tikzsetnextfilename{nyquist_2nd_2-chap4-ext}
 \begin{tikzpicture}
         \pgfplotscreateplotcyclelist{mycolorlist}{%
-            blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            red\\%
-            red\\%
-            red\\%
-            red\\%
-            red\\%
-            red\\%
-            red\\%
-            red\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            black\\%
-            black\\%
-            black\\%
-            black\\%
-            black\\%
-            black\\%
-            black\\%
-            black\\%
+            col1\\%
+            col1\\%
+            col1\\%
+            col1\\%
+            col1\\%
+            col1\\%
+            col1\\%
+            col1\\%
+            col4\\%
+            col4\\%
+            col4\\%
+            col4\\%
+            col4\\%
+            col4\\%
+            col4\\%
+            col4\\%
+            col8\\%
+            col8\\%
+            col8\\%
+            col8\\%
+            col8\\%
+            col8\\%
+            col8\\%
+            col8\\%
+            col5\\%
+            col5\\%
+            col5\\%
+            col5\\%
+            col5\\%
+            col5\\%
+            col5\\%
+            col5\\%
             }
 \begin{axis}
     [
@@ -2011,30 +2011,30 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
 \legend{,$\xi=0.4$,,,,,,,,$\xi=0.6$,,,,,,,,$\xi=0.8$,,,,,,,,$\xi=1.0$,,,,,,,} 
 \end{axis}
         \pgfplotscreateplotcyclelist{mycolorlist}{%
-            blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            blue\\%
-            red\\%
-            red\\%
-            red\\%
-            red\\%
-            red\\%
-            red\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            black\\%
-            black\\%
-            black\\%
-            black\\%
-            black\\%
-            black\\%
+            col1\\%
+            col1\\%
+            col1\\%
+            col1\\%
+            col1\\%
+            col1\\%
+            col4\\%
+            col4\\%
+            col4\\%
+            col4\\%
+            col4\\%
+            col4\\%
+            col8\\%
+            col8\\%
+            col8\\%
+            col8\\%
+            col8\\%
+            col8\\%
+            col5\\%
+            col5\\%
+            col5\\%
+            col5\\%
+            col5\\%
+            col5\\%
             }
 \begin{axis}
     [
@@ -2124,23 +2124,23 @@ Les parties réels et imaginaire de la fonction de transfert sont:
     ]
     \def\t{1.0}
     \def\tu{1.1}
-    \addplot[blue,thick,domain=0:1,samples=200] 
+    \addplot[col1,thick,domain=0:1,samples=200] 
     ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
      {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
-    \addplot[blue,thick,domain=1:10,samples=200] 
+    \addplot[col1,thick,domain=1:10,samples=200] 
     ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
      {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
-    \addplot[blue,thick,domain=10:20,samples=200]
+    \addplot[col1,thick,domain=10:20,samples=200]
     ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
      {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
-    \addplot[blue,thick,domain=20:50,samples=200]
+    \addplot[col1,thick,domain=20:50,samples=200]
     ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
      {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
-    \addplot[blue,thick,domain=50:100,samples=200]
+    \addplot[col1,thick,domain=50:100,samples=200]
     ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
      {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
     \node[above]       at (axis cs:  1, 0)   {$\omega=0$};
-    \addplot[blue, mark = *] coordinates {(1, 0)} {};
+    \addplot[col1, mark = *] coordinates {(1, 0)} {};
     \node[below right] (A) at (axis cs:  0.5, 0.5) 
     {$\omega\rightarrow+\infty$};
     \node (B) at (axis cs:  0, 0)  {};
@@ -2158,20 +2158,6 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 \begin{center}
 \tikzsetnextfilename{nyquist_effet_retard_2-chap4-ext}
 \begin{tikzpicture}
-\pgfplotscreateplotcyclelist{mycolorlist}{%
-            blue\\%
-            blue\\%
-            red\\%
-            red\\%
-            black\\%
-            black\\%
-            brown!60!black\\%
-            brown!60!black\\%
-            green!60!black\\%
-            green!60!black\\%
-            red!60!yellow\\
-            red!60!yellow\\
-        }
 \begin{axis}
     [
     axis line style = thick,
@@ -2182,7 +2168,7 @@ Les parties réels et imaginaire de la fonction de transfert sont:
     xmin=-0.8,
     xmax=+1.3,
     grid=both,
-    cycle list name=mycolorlist,
+    cycle list name=fmvcolist,
     ]
     \def\t{1.0}
     \def\tu{0.5}

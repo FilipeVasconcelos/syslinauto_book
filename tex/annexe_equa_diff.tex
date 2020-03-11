@@ -118,7 +118,7 @@ s(t)=s_0e^{-at}+\dfrac{b}{a}\left(1-e^{-at}\right)
 $$
 \begin{center}
 \tikzsetnextfilename{solutions_equadiff-annexeF-ext}
-\tikzstyle{thinfunc}=[thin,color=blue,samples=201]
+\tikzstyle{thinfunc}=[thin,col1,samples=201]
 \begin{tikzpicture}
     \pgfmathsetmacro{\t}{8}             
     \begin{axis}
@@ -133,7 +133,7 @@ $$
         xlabel={$t$},
         ylabel={$s(t)$},
     ]
-    \addplot [very thick,color=blue,domain=-1:0, samples=101]{0};
+    \addplot [very thick,col1,domain=-1:0, samples=101]{0};
     \pgfmathsetmacro{\a}{0.5}             
     \pgfmathsetmacro{\b}{0.25}           
                     

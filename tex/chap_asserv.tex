@@ -236,7 +236,7 @@ permettant de corriger la boucle ouverte du système linéaire.
     \node[yshift=-0.8em] at (b.south) {\small Correcteur};
     \node[yshift=-0.8em] at (c.south) {\small Système};
     \node[yshift=-0.8em] at (d.south) {\small Capteur};
-    \draw[dvtb] (1.05,-1.65) rectangle node[blue,above,yshift=4em] 
+    \draw[dvtb] (1.05,-1.65) rectangle node[col1,above,yshift=4em] 
                 {\textbf{Régulateur}} (4.65,0.9);
     \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
     \node[yshift=-0.8em] at (S.south) {\small Sortie};
@@ -399,12 +399,12 @@ présentant ces nouveaux constituants.
     \sbRelier[$E(p)$]{E}{a}
     \sbBloc[3]{b}{$C(p)$}{a}
     \sbRelier[$\epsilon(p)$]{a}{b}
-    \sbStyleSum{red}
+    \sbStyleSum{col4}
     \sbCompSum[5.0]{c}{b}{+}{}{+}{}
     \sbRelier[$U(p)$]{b}{c}
     \sbBloc[3]{d}{$H(p)$}{c}
     \sbRelier{c}{d}
-    \sbStyleSum{blue}
+    \sbStyleSum{col1}
     \sbCompSum[5.0]{e}{d}{+}{}{+}{}
     \sbRelier[]{d}{e}
     \sbSortie[6]{S}{e}
@@ -412,7 +412,7 @@ présentant ces nouveaux constituants.
     \sbDecaleNoeudy{c}{r}
     \sbBlocr[-7]{f}{$G(p)$}{r}
     \sbRelieryx{e-S}{f}
-    \sbStyleSum{green}
+    \sbStyleSum{col3}
     \sbCompSum[-5.5]{g}{f}{}{+}{}{+}
     \sbRelier[]{f}{g}
     \sbRelierxy[$M(p)$]{g}{a}
@@ -420,17 +420,17 @@ présentant ces nouveaux constituants.
     \node[yshift=-0.8em] at (d.south) {\small Système};
     \node[yshift=-0.8em] at (f.south) {\small Capteur};
     \sbDecaleNoeudy[-3]{c}{P1}
-    \sbStyleLien{red}
+    \sbStyleLien{col4}
     \sbRenvoiF[-3]{P1}{c}{$P_1(p)$}
     \sbDecaleNoeudy[-3]{e}{P2}
-    \sbStyleLien{blue}
+    \sbStyleLien{col1}
     \sbRenvoiF[-3]{P2}{e}{$P_2(p)$}
     \sbDecaleNoeudy[3]{g}{P3}
-    \sbStyleLien{green}
+    \sbStyleLien{col3}
     \sbRenvoiF[2]{P3}{g}{$P_3(p)$}
-    \node[right,yshift=2.5em,red]   at (P1.east){\small Perturbation en entrée};
-    \node[right,yshift=2.5em,blue]  at (P2.east){\small Perturbation en sortie};
-    \node[right,yshift=-2.5em,green]at (P3.east){\small Bruit de mesure};
+    \node[right,yshift=2.5em,col4] at (P1.east){\small Perturbation en entrée};
+    \node[right,yshift=2.5em,col1] at (P2.east){\small Perturbation en sortie};
+    \node[right,yshift=-2.5em,col3]at (P3.east){\small Bruit de mesure};
 \end{tikzpicture}
 \caption{Schéma fonctionnel de l'asservissement d'un système 
          présentant différents types de perturbations. \label{fig-pert2}}
@@ -500,12 +500,12 @@ la~\cref{fig-asser}
 \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
 \node[yshift=-0.8em] at (S.south) {\small Sortie};
 \node[yshift=2em,xshift=2.8em] at (P.east) {\small Perturbation};
-\draw[dvtb]  (-0.8,-4) rectangle node[blue,xshift=-3.2em,yshift=7em] 
+\draw[dvtb]  (-0.8,-4) rectangle node[col1,xshift=-3.2em,yshift=7em] 
              {\textbf{Chaîne d'information}}(6.45,2.5);
-\draw[dvtr]  (6.7,-4)  rectangle node[red,xshift=-5.9em,yshift=7em]  
+\draw[dvtr]  (6.7,-4)  rectangle node[col4,xshift=-5.9em,yshift=7em]  
              {\textbf{Chaîne d'énergie}    }(14.8,2.5);
-\draw[dvtgf] (4,1)     -- node[green,above] {Chaîne direct}    (14,1) ;
-\draw[dvtgf] (14,-3.7) -- node[green,above] {Chaîne de retour} (4,-3.7) ;
+\draw[dvtgf] (4,1)     -- node[col3,above] {Chaîne direct}    (14,1) ;
+\draw[dvtgf] (14,-3.7) -- node[col3,above] {Chaîne de retour} (4,-3.7) ;
 \end{tikzpicture}
 \end{center}
 \captionof{figure}{Décomposition en chaîne d'information et chaîne 

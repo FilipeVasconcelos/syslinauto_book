@@ -75,13 +75,13 @@ graduations dont la \textbf{différence} ($\Delta$ ci-dessous) vaut 10 sont à
     }
     \foreach \x in {4,14}
     \node [above,yshift=0.0em] at (\x/2,2pt) {\small \x};
-    \draw[blue,thick] (0,0.2) -- (0,1.2) ;
-    \draw[blue,thick] (5,0.2) -- (5,1.2) ;
-    \draw[blue,thick] (10,0.2) -- (10,1.2) ;
+    \draw[col1,thick] (0,0.2) -- (0,1.2) ;
+    \draw[col1,thick] (5,0.2) -- (5,1.2) ;
+    \draw[col1,thick] (10,0.2) -- (10,1.2) ;
     \draw[utb,latex-latex] (0,0.75) -- node[above] {$\Delta=10$} (5,0.75);
     \draw[utb,latex-latex] (5,0.75) -- node[above] {$\Delta=10$} (10,0.75);
-    \draw[red,thick] (2,-0.2) -- (2,-1.22) ;
-    \draw[red,thick] (7,-0.2) -- (7,-1.2) ;
+    \draw[col4,thick] (2,-0.2) -- (2,-1.22) ;
+    \draw[col4,thick] (7,-0.2) -- (7,-1.2) ;
     \draw[utr,latex-latex] (2,-0.75) -- node[below] {$\Delta=10$} (7,-0.75);
 \end{tikzpicture}
 \end{center}
@@ -109,14 +109,14 @@ dont le \textbf{rapport} ($\alpha$ ci-dessous) vaut 10 sont à égales distances
          \node [below,yshift=-0.5em] at ({5*log10(\x)},2pt) {\small \x};
     \foreach \x in {3,30}
          \node [above,yshift=0.0em] at ({5*log10(\x)},2pt) {\small \x};
-    \draw[blue,thick] (0,0.2) -- (0,1.2) ;
-    \draw[blue,thick] (5,0.2) -- (5,1.2) ;
-    \draw[blue,thick] (10,0.2) -- (10,1.2) ;
+    \draw[col1,thick] (0,0.2) -- (0,1.2) ;
+    \draw[col1,thick] (5,0.2) -- (5,1.2) ;
+    \draw[col1,thick] (10,0.2) -- (10,1.2) ;
     \draw[utb,latex-latex] (0,0.75) -- node[above] {$\alpha=10$} (5,0.75);
     \draw[utb,latex-latex] (5,0.75) -- node[above] {$\alpha=10$} (10,0.75);
-    \draw[red,thick] (2.386,-0.2) -- (2.386,-1.2) ;
-    \draw[red,thick] (7.386,-0.2) -- (7.386,-1.2) ;
-    \draw[red,ultra thick,latex-latex] (2.386,-0.75) -- 
+    \draw[col4,thick] (2.386,-0.2) -- (2.386,-1.2) ;
+    \draw[col4,thick] (7.386,-0.2) -- (7.386,-1.2) ;
+    \draw[col4,ultra thick,latex-latex] (2.386,-0.75) -- 
     node[below] {$\alpha=10$} (7.386,-0.75);
 \end{tikzpicture}
 \end{center}
@@ -143,14 +143,14 @@ distance constante sur l'axe à échelle logarithmique.
     \foreach \x in {1,10,100}
          \node [below,yshift=-0.5em] at ({5*log10(\x)},2pt) {\small \x};
     \foreach \x in {1,2,4,8,16,32,64}
-         \node [above,yshift=0em,blue] at ({5*log10(\x)},1.3) {\small \x};
+         \node [above,yshift=0em,col1] at ({5*log10(\x)},1.3) {\small \x};
     \foreach \x in {1,2,4,8,16,32,64} 
     {
     \pgfmathsetmacro{\lx}{5*log10(\x)}
     \pgfmathsetmacro{\lnx}{5*log10(\x*2)}
     \ifthenelse{\equal{\x}{64}}
-    {\draw[blue,thick] (\lx,0.2) -- (\lx,1.2);}
-    {\draw[blue,thick] (\lx,0.2) -- (\lx,1.2);
+    {\draw[col1,thick] (\lx,0.2) -- (\lx,1.2);}
+    {\draw[col1,thick] (\lx,0.2) -- (\lx,1.2);
     \draw[utb,latex-latex] (\lx,0.75) -- node[above] {$\alpha=2$} (\lnx,0.75);}
     }
 \end{tikzpicture}

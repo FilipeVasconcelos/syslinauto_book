@@ -59,19 +59,15 @@ de $z$ par rapport à l'axe des réels (\Cref{fig-plan_complexe}).
     xmin=-5,
     xmax=+4.9
     ]
-    \addplot [red, mark = *] coordinates {( 0, 0)} {};
-    \addplot [red, mark = *] coordinates {( 2, -3)} {};
-    \addplot [red, mark = *] coordinates {( 2, 3)} {};
-    \addplot [red, mark = *] coordinates {( -1, 1)} {};
+    \addplot [col4, mark = *] coordinates {( 0, 0)} {};
+    \addplot [col4, mark = *] coordinates {( 2, -3)} {};
+    \addplot [col4, mark = *] coordinates {( 2, 3)} {};
+    \addplot [col4, mark = *] coordinates {( -1, 1)} {};
 
-    \node [below right, red] at (axis cs:  0, 0) {$0$};
-    \node [right, red]       at (axis cs:  2, -3) {$2-3j$};
-    \node [above, red]       at (axis cs:  2, 3) {$2+3j$};
-    \node [left, red]        at (axis cs:  -1, 1) {$-1+j$};
-%    \addplot [dashed, black] coordinates { (0,0) (3,2) };
-%    \addplot [dashed, black] coordinates { (3,2) (2,3) };
-%    \addplot [dashed, black] coordinates { (2,3) (-1,1) };
-%    \addplot [dashed, black] coordinates { (-1,1) (0,0) };
+    \node [below right,col4] at (axis cs:  0, 0) {$0$};
+    \node [right, col4]       at (axis cs:  2, -3) {$2-3j$};
+    \node [above, col4]       at (axis cs:  2, 3) {$2+3j$};
+    \node [left, col4]        at (axis cs:  -1, 1) {$-1+j$};
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -128,19 +124,19 @@ Soient $z_1$ et $z_2$ deux nombres complexes.
     xmin=-5,
     xmax=+4.9
     ]
-    \addplot [red, mark = *] coordinates {( 0, 0)} {};
-    \addplot [red, mark = *] coordinates {( 2, 3)} {};
-    \addplot [red, mark = *] coordinates {( 2, -3)} {};
-    \node [below left, red] at (axis cs:  0, 0) {$0$};
-    \node [above, red]       at (axis cs:  2, 3) {$2+3j$};
-    \node [below, red]       at (axis cs:  2,-3) {$2-3j$};
-    \draw[red] (axis cs:0,0) -- (axis cs:  2, 3) 
+    \addplot [col4, mark = *] coordinates {( 0, 0)} {};
+    \addplot [col4, mark = *] coordinates {( 2, 3)} {};
+    \addplot [col4, mark = *] coordinates {( 2, -3)} {};
+    \node [below left, col4] at (axis cs:  0, 0) {$0$};
+    \node [above, col4]       at (axis cs:  2, 3) {$2+3j$};
+    \node [below, col4]       at (axis cs:  2,-3) {$2-3j$};
+    \draw[col4] (axis cs:0,0) -- (axis cs:  2, 3) 
     node[midway,yshift=1.1em,xshift=-0.2em] {$|z|$};
-    \draw[red] (axis cs:0,0) -- (axis cs:  2,-3) 
+    \draw[col4] (axis cs:0,0) -- (axis cs:  2,-3) 
     node[midway,yshift=-1.1em,xshift=-0.2em] {$|\bar{z}|$};
-    \draw[red] (axis cs:1.0,0) arc (0:40:1cm) 
+    \draw[col4] (axis cs:1.0,0) arc (0:40:1cm) 
     node[midway,yshift=0.2em,xshift=0.6em] {$\theta$};
-    \draw[red] (axis cs:1.0,0) arc (0:-40:1cm) 
+    \draw[col4] (axis cs:1.0,0) arc (0:-40:1cm) 
     node[midway,yshift=0.2em,xshift=0.6em] {$-\theta$};
 \end{axis}
 \end{tikzpicture}
@@ -233,9 +229,9 @@ Rappelons la représentation graphique de la fonction $\arctan$:
         },
         xtick={-6,-4,-2,0,2,4,6},
         ]
-        \addplot [ultra thick,color=blue,domain=-7:7,samples=201]{rad(atan(x))};
-        \addplot [thick,dashed,color=blue,domain=0:7,samples=10]{pi/2};
-        \addplot [thick,dashed,color=blue,domain=-7:0,samples=10]{-pi/2};
+        \addplot [signalb,domain=-7:7]{rad(atan(x))};
+        \addplot [col1,thick,dashed,domain=0:7,samples=10]{pi/2};
+        \addplot [col1,thick,dashed,domain=-7:0,samples=10]{-pi/2};
         \end{axis}
     \end{tikzpicture}
     \caption{Représentation graphique de la fonction arc tangente.
@@ -307,14 +303,14 @@ s'exprimer sous forme d'exponentielle complexe:
      {
         \filldraw[black] (\x:1cm) circle(0.6pt);
      }
-     \draw[red]   (-0.5cm,-0.87cm) rectangle (0.5cm,0.87cm);
-     \draw[green] (-0.71cm,-0.71cm) rectangle (0.71cm,0.71cm);
-     \draw[blue]  (-0.87cm,-0.5cm) rectangle (0.866025cm,0.5cm);
-     \node[above left,xshift=0.1em,red] at (0.5,0) 
+     \draw[col4]   (-0.5cm,-0.87cm) rectangle (0.5cm,0.87cm);
+     \draw[col3] (-0.71cm,-0.71cm) rectangle (0.71cm,0.71cm);
+     \draw[col1]  (-0.87cm,-0.5cm) rectangle (0.866025cm,0.5cm);
+     \node[above left,xshift=0.1em,col4] at (0.5,0) 
     {\scalebox{0.6}{$\dfrac{1}{2}$}};
-     \node[above left,xshift=0.2em,green] at (0.707106,0) 
+     \node[above left,xshift=0.2em,col3] at (0.707106,0) 
     {\scalebox{0.6}{$\dfrac{\sqrt{2}}{2}$}};
-     \node[above left,xshift=0.2em,blue] at (0.866025,0) 
+     \node[above left,xshift=0.2em,col1] at (0.866025,0) 
     {\scalebox{0.6}{$\dfrac{\sqrt{3}}{2}$}};
 \end{tikzpicture}
 \caption{Quelques points particuliers du cercle 
