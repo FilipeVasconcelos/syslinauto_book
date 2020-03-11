@@ -19,21 +19,21 @@
     \def\yu{3.24525022405}
     \def\xd{-2.6946926406}
     \def\yd{5.13601319826}
-    \addplot[black, mark = *] coordinates {( 0, 0)}  {};
+    \addplot[col5, mark = *] coordinates {(0, 0)}  {};
     \node[below] at (axis cs: 7.854, 0)  {\scriptsize$\omega=0$};
-    \addplot[black, mark = *] coordinates {(7.854, 0)} {};
+    \addplot[col5, mark = *] coordinates {(7.854, 0)} {};
     \node[below] at (axis cs: -2.2, 0)   {\scriptsize$\omega\rightarrow\infty$};
-    \addplot[red, mark = *] coordinates   {(\xu,\yu)} {};
-    \node[above right, red] at (axis cs: \xu,\yu) {\scriptsize$\omega_1$};
-    \draw[red,thick] (axis cs:0,0) -- (axis cs: \xu,\yu) 
+    \addplot[col4, mark = *] coordinates   {(\xu,\yu)} {};
+    \node[above right, col4] at (axis cs: \xu,\yu) {\scriptsize$\omega_1$};
+    \draw[col4,thick] (axis cs:0,0) -- (axis cs: \xu,\yu) 
     node[midway,yshift=1.1em,xshift=0.6em] {\scriptsize$G(\omega_1)$};
-    \draw[red,thick] (axis cs:2.6,0) arc (0:18:1cm) 
+    \draw[col4,thick] (axis cs:2.6,0) arc (0:18:1cm) 
     node[midway,yshift=0.23em,xshift=1.6em] {\scriptsize$\phi(\omega_1)$};
-    \addplot[blue, mark = *] coordinates {( \xd,\yd)} {};
-    \node[above left, blue]  at (axis cs:  \xd,\yd) {\scriptsize$\omega_2$};
-    \draw[blue,thick] (axis cs:0,0) -- (axis cs:\xd,\yd) 
+    \addplot[col1, mark = *] coordinates {( \xd,\yd)} {};
+    \node[above left, col1]  at (axis cs:  \xd,\yd) {\scriptsize$\omega_2$};
+    \draw[col1,thick] (axis cs:0,0) -- (axis cs:\xd,\yd) 
     node[midway,yshift=-0.5em,xshift=-1em] {\scriptsize$G(\omega_2)$};
-    \draw[blue,thick] (axis cs:1.9,0) arc (0:119:1.9)    
+    \draw[col1,thick] (axis cs:1.9,0) arc (0:119:1.9)    
     node[midway,yshift=-1.7em,xshift=-1.85em] {\scriptsize$\phi(\omega_2)$};
     \addplot[postaction={decorate, decoration={markings,
              mark=at position 0.105 with {\arrow[rotate=-180]{latex};},

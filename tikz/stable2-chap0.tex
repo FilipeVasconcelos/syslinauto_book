@@ -15,8 +15,8 @@
         xlabel style={below right},
         ylabel style={above left},
 	]
-    \addplot[very thick,color=blue,domain=-2:0, samples=101]{0};
-	\addplot[very thick,color=blue,domain=0:10, samples=501]{0.7*sin(3*deg(x))+1};
-	\draw[dotted,very thick,blue] (axis cs:0,0) -- (axis cs:0,1);
+    \addplot[signalb,domain=-2:0]{0};
+    \addplot[signalb,domain=0:10]{0.7*sin(3*deg(x))+1};
+    \draw[dotted,very thick,col1] (axis cs:0,0) -- (axis cs:0,1);
     \end{axis}
 \end{tikzpicture}

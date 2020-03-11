@@ -20,12 +20,12 @@
         clip=false,
     ]
     \addplot[signaln,domain=1e-2:1e2]  {-10*log10(1+x*x)};
-    \draw[blue,dashed] (1e-2,{-10*log10(1+100)}) 
+    \draw[col1,dashed] (1e-2,{-10*log10(1+100)}) 
     node[left] {$G_{dB}(\omega_2)$} -- (1e1,{-10*log10(1+100)}) ; 
-    \draw[red ,dashed] (1e-2,{-10*log10(1+4)})   
+    \draw[col4 ,dashed] (1e-2,{-10*log10(1+4)})   
     node[left] {$G_{dB}(\omega_1)$} -- (2e0,{-10*log10(1+4)}) ; 
-    \addplot[red, mark = *]  coordinates {(2e0,{-10*log10(1+4)})} {};
-    \addplot[blue, mark = *] coordinates {(1e1,{-10*log10(1+100)})} {};
+    \addplot[col4, mark = *]  coordinates {(2e0,{-10*log10(1+4)})} {};
+    \addplot[col1, mark = *] coordinates {(1e1,{-10*log10(1+100)})} {};
     \end{axis}
     \begin{axis}
     [   at={(axx.below south west)},yshift=-0.2cm,anchor=north west,
@@ -48,15 +48,15 @@
         clip=false,
     ]
     \addplot[signaln,domain=1e-2:1e2] {-atan2(x,1)};
-    \draw[blue,dashed] (1e1,{-atan2(1e1,1)})  -- 
+    \draw[col1,dashed] (1e1,{-atan2(1e1,1)})  -- 
     node[left,yshift=0.5em] {$\omega_2$} (1e1,77) ; 
-    \draw[red,dashed]  (2e0,{-atan2(2e0,1)})  -- 
+    \draw[col4,dashed]  (2e0,{-atan2(2e0,1)})  -- 
     node[left,yshift=-0.5em] {$\omega_1$} (2e0,100) ; 
-    \draw[blue,dashed] (1e-2,{-atan2(1e1,1)}) 
+    \draw[col1,dashed] (1e-2,{-atan2(1e1,1)}) 
     node[left] {$\phi(\omega_2)$} -- (1e1,{-atan2(1e1,1)}) ; 
-    \draw[red,dashed]  (1e-2,{-atan2(2e0,1)}) 
+    \draw[col4,dashed]  (1e-2,{-atan2(2e0,1)}) 
     node[left] {$\phi(\omega_1)$} -- (2e0,{-atan2(2e0,1)}) ; 
-    \addplot [red, mark = *]  coordinates {(2e0,{-atan2(2e0,1)})} {};
-    \addplot [blue, mark = *] coordinates {(1e1,{-atan2(1e1,1)})} {};
+    \addplot [col4, mark = *]  coordinates {(2e0,{-atan2(2e0,1)})} {};
+    \addplot [col1, mark = *] coordinates {(1e1,{-atan2(1e1,1)})} {};
     \end{axis}
 \end{tikzpicture}
