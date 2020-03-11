@@ -1,0 +1,36 @@
+    \begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none},
+        legend pos=outer north east,
+        axis line style = thick,
+        xmin=0,
+        xmax=10,
+        ymin=0,
+        ymax=10,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        label style={font=\Large},
+        cycle list name=color list,
+    ]
+    %entrée
+    \addplot[thick,color=black,domain=0:10, samples=101]{x};
+    % xi=2 apériodique 
+    \def\a{0.28867513459481292}
+    \def\u{3.73205080757}
+    \def\d{0.267949192431}
+    \def\us{13.928203230275509}
+    \def\ds{0.07179676972449088}
+    \addplot[signalb,domain=0:20] {x-\u-\d+\a*(\us*exp(-x/\u)-\ds*exp(-x/\d))};
+    % xi=1 critique
+    \addplot[signalg,domain=0:20] {((x-2)+(x+2)*exp(-x))};
+    % xi=0.1 pseudo-périodique
+    \def\a{0.1}
+    \def\b{0.99}
+    \def\w{0.994987437107}
+    \def\p{1.47062890563}
+    \addplot[signalr,domain=0:20] 
+    {x-2*\a+\a/\w*exp(-\a*x)*sin(\w*deg(x)+deg(\p))-
+           (1/\w)*exp(-\a*x)*sin(\w*deg(x))};
+
+    \end{axis}
+    \end{tikzpicture}
