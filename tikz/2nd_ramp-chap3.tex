@@ -1,4 +1,4 @@
-    \begin{tikzpicture}
+\begin{tikzpicture}
     \begin{axis}
     [   legend style={draw=none},
         legend pos=outer north east,
@@ -13,7 +13,7 @@
         cycle list name=color list,
     ]
     %entrée
-    \addplot[thick,color=black,domain=0:10, samples=101]{x};
+    \addplot[thick,black,domain=0:10, samples=101]{x};
     % xi=2 apériodique 
     \def\a{0.28867513459481292}
     \def\u{3.73205080757}
@@ -31,6 +31,5 @@
     \addplot[signalr,domain=0:20] 
     {x-2*\a+\a/\w*exp(-\a*x)*sin(\w*deg(x)+deg(\p))-
            (1/\w)*exp(-\a*x)*sin(\w*deg(x))};
-
     \end{axis}
-    \end{tikzpicture}
+\end{tikzpicture}

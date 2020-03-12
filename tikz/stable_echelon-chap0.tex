@@ -15,13 +15,13 @@
         xlabel style={below right},
         ylabel style={above left},
     ]
-    \addplot[stable,domain=-2:0]  {0};
+    \addplot[signalb,domain=-2:0]  {0};
     \def\a{0.3}
     \def\w{0.953939201417}
     \def\p{1.26610367278}
     \def\a{0.2}
     \def\w{0.9797958971132712}
     \def\p{1.369438406004566}
-    \addplot[stable,domain=0:20]{1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
+    \addplot[signalb,domain=0:20]{1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
     \end{axis}
 \end{tikzpicture}

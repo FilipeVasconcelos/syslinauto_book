@@ -1,6 +1,6 @@
 \begin{tikzpicture}%
-	\begin{axis}
-	[	ticks=none,
+    \begin{axis}
+    [	ticks=none,
         axis line style = thick,
         height=5cm,
         width=5cm,
@@ -14,8 +14,8 @@
         ylabel={$s(t)$},
         xlabel style={below right},
         ylabel style={above left},
-	]
-	\addplot[instable,domain=-2:0] {0};
-	\addplot[instable,domain=0:9.5] {0.8*sin(3*deg(x))*exp(0.2*x)};
-	\end{axis}
+    ]
+    \addplot[signalr,domain=-2:0]  {0};
+    \addplot[signalr,domain=0:9.5] {0.8*sin(3*deg(x))*exp(0.2*x)};
+    \end{axis}
 \end{tikzpicture}

@@ -22,12 +22,12 @@
         label style={font=\Large},
     ]
     % amortissement
-        \foreach[count=\i from 0,evaluate=\i as \colfrac using \i*100/9] 
-        \z in {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9}% 
-        {%
+    \foreach[count=\i from 0,evaluate=\i as \colfrac using \i*100/9] 
+    \z in {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9}% 
+    {%
         \edef\temp{\noexpand\addplot[signaltmp,col4!\colfrac!col1] {func(\z))};
         \noexpand\addlegendentry{$\xi=\z$}}
         \temp
-        }
-\end{axis}
+    }
+    \end{axis}
 \end{tikzpicture}
