@@ -1,0 +1,78 @@
+\begin{tikzpicture}
+    \begin{axis}
+    [
+        height=8cm,
+        width=8cm,
+        axis lines = center,
+        axis line style = thick,
+        ticks=none,
+        enlargelimits=false,
+        xlabel=$\phi$,
+        ylabel=$G_{dB}$,
+        xlabel style={below right},
+        ylabel style={left},
+        ymin=-150,
+        ymax=60,
+        xmin=-270,
+        xmax=70
+    ]
+    \def\da{0.6}
+    \def\db{5.0}
+    \def\dk{4}
+    \def\dpp{1.35}
+    \def\colru{col4}
+    \addplot[\colru,thick,domain=1e-2:1e-1,samples=100]
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colru,thick,domain=1e-1:1e0,samples=100,-{Latex[length=2mm]}] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colru,thick,domain=0.9e0:1e1,samples=100]  
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \addplot[\colru,thick,domain=1e1:1e2,samples=100]  
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \node [\colru,right]  at (axis cs:  -260, 40.0) {\textbf{instable}};
+
+    \def\da{0.6}
+    \def\db{1.0}
+    \def\dk{1.5}
+    \def\dpp{0.95}
+    \edef\colrd{col3}
+    \addplot[\colrd,thick,domain=1e-2:1e-1,samples=100]
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colrd,thick,domain=1e-1:1e0,samples=100] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colrd,thick,domain=1e0:1e1,samples=100,-{Latex[length=2mm]}] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \addplot[\colrd,thick,domain=0.9e1:1e2,samples=100] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \node [\colrd,right]  at (axis cs:  -140, -60.0)   {\textbf{stable}};
+
+    \def\da{0.6}
+    \def\db{4.0}
+    \def\dk{1.75}
+    \def\dpp{1.15}
+    \edef\colrt{col1}
+    \addplot[\colrt,thick,domain=1e-2:1e-1,samples=100]
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colrt,thick,domain=1e-1:1e0,samples=100] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colrt,thick,domain=1e0:1e1,samples=100,-{Latex[length=2mm]}] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \addplot[\colrt,thick,domain=0.9e1:1e2,samples=100] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \draw[draw=none,fill=black] (axis cs:-180,0) circle (2pt) node[above] 
+    {$(-180,0\mathrm{dB})$};
+    \node [\colrt,right]  at (axis cs:  -200, -140.0) {\textbf{critique}};
+\end{axis}
+\end{tikzpicture}

@@ -1,3 +1,14 @@
+\begin{tikzpicture}
+\begin{axis}[ticks=none,
+axis line style = thick,
+axis lines = center,
+height=4.8cm,
+width=4.8cm,
+ymin=-1.4,
+ymax=1.4,
+xmin=-1.4,
+xmax=1.4,
+clip=false]
 \addplot[thick,col4,domain=0:360,
 decoration={markings,
             mark=at position 0.10 with{\arrowreversed[line width=1pt]{latex}}},
@@ -741,3 +752,7 @@ postaction={decorate},
 ({0.9976686585927274*cos(359)},{0.9976686585927274*sin(359)})
 ({1.0003922940306853*cos(360)},{1.0003922940306853*sin(360)})
 };
+\draw[draw=none,fill=black] (axis cs:0.0,0.0) circle (2pt);
+\node[below] at (axis cs:0,-1.4) {$N=-2$};
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp[5.0]{comp}{E}
+    \sbRelier[$E(p)$]{E}{comp}
+    \sbBloc[1.5]{B}{$H(p)$}{comp}
+    \sbRelier[$\epsilon$]{comp}{B}
+    \sbSortie[5.0]{S}{B}
+    \sbRelier[$S(p)$]{B}{S}
+    \sbRenvoi{B-S}{comp}{}
+\end{tikzpicture}
