@@ -41,13 +41,17 @@ cat > standalone/${texname}.tex <<EOF
 \usetikzlibrary{babel} 
 \usetikzlibrary{decorations.text}
 \usetikzlibrary{matrix}
-\usetkzobj{all} 
+\usetkzobj{all}
+\usepackage{verbatim}
 \begin{document}
 EOF
-    echo "\begin{center}" >> standalone/${texname}.tex
-    cat $file >> standalone/${texname}.tex
-    echo "\end{center}" >> standalone/${texname}.tex
-    echo "\end{document}" >> standalone/${texname}.tex
+    echo "\begin{figure}[!h]" >> standalone/${texname}.tex
+    echo "\centering"         >> standalone/${texname}.tex
+    cat $file                 >> standalone/${texname}.tex
+    echo ""                   >> standalone/${texname}.tex  
+    echo "\verb?$file?"       >> standalone/${texname}.tex  
+    echo "\end{figure}"       >> standalone/${texname}.tex  
+    echo "\end{document}"     >> standalone/${texname}.tex
 #    cat standalone/${texname}.tex
     latex -output-directory standalone standalone/${texname}.tex
     dvips -o standalone/${texname}.ps standalone/${texname}.dvi #&> /dev/null
