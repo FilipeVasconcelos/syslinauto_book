@@ -34,9 +34,9 @@ les systèmes dynamiques linéaires.
 
 % ------------------------------------------------------------------------------
 \begin{figure}[!h]
-\begin{center}
+    \centering
+    \tikzsetnextfilename{systeme-chap0-ext}
     \input{tikz/systeme-chap0.tex}
-\end{center}
 \caption{Représentation d'un système en intéraction avec son environnement. 
          Par définition, un système aura une ou plusieurs entrée/sortie bien 
 	 définis de flux de~\gls{mei}. Dans le cas général, des perturbations 
@@ -104,8 +104,8 @@ que des systèmes monovariables que
 nous représenterons simplement de la façon suivante :
 % ------------------------------------------------------------------------------
 \begin{center}
-\tikzsetnextfilename{sb_bloc-chap1-ext}
-    \input{sb_bloc-chap1.tex}
+    \tikzsetnextfilename{sb_bloc-chap1-ext}
+    \input{tikz/sb_bloc-chap1.tex}
 \end{center}
 % ------------------------------------------------------------------------------
 où $e(t)$ et $s(t)$ sont respectivement les signaux d'entrée et de sortie 
@@ -200,8 +200,8 @@ l'aide d'un schéma-bloc ci-dessous
 (avec $\tau$ une temps quelconque.): 
 % ------------------------------------------------------------------------------
 \begin{center}
-\tikzsetnextfilename{sb_bloc_e3-chap1-ext}
-\input{tikz/sb_bloc_e3-chap1.tex}
+    \tikzsetnextfilename{sb_bloc_e3-chap1-ext}
+    \input{tikz/sb_bloc_e3-chap1.tex}
 \end{center}
 % ------------------------------------------------------------------------------
 
@@ -394,10 +394,9 @@ si ce signal est nul pour tout $t<0$.
 %$$
 % ------------------------------------------------------------------------------
 \begin{figure}[htb]
-\centering
-\tikzsetnextfilename{causal-chap1-ext}
-\input{tikz/causal-chap0.tex}
-%\caption{Exemple d'}
+    \centering
+    \tikzsetnextfilename{causal-chap1-ext}
+    \input{tikz/causal-chap0.tex}
 \end{figure}
 \setlength\intextsep{0pt}
 % ------------------------------------------------------------------------------
@@ -411,8 +410,8 @@ Un signal $s(t-\tau)$ est dit \textbf{retardé} d'un temps $\tau$
 par rapport à $s(t)$, si on lui a fait subir un changement
 d'origine des temps par rapport au signal $s(t)$.
 \begin{center}
-\tikzsetnextfilename{retarde-chap1-ext}
-\input{tikz/retarde-chap0.tex}
+    \tikzsetnextfilename{retarde-chap1-ext}
+    \input{tikz/retarde-chap0.tex}
 \end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -422,11 +421,12 @@ Un signal est dit \textbf{périodique} s'il se reproduit identique à lui
 même au bout d'un même intervalle de temps ou periode $T$. On définit alors 
 sa fréquence $f$ qui est l'inverse de la période $f=1/T$ ou la pulsation 
 $\omega$ définit par rapport au cercle unité $\omega=2\pi f$.
+
 {
 \begin{figure}[!htb]
-\centering
-\tikzsetnextfilename{periodique-chap1-ext}
-\input{tikz/periodique-chap0.tex}
+    \centering
+    \tikzsetnextfilename{periodique-chap1-ext}
+    \input{tikz/periodique-chap0.tex}
 \end{figure}
 \setlength\intextsep{0pt}
 }
@@ -462,12 +462,23 @@ sollicitation constante et une sollicitation oscillante).
 
 
 \begin{figure}[!ht]
-\begin{center}
-\input{tikz/stabilite-chap0.tex}
-\caption{Trois exemples de réponses d'un SLCI à des sollicitations bornées : 
-         (en bleu)  réponses stables 
-         (en rouge) réponses instables.\label{fig-stabilite_signaux}}
-\end{center}                
+    \centering
+    \tikzsetnextfilename{entree_echelon-chap0_ext}
+    \input{tikz/entree_echelon-chap0.tex}
+    \tikzsetnextfilename{stable_echelon-chap0_ext}
+    \input{tikz/stable_echelon-chap0.tex}
+    \tikzsetnextfilename{instable_echelon-chap0_ext}
+    \input{tikz/instable_echelon-chap0.tex}
+
+    \tikzsetnextfilename{entree_harm-chap0_ext}
+    \input{tikz/entree_harm-chap0.tex}
+    \tikzsetnextfilename{stable_harm-chap0_ext}
+    \input{tikz/stable_harm-chap0.tex}
+    \tikzsetnextfilename{instable_harm-chap0_ext}
+    \input{tikz/instable_harm-chap0.tex}
+    \caption{Trois exemples de réponses d'un SLCI à des sollicitations bornées : 
+            (en bleu)  réponses stables 
+            (en rouge) réponses instables.\label{fig-stabilite_signaux}}
 \end{figure}
 
 
@@ -514,11 +525,9 @@ une impulsion de Dirac ainsi qu'une
 impulsion retardée de $\tau$ noté $\delta(t-\tau)$.
 
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{dirac-chap1-ext}
-\input{tikz/dirac-chap0.tex}
-\end{center}
-%\caption{\label{fig-dirac}}
+    \centering
+    \tikzsetnextfilename{dirac-chap1-ext}
+    \input{tikz/dirac-chap0.tex}
 \end{figure}
 
 L'impulsion de Dirac est expérimentalement approchée par un signal 
@@ -532,13 +541,13 @@ $$
 où $e(t)$ est le signal d'entrée du système et $E_0$ la valeur de l'amplitude 
 de l'impulsion de Dirac dont l'unité dépend de la nature du problème considéré.
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{dirac_reel-chap1-ext}
-\input{tikz/dirac_reel-chap0.tex}
-\caption{Représentation de l'impulsion de Dirac approchée. 
-Celle-ci tend vers l'impulsion de Dirac pour $a\to0$. On remarquera 
-que l'aire du rectangle est toujours égale à 1.\label{fig-dirac2}}
-\end{center}
+    \centering
+    \tikzsetnextfilename{dirac_reel-chap1-ext}
+    \input{tikz/dirac_reel-chap0.tex}
+    \caption{Représentation de l'impulsion de Dirac approchée. 
+             Celle-ci tend vers l'impulsion de Dirac pour $a\to0$. 
+             On remarquera que l'aire du rectangle est toujours égale à 1.
+             \label{fig-dirac2}}
 \end{figure}
 
 La réponse d'un système à une impulsion de Dirac est appelée 
@@ -566,13 +575,12 @@ Cette fonction présente une marche\footnote{Nos
 collègues anglo-saxons l'appelle la \og\emph{step function}\fg} à $t=0$. 
 Ci dessous nous la représentons avec la fonction retardée $u(t-\tau)$.
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{echelon-chap1-ext}
-\input{tikz/echelon-chap0.tex}
-\end{center}
-\caption{Représentation graphique de (gauche) la fonction échelon-unité 
-         et (droite) la fonction échelon-unité retardée de $\tau$
-         \label{fig-echelon}}
+    \centering
+    \tikzsetnextfilename{echelon-chap1-ext}
+    \input{tikz/echelon-chap0.tex}
+    \caption{Représentation graphique de (gauche) la fonction échelon-unité 
+             et (droite) la fonction échelon-unité retardée de $\tau$
+            \label{fig-echelon}}
 \end{figure}
 
 En général, l'échelon-unité est utilisé en entrée de nos systèmes pour 
@@ -617,10 +625,9 @@ r(t)=t\cdot u(t)
 $$
 
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{rampe-chap1-ext}
-\input{tikz/rampe-chap0.tex}
-\end{center}
+    \centering
+    \tikzsetnextfilename{rampe-chap1-ext}
+    \input{tikz/rampe-chap0.tex}
 \caption{Représentation graphique de (gauche) la fonction rampe-unité et 
                                      (droite) la fonction rampe-unité retardée
                                      de $\tau$
@@ -647,14 +654,12 @@ et $\phi$ sa phase (\si{\radian}).
 %en \si{\hertz}, elle même liée à la période $T=\dfrac{1}{f}$ en 
 %\si{\second}.
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{sinusoide-chap0-ext}
-\input{tikz/sinusoide-chap0.tex}
-\end{center}
-\caption{Représentation de signaux sinuso\"idaux de même pulsation 
-       et amplitude. (bleu) de phase $\phi=0$ et 
-       (rouge) de phase $\phi=-\dfrac{\pi}{2}$.
-\label{fig-sin}}
+    \centering
+    \tikzsetnextfilename{sinusoide-chap0-ext}
+    \input{tikz/sinusoide-chap0.tex}
+    \caption{Représentation de signaux sinuso\"idaux de même pulsation 
+             et amplitude. (bleu) de phase $\phi=0$ et 
+            (rouge) de phase $\phi=-\dfrac{\pi}{2}$.\label{fig-sin}}
 \end{figure}
 
 \begin{table}[!h]
@@ -729,10 +734,9 @@ avec $a$ l'inverse d'un temps caractéristique d'un amortissement.
 Cette fonction tend vers 0 pour tout $a>0$ à $t\rightarrow\infty$ et 
 diverge pour $a<0$.
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{exp_dec-chap1-ext}
-\input{tikz/exp_dec-chap0.tex}
-\end{center}
+    \centering
+    \tikzsetnextfilename{exp_dec-chap1-ext}
+    \input{tikz/exp_dec-chap0.tex}
     \caption{Représentation de la fonction exponentielle pour 
              différentes valeurs du paramètre $a$.\label{fig-exp}}
 \end{figure}
@@ -749,9 +753,9 @@ où $a>0$ est l'inverse d'un temps caractéristique de l'amortissement.
 Cette fonction est donc le produit d'une exponentielle décroissante et 
 d'une sinuso\"ide.
 \begin{figure}[!h]
-\begin{center}
-\input{tikz/sinusoide_amortie-chap0.tex}
-\end{center}
+    \centering
+    \tikzsetnextfilename{sinusoide_amortie-chap0-ext}
+    \input{tikz/sinusoide_amortie-chap0.tex}
     \caption{Représentation d'un sinuso\"ide amortie. L'enveloppe en pointillé 
              correspond aux fonctions $Ae^{-at}$ et $-Ae^{-at}$.
              \label{fig-sin_amor}}
@@ -1097,14 +1101,13 @@ ou encore
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\tikzsetnextfilename{laplace_schema-chap0-ext}
 \begin{figure}[!ht]
-\begin{center}
-\input{tikz/laplace_schema.tex}
-\end{center}
-\caption{Représentation schématique de la méthode employée pour la résolution
-des équations différentielles linéaires à coefficients constants.
-\label{fig-laplace_schema}}
+    \centering
+    \tikzsetnextfilename{laplace_schema-chap0-ext}
+    \input{tikz/laplace_schema.tex}
+    \caption{Représentation schématique de la méthode employée pour la 
+             résolution des équations différentielles linéaires à 
+             coefficients constants.\label{fig-laplace_schema}}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Méthodologie}
@@ -1565,12 +1568,11 @@ La forme factorisée de $H(p)$ est donc
 
 La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert.
 \begin{figure}[!h]
-    \begin{center}
+    \center
     \tikzsetnextfilename{carte-chap1-ext}
     \input{tikz/carte-chap0.tex}
-\end{center}
-\caption{Exemple d'une carte de pôles et zéros associés 
-    à la fonction de transfert~\Cref{eq-ft_carte}\label{fig-carte} }
+    \caption{Exemple d'une carte de pôles et zéros associés à la 
+             fonction de transfert~\Cref{eq-ft_carte}\label{fig-carte}}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

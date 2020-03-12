@@ -18,28 +18,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[!h]
     \centering
-\tikzsetnextfilename{stable_1-chap7-ext}
-    \begin{tikzpicture}
-        \draw[col3,line width=0.5mm] (0,0.25) circle (1.5ex);
-        \draw[thick] (0,0) parabola (1,1.75) ;
-        \draw[thick] (0,0) parabola (-1,1.75) ;
-        \node at (0,-2.5) {(a) stable};
-        \begin{scope}[xshift=3.5cm]
-            \draw[col4,line width=0.5mm] (0,0.25) circle (1.5ex);
-            \draw[thick] (0,0) parabola (1,-1.75) ;
-            \draw[thick] (0,0) parabola (-1,-1.75) ;
-            \node at (0,-2.5) {(b) instable};
-        \end{scope}
-        \begin{scope}[xshift=7cm]
-            \draw[col1,line width=0.5mm] (0,0.25) circle (1.5ex);
-            \draw[thick] (0,0) parabola (-1,1.75) ;
-            \draw[thick] (0,0) parabola (0.5,0.2) ;
-            \draw[thick] (0.5,0.2) parabola (1,-1.75) ;
-            \node[text width=3cm,align=center] at (0,-2.5) 
-            {(c) stabilité\\conditionnelle};
-        \end{scope}
-    \end{tikzpicture}
-\caption{Représentation schématique de la stabilité}
+    \tikzsetnextfilename{stable_1-chap7-ext}
+    \input{tikz/stable_1-chap7.tex}
+    \caption{Représentation schématique de la stabilité}
 \end{figure}
 
 \textbf{Un système est dit stable si à une entrée bornée le système produit 
@@ -57,7 +38,31 @@ Rappel sur les réponses temporelles du premier ordre et du second ordre \ldots
             pôles à partie réelle positive.}
 \end{criteria}
 
-\input{tikz/stabilite.tex}
+%-------------------------------------------------------------------------------
+\clearpage
+\thispagestyle{empty}
+\begin{landscape}
+\centering
+\captionsetup{width=1.15\linewidth}
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{stabilite_plan-complexe-chap6_ext}
+    \input{tikz/stabilite.tex}
+    \caption{Stabilité d'un SLCI d'après la carte des pôles de sa fonction de
+             transfert et de leurs réponses impulsionnelles. 
+             (Vert) Deux pôles complexes conjugués. 
+             (Rouge) Pôle à partie réel négative. 
+             (Gris) Deux pôles complexes conjugués à partie réelle nulle.
+             (Noir) Pôle nul.
+             (Bleu) Deux pôles complexes conjugués à partie réelle positive.
+             (Orange) Pôle à partie réel positive.}
+    \end{figure}
+\end{landscape}
+\clearpage
+\pagestyle{fancy}
+\captionsetup{width=0.8\linewidth}
+%-------------------------------------------------------------------------------
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Notion de pôles dominants}
@@ -68,17 +73,8 @@ Rappel sur les réponses temporelles du premier ordre et du second ordre \ldots
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{center}
-\tikzsetnextfilename{asser-chap7-ext}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp[5.0]{comp}{E}
-        \sbRelier[$E(p)$]{E}{comp}
-        \sbBloc[1.5]{B}{$\dfrac{K}{p(p^2+p+3)}$}{comp}
-        \sbRelier[$\epsilon$]{comp}{B}
-        \sbSortie[5.0]{S}{B}
-        \sbRelier[$S(p)$]{B}{S}
-    \sbRenvoi{B-S}{comp}{}
-\end{tikzpicture}
+    \tikzsetnextfilename{asser-chap7-ext}
+    \input{tikz/asser-chap7.tex}
 \end{center}
 
 $$
@@ -427,17 +423,8 @@ boucle fermée.
 
 Soit un système asservi défini par le schéma-bloc suivant :
 \begin{center}
-\tikzsetnextfilename{routh_exemple-chap7-ext}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp[5.0]{comp}{E}
-        \sbRelier[$E(p)$]{E}{comp}
-        \sbBloc[1.5]{B}{$\dfrac{K}{p(p^2+p+3)}$}{comp}
-        \sbRelier[$\epsilon$]{comp}{B}
-        \sbSortie[5.0]{S}{B}
-        \sbRelier[$S(p)$]{B}{S}
-    \sbRenvoi{B-S}{comp}{}
-\end{tikzpicture}
+    \tikzsetnextfilename{routh_exemple-chap7-ext}
+    \input{tikz/routh_exemple-chap7.tex}
 \end{center}
 
 La fonction de transfert en boucle fermée $H_{BF}(p)$ s'écrit :
@@ -538,17 +525,8 @@ le système en boucle ouverte.
 Pour celà considèrons la boucle de contre réaction unitaire 
 pour l'asservissement d'un système de fonction de transfert $H(p)$, telle que :
 \begin{center}
-\tikzsetnextfilename{sb_revers-chap7-ext}
-    \begin{tikzpicture}
-    \sbEntree{E}
-    \sbComp[5.0]{comp}{E}
-        \sbRelier[$E(p)$]{E}{comp}
-        \sbBloc[1.5]{B}{$H(p)$}{comp}
-        \sbRelier[$\epsilon$]{comp}{B}
-        \sbSortie[5.0]{S}{B}
-        \sbRelier[$S(p)$]{B}{S}
-    \sbRenvoi{B-S}{comp}{}
-\end{tikzpicture}
+    \tikzsetnextfilename{sb_revers-chap7-ext}
+    \input{tikz/sb_revers-chap7.tex}
 \end{center}
 
 la fonction de transfert en boucle ouverte $H_{BO}(p)$ est simplement donné 
@@ -674,126 +652,12 @@ est supérieur à 1. Nous appelerons critique le système dont le lieu de Nyquis
 passe par le point critique de oordonnées (-1,0).
 
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{critere_revers_nyquist-chap7-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    height=9cm,
-    width=8cm,
-    axis lines = center,
-    ticks=none,
-    axis line style = thick,
-    enlargelimits=false,
-    xlabel=$\Re{H_{BO}(\jw)}$,
-    ylabel=$\Im{H_{BO}(\jw)}$,
-    xlabel style={below right},
-    ylabel style={right},
-    ymin=-4,
-    ymax=2.2,
-    xmin=-2.25,
-    xmax=0.5,
-    clip=false
-    ]     
-    \addplot [black, mark = *] coordinates {( -1, 0)} {};
-    \node [above left,xshift=1ex]  at (axis cs:  -1, 0)   {$(-1,0)$};
-    % instable
-    \def\xu{-0.2}
-    \def\yu{1.75}
-    \def\xd{-2.25}
-    \def\yd{1.75}
-    \def\xt{-2.25}
-    \def\yt{-4}
-    \addplot [-latex,col4,thick,domain=1:0.8,samples=25]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
-    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
-    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \addplot [-latex,col4,thick,domain=0.81:0.5,samples=25]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
-    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
-    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \addplot [-latex,col4,thick,domain=0.51:0.3,samples=25]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
-    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
-    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \addplot [col4,thick,domain=0.31:0,samples=25]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
-    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
-    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-
-    \node [col4,left]  at (axis cs:  -2.3, -3.5)   {\textbf{instable}};
-    \addplot [col4, mark = *]  coordinates   {(-1.7,0)} {};
-    \draw[dblarw={col4}{2pt}{2pt}] (0,1.9) -- node[midway,above] 
-    {$G(\omega)>1$} (-1.7,1.9) ;
-    \draw[col4,dashed] (-1.7,1.9)--(-1.7,0);
-
-    % critique 
-    \def\xu{-0.5}
-    \def\yu{0.8}
-    \def\xd{-1.506}
-    \def\yd{0.8}
-    \def\xt{-1.495}
-    \def\yt{-4}
-    \addplot [-latex,col1,thick,domain=1:0.8,samples=50]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
-     x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
-    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \addplot [-latex,col1,thick,domain=0.81:0.3,samples=25]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
-    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
-    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \addplot [col1,thick,domain=0.31:0,samples=25]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
-    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
-    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \node[col1,left]  at (axis cs:  -1.45, -3.5)   {\textbf{critique}};
-    \draw[dblarw={col1}{2pt}{2pt}] (0,1.2) -- node[midway,above]
-    {$G(\omega)=1$} (-1,1.2);
-    \draw[col1,dashed] (-1,1.2)--(-1,0);
-
-    %stable
-    \def\xu{-0.206}
-    \def\yu{0.4}
-    \def\xd{-1}
-    \def\yd{0.38}
-    \def\xt{-1}
-    \def\yt{-4}
-    \addplot [-latex,col3,thick,domain=1:0.8,samples=50]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
-    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
-    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \addplot [-latex,col3,thick,domain=0.81:0.3,samples=50]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
-    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
-    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-    \addplot [col3,thick,domain=0.31:0,samples=50]
-    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
-    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
-    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
-    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
-
-    \addplot[col3, mark = *] coordinates {(-0.47,0)} {};
-
-    \node[col3,right] at (axis cs:-1.0,-3.5) {\textbf{stable}};
-    \draw[dblarw={col3}{2pt}{2pt}] (0,-0.5) -- node[midway,below]
-    {$G(\omega)<1$} (-0.47,-0.5) ;
-    \draw[col3,dashed] (-0.47,-0.5)--(-0.47,0);
-\end{axis}
-\end{tikzpicture}
-\end{center}
-\caption{Représentation schématique de lieux de Nyquist de la 
-         fonction de transfert en boucle ouverte de 
-         trois systèmes asservis: stable, critique et instable. 
-\label{fig-nyquist_revers}}
+    \centering
+    \tikzsetnextfilename{critere_revers_nyquist-chap7-ext}
+    \input{tikz/critere_revers_nyquist-chap7.tex}
+    \caption{Représentation schématique de lieux de Nyquist de la fonction 
+             de transfert en boucle ouverte de trois systèmes asservis: 
+             stable, critique et instable. \label{fig-nyquist_revers}}
 \end{figure}
 
 Nous pouvons maintenant formuler le critère du revers de Nyquist :
@@ -813,95 +677,12 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \acpl
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{critere_revers_black-chap7-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    height=8cm,
-    width=8cm,
-    axis lines = center,
-    axis line style = thick,
-    ticks=none,
-    enlargelimits=false,
-    xlabel=$\phi$,
-    ylabel=$G_{dB}$,
-    xlabel style={below right},
-    ylabel style={left},
-    ymin=-150,
-    ymax=60,
-    xmin=-270,
-    xmax=70
-    ]
-    \def\da{0.6}
-    \def\db{5.0}
-    \def\dk{4}
-    \def\dpp{1.35}
-    \def\colru{col4}
-    \addplot[\colru,thick,domain=1e-2:1e-1,samples=100]
-    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
-     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
-    \addplot[\colru,thick,domain=1e-1:1e0,samples=100,-{Latex[length=2mm]}] 
-    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
-     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
-    \addplot[\colru,thick,domain=0.9e0:1e1,samples=100]  
-    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
-     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-    \addplot[\colru,thick,domain=1e1:1e2,samples=100]  
-    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
-     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-%    \addplot[col1,thick,domain=1e2:1e4,samples=200]  
-%    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
-%     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-    %\addplot[domain=1e1:1e5,samples=100] ({-10*log10(1+x*x)},{x});
-    %\draw[dashed,thick] (axis cs:-180,-200) -- (axis cs:-180,20) ;
-    \node [\colru,right]  at (axis cs:  -260, 40.0) {\textbf{instable}};
-
-    \def\da{0.6}
-    \def\db{1.0}
-    \def\dk{1.5}
-    \def\dpp{0.95}
-    \edef\colrd{col3}
-    \addplot[\colrd,thick,domain=1e-2:1e-1,samples=100]
-    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
-     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
-    \addplot[\colrd,thick,domain=1e-1:1e0,samples=100] 
-    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
-     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
-    \addplot[\colrd,thick,domain=1e0:1e1,samples=100,-{Latex[length=2mm]}] 
-    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
-     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-    \addplot[\colrd,thick,domain=0.9e1:1e2,samples=100] 
-    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
-     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-    \node [\colrd,right]  at (axis cs:  -140, -60.0)   {\textbf{stable}};
-
-    \def\da{0.6}
-    \def\db{4.0}
-    \def\dk{1.75}
-    \def\dpp{1.15}
-    \edef\colrt{col1}
-    \addplot[\colrt,thick,domain=1e-2:1e-1,samples=100]
-    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
-     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
-    \addplot[\colrt,thick,domain=1e-1:1e0,samples=100] 
-    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
-     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
-    \addplot[\colrt,thick,domain=1e0:1e1,samples=100,-{Latex[length=2mm]}] 
-    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
-     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-    \addplot[\colrt,thick,domain=0.9e1:1e2,samples=100] 
-    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
-     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-    \draw[draw=none,fill=black] (axis cs:-180,0) circle (2pt) node[above] 
-    {$(-180,0\mathrm{dB})$};
-    \node [\colrt,right]  at (axis cs:  -200, -140.0) {\textbf{critique}};
-\end{axis}
-\end{tikzpicture}
-\end{center}
-\caption{Représentation schématique de lieux de Black de la 
-    fonction de transfert en boucle ouverte de trois systèmes 
-    asservis: stable, critique et instable.
+    \centering
+    \tikzsetnextfilename{critere_revers_black-chap7-ext}
+    \input{tikz/critere_revers_black-chap7.tex}
+    \caption{Représentation schématique de lieux de Black de la 
+             fonction de transfert en boucle ouverte de trois systèmes 
+             asservis: stable, critique et instable.
 \label{fig-black_revers}}
 \end{figure}
 
@@ -940,108 +721,12 @@ pour respecter le critère du revers dans le plan de Bode
 
 \begin{figure}[!h]
 \centering
-\tikzsetnextfilename{critere_revers_bode-chap7-ext}
-\begin{tikzpicture}
-    \begin{axis}[
-        name=axx,
-        ticks=none,
-        axis line style = thick,
-        xmode=log,
-        enlargelimits=false,
-        height=4.5cm,
-        width=9cm,
-        axis x line=center,
-        axis y line=left,
-        xmin=1e-2,
-        xmax=1e2,
-        ymin=-60,
-        ymax=80,
-        xlabel={$\log\omega$},
-        xlabel style={below right},
-        ylabel={$G_{dB}(\omega)$},
-        ylabel style={left,rotate=-90,yshift=3.25em},
-        clip=false,
-        ]
-        \def\dk{9}
-        \addplot[very thick,col4,domain=1e-2:1e2  , samples=101]
-        {\dk+50-20*log10(1+10*x*x)};
-        \addplot[very thick,col1,domain=1e-2:1e2  , samples=101]
-        {\dk+30-20*log10(1+10*x*x)};
-        \addplot[very thick,col3,domain=1e-2:1e2,samples=101]
-        {\dk+10-20*log10(1+10*x*x)};
-        \addplot [col3, mark = *]  coordinates 
-        {(3.0077,{\dk+10-20*log10(1+10*3.0077*3.0077)})} {};
-        \addplot [col1, mark = *]            coordinates 
-        {(3.0077,{\dk+30-20*log10(1+10*3.0077*3.0077)})} {};
-        \addplot [col4, mark = *]             coordinates 
-        {(3.0077,{\dk+50-20*log10(1+10*3.0077*3.0077)})} {};
-        \draw[col3,dashed] 
-        (1e-2,{\dk+10-20*log10(1+10*3.0077*3.0077)}) 
-        node[left] {$G(\omega_c)$} -- 
-        (3.0077,{\dk+10-20*log10(1+10*3.0077*3.0077)});
-        \draw[col4,dashed] (1e-2,{\dk+50-20*log10(1+10*3.0077*3.0077)}) 
-        node[left] {$G(\omega_c)$} -- 
-        (3.0077,{\dk+50-20*log10(1+10*3.0077*3.0077)}) ;
-        \node (pt1) at (axis cs:3.0077,80) {};
-        \draw[]  (1e-2,0)  node[left] {\SI{0}{\dB}} -- (1e2,0);
-        \node [col3,right]  at (axis cs: 1e2, -80.0) 
-        {\textbf{stable}  };                
-        \node [col1          ,right]  at (axis cs: 1e2, -60.0) 
-        {\textbf{critique}};                
-        \node [col4           ,right]  at (axis cs: 1e2, -40.0) 
-        {\textbf{instable}};                
-        \end{axis}
-        \begin{axis}[
-        at={(axx.below south west)},yshift=-0.2cm,anchor=north west,
-        ticks=none,
-        axis line style = thick,
-        xmode=log,
-        enlargelimits=false,
-        height=4.5cm,
-        width=9cm,
-        axis x line=center,
-        axis y line=left,
-        xmin=1e-2,
-        xmax=1e2,
-        ymin=-270,
-        ymax=40,
-        xlabel={$\log\omega$},
-        xlabel style={below right},
-        ylabel={$\hphantom{_DB}\phi(\omega)$},
-        ylabel style={left,rotate=-90,yshift=3.25em},
-        clip=false,
-        ]
-        \addplot[very thick,col5,domain=1e-2:1e2, samples=101]
-        {-2.5*atan2(x,1)};
-        \def\ttt{0.865}
-        \def\ddd{9.1}
-        \addplot [col3, mark = *]  coordinates 
-        {(\ttt,{-2.5*atan2(\ttt,1)})} {};
-        \addplot [col1, mark = *]            coordinates 
-        {(3.0077,{-2.5*atan2(3.0077,1)})} {};
-        \addplot [col4, mark = *]             coordinates 
-        {(\ddd,{-2.5*atan2(\ddd,1)})} {};
-        \draw[col3,dashed] (1e-2,{-2.5*atan2(\ttt,1)}) 
-        node[left] {$\phi(\omega_1)$} -- (\ttt,{-2.5*atan2(\ttt,1)}) ;
-        \draw[col4,dashed]  (1e-2,{-2.5*atan2(\ddd,1)}) 
-        node[left] {$\phi(\omega_1)$} -- (\ddd,{-2.5*atan2(\ddd,1)}) ;
-        \draw[black,dashed] (1e-2,-180)  
-        node[left] {-180$\degree$} -- (1e2,-180) ;
-        \end{axis}
-        \draw[col3,dashed] ($(pt1)+(-1,0)$) 
-        node[above] {$\omega_1$} -- + (0,-7.5cm) ;
-        \draw[col1,dashed] ($(pt1)+(0,0)$) 
-        node[above,text width=1cm,align=center] 
-        {$\omega_c$\\$\omega_1$} -- + (0,-7.5cm) ;
-        \draw[col4,dashed] ($(pt1)+(0.9,0)$) 
-        node[above] {$\omega_1$} -- + (0,-7.5cm) ;
-\end{tikzpicture}
-\caption{Représentation schématique de lieux de Bode de la fonction 
-         de transfert en boucle ouverte de trois systèmes asservis: 
-         stable, critique et instable.}
+    \tikzsetnextfilename{critere_revers_bode-chap7-ext}
+    \input{tikz/critere_revers_bode-chap7.tex}
+    \caption{Représentation schématique de lieux de Bode de la fonction 
+             de transfert en boucle ouverte de trois systèmes asservis: 
+             stable, critique et instable.}
 \end{figure}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1109,209 +794,37 @@ de l'origine dans le sens trigonométrique ($N>0$). Remarquons que les tours
 sont comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours}).
 
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{nyquist_cauchy-chap7-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    name=nyy1,
-    height=8cm,
-    width=8cm,
-    axis lines = center,
-    ticks=none,
-    axis line style = thick,
-    enlargelimits=false,
-    xlabel=$\Re{p}$,
-    ylabel=$\Im{p}$,
-    xlabel style={below},
-    ylabel style={left},
-    ymin=-4,
-    ymax=4,
-    xmin=-8,
-    xmax=8
-    ]     
-    \pgfmathsetseed{3}
-    \draw[
-        decoration={markings,mark=at position 0.2 with 
-        {\arrow[line width=2pt]{latex}}},
-        decoration={markings,mark=at position 0.6 with 
-        {\arrow[line width=2pt]{latex}}},
-           postaction={decorate},
-           thick,
-           col4,
-           smooth cycle,
-           samples=11,
-           domain={11:1},
-           xshift=3cm,
-           yshift=3cm] plot (\x*360/11+5*rnd:1.25cm+0.75cm*rnd) ;
-    \node[col4] (ct) at (axis cs:-4,2) {\Large$\mathcal{C}$};
-    \addplot[mark=x,ultra thick,only marks,mark size=5pt] 
-    coordinates{ (-3.0,-0.5) (-6,-1)};
-    \addplot[mark=o,ultra thick,only marks,mark size=5pt] 
-    coordinates{ (1,0) (-1,1.2) (-2.1,-1.7) };
-\end{axis}
-\begin{axis}
-    [
-    at={(nyy1.south east)},xshift=4ex,
-    height=8cm,
-    width=8cm,
-    axis lines = center,
-    ticks=none,
-    axis line style = thick,
-    enlargelimits=false,
-    xlabel=$\Re{F(p)}$,
-    ylabel=$\Im{F(p)}$,
-    xlabel style={below},
-    ylabel style={left},
-    ymin=-4,
-    ymax=4,
-    xmin=-4,
-    xmax=4
-    ]     
-    \def\m{1.0}
-    \def\n{2.1}
-    \addplot[
-    decoration={markings,mark=at position 0.1 with 
-    {\arrowreversed[line width=2pt]{latex}}},
-    decoration={markings,mark=at position 0.5 with 
-    {\arrowreversed[line width=2pt]{latex}}},
-    postaction={decorate},
-    col1,
-    thick,
-    domain=1:3,
-    samples=50,
-    smooth cycle] coordinates 
-    {(1.9,-1.5) (0,-2) (-0.75,0.35) (0.25,1.25) (1,0.25) (-0.25,-0.75) 
-    (-1.1,-1.25) (-1.5,-1) (-2,0) (-1.5,1.5)  (0,2)  (0.75,1.9) (2,0)}; 
-    \node[col1] (ct) at (axis cs:-2.5,2) {\Large$\Gamma:F(\mathcal{C})$};
-    \draw[draw=none,fill=black] (axis cs:0,0) circle (2pt);
-\end{axis}
-\end{tikzpicture}
-\end{center}
+    \centering
+    \tikzsetnextfilename{nyquist_cauchy-chap7-ext}
+    \input{tikz/nyquist_cauchy-chap7.tex}
     \caption{Représentation de la transformation d'un contour $\mathcal{C}$ 
              en son image par une fonction analytique $F(p)$. Dans cet exemple,
              on observe (droite) que $\mathcal{C}$ entoure $Z=3$ zéros et 
              $P=1$ pôle (gauche) l'image fait alors $N=3-1=2$ tours autour de 
              l'origine.
-   % Dans cet exemple la fonction analytique $F(p)$ possède 2 pôles et 3 zéros. 
-   % Le contour entoure $Z=3$ zéros et $P=1$ pôle.
-   % Le contour $\Gamma=F(\mathcal{C})$ fait alors $N=Z-P=2$ tours autour de 
-   % l'origine dans le sens trigonométrique ($N>0$).
     \label{fig-contour_cauchy}}
 \end{figure}
 
 
 \begin{figure}[!h]
-\centering
-\tikzsetnextfilename{nyquist_ntours_1-chap7-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    ticks=none,
-    axis line style = thick,
-    axis lines = center,
-    height=4.8cm,
-    width=4.8cm,
-    ymin=-1.4,
-    ymax=1.4,
-    xmin=-1.4,
-    xmax=1.4,
-    clip=false
-            ]
-\input{tikz/3tours_r.tex}
-\draw[draw=none,fill=black] (axis cs:0.0,0.0) circle (2pt);
-\node[below] at (axis cs:0,-1.4) {$N=-3$};
-\end{axis}
-\end{tikzpicture}
-\tikzsetnextfilename{nyquist_ntours_2-chap7-ext}
-\begin{tikzpicture}
-\begin{axis}[ticks=none,
-axis line style = thick,
-axis lines = center,
-height=4.8cm,
-width=4.8cm,
-ymin=-1.4,
-ymax=1.4,
-xmin=-1.4,
-xmax=1.4,
-clip=false]
-\input{tikz/2tours_r.tex}
-\draw[draw=none,fill=black] (axis cs:0.0,0.0) circle (2pt);
-\node[below] at (axis cs:0,-1.4) {$N=-2$};
-\end{axis}
-\end{tikzpicture}
-\tikzsetnextfilename{nyquist_ntours_3-chap7-ext}
-\begin{tikzpicture}
-\begin{axis}[ticks=none,
-axis line style = thick,
-axis lines = center,
-height=4.8cm,
-width=4.8cm,
-ymin=-1.4,
-ymax=1.4,
-xmin=-1.4,
-xmax=1.4,
-clip=false]
-\input{tikz/1tour_r.tex}
-\draw[draw=none,fill=black] (axis cs:0.0,0.0) circle (2pt);
-\node[below] at (axis cs:0,-1.4) {$N=-1$};
-\end{axis}
-\end{tikzpicture}
+    \centering
+    \tikzsetnextfilename{nyquist_ntours_1-chap7-ext}
+    \input{tikz/nyquist_ntours_1-chap7.tex}
+    \tikzsetnextfilename{nyquist_ntours_2-chap7-ext}
+    \input{tikz/nyquist_ntours_2-chap7.tex}
+    \tikzsetnextfilename{nyquist_ntours_3-chap7-ext}
+    \input{tikz/nyquist_ntours_3-chap7.tex}
 
-\tikzsetnextfilename{nyquist_ntours_4-chap7-ext}
-\begin{tikzpicture}
-\begin{axis}[ticks=none,
-axis line style = thick,
-axis lines = center,
-height=4.8cm,
-width=4.8cm,
-ymin=-1.4,
-ymax=1.4,
-xmin=-1.4,
-xmax=1.4,
-clip=false]
-\input{tikz/1tour.tex}
-\draw[draw=none,fill=black] (axis cs:0,0) circle (2pt);
-\node[below] at (axis cs:0,-1.4) {$N=1$};
-\end{axis}
-\end{tikzpicture}
-\tikzsetnextfilename{nyquist_ntours_5-chap7-ext}
-\begin{tikzpicture}
-\begin{axis}[ticks=none,
-axis line style = thick,
-axis lines = center,
-height=4.8cm,
-width=4.8cm,
-ymin=-1.4,
-ymax=1.4,
-xmin=-1.4,
-xmax=1.4,
-clip=false]
-\input{tikz/2tours.tex}
-\draw[draw=none,fill=black] (axis cs:0,0) circle (2pt);
-\node[below] at (axis cs:0,-1.4) {$N=2$};
-\end{axis}
-\end{tikzpicture}
-\tikzsetnextfilename{nyquist_ntours_6-chap7-ext}
-\begin{tikzpicture}
-\begin{axis}[ticks=none,
-axis line style = thick,
-axis lines = center,
-height=4.8cm,
-width=4.8cm,
-ymin=-1.4,
-ymax=1.4,
-xmin=-1.4,
-xmax=1.4,
-clip=false]
-\input{tikz/3tours.tex}
-\draw[draw=none,fill=black] (axis cs:0,0) circle (2pt);
-\node[below] at (axis cs:0,-1.4) {$N=3$};
-\end{axis}
-\end{tikzpicture}
-\caption{Représentation schématique du nombre de tours autour de l'origine de 
-l'image d'une fraction rationnelle d'un contour fermé. Le sens positif 
-est celui du sens trigonométrique.\label{fig-ntours}}
+    \tikzsetnextfilename{nyquist_ntours_4-chap7-ext}
+    \input{tikz/nyquist_ntours_4-chap7.tex}
+    \tikzsetnextfilename{nyquist_ntours_5-chap7-ext}
+    \input{tikz/nyquist_ntours_5-chap7.tex}
+    \tikzsetnextfilename{nyquist_ntours_6-chap7-ext}
+    \input{tikz/nyquist_ntours_6-chap7.tex}
+    \caption{Représentation schématique du nombre de tours autour de 
+             l'origine de l'image d'une fraction rationnelle d'un contour 
+             fermé. Le sens positif est celui du sens trigonométrique.
+             \label{fig-ntours}}
 \end{figure}
 
 \clearpage
@@ -1335,164 +848,11 @@ $r\rightarrow0$ centré sur les pôles nuls.
 
 \captionsetup{width=.9\linewidth} 
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{nyquist_contours-chap7-ext}
-\begin{tikzpicture}
-\begin{axis}[
-    name=aaa1,
-    ticks=none,
-    axis line style = thick,
-    axis lines = center,
-    height=6cm,
-    width=6cm,
-    xlabel=$\Re{p}$,
-    ylabel=$\Im{p}$,
-    xlabel style={below},
-    ylabel style={left},
-    ymin=-1.6,
-    ymax=1.6,
-    xmin=-0.8,
-    xmax=2.4,
-    clip=false]
-    \draw[col1,thick,-{Latex[length=2.5mm]}]
-    (axis cs:0,-1.4) -- (axis cs:0,-0.8);
-    \draw[col1,thick,-{Latex[length=2.5mm]}]
-    (axis cs:0,-0.85) -- (axis cs:0,0.8);
-    \draw[col1,thick]                       
-    (axis cs:0,0.75) -- (axis cs:0,1.4);
-    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=90:60] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=62:-60] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[col1,very thick,domain=-58:-90] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \draw[dashed,thick] (axis cs:0,0) -- 
-    (axis cs:{1.4*cos(20)},{1.4*sin(20)}) 
-    node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
-    \node[below, text width=6cm,text justified,
-    align=center] at (axis cs:0,-1.6) 
-    {(a) $H_{BO}$ ne possède aucun pôle ou zéro };
-    \end{axis}
-    \begin{axis}[
-    name=aaa2,
-    at={(aaa1.south east)},xshift=4ex,
-    ticks=none,
-    axis line style = thick,
-    axis lines = center,
-    height=6cm,
-    width=6cm,
-    xlabel=$\Re{p}$,
-    ylabel=$\Im{p}$,
-    xlabel style={below},
-    ylabel style={left},
-    ymin=-1.6,
-    ymax=1.6,
-    xmin=-0.8,
-    xmax=2.4,
-    clip=false]
-    \draw[col1,thick,-{Latex[length=2.5mm]}] 
-    (axis cs:0,-1.4) -- (axis cs:0,-0.7);
-    \draw[col1,thick] 
-    (axis cs:0,-0.75) -- (axis cs:0,-0.15) ;
-    \addplot[col1,very thick,domain=-90:-50,samples=10] 
-    ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[col1,very thick,domain=-51:-52,samples=10] 
-    ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[col1,very thick,domain=-50:60,samples=10] 
-    ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[col1,very thick,domain=54:90,samples=10] 
-    ({0.15*cos(x)},{0.15*sin(x)});
-    \draw[col1,thick,-{Latex[length=2.5mm]}]        
-    (axis cs:0,0.15) -- (axis cs:0,0.7) ;
-    \draw[col1,thick] (axis cs:0,0.65) -- (axis cs:0,1.4) ;
-    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[col1,very thick,domain=-58:-90,samples=10] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \draw[dashed,thick] 
-    (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)}) 
-    node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
-    \addplot[mark=x,black,ultra thick,only marks,mark size=4pt] 
-    coordinates{(0,0)};
-    \node[below, text width=6cm,text justified,align=center] at 
-    (axis cs:0,-1.6) {(b) 0 est un pôle\\ ou zéro de $H_{BO}$};
-    \end{axis}
-    \begin{axis}[
-    at={(aaa2.south east)},xshift=4ex,
-    ticks=none,
-    axis line style = thick,
-    axis lines = center,
-    height=6cm,
-    width=6cm,
-    xlabel=$\Re{p}$,
-    ylabel=$\Im{p}$,
-    xlabel style={below},
-    ylabel style={left},
-    ymin=-1.6,
-    ymax=1.6,
-    xmin=-0.8,
-    xmax=2.4,
-    clip=false]
-    \draw[col1,thick,-{Latex[length=2.5mm]}] 
-    (axis cs:0,-1.4) -- (axis cs:0,-1.0);
-    \draw[col1,thick] (axis cs:0,-1.1) -- (axis cs:0,-0.85) ;
-    \addplot[col1,very thick,domain=-90:-50,samples=10] 
-    ({0.15*cos(x)},{-0.7+0.15*sin(x)});
-    \addplot[col1,very thick,domain=-51:-52,samples=10] 
-    ({0.15*cos(x)},{-0.7+0.15*sin(x)});
-    \addplot[col1,very thick,domain=-50:60,samples=10]  
-    ({0.15*cos(x)},{-0.7+0.15*sin(x)});
-    \addplot[col1,very thick,domain=54:90,samples=10] 
-    ({0.15*cos(x)},{-0.7+0.15*sin(x)});
-    \draw[col1,thick,-{Latex[length=2.5mm]}] 
-    (axis cs:0,-0.55) -- (axis cs:0,-0.3) ;
-    \draw[col1,thick] (axis cs:0,-0.35) -- (axis cs:0,-0.15) ;
-    \addplot[col1,very thick,domain=-90:-50,samples=10] 
-    ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[col1,very thick,domain=-51:-52,samples=10] 
-    ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[col1,very thick,domain=-50:60,samples=10]  
-    ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[col1,very thick,domain=54:90,samples=10]   
-    ({0.15*cos(x)},{0.15*sin(x)});
-    \draw[col1,thick,-{Latex[length=2.5mm]}]    
-    (axis cs:0,0.15) -- (axis cs:0,0.4) ;
-    \draw[col1,thick]        
-    (axis cs:0,0.35) -- (axis cs:0,0.55) ;
-    \addplot[col1,very thick,domain=-90:-50,samples=10] 
-    ({0.15*cos(x)},{0.7+0.15*sin(x)});
-    \addplot[col1,very thick,domain=-51:-52,samples=10] 
-    ({0.15*cos(x)},{0.7+0.15*sin(x)});
-    \addplot[col1,very thick,domain=-50:60,samples=10]  
-    ({0.15*cos(x)},{0.7+0.15*sin(x)});
-    \addplot[col1,very thick,domain=54:90,samples=10]   
-    ({0.15*cos(x)},{0.7+0.15*sin(x)});
-    \draw[col1,thick,-{Latex[length=2.5mm]}]    
-    (axis cs:0,0.85) -- (axis cs:0,1.1) ;
-    \draw[col1,thick]        (axis cs:0,1.0) -- (axis cs:0,1.4) ;
-    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[col1,very thick,domain=-58:-90,samples=10] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \draw[dashed,thick] (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)})
-    node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
-    \addplot[mark=x,black,ultra thick,only marks,mark size=4pt] 
-    coordinates {(0,0) (0,-0.7) (0,0.7)};
-    \node[left] at (axis cs:0,0.7) {$p_1$};
-    \node[left] at (axis cs:0,-0.7) {$p_2$};
-    \node[below, text width=6cm,text justified,align=center] at 
-    (axis cs:0,-1.6) 
-    {(c) 0, $p_1$ et $p_2$ sont des pôles\\ ou zéros de $H_{BO}$};
-    \end{axis}
-\end{tikzpicture}
-\end{center}
-\caption{
-    (a) Contour de Nyquist et (b,c) contours de Bromwich.
-    \label{fig-contours}} 
+    \centering
+    \tikzsetnextfilename{nyquist_contours-chap7-ext}
+    \input{tikz/nyquist_contours-chap7.tex}
+    \caption{(a) Contour de Nyquist et 
+             (b,c) contours de Bromwich.\label{fig-contours}} 
 \end{figure}
 \captionsetup{width=.85\linewidth} 
 
@@ -1531,98 +891,9 @@ Déterminons l'image par le contour de Bromwich de la fonction de transfert
 suivante : $H_1(p)=\dfrac{1}{1+p}$
 
 \begin{figure}[!h]
-\centering
-\tikzsetnextfilename{nyquist_contours_exemple_1-chap7-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    name=aaa1,
-    ticks=none,
-    axis line style = thick,
-    axis lines = center,
-    height=6cm,
-    width=6cm,
-    xlabel=$\Re{p}$,
-    ylabel=$\Im{p}$,
-    xlabel style={below},
-    ylabel style={left,yshift=0.5em},
-    ymin=-1.6,
-    ymax=1.6,
-    xmin=-0.8,
-    xmax=2.4,
-    clip=false]
-    \draw[dashed,col1,very thick,-{Latex[length=2.5mm]}] 
-    (axis cs:0,-1.4) -- (axis cs:0,-0.8) node[left] {\textbf{III}} ;
-    \draw[dashed,col1,very thick,-{Latex[length=2.5mm]}] 
-    (axis cs:0,-0.85) -- (axis cs:0,0) ;
-    \draw[col1,very thick,-{Latex[length=2.5mm]}] 
-    (axis cs:0,0) -- (axis cs:0,0.8) node[left] {\textbf{I}};
-    \draw[col1,very thick]                        
-    (axis cs:0,0.75) -- (axis cs:0,1.4) ;
-    \addplot[col4,very thick,-{Latex[length=2.5mm]},domain=90:60] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[col4,very thick,domain=62:0] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[col4,very thick,-{Latex[length=2.5mm]},domain=0:-60] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[col4,very thick,domain=-58:-90] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \node[right,xshift=0.5em,col4] at 
-    (axis cs:{1.4*cos(50)},{1.4*sin(50)}) {\textbf{II}};
-    \node[left,col4] at (axis cs:{1.4*cos(90)},{1.4*sin(90)}) 
-    {\scriptsize $p\rightarrow+j\infty$};
-    \node[left,col4] at (axis cs:{1.4*cos(-90)},{1.4*sin(-90)}) 
-    {\scriptsize $p\rightarrow-j\infty$};
-    \end{axis}
-    \draw[dblarw={black}{3pt}{3pt}] (5.5,2.18) -- 
-    node[midway,above]  {$H_1(p)$} (7.5,2.18) ;
-\begin{axis}[
-    name=aaa2,
-    at={(aaa1.south east)},xshift=24ex,
-    ticks=none,
-    axis line style = thick,
-    axis lines = center,
-    height=6cm,
-    width=6cm,
-    xlabel=$\Re{H_1(p)}$,
-    ylabel=$\Im{H_1(p)}$,
-    xlabel style={below right},
-    ylabel style={left,yshift=0.5em},
-    ymin=-0.6,
-    ymax=0.6,
-    xmin=-0.2,
-    xmax=1.1,
-    clip=false]
-    \def\ttt{1.0}
-    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=0:0.9,samples=201] 
-    ({1/(1+\ttt*x*x)},{-x/(1+\ttt*x*x)});
-    \addplot[col1,very thick,domain=0.89:10,samples=201] 
-    ({1/(1+\ttt*x*x)},{-x/(1+\ttt*x*x)});
-    \addplot[col1,very thick,domain=10:20,samples=201] 
-    ({1/(1+\ttt*x*x)},{-x/(1+\ttt*x*x)});
-    \addplot[dashed,col1,very thick,domain=0:0.9,samples=201] 
-    ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
-    \addplot[dashed,col1,very thick,domain=0.89:10,samples=201,
-    {Latex[length=2.5mm]}-] 
-    ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
-    \addplot[dashed,col1,very thick,domain=10:20,samples=201] 
-    ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
-    \draw[draw=none,fill=col4] (axis cs:0,0) circle (2pt) node[above left,col4] 
-    {\textbf{II}};
-    \node[right,xshift=0.5em,col1] at (axis cs:{0.9*cos(30)},{0.9*sin(30)}) 
-    {\textbf{III}};
-    \node[right,xshift=0.5em,col1] at (axis cs:{0.9*cos(30)},{-0.9*sin(30)}) 
-    {\textbf{I}};
-    \node[right,col4] at (axis cs:{0.1*cos(90)},{0.1*sin(90)}) 
-    {\scriptsize $p\rightarrow-j\infty$};
-    \node[right,col4] at (axis cs:{0.1*cos(-90)},{0.1*sin(-90)}) 
-    {\scriptsize $p\rightarrow+j\infty$};
-    \node[col1] at (axis cs:{1.2*cos(10)},{1.2*sin(10)})   
-    {\scriptsize $p\rightarrow0^-$};
-    \node[col1] at (axis cs:{1.2*cos(-10)},{1.2*sin(-10)}) 
-    {\scriptsize $p\rightarrow0^+$};
-\end{axis}
-\end{tikzpicture}
+    \centering
+    \tikzsetnextfilename{nyquist_contours_exemple_1-chap7-ext}
+    \input{tikz/nyquist_contours_exemple_1-chap7.tex}
     \caption{Exemple de représentation d'un lieu complet de Nyquist d'une 
              fonction de transfert $H_1(p)$ par l'image du contour de 
              Nyquist. \label{fig-nyquist_complet_contour}}
@@ -1655,116 +926,9 @@ est pôle de la fonction de transfert. Celui-ci est composé de 4 portions:
 Déterminons l'image par le contour de Bromwich de la fonction de transfert 
 suivante : $H_2(p)=\dfrac{1}{p(1+p)}$
 \begin{figure}[!h]
-\centering
-\tikzsetnextfilename{nyquist_contours_exemple_2-chap7-ext}
-\begin{tikzpicture}
-\begin{axis}[
-    name=aaa1,
-    ticks=none,
-    axis line style = thick,
-    axis lines = center,
-    height=6cm,
-    width=6cm,
-    xlabel=$\Re{p}$,
-    ylabel=$\Im{p}$,
-    xlabel style={below},
-    ylabel style={left,yshift=0.5em},
-    ymin=-1.6,
-    ymax=1.6,
-    xmin=-0.8,
-    xmax=2.4,
-    clip=false]
-    \draw[dashed,col1,very thick,-{Latex[length=2.5mm]}] 
-    (axis cs:0,-1.4) -- (axis cs:0,-0.7) node[left] {\textbf{III}};
-    \draw[dashed,col1,very thick] (axis cs:0,-0.75) -- (axis cs:0,-0.15) ;
-    \addplot[col3,very thick,domain=-90:-50,samples=10] 
-    ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[col3,very thick,domain=-51:-52,samples=10] 
-    ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[col3,very thick,domain=-50:60,samples=10] 
-    ({0.15*cos(x)},{0.15*sin(x)});
-    \addplot[col3,very thick,domain=54:90,samples=10] 
-    ({0.15*cos(x)},{0.15*sin(x)});
-    \draw[col1,thick,-{Latex[length=2.5mm]}]  
-    (axis cs:0,0.15) -- (axis cs:0,0.7) node[left] {\textbf{I}} ;
-    \draw[col1,thick]        (axis cs:0,0.65) -- (axis cs:0,1.4) ;
-    \addplot[col4,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[col4,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \addplot[col4,very thick,domain=-58:-90,samples=10] 
-    ({1.4*cos(x)},{1.4*sin(x)});
-    \node[right,xshift=0.5em,col4] at 
-    (axis cs:{1.4*cos(50)},{1.4*sin(50)}) {\textbf{II}};
-    \node[right,col3] at 
-    (axis cs:{0.20*cos(60)},{0.20*sin(60)}) {\textbf{IV}};
-    \node[left,col3] at (axis cs:{-0.15*cos(90)},{0.15*sin(90)}) 
-    {\scriptsize $p\rightarrow0^+$};
-    \node[left,col3] at (axis cs:{-0.15*cos(-90)},{0.15*sin(-90)}) 
-    {\scriptsize $p\rightarrow0^-$};
-    \node[left,col4] at (axis cs:{1.4*cos(90)},{1.4*sin(90)}) 
-    {\scriptsize $p\rightarrow+j\infty$};
-    \node[left,col4] at (axis cs:{1.4*cos(-90)},{1.4*sin(-90)}) 
-    {\scriptsize $p\rightarrow-j\infty$};
-\end{axis}
-    \draw[dblarw={black}{3pt}{3pt}] (5.5,2.18) -- node[midway,above] 
-    {$H_2(p)$} (7.5,2.18) ;
-\begin{axis}[
-    name=aaa2,
-    at={(aaa1.south east)},xshift=24ex,
-    ticks=none,
-    axis line style = thick,
-    axis lines = center,
-    height=6cm,
-    width=6cm,
-    xlabel=$\Re{H_2(p)}$,
-    ylabel=$\Im{H_2(p)}$,
-    xlabel style={below},
-    ylabel style={left,yshift=0.5em},
-    ymin=-1.6,
-    ymax=1.6,
-    xmin=-0.8,
-    xmax=2.4,
-    clip=false]
-    \node[right,xshift=0.5em,col3] at 
-    (axis cs:{1.3*cos(35)},{1.3*sin(35)}) {\textbf{IV}};
-    \node[col1] at (axis cs:{-1.2*cos(20)},{1.2*sin(20)}) 
-    {\textbf{III}};
-    \node[col1] at (axis cs:{-1.2*cos(20)},{-1.2*sin(20)}) 
-    {\textbf{I}};
-    \draw[draw=none,fill=col4] (axis cs:0,0) circle (2pt) 
-    node[above right,col4,yshift=0.7em] {\textbf{II}};
-    \def\ttt{1.0}
-    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=0.6:0.9,samples=201] 
-    ({-1/(1+\ttt*x*x)},{-1/(x*(1+\ttt*x*x))});
-    \addplot[col1,very thick,domain=0.8:10,samples=201] 
-    ({-1/(1+\ttt*x*x)},{-1/(x*(1+\ttt*x*x))});
-    \addplot[dashed,col1,very thick,domain=0.6:0.9,samples=201] 
-    ({-1/(1+\ttt*x*x)},{1/(x*(1+\ttt*x*x))});
-    \addplot[dashed,col1,very thick,domain=0.8:10,samples=201,
-    {Latex[length=2.5mm]}-] 
-    ({-1/(1+\ttt*x*x)},{1/(x*(1+\ttt*x*x))});
-    \begin{scope}
-        \clip (axis cs:-0.7,-1.7) rectangle (1.4,1.7);
-        \draw[col3,very thick,
-        decoration={markings,mark=at position 0.2 with 
-        {\arrowreversed[line width=2pt]{latex}}},
-        decoration={markings,mark=at position 0.7 with 
-        {\arrowreversed[line width=2pt]{latex}}},
-        decoration={markings,mark=at position 0.9 with 
-        {\arrowreversed[line width=2pt]{latex}}},
-        postaction={decorate}] (axis cs:0,0) circle (1.4);
-    \end{scope}
-    \node[left,col3] at (axis cs:{1.4*cos(120)},{1.4*sin(120)})   
-    {\scriptsize $p\rightarrow0^-$};
-    \node[left,col3] at (axis cs:{1.4*cos(-120)},{1.4*sin(-120)}) 
-    {\scriptsize $p\rightarrow0^+$};
-    \node[right,col4] at (axis cs:{0.15*cos(90)},{0.15*sin(90)}) 
-    {\scriptsize $p\rightarrow-j\infty$};
-    \node[right,col4] at (axis cs:{0.15*cos(-90)},{0.15*sin(-90)}) 
-    {\scriptsize $p\rightarrow+j\infty$};
-\end{axis}
-\end{tikzpicture}
+    \centering
+    \tikzsetnextfilename{nyquist_contours_exemple_2-chap7-ext}
+    \input{tikz/nyquist_contours_exemple_2-chap7.tex}
     \caption{Exemple de représentation d'un lieu complet de Nyquist 
              d'une fonction de transfert $H_2(p)$ possédant un pôle nul par 
              l'image du contour de Bromwich. 

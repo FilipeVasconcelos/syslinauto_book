@@ -80,9 +80,7 @@
 
 \usepackage{pgf,tikz}
 \usepackage{pgfplots}
-%\usepgfplotslibrary{external}
 \pgfplotsset{compat=newest}
-\usepackage{colorfmv}
 \usepackage{tikzfmv}
 \usepackage{tkz-euclide}
 \usepackage{tikz-3dplot}
@@ -243,7 +241,9 @@ pdf2eps 1 "\image"
 \end{picture}
 \vfill
 \centering
+{\tikzset{external/export=false}
 \input{tikz/cover}
+}
 \vfill
 }}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -405,9 +405,9 @@ pdf2eps 1 "\image"
 \include{tex/annexe_equa_diff}         %F Eq. diff. à coefficient constant
 \include{tex/annexe_des}               %G Décomposition en éléments simples
 \include{tex/annexe_2nd}               %H Système du second ordre
-%{\tikzset{external/export=false} 
-%\include{tex/annexe_scilab}           %I Scilab
-%}
+{\tikzset{external/export=false} 
+\include{tex/annexe_scilab}           %I Scilab
+}
 \include{tex/annexe_log}               %J Echelle log  
 \include{tex/annexe_invL}              %L Laplace inverse 
 %\include{tex/todo}                    %M TODO
