@@ -1,0 +1,37 @@
+\begin{tikzpicture}
+    \pgfmathsetmacro{\kk}{1.75}
+    \pgfmathsetmacro{\t}{1.5}
+    \pgfmathsetmacro{\mc}{0.10*\kk}
+    \pgfmathsetmacro{\pc}{0.90*\kk}
+    \pgfmathsetmacro{\xm}{10}
+    \pgfmathsetmacro{\tu}{0.15}  % tm = td-tu
+    \pgfmathsetmacro{\td}{3.5} 
+    \begin{axis}
+    [   axis line style = thick,
+	ticks=none,
+        width=0.45\textwidth,
+        axis x line=center,
+        axis y line=center,
+        xmin=-1,
+        xmax=\xm,
+        ymin=0,
+        ymax=2.25,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={above left},
+        clip=false,
+    ]
+    \addplot[signalb,domain=-1:0] {0};
+    \addplot[signalb,domain=0:\xm]  {\kk*(1-exp(-x/\t))};
+    \draw[dtb] (axis cs:0,\mc) node[left] {\small 10\%}-- (axis cs:\xm,\mc);
+    \draw[dtb] (axis cs:0,\pc) node[left] {\small 90\%}-- (axis cs:\xm,\pc);
+    \draw[dvtr] (axis cs:\tu,0) node[below] {\small $t_1$} -- (axis cs:\tu,\mc);
+    \draw[dvtr] (axis cs:\td,0) node[below] {\small $t_2$} -- (axis cs:\td,\pc);
+    \node[right] at (axis cs:\xm,\kk) {\small $s(\infty)$};
+    \draw[fill=col4,col4] (axis cs:\tu,\mc) circle (1.25pt);
+    \draw[fill=col4,col4] (axis cs:\td,\pc) circle (1.25pt);
+    \draw[vtr,{Latex[length=2mm]}-{Latex[length=2mm]}](axis cs:\tu,-0.4)
+    -- node[midway,below] {\small $t_m=t_2-t_1$} (axis cs:\td,-0.4);
+    \end{axis}
+\end{tikzpicture}

@@ -1,0 +1,33 @@
+\begin{tikzpicture}
+    \pgfmathsetmacro{\kk}{1.75}
+    \pgfmathsetmacro{\t}{1.0}
+    \pgfmathsetmacro{\mc}{0.95*\kk}
+    \pgfmathsetmacro{\pc}{1.05*\kk}
+    \begin{axis}
+    [   axis line style = thick,
+	ticks=none,
+        width=0.45\textwidth,
+        axis x line=center,
+        axis y line=center,
+        xmin=-1,
+        xmax=6,
+        ymin=0,
+        ymax=2.25,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={above left},
+        clip=false,
+    ]
+    \addplot[signalb,domain=-1:0] {0};
+    \addplot[signalb,domain=0:6]  {\kk*(1-exp(-x/\t))};
+    \draw[dtb] (axis cs:0,\mc) -- (axis cs:6,\mc);
+    \draw[dtb] (axis cs:0,\pc) -- (axis cs:6,\pc);
+    \draw[dvtr] (axis cs:3*\t,0) node[below] {\small $t_{5\%}$} 
+             -- (axis cs:3*\t,\mc);
+    \node[right] at (axis cs:6,\kk) {\small $s(\infty)$};
+    \draw[dtb,{Latex[length=1.25mm]}-{Latex[length=1.25mm]}](axis cs:-0.25,\mc) 
+    -- node[midway,left] {\small $\pm5\%$} (axis cs:-0.25,\pc);
+    \draw[fill=col4,col4] (axis cs:3*\t,\mc) circle (1.5pt);
+    \end{axis}
+\end{tikzpicture}

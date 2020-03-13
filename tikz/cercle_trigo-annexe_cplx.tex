@@ -1,0 +1,46 @@
+\begin{tikzpicture}[scale=2.5,cap=round,>=latex]
+    % draw the coordinates
+    \draw[->] (-1.7cm,0cm) -- (1.7cm,0cm) node[right,fill=white] {$x$};
+    \draw[->] (0cm,-1.7cm) -- (0cm,1.7cm) node[above,fill=white] {$y$};
+    % draw each angle in radians
+    \foreach \x/\xtext in 
+    {
+        30/\dfrac{\pi}{6},
+        45/\dfrac{\pi}{4},
+        60/\dfrac{\pi}{3},
+        90/\dfrac{\pi}{2},
+        120/\dfrac{2\pi}{3},
+        135/\dfrac{3\pi}{4},
+        150/\dfrac{5\pi}{6},
+        180/\pi,
+        210/\dfrac{7\pi}{6},
+        225/\dfrac{5\pi}{4},
+        240/\dfrac{4\pi}{3},
+        270/\dfrac{3\pi}{2},
+        300/\dfrac{5\pi}{3},
+        315/\dfrac{7\pi}{4},
+        330/\dfrac{11\pi}{6},
+        360/2\pi}
+    \draw (\x:1.2cm) node[fill=white] {\scalebox{.8}{$\xtext$}};
+        % draw the horizontal and vertical coordinates
+        % the placement is better this way
+    \draw (-1.5cm,0cm) node[above=1pt] {\scalebox{.6}{$(-1,0)$}}
+          (1.5cm,0cm)  node[above=1pt] {\scalebox{.6}{$(1,0)$}}
+          (0cm,-1.5cm) node[fill=white] {\scalebox{.6}{$(0,-1)$}}
+          (0cm,1.5cm)  node[fill=white] {\scalebox{.6}{$(0,1)$}};
+     \draw[thick] (0cm,0cm) circle(1cm);
+     \foreach \x in {0,30,45,60,90,120,135,150,180,210,
+                     225,240,270,300,315,330,360} 
+     {
+        \filldraw[black] (\x:1cm) circle(0.6pt);
+     }
+     \draw[col4]   (-0.5cm,-0.87cm) rectangle (0.5cm,0.87cm);
+     \draw[col3] (-0.71cm,-0.71cm) rectangle (0.71cm,0.71cm);
+     \draw[col1]  (-0.87cm,-0.5cm) rectangle (0.866025cm,0.5cm);
+     \node[above left,xshift=0.1em,col4] at (0.5,0) 
+    {\scalebox{0.6}{$\dfrac{1}{2}$}};
+     \node[above left,xshift=0.2em,col3] at (0.707106,0) 
+    {\scalebox{0.6}{$\dfrac{\sqrt{2}}{2}$}};
+     \node[above left,xshift=0.2em,col1] at (0.866025,0) 
+    {\scalebox{0.6}{$\dfrac{\sqrt{3}}{2}$}};
+\end{tikzpicture}

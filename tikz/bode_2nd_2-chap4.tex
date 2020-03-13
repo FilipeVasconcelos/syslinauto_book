@@ -1,0 +1,29 @@
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    legend style={draw=none},    
+    legend pos=outer north east, 
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.22\textheight,
+    xlabel={Pulsation (rad/s)},
+    ylabel={Phase (deg)},
+    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
+    ytick={-180,-135,-90,-45,0}, 
+    yticklabels={-180,-135,-90,-45,0},
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xmode=log,ymode=normal,
+    xmin=1e-3, xmax=1e3,
+    ymin=-180, ymax=0,
+    grid=both,
+    major grid style={black!40},
+    cycle list name=color list,
+]
+    \addplot[signalr,dashed,domain=1e-3:1e0] {0};
+    \addplot[signalr,dashed,domain=1e0:1e3] {-180};
+    \draw[signalr,dashed] (axis cs:1,0) -- (axis cs:1,-180);
+    \foreach \a in {1.0}
+        \addplot+[signalb,domain=1e-3:1e3] 
+        {-atan2(2*\a*x,(1-x*x))}; 
+\end{axis}
+\end{tikzpicture}

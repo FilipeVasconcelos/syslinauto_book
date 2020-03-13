@@ -1,0 +1,47 @@
+\begin{tikzpicture}
+\begin{axis}
+    [
+    clip=false,
+    height=8cm,
+    width=8cm,
+    ticks=none,
+    axis lines = center,
+    axis line style = thick,
+    enlargelimits=false,
+    ylabel=$G(\omega)$,
+    xlabel=$\phi(\omega)$,
+    xlabel style={right},
+    ylabel style={above},
+    xticklabel style={above,yshift=0.3em},
+    yticklabel style={right,xshift=0.3em},
+    ymin=-60,
+    ymax=+10,
+    xmin=-100,
+    xmax=+20
+    ]     
+    \addplot[thick,domain=0:10,samples=100] 
+    ({-atan2(x,1)},{-10*log10(1+x*x)});
+    \addplot[thick,domain=10:100,samples=100,-latex] 
+    ({-atan2(x,1)},{-10*log10(1+x*x)});
+    \addplot[thick,domain=100:1000,samples=100] 
+    ({-atan2(x,1)},{-10*log10(1+x*x)});
+    \addplot[col5, mark = *] coordinates {(0,0)} {};                    
+    \addplot[col5, mark = *,col1] coordinates 
+    {({-atan2(10,1)},{-10*log10(1+10*10)} )} {};                    
+    \draw[thick,col1,dashed] (axis cs: {-atan2(10,1)},{-10*log10(1+10*10)}) --
+    (axis cs: {-atan2(10,1)},0) node[above] {$\phi(\omega_2)$};
+    \draw[thick,col1,dashed] (axis cs: {-atan2(10,1)},{-10*log10(1+10*10)}) --
+    (axis cs: 0,{-10*log10(1+10*10)}) node[right] {$G_{dB}(\omega_2)$};
+    \addplot [col5, mark = *,col4] coordinates 
+    {({-atan2(2,1)},{-10*log10(1+4)} )} {};
+    \draw[thick,col4,dashed] (axis cs: {-atan2(2,1)},{-10*log10(5)}) -- 
+                            (axis cs: {-atan2(2,1)},0) 
+                            node[above] {$\phi(\omega_1)$};
+    \draw[thick,col4,dashed] (axis cs: {-atan2(2,1)},{-10*log10(5)}) --
+                             (axis cs: 0,{-10*log10(5)}) 
+                            node[right] {$G_{dB}(\omega_1)$};
+    \node [above right]  at (axis cs: 0 , 0)   {$\omega=0$}; 
+    \node [above right]  at (axis cs:-90, -60) {$\omega\rightarrow+\infty$}; 
+
+\end{axis}
+\end{tikzpicture}

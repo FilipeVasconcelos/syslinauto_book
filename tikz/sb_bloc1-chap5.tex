@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbBloc[3]{a}{$C(p)$}{E}
+    \sbRelier[$E(p)$]{E}{a}
+    \sbBloc[3]{b}{$H(p)$}{a}
+    \sbRelier[$U(p)$]{a}{b}
+    \sbSortie[3]{S}{b}
+    \sbRelier[$S(p)$]{b}{S}
+    \node[yshift=-0.8em] at (a.south) {\small Correcteur};
+    \node[yshift=-0.8em] at (b.south) {\small Système};
+\end{tikzpicture}

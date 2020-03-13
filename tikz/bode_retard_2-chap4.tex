@@ -1,0 +1,20 @@
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.25\textheight,
+    xlabel={Pulsation (rad/s)},
+    ylabel={Phase (deg)},
+    xtick={1e-1,1,1e1,1e2,1e3},
+    ytick={-1000,-750,-500,-250,0},
+    yticklabels={-1000,-750,-500,-250,0},
+    xticklabels={$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    xmode=log,ymode=normal,
+    xmin=1e-1, xmax=1e3,
+    ymin=-1000, ymax=0,
+    grid=both,
+    major grid style={black!40}
+]
+    \addplot[ultra thick, col1,domain=1e-1:1e3, samples=201] {-x};
+\end{axis}
+\end{tikzpicture}

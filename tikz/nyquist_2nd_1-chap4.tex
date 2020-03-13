@@ -1,0 +1,44 @@
+\begin{tikzpicture}
+\begin{axis}
+    [
+    axis line style = thick,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
+    ymin=-1.5,
+    ymax=+1.5,
+    xmin=-0.5,
+    xmax=+1.3,
+    clip=false,
+    grid=both
+    ]
+    \tikzstyle{lieua}=[col1,thick,samples=150,-{Latex[length=3mm]}]
+    \tikzstyle{lieu}=[col1,thick,samples=150]
+    \tikzstyle{lieua_c}=[dashed,col1,thick,samples=150,-{Latex[length=3mm]}]
+    \tikzstyle{lieu_c}=[dashed,col1,thick,samples=150]
+    
+    \def\xi{0.5}
+\addplot[lieua,domain=0:1]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
+\addplot[lieu, domain=0.99:5]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
+\addplot[lieu,domain=5:10]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
+\addplot[lieu,domain=10:100]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
+
+\addplot[lieu_c,domain=-100:-10]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
+\addplot[lieu_c,domain=-10:-5]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
+\addplot[lieua_c,domain=-5:-0.99]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
+\addplot[lieu_c,domain=-0.99:0]
+    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
+
+\node[above right] at (axis cs:  0, 0){\scriptsize$\omega\rightarrow-\infty$};
+\node[right]       at (axis cs:  1, 0){\scriptsize$\omega=0$};       
+\node[below right] at (axis cs:  0, 0){\scriptsize$\omega\rightarrow+\infty$};
+\addplot[col1, mark = *] coordinates {(0, 0)} {};                  
+\addplot[col1, mark = *] coordinates {(1, 0)} {};                  
+\end{axis}
+\end{tikzpicture}

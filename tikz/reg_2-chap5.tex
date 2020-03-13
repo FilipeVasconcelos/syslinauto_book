@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbBloc[3]{a}{$A_d(p)$}{E}
+    \sbRelier[$E(p)$]{E}{a}
+    \sbComp{b}{a}
+    \sbRelier{a}{b}
+    \sbBloc[3]{c}{$C(p)$}{b}
+    \sbRelier[$\epsilon(p)$]{b}{c}
+    \sbBloc[3]{d}{$A_c(p)$}{c}
+    \sbRelier{c}{d}
+    \sbBloc[3]{e}{$H(p)$}{d}
+    \sbRelier[$U(p)$]{d}{e}
+    \sbSortie[4]{S}{e}
+    \sbRelier{e}{S}
+    \sbDecaleNoeudy[5]{d}{r}
+    \sbBlocr[-1.6]{f}{$G(p)$}{r}
+    \sbRelieryx{e-S}{f}              
+    \sbRelierxy[$M(p)$]{f}{b}        % Mesure
+    \sbNomLien[0.8]{S}{$S(p)$}
+    \node[yshift=-0.8em] at (a.south) {\small Adaptateur};
+    \node[yshift=-0.8em] at (c.south) {\small Correcteur};
+    \node[yshift=-0.8em] at (d.south) {\small Actionneur};
+    \node[yshift=-0.8em] at (e.south) {\small Système};
+    \node[yshift=-0.8em] at (f.south) {\small Capteur};
+    \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
+    \node[yshift=-0.8em] at (S.south) {\small Sortie};
+\end{tikzpicture}
