@@ -33,7 +33,6 @@ Nous verrons en fin de chapitre une étude du transitoire dans des cas usuels.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %L'excitation d'un \SLCI~par une entrée sinuso\"idale donne lieu, en régime 
 %permanent, à une réponse harmonique dépendant de la fréquence d'excitation. 
 %Nous allons ici établir la forme de cette réponse.
@@ -203,12 +202,13 @@ tracer la réponse temporelle pour toutes les pulsations que l'on souhaite
     \input{tikz/repham_2-chap4.tex}
     \tikzsetnextfilename{repham_3-chap4-ext}
     \input{tikz/repham_3-chap4.tex}
-\caption{Réponse harmonique (en régime permanent) (\Cref{eq-rh}) d'un système 
-         du premier ordre pour différentes pulsations d'excitation de la forme 
-         $e(t)=\sin{\omega t}$, (données du~\cref{tab-1ertemp}). Cette figure
-         permet d'observer l'augmentation du déphasage et la diminution de 
-         l'amplitude lorsque la fréquence d'excitations augmente. (bleu) 
-         excitation $e(t)$ (rouge) sortie $s(t)$.\label{fig-repham}}
+    \caption{Réponse harmonique (en régime permanent) (\Cref{eq-rh}) d'un 
+             système du premier ordre pour différentes pulsations d'excitation 
+             de la forme $e(t)=\sin{\omega t}$, (données du~\cref{tab-1ertemp}). 
+             Cette figure permet d'observer l'augmentation du déphasage et la 
+             diminution de l'amplitude lorsque la fréquence d'excitations 
+             augmente. (bleu) excitation $e(t)$ (rouge) sortie $s(t)$.
+             \label{fig-repham}}
 \end{figure}
 % ------------------------------------------------------------------------------
 
@@ -220,7 +220,6 @@ tracer la réponse temporelle pour toutes les pulsations que l'on souhaite
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 Comme nous venons de le voir, il est possible d'étudier
 la réponse harmonique (en régime permanent) d'un \gls{slci}~dans le domaine 
@@ -278,10 +277,10 @@ phase passe lui par la détermination de l'argument principale
     \centering
     \tikzsetnextfilename{sche_bode-chap4-ext}
     \input{tikz/sche_bode-chap4.tex}
-\caption{Représentation schématique d'un diagramme de Bode. Le gain en 
-         décibel et la phase associé à une fonction de transfert sont 
-         représentés en fonction de la pulsation (à l'échelle log) sur 
-         deux repères distincts.\label{fig-sche_bode}}
+    \caption{Représentation schématique d'un diagramme de Bode. Le gain en 
+             décibel et la phase associé à une fonction de transfert sont 
+             représentés en fonction de la pulsation (à l'échelle log) sur 
+             deux repères distincts.\label{fig-sche_bode}}
 \end{figure}
 % ------------------------------------------------------------------------------
 
@@ -352,63 +351,17 @@ Fonction de Transfert en Boucle ouverte (FTBO).
 %(moins important dans une premiere découverte des \SLCI.
 %Il pourra être introduit séparemment dans le cas des systèmes asservis.)
 
+% ------------------------------------------------------------------------------
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{sche_black-chap4-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    clip=false,
-    height=8cm,
-    width=8cm,
-    ticks=none,
-    axis lines = center,
-    axis line style = thick,
-    enlargelimits=false,
-    ylabel=$G(\omega)$,
-    xlabel=$\phi(\omega)$,
-    xlabel style={right},
-    ylabel style={above},
-    xticklabel style={above,yshift=0.3em},
-    yticklabel style={right,xshift=0.3em},
-    ymin=-60,
-    ymax=+10,
-    xmin=-100,
-    xmax=+20
-    ]     
-    \addplot[thick,domain=0:10,samples=100] 
-    ({-atan2(x,1)},{-10*log10(1+x*x)});
-    \addplot[thick,domain=10:100,samples=100,-latex] 
-    ({-atan2(x,1)},{-10*log10(1+x*x)});
-    \addplot[thick,domain=100:1000,samples=100] 
-    ({-atan2(x,1)},{-10*log10(1+x*x)});
-    \addplot[col5, mark = *] coordinates {(0,0)} {};                    
-    \addplot[col5, mark = *,col1] coordinates 
-    {({-atan2(10,1)},{-10*log10(1+10*10)} )} {};                    
-    \draw[thick,col1,dashed] (axis cs: {-atan2(10,1)},{-10*log10(1+10*10)}) --
-    (axis cs: {-atan2(10,1)},0) node[above] {$\phi(\omega_2)$};
-    \draw[thick,col1,dashed] (axis cs: {-atan2(10,1)},{-10*log10(1+10*10)}) --
-    (axis cs: 0,{-10*log10(1+10*10)}) node[right] {$G_{dB}(\omega_2)$};
-    \addplot [col5, mark = *,col4] coordinates 
-    {({-atan2(2,1)},{-10*log10(1+4)} )} {};
-    \draw[thick,col4,dashed] (axis cs: {-atan2(2,1)},{-10*log10(5)}) -- 
-                            (axis cs: {-atan2(2,1)},0) 
-                            node[above] {$\phi(\omega_1)$};
-    \draw[thick,col4,dashed] (axis cs: {-atan2(2,1)},{-10*log10(5)}) --
-                             (axis cs: 0,{-10*log10(5)}) 
-                            node[right] {$G_{dB}(\omega_1)$};
-    \node [above right]  at (axis cs: 0 , 0)   {$\omega=0$}; 
-    \node [above right]  at (axis cs:-90, -60) {$\omega\rightarrow+\infty$}; 
-
-\end{axis}
-\end{tikzpicture}
-\end{center}
-\caption{Représentation schématique d'un diagramme de Black. Le gain et 
-         la phase de la fonction de transfert $H(\jw)$ sont représentés sur 
-         le lieu de Black pour différentes valeurs de la pulsation $\omega$ 
-         de 0 à $\infty$.\label{fig-sche_black}}
+    \centering
+    \tikzsetnextfilename{sche_black-chap4-ext}
+    \input{tikz/sche_black-chap4.tex}
+    \caption{Représentation schématique d'un diagramme de Black. Le gain et 
+             la phase de la fonction de transfert $H(\jw)$ sont représentés sur
+             le lieu de Black pour différentes valeurs de la pulsation $\omega$
+             de 0 à $\infty$.\label{fig-sche_black}}
 \end{figure}
-
+% ------------------------------------------------------------------------------
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -418,7 +371,6 @@ Fonction de Transfert en Boucle ouverte (FTBO).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 Nous allons ici présenter la forme canonique des diagrammes fréquentielles 
 (Bode, Nyquist et Black-Nichols) pour les modèles usuels rencontrées dans 
@@ -466,59 +418,20 @@ principale du nombre complexe $H(\jw)$:
 \phi(\omega) = 0
 \end{bequation}
 
+% ------------------------------------------------------------------------------
 \begin{figure}[!htb]
-\centering
-\tikzsetnextfilename{bode_gain_1-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.25\textheight,
-    ylabel={Gain (\si{\decibel})},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    ytick={-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    yticklabels={-60,-40,-20,0,20,40,60}, 
-    xmode=log,ymode=normal,
-    xmin=1e-3, xmax=1e3,
-    ymin=-60, ymax=60,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick,col5,domain=1e-3:1e3,samples=101]{20*log10(0.1)}; 
-    \addplot[ultra thick,col1 ,domain=1e-3:1e3,samples=101]{20*log10(1.0)}; 
-    \addplot[ultra thick,col4  ,domain=1e-3:1e3,samples=101]{20*log10(10)}; 
-\end{axis}
-\end{tikzpicture}
+    \centering
+    \tikzsetnextfilename{bode_gain_1-chap4-ext}
+    \input{tikz/bode_gain_1-chap4.tex}
 
-\tikzsetnextfilename{bode_gain_2-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.25\textheight,
-    xlabel={Pulsation (\si{\radian\per\second})},
-    ylabel={Phase (deg)},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    ytick={-90,-45,0,45,90}, 
-    yticklabels={-90,-45,0,45,90},
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    xmode=log,ymode=normal,
-    xmin=1e-3, xmax=1e3,
-    ymin=-90, ymax=90,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101] {0}; 
-\end{axis}
-\end{tikzpicture}
+    \tikzsetnextfilename{bode_gain_2-chap4-ext}
+    \input{tikz/bode_gain_2-chap4.tex}
     \caption{Diagramme de Bode d'un gain pur avec (noir) 
              $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons que la 
              phase reste inchangée lorsque le gain statique $K$ varie et que 
              seul le gain $G_{dB}(\omega)$ est modifié. \label{fig-bode_gain}}
 \end{figure}
+% ------------------------------------------------------------------------------
 \newpage
 
 
@@ -543,67 +456,21 @@ du nombre complexe $H(\jw)$:
 \end{bequation}
 
 \begin{figure}[!htb]
-\centering
-\tikzsetnextfilename{bode_integ_1-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.25\textheight,
-    ylabel={Gain (dB)},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    ytick={-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    yticklabels={-60,-40,-20,0,20,40,60}, 
-    xmode=log,ymode=normal,
-    xmin=1e-3, xmax=1e3,
-    ymin=-60, ymax=60,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick,col5,domain=1e-3:1e3, samples=101]
-    {20*log10(0.1)-20*log10(x)}; 
-    \addplot[ultra thick,col1,domain=1e-3:1e3, samples=101]
-    {-20*log10(x)}; 
-    \addplot[ultra thick,col4,domain=1e-3:1e3, samples=101]
-    {20*log10(10)-20*log10(x)}; 
-\end{axis}
-\end{tikzpicture}
+    \centering
+    \tikzsetnextfilename{bode_integ_1-chap4-ext}
+    \input{tikz/bode_integ_1-chap4.tex}
 
-\tikzsetnextfilename{bode_integ_2-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.25\textheight,
-    xlabel={Pulsation (rad/s)},
-    ylabel={Phase (deg)},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    ytick={-180,-135,-90,-45,0}, 
-    yticklabels={-180,-135,-90,-45,0},
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    xmode=log,ymode=normal,
-    xmin=1e-3, xmax=1e3,
-    ymin=-180, ymax=0,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101] {-atan(1000000)};
-\end{axis}
-\end{tikzpicture}
+    \tikzsetnextfilename{bode_integ_2-chap4-ext}
+    \input{tikz/bode_integ_2-chap4.tex}
     \caption{Diagramme de Bode d'un intégrateur pur avec (noir) 
              $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons 
              que le gain s'annule pour $\omega=K$ et que la phase reste 
              inchangée.\label{fig-bode_int}}
 \end{figure}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un dérivateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 La fonction de transfert d'un dérivateur pur est de la forme $H(\jw)=K\jw$,
 le gain est donc simplement donné par 
@@ -620,63 +487,20 @@ la phase s'écrit simplement
 \phi(\omega) = \dfrac{\pi}{2}
 \end{bequation}
 
+% ------------------------------------------------------------------------------
 \begin{figure}[!htb]
-\centering
-\tikzsetnextfilename{bode_deriv_1-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.25\textheight,
-    ylabel={Gain (dB)},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    ytick={-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    yticklabels={-60,-40,-20,0,20,40,60}, 
-    xmode=log,ymode=normal,
-    xmin=1e-3, xmax=1e3,
-    ymin=-60, ymax=60,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick,col5,domain=1e-3:1e3, samples=101]
-    {20*log10(0.1)+20*log10(x)}; 
-    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101] {20*log10(x)};
-    \addplot[ultra thick, col4,domain=1e-3:1e3, samples=101] 
-    {20*log10(10)+20*log10(x)};
-\end{axis}
-\end{tikzpicture}
+    \centering
+    \tikzsetnextfilename{bode_deriv_1-chap4-ext}
+    \input{tikz/bode_deriv_1-chap4.tex}
 
-\tikzsetnextfilename{bode_deriv_2-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.25\textheight,
-    xlabel={Pulsation (rad/s)},
-    ylabel={Phase (deg)},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    ytick={0,45,90,135,180}, 
-    yticklabels={0,45,90,135,180}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    xmode=log,ymode=normal,
-    xmin=1e-3, xmax=1e3,
-    ymin=0, ymax=180,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101] {atan(1000000)};
-\end{axis}
-\end{tikzpicture}
-\caption{Diagramme de Bode d'un dérivateur pur 
-         avec (noir) $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons que 
-         le gain s'annule pour $\omega=\frac{1}{K}$ et que la phase reste 
-         inchangée.\label{fig-bode_deriv}}
+    \tikzsetnextfilename{bode_deriv_2-chap4-ext}
+    \input{tikz/bode_deriv_2-chap4.tex}
+    \caption{Diagramme de Bode d'un dérivateur pur 
+             avec (noir) $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons que 
+             le gain s'annule pour $\omega=\frac{1}{K}$ et que la phase reste 
+             inchangée.\label{fig-bode_deriv}}
 \end{figure}
-
-
+% ------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système à retard pur}
@@ -696,61 +520,20 @@ et la phase s'écrit simplement
     \phi(\omega) = -\tau\omega
 \end{bequation}
 
-
+% ------------------------------------------------------------------------------
 \begin{figure}[!htb]
-\centering
-\tikzsetnextfilename{bode_retard_1-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.25\textheight,
-    ylabel={Gain (dB)},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3},
-    ytick={-60,-40,-20,0,20,40,60},
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    yticklabels={-60,-40,-20,0,20,40,60},
-    xmode=log,ymode=normal,
-    xmin=1e-2, xmax=1e3,
-    ymin=-60, ymax=40,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick, col1,domain=1e-2:1e3, samples=101] {0};
-\end{axis}
-\end{tikzpicture}
+    \centering
+    \tikzsetnextfilename{bode_retard_1-chap4-ext}
+    \input{tikz/bode_retard_1-chap4.tex}
 
-\tikzsetnextfilename{bode_retard_2-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.25\textheight,
-    xlabel={Pulsation (rad/s)},
-    ylabel={Phase (deg)},
-    xtick={1e-1,1,1e1,1e2,1e3},
-    ytick={-1000,-750,-500,-250,0},
-    yticklabels={-1000,-750,-500,-250,0},
-    xticklabels={$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    xmode=log,ymode=normal,
-    xmin=1e-1, xmax=1e3,
-    ymin=-1000, ymax=0,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick, col1,domain=1e-1:1e3, samples=201] {-x};
-\end{axis}
-\end{tikzpicture}
+    \tikzsetnextfilename{bode_retard_2-chap4-ext}
+    \input{tikz/bode_retard_2-chap4.tex}
     \caption{Diagramme de Bode d'un retard pur 
              avec $\tau=1$. Remarquons que le gain est constant pour toutes 
              pulsations et le déphasage est monotone décroissant en fonction 
              de la pulsation\label{fig-bode_retard_1}.}
 \end{figure}
-
-
-
-
+% ------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système du premier ordre}
@@ -802,176 +585,46 @@ encore $\omega\gg\omega_0$, le gain et la phase se comporte comme,
 La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes 
 réels et les courbes asymptotiques.
 
+% ------------------------------------------------------------------------------
 \begin{figure}[!t]
-\centering
-\tikzsetnextfilename{bode_1er_1-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
-    ylabel={Gain (dB)},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    ytick={-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    yticklabels={-60,-40,-20,0,20,40,60}, 
-    xmode=log,ymode=normal,
-    xmin=1e-3, xmax=1e3,
-    ymin=-60, ymax=40,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick,col5,domain=1e-3:1e3, samples=101]
-    {20*log10(0.1)-20*log10(sqrt(1+x*x))}; 
-    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101]
-    {-20*log10(sqrt(1+x*x))}; 
-    \addplot[ultra thick, col4,domain=1e-3:1e3, samples=101]
-    {20*log10(10)-20*log10(sqrt(1+x*x))}; 
-\end{axis}
-\end{tikzpicture}
+    \centering
+    \tikzsetnextfilename{bode_1er_1-chap4-ext}
+    \input{tikz/bode_1er_1-chap4.tex}
 
-\tikzsetnextfilename{bode_1er_2-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
-    xlabel={Pulsation (rad/s)},
-    ylabel={Phase (deg)},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    ytick={-90,-45,0}, 
-    yticklabels={-90,-45,0},
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    xmode=log,ymode=normal,
-    xmin=1e-3, xmax=1e3,
-    ymin=-90, ymax=0,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101] {-atan2(x,1)}; 
-\end{axis}
-\end{tikzpicture}
+    \tikzsetnextfilename{bode_1er_2-chap4-ext}
+    \input{tikz/bode_1er_2-chap4.tex}
     \caption{Diagramme de Bode d'un système du premier ordre 
              (\Cref{eq-1er_ftjw}) avec (noir) $K=0.1$ (bleu) $K=1$ et 
              (rouge) $K=10$. L'effet du gain $K$ est de décaler verticalement 
              la courbe de gain.\label{fig-bode_1er_1}}
 \end{figure}
-\begin{figure}[!b]
-\centering
-\tikzsetnextfilename{bode_1er_3-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
-    ylabel={Gain (dB)},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    ytick={-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    yticklabels={-60,-40,-20,0,20,40,60}, 
-    xmode=log,ymode=normal,
-    xmin=1e-3, xmax=1e3,
-    ymin=-60, ymax=20,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick, col5,domain=1e-3:1e3, samples=101] 
-    {-20*log10(sqrt(1+10*x*x))}; 
-    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101] 
-    {-20*log10(sqrt(1+x*x))}; 
-    \addplot[ultra thick, col4,domain=1e-3:1e3, samples=101] 
-    {-20*log10(sqrt(1+0.1*x*x))}; 
-\end{axis}
-\end{tikzpicture}
+% ------------------------------------------------------------------------------
 
-\tikzsetnextfilename{bode_1er_4-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
-    xlabel={Pulsation (rad/s)},
-    ylabel={Phase (deg)},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    ytick={-90,-45,0}, 
-    yticklabels={-90,-45,0},
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    xmode=log,ymode=normal,
-    xmin=1e-3, xmax=1e3,
-    ymin=-90, ymax=0,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick, col5,domain=1e-3:1e3, samples=101] 
-    {-atan2(10*x,1)}; 
-    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101] 
-    {-atan2(x,1)}; 
-    \addplot[ultra thick, col4,domain=1e-3:1e3, samples=101] 
-    {-atan2(0.1*x,1)}; 
-\end{axis}
-\end{tikzpicture}
+% ------------------------------------------------------------------------------
+\begin{figure}[!b]
+    \centering
+    \tikzsetnextfilename{bode_1er_3-chap4-ext}
+    \input{tikz/bode_1er_3-chap4.tex}
+
+    \tikzsetnextfilename{bode_1er_4-chap4-ext}
+    \input{tikz/bode_1er_4-chap4.tex}
     \caption{Diagramme de Bode d'un système du premier ordre 
              (\Cref{eq-1er_ftjw}) avec (noir) $\tau=10$ (bleu) $\tau=1$ et 
              (rouge) $\tau=0.1$. L'effet du temps caractéristique $\tau$ est 
              de décaler horizontalement la courbe de phase.
              \label{fig-bode_1er_2}}
 \end{figure}
+% ------------------------------------------------------------------------------
 \afterpage{\clearpage}
+
+% ------------------------------------------------------------------------------
 \begin{figure}[!t]
 \centering
 \tikzsetnextfilename{bode_1er_5-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
-    ylabel={Gain (dB)},
-    xtick={1e-1,1,1e1}, 
-    ytick={-10,-8,-6,-4,-2,0,2}, 
-    xticklabels={$10^{-1}$,$10^{0}$,$10^{1}$},
-    yticklabels={-10,-8,-6,-4,-2,0,2}, 
-    xmode=log,ymode=normal,
-    xmin=1e-1, xmax=1e1,
-    ymin=-10, ymax=3,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick,col1,domain=1e-3:1e3, samples=101] 
-    {-20*log10(sqrt(1+x*x))};
-    \addplot[line width=2pt,col4,dashed,domain=1e-1:1e0, samples=101] {0};
-    \addplot[line width=2pt,col4,dashed,domain=1e0:1e1, samples=101] 
-    {-20*log10(x)};
-\end{axis}
-\end{tikzpicture}
+\input{tikz/bode_1er_5-chap4.tex}
 
 \tikzsetnextfilename{bode_1er_6-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
-    xlabel={Pulsation (rad/s)},
-    ylabel={Phase (deg)},
-    xtick={1e-1,1,1e1}, 
-    ytick={-90,-45,0}, 
-    yticklabels={-90,-45,0},
-    xticklabels={$10^{-1}$,$10^{0}$,$10^{1}$},
-    xmode=log,ymode=normal,
-    xmin=1e-1, xmax=1e1,
-    ymin=-90, ymax=0,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick,col1,domain=1e-3:1e3, samples=101] {-atan2(x,1)};
-    \addplot[line width=2pt,col4,dashed,domain=1e-1:1e0,samples=101] {0};
-    \addplot[line width=2pt,col4,dashed,domain=1e0:1e1,samples=101] {-90};
-    \draw[line width=2pt,col4,dashed] (axis cs:1,0) -- (axis cs:1,-90);
-\end{axis}
-\end{tikzpicture}
+\input{tikz/bode_1er_6-chap4.tex}
 \caption{Diagramme de Bode d'un système du premier ordre 
          (\Cref{eq-1er_ftjw}) (i.e $K=1$, $\tau=1$ et $\omega_c=1$) avec 
          (bleu) le diagramme réel et (rouge) le diagramme asymptotique. On 
@@ -980,12 +633,7 @@ réels et les courbes asymptotiques.
          gain de \SI{-3}{\dB} et une phase de -45\si{\degree} à la fréquence 
          de coupure.\label{fig-bode_1er_3}}
 \end{figure}
-%\caption{Diagramme de Bode d'un système du premier ordre 
-%$H(p)=(1-\tau p)^{-1}$\label{fig-bode_1er_ms}}
-%\caption{Diagramme de Bode d'un système du premier ordre passe-bas 
-%$H(p)=(1+\tau p)^{-1}$.\label{fig-bode_1er_ps}}
-%\caption{Diagramme de Bode d'un système du premier ordre (passe-haut).
-%\label{fig-bode_int}}
+% ------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode de deux systèmes du premier ordre en série }
@@ -1061,67 +709,12 @@ ordre en série correspond à l'étude d'un système du second ordre en
 régime apériodique.
 
 \begin{figure}[!t]
-\centering
-\tikzsetnextfilename{bode_1er_serie_2nd_1-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.25\textheight,
-    ylabel={Gain (dB)},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    ytick={-80,-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    yticklabels={-80,-60,-40,-20,0,20,40,60}, 
-    xmode=log,ymode=normal,
-    xmin=1e-3, xmax=1e3,
-    ymin=-120, ymax=20,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101]
-    {-20*log10(sqrt(1+100*x*x))-20*log10(sqrt(1+0.01*x*x))}; 
-    \addplot[line width=2pt,col4,dashed,domain=1e-3:1e-1, samples=101]{0};
-    \addplot[line width=2pt,col4,dashed,domain=1e-1:1e1, samples=101]
-    {-20*log10(x/0.1)};
-    \addplot[line width=2pt,col4,dashed,domain=1e1:1e3, samples=101]
-    {-20*log10(x/0.1)-20*log10(x/10)};
-    \node[right,xshift=1em,yshift=-0.1em] at (axis cs:0.1,-70)
-    {{\large \textbf{-20dB/décade}}};
-    \node[right,xshift=1em,yshift=-0.1em] at (axis cs:10,-10)
-    {{\large \textbf{-40dB/décade}}};
-\end{axis}
-\end{tikzpicture}
+    \centering
+    \tikzsetnextfilename{bode_1er_serie_2nd_1-chap4-ext}
+    \input{tikz/bode_1er_serie_2nd_1-chap4.tex}
 
-\tikzsetnextfilename{bode_1er_serie_2nd_2-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.25\textheight,
-    xlabel={Pulsation (rad/s)},
-    ylabel={Phase (deg)},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    ytick={-180,-135,-90,-45,0}, 
-    yticklabels={-180,-135,-90,-45,0},
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    xmode=log,ymode=normal,
-    xmin=1e-3, xmax=1e3,
-    ymin=-180, ymax=0,
-    grid=both,
-    major grid style={black!40}
-]
-    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101]
-    {-atan2(x,1)-atan2(x,0.1)}; 
-    \addplot[line width=2pt,col4,dashed,domain=1e-3:1e-1, samples=101]{0};
-    \addplot[line width=2pt,col4,dashed,domain=1e-1:1e1, samples=101] {-90};
-    \addplot[line width=2pt,col4,dashed,domain=1e1:1e3, samples=101] {-180};
-    \draw[line width=2pt,col4,dashed] (axis cs:0.1,0) -- (axis cs:0.1,-90);
-    \draw[line width=2pt,col4,dashed] (axis cs:10,-90) -- (axis cs:10,-180);
-\end{axis}
-\end{tikzpicture}
+    \tikzsetnextfilename{bode_1er_serie_2nd_2-chap4-ext}
+    \input{tikz/bode_1er_serie_2nd_2-chap4.tex}
     \caption{Diagramme de Bode de systèmes du premier ordre en série 
     (\Cref{eq-1er_serie}) avec $\tau_1=10$ et $\tau_2=0.1$ (bleu) le 
     diagramme réel et (rouge) le diagramme asymptotique.
@@ -1188,73 +781,20 @@ prochaine partie.
 
 
 \begin{figure}[!t]
-\centering
-\tikzsetnextfilename{bode_2nd_1-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
-    ylabel={Gain (dB)},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    ytick={-120,-100,-80,-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    yticklabels={-120,-100,-80,-60,-40,-20,0,20,40,60}, 
-    xmode=log,ymode=normal,
-    xmin=1e-3, xmax=1e3,
-    ymin=-100, ymax=20,
-    grid=both,
-    major grid style={black!40},
-    cycle list name=color list,
-]
-    \addplot[signalr,dashed,domain=1e-3:1e0]{0};
-    \addplot[signalr,dashed,domain=1e0:1e3] 
-    {-40*log10(x)};
-    \foreach \a in {1.0}
-        \addplot[signalb,domain=1e-3:1e3] 
-        {-20*log10(sqrt( (1-x*x)^2 +(2*\a*x)^2 )  )}; 
-\end{axis}
-\end{tikzpicture}
+    \centering
+    \tikzsetnextfilename{bode_2nd_1-chap4-ext}
+    \input{tikz/bode_2nd_1-chap4.tex}
 
-\tikzsetnextfilename{bode_2nd_2-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    legend style={draw=none},    
-    legend pos=outer north east, 
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
-    xlabel={Pulsation (rad/s)},
-    ylabel={Phase (deg)},
-    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
-    ytick={-180,-135,-90,-45,0}, 
-    yticklabels={-180,-135,-90,-45,0},
-    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
-    xmode=log,ymode=normal,
-    xmin=1e-3, xmax=1e3,
-    ymin=-180, ymax=0,
-    grid=both,
-    major grid style={black!40},
-    cycle list name=color list,
-]
-    \addplot[signalr,dashed,domain=1e-3:1e0] {0};
-    \addplot[signalr,dashed,domain=1e0:1e3] {-180};
-    \draw[signalr,dashed] (axis cs:1,0) -- (axis cs:1,-180);
-    \foreach \a in {1.0}
-        \addplot+[signalb,domain=1e-3:1e3] 
-        {-atan2(2*\a*x,(1-x*x))}; 
-\end{axis}
-\end{tikzpicture}
+    \tikzsetnextfilename{bode_2nd_2-chap4-ext}
+    \input{tikz/bode_2nd_2-chap4.tex}
     \caption{Diagramme de Bode d'une fonction de transfert second ordre 
     (\Cref{eq-2nd_ftjw}) avec $K=1$, $\omega_0=1$ et $\xi=1$
     \label{fig-bode_2nd_1}}
 \end{figure}
 
 \begin{figure}[!t]
-\centering
-\tikzsetnextfilename{bode_2nd_3-chap4-ext}
+    \centering
+    \tikzsetnextfilename{bode_2nd_3-chap4-ext}
     \input{tikz/bode_2nd_3.tex}
     \caption{Diagramme de Bode d'une fonction de transfert du second ordre 
              (\Cref{eq-2nd_ftjw}) pour différentes valeurs de $\xi$ avec 
@@ -1456,74 +996,12 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$.
 
 
 \begin{figure}[!t]
-\centering
-\tikzsetnextfilename{bode_exemple_1-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.25\textheight,
-    ylabel={Gain (dB)},
-    xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5}, 
-    ytick={-80,-60,-40,-20,0,20,40,60}, 
-    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
-    yticklabels={-80,-60,-40,-20,0,20,40,60}, 
-    xmode=log,ymode=normal,
-    xmin=1e-4, xmax=1e5,
-    ymin=-80, ymax=60,
-    grid=both,
-    major grid style={black!40}
-    ]
-    \addplot[ultra thick, col1,domain=1e-4:1e5, samples=201] 
-    {40+20*log10(1+x*x)-10*log10(1+10000*x*x)-10*log10(1+100*x*x)-
-     10*log10(1+0.0001*x*x)}; 
-    \addplot[line width=2pt,col4,dashed,domain=1e-4:1e-2, samples=101]
-    {40};
-    \addplot[line width=2pt,col4,dashed,domain=1e-2:1e-1, samples=101]
-    {-20*log10(x)};
-    \addplot[line width=2pt,col4,dashed,domain=1e-1:1e0 , samples=101]
-    {-40*log10(x)-20*log10(10)};
-    \addplot[line width=2pt,col4,dashed,domain=1e0:1e2  , samples=101]
-    {-20};
-    \addplot[line width=2pt,col4,dashed,domain=1e2:1e5  , samples=101]
-    {-20*log10(x)+20*log10(10)};
-\end{axis}
-\end{tikzpicture}
+    \centering
+    \tikzsetnextfilename{bode_exemple_1-chap4-ext}
+    \input{tikz/bode_exemple_1-chap4.tex}
 
-\tikzsetnextfilename{bode_exemple_2-chap4-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}
-    [
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.25\textheight,
-    xlabel={Pulsation (rad/s)},
-    ylabel={Phase (deg)},
-    xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5}, 
-    ytick={-180,-135,-90,-45,0}, 
-    yticklabels={-180,-135,-90,-45,0},
-    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
-    xmode=log,ymode=normal,
-    xmin=1e-4, xmax=1e5,
-    ymin=-180, ymax=0,
-    grid=both,
-    major grid style={black!40}
-    ]
-    \addplot[ultra thick, col1,domain=1e-4:1e5, samples=201] 
-    {2*atan2(x,1)-atan2(100*x,1)-atan2(10*x,1)-atan2(0.01*x,1)}; 
-    \addplot[line width=2pt,col4,dashed,domain=1e-4:1e-2, samples=101] {0};
-    \addplot[line width=2pt,col4,dashed,domain=1e-2:1e-1, samples=101] {-90};
-    \addplot[line width=2pt,col4,dashed,domain=1e-1:1e0 , samples=101] {-180};
-    \addplot[line width=2pt,col4,dashed,domain=1e0:1e2  , samples=101] {0};
-    \addplot[line width=2pt,col4,dashed,domain=1e2:1e5  , samples=101] {-90};
-    \draw[line width=2pt,col4,dashed] (axis cs:0.01,0)  -- (axis cs:0.01,-90);
-    \draw[line width=2pt,col4,dashed] (axis cs:0.1,-90) -- (axis cs:0.1,-180);
-    \draw[line width=2pt,col4,dashed] (axis cs:1,-180)  -- (axis cs:1,0);
-    \draw[line width=2pt,col4,dashed] (axis cs:100,0)   -- (axis cs:100,-90);
-\end{axis}
-\end{tikzpicture}
+    \tikzsetnextfilename{bode_exemple_2-chap4-ext}
+    \input{tikz/bode_exemple_2-chap4.tex}
     \caption{Diagramme de Bode du système d'ordre quelconque de 
              l'\cref{eq-ft_qq} (bleu) diagramme de Bode réel et (rouge) 
              diagramme de Bode asymptotique.\label{fig-bode_qq}}
@@ -1577,31 +1055,13 @@ Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
 \end{align*}
 
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{nyquist_gainpur-chap4-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    axis line style = thick,
-    xlabel=$\Re{H(\jw)}$,
-    ylabel=$\Im{H(\jw)}$,
-    ymin=-10,
-    ymax=+10,
-    xmin=-10,
-    xmax=+10,
-    grid=both,
-    ]     
-    \node [below]       at (axis cs:  5, 0)   {$\forall\omega$};
-    \node [above,col1]       at (axis cs:  5, 0)   {$K$};
-    \addplot [col1, mark = *] coordinates {(5, 0)} {};
-\end{axis}
-\end{tikzpicture}
-\end{center}
-\caption{Diagramme de Nyquist d'un gain pur. Le nombre complexe $H(\jw)$ est 
-         représenté par un point sur l'axe des réels à la valeur $K$ 
-         (ici $K=5$). \label{fig-nyquist_1}}
+    \centering
+    \tikzsetnextfilename{nyquist_gainpur-chap4-ext}
+    \input{tikz/nyquist_gainpur-chap4.tex}
+    \caption{Diagramme de Nyquist d'un gain pur. Le nombre complexe $H(\jw)$ 
+             est représenté par un point sur l'axe des réels à la valeur $K$ 
+             (ici $K=5$). \label{fig-nyquist_1}}
 \end{figure}
-
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1615,39 +1075,14 @@ Cependant il dépend de la pulsation $\omega$.
     \Re{H(\jw)}&=0\\
     \Im{H(\jw)}&=\dfrac{-K}{\omega}
 \end{align*}
+
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{nyquist_integ-chap4-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    axis line style = thick,
-    xlabel=$\Re{H(\jw)}$,
-    ylabel=$\Im{H(\jw)}$,
-    ymin=-10,
-    ymax=+10,
-    xmin=-10,
-    xmax=+10,
-    grid=both,
-    ] 
-    \node [above right] at (axis cs:  0, -10)     {$\omega=0^+$};
-    \node [below right] at (axis cs:  0,  10)     {$\omega=0^-$};
-    \node [below right]       at (axis cs:  0, 0) {$\omega\rightarrow+\infty$};
-    \node [above right]       at (axis cs:  0, 0) {$\omega\rightarrow-\infty$};
-\addplot [col1, mark = *] coordinates {(0, 0)}{};
-\addplot[col1,thick,domain=0.01:0.2,samples=50,-{Latex[length=3mm]}]
-    (0,{-1/x});
-\addplot[col1,thick,domain=0.1:100,samples=50]
-    (0,{-1/x});
-\addplot[dashed,col1,thick,domain=-100:-0.2,-{Latex[length=3mm]},samples=100]
-    (0,{-1/x});
-\addplot[dashed,col1,thick,domain=-0.2:-0.01,samples=100](0,{-1/x});
-\end{axis}
-\end{tikzpicture}
-\end{center}
-\caption{Diagramme de Nyquist d'un intégrateur pur. Le lieu de Nyquist 
-         est représenté par une demi droite sur l'axe des nombres 
-         imaginaires purs négatifs.\label{fig-nyquist_2}}
+    \centering
+    \tikzsetnextfilename{nyquist_integ-chap4-ext}
+    \input{tikz/nyquist_integ-chap4.tex}
+    \caption{Diagramme de Nyquist d'un intégrateur pur. Le lieu de Nyquist 
+             est représenté par une demi droite sur l'axe des nombres 
+             imaginaires purs négatifs.\label{fig-nyquist_2}}
 \end{figure}
 
 \newpage
@@ -1662,37 +1097,14 @@ de ce nombre complexe sont :
     \Re{H(\jw)}&=0\\
     \Im{H(\jw)}&=K\omega
 \end{align*}
+
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{nyquist_deriv-chap4-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    axis line style = thick,
-    xlabel=$\Re{H(\jw)}$,
-    ylabel=$\Im{H(\jw)}$,
-    ymin=-10,
-    ymax=+10,
-    xmin=-10,
-    xmax=+10,
-    grid=both,
-    ]     
-    \node [below right] at (axis cs:  0, 10)  {$\omega\rightarrow\infty$};
-    \node [above right] at (axis cs:  0,-10)  {$\omega\rightarrow-\infty$};
-    \node [below right]       at (axis cs:  0, 0)   {$\omega=0$};
-    \addplot [col1, mark = *] coordinates {(0, 0)} {};
-    \addplot [col1,thick,domain=0:5,samples=50,-{Latex[length=3mm]}](0,{x});
-    \addplot [col1,thick,domain=4:10,samples=50](0,{x});
-    \addplot [dashed,col1,thick,domain=-10:-5,samples=50,-{Latex[length=3mm]}]
-    (0,{x});
-    \addplot [dashed,col1,thick,domain=-6:0,samples=50]
-    (0,{x}); 
-\end{axis}
-\end{tikzpicture}
-\end{center}
-\caption{Diagramme de Nyquist d'un dérivateur pur. Le lieu de Nyquist 
-         est représenté par une demi droite sur l'axe des nombres 
-         imaginaires purs positifs.\label{fig-nyquist_3}}
+    \centering
+    \tikzsetnextfilename{nyquist_deriv-chap4-ext}
+    \input{tikz/nyquist_deriv-chap4.tex}
+    \caption{Diagramme de Nyquist d'un dérivateur pur. Le lieu de Nyquist 
+             est représenté par une demi droite sur l'axe des nombres 
+             imaginaires purs positifs.\label{fig-nyquist_3}}
 \end{figure}
 
 \newpage
@@ -1717,32 +1129,12 @@ est la rotation infinie sur ce cercle. La \og vitesse angulaire\fg dépend
 de $\tau$.
 
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{nyquist_retard-chap4-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    axis line style = thick,
-    xlabel=$\Re{H(\jw)}$,
-    ylabel=$\Im{H(\jw)}$,
-    ymin=-1.5,
-    ymax=+1.5,
-    xmin=-1.5,
-    xmax=+1.5,
-    grid=both,
-    ]     
-\node[right]       at (axis cs:  1, 0)   {\scriptsize$\omega=0$};
-\addplot[col1, mark = *] coordinates {(1, 0)} {};
-\addplot[col1,thick,domain=pi/2:-pi/2-0.2,samples=50,-{Latex[length=3mm]}]
-    ({cos(deg(x))},{sin(deg(x)}); 
-\addplot [col1,thick,domain=-pi/2:-3*pi/2-0.2,samples=50,-{Latex[length=3mm]}]
-    ({cos(deg(x))},{sin(deg(x)}); 
-\end{axis}
-\end{tikzpicture}
-\end{center}
-\caption{Diagramme de Nyquist d'un retard pur. Le lieu de Nyquist 
-         est représenté par le cercle unité dans le plan complexe.
-         \label{fig-nyquist_4}}
+    \centering
+    \tikzsetnextfilename{nyquist_retard-chap4-ext}
+    \input{tikz/nyquist_retard-chap4.tex}
+    \caption{Diagramme de Nyquist d'un retard pur. Le lieu de Nyquist 
+             est représenté par le cercle unité dans le plan complexe.
+             \label{fig-nyquist_4}}
 \end{figure}
 
 On remarquera cependant que ce modèle est fondamentalement 
@@ -1810,55 +1202,16 @@ $$
 \end{table}
 
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{nyquist_1er-chap4-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    axis line style = thick,
-    xlabel=$\Re{H(\jw)}$,
-    ylabel=$\Im{H(\jw)}$,
-    ymin=-0.75,
-    ymax=+0.75,
-    xmin=-0.3,
-    xmax=+1.3,
-    clip=false,
-    grid=both
-    ]
-    \addplot [col1,thick,domain=0:1.1,samples=100,-{Latex[length=3mm]}]
-    ({1/(1+x*x)},{-x/(1+x*x)}); 
-    \addplot [col1,thick,domain=0.5:5,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
-    \addplot [col1,thick,domain=5:10,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
-    \addplot [col1,thick,domain=10:100,samples=100]({1/(1+x*x)},{-x/(1+x*x)});
-    \addplot [dashed,col1,thick,domain=-100:-10,samples=100]
-    ({1/(1+x*x)},{-x/(1+x*x)});
-    \addplot [dashed,col1,thick,domain=-10:-5,samples=100]
-    ({1/(1+x*x)},{-x/(1+x*x)});
-    \addplot [dashed,col1,thick,domain=-5:-0.5,samples=100,-{Latex[length=3mm]}]
-    ({1/(1+x*x)},{-x/(1+x*x)}); 
-    \addplot [dashed,col1,thick,domain=-0.5:0,samples=100]
-    ({1/(1+x*x)},{-x/(1+x*x)});
-
-    \node [above left,xshift=0.2em] 
-    at (axis cs:  0, 0)  {\scriptsize$\omega\rightarrow-\infty$};         
-    \node [below left,xshift=0.2em] 
-    at (axis cs:  0, 0)  {\scriptsize$\omega\rightarrow+\infty$};         
-    \node [right]       at (axis cs:  1, 0) {\scriptsize$\omega=0$};
-    \addplot[col1, mark = *] coordinates {(0, 0)} {};
-    \addplot[col1, mark = *] coordinates {(1, 0)} {};
-%    \draw[col1,ultra thick,-latex] (axis cs:  0,  0 ) -- (axis cs:  0, 5 );
-%    \draw[col1,ultra thick] (axis cs:  0,  4 ) -- (axis cs:  0, 9 );
-\end{axis}
-\end{tikzpicture}
-\end{center}
-\caption{Diagramme de Nyquist d'un système du premier ordre. 
-         Avec $K=1$ et $\tau=1$. Le lieu de Nyquist 
-         est représenté par un demi cercle idans le plan des nombres 
-         imaginaires négatifs. Le lieu de Nyquist complet 
-         correspond à un cercle de rayon $K/2$ et de centre $(K/2,0)$ 
-         \label{fig-nyquist_1er}}
+    \centering
+    \tikzsetnextfilename{nyquist_1er-chap4-ext}
+    \input{tikz/nyquist_1er-chap4.tex}
+    \caption{Diagramme de Nyquist d'un système du premier ordre. 
+             Avec $K=1$ et $\tau=1$. Le lieu de Nyquist 
+             est représenté par un demi cercle idans le plan des nombres 
+             imaginaires négatifs. Le lieu de Nyquist complet 
+             correspond à un cercle de rayon $K/2$ et de centre $(K/2,0)$ 
+             \label{fig-nyquist_1er}}
 \end{figure}
-
 
 \newpage
 
@@ -1879,206 +1232,24 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     \Im{H(\jw)}&=\dfrac{-2\xi\omega_0^2\omega^2}{(\omega_0^2-\omega^2)^2
     +4\xi^2\omega_0^2\omega^2}\\
 \end{align*}
+
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{nyquist_2nd_1-chap4-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    axis line style = thick,
-    xlabel=$\Re{H(\jw)}$,
-    ylabel=$\Im{H(\jw)}$,
-    ymin=-1.5,
-    ymax=+1.5,
-    xmin=-0.5,
-    xmax=+1.3,
-    clip=false,
-    grid=both
-    ]
-    \tikzstyle{lieua}=[col1,thick,samples=150,-{Latex[length=3mm]}]
-    \tikzstyle{lieu}=[col1,thick,samples=150]
-    \tikzstyle{lieua_c}=[dashed,col1,thick,samples=150,-{Latex[length=3mm]}]
-    \tikzstyle{lieu_c}=[dashed,col1,thick,samples=150]
-    
-    \def\xi{0.5}
-\addplot[lieua,domain=0:1]
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
-\addplot[lieu, domain=0.99:5]
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
-\addplot[lieu,domain=5:10]
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
-\addplot[lieu,domain=10:100]
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
-
-\addplot[lieu_c,domain=-100:-10]
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
-\addplot[lieu_c,domain=-10:-5]
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
-\addplot[lieua_c,domain=-5:-0.99]
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)}); 
-\addplot[lieu_c,domain=-0.99:0]
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-
-\node[above right] at (axis cs:  0, 0){\scriptsize$\omega\rightarrow-\infty$};
-\node[right]       at (axis cs:  1, 0){\scriptsize$\omega=0$};       
-\node[below right] at (axis cs:  0, 0){\scriptsize$\omega\rightarrow+\infty$};
-\addplot[col1, mark = *] coordinates {(0, 0)} {};                  
-\addplot[col1, mark = *] coordinates {(1, 0)} {};                  
-\end{axis}
-\end{tikzpicture}
-\end{center}
-\caption{Diagramme de Nyquist d'un système du second ordre. 
-         Avec $K=1$ et $\tau=1$. Le lieu de Nyquist est représenté par 
-         une demi cardio\"iode dans le plan des nombres imaginaires 
-         négatifs.\label{fig-nyquist_2nd_1}}
+    \centering
+    \tikzsetnextfilename{nyquist_2nd_1-chap4-ext}
+    \input{tikz/nyquist_2nd_1-chap4.tex}
+    \caption{Diagramme de Nyquist d'un système du second ordre. 
+             Avec $K=1$ et $\tau=1$. Le lieu de Nyquist est représenté par 
+             une demi cardio\"iode dans le plan des nombres imaginaires 
+             négatifs.\label{fig-nyquist_2nd_1}}
 \end{figure}
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{nyquist_2nd_2-chap4-ext}
-\begin{tikzpicture}
-        \pgfplotscreateplotcyclelist{mycolorlist}{%
-            col1\\%
-            col1\\%
-            col1\\%
-            col1\\%
-            col1\\%
-            col1\\%
-            col1\\%
-            col1\\%
-            col4\\%
-            col4\\%
-            col4\\%
-            col4\\%
-            col4\\%
-            col4\\%
-            col4\\%
-            col4\\%
-            col8\\%
-            col8\\%
-            col8\\%
-            col8\\%
-            col8\\%
-            col8\\%
-            col8\\%
-            col8\\%
-            col5\\%
-            col5\\%
-            col5\\%
-            col5\\%
-            col5\\%
-            col5\\%
-            col5\\%
-            col5\\%
-            }
-\begin{axis}
-    [
-    name=nyq1,
-    axis line style = thick,
-    xlabel=$\Re{H(\jw)}$,
-    ylabel=$\Im{H(\jw)}$,
-    ymin=-2,
-    ymax=+2,
-    xmin=-0.8,
-    xmax=+1.3,
-    grid=both,
-    cycle list name=mycolorlist,
-    legend style={draw=none,yshift=1em},
-    legend pos=outer north east, 
-    ]
-    \tikzstyle{lieua}=[thick,samples=100,-{Latex[length=3mm]}]
-    \tikzstyle{lieu}=[thick,samples=100]
-    \tikzstyle{lieua_c}=[dashed,thick,samples=100,-{Latex[length=3mm]}]
-    \tikzstyle{lieu_c}=[dashed,thick,samples=100]
-    \foreach \xi in {0.4,0.6,0.8,1.0} 
-    {
-    \addplot+[lieua,domain=0:1]  
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu, domain=0.99:5] 
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu,domain=5:10]    
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu,domain=10:100] 
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-100:-10]
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-10:-5] 
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieua_c,domain=-5:-0.99]
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-0.99:0] 
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    }
-\legend{,$\xi=0.4$,,,,,,,,$\xi=0.6$,,,,,,,,$\xi=0.8$,,,,,,,,$\xi=1.0$,,,,,,,} 
-\end{axis}
-        \pgfplotscreateplotcyclelist{mycolorlist}{%
-            col1\\%
-            col1\\%
-            col1\\%
-            col1\\%
-            col1\\%
-            col1\\%
-            col4\\%
-            col4\\%
-            col4\\%
-            col4\\%
-            col4\\%
-            col4\\%
-            col8\\%
-            col8\\%
-            col8\\%
-            col8\\%
-            col8\\%
-            col8\\%
-            col5\\%
-            col5\\%
-            col5\\%
-            col5\\%
-            col5\\%
-            col5\\%
-            }
-\begin{axis}
-    [
-    at={(nyq1.below south west)},yshift=-0.2cm,anchor=north west,
-    axis line style = thick,
-    xlabel=$\Re{H(\jw)}$,
-    ylabel=$\Im{H(\jw)}$,
-    ymin=-15,
-    ymax=+15,
-    xmin=-6,
-    xmax=+6,
-    grid=both,
-    cycle list name=mycolorlist,
-    legend style={draw=none,yshift=1em},
-    legend pos=outer north east,
-    ]
-    \tikzstyle{lieua}=[thick,samples=200,-{Latex[length=3mm]}]
-    \tikzstyle{lieu}=[thick,samples=200]
-    \tikzstyle{lieua_c}=[dashed,thick,samples=200,-{Latex[length=3mm]}]
-    \tikzstyle{lieu_c}=[dashed,thick,samples=200]
-    \foreach \xi in {0.05,0.07,0.1,0.2} 
-    {
-    \addplot+[lieu,domain=0:0.5]
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieua, domain=0.5:1]
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu, domain=0.99:2]
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    
-    \addplot+[lieua_c,domain=-2:-1.0] 
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-1.0:-0.5]
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    \addplot+[lieu_c,domain=-0.5:0] 
-    ({(1-x^2)/((1-x^2)^2+4*\xi^2*x^2)},{-(2*\xi*x)/((1-x^2)^2+4*\xi^2*x^2)});
-    }
-    \legend{$\xi=0.05$,,,,,,$\xi=0.07$,,,,,,$\xi=0.1$,,,,,,$\xi=0.2$,,,,,,} 
-\end{axis}
-\end{tikzpicture}
-\end{center}
-\caption{Diagramme de Nyquist d'un système du second ordre pour différentes 
-         valeurs du taux d'amortissement $\xi$. Avec $K=1$ et $\tau=1$. Le 
-         lieu de Nyquist est représenté par une demi cardio\"iode dans le 
-         plan des imaginaires négatifs.\label{fig-nyquist_2nd_2}}
+    \centering
+    \tikzsetnextfilename{nyquist_2nd_2-chap4-ext}
+    \input{tikz/nyquist_2nd_2-chap4.tex}
+    \caption{Diagramme de Nyquist d'un système du second ordre pour différentes 
+             valeurs du taux d'amortissement $\xi$. Avec $K=1$ et $\tau=1$. Le 
+             lieu de Nyquist est représenté par une demi cardio\"iode dans le 
+             plan des imaginaires négatifs.\label{fig-nyquist_2nd_2}}
 \end{figure}
 
 \newpage
@@ -2108,83 +1279,19 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 \end{align*}
 
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{nyquist_effet_retard_1-chap4-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    axis line style = thick,
-    xlabel=$\Re{H(\jw)}$,
-    ylabel=$\Im{H(\jw)}$,
-    ymin=-1,
-    ymax=1,
-    xmin=-0.8,
-    xmax=+1.3,
-    grid=both,
-    ]
-    \def\t{1.0}
-    \def\tu{1.1}
-    \addplot[col1,thick,domain=0:1,samples=200] 
-    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
-     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
-    \addplot[col1,thick,domain=1:10,samples=200] 
-    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
-     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
-    \addplot[col1,thick,domain=10:20,samples=200]
-    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
-     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
-    \addplot[col1,thick,domain=20:50,samples=200]
-    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
-     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
-    \addplot[col1,thick,domain=50:100,samples=200]
-    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
-     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
-    \node[above]       at (axis cs:  1, 0)   {$\omega=0$};
-    \addplot[col1, mark = *] coordinates {(1, 0)} {};
-    \node[below right] (A) at (axis cs:  0.5, 0.5) 
-    {$\omega\rightarrow+\infty$};
-    \node (B) at (axis cs:  0, 0)  {};
-    \draw[->] (A) -- (B);
-\end{axis}
-\end{tikzpicture}
-\end{center}
-\caption{Effet d'un retard sur le diagramme de Nyquist d'un système 
-         du premier ordre. Avec $K=1$, $\tau=1$ et $\tau_1=2$. Le lieu 
-         de Nyquist est représenté par une spirale.
-         \label{fig-nyquist_effet_retard_1}}
+    \centering
+    \tikzsetnextfilename{nyquist_effet_retard_1-chap4-ext}
+    \input{tikz/nyquist_effet_retard_1-chap4.tex}
+    \caption{Effet d'un retard sur le diagramme de Nyquist d'un système 
+             du premier ordre. Avec $K=1$, $\tau=1$ et $\tau_1=2$. Le lieu 
+             de Nyquist est représenté par une spirale.
+             \label{fig-nyquist_effet_retard_1}}
 \end{figure}
 
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{nyquist_effet_retard_2-chap4-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    axis line style = thick,
-    xlabel=$\Re{H(\jw)}$,
-    ylabel=$\Im{H(\jw)}$,
-    ymin=-1,
-    ymax=1,
-    xmin=-0.8,
-    xmax=+1.3,
-    grid=both,
-    cycle list name=fmvcolist,
-    ]
-    \def\t{1.0}
-    \def\tu{0.5}
-
-    \foreach \tu in {0.5,1.0,2.0}
-    {
-    \addplot+[thick,domain=0:1,samples=200]
-    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
-     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
-    \addplot+[thick,domain=1:{10/\tu^2},samples=200] 
-    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
-     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
-}
-\end{axis}
-\end{tikzpicture}
-\end{center}
+    \centering
+    \tikzsetnextfilename{nyquist_effet_retard_2-chap4-ext}
+    \input{tikz/nyquist_effet_retard_2-chap4.tex}
     \caption{Effet d'un retard sur le diagramme de Nyquist d'un système du 
              premier ordre pour différentes valeurs de retard. (bleu) 
              $\tau_1=0.5$, (rouge) $\tau_1=1.0$ et (noir) $\tau_1=2.0$.
@@ -2201,7 +1308,6 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2209,7 +1315,6 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \acplhp
 %c.f pdf/[AnaHSLCI][CO]Analyse_harmonique_des_SLCI.pdf
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

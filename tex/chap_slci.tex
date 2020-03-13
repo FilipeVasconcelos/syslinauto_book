@@ -37,11 +37,11 @@ les systèmes dynamiques linéaires.
     \centering
     \tikzsetnextfilename{systeme-chap0-ext}
     \input{tikz/systeme-chap0.tex}
-\caption{Représentation d'un système en intéraction avec son environnement. 
-         Par définition, un système aura une ou plusieurs entrée/sortie bien 
-	 définis de flux de~\gls{mei}. Dans le cas général, des perturbations 
-	 de l'environnement et des mesures de son état pourront être considérés.
-	 \label{fig-systeme}}
+    \caption{Représentation d'un système en intéraction avec son environnement. 
+             Par définition, un système aura une ou plusieurs entrée/sortie 
+             bien définis de flux de~\gls{mei}. Dans le cas général, des 
+             perturbations de l'environnement et des mesures de son état 
+             pourront être considérés.\label{fig-systeme}}
 \end{figure}
 % ------------------------------------------------------------------------------
 \newpage
@@ -398,7 +398,7 @@ si ce signal est nul pour tout $t<0$.
     \tikzsetnextfilename{causal-chap1-ext}
     \input{tikz/causal-chap0.tex}
 \end{figure}
-\setlength\intextsep{0pt}
+%\setlength\intextsep{0pt}
 % ------------------------------------------------------------------------------
 Pour un signal en entrée, le temps $t=0$ permet de 
 définir une origine des temps.
@@ -422,14 +422,14 @@ même au bout d'un même intervalle de temps ou periode $T$. On définit alors
 sa fréquence $f$ qui est l'inverse de la période $f=1/T$ ou la pulsation 
 $\omega$ définit par rapport au cercle unité $\omega=2\pi f$.
 
-{
+%{
 \begin{figure}[!htb]
     \centering
     \tikzsetnextfilename{periodique-chap1-ext}
     \input{tikz/periodique-chap0.tex}
 \end{figure}
-\setlength\intextsep{0pt}
-}
+%\setlength\intextsep{0pt}
+%}
 Le signal complet peut être totalement d'écrit en considérant un motif de base 
 $s_0(t)$ telle que
 \begin{align*}
@@ -476,7 +476,7 @@ sollicitation constante et une sollicitation oscillante).
     \input{tikz/stable_harm-chap0.tex}
     \tikzsetnextfilename{instable_harm-chap0_ext}
     \input{tikz/instable_harm-chap0.tex}
-    \caption{Trois exemples de réponses d'un SLCI à des sollicitations bornées : 
+    \caption{Trois exemples de réponses d'un SLCI à des sollicitations bornées :
             (en bleu)  réponses stables 
             (en rouge) réponses instables.\label{fig-stabilite_signaux}}
 \end{figure}
@@ -500,7 +500,7 @@ entrée des signaux généralement rencontrées en sortie des \gls{slci}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Impulsion de Dirac}
+\paragraph{Impulsion de Dirac\index{Signaux usuels!Impulsion de Dirac}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 L'impulsion de Dirac\footnote{\index{Dirac, Paul}Paul Dirac, (1902-1984) 

@@ -17,19 +17,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% ------------------------------------------------------------------------------
 \begin{figure}[!h]
 \centering
-%\includegraphics[width=0.45\linewidth,height=10cm]{fig/AGMA_Clepsydre_m.eps}
-%\label{fig-clep}
 \includegraphics[width=0.45\linewidth,height=10cm]
 {fig/Georgetown_PowerPlant_Museum_m.eps}
-%\label{fig-watt}
-%\caption{Exemples historiques de régulateur : 
-%(gauche) Clepsydre athénienne (d'après \cite{clep}) 
-%(droite) Régulateur de vitesse de Watt (d'après \cite{watt})\label{fig-hist}}
 \caption{Exemple historique de régulateur : Régulateur 
 de vitesse de Watt (d'après \cite{watt})\label{fig-hist}}
 \end{figure}
+% ------------------------------------------------------------------------------
 
 Les chapitres précédents nous ont permis de caractériser, modéliser et
 analyser la réponse temporelle des systèmes linéaires.
@@ -75,14 +71,8 @@ les perturbations auxquelles serait soumis le système.
 % S : sortie
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{center}
-\tikzsetnextfilename{sb_bloc0-chap5-ext}
-\begin{tikzpicture}
-    \sbEntree{E}
-    \sbBloc[3]{a}{$H(p)$}{E}
-    \sbRelier[$E(p)$]{E}{a}
-    \sbSortie[3]{S}{a}
-    \sbRelier[$S(p)$]{a}{S}
-\end{tikzpicture}
+    \tikzsetnextfilename{sb_bloc0-chap5-ext}
+    \input{tikz/sb_bloc0-chap5.tex}
 \end{center}
 
 Nous avons pu caractériser la sortie en fonction de différentes 
@@ -114,18 +104,8 @@ d'un système linéaire :% soit en boucle ouverte soit en boucle fermée.
 % S : sortie
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{center}
-\tikzsetnextfilename{sb_bloc1-chap5-ext}
-\begin{tikzpicture}
-    \sbEntree{E}
-    \sbBloc[3]{a}{$C(p)$}{E}
-    \sbRelier[$E(p)$]{E}{a}
-    \sbBloc[3]{b}{$H(p)$}{a}
-    \sbRelier[$U(p)$]{a}{b}
-    \sbSortie[3]{S}{b}
-    \sbRelier[$S(p)$]{b}{S}
-    \node[yshift=-0.8em] at (a.south) {\small Correcteur};
-    \node[yshift=-0.8em] at (b.south) {\small Système};
-\end{tikzpicture}
+    \tikzsetnextfilename{sb_bloc1-chap5-ext}
+    \input{tikz/sb_bloc1-chap5.tex}
 \end{center}
 
     \item En \textbf{boucle fermée}: le principe consiste à récupérer 
@@ -151,21 +131,8 @@ d'un système linéaire :% soit en boucle ouverte soit en boucle fermée.
 % S : sortie
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{center}
-\tikzsetnextfilename{sb_bloc2-chap5-ext}
-\begin{tikzpicture}
-    \sbEntree{E}
-    \sbComp{a}{E}
-    \sbRelier[$E(p)$]{E}{a}
-    \sbBloc[3]{b}{$C(p)$}{a}
-    \sbRelier[$\epsilon(p)$]{a}{b}
-    \sbBloc[3]{c}{$H(p)$}{b}
-    \sbRelier[$U(p)$]{b}{c}
-    \sbSortie[3]{S}{c}
-    \sbRelier[$S(p)$]{c}{S}
-    \sbRenvoi{c-S}{a}{}
-    \node[yshift=-0.8em] at (b.south) {\small Correcteur};
-    \node[yshift=-0.8em] at (c.south) {\small Système};
-\end{tikzpicture}
+    \tikzsetnextfilename{sb_bloc2-chap5-ext}
+    \input{tikz/sb_bloc2-chap5.tex}
 \end{center}
           Le signal correspondant à la différence entre la consigne
           et la réponse globale du système en boucle fermée est
@@ -199,8 +166,6 @@ permettant de comparer l'image de la sortie obtenue par un capteur
 à la consigne. Ce régulateur est en générale accompagné d'un \textbf{correcteur}
 permettant de corriger la boucle ouverte du système linéaire.
 
-\begin{figure}[!h]
-\centering
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Nom des noeuds
 %                                      
@@ -217,33 +182,13 @@ permettant de corriger la boucle ouverte du système linéaire.
 % r : noeud décalé pour le retour
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %avec cadre régulateur
-\tikzsetnextfilename{reg_1-chap5-ext}
-\begin{tikzpicture}
-    \sbEntree{E}
-    \sbComp{a}{E}
-    \sbRelier[$E(p)$]{E}{a}           % entree
-    \sbBloc[3]{b}{$C(p)$}{a}
-    \sbRelier[$\epsilon(p)$]{a}{b}    % ecart
-    \sbBloc[4.2]{c}{$H(p)$}{b}
-    \sbRelier[$U(p)$]{b}{c}           % commande
-    \sbSortie[4]{S}{c}
-    \sbRelier{c}{S}
-    \sbNomLien[0.8]{S}{$S(p)$}
-    \sbDecaleNoeudy[7]{b-c}{r}
-    \sbBlocr[-1.6]{d}{$G(p)$}{r}
-    \sbRelieryx{c-S}{d}              
-    \sbRelierxy[$M(p)$]{d}{a}         % mesure (image de S)
-    \node[yshift=-0.8em] at (b.south) {\small Correcteur};
-    \node[yshift=-0.8em] at (c.south) {\small Système};
-    \node[yshift=-0.8em] at (d.south) {\small Capteur};
-    \draw[dvtb] (1.05,-1.65) rectangle node[col1,above,yshift=4em] 
-                {\textbf{Régulateur}} (4.65,0.9);
-    \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
-    \node[yshift=-0.8em] at (S.south) {\small Sortie};
-\end{tikzpicture}
-\caption{Schéma fonctionnel classique de l'asservissement d'un système 
-         présentant un correcteur et un capteur. (c.f~\cref{tab-asser})
-         \label{fig-reg}}
+\begin{figure}[!h]
+\centering
+    \tikzsetnextfilename{reg_1-chap5-ext}
+    \input{tikz/reg_1-chap5.tex}
+    \caption{Schéma fonctionnel classique de l'asservissement d'un système 
+             présentant un correcteur et un capteur. (c.f~\cref{tab-asser})
+             \label{fig-reg}}
 \end{figure}
 
 
@@ -277,41 +222,19 @@ présentant ces nouveaux constituants.
 % r : noeud décalé pour le retour
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[!h]
-\centering
-\tikzsetnextfilename{reg_2-chap5-ext}
-\begin{tikzpicture}
-    \sbEntree{E}
-    \sbBloc[3]{a}{$A_d(p)$}{E}
-    \sbRelier[$E(p)$]{E}{a}
-    \sbComp{b}{a}
-    \sbRelier{a}{b}
-    \sbBloc[3]{c}{$C(p)$}{b}
-    \sbRelier[$\epsilon(p)$]{b}{c}
-    \sbBloc[3]{d}{$A_c(p)$}{c}
-    \sbRelier{c}{d}
-    \sbBloc[3]{e}{$H(p)$}{d}
-    \sbRelier[$U(p)$]{d}{e}
-    \sbSortie[4]{S}{e}
-    \sbRelier{e}{S}
-    \sbDecaleNoeudy[5]{d}{r}
-    \sbBlocr[-1.6]{f}{$G(p)$}{r}
-    \sbRelieryx{e-S}{f}              
-    \sbRelierxy[$M(p)$]{f}{b}        % Mesure
-    \sbNomLien[0.8]{S}{$S(p)$}
-    \node[yshift=-0.8em] at (a.south) {\small Adaptateur};
-    \node[yshift=-0.8em] at (c.south) {\small Correcteur};
-    \node[yshift=-0.8em] at (d.south) {\small Actionneur};
-    \node[yshift=-0.8em] at (e.south) {\small Système};
-    \node[yshift=-0.8em] at (f.south) {\small Capteur};
-    \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
-    \node[yshift=-0.8em] at (S.south) {\small Sortie};
-\end{tikzpicture}
-\caption{Schéma fonctionnel de l'asservissement d'un système 
-         présentant un adaptateur et actionneur. (c.f~\cref{tab-asser})
-         \label{fig-reg2}}
+    \centering
+    \tikzsetnextfilename{reg_2-chap5-ext}
+    \input{tikz/reg_2-chap5.tex}
+    \caption{Schéma fonctionnel de l'asservissement d'un système 
+             présentant un adaptateur et actionneur. (c.f~\cref{tab-asser})
+             \label{fig-reg2}}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Présence d'une perturbation : la régulation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   Nom des noeuds
@@ -337,31 +260,9 @@ présentant ces nouveaux constituants.
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{pert-chap5-ext}
-    \begin{tikzpicture}
-    \sbEntree{E}
-    \sbComp[4.5]{a}{E}
-    \sbRelier[$E(p)$]{E}{a}
-    \sbBloc[3]{b}{$C(p)$}{a}
-    \sbRelier[$\epsilon(p)$]{a}{b}
-    \sbCompSum[5.0]{c}{b}{+}{}{+}{}
-    \sbRelier[$U(p)$]{b}{c}
-    \sbBloc[3]{d}{$H(p)$}{c}
-    \sbRelier{c}{d}
-    \sbSortie[6]{S}{d}
-    \sbRelier[$S(p)$]{d}{S}
-    \sbDecaleNoeudy{c}{r}
-    \sbBlocr[-1.5]{e}{$G(p)$}{r}
-    \sbRelieryx{d-S}{e}
-    \sbRelierxy[$M(p)$]{e}{a}
-    \node[yshift=-0.8em] at (b.south) {\small Correcteur};
-    \node[yshift=-0.8em] at (d.south) {\small Système};
-    \node[yshift=-0.8em] at (e.south) {\small Capteur};
-    \sbDecaleNoeudy[-3]{c}{P}
-    \sbRenvoiF[-2]{P}{c}{$P(p)$}
-    \node[right,yshift=2.5em]   at (P.east){\small Perturbation};
-    \end{tikzpicture}
-\caption{Schéma fonctionnel de l'asservissement d'un système 
-         présentant une perturbation.\label{fig-pert}}
+    \input{tikz/pert-chap5.tex}
+    \caption{Schéma fonctionnel de l'asservissement d'un système 
+             présentant une perturbation.\label{fig-pert}}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -391,49 +292,11 @@ présentant ces nouveaux constituants.
 % r  : noeud décalé pour le retour
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[!h]
-\centering
-\tikzsetnextfilename{pert2-chap5-ext}
-\begin{tikzpicture}
-    \sbEntree{E}
-    \sbComp[4.5]{a}{E}
-    \sbRelier[$E(p)$]{E}{a}
-    \sbBloc[3]{b}{$C(p)$}{a}
-    \sbRelier[$\epsilon(p)$]{a}{b}
-    \sbStyleSum{col4}
-    \sbCompSum[5.0]{c}{b}{+}{}{+}{}
-    \sbRelier[$U(p)$]{b}{c}
-    \sbBloc[3]{d}{$H(p)$}{c}
-    \sbRelier{c}{d}
-    \sbStyleSum{col1}
-    \sbCompSum[5.0]{e}{d}{+}{}{+}{}
-    \sbRelier[]{d}{e}
-    \sbSortie[6]{S}{e}
-    \sbRelier[$S(p)$]{e}{S}
-    \sbDecaleNoeudy{c}{r}
-    \sbBlocr[-7]{f}{$G(p)$}{r}
-    \sbRelieryx{e-S}{f}
-    \sbStyleSum{col3}
-    \sbCompSum[-5.5]{g}{f}{}{+}{}{+}
-    \sbRelier[]{f}{g}
-    \sbRelierxy[$M(p)$]{g}{a}
-    \node[yshift=-0.8em] at (b.south) {\small Correcteur};
-    \node[yshift=-0.8em] at (d.south) {\small Système};
-    \node[yshift=-0.8em] at (f.south) {\small Capteur};
-    \sbDecaleNoeudy[-3]{c}{P1}
-    \sbStyleLien{col4}
-    \sbRenvoiF[-3]{P1}{c}{$P_1(p)$}
-    \sbDecaleNoeudy[-3]{e}{P2}
-    \sbStyleLien{col1}
-    \sbRenvoiF[-3]{P2}{e}{$P_2(p)$}
-    \sbDecaleNoeudy[3]{g}{P3}
-    \sbStyleLien{col3}
-    \sbRenvoiF[2]{P3}{g}{$P_3(p)$}
-    \node[right,yshift=2.5em,col4] at (P1.east){\small Perturbation en entrée};
-    \node[right,yshift=2.5em,col1] at (P2.east){\small Perturbation en sortie};
-    \node[right,yshift=-2.5em,col3]at (P3.east){\small Bruit de mesure};
-\end{tikzpicture}
-\caption{Schéma fonctionnel de l'asservissement d'un système 
-         présentant différents types de perturbations. \label{fig-pert2}}
+    \centering
+    \tikzsetnextfilename{pert_2-chap5-ext}
+    \input{tikz/pert_2-chap5.tex}
+    \caption{Schéma fonctionnel de l'asservissement d'un système 
+             présentant différents types de perturbations. \label{fig-pert2}}
 \end{figure}
 
 
@@ -468,45 +331,8 @@ la~\cref{fig-asser}
 \begin{landscape}
 \vspace*{\fill}
 \begin{center}
-\tikzsetnextfilename{asser-chap5-ext}
-\begin{tikzpicture}[scale=1.1,every node/.style={scale=1.1}]
-\sbEntree{E}
-\sbBloc[3]{a}{$A_d(p)$}{E}
-\sbRelier[$E(p)$]{E}{a}
-\sbComp{b}{a}
-\sbRelier{a}{b}
-\sbBloc[3]{c}{$C(p)$}{b}
-\sbRelier[$\epsilon(p)$]{b}{c}
-\sbBloc[3]{d}{$A_c(p)$}{c}
-\sbRelier{c}{d}
-\sbSumh[6.7]{e}{d}
-\sbDecaleNoeudy[-3]{e}{P}
-\sbRenvoiF[-3]{P}{e}{$P(p)$}
-\sbRelier[$U(p)$]{d}{e}
-\sbBloc{f}{$H(p)$}{e}
-\sbRelier{e}{f}
-\sbSortie[4]{S}{f}
-\sbRelier{f}{S}
-\sbDecaleNoeudy[5]{c}{r}
-\sbBlocr[-1.6]{g}{$G(p)$}{r}
-\sbRelieryx{f-S}{g}
-\sbRelierxy[$M(p)$]{g}{b}
-\sbNomLien[0.8]{S}{$S(p)$}
-\node[yshift=-0.8em] at (a.south) {\small Adaptateur};
-\node[yshift=-0.8em] at (c.south) {\small Correcteur};
-\node[yshift=-0.8em] at (d.south) {\small Actionneur};
-\node[yshift=-0.8em] at (f.south) {\small Système};
-\node[yshift=-0.8em] at (g.south) {\small Capteur};
-\node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
-\node[yshift=-0.8em] at (S.south) {\small Sortie};
-\node[yshift=2em,xshift=2.8em] at (P.east) {\small Perturbation};
-\draw[dvtb]  (-0.8,-4) rectangle node[col1,xshift=-3.2em,yshift=7em] 
-             {\textbf{Chaîne d'information}}(6.45,2.5);
-\draw[dvtr]  (6.7,-4)  rectangle node[col4,xshift=-5.9em,yshift=7em]  
-             {\textbf{Chaîne d'énergie}    }(14.8,2.5);
-\draw[dvtgf] (4,1)     -- node[col3,above] {Chaîne direct}    (14,1) ;
-\draw[dvtgf] (14,-3.7) -- node[col3,above] {Chaîne de retour} (4,-3.7) ;
-\end{tikzpicture}
+    \tikzsetnextfilename{asser-chap5-ext}
+    \input{tikz/asser-chap5.tex}
 \end{center}
 \captionof{figure}{Décomposition en chaîne d'information et chaîne 
                    d'énergie d'un schéma bloc d'asservissement 
@@ -662,19 +488,8 @@ est conservé en boucle fermée par l'asservissement.}
 
 Considérons un système intégrateur asservi et régi par le schéma-bloc suivant :
 \begin{center}
-\tikzsetnextfilename{asser_int-chap5-ext}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp{a}{E}
-        \sbRelier[$E(p)$]{E}{a}
-       % \sbBloc{b}{$C(p)$}{a}
-        \sbBloc{b}{$\dfrac{K}{p}$}{a}
-        \sbRelier{a}{b}
-        \sbSortie[4]{S}{b}
-        \sbRelier{b}{S}
-        \sbRenvoi{b-S}{a}{}
-        \sbNomLien[0.8]{S}{$S(p)$}
-    \end{tikzpicture}
+    \tikzsetnextfilename{asser_int-chap5-ext}
+    \input{tikz/asser_int-chap5.tex}
 \end{center}
 
 La fonction de transfert en boucle ouverte $H_{BO}(p)$ est telle que :
@@ -707,19 +522,8 @@ système intrinsèquement instable.}
 Considérons un système du premier ordre asservi et régi par le schéma-bloc 
 suivant :
 \begin{center}
-\tikzsetnextfilename{asser_1er-chap5-ext}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp{a}{E}
-        \sbRelier[$E(p)$]{E}{a}
-       % \sbBloc{b}{$C(p)$}{a}
-        \sbBloc{b}{$\dfrac{K}{1+\tau p}$}{a}
-        \sbRelier{a}{b}
-        \sbSortie[4]{S}{b}
-        \sbRelier{b}{S}
-        \sbRenvoi{b-S}{a}{}
-        \sbNomLien[0.8]{S}{$S(p)$}
-    \end{tikzpicture}
+    \tikzsetnextfilename{asser_1er-chap5-ext}
+    \input{tikz/asser_1er-chap5.tex}
 \end{center}
 La fonction de transfert en boucle ouverte $H_{BO}(p)$ du procédé est alors 
 tel que:
@@ -763,19 +567,8 @@ fermée sont  $K_{BF}\in[0,1[$ et  $\tau_{BF}\in]0,\tau]$
 Considérons un système du second ordre asservi et régi par le schéma-bloc 
 suivant :
 \begin{center}
-\tikzsetnextfilename{asser_2nd-chap5-ext}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp{a}{E}
-        \sbRelier[$E(p)$]{E}{a}
-       % \sbBloc{b}{$C(p)$}{a}
-        \sbBloc{b}{$\dfrac{K\omega^2_0}{\omega^2_0+2\xi\omega_0p+p^2}$}{a}
-        \sbRelier{a}{b}
-        \sbSortie[4]{S}{b}
-        \sbRelier{b}{S}
-        \sbRenvoi{b-S}{a}{}
-        \sbNomLien[0.8]{S}{$S(p)$}
-    \end{tikzpicture}
+    \tikzsetnextfilename{asser_2nd-chap5-ext}
+    \input{tikz/asser_2nd-chap5.tex}
 \end{center}
 La fonction de transfert en boucle ouverte du procédé $H_{BO}(p)$ est tel que:
 $$

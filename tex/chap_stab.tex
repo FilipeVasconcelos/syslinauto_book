@@ -752,13 +752,14 @@ pour respecter le critère du revers dans le plan de Bode
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Critère de Nyquist}
+\section{Critère de Nyquist\index{Critère de stabilité!Critère de Nyquist}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Le critère de Nyquist généralise le critère du revers.
-Il s'appui sur le principe de l'argument de Cauchy
+Il s'appuie sur le principe de l'argument de Cauchy
+\footnote{Augustin Louis Cauchy (1789-1857), mathématicien français (X1807)}
 \footnote{Nous ne donnerons qu'une présentation élémentaire et sans 
 démonstration de ce théorème. Un cours d'analyse complexe permettra de 
 compléter cette présentation. On trouvera dans \cite{laas_pc7bis,reg}, 
@@ -766,7 +767,10 @@ une introduction plus détaillée ainsi qu'une bibliographie très fournie
 sur le sujet.}. Nous suivrons la présentation \og graphique\fg~ de ce théorème 
 et du critère de Nyquist donné par~\cite{reg}. 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Principe de l'argument de Cauchy}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Soit un contour $\mathcal{C}$ parcourant le plan complexe de 
 la variable $p$ dans le sens des aiguilles d'une montre et $F(p)$ une fonction 
@@ -775,7 +779,8 @@ principe de l'argument de Cauchy permet de relier, le nombre de pôles $P$ et
 de zéros $Z$ entourées par le contour $\mathcal{C}$ au comportement de la 
 courbe $F(\mathcal{C})$ image $F(p)$ de $\mathcal{C}$.
 
-\begin{theorem}{\'Enoncé du principe de l'argument de Cauchy} 
+\begin{theorem}{\'Enoncé du principe de l'argument de Cauchy
+    \index{Principe de l'argument de Cauchy}} 
     Si un contour $\mathcal{C}$ contient $Z$ zéros et $P$ pôles d'une fonction 
     analytique $F(p)$ sans en traverser aucun, alors quand on le parcourt dans 
     le sens anti-trigonométrique, le contour $\Gamma=F(\mathcal{C})$ fait un 

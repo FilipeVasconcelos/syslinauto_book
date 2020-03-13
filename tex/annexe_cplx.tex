@@ -43,34 +43,9 @@ de $z$ par rapport à l'axe des réels (\Cref{fig-plan_complexe}).
 
 
 \begin{figure}[!h]
-\captionsetup{width=0.8\linewidth}
-\begin{center}
-\tikzsetnextfilename{plan_complexe-annexeE-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    axis lines = center,
-    minor tick num=1,
-    ticks=both,
-    xlabel=$\Re{z}$,
-    ylabel=$\Im{z}$,
-    ymin=-4,
-    ymax=+4.9,
-    xmin=-5,
-    xmax=+4.9
-    ]
-    \addplot [col4, mark = *] coordinates {( 0, 0)} {};
-    \addplot [col4, mark = *] coordinates {( 2, -3)} {};
-    \addplot [col4, mark = *] coordinates {( 2, 3)} {};
-    \addplot [col4, mark = *] coordinates {( -1, 1)} {};
-
-    \node [below right,col4] at (axis cs:  0, 0) {$0$};
-    \node [right, col4]       at (axis cs:  2, -3) {$2-3j$};
-    \node [above, col4]       at (axis cs:  2, 3) {$2+3j$};
-    \node [left, col4]        at (axis cs:  -1, 1) {$-1+j$};
-\end{axis}
-\end{tikzpicture}
-\end{center}
+    \centering
+    \tikzsetnextfilename{plan_complexe-annexe_cplx-ext}
+    \input{tikz/plan_complexe-annexe_cplx.tex}
     \caption{Exemple de représentation géométrique en coordonnées cartésiennes 
              de différents nombres complexes. Les nombres complexes $2+3j$ et 
              $2-3j$ sont conjugués l'un de l'autre. Ces points sont symétriques
@@ -109,38 +84,9 @@ Soient $z_1$ et $z_2$ deux nombres complexes.
 \end{itemize}
 
 \begin{figure}[!h]
-\begin{center}
-\tikzsetnextfilename{plan_complexe_2-annexeE-ext}
-\begin{tikzpicture}
-\begin{axis}
-    [
-    axis lines = center,
-    minor tick num=1,
-    ticks=both,
-    xlabel=$\Re{z}$,
-    ylabel=$\Im{z}$,
-    ymin=-4,
-    ymax=+4.9,
-    xmin=-5,
-    xmax=+4.9
-    ]
-    \addplot [col4, mark = *] coordinates {( 0, 0)} {};
-    \addplot [col4, mark = *] coordinates {( 2, 3)} {};
-    \addplot [col4, mark = *] coordinates {( 2, -3)} {};
-    \node [below left, col4] at (axis cs:  0, 0) {$0$};
-    \node [above, col4]       at (axis cs:  2, 3) {$2+3j$};
-    \node [below, col4]       at (axis cs:  2,-3) {$2-3j$};
-    \draw[col4] (axis cs:0,0) -- (axis cs:  2, 3) 
-    node[midway,yshift=1.1em,xshift=-0.2em] {$|z|$};
-    \draw[col4] (axis cs:0,0) -- (axis cs:  2,-3) 
-    node[midway,yshift=-1.1em,xshift=-0.2em] {$|\bar{z}|$};
-    \draw[col4] (axis cs:1.0,0) arc (0:40:1cm) 
-    node[midway,yshift=0.2em,xshift=0.6em] {$\theta$};
-    \draw[col4] (axis cs:1.0,0) arc (0:-40:1cm) 
-    node[midway,yshift=0.2em,xshift=0.6em] {$-\theta$};
-\end{axis}
-\end{tikzpicture}
-\end{center}
+    \centering
+    \tikzsetnextfilename{plan_complexe_2-annexe_cplx-ext}
+    \input{tikz/plan_complexe_2-annexe_cplx.tex}
     \caption{Exemple de représentation géométrique en coordonnées polaires 
              d'un nombre complexe. Le nombre complexe $z=2+3j$ s'écrit sous 
              la forme polaire $z=|z|e^{i\theta}$ avec 
@@ -203,37 +149,8 @@ Rappelons la représentation graphique de la fonction $\arctan$:
 
 \begin{figure}[!ht]
     \centering
-\tikzsetnextfilename{arctangente-annexeE-ext}
-    \begin{tikzpicture}
-        \begin{axis}[
-        axis line style = thick,
-        clip=false,
-        height=5cm,
-        width=10cm,
-        axis x line=center,
-        axis y line=center,
-        xmin=-7,
-        xmax=7,
-        ymin=-2,
-        ymax=2,
-        xlabel={$x$},
-        ylabel={$\arctan{(x)}$},
-        xlabel style={below right},
-        ylabel style={above left},
-        ytick={1.5707963267948966},
-        yticklabels={$\dfrac{\pi}{2}$},
-        extra y ticks={-1.5707963267948966},
-        extra y tick labels={$-\dfrac{\pi}{2}$},
-        extra y tick style={
-              yticklabel style={xshift=0.5ex, anchor=west}
-        },
-        xtick={-6,-4,-2,0,2,4,6},
-        ]
-        \addplot [signalb,domain=-7:7]{rad(atan(x))};
-        \addplot [col1,thick,dashed,domain=0:7,samples=10]{pi/2};
-        \addplot [col1,thick,dashed,domain=-7:0,samples=10]{-pi/2};
-        \end{axis}
-    \end{tikzpicture}
+    \tikzsetnextfilename{arctangente-annexe_cplx-ext}
+    \input{tikz/arctangente-annexe_cplx.tex}
     \caption{Représentation graphique de la fonction arc tangente.
              \label{fig-arctangente}}
 \end{figure}
@@ -265,56 +182,11 @@ s'exprimer sous forme d'exponentielle complexe:
 \end{align*}
 
 \begin{figure}[!ht]
-\centering
-\tikzsetnextfilename{cercle_trigo-annexeE-ext}
-\begin{tikzpicture}[scale=2.5,cap=round,>=latex]
-    % draw the coordinates
-    \draw[->] (-1.7cm,0cm) -- (1.7cm,0cm) node[right,fill=white] {$x$};
-    \draw[->] (0cm,-1.7cm) -- (0cm,1.7cm) node[above,fill=white] {$y$};
-    % draw each angle in radians
-    \foreach \x/\xtext in 
-    {
-        30/\dfrac{\pi}{6},
-        45/\dfrac{\pi}{4},
-        60/\dfrac{\pi}{3},
-        90/\dfrac{\pi}{2},
-        120/\dfrac{2\pi}{3},
-        135/\dfrac{3\pi}{4},
-        150/\dfrac{5\pi}{6},
-        180/\pi,
-        210/\dfrac{7\pi}{6},
-        225/\dfrac{5\pi}{4},
-        240/\dfrac{4\pi}{3},
-        270/\dfrac{3\pi}{2},
-        300/\dfrac{5\pi}{3},
-        315/\dfrac{7\pi}{4},
-        330/\dfrac{11\pi}{6},
-        360/2\pi}
-    \draw (\x:1.2cm) node[fill=white] {\scalebox{.8}{$\xtext$}};
-        % draw the horizontal and vertical coordinates
-        % the placement is better this way
-    \draw (-1.5cm,0cm) node[above=1pt] {\scalebox{.6}{$(-1,0)$}}
-          (1.5cm,0cm)  node[above=1pt] {\scalebox{.6}{$(1,0)$}}
-          (0cm,-1.5cm) node[fill=white] {\scalebox{.6}{$(0,-1)$}}
-          (0cm,1.5cm)  node[fill=white] {\scalebox{.6}{$(0,1)$}};
-     \draw[thick] (0cm,0cm) circle(1cm);
-     \foreach \x in {0,30,45,60,90,120,135,150,180,210,
-                     225,240,270,300,315,330,360} 
-     {
-        \filldraw[black] (\x:1cm) circle(0.6pt);
-     }
-     \draw[col4]   (-0.5cm,-0.87cm) rectangle (0.5cm,0.87cm);
-     \draw[col3] (-0.71cm,-0.71cm) rectangle (0.71cm,0.71cm);
-     \draw[col1]  (-0.87cm,-0.5cm) rectangle (0.866025cm,0.5cm);
-     \node[above left,xshift=0.1em,col4] at (0.5,0) 
-    {\scalebox{0.6}{$\dfrac{1}{2}$}};
-     \node[above left,xshift=0.2em,col3] at (0.707106,0) 
-    {\scalebox{0.6}{$\dfrac{\sqrt{2}}{2}$}};
-     \node[above left,xshift=0.2em,col1] at (0.866025,0) 
-    {\scalebox{0.6}{$\dfrac{\sqrt{3}}{2}$}};
-\end{tikzpicture}
-\caption{Quelques points particuliers du cercle 
-         trigonométrique ou cercle unité.}
+    \centering
+    \tikzsetnextfilename{cercle_trigo-annexe_cplx-ext}
+    \input{tikz/cercle_trigo_annexe_cplx.tex}
+    \caption{Quelques points particuliers du cercle 
+             trigonométrique ou cercle unité.}
 \end{figure}
 \afterpage{\clearpage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

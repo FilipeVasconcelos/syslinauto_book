@@ -77,14 +77,8 @@ Soit un système caractérisé par la fonction de transfert $H(p)$
 est sollicité par l'entrée $E(p)$. La sortie $S(p)$ est alors donnée par :
 
 \begin{center}
-\tikzsetnextfilename{sb_bloc1-chap6-ext}
-\begin{tikzpicture}
-    \sbEntree{E}
-    \sbBloc[3]{H}{$H(p)$}{E}
-    \sbRelier[$E(p)$]{E}{H}
-    \sbSortie[3]{S}{H}
-    \sbRelier[$S(p)$]{H}{S}
-\end{tikzpicture}
+    \tikzsetnextfilename{sb_bloc1-chap6-ext}
+    \input{tikz/sb_bloc1-chap6.tex}
 \end{center}
 
 L'erreur statique est alors donnée par :
@@ -95,8 +89,6 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Exemple d'un premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Rappelons qu'il est possible de corriger la précision 
-%d'un système en boucle ouverte. 
 Prenons l'exemple d'un système du 1er ordre de fonction de transfert canonique 
 $H(p)=\dfrac{K}{1+\tau p}$ que l'on sollicite avec un échelon 
 d'amplitude (consigne) $E_0$.
@@ -138,17 +130,8 @@ Considérons le cas d'un système asservi de fonction de transfert $H(p)$
 par une boucle de contre-réaction à retour unitaire.
 
 \begin{center}
-\tikzsetnextfilename{sb_bloc3-chap6-ext}
-\begin{tikzpicture}
-    \sbEntree{E}
-    \sbComp{comp1}{E}
-    \sbRelier[$E(p)$]{E}{comp1}
-    \sbBloc[3]{H}{$H(p)$}{comp1}
-    \sbRelier[$\epsilon(p)$]{comp1}{H}
-    \sbSortie[3]{S}{H}
-    \sbRelier[$S(p)$]{H}{S}
-    \sbRenvoi[4]{H-S}{comp1}{}
-\end{tikzpicture}
+    \tikzsetnextfilename{sb_bloc2-chap6-ext}
+    \input{tikz/sb_bloc2-chap6.tex}
 \end{center}
 
 La~\gls{ftbo} est simplement donnée par $H(p)$. Dans le cas le plus
@@ -304,7 +287,7 @@ On considère maintenant l'effet d'une perturbation sur la précision d'un
 système asservis.
 Sans perte de généralité, on ne considèrera que le cas d'une perturbation 
 en entrée (c'est à dire en amont d'un système linéaire défini par une fonction 
-de transfert $H_2(p)$, la présence d'un correcteur $H_1(p)$ n'est pas 
+de transfert $H_2(p)$), la présence d'un correcteur $H_1(p)$ n'est pas 
 obligatoire mais facilite l'interprétation des résultats.
 
 Considérons le schéma bloc suivant avec les fonctions de transfert $H_1(p)$ 
@@ -317,18 +300,10 @@ de les gains statiques $K_i$, de classe $\alpha_i$, de polynômes $N_i(p)$
 et $D_i(p)$ tels que $N_i(0)=$ et $D_i(0)=0$.
 
 \begin{center}
-\tikzsetnextfilename{reduc_mult1-chap6-ext}
-\begin{tikzpicture}
-    \cpbruni[$E(p)$]
-        [$\epsilon(p)$]
-        [$H_1(p)$]
-        []
-        [ ]
-        [$P(p)$]
-        [$H_2(p)$]
-        []
-        [$S(p)$]
-\end{tikzpicture}
+    \tikzsetnextfilename{reduc_mult1-chap6-ext}
+    \begin{tikzpicture}
+    \cpbruni[$E(p)$][$\epsilon(p)$][$H_1(p)$][][ ][$P(p)$][$H_2(p)$][][$S(p)$]
+    \end{tikzpicture}
 \end{center}
 
 Pour déterminer l'écart à la consigne d'un tel système, il faut déterminer
@@ -413,19 +388,8 @@ Nous allons voir ici le rejet d'une perturbation d'un système du premier ordre.
 On considère le système du premier ordre, en boucle ouverte, placé dans une 
 boucle de contre réaction unitaire avec un intégrateur comme ci-dessous :
 \begin{center}                           
-\tikzsetnextfilename{pert2-chap6-ext}
-    \begin{tikzpicture}                  
-    \sbEntree{E}
-    \sbComp{comp1}{E}
-    \sbRelier[$E(p)$]{E}{comp1}
-    \sbBloc[3]{C}{$\dfrac{1}{p}$}{comp1}
-    \sbRelier[$\epsilon(p)$]{comp1}{C}
-    \sbBloc[3]{H}{$\dfrac{1}{p+1}$}{C}
-    \sbRelier[]{C}{H}
-    \sbSortie[3]{S}{H}
-    \sbRelier[$S(p)$]{H}{S}
-    \sbRenvoi[4]{H-S}{comp1}{}
-    \end{tikzpicture}                    
+    \tikzsetnextfilename{pert2-chap6-ext}
+    \input{tikz/pert2-chap6.tex}
 \end{center}                             
 On souhaite réguler ce système pour une consigne en échelon.
 D'après les résultats précédents, l'erreur statique de position est nulle 
@@ -446,49 +410,13 @@ L'erreur statique de position totale est donc non nulle. La perturbation
 n'est pas rejétée comme on peut le voir sur la simulation de la réponse
 temporelle globale de ce système (c.f~\cref{fig-pert1}).
 \begin{figure}[!h]
-\centering
-\tikzsetnextfilename{pert1_data-chap6-ext}
-\begin{tikzpicture}
-    \begin{axis}
-    [   legend style={draw=none,font=\normalsize},
-        legend pos=outer north east,
-        axis line style = thick,
-        width=0.45\textwidth,
-        xmin=0,
-        xmax=30,
-        ymin=0,
-        ymax=1.75,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        label style={font=\Large},
-        legend cell align={left},
-    ]%
-        \addplot[mark=none,vtb] table {scilab/pert1_data.tab};
-        \addplot[col4,thick,domain=0:15] {1};   %échelon
-        \addplot[col4,thick,domain=15:30] {1.5}; %pertubation
-        \addplot[col4,thick,domain=-2:0] {0};
-        \draw[col4,thick,dashed] (0,0)--(0,1);   %échelon
-        \draw[col4,thick,dashed] (15,1)--(15,1.5);   %échelon
-    \end{axis}
-    \begin{scope}[shift={(-10,2.3)}]
-        \sbEntree{E}
-        \sbCompSum{comp1}{E}{+}{-}{+}{}
-        \sbRelier[$E(p)$]{E}{comp1}
-        \sbBloc[2.5]{C}{$\dfrac{1}{p}$}{comp1}
-        \sbRelier[$\epsilon(p)$]{comp1}{C}
-        \sbBloc[3]{H}{$\dfrac{1}{p+1}$}{C}
-        \sbRelier[]{C}{H}
-        \sbSortie[3]{S}{H}
-        \sbRelier[$S(p)$]{H}{S}
-        \sbRenvoi[4]{H-S}{comp1}{}
-        \sbDecaleNoeudy[-2.5]{comp1}{P}
-        \sbRenvoiF[-2.5]{P}{comp1}{$P(p)$}
-    \end{scope}
-\end{tikzpicture}
-\caption{Effet de la perturbation sur la réponse temporelle dans le cas
-         où l'intégrateur est en aval de la perturbation. La simulation 
-         de la réponse temporelle est obtenue pour les paramètres suivants:
-         $E_0=1$, $\tau=15$\label{fig-pert1}}
+    \centering
+    \tikzsetnextfilename{pert1_data-chap6-ext}
+    \input{tikz/pert1_data-chap6.tex}
+    \caption{Effet de la perturbation sur la réponse temporelle dans le cas
+             où l'intégrateur est en aval de la perturbation. La simulation 
+             de la réponse temporelle est obtenue pour les paramètres suivants:
+             $E_0=1$, $\tau=15$\label{fig-pert1}}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Si l'intégrateur est en amont de la perturbation}
@@ -501,54 +429,15 @@ L'erreur statique de position totale est donc nulle. La perturbation
 est rejétée, comme on peut le voir sur la simulation de la réponse
 temporelle globale de ce système (c.f~\cref{fig-pert2}).
 \begin{figure}[!h]
-\centering
-\tikzsetnextfilename{pert2_data-chap6-ext}
-\begin{tikzpicture}
-    \begin{axis}
-    [   legend style={draw=none,font=\normalsize},
-        legend pos=outer north east,
-        axis line style = thick,
-        width=0.45\textwidth,
-        xmin=0,
-        xmax=30,
-        ymin=0,
-        ymax=1.75,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        label style={font=\Large},
-        legend cell align={left},
-    ]%
-        \addplot[mark=none,vtb] table {scilab/pert2_data.tab};
-        \addplot[col4,thick,domain=0:15] {1};   %échelon
-        \addplot[col4,thick,domain=15:30] {1.5}; %pertubation
-        \addplot[col4,thick,domain=-2:0] {0};
-        \draw[col4,thick,dashed] (0,0)--(0,1);   %échelon
-        \draw[col4,thick,dashed] (15,1)--(15,1.5);   %échelon
-    \end{axis}
-    \begin{scope}[shift={(-10,2.3)}]
-        \sbEntree{E1}
-        \sbComp{comp}{E1}
-        \sbRelier[$E(p)$]{E1}{comp}
-        \sbBloc[2]{C1}{$\dfrac{1}{p}$}{comp}
-        \sbRelier[$\epsilon(p)$]{comp}{C1}
-        \sbCompSum[4.0]{pert}{C1}{+}{}{+}{}
-        \sbRelier[]{C1}{pert}
-        \sbBloc[1.5]{B1}{$\dfrac{1}{p+1}$}{pert}
-        \sbRelier{pert}{B1}
-        \sbSortie[2.5]{S1}{B1}
-        \sbRelier[$S(p)$]{B1}{S1}
-        \sbRenvoi[4]{B1-S1}{comp}{}
-        \sbDecaleNoeudy[-2.5]{pert}{P}
-        \sbRenvoiF[-2.5]{P}{pert}{$P(p)$}
-    \end{scope}
-\end{tikzpicture}
-\caption{Effet de la perturbation sur la réponse temporelle dans le cas
-         où l'intégrateur est en amont de la perturbation. La simulation
-         de la réponse temporelle est obtenue pour les paramètres suivants: 
-         $E_0=1$, $\tau=15$\label{fig-pert2}}
+    \centering
+    \tikzsetnextfilename{pert2_data-chap6-ext}
+    \input{tikz/pert2_data-chap6.tex}
+    \caption{Effet de la perturbation sur la réponse temporelle dans le cas
+             où l'intégrateur est en amont de la perturbation. La simulation
+             de la réponse temporelle est obtenue pour les paramètres suivants: 
+             $E_0=1$, $\tau=15$\label{fig-pert2}}
 \end{figure}
 \clearpage
->>>>>>> 68a309f2690e33b833ce74ce2d91191d920ecac5
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -590,87 +479,14 @@ réponse à 5\% correspond au temps pour lequel le signal de la réponse reste
 dans une bande à 5\% autour de la valeur finale. 
 
 \begin{figure}[!h]
-\centering
-\tikzsetnextfilename{rapidite_t5pc_1-chap6-ext}
-\begin{tikzpicture}
-    \pgfmathsetmacro{\kk}{1.75}
-    \pgfmathsetmacro{\t}{1.0}
-    \pgfmathsetmacro{\mc}{0.95*\kk}
-    \pgfmathsetmacro{\pc}{1.05*\kk}
-    \begin{axis}
-    [   axis line style = thick,
-	ticks=none,
-        width=0.45\textwidth,
-        axis x line=center,
-        axis y line=center,
-        xmin=-1,
-        xmax=6,
-        ymin=0,
-        ymax=2.25,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        clip=false,
-    ]
-    \addplot[signalb,domain=-1:0] {0};
-    \addplot[signalb,domain=0:6]  {\kk*(1-exp(-x/\t))};
-    \draw[dtb] (axis cs:0,\mc) -- (axis cs:6,\mc);
-    \draw[dtb] (axis cs:0,\pc) -- (axis cs:6,\pc);
-    \draw[dvtr] (axis cs:3*\t,0) node[below] {\small $t_{5\%}$} 
-             -- (axis cs:3*\t,\mc);
-    \node[right] at (axis cs:6,\kk) {\small $s(\infty)$};
-    \draw[dtb,{Latex[length=1.25mm]}-{Latex[length=1.25mm]}](axis cs:-0.25,\mc) 
-    -- node[midway,left] {\small $\pm5\%$} (axis cs:-0.25,\pc);
-    \draw[fill=col4,col4] (axis cs:3*\t,\mc) circle (1.5pt);
-    \end{axis}
-\end{tikzpicture}
-\tikzsetnextfilename{rapidite_t5pc_2-chap6-ext}
-\pgfmathdeclarefunction{func}{1}{%
-    \pgfmathparse{%
-    1-((1./sqrt(1-#1*#1))*exp(-#1*x)*
-    sin(deg(x)*sqrt(1-#1*#1)+atan(sqrt(1-#1*#1)/#1)))
-    }%
-}
-\begin{tikzpicture}
-    \pgfmathsetmacro{\kk}{1.75}
-    \pgfmathsetmacro{\xm}{10.0}
-    \pgfmathsetmacro{\ym}{1.5*\kk}
-    \pgfmathsetmacro{\mc}{0.95*\kk}
-    \pgfmathsetmacro{\pc}{1.05*\kk}
-    \pgfmathsetmacro{\a}{0.48}               % amortissement xi
-    \pgfmathsetmacro{\tr}{5.2}               % temps de réponse à 5%
-    \begin{axis}
-    [   axis line style = thick,
-        axis x line=center,
-        axis y line=center,
-	ticks=none,
-        width=0.45\textwidth,
-        xmin=-1.0,
-        xmax=\xm,
-        ymin=0,
-        ymax=2.25,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        clip=false,
-    ]
-    \addplot[signalb,domain=-1:0] {0}                ;
-    \addplot[signalb,domain=0:\xm] {\kk*func(\a)}    ;
-    \draw[dtb] (axis cs:0,\mc) -- (axis cs:\xm,\mc)  ;
-    \draw[dtb] (axis cs:0,\pc) -- (axis cs:\xm,\pc)  ;
-    \node[right] at (axis cs:\xm,\kk) {\small $s(\infty)$}  ;
-    \draw[dvtr] (axis cs:\tr,0) node[below] {\small $t_{5\%}$} 
-             -- (axis cs:\tr,\pc);
-    \draw[dtb,{Latex[length=1.25mm]}-{Latex[length=1.25mm]}](axis cs:-0.25,\mc) 
-    -- node[midway,left] {\small $\pm5\%$} (axis cs:-0.25,\pc);
-    \draw[fill=col4,col4] (axis cs:\tr,\pc) circle (1.5pt);
-    \end{axis}
-\end{tikzpicture}
-\caption{Définition du temps de réponse à 5\% : (à gauche) dans le cas
-         d'une résonse temporelle sans pseudo-oscillations et (à droite) 
-         dans le cas d'un réponse temporelle avec pseudo-oscillations}
+    \centering
+    \tikzsetnextfilename{rapidite_t5pc_1-chap6-ext}
+    \input{tikz/rapidite_t5pc_1-chap6.tex}
+    \tikzsetnextfilename{rapidite_t5pc_2-chap6-ext}
+    \input{tikz/rapidite_t5pc_2-chap6.tex}
+    \caption{Définition du temps de réponse à 5\% : (à gauche) dans le cas
+             d'une résonse temporelle sans pseudo-oscillations et (à droite) 
+             dans le cas d'un réponse temporelle avec pseudo-oscillations}
 \end{figure}
 
 Il apparait clair que dans le cas d'une réponse présentant des oscillations,
@@ -688,99 +504,14 @@ jamais atteinte en un temps fini. Cette dernière définition
 n'a donc de sens qu'en régime pseudo-périodique.
 
 \begin{figure}[!h]
-\centering
-\tikzsetnextfilename{rapidite_tm_1-chap6-ext}
-\begin{tikzpicture}
-    \pgfmathsetmacro{\kk}{1.75}
-    \pgfmathsetmacro{\t}{1.5}
-    \pgfmathsetmacro{\mc}{0.10*\kk}
-    \pgfmathsetmacro{\pc}{0.90*\kk}
-    \pgfmathsetmacro{\xm}{10}
-    \pgfmathsetmacro{\tu}{0.15}  % tm = td-tu
-    \pgfmathsetmacro{\td}{3.5} 
-    \begin{axis}
-    [   axis line style = thick,
-	ticks=none,
-        width=0.45\textwidth,
-        axis x line=center,
-        axis y line=center,
-        xmin=-1,
-        xmax=\xm,
-        ymin=0,
-        ymax=2.25,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        clip=false,
-    ]
-    \addplot[signalb,domain=-1:0] {0};
-    \addplot[signalb,domain=0:\xm]  {\kk*(1-exp(-x/\t))};
-    \draw[dtb] (axis cs:0,\mc) node[left] {\small 10\%}-- (axis cs:\xm,\mc);
-    \draw[dtb] (axis cs:0,\pc) node[left] {\small 90\%}-- (axis cs:\xm,\pc);
-    \draw[dvtr] (axis cs:\tu,0) node[below] {\small $t_1$} -- (axis cs:\tu,\mc);
-    \draw[dvtr] (axis cs:\td,0) node[below] {\small $t_2$} -- (axis cs:\td,\pc);
-    \node[right] at (axis cs:\xm,\kk) {\small $s(\infty)$};
-    \draw[fill=col4,col4] (axis cs:\tu,\mc) circle (1.25pt);
-    \draw[fill=col4,col4] (axis cs:\td,\pc) circle (1.25pt);
-    \draw[vtr,{Latex[length=2mm]}-{Latex[length=2mm]}](axis cs:\tu,-0.4)
-    -- node[midway,below] {\small $t_m=t_2-t_1$} (axis cs:\td,-0.4);
-    \end{axis}
-\end{tikzpicture}
-\tikzsetnextfilename{rapidite_tm_2-chap6-ext}
-\pgfmathdeclarefunction{func}{1}{%
-    \pgfmathparse{%
-    1-((1./sqrt(1-#1*#1))*exp(-#1*x)*
-    sin(deg(x)*sqrt(1-#1*#1)+atan(sqrt(1-#1*#1)/#1)))
-    }%
-}
-\begin{tikzpicture}
-    \pgfmathsetmacro{\kk}{1.75}
-    \pgfmathsetmacro{\xm}{8.0}
-    \pgfmathsetmacro{\ym}{1.5*\kk}
-    \pgfmathsetmacro{\mc}{0.10*\kk}
-    \pgfmathsetmacro{\pc}{0.90*\kk}
-    \pgfmathsetmacro{\a}{0.55}               % amortissement xi
-    \pgfmathsetmacro{\tu}{0.51}  % tm = td-tu
-    \pgfmathsetmacro{\td}{2.2} 
-    \pgfmathsetmacro{\tvf}{2.6} % tm,vf
-    \begin{axis}
-    [   axis line style = thick,
-        axis x line=center,
-        axis y line=center,
-	ticks=none,
-        width=0.45\textwidth,
-        xmin=-1.0,
-        xmax=\xm,
-        ymin=0,
-        ymax=2.25,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        xlabel style={below right},
-        ylabel style={above left},
-        clip=false,
-    ]
-    \addplot[signalb,domain=-1:0] {0}                ;
-    \addplot [signalb,domain=0:\xm] {\kk*func(\a)}   ;
-    \draw[dtb] (axis cs:0,\mc) node[left] {\small 10\%}-- (axis cs:\xm,\mc);%10%
-    \draw[dtb] (axis cs:0,\pc) node[left] {\small 90\%}-- (axis cs:\xm,\pc);%90%
-    \draw[dtn] (axis cs:0,\kk) -- (axis cs:\xm,\kk);                  % vf
-    \node[right] at (axis cs:\xm,\kk) {\small $s(\infty)$}  ;
-    \draw[fill=col4,col4] (axis cs:\tu,\mc) circle (1.25pt);
-    \draw[fill=col4,col4] (axis cs:\td,\pc) circle (1.25pt);
-    \draw[fill=black]   (axis cs:\tvf,\kk) circle (1.25pt);
-    \draw[dvtr] (axis cs:\tu,0) node[below] {\small$t_1$} -- (axis cs:\tu,\mc);
-    \draw[dvtr] (axis cs:\td,0) node[below,xshift=-0.5em] {\small$t_2$} 
-        -- (axis cs:\td,\pc);
-    \draw[dvtn] (axis cs:\tvf,0)node[below,xshift=0.75em]  {\small$t_{M}$} 
-        -- (axis cs:\tvf,\kk);
-    \draw[vtr,{Latex[length=2mm]}-{Latex[length=2mm]}](axis cs:\tu,-0.4)
-    -- node[midway,below] {$t_m=t_2-t_1$} (axis cs:\td,-0.4);
-    \end{axis}
-\end{tikzpicture}
-\caption{Définition du temps de montée : (à gauche) dans le cas
-         d'une résonse temporelle sans pseudo-oscillations et (à droite) 
-         dans le cas d'un réponse temporelle avec pseudo-oscillations}
+    \centering
+    \tikzsetnextfilename{rapidite_tm_1-chap6-ext}
+    \input{tikz/rapidite_tm_1-chap6.tex}
+    \tikzsetnextfilename{rapidite_tm_2-chap6-ext}
+    \input{tikz/rapidite_tm_2-chap6.tex}
+    \caption{Définition du temps de montée : (à gauche) dans le cas
+             d'une résonse temporelle sans pseudo-oscillations et (à droite) 
+             dans le cas d'un réponse temporelle avec pseudo-oscillations}
 \end{figure}
 
 Quelque soit la grandeur utilisée pour caractériser les performances de rapidité
@@ -837,8 +568,6 @@ Comme nous l'avons dejà souligné au~\cref{chap-model}, dans le cas d'un systè
 du second ordre, il n'existe pas de forme analytique simple pour déterminer 
 le temps de réponse à 5\%. Celui-ci dépend en effet de la valeur du coefficient 
 d'amortissement $\xi$ et de la pulsation propre du système $\omega_0$.
-Il est cependant possible de tracer les relations entre les temps de réponse
-à 5\%, le temps de montée (les deux définitions 
 
 Pour déterminer le temps de réponse à 5\%, on utilise l'abaque de la 
 figure~\cref{fig-2nd_temps_reponse_1}. Sur cette figure nous avons représenté
@@ -857,47 +586,21 @@ pour $t_{5\%}\cdot\omega_0\sim3$.}
 
 %------------------------------------------------------------------------------
 \begin{figure}
-\centering
-\tikzsetnextfilename{rapidite_tr_2ndordre-chap6-ext}
-\begin{tikzpicture}
-    \begin{axis}
-    [   legend style={draw=none,font=\normalsize},
-        legend pos=outer north east,
-        axis line style = thick,
-        width=0.7001\textwidth,
-        xmin=1e-1,
-        xmax=1e1,
-        ymin=1e0,
-        ymax=1e2,
-        xlabel={$\xi$},
-        ylabel={$t_{5\%}\cdot\omega_0$},
-        label style={font=\Large},
-        legend cell align={left},
-        xmode=log,
-        ymode=log,
-        grid=both,
-        grid style={line width=.4pt, draw=black},
-        major grid style={line width=.4pt,draw=black},
-    ]%
-        \addplot[mark=none,vtb]   table {python/tr.tab};
-        \addplot[mark=none,vtr]   table {python/tm.tab};
-%        \addplot[mark=none,vtn6g] table {python/tp.tab}; % temps de pic
-%        \addplot[mark=none,vtn6g] table {python/tm_vf.tab};
-        \addplot[dutn,domain=0.1:1] {3/x};
-    \end{axis}
-\end{tikzpicture}
-\caption{Caractérisation de la rapidité d'un système du second ordre en
-         fonction du taux d'amortissement $\xi$: par
-         (bleu) le temps de réponse à 5\%,  
-         (rouge) le temps de montée $t_m$.
-         Ces deux temps sont donnés en unité réduite
-         par rapport la pulsation propre $\omega_0$.
-         Le minimum du temps de réponse à 5\% est atteint pour $\xi\sim0.7$ 
-         pour lequel $\omega_0\cdot t_{5\%}\sim3$.
-         Le droite en pointillé représente l'équation approchée 
-         $t_{5\%}\cdot\omega_0\sim\dfrac{3}{\xi}$ pour les faibles valeurs de 
-         $\xi$.
-         \label{fig-2nd_temps_reponse_1}}
+    \centering
+    \tikzsetnextfilename{rapidite_tr_2ndordre-chap6-ext}
+    \input{tikz/rapidite_tr_2ndordre-chap6.tex}
+    \caption{Caractérisation de la rapidité d'un système du second ordre en
+             fonction du taux d'amortissement $\xi$: par
+             (bleu) le temps de réponse à 5\%,  
+             (rouge) le temps de montée $t_m$.
+             Ces deux temps sont donnés en unité réduite
+             par rapport la pulsation propre $\omega_0$.
+             Le minimum du temps de réponse à 5\% est atteint pour $\xi\sim0.7$ 
+             pour lequel $\omega_0\cdot t_{5\%}\sim3$.
+             Le droite en pointillé représente l'équation approchée 
+             $t_{5\%}\cdot\omega_0\sim\dfrac{3}{\xi}$ pour les faibles valeurs de 
+             $\xi$.
+             \label{fig-2nd_temps_reponse_1}}
 \end{figure}
 %------------------------------------------------------------------------------
 \clearpage
@@ -956,45 +659,16 @@ $$}
 
 %------------------------------------------------------------------------------
 \begin{figure}[!b]
-\centering
-\tikzsetnextfilename{rapidite_tr_2ndordre_2-chap6-ext}
-% temps de montée à la valeur finale
-\pgfmathdeclarefunction{func2}{1}{%
-    \pgfmathparse{%
-        (3.14159265-rad(atan(sqrt(1-#1*#1)/#1)))/sqrt(1-#1*#1)
-    }%
-}
-\begin{tikzpicture}
-    \begin{axis}
-    [   legend style={draw=none,font=\normalsize},
-        legend pos=outer north east,
-        axis line style = thick,
-        width=0.7\textwidth,
-        xmin=1e-1,
-        xmax=1e1,
-        ymin=1e0,
-        ymax=1e2,
-        xlabel={$\xi$},
-        ylabel={$t_{5\%}\cdot\omega_0$},
-        label style={font=\Large},
-        legend cell align={left},
-        xmode=log,
-        ymode=log,
-        grid=both,
-        grid style={line width=.4pt, draw=black},
-        major grid style={line width=.4pt,draw=black},
-    ]%
-        \addplot[mark=none,vtb]   table {python/tr.tab};
-        \addplot[vtr,domain=0.1:1,samples=500]   {func2(x)};
-    \end{axis}
-\end{tikzpicture}
-\caption{Caractérisation de la rapidité d'un système du second ordre en
-         fonction du taux d'amortissement $\xi$: par
-         (bleu) le temps de réponse à 5\%,  
-         (rouge) le temps de montée $t_M$ à la valeur finale.
-         Ce dernier est donné par la relation analytique établie dans le 
-         texte (c.f~\cref{eq-tM}). 
-         \label{fig-2nd_temps_reponse_2}}
+    \centering
+    \tikzsetnextfilename{rapidite_tr_2ndordre_2-chap6-ext}
+    \input{tikz/rapidite_tr_2ndordre_2-chap6.tex}
+    \caption{Caractérisation de la rapidité d'un système du second ordre en
+             fonction du taux d'amortissement $\xi$: par
+             (bleu) le temps de réponse à 5\%,  
+             (rouge) le temps de montée $t_M$ à la valeur finale.
+             Ce dernier est donné par la relation analytique établie dans le 
+             texte (c.f~\cref{eq-tM}). 
+             \label{fig-2nd_temps_reponse_2}}
 \end{figure}
 %------------------------------------------------------------------------------
 
@@ -1008,7 +682,7 @@ du second ordre $(K_{BF},\xi_{BF},\omega_{0,BF})$ peuvent
 être obtenues à partir des paramètres de la~\gls{ftbo}. Notamment les relations
 suivantes :
 \begin{align*}
-       K_{BF}&=\dfrac{K}{1+K}\\
+    K_{BF}&=\dfrac{K}{1+K}\\
     \omega_{0,BF}&=\omega_0\sqrt{1+K}\\
     \xi_{BF}&=\dfrac{\xi}{\sqrt{1+K}}
 \end{align*}
@@ -1040,8 +714,6 @@ en boucle fermée.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Définition de la bande passante à -x\si{\dB}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1093,42 +765,16 @@ de transfert $H_1(p)$ domine le temps de réponse de la sortie
 globale $s(t)$.
 
 \begin{figure}[!h]
-\centering
+    \centering
     \tikzsetnextfilename{pole_dominant-chap6-ext}
-    \begin{tikzpicture}[shift={(5,0)}]
-    \begin{axis}
-    [   legend style={draw=none,font=\normalsize},
-        legend pos=north west,
-        axis line style = thick,
-        width=0.65\textwidth,
-        xmin=0,
-        xmax=30,
-        ymin=0,
-        ymax=8,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        label style={font=\Large},
-        legend cell align={left},
-    ]%
-    \addplot[signaln,domain=0:30] {{1}};
-    \addplot[signalv,domain=0:30] {6.25*(1-exp(-x/5))-1.25*(1-exp(-x))};
-    \addplot[signalb,domain=0:30] {6.25*(1-exp(-x/5))};
-    \addplot[signalg,domain=0:30] {1.25*(1-exp(-x))};
-    \legend{échelon,$s(t)$,$s_1(t)$,$s_2(t)$}
-    \end{axis}%
-    \begin{scope}[shift={(11,3)}]
-        \carte[l]
-        \dpole{-0.4}{0}{2}[col1]
-        \dpole{-2}{0}{1}[col1]
-    \end{scope}
-\end{tikzpicture}
-\caption{(à gauche) Réponse indicielle $s(t)$ de la fonction de 
-         transfert donnée par~\cref{eq-ft-chap6}, ainsi que les réponses 
-         indicielles $s_1(t)$ et $s_2(t)$ des fonctions de transferts de 
-         sa décomposition en éléments simples. On constate que la réponse 
-         du pôle dominant ($s_1(t)$) présente un temps de réponse proche 
-         de la réponse globale. (à droite) carte des pôles du système en 
-         question\label{fig-poles_dominants}}
+    \input{tikz/pole_dominant-chap6.tex}
+    \caption{(à gauche) Réponse indicielle $s(t)$ de la fonction de 
+             transfert donnée par~\cref{eq-ft-chap6}, ainsi que les réponses 
+             indicielles $s_1(t)$ et $s_2(t)$ des fonctions de transferts de 
+             sa décomposition en éléments simples. On constate que la réponse 
+             du pôle dominant ($s_1(t)$) présente un temps de réponse proche 
+             de la réponse globale. (à droite) carte des pôles du système en 
+             question\label{fig-poles_dominants}}
 \end{figure}
 
 En conclusion, l'étude des pôles dominants de la fonction de transfert 
