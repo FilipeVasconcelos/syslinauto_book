@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+    \draw[-latex] (0,0) -- (11,0) ;
+    \foreach \x in {1.0,10.0,100.0} {
+        \coordinate (P1) at ({5*log10(\x)},4pt);
+        \coordinate (P2) at ({5*log10(\x)},-4pt);
+        \draw[] (P1) -- (P2);
+    }
+    \foreach \x in {2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,
+                    20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0} 
+    {
+        \coordinate (P1) at ({5*log10(\x)},2pt);
+        \coordinate (P2) at ({5*log10(\x)},-2pt);
+        \draw[] (P1) -- (P2);
+    }
+    \foreach \x in {1,10,100}
+         \node [below,yshift=-0.5em] at ({5*log10(\x)},2pt) {\small \x};
+    \foreach \x in {3,30}
+         \node [above,yshift=0.0em] at ({5*log10(\x)},2pt) {\small \x};
+    \draw[col1,thick] (0,0.2) -- (0,1.2) ;
+    \draw[col1,thick] (5,0.2) -- (5,1.2) ;
+    \draw[col1,thick] (10,0.2) -- (10,1.2) ;
+    \draw[utb,latex-latex] (0,0.75) -- node[above] {$\alpha=10$} (5,0.75);
+    \draw[utb,latex-latex] (5,0.75) -- node[above] {$\alpha=10$} (10,0.75);
+    \draw[col4,thick] (2.386,-0.2) -- (2.386,-1.2) ;
+    \draw[col4,thick] (7.386,-0.2) -- (7.386,-1.2) ;
+    \draw[col4,ultra thick,latex-latex] (2.386,-0.75) -- 
+    node[below] {$\alpha=10$} (7.386,-0.75);
+\end{tikzpicture}

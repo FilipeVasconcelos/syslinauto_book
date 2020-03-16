@@ -43,6 +43,7 @@ cat > standalone/${texname}.tex <<EOF
 \usetikzlibrary{matrix}
 \usetkzobj{all}
 \usepackage{verbatim}
+\usepackage{poles}
 \begin{document}
 EOF
     echo "\begin{figure}[!h]" >> standalone/${texname}.tex

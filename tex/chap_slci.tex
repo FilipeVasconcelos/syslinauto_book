@@ -35,8 +35,8 @@ les systèmes dynamiques linéaires.
 % ------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{systeme-chap0-ext}
-    \input{tikz/systeme-chap0.tex}
+    \tikzsetnextfilename{systeme-chap_slci-ext}
+    \input{tikz/systeme-chap_slci.tex}
     \caption{Représentation d'un système en intéraction avec son environnement. 
              Par définition, un système aura une ou plusieurs entrée/sortie 
              bien définis de flux de~\gls{mei}. Dans le cas général, des 
@@ -104,8 +104,8 @@ que des systèmes monovariables que
 nous représenterons simplement de la façon suivante :
 % ------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{sb_bloc-chap1-ext}
-    \input{tikz/sb_bloc-chap1.tex}
+    \tikzsetnextfilename{sb_bloc-chap_slci-ext}
+    \input{tikz/sb_bloc-chap_slci.tex}
 \end{center}
 % ------------------------------------------------------------------------------
 où $e(t)$ et $s(t)$ sont respectivement les signaux d'entrée et de sortie 
@@ -140,8 +140,8 @@ Un système est dit linéaire si il respecte les deux principes suivants:
     un système linéaire $\Sigma$:
 % ------------------------------------------------------------------------------
     \begin{center}
-    \tikzsetnextfilename{principe_linearite-chap1-ext}
-    \input{tikz/principe_linearite-chap1.tex}
+    \tikzsetnextfilename{principe_linearite-chap_slci-ext}
+    \input{tikz/principe_linearite-chap_slci.tex}
     \end{center}
 % ------------------------------------------------------------------------------
 
@@ -154,16 +154,16 @@ Un système est dit linéaire si il respecte les deux principes suivants:
     suivante pour un système linéaire $\Sigma$:
 % ------------------------------------------------------------------------------
     \begin{center}
-    \tikzsetnextfilename{sb_bloc_e1-chap1-ext}
-    \input{tikz/sb_bloc_e1-chap1.tex}
+    \tikzsetnextfilename{sb_bloc_e1-chap_slci-ext}
+    \input{tikz/sb_bloc_e1-chap_slci.tex}
     \end{center}
 % ------------------------------------------------------------------------------
 
     Notons que ceci reste vrai pour une combinaison linéaire des entrées :
 % ------------------------------------------------------------------------------
     \begin{center}
-    \tikzsetnextfilename{sb_bloc_e2-chap1-ext}
-    \input{tikz/sb_bloc_e2-chap1.tex}
+    \tikzsetnextfilename{sb_bloc_e2-chap_slci-ext}
+    \input{tikz/sb_bloc_e2-chap_slci.tex}
     \end{center}
 % ------------------------------------------------------------------------------
     avec $\alpha\ \text{et}\ \beta\in\mathbb{R}$, ou un nombre quelconques 
@@ -200,8 +200,8 @@ l'aide d'un schéma-bloc ci-dessous
 (avec $\tau$ une temps quelconque.): 
 % ------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{sb_bloc_e3-chap1-ext}
-    \input{tikz/sb_bloc_e3-chap1.tex}
+    \tikzsetnextfilename{sb_bloc_e3-chap_slci-ext}
+    \input{tikz/sb_bloc_e3-chap_slci.tex}
 \end{center}
 % ------------------------------------------------------------------------------
 
@@ -289,8 +289,8 @@ cours du temps.
 % ------------------------------------------------------------------------------
 \begin{figure}[!h]      
     \centering
-    \tikzsetnextfilename{decharge_condensateur-chap0-ext}
-    \input{tikz/decharge_condensateur-chap0.tex}
+    \tikzsetnextfilename{decharge_condensateur-chap_slci-ext}
+    \input{tikz/decharge_condensateur-chap_slci.tex}
     \caption{Circuit RC ouvert.\label{fig-decharge_condensateur}}
 \end{figure}
 % ------------------------------------------------------------------------------
@@ -326,8 +326,8 @@ m\devi{x(t)}{2}+b\devi{x(t)}{}+kx(t)=F(t)
 $$
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{masse_ressort-chap0-ext}
-    \input{tikz/masse_ressort-chap0.tex}
+    \tikzsetnextfilename{masse_ressort-chap_slci-ext}
+    \input{tikz/masse_ressort-chap_slci.tex}
     \caption{(gauche) Système masse-ressort. (droite) Schéma-bloc de ce même 
     système.
     \label{fig-masse-ressort}}
@@ -395,8 +395,8 @@ si ce signal est nul pour tout $t<0$.
 % ------------------------------------------------------------------------------
 \begin{figure}[htb]
     \centering
-    \tikzsetnextfilename{causal-chap1-ext}
-    \input{tikz/causal-chap0.tex}
+    \tikzsetnextfilename{causal-chap_slci-ext}
+    \input{tikz/causal-chap_slci.tex}
 \end{figure}
 %\setlength\intextsep{0pt}
 % ------------------------------------------------------------------------------
@@ -410,8 +410,8 @@ Un signal $s(t-\tau)$ est dit \textbf{retardé} d'un temps $\tau$
 par rapport à $s(t)$, si on lui a fait subir un changement
 d'origine des temps par rapport au signal $s(t)$.
 \begin{center}
-    \tikzsetnextfilename{retarde-chap1-ext}
-    \input{tikz/retarde-chap0.tex}
+    \tikzsetnextfilename{retarde-chap_slci-ext}
+    \input{tikz/retarde-chap_slci.tex}
 \end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -425,8 +425,8 @@ $\omega$ définit par rapport au cercle unité $\omega=2\pi f$.
 %{
 \begin{figure}[!htb]
     \centering
-    \tikzsetnextfilename{periodique-chap1-ext}
-    \input{tikz/periodique-chap0.tex}
+    \tikzsetnextfilename{periodique-chap_slci-ext}
+    \input{tikz/periodique-chap_slci.tex}
 \end{figure}
 %\setlength\intextsep{0pt}
 %}
@@ -463,19 +463,19 @@ sollicitation constante et une sollicitation oscillante).
 
 \begin{figure}[!ht]
     \centering
-    \tikzsetnextfilename{entree_echelon-chap0_ext}
-    \input{tikz/entree_echelon-chap0.tex}
-    \tikzsetnextfilename{stable_echelon-chap0_ext}
-    \input{tikz/stable_echelon-chap0.tex}
-    \tikzsetnextfilename{instable_echelon-chap0_ext}
-    \input{tikz/instable_echelon-chap0.tex}
+    \tikzsetnextfilename{entree_echelon-chap_slci_ext}
+    \input{tikz/entree_echelon-chap_slci.tex}
+    \tikzsetnextfilename{stable_echelon-chap_slci_ext}
+    \input{tikz/stable_echelon-chap_slci.tex}
+    \tikzsetnextfilename{instable_echelon-chap_slci_ext}
+    \input{tikz/instable_echelon-chap_slci.tex}
 
-    \tikzsetnextfilename{entree_harm-chap0_ext}
-    \input{tikz/entree_harm-chap0.tex}
-    \tikzsetnextfilename{stable_harm-chap0_ext}
-    \input{tikz/stable_harm-chap0.tex}
-    \tikzsetnextfilename{instable_harm-chap0_ext}
-    \input{tikz/instable_harm-chap0.tex}
+    \tikzsetnextfilename{entree_harm-chap_slci_ext}
+    \input{tikz/entree_harm-chap_slci.tex}
+    \tikzsetnextfilename{stable_harm-chap_slci_ext}
+    \input{tikz/stable_harm-chap_slci.tex}
+    \tikzsetnextfilename{instable_harm-chap_slci_ext}
+    \input{tikz/instable_harm-chap_slci.tex}
     \caption{Trois exemples de réponses d'un SLCI à des sollicitations bornées :
             (en bleu)  réponses stables 
             (en rouge) réponses instables.\label{fig-stabilite_signaux}}
@@ -526,8 +526,8 @@ impulsion retardée de $\tau$ noté $\delta(t-\tau)$.
 
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{dirac-chap1-ext}
-    \input{tikz/dirac-chap0.tex}
+    \tikzsetnextfilename{dirac-chap_slci-ext}
+    \input{tikz/dirac-chap_slci.tex}
 \end{figure}
 
 L'impulsion de Dirac est expérimentalement approchée par un signal 
@@ -542,8 +542,8 @@ où $e(t)$ est le signal d'entrée du système et $E_0$ la valeur de l'amplitude
 de l'impulsion de Dirac dont l'unité dépend de la nature du problème considéré.
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{dirac_reel-chap1-ext}
-    \input{tikz/dirac_reel-chap0.tex}
+    \tikzsetnextfilename{dirac_reel-chap_slci-ext}
+    \input{tikz/dirac_reel-chap_slci.tex}
     \caption{Représentation de l'impulsion de Dirac approchée. 
              Celle-ci tend vers l'impulsion de Dirac pour $a\to0$. 
              On remarquera que l'aire du rectangle est toujours égale à 1.
@@ -576,8 +576,8 @@ collègues anglo-saxons l'appelle la \og\emph{step function}\fg} à $t=0$.
 Ci dessous nous la représentons avec la fonction retardée $u(t-\tau)$.
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{echelon-chap1-ext}
-    \input{tikz/echelon-chap0.tex}
+    \tikzsetnextfilename{echelon-chap_slci-ext}
+    \input{tikz/echelon-chap_slci.tex}
     \caption{Représentation graphique de (gauche) la fonction échelon-unité 
              et (droite) la fonction échelon-unité retardée de $\tau$
             \label{fig-echelon}}
@@ -626,8 +626,8 @@ $$
 
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{rampe-chap1-ext}
-    \input{tikz/rampe-chap0.tex}
+    \tikzsetnextfilename{rampe-chap_slci-ext}
+    \input{tikz/rampe-chap_slci.tex}
 \caption{Représentation graphique de (gauche) la fonction rampe-unité et 
                                      (droite) la fonction rampe-unité retardée
                                      de $\tau$
@@ -655,8 +655,8 @@ et $\phi$ sa phase (\si{\radian}).
 %\si{\second}.
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{sinusoide-chap0-ext}
-    \input{tikz/sinusoide-chap0.tex}
+    \tikzsetnextfilename{sinusoide-chap_slci-ext}
+    \input{tikz/sinusoide-chap_slci.tex}
     \caption{Représentation de signaux sinuso\"idaux de même pulsation 
              et amplitude. (bleu) de phase $\phi=0$ et 
             (rouge) de phase $\phi=-\dfrac{\pi}{2}$.\label{fig-sin}}
@@ -676,14 +676,14 @@ $\Delta\phi=0$
 &\og en phase\fg      
 &
 {\tikzset{external/export=false}       
-\raisebox{-.5\height}{\input{tikz/sinusoide_enp-chap0.tex}}
+\raisebox{-.5\height}{\input{tikz/sinusoide_enp-chap_slci.tex}}
 }  \\
 \midrule
 $\Delta\phi=\pm\pi$         
 & \og en opposition de phase\fg 
 &
 {\tikzset{external/export=false}       
-\raisebox{-.5\height}{\input{tikz/sinusoide_enop-chap0.tex}} 
+\raisebox{-.5\height}{\input{tikz/sinusoide_enop-chap_slci.tex}} 
 }  \\
 \midrule
 $\Delta\phi=-\dfrac{\pi}{2}$ 
@@ -692,7 +692,7 @@ $\Delta\phi=-\dfrac{\pi}{2}$
  \end{tabular} 
 &
 {\tikzset{external/export=false}       
-\raisebox{-.5\height}{  \input{tikz/sinusoide_enqp-chap0.tex}}
+\raisebox{-.5\height}{  \input{tikz/sinusoide_enqp-chap_slci.tex}}
 }\\
 \midrule
 $\Delta\phi=\dfrac{\pi}{2}$ 
@@ -701,7 +701,7 @@ $\Delta\phi=\dfrac{\pi}{2}$
   \end{tabular} 
 & 
 {\tikzset{external/export=false}       
-\raisebox{-.5\height}{\input{tikz/sinusoide_enqp2-chap0.tex}} 
+\raisebox{-.5\height}{\input{tikz/sinusoide_enqp2-chap_slci.tex}} 
 }\\
 \bottomrule
 \end{tabular}
@@ -735,8 +735,8 @@ Cette fonction tend vers 0 pour tout $a>0$ à $t\rightarrow\infty$ et
 diverge pour $a<0$.
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{exp_dec-chap1-ext}
-    \input{tikz/exp_dec-chap0.tex}
+    \tikzsetnextfilename{exp_dec-chap_slci-ext}
+    \input{tikz/exp_dec-chap_slci.tex}
     \caption{Représentation de la fonction exponentielle pour 
              différentes valeurs du paramètre $a$.\label{fig-exp}}
 \end{figure}
@@ -754,8 +754,8 @@ Cette fonction est donc le produit d'une exponentielle décroissante et
 d'une sinuso\"ide.
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{sinusoide_amortie-chap0-ext}
-    \input{tikz/sinusoide_amortie-chap0.tex}
+    \tikzsetnextfilename{sinusoide_amortie-chap_slci-ext}
+    \input{tikz/sinusoide_amortie-chap_slci.tex}
     \caption{Représentation d'un sinuso\"ide amortie. L'enveloppe en pointillé 
              correspond aux fonctions $Ae^{-at}$ et $-Ae^{-at}$.
              \label{fig-sin_amor}}
@@ -1103,7 +1103,7 @@ ou encore
 
 \begin{figure}[!ht]
     \centering
-    \tikzsetnextfilename{laplace_schema-chap0-ext}
+    \tikzsetnextfilename{laplace_schema-chap_slci-ext}
     \input{tikz/laplace_schema.tex}
     \caption{Représentation schématique de la méthode employée pour la 
              résolution des équations différentielles linéaires à 
@@ -1212,8 +1212,8 @@ $\alpha$, $\beta$ en utilisant les conditions initiales,
 
 \begin{figure}[!t]
     \centering
-    \tikzsetnextfilename{sol_eq_diff-chap0-ext}
-    \input{tikz/sol_eq_diff-chap0.tex}
+    \tikzsetnextfilename{sol_eq_diff-chap_slci-ext}
+    \input{tikz/sol_eq_diff-chap_slci.tex}
     \caption{Représentation de la solution générale de l'équation 
              différentielle~(\ref{eq-diff1}) pour $e(t)=u(t)$. 
              On vérifie lors du tracé que l'on observe bien les principales 
@@ -1569,8 +1569,8 @@ La forme factorisée de $H(p)$ est donc
 La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert.
 \begin{figure}[!h]
     \center
-    \tikzsetnextfilename{carte-chap1-ext}
-    \input{tikz/carte-chap0.tex}
+    \tikzsetnextfilename{carte-chap_slci-ext}
+    \input{tikz/carte-chap_slci.tex}
     \caption{Exemple d'une carte de pôles et zéros associés à la 
              fonction de transfert~\Cref{eq-ft_carte}\label{fig-carte}}
 \end{figure}
@@ -1622,8 +1622,8 @@ La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert
 % ------------------------------------------------------------------------------
 %\begin{figure}[!h]
 %    \centering
-%    \tikzsetnextfilename{pole_dominant-chap1-ext}
-%    \input{tikz/pole_dominant-chap1.tex}
+%    \tikzsetnextfilename{pole_dominant-chap_slci-ext}
+%    \input{tikz/pole_dominant-chap_slci.tex}
 %    \caption{}
 %\end{figure}
 % ------------------------------------------------------------------------------

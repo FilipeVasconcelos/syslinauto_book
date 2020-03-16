@@ -77,8 +77,8 @@ Soit un système caractérisé par la fonction de transfert $H(p)$
 est sollicité par l'entrée $E(p)$. La sortie $S(p)$ est alors donnée par :
 
 \begin{center}
-    \tikzsetnextfilename{sb_bloc1-chap6-ext}
-    \input{tikz/sb_bloc1-chap6.tex}
+    \tikzsetnextfilename{sb_bloc1-chap_perf-ext}
+    \input{tikz/sb_bloc1-chap_perf.tex}
 \end{center}
 
 L'erreur statique est alors donnée par :
@@ -100,25 +100,6 @@ $$
 
 Le système est prècis (c.a.d $\epsilon(\infty)=0$) si $K=1$. 
 
-%Il alors possible de corriger en boucle ouverte la précision en 
-%introduisant un gain $K'$ :
-
-%\begin{center}
-%\tikzsetnextfilename{sb_bloc2-chap6-ext}
-%\begin{tikzpicture}
-%    \sbEntree{E}
-%	\sbBloc[3]{C}{$K'$}{E}
-%    \sbRelier[$E(p)$]{E}{C}
-%	\sbBloc[3]{H}{$\dfrac{K}{1+\tau p}$}{C}
-%    \sbRelier[$U(p)$]{C}{H}
-%    \sbSortie[3]{S}{H}
-%    \sbRelier[$S(p)$]{H}{S}
-%\end{tikzpicture}
-%\end{center}
-%tel que $K'K=1$ ou encore $K'=\frac{1}{K}$.
-
-%Cependant, nous allons dans ce chapitre nous interesser uniquement 
-% à l'asservissement en %boucle fermée.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -130,8 +111,8 @@ Considérons le cas d'un système asservi de fonction de transfert $H(p)$
 par une boucle de contre-réaction à retour unitaire.
 
 \begin{center}
-    \tikzsetnextfilename{sb_bloc2-chap6-ext}
-    \input{tikz/sb_bloc2-chap6.tex}
+    \tikzsetnextfilename{sb_bloc2-chap_perf-ext}
+    \input{tikz/sb_bloc2-chap_perf.tex}
 \end{center}
 
 La~\gls{ftbo} est simplement donnée par $H(p)$. Dans le cas le plus
@@ -300,10 +281,8 @@ de les gains statiques $K_i$, de classe $\alpha_i$, de polynômes $N_i(p)$
 et $D_i(p)$ tels que $N_i(0)=$ et $D_i(0)=0$.
 
 \begin{center}
-    \tikzsetnextfilename{reduc_mult1-chap6-ext}
-    \begin{tikzpicture}
-    \cpbruni[$E(p)$][$\epsilon(p)$][$H_1(p)$][][ ][$P(p)$][$H_2(p)$][][$S(p)$]
-    \end{tikzpicture}
+    \tikzsetnextfilename{reduc_mult1-chap_perf-ext}
+    \input{tikz/reduc_mult1-chap_perf.tex}
 \end{center}
 
 Pour déterminer l'écart à la consigne d'un tel système, il faut déterminer
@@ -346,10 +325,8 @@ La fonction de transfert $H_{E=0}$, de la régulation, correspondant à une
 consigne nulle, s'obtient en considérant le schéma-bloc suivant :
 
 \begin{center}                                                  
-\tikzsetnextfilename{pert1-chap6-ext}
-    \begin{tikzpicture}                                         
-        \bbr[$P(p)$][][$H_2(p)$][][$S(p)$][$H_1(p)$][][ ] 
-    \end{tikzpicture}                                           
+    \tikzsetnextfilename{pert1-chap_perf-ext}
+    \input{tikz/pert1-chap_perf.tex}
 \end{center}                                                    
 
 \newcommand{\pau}{p^{\alpha_1}}
@@ -388,8 +365,8 @@ Nous allons voir ici le rejet d'une perturbation d'un système du premier ordre.
 On considère le système du premier ordre, en boucle ouverte, placé dans une 
 boucle de contre réaction unitaire avec un intégrateur comme ci-dessous :
 \begin{center}                           
-    \tikzsetnextfilename{pert2-chap6-ext}
-    \input{tikz/pert2-chap6.tex}
+    \tikzsetnextfilename{pert2-chap_perf-ext}
+    \input{tikz/pert2-chap_perf.tex}
 \end{center}                             
 On souhaite réguler ce système pour une consigne en échelon.
 D'après les résultats précédents, l'erreur statique de position est nulle 
@@ -411,8 +388,8 @@ n'est pas rejétée comme on peut le voir sur la simulation de la réponse
 temporelle globale de ce système (c.f~\cref{fig-pert1}).
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{pert1_data-chap6-ext}
-    \input{tikz/pert1_data-chap6.tex}
+    \tikzsetnextfilename{pert1_data-chap_perf-ext}
+    \input{tikz/pert1_data-chap_perf.tex}
     \caption{Effet de la perturbation sur la réponse temporelle dans le cas
              où l'intégrateur est en aval de la perturbation. La simulation 
              de la réponse temporelle est obtenue pour les paramètres suivants:
@@ -430,8 +407,8 @@ est rejétée, comme on peut le voir sur la simulation de la réponse
 temporelle globale de ce système (c.f~\cref{fig-pert2}).
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{pert2_data-chap6-ext}
-    \input{tikz/pert2_data-chap6.tex}
+    \tikzsetnextfilename{pert2_data-chap_perf-ext}
+    \input{tikz/pert2_data-chap_perf.tex}
     \caption{Effet de la perturbation sur la réponse temporelle dans le cas
              où l'intégrateur est en amont de la perturbation. La simulation
              de la réponse temporelle est obtenue pour les paramètres suivants: 
@@ -480,10 +457,10 @@ dans une bande à 5\% autour de la valeur finale.
 
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{rapidite_t5pc_1-chap6-ext}
-    \input{tikz/rapidite_t5pc_1-chap6.tex}
-    \tikzsetnextfilename{rapidite_t5pc_2-chap6-ext}
-    \input{tikz/rapidite_t5pc_2-chap6.tex}
+    \tikzsetnextfilename{rapidite_t5pc_1-chap_perf-ext}
+    \input{tikz/rapidite_t5pc_1-chap_perf.tex}
+    \tikzsetnextfilename{rapidite_t5pc_2-chap_perf-ext}
+    \input{tikz/rapidite_t5pc_2-chap_perf.tex}
     \caption{Définition du temps de réponse à 5\% : (à gauche) dans le cas
              d'une résonse temporelle sans pseudo-oscillations et (à droite) 
              dans le cas d'un réponse temporelle avec pseudo-oscillations}
@@ -505,10 +482,10 @@ n'a donc de sens qu'en régime pseudo-périodique.
 
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{rapidite_tm_1-chap6-ext}
-    \input{tikz/rapidite_tm_1-chap6.tex}
-    \tikzsetnextfilename{rapidite_tm_2-chap6-ext}
-    \input{tikz/rapidite_tm_2-chap6.tex}
+    \tikzsetnextfilename{rapidite_tm_1-chap_perf-ext}
+    \input{tikz/rapidite_tm_1-chap_perf.tex}
+    \tikzsetnextfilename{rapidite_tm_2-chap_perf-ext}
+    \input{tikz/rapidite_tm_2-chap_perf.tex}
     \caption{Définition du temps de montée : (à gauche) dans le cas
              d'une résonse temporelle sans pseudo-oscillations et (à droite) 
              dans le cas d'un réponse temporelle avec pseudo-oscillations}
@@ -587,8 +564,8 @@ pour $t_{5\%}\cdot\omega_0\sim3$.}
 %------------------------------------------------------------------------------
 \begin{figure}
     \centering
-    \tikzsetnextfilename{rapidite_tr_2ndordre-chap6-ext}
-    \input{tikz/rapidite_tr_2ndordre-chap6.tex}
+    \tikzsetnextfilename{rapidite_tr_2ndordre-chap_perf-ext}
+    \input{tikz/rapidite_tr_2ndordre-chap_perf.tex}
     \caption{Caractérisation de la rapidité d'un système du second ordre en
              fonction du taux d'amortissement $\xi$: par
              (bleu) le temps de réponse à 5\%,  
@@ -645,7 +622,7 @@ t_{M}=\dfrac{\pi-\arctan{\dfrac{\sqrt{1-\xi^2}}{\xi}}}{\omega_0\sqrt{1-\xi^2}}
 $$
 ou encore sous sa forme réduite en $\omega_0$:
 \begin{bequation}[ams align]
-t_{M}\omega_0=
+t_{M}\cdot\omega_0=
 \dfrac{\pi-\arctan{\dfrac{\sqrt{1-\xi^2}}{\xi}}}{\sqrt{1-\xi^2}}\label{eq-tM}
 \end{bequation}
 
@@ -653,15 +630,15 @@ Remarquons que pour le temps de réponse à 5\% minimal, le temps de montée à
 la valeur finale réduit sont proche. \textbf{Autrement dit, pour $\xi\sim0.7$ 
 on a :
 $$
-t_{M}=t_{5\%}.
+t_{M}=t_{5\%}
 $$}
 
 
 %------------------------------------------------------------------------------
 \begin{figure}[!b]
     \centering
-    \tikzsetnextfilename{rapidite_tr_2ndordre_2-chap6-ext}
-    \input{tikz/rapidite_tr_2ndordre_2-chap6.tex}
+    \tikzsetnextfilename{rapidite_tr_2ndordre_2-chap_perf-ext}
+    \input{tikz/rapidite_tr_2ndordre_2-chap_perf.tex}
     \caption{Caractérisation de la rapidité d'un système du second ordre en
              fonction du taux d'amortissement $\xi$: par
              (bleu) le temps de réponse à 5\%,  
@@ -742,7 +719,7 @@ systèmes du premier ordre en série.
 
 Prenons l'exemple de la fonction de transfert définie par  
 \begin{equation}
-H(p)=\dfrac{5}{(p+1)(5p+1)}\label{eq-ft-chap6}
+H(p)=\dfrac{5}{(p+1)(5p+1)}\label{eq-ft-chap_perf}
 \end{equation}
 et de décomposition en éléments simples telle que :
 $$
@@ -766,10 +743,10 @@ globale $s(t)$.
 
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{pole_dominant-chap6-ext}
-    \input{tikz/pole_dominant-chap6.tex}
+    \tikzsetnextfilename{pole_dominant-chap_perf-ext}
+    \input{tikz/pole_dominant-chap_perf.tex}
     \caption{(à gauche) Réponse indicielle $s(t)$ de la fonction de 
-             transfert donnée par~\cref{eq-ft-chap6}, ainsi que les réponses 
+             transfert donnée par~\cref{eq-ft-chap_perf}, ainsi que les réponses 
              indicielles $s_1(t)$ et $s_2(t)$ des fonctions de transferts de 
              sa décomposition en éléments simples. On constate que la réponse 
              du pôle dominant ($s_1(t)$) présente un temps de réponse proche 

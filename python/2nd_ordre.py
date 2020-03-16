@@ -143,6 +143,18 @@ def temps_de_montee_vf(xis,ts):
         #print(xi,t)
         period+=1
     return tm
+# ------------------------------------------------------------------------------
+def temps_de_montee_vf_analyt(xis,ts):
+    tm=[]
+    period=0
+    for xi in xis :
+        status(period,xis)
+        b=1-xi**2
+        a=b/xi
+        t=(np.pi-np.arctan(a))/np.sqrt(b)
+        tm.append(t)
+        period+=1
+    return tm
 
 # ------------------------------------------------------------------------------
 def temps_de_pic(xis,ts):
@@ -204,7 +216,7 @@ if __name__=="__main__":
         f.close()
 
     # Temps de reponse
-    if True :
+    if False :
         for x in [1,2,5,10,20]: 
             xir,tr=temps_de_reponse(xpct=x)
             print("temps de reponse à "+str(x)+"% done : tr"+str(x)+".tab")
@@ -213,5 +225,19 @@ if __name__=="__main__":
                 f.write(str(xi)+' '+str(t)+'\n')
             f.close()
 
+    # Temps de montée à la valeur finale (analytique)
+    if True:
+        xim=np.linspace(0.01,10,4096)
+        ts=np.linspace(0,1000,8192)
+        tm=temps_de_montee_vf_analyt(xim,ts)
+        f=open("tm_vf_analyt.tab","w")
+        for xi,t in zip(xim,tm):
+            f.write(str(xi)+' '+str(t)+'\n')
+        f.close()
+        print("temps de montee (vf) done : tm_vf_analyt.tab")
 
 
+    #ts=np.linspace(0,1000,8192)
+    #print(temps_de_montee_vf([1.6],ts))
+    #print(temps_de_montee_vf([0.5],ts))
+    #print(temps_de_montee_vf([0.15],ts))
