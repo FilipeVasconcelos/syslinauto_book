@@ -22,6 +22,7 @@
     \def\a{0.2}
     \def\w{0.9797958971132712}
     \def\p{1.369438406004566}
-    \addplot[signalb,domain=0:20]{1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
+    \addplot[signalb,domain=0:20]
+    {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
     \end{axis}
 \end{tikzpicture}
