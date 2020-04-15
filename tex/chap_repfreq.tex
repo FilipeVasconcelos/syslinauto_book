@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter[Analyse fréquentielle]
-        {Analyse fréquentielle et représentation graphique\label{chap-anafreq}}
+        {Analyse fréquentielle et représentation graphique\label{chap-repfreq}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -138,7 +138,7 @@ nous la noterons donc $\phi(\omega)$ par la suite.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Exemple de réponse harmonique dans le domaine temporel}
+\subsection{Réponse harmonique dans le domaine temporel}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -204,13 +204,20 @@ tracer la réponse temporelle pour toutes les pulsations que l'on souhaite
     \input{tikz/repham_3-chap_repfreq.tex}
     \caption{Réponse harmonique (en régime permanent) (\Cref{eq-rh}) d'un 
              système du premier ordre pour différentes pulsations d'excitation 
-             de la forme $e(t)=\sin{\omega t}$, (données du~\cref{tab-1ertemp}). 
+             de la forme $e(t)=\sin{\omega t}$, (données du~\cref{tab-1ertemp}).
              Cette figure permet d'observer l'augmentation du déphasage et la 
              diminution de l'amplitude lorsque la fréquence d'excitations 
              augmente. (bleu) excitation $e(t)$ (rouge) sortie $s(t)$.
              \label{fig-repham}}
 \end{figure}
 % ------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Réponse harmonique dans le domaine fréquentielle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\acpl
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -496,9 +503,9 @@ la phase s'écrit simplement
     \tikzsetnextfilename{bode_deriv_2-chap_repfreq-ext}
     \input{tikz/bode_deriv_2-chap_repfreq.tex}
     \caption{Diagramme de Bode d'un dérivateur pur 
-             avec (noir) $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons que 
-             le gain s'annule pour $\omega=\frac{1}{K}$ et que la phase reste 
-             inchangée.\label{fig-bode_deriv}}
+             avec (noir) $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons 
+             que le gain s'annule pour $\omega=\frac{1}{K}$ et que la phase 
+             reste inchangée.\label{fig-bode_deriv}}
 \end{figure}
 % ------------------------------------------------------------------------------
 

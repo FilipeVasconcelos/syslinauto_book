@@ -2,7 +2,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Rappel sur les nombres complexes\label{annexe-NC}}
+\chapter{Les nombres complexes\label{annexe-NC}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -106,13 +106,13 @@ les coordonnées polaires de la représentation géométrique d'un nombre comple
 L'argument est définit à $2\pi$ près. On appelle argument principal celui qui 
 est compris entre $[-\pi,\pi]$
 
-\newpage
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Propriétés de l'argument}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soient $z$, $z_1$ et $z_2$ des nombres complexes.
 \begin{itemize}
-    \item $\cos\theta=\dfrac{\Re(z)}{|z|}$; $\sin\theta=\dfrac{\Im{z}}{|z|}$
+    \item $\cos\theta=\dfrac{\Re{z}}{|z|}$; $\sin\theta=\dfrac{\Im{z}}{|z|}$
     \item $\arg(z_1z_2)=\arg(z_1)+\arg(z_2)$; $\arg(\bar{z})=\arg(z)$
     \item $\arg(-z)=\pi+\arg(z)[2\pi]$; 
           $\arg\left(\dfrac{1}{z}\right)=-\arg(z)[2\pi]$
@@ -144,9 +144,7 @@ La formule précédente nécessite de distinguer plusieurs cas.
 Cependant, de nombreux langages de programmation fournissent
 une variante de la fonction arc tangente, qui est souvent appélee
 \verb?atan2(b,a)?, et qui traite ces différents cas. 
-
-Rappelons la représentation graphique de la fonction $\arctan$:
-
+%Rappelons la représentation graphique de la fonction $\arctan$:
 \begin{figure}[!ht]
     \centering
     \tikzsetnextfilename{arctangente-annexe_cplx-ext}
@@ -154,8 +152,7 @@ Rappelons la représentation graphique de la fonction $\arctan$:
     \caption{Représentation graphique de la fonction arc tangente.
              \label{fig-arctangente}}
 \end{figure}
-
-
+%\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Forme exponentielle ou polaire d'un nombre complexe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -167,7 +164,7 @@ permet d'écrire tout nombre complexe sous sa forme exponentielle :
 $$
 z=|z|e^{i\theta}
 $$
-Une conséquence spéctaculaire de la formule d'Euler est que
+Une conséquence spectaculaire de la formule d'Euler est que
 $$
 e^{i\pi}=-1.
 $$
@@ -180,15 +177,14 @@ s'exprimer sous forme d'exponentielle complexe:
     \sin{\omega t}&=\dfrac{e^{\jw t}-e^{-\jw t}}{2j} \\
     \cos{\omega t}&=\dfrac{e^{\jw t}+e^{-\jw t}}{2}
 \end{align*}
-
 \begin{figure}[!ht]
     \centering
     \tikzsetnextfilename{cercle_trigo-annexe_cplx-ext}
     \input{tikz/cercle_trigo-annexe_cplx.tex}
-    \caption{Quelques points particuliers du cercle 
-             trigonométrique ou cercle unité.}
+    \caption{Quelques points particuliers du cercletrigonométrique 
+    ou cercle unité.}
 \end{figure}
-\afterpage{\clearpage}
+%\afterpage{\clearpage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

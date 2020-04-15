@@ -95,7 +95,8 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Critère algébrique de Routh}
+\section{Critère algébrique de Routh-Hurwitz
+\index{Critère de stabilité!Critère de Routh-Hurwitz}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -512,7 +513,8 @@ système soit stable en boucle fermée est donc :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Critère graphique du revers}
+\section{Critère graphique du revers
+\index{Critère de stabilité!Critère du revers}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -541,11 +543,28 @@ $$
 D(p)=0\Leftrightarrow1+H_{BO}(p)=0\Leftrightarrow H_{BO}(p)=-1
 $$
 Il est alors possible d'étudier la fonction de transfert en boucle ouverte par 
-rapport au \textbf{point critique}\index{Point critique}
-du plan complexe $(-1,0)$ de $H_{BO}(p)$.
-Remarquons que les zéros de $1+H_{BO}(p)$ sont les pôles de la fonction 
-de transfert en boucle fermée $H_{BF}(p)$ et que les pôles de $1+H_{BO}(p)$ 
-co\"incident avec les pôles de $H_{BO}(p)$. Il est donc possible de 
+rapport à -1 plutôt que par rapport à l'origine. 
+%Ce \textbf{point critique}\index{Point critique} du 
+%plan complexe $(-1,0)$ de $H_{BO}(p)$.
+
+Pour montrer quelques propriétés de $1+H_{BO}(p)$, nous allons réecrire
+ces fonctions de transferts en fonction des polynomes du numérateur et
+du dénominateur de la boucle ouverte.
+En effet, la fonction de transfert en boucle ouverte
+est en générale une fraction rationnelle de la forme:
+\begin{align*}
+H_{BO}(p)=\dfrac{N_{BO}(p)}{D_{BO}(p)} \\
+1+H_{BO}(p)=\dfrac{N_{BO}(p)+D_{BO}(p)}{D_{BO}(p)}
+\end{align*}
+on a alors pour la fonction de transfert en boucle fermée, 
+$$
+H_{BF}(p)=\dfrac{\dfrac{N_{BO}(p)}{D_{BO}(p)}}{1+\dfrac{N_{BO}(p)}{D_{BO}(p)}}
+         =\dfrac{N_{BO}(p)}{D_{BO}(p)+N_{BO}(p)}
+$$
+Nous remarquons alors que les zéros de $1+H_{BO}(p)$ 
+sont les pôles de la fonction de transfert en boucle fermée 
+$H_{BF}(p)$ et que les pôles de $1+H_{BO}(p)$ co\"incident avec 
+les pôles de $H_{BO}(p)$. Il est donc possible de 
 réinterpréter la condition stabilité d'un système asservi :
 
 \begin{criteria}{Condition de stabilité d'un système asservi (2)}
@@ -561,11 +580,9 @@ Supposons le système asservi précédent décrit par la fonction de transfert
 en boucle ouverte $H_{BO}(p)$. Par définition cette fonction de transfert 
 est le rapport de la sortie $S(p)$ sur l'écart $\epsilon(p)$ que l'on 
 souhaite minimiser.
-
 $$
 S(p)=H_{BO}(p)\epsilon(p)
 $$
-
 Considérons une entrée $e(t)$ sinuso\"idale de la forme :
 $$
 e(t)=E_0\sin{\omega t}
@@ -574,22 +591,21 @@ au premier instant, on a alors
 $$
 \epsilon(t)=E_0\sin{\omega t}
 $$
-en régime permanent la sortie est alors de la forme (c.f~\cref{chap-anafreq}) :
+en régime permanent la sortie est alors de la forme (c.f~\cref{chap-repfreq}) :
 $$
 s(t)=E_0|H_{BO}(\jw)|\sin{(\omega t+\phi)}
 $$
 l'écart $\epsilon(t)=e(t)-s(t)$ est maximum pour une sortie en opposition 
-de phase. Il existe donc une pulsation $\omega_p$ pour laquelle:
+de phase. Il existe donc une pulsation $\omega_\pi$ pour laquelle:
 \begin{align*}
-    \phi=\arg{H_{BO}(j\omega_p)}=-\pi\\
-    |H_{BO}(j\omega_p)|=K    
+    \phi=\arg{H_{BO}(j\omega_\pi)}=-\pi
 \end{align*}
 
-Pour cette pulsation et ce déphasage: 
+En Pour cette pulsation et ce déphasage: 
 $$
-S(p)=-K\epsilon(p)
+S(p)=-\big|H_{BO}(j\omega_\pi)\big|\epsilon(p)
 $$
-on a alors :
+en posant $K=|H_{BO}(j\omega_\pi)|$, on identifie la \gls{ftbo} a :
 $$
 H_{BO}(p)=-K
 $$
@@ -599,7 +615,6 @@ L'écart dans le domaine de Laplace devient:
     \epsilon(p)&=E(p)-S(p)\\
     \epsilon(p)&=E(p)+K\epsilon(p)
 \end{align*}
-
 Remplaçons à nouveau $\epsilon(p)$ par sa définition (pour simuler une 
 deuxième boucle) : 
 \begin{align*}
@@ -614,8 +629,11 @@ on obtient après $n$ substitutions :
 $$
 \epsilon(p)=E(p)\sum_{i=0}^{n}K^i+K^n\epsilon(p)
 $$
-La somme diverge si $K\leq1$ et converge si $K<1$. 
-Autrement dit le système est stable en boucle fermée pour $|H_{BO}(\jw)|<1$.
+
+La stabilité du système est alors liée à la convergence de cette somme.
+La somme diverge si $K\geq1$ et converge si $K<1$. 
+\textbf{Autrement dit le système est stable en boucle fermée 
+pour $\big|H_{BO}(\jw)\big|<1$.}
 
 Nous pouvons donc énoncer le critère de stabilité dit du revers :
 
@@ -623,20 +641,27 @@ Nous pouvons donc énoncer le critère de stabilité dit du revers :
     \textbf{Un système est stable en boucle fermée si lorque le 
     déphasage en boucle ouverte est de -180\degree~le module $|H_{BO}(\jw)|$ 
     est strictement inférieur à 1.}
-    Pour $\omega_p$ telle que $\phi=\arg{\left(H_{BO}(j\omega_p)\right)}=-\pi$ 
-    stable si  $|H_{BO}(j\omega_p)|<1$ ou $20\log{|H_{BO}(j\omega_p)|}<0$ 
+    Formellement, pour une pulsation $\omega_{\pi}$ telle que 
+    $\phi=\arg{\left(H_{BO}(j\omega_\pi)\right)}=-\pi$, 
+    le système est stable en boucle fermée si $|H_{BO}(j\omega_\pi)|<1$ ou 
+    $20\log{|H_{BO}(j\omega_\pi)|}<\SI{0}{\dB}$.
 \end{criteria}
 
-Dans le plan complexe, un  déphasage de -180\degree~et un module de 1 
-correspond au point critique de coordonnées $(1,0)$.
+Dans le plan complexe, un  déphasage de -$\pi$ et un gain naturel de 1 
+correspond au point de coordonnées $(-1,0)$ ce que nous avons défini comme 
+le point critique à partir de l'équation caractéristique $1+H_{BO}=0$. 
+Ce critère revient donc à étudier graphiquement le comportement 
+de la réponse harmonique de $H_{BO}(\jw)$ par rapport au point critique.
 
-Nous allons maintenant voir comment appliquer ce critère aux différentes 
-représentations graphiques de la réponse harmonique.
+Nous avons vu que la réponse harmonique peut avoir plusieurs représentations
+graphiques (c.f~\Cref{chap-repfreq}). Nous allons maintenant appliquer le 
+critère à ces différentes représentations graphiques.
 
-\newpage
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Critère du revers dans le plan de Nyquist}
+\subsection{Critère du revers dans le plan de Nyquist
+\index{Critère de stabilité!Critère du revers! dans le plan de Nyquist}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -649,7 +674,7 @@ que dans le cas stable, le lieu de déphasage $\phi=-\pi$ (c.a.d lorsque le lieu
 coupe l'axe des réels négatifs), le module ou le gain naturel $G(\omega)$ (ou 
 encore la distance à l'origine) est inférieur à 1. Dans le cas instable ce gain 
 est supérieur à 1. Nous appelerons critique le système dont le lieu de Nyquist 
-passe par le point critique de oordonnées (-1,0).
+passe par le point critique de coordonnées (-1,0).
 
 \begin{figure}[!h]
     \centering
@@ -672,7 +697,8 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Critère du revers dans le plan de Black}
+\subsection{Critère du revers dans le plan de Black
+\index{Critère de stabilité!Critère du revers! dans le plan de Black}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \acpl
@@ -695,7 +721,8 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Critère du revers dans le plan de Bode}
+\subsection{Critère du revers dans le plan de Bode
+\index{Critère de stabilité!Critère du revers! dans le plan de Bode}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -731,38 +758,52 @@ pour respecter le critère du revers dans le plan de Bode
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Marge de stabilité}
+\section{Marge de stabilité et robustesse de la stabilité}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Les critères de stabilité graphiques sont des critères qualitatifs, c'est à dire
-que l'on peut s'assurer qu'un système est stable ou instable (ou à la limite 
-de la stabilité). Pour quantifier, la distance à la limite de stabilité c'est 
-à dire au point critique, nous définissons les marges de stabilité 
-(en phase et en gain). Ces marges de stabilités sont en générales imposées par
-le cahier des charges.
+Les critères de stabilité graphiques permettent de s'assurer qu'un système 
+est stable ou instable (ou à la limite de la stabilité) en étudiant la réponse
+harmonique. Pour estimer la proximité de la réponse harmonique au point 
+critique, nous définissons les marges de stabilité. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Marge de phase}
+%\subsection{Marge de phase}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La marge de phase $M_{\phi}$ est définie par 
+\begin{definition}{Marge de phase}
+La marge de phase $M_{\phi}$ est définie par :
 $M_\phi=\pi+\arg{H_{BO}(j\omega_{c0})}$ où $\omega_{c0}$ est la pulsation de 
-coupure pour laquelle le gain naturel $G(\omega_{c0})=|H_{BO}(j\omega_{c0})|=1$ 
-$G_{\si{\dB}}(\omega_{c0})=20\log{|H_{BO}(j\omega_{c0})|}=\SI{0}{\dB}$
+coupure pour laquelle le gain naturel $G(\omega_{c0})=|H_{BO}(j\omega_{c0})|=1$
+( ou encore 0~\si{\dB} ) 
+\end{definition}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Marge de gain}
+%\subsection{Marge de gain}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}{Marge de gain}
 La marge de gain $M_G$ est définir par $M_G=-20\log{|H(j\omega_\pi)|}$ où 
-$\omega_{\pi}$ est la pulsation pour laquelle le déphasage vaut \SI{-180}{\degree}
-$\phi(\omega_\pi)=\arg{(H_{BO}(j\omega_{c0}))}=-\pi$
+$\omega_{\pi}$ est la pulsation pour laquelle le déphasage vaut 
+\SI{-180}{\degree} $\phi(\omega_\pi)=\arg{(H_{BO}(j\omega_{c0}))}=-\pi$
 ou autrement l'argument du point critique dans le plan complexe.
+\end{definition}
+
+Ces marges de stabilités sont en générales imposées par le cahier des charges.
+En générales es valeurs pour $M_{\phi}$ de 45 à 60\degree et
+pour $M_G$ de 6 à 15~\si{\dB} sont considérées comme satisfaisantes.
 
 
-
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{marge_stabilite_nyquist-chap_stab-ext}
+    \input{tikz/marge_stabilite_nyquist-chap_stab.tex}
+    \caption{Représentation schématique de lieux de Nyquist de la fonction 
+             de transfert en boucle ouverte de trois systèmes asservis: 
+             stable, critique et instable. \label{fig-nyquist_revers}}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
