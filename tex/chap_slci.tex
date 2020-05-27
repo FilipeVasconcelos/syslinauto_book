@@ -644,7 +644,7 @@ de \textbf{réponse à une rampe}.
 \paragraph{Sinuso\"ide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Signaux usuels!sinuso\"ide}
-Le signal périodique sinuso\"idale $s(t)$ est la fonction telle que :
+Le signal périodique sinuso\"idal $s(t)$ est la fonction telle que :
 $$
 s(t)=A\sin{(\omega t +\phi)}\cdot u(t)
 $$
@@ -661,6 +661,16 @@ et $\phi$ sa phase (\si{\radian}).
              et amplitude. (bleu) de phase $\phi=0$ et 
             (rouge) de phase $\phi=-\dfrac{\pi}{2}$.\label{fig-sin}}
 \end{figure}
+
+Il est possible de voir le signal sinuso\"idal comme la combinaison
+linéaire de la fonction cosinus et sinus. En effet, en utilisant une 
+des rélations trigonométriques simples\footnote{à savoir la comptine des 
+lycéens $\sin(a+b)=\sin{a}\cos{b}+\sin{b}\cos{a}$}, $s(t)$ s'écrit :
+$$
+s(t)=A(\sin(\phi)\cos{\omega t}+\cos(\phi)\sin{\omega t})
+$$
+
+
 
 \begin{table}[!h]
 \ra{1.2}
@@ -761,7 +771,7 @@ d'une sinuso\"ide.
              \label{fig-sin_amor}}
 \end{figure}
 
-%\clearpage
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
