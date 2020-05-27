@@ -2,8 +2,8 @@
 \begin{axis}
     [
     axis lines = center,
-    height=0.7\textwidth,
-    width=0.7\textwidth,
+    height=10cm,
+    width=12cm,
     ticks=none,
     axis line style = thick,
     %enlargelimits=false,
@@ -26,7 +26,7 @@
     \def\yd{0.38}
     \def\xt{-1}
     \def\yt{-4}
-    \addplot [-latex,col3,thick,domain=0.85:0.55,samples=50]
+    \addplot [-latex,col3,thick,domain=0.85:0.55,samples=51]
     ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
     x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
     {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
@@ -66,7 +66,7 @@
     \draw[col1,dashed] (axis cs: -0.47,0) -- (axis cs: -0.47,0.4);
     \draw[dblarw={col1}{2pt}{2pt}] (axis cs: 0,0.4) -- 
     node[midway,above] {$\big|H(j\omega_{\pi})\big|$} (axis cs: -0.47,0.4);
-    \node[col1,text width=4cm] at (axis cs: 0.85,1.15) 
+    \node[col1,text width=6cm] at (axis cs: 0.85,1.15) 
     {$M_G=-20\log{\big|H(j\omega_{\pi})\big|}$ 
      $M_\phi=\pi+\phi(H_{BO}(j\omega_{c0}))$};
 \end{axis}
