@@ -97,6 +97,10 @@
 -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"; 
 pdf2eps 1 "\image"
 }}
+%\tikzset{external/system call={latex -shell-escape 
+%-halt-on-error -interaction=batchmode -jobname "\image" "\texsource"; 
+%pdf2eps 1 "\image"
+%}}
 \tikzset{external/optimize command away=\AddToShipoutPicture}
 \tikzexternalize[prefix=./figtikz/]
 
@@ -178,6 +182,7 @@ pdf2eps 1 "\image"
 \usepackage{schemablocfmv}
 \sbStyleBloc{thick}
 \sbStyleLien{thick}
+\sbStyleSum{thick}
 \usepackage{gfluence}
 \usepackage{vecteurs}
 \usepackage{tdexoq}

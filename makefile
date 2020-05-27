@@ -41,6 +41,10 @@ html:
 
 ps:	dvi
 	dvips -t a4 ${filename}.dvi
+
+svg:	dvi
+	dvisvgm ${filename}.dvi
+
 ps-simple:	dvi-simple
 	dvips -t a4 ${filename}.dvi
 
