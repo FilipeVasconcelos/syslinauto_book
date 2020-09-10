@@ -1,0 +1,30 @@
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.25\textheight,
+    ylabel={Gain (dB)},
+    xtick={1e-3,1e-2,1e-1,1,1e1,1e2,1e3}, 
+    ytick={-80,-60,-40,-20,0,20,40,60}, 
+    xticklabels={$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$},
+    yticklabels={-80,-60,-40,-20,0,20,40,60}, 
+    xmode=log,ymode=normal,
+    xmin=1e-3, xmax=1e3,
+    ymin=-120, ymax=20,
+    grid=both,
+    major grid style={black!40}
+]
+    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=101]
+    {-20*log10(sqrt(1+100*x*x))-20*log10(sqrt(1+0.01*x*x))}; 
+    \addplot[line width=2pt,col4,dashed,domain=1e-3:1e-1, samples=101]{0};
+    \addplot[line width=2pt,col4,dashed,domain=1e-1:1e1, samples=101]
+    {-20*log10(x/0.1)};
+    \addplot[line width=2pt,col4,dashed,domain=1e1:1e3, samples=101]
+    {-20*log10(x/0.1)-20*log10(x/10)};
+    \node[right,xshift=1em,yshift=-0.1em] at (axis cs:0.1,-70)
+    {{\large \textbf{-20dB/décade}}};
+    \node[right,xshift=1em,yshift=-0.1em] at (axis cs:10,-10)
+    {{\large \textbf{-40dB/décade}}};
+\end{axis}
+\end{tikzpicture}

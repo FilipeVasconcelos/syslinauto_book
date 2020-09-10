@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{a}{E}
+    \sbRelier[$E(p)$]{E}{a}
+    \sbBloc[3]{b}{$C(p)$}{a}
+    \sbRelier[$\epsilon(p)$]{a}{b}
+    \sbBloc[3]{c}{$H(p)$}{b}
+    \sbRelier[$U(p)$]{b}{c}
+    \sbSortie[3]{S}{c}
+    \sbRelier[$S(p)$]{c}{S}
+    \sbRenvoi{c-S}{a}{}
+    \node[yshift=-0.8em] at (b.south) {\small Correcteur};
+    \node[yshift=-0.8em] at (c.south) {\small Système};
+\end{tikzpicture}

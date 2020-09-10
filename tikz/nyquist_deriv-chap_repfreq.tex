@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+\begin{axis}
+    [
+    axis line style = thick,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
+    ymin=-10,
+    ymax=+10,
+    xmin=-10,
+    xmax=+10,
+    grid=both,
+    ]     
+    \node [below right] at (axis cs:  0, 10)  {$\omega\rightarrow\infty$};
+    \node [above right] at (axis cs:  0,-10)  {$\omega\rightarrow-\infty$};
+    \node [below right]       at (axis cs:  0, 0)   {$\omega=0$};
+    \addplot [col1, mark = *] coordinates {(0, 0)} {};
+    \addplot [col1,thick,domain=0:5,samples=50,-{Latex[length=3mm]}](0,{x});
+    \addplot [col1,thick,domain=4:10,samples=50](0,{x});
+    \addplot [dashed,col1,thick,domain=-10:-5,samples=50,-{Latex[length=3mm]}]
+    (0,{x});
+    \addplot [dashed,col1,thick,domain=-6:0,samples=50]
+    (0,{x}); 
+\end{axis}
+\end{tikzpicture}

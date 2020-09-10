@@ -1,0 +1,23 @@
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.22\textheight,
+    ylabel={Gain (dB)},
+    xtick={1e-1,1,1e1}, 
+    ytick={-10,-8,-6,-4,-2,0,2}, 
+    xticklabels={$10^{-1}$,$10^{0}$,$10^{1}$},
+    yticklabels={-10,-8,-6,-4,-2,0,2}, 
+    xmode=log,ymode=normal,
+    xmin=1e-1, xmax=1e1,
+    ymin=-10, ymax=3,
+    grid=both,
+    major grid style={black!40}
+]
+    \addplot[ultra thick,col1,domain=1e-3:1e3, samples=101] 
+    {-20*log10(sqrt(1+x*x))};
+    \addplot[line width=2pt,col4,dashed,domain=1e-1:1e0, samples=101] {0};
+    \addplot[line width=2pt,col4,dashed,domain=1e0:1e1, samples=101] 
+    {-20*log10(x)};
+\end{axis}
+\end{tikzpicture}

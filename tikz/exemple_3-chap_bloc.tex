@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{a}{E}
+    \sbRelier[$E$]{E}{a}
+    \sbStyleBloc{col3}
+    \sbBloc{b}{$H_1H_2$}{a}
+    \sbRelier[$\epsilon$]{a}{b}
+    \sbComph{d}{b} 
+    \sbRelier{b}{d}
+    \sbStyleBloc{col1}
+    \sbBlocL{f}{$H_3H_4$}{d}
+    \sbSortie[5]{S1}{f}
+    \sbRelier{f}{S1}
+    \sbNomLien[0.8]{S1}{$S$}
+    \sbDecaleNoeudy[-6]{f}{u}
+    \sbDecaleNoeudy[6]{f}{v}
+    \sbBlocr[-1.5]{r1}{$R_1$}{u}
+    \sbStyleBloc{col4}
+    \sbBlocr{r2}{$\dfrac{R_2R_3}{H_4}$}{v}
+    \sbRelieryx{f-S1}{r1}
+    \sbRelierxy[$n_1$]{r1}{d}
+    \sbRelieryx{f-S1}{r2}
+    \sbRelierxy[$n_2$]{r2}{a}
+    \draw[ultra thick,col1,-latex] (7.1,1.2) +(80:0.45cm) arc(80:-260:0.45cm)
+    node[col1,right,xshift=1.5em,yshift=-1em] {$B_1$};
+\end{tikzpicture}

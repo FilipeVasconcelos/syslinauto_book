@@ -4,20 +4,20 @@
                      minimum width=4.0cm,
                      minimum height=2cm}
 }
-\draw node[fill=black!10!white,box] (A) at (0,0) {\scshape Automatique Linéaire}; 
-\draw node[fill=blue!10!white,box] (M) at (-4.5,-3) {\scshape Modélisation}; 
-\draw node[fill=blue!10!white,box] (N) at ( 0,-3) {\scshape Analyse}; 
-\draw node[fill=blue!10!white,box] (S) at ( 4.5,-3) {\scshape Contrôle}; 
+\draw node[fill=col5!10!white,box] (A) at (0,0) {\scshape Automatique Linéaire};
+\draw node[fill=col1!10!white,box] (M) at (-4.5,-2.8) {\scshape Modélisation}; 
+\draw node[fill=col1!10!white,box] (N) at ( 0,-2.8) {\scshape Analyse}; 
+\draw node[fill=col1!10!white,box] (S) at ( 4.5,-2.8) {\scshape Contrôle}; 
 \draw[-latex,ultra thick] (A)--(M.north) ;
 \draw[-latex,ultra thick] (A)--(N.north) ;
 \draw[-latex,ultra thick] (A)--(S.north) ;
-\tikzset{pos1/.style={fill=blue!10!white,
-                      yshift=1.2em,
+\tikzset{pos1/.style={fill=col1!10!white,
+                      yshift=1.75em,
                       text width=4.0cm,
-                      minimum height=5cm,
+                      minimum height=4.5cm,
                       rounded corners=12pt}
 }
-\newcommand{\mysize}{\small}
+\newcommand{\mysize}{\footnotesize}
 \newcommand{\mysized}{\normalsize}
 \node[below=of M,pos1] {\vbox {\mysize
                                     \begin{itemize}
@@ -38,11 +38,10 @@
 				        \item Commande
 					\item Asservissement
 					\item Régulation
-                                        \item Nécessité / Mise en oeuvre \\
-                                              d'une correction
+                                        \item Correction
                                     \end{itemize}}};
-\tikzset{pos2/.style={fill=red!10!white,
-                      yshift=-12em,
+\tikzset{pos2/.style={fill=col4!10!white,
+                      yshift=-9em,
                       text width=4.0cm,
                       minimum height=4cm,
                       rounded corners=12pt}
@@ -56,7 +55,7 @@
                                     \end{itemize}}};
 \node[below=of N,pos2] {\vbox {\mysized
                                     \begin{itemize}
-                                        \item \Cref{chap-anafreq}
+                                        \item \Cref{chap-repfreq}
                                         \item \Cref{chap-perf} 
                                         \item \Cref{chap-stab} 
                                     \end{itemize}}};

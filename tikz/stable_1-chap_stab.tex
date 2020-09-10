@@ -1,0 +1,20 @@
+\begin{tikzpicture}
+    \draw[col3,line width=0.5mm] (0,0.25) circle (1.5ex);
+    \draw[thick] (0,0) parabola (1,1.75) ;
+    \draw[thick] (0,0) parabola (-1,1.75) ;
+    \node at (0,-2.5) {(a) stable};
+    \begin{scope}[xshift=3.5cm]
+        \draw[col4,line width=0.5mm] (0,0.25) circle (1.5ex);
+        \draw[thick] (0,0) parabola (1,-1.75) ;
+        \draw[thick] (0,0) parabola (-1,-1.75) ;
+        \node at (0,-2.5) {(b) instable};
+    \end{scope}
+    \begin{scope}[xshift=7cm]
+        \draw[col1,line width=0.5mm] (0,0.25) circle (1.5ex);
+        \draw[thick] (0,0) parabola (-1,1.75) ;
+        \draw[thick] (0,0) parabola (0.5,0.2) ;
+        \draw[thick] (0.5,0.2) parabola (1,-1.75) ;
+        \node[text width=3cm,align=center] at (0,-2.5) 
+        {(c) stabilité\\conditionnelle};
+    \end{scope}
+\end{tikzpicture}

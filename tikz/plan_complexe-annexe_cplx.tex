@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+\begin{axis}
+    [
+    axis lines = center,
+    minor tick num=1,
+    ticks=both,
+    xlabel=$\Re{z}$,
+    ylabel=$\Im{z}$,
+    ymin=-4,
+    ymax=+4.9,
+    xmin=-5,
+    xmax=+4.9
+    ]
+    \addplot [col4, mark = *] coordinates {( 0, 0)} {};
+    \addplot [col4, mark = *] coordinates {( 2, -3)} {};
+    \addplot [col4, mark = *] coordinates {( 2, 3)} {};
+    \addplot [col4, mark = *] coordinates {( -1, 1)} {};
+
+    \node [below right,col4] at (axis cs:  0, 0) {$0$};
+    \node [right, col4]       at (axis cs:  2, -3) {$2-3j$};
+    \node [above, col4]       at (axis cs:  2, 3) {$2+3j$};
+    \node [left, col4]        at (axis cs:  -1, 1) {$-1+j$};
+\end{axis}
+\end{tikzpicture}

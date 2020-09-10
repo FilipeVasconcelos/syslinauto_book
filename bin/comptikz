@@ -1,0 +1,61 @@
+#!/bin/bash
+name=$1
+for file in tikz/$name.tex
+#for file in tikz/exemple_5-chap2.tex
+do
+    basenameextension=${file##*/}
+    echo $basenameextension
+    basename=${basenameextension%.*}
+    echo $basename
+    texname=standalone_${basename}
+    echo $texname
+cat > standalone/${texname}.tex <<EOF
+\documentclass[a4paper]{article}
+\usepackage[a4paper,headheight=16pt]{geometry}
+\usepackage{siunitx}
+\usepackage{siunitxfmv}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{cleveref}
+\usepackage{mathtools}
+\usepackage{mathfmv}
+\usepackage{schemabloc}
+\usepackage{schemablocfmv}
+\sbStyleBloc{thick}
+\sbStyleLien{thick}
+\usepackage{gfluence}
+\usepackage{vecteurs}
+\usepackage{tikz,pgf,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{tikzfmv}
+\usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+\usepackage{pst-3dplot}
+\usetikzlibrary{calc,tikzmark}
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{arrows.meta,bending,automata,positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{babel} 
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{matrix}
+\usetkzobj{all}
+\usepackage{verbatim}
+\usepackage{poles}
+\begin{document}
+EOF
+    echo "\begin{figure}[!h]" >> standalone/${texname}.tex
+    echo "\centering"         >> standalone/${texname}.tex
+    cat $file                 >> standalone/${texname}.tex
+    echo ""                   >> standalone/${texname}.tex  
+    echo "\verb?$file?"       >> standalone/${texname}.tex  
+    echo "\end{figure}"       >> standalone/${texname}.tex  
+    echo "\end{document}"     >> standalone/${texname}.tex
+#    cat standalone/${texname}.tex
+    latex -output-directory standalone standalone/${texname}.tex
+    dvips -o standalone/${texname}.ps standalone/${texname}.dvi #&> /dev/null
+    ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None standalone/${texname}.ps standalone/${texname}.pdf #&> /dev/null 
+done
+

@@ -4,7 +4,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace*{1cm}
 \mbox{}\hfill\scalebox{2}{
-    \begin{tcolorbox}[width=6.8cm,colframe=black!15]
+    \begin{tcolorbox}[width=6.85cm,colframe=black!15]
         {\bfseries\large {Systèmes mécaniques \\et automatiques} \par}
         {\itshape Notes de cours IngéSpé\par}
         {\itshape Automatique Linéaire\par}
@@ -18,7 +18,11 @@
 {\small\hbox{}\vfill
 \hfill écrit sous \LaTeX, Ti\emph{k}Z
 
-\hfill version de janvier 2020.
+\renewcommand{\today}{\ifcase\month\or de Janvier\or de Fevrier \or de Mars
+                                   \or d'Avril   \or de Mai     \or de Juin
+                                   \or de Juillet\or d'Aout     \or de Septembre
+                                   \or d'Octobre \or de Novembre\or de Décembre\fi\number \year}
+\hfill version \today.
 
 \hfill 
 \doclicenseLongText

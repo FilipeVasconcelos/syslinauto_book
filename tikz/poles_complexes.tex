@@ -2,31 +2,31 @@
     \coordinate (o)  at (0.0,0.0);
     \coordinate (p1) at (-1.0,1.0);
     \coordinate (p2) at (-1.0,-1.0);
+    \coordinate (re) at (1.0,0);
     \draw[very thick,-latex] (0,-1.5) -- (0,2.0) coordinate (im2) 
     node(im) [left]                                               {Im};
-    \draw[very thick,-latex] (-2.5,0) -- (1.0,0) node(re) [below] {Re};
-    \draw[blue,very thick,dotted] (p1) -- (p2) 
-    node[blue,midway,xshift=-1em,yshift=-0.8em] {$-\alpha$};
+    \draw[very thick,-latex] (-2.5,0) -- (1.0,0) node [below] {Re};
+    \draw[col1,very thick,dotted] (p1) -- (p2) 
+    node[col1,midway,xshift=-1em,yshift=-0.8em] {$-\alpha$};
     \draw[very thick] (o) -- (p1);
     \draw[very thick] (o) -- (p2);
-    \draw[red,very thick,dotted] (p1) -- (0.0,1.0)   
-    node[blue,xshift=1.2em,yshift=0em] {$\omega_d$};
-    \draw[red,very thick,dotted] (p2) -- (0.0,-1.0) 
-    node[blue,xshift=1.2em,yshift=0em] {$-\omega_d$};
-    \draw[red,thick] (0,0) circle [radius=1.41421356237];
-    \node at (p1) [thick,cross=5pt,blue] {};
-    \node at (p1) [blue,left,xshift=-0.5em] {$p_1$};
-    \node at (p2) [thick,cross=5pt,blue]    {};
-    \node at (p2) [blue,left,xshift=-0.5em] {$p_2$};
+    \draw[col1,very thick,dotted] (p1) -- (0.0,1.0)   
+    node[col1,xshift=1.2em,yshift=0em] {$\omega_d$};
+    \draw[col1,very thick,dotted] (p2) -- (0.0,-1.0) 
+    node[col1,xshift=1.2em,yshift=0em] {$-\omega_d$};
+    \draw[col4,thick] (0,0) circle [radius=1.41421356237];
+    \node at (p1) [thick,cross=5pt,col1] {};
+    \node at (p1) [col1,left,xshift=-0.5em] {$p_1$};
+    \node at (p2) [thick,cross=5pt,col1]    {};
+    \node at (p2) [col1,left,xshift=-0.5em] {$p_2$};
     \pic[draw,
          -latex,
          "$\phi$",
          angle radius=0.5cm,
-         angle eccentricity=1.5] 
-    {angle = im2--o--p1};
-    \pic[draw,
-         -latex,
-         "$\phi$",
-         angle eccentricity=1.5] 
-    {angle = p2--o--im};
+         angle eccentricity=1.5] {angle = re--o--p1};
+%    \pic[draw,
+%         -latex,
+%         "$\phi$",
+%         angle eccentricity=1.5] 
+%    {angle = p2--o--im};
 \end{tikzpicture}  

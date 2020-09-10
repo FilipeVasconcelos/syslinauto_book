@@ -1,0 +1,37 @@
+\begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        axis line style = thick,
+        width=0.45\textwidth,
+        xmin=0,
+        xmax=30,
+        ymin=0,
+        ymax=1.75,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        label style={font=\Large},
+        legend cell align={left},
+    ]%
+        \addplot[mark=none,vtb] table {scilab/pert1_data.tab};
+        \addplot[col4,thick,domain=0:15] {1};   %échelon
+        \addplot[col4,thick,domain=15:30] {1.5}; %pertubation
+        \addplot[col4,thick,domain=-2:0] {0};
+        \draw[col4,thick,dashed] (0,0)--(0,1);   %échelon
+        \draw[col4,thick,dashed] (15,1)--(15,1.5);   %échelon
+    \end{axis}
+    \begin{scope}[shift={(-10,2.3)}]
+        \sbEntree{E}
+        \sbCompSum{comp1}{E}{+}{-}{+}{}
+        \sbRelier[$E(p)$]{E}{comp1}
+        \sbBloc[2.5]{C}{$\dfrac{1}{p}$}{comp1}
+        \sbRelier[$\epsilon(p)$]{comp1}{C}
+        \sbBloc[3]{H}{$\dfrac{1}{p+1}$}{C}
+        \sbRelier[]{C}{H}
+        \sbSortie[3]{S}{H}
+        \sbRelier[$S(p)$]{H}{S}
+        \sbRenvoi[4]{H-S}{comp1}{}
+        \sbDecaleNoeudy[-2.5]{comp1}{P}
+        \sbRenvoiF[-2.5]{P}{comp1}{$P(p)$}
+    \end{scope}
+\end{tikzpicture}

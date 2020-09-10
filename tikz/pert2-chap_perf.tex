@@ -1,0 +1,12 @@
+\begin{tikzpicture}                  
+    \sbEntree{E}
+    \sbComp{comp1}{E}
+    \sbRelier[$E(p)$]{E}{comp1}
+    \sbBloc[3]{C}{$\dfrac{1}{p}$}{comp1}
+    \sbRelier[$\epsilon(p)$]{comp1}{C}
+    \sbBloc[3]{H}{$\dfrac{1}{p+1}$}{C}
+    \sbRelier[]{C}{H}
+    \sbSortie[3]{S}{H}
+    \sbRelier[$S(p)$]{H}{S}
+    \sbRenvoi[4]{H-S}{comp1}{}
+\end{tikzpicture}                    

@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+        \coordinate (pt) at (0,-1);
+        \sbEntree{E1}
+        \sbCompSum[5.0]{comp}{E1}{}{\pm}{+}{}
+        \sbRelier[$E_1$]{E1}{comp}
+        \sbSortie[2.5]{S}{comp}
+        \sbRelier[$S$]{comp}{S}
+        \draw[-latex] (comp|-0,-1.5) -- (comp.south) node[midway,left] {$E_2$};
+        \node[right=of S] {\Large $\equiv$};
+    \begin{scope}[xshift=6cm]
+        \gfEntree[0][0][]{}{E}
+        \gfEntree[0][1.5][+]{$E_1$}{E1}
+        \gfEntree[0][-1.5][-]{$E_2$}{E2}
+        \gfSortie[4]{$S$}{E}{S}
+        \gfRelier[$+1$]{E1}{S}
+        \gfRelier[$\pm1$][-][1.0]{E2}{S}
+    \end{scope}
+\end{tikzpicture}

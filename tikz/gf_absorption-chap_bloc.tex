@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+    \gfEntree[0][0][]{}{E}
+    \gfEntree[0][1.5][+]{$E_1$}{E1}
+    \gfEntree[0][-1.5][-]{$E_2$}{E2}
+    \gfNoeud[4]{$X$}{E}{X}
+    \gfSortie[4]{$S$}{X}{S}
+    \gfRelier[$H_1$]{E1}{X}
+    \gfRelier[$H_2$][-][1.0]{E2}{X}
+    \gfRelier[$K$]{X}{S}
+    \node[right=of S] {$\equiv$};
+    \gfEntree[14][0][]{}{E}
+    \gfEntree[14][1.5][+]{$E_1$}{E1}
+    \gfEntree[14][-1.5][-]{$E_2$}{E2}
+    \gfSortie[4]{$S$}{E}{S}
+    \gfRelier[$KH_1$]{E1}{S}
+    \gfRelier[$KH_2$][-][1.0]{E2}{S}
+\end{tikzpicture}

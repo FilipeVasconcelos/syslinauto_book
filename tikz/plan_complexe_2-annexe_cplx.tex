@@ -1,0 +1,29 @@
+\begin{tikzpicture}
+\begin{axis}
+    [
+    axis lines = center,
+    minor tick num=1,
+    ticks=both,
+    xlabel=$\Re{z}$,
+    ylabel=$\Im{z}$,
+    ymin=-4,
+    ymax=+4.9,
+    xmin=-5,
+    xmax=+4.9
+    ]
+    \addplot [col4, mark = *] coordinates {( 0, 0)} {};
+    \addplot [col4, mark = *] coordinates {( 2, 3)} {};
+    \addplot [col4, mark = *] coordinates {( 2, -3)} {};
+    \node [below left, col4] at (axis cs:  0, 0) {$0$};
+    \node [above, col4]       at (axis cs:  2, 3) {$2+3j$};
+    \node [below, col4]       at (axis cs:  2,-3) {$2-3j$};
+    \draw[col4] (axis cs:0,0) -- (axis cs:  2, 3) 
+    node[midway,yshift=1.1em,xshift=-0.2em] {$|z|$};
+    \draw[col4] (axis cs:0,0) -- (axis cs:  2,-3) 
+    node[midway,yshift=-1.1em,xshift=-0.2em] {$|\bar{z}|$};
+    \draw[col4] (axis cs:1.0,0) arc (0:40:1cm) 
+    node[midway,yshift=0.2em,xshift=0.6em] {$\theta$};
+    \draw[col4] (axis cs:1.0,0) arc (0:-40:1cm) 
+    node[midway,yshift=0.2em,xshift=0.6em] {$-\theta$};
+\end{axis}
+\end{tikzpicture}

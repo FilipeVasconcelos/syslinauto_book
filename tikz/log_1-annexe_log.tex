@@ -1,0 +1,20 @@
+\begin{tikzpicture}
+    \draw[-latex] (0,0) -- (11,0) ;
+    \foreach \x in {0,...,20}
+         \draw (\x/2,2pt) -- (\x/2,-2pt);
+    \foreach \x in {0,10,20} 
+    {
+        \draw (\x/2,4pt) -- (\x/2,-4pt);
+        \node [below,yshift=-0.5em] at (\x/2,2pt) {\small \x};
+    }
+    \foreach \x in {4,14}
+    \node [above,yshift=0.0em] at (\x/2,2pt) {\small \x};
+    \draw[col1,thick] (0,0.2) -- (0,1.2) ;
+    \draw[col1,thick] (5,0.2) -- (5,1.2) ;
+    \draw[col1,thick] (10,0.2) -- (10,1.2) ;
+    \draw[utb,latex-latex] (0,0.75) -- node[above] {$\Delta=10$} (5,0.75);
+    \draw[utb,latex-latex] (5,0.75) -- node[above] {$\Delta=10$} (10,0.75);
+    \draw[col4,thick] (2,-0.2) -- (2,-1.22) ;
+    \draw[col4,thick] (7,-0.2) -- (7,-1.2) ;
+    \draw[utr,latex-latex] (2,-0.75) -- node[below] {$\Delta=10$} (7,-0.75);
+\end{tikzpicture}

@@ -1,0 +1,73 @@
+\begin{tikzpicture}
+\begin{axis}
+    [
+    axis lines = center,
+    height=10cm,
+    width=12cm,
+    ticks=none,
+    axis line style = thick,
+    %enlargelimits=false,
+    xlabel={$\Re{H_{BO}(\jw)}$},
+    ylabel={$\Im{H_{BO}(\jw)}$},
+    xlabel style={below right},
+    ylabel style={right},
+    ymin=-1.5,
+    ymax=1.5,
+    xmin=-1.5,
+    xmax=1.5,
+%    clip=false
+    ]     
+    \addplot [black, mark = *] coordinates {( -1, 0)} {};
+    \node [above left,xshift=-1ex]  at (axis cs:  -1, 0)   {$(-1,0)$};
+    %stable
+    \def\xu{-0.206}
+    \def\yu{0.4}
+    \def\xd{-1}
+    \def\yd{0.38}
+    \def\xt{-1}
+    \def\yt{-4}
+    \addplot [-latex,col3,thick,domain=0.85:0.55,samples=51]
+    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
+    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
+    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
+    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
+    \addplot [-latex,col3,thick,domain=0.56:0.3,samples=50]
+    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
+    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
+    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
+    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
+    \addplot [col3,thick,domain=0.31:0,samples=50]
+    ({(1-x)*((1-x)*(x*\xu)+x*((1-x)*\xu+x*\xd))+
+    x*((1-x)*((1-x)*\xu+x*\xd)+x*((1-x)*\xd+x*\xt))},
+    {(1-x)*((1-x)*(x*\yu)+x*((1-x)*\yu+x*\yd))+
+    x*((1-x)*((1-x)*\yu+x*\yd)+x*((1-x)*\yd+x*\yt))});
+
+
+    \draw[dashed,thick] (axis cs: 0,0) circle (2.9cm);
+
+    \pgfmathsetmacro{\th}{223}
+    \pgfmathsetmacro{\cth}{cos(\th)}
+    \pgfmathsetmacro{\sth}{sin(\th)}
+    \addplot[col1, mark = *] coordinates {(\cth,\sth)} {};
+
+    \coordinate (o)  at (axis cs: 0.0,0.0);
+    \coordinate (p1) at (axis cs: \cth,\sth);
+    \coordinate (p2) at (axis cs: -1.0,0.0);
+    \coordinate (p3) at (axis cs: -0.47,0);
+    \addplot[col3, mark = *] coordinates {(-0.47,0)} {};
+    \node [above left,xshift=-1.2ex]  at (p1) {$H_{BO}(j\omega_{c0})$};
+    \draw[col1,thick] (axis cs: \cth,\sth) -- (o); 
+    \pic[draw,col1,
+         dblarw={col1}{2pt}{2pt},
+         "$M_\phi$",
+         angle radius=0.7cm,
+         angle eccentricity=1.5] {angle = p2--o--p1};
+
+    \draw[col1,dashed] (axis cs: -0.47,0) -- (axis cs: -0.47,0.4);
+    \draw[dblarw={col1}{2pt}{2pt}] (axis cs: 0,0.4) -- 
+    node[midway,above] {$\big|H(j\omega_{\pi})\big|$} (axis cs: -0.47,0.4);
+    \node[col1,text width=6cm] at (axis cs: 0.85,1.15) 
+    {$M_G=-20\log{\big|H(j\omega_{\pi})\big|}$ 
+     $M_\phi=\pi+\phi(H_{BO}(j\omega_{c0}))$};
+\end{axis}
+\end{tikzpicture}

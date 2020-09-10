@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{a}{E}
+    \sbRelier[$E$]{E}{a}
+    \sbStyleBloc{col5}
+    \sbBloc{b}{$\dfrac{H_1H_2H_3H_4}{1+R_1H_3H_4}$}{a}
+    \sbRelier[$\epsilon$]{a}{b}
+    \sbSortie[5]{S1}{b}
+    \sbRelier{b}{S1}
+    \sbNomLien[0.8]{S1}{$S$}
+    \sbDecaleNoeudy[6]{b}{v}
+    \sbBlocr[-1.5]{r2}{$\dfrac{R_2R_3}{H_4}$}{v}
+    \sbRelieryx{b-S1}{r2}
+    \sbRelierxy[$n_2$]{r2}{a}
+    \draw[ultra thick,black,-latex](4.1,-1.23)+(80:0.45cm) arc(80:-260:0.45cm)
+    node[black,below,right,xshift=1.5em,yshift=-1em] {$B_2$};
+\end{tikzpicture}

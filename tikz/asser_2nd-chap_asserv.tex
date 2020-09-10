@@ -1,0 +1,12 @@
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbComp{a}{E}
+        \sbRelier[$E(p)$]{E}{a}
+       % \sbBloc{b}{$C(p)$}{a}
+        \sbBloc{b}{$\dfrac{K\omega^2_0}{\omega^2_0+2\xi\omega_0p+p^2}$}{a}
+        \sbRelier{a}{b}
+        \sbSortie[4]{S}{b}
+        \sbRelier{b}{S}
+        \sbRenvoi{b-S}{a}{}
+        \sbNomLien[0.8]{S}{$S(p)$}
+    \end{tikzpicture}

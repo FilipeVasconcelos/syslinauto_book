@@ -1,0 +1,62 @@
+%               K           
+%     A ------B    C---------D
+%     |                      |
+%     |                      |
+% C1--E--C2                --J-R2 
+%                          |   |
+% C3--F--C4               R1-I--
+%     |                      |
+%     |                      |
+%     G----------------------H
+%
+%
+\begin{tikzpicture}
+
+    \pgfmathsetmacro{\pC}{0.75}   % distance de C(1,2,3,4) en x relativement E/F
+    \pgfmathsetmacro{\eC}{0.5}    % ecartement du condensateur E-F
+    \pgfmathsetmacro{\lR}{1.25}   % longueur de la resistance
+    \pgfmathsetmacro{\pR}{0.25}   % position de R1 / I
+    \pgfmathsetmacro{\eR}{2*\pR}
+    \pgfmathsetmacro{\ab}{1.5}
+    \pgfmathsetmacro{\cb}{1.0}
+    \pgfmathsetmacro{\gh}{2*\ab+\cb}
+    \pgfmathsetmacro{\fg}{1}
+    \pgfmathsetmacro{\tmpu}{0.5*\eC}
+    \pgfmathsetmacro{\tmpd}{-0.5*\lR}
+    \pgfmathsetmacro{\dj}{\fg+\tmpu+\tmpd}
+
+    \coordinate (A)  at (0,0);
+    \coordinate (B)  at ($(A)+(\ab,0)$);
+    \coordinate (C)  at ($(B)+(\cb,0)$);
+    \coordinate (D)  at ($(C)+(\ab,0)$);
+    \coordinate (E)  at ($(A)+(0,-\fg)$);
+    \coordinate (F)  at ($(E)+(0,-\eC)$);
+    \coordinate (C1) at ($(E)+(-\pC,0)$);
+    \coordinate (C2) at ($(E)+(\pC,0)$);
+    \coordinate (C3) at ($(F)+(-\pC,0)$);
+    \coordinate (C4) at ($(F)+(\pC,0)$);
+    \coordinate (G)  at ($(F)+(0,-\fg)$);
+    \coordinate (H)  at ($(G)+(\gh,0)$);
+    \coordinate (I)  at ($(H)+(0,\dj)$);
+    \coordinate (J)  at ($(I)+(0,\lR)$);
+    \coordinate (K)  at ($(C)+(-0.75,0.5)$);
+    \coordinate (R1) at ($(I)+(-\pR,0)$);
+    \coordinate (R2) at ($(R1)+(\eR,\lR)$);
+
+    %\node[circle,fill=white,draw=black,ultra thick] at (B) {};
+    \draw[thick] (A)  -- (B);
+    \draw[thick] (C)  -- (D);
+    \draw[thick] (A)  -- (E);
+    \draw[very thick,col1] (C1) -- (C2) 
+    node[col1,xshift=1em,yshift=-0.5em] {$C$};
+    \draw[very thick,col1] (C3) -- (C4);
+    \draw[thick] (F)  -- (G);
+    \draw[thick] (G)  -- (H);
+    \draw[thick] (I)  -- (H);
+    \draw[thick] (J)  -- (D);
+    \draw[thick] (K)  -- (C);
+    \draw[very thick,col4] (R1) rectangle (R2) 
+    node[yshift=-1.5em,xshift=0.75em] {$R$};
+    \draw[draw=black,fill=white] (B) circle (2pt);
+    \draw[draw=black,fill=white] (C) circle (2pt);
+\end{tikzpicture}

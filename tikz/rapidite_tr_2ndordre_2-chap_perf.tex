@@ -1,0 +1,30 @@
+% temps de montée à la valeur finale
+\pgfmathdeclarefunction{func2}{1}{%
+    \pgfmathparse{%
+        (3.14159265-rad(atan(sqrt(1-#1*#1)/#1)))/sqrt(1-#1*#1)
+    }%
+}
+\begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        axis line style = thick,
+        width=0.7\textwidth,
+        xmin=1e-1,
+        xmax=1e1,
+        ymin=1e0,
+        ymax=1e2,
+        xlabel={$\xi$},
+        ylabel={$t_{5\%}\cdot\omega_0$},
+        label style={font=\Large},
+        legend cell align={left},
+        xmode=log,
+        ymode=log,
+        grid=both,
+        grid style={line width=.4pt, draw=black},
+        major grid style={line width=.4pt,draw=black},
+    ]%
+        \addplot[mark=none,vtb]   table {python/tr.tab};
+        \addplot[vtr,domain=0.1:1,samples=500]   {func2(x)};
+    \end{axis}
+\end{tikzpicture}

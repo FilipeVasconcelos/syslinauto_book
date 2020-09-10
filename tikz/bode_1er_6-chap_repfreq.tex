@@ -1,0 +1,23 @@
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.22\textheight,
+    xlabel={Pulsation (rad/s)},
+    ylabel={Phase (deg)},
+    xtick={1e-1,1,1e1}, 
+    ytick={-90,-45,0}, 
+    yticklabels={-90,-45,0},
+    xticklabels={$10^{-1}$,$10^{0}$,$10^{1}$},
+    xmode=log,ymode=normal,
+    xmin=1e-1, xmax=1e1,
+    ymin=-90, ymax=0,
+    grid=both,
+    major grid style={black!40}
+]
+    \addplot[ultra thick,col1,domain=1e-3:1e3, samples=101] {-atan2(x,1)};
+    \addplot[line width=2pt,col4,dashed,domain=1e-1:1e0,samples=101] {0};
+    \addplot[line width=2pt,col4,dashed,domain=1e0:1e1,samples=101] {-90};
+    \draw[line width=2pt,col4,dashed] (axis cs:1,0) -- (axis cs:1,-90);
+\end{axis}
+\end{tikzpicture}

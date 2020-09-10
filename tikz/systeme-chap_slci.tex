@@ -1,0 +1,46 @@
+\begin{tikzpicture}
+\tikzset{sys/.style={draw,minimum width=5cm,
+                     minimum height=3cm,
+                     rounded corners=15pt,
+                     inner sep=0.5pt,
+                     text width=4cm,
+                     align=center}
+}
+\node[sys,ultra thick] (S) at (0,0) {\LARGE\scshape Système};
+\node[above of=S,yshift=4em]  {\large Perturbations};
+\node[below of=S,yshift=-4em] {\large Mesures};
+\node[left of=S,xshift=-8em,yshift=2.5em]  (e1) {\large Entrée 1};
+\node[left of=S,xshift=-8em,yshift=1em]    (e2) {\large Entrée 2};
+\node[left of=S,xshift=-8em,yshift=-0.5em] (ed) {\large \vdots};
+\node[left of=S,xshift=-8em,yshift=-2em]   (en) {\large Entrée n};
+\draw[-{Latex[length=2.5mm]}] (e1) -- (e1-|S.west);
+\draw[-latex] (e2) -- (e2-|S.west);
+\draw[-latex] (en) -- (en-|S.west);
+\node[right of=S,xshift=8em,yshift=2.5em]  (s1) {\large Sortie 1};
+\node[right of=S,xshift=8em,yshift=1em]    (s2) {\large Sortie 2};
+\node[right of=S,xshift=8em,yshift=-0.5em] (sd) {\large \vdots};
+\node[right of=S,xshift=8em,yshift=-2em]   (sn) {\large Sortie n};
+\draw[latex-] (s1) -- (s1-|S.east);
+\draw[latex-] (s2) -- (s2-|S.east);
+\draw[latex-] (sn) -- (sn-|S.east);
+\node[above of=S,yshift=3.5em,xshift=-4em] (p1) {};
+\node[above of=S,yshift=3.5em,xshift=-2em] (p2) {};
+\node[above of=S,yshift=3.5em,xshift=0em]  (p3) {};
+\node[above of=S,yshift=3.5em,xshift=2em]  (p4) {};
+\node[above of=S,yshift=3.5em,xshift=4em]  (p5) {};
+\draw[-latex] (p1) -- (p1|-S.north);
+\draw[-latex] (p2) -- (p2|-S.north);
+\draw[-latex] (p3) -- (p3|-S.north);
+\draw[-latex] (p4) -- (p4|-S.north);
+\draw[-latex] (p5) -- (p5|-S.north);
+\node[below of=S,yshift=-3.5em,xshift=-4em] (m1) {};
+\node[below of=S,yshift=-3.5em,xshift=-2em] (m2) {};
+\node[below of=S,yshift=-3.5em,xshift=0em]  (m3) {};
+\node[below of=S,yshift=-3.5em,xshift=2em]  (m4) {};
+\node[below of=S,yshift=-3.5em,xshift=4em]  (m5) {};
+\draw[latex-] (m1) -- (m1|-S.south);
+\draw[latex-] (m2) -- (m2|-S.south);
+\draw[latex-] (m3) -- (m3|-S.south);
+\draw[latex-] (m4) -- (m4|-S.south);
+\draw[latex-] (m5) -- (m5|-S.south);
+\end{tikzpicture}

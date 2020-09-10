@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+    \sbEntree[7.0]{E1}
+    \sbBloc[4.0]{K1}{$K$}{E1}
+    \sbRelier[$E$]{E1}{K1}
+    \sbBloc[2.0]{H1}{$H_1$}{K1}
+    \sbRelier{K1}{H1}
+    \sbDecaleNoeudy[4]{K1}{r1}
+    \sbBloc[-1.5]{K2}{$K$}{r1}
+    \sbRelieryx{E1-K1}{K2.west}
+    \sbBloc[2.0]{H2}{$H_2$}{K2}
+    \sbRelier{K2}{H2}
+    \sbSortie[3.0]{S1}{H1}
+    \sbRelier[$S_1$]{H1}{S1}
+    \sbSortie[3.0]{S2}{H2}
+    \sbRelier[$S_2$]{H2}{S2}
+\end{tikzpicture}

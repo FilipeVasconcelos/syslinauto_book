@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+    \begin{axis}
+    [
+        legend style={draw=none,font=\scriptsize},
+        legend pos=north east,
+        axis line style = thick,
+        width=0.48\textwidth,
+        xmin=0,
+        xmax=10,
+        ymin=0,
+        ymax=2.1,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        ylabel near ticks, yticklabel pos=right,
+        label style={font=\Large},
+        legend cell align={left},
+    ]%
+    \addplot[thick,color=col5,domain=0:11.5, samples=101] {{1}};%
+    \addplot[thick,color=col1,domain=0:11.5, samples=101] {0.5*(1-exp(-x))};
+    \addplot[thick,color=col4,domain=0:11.5, samples=101] {1-exp(-x)};
+    \addplot[thick,color=col3,domain=0:11.5, samples=101] {2*(1-exp(-x))};
+    \legend{échelon,$K=0.5$,$K=1$,$K=2$}
+    \end{axis}
+\end{tikzpicture}

@@ -1,17 +1,9 @@
-\clearpage
-\thispagestyle{empty}
-\begin{landscape}
-\centering
-\captionsetup{width=1.15\linewidth}
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{stabilite_plan-complexe-chap6_ext}
-    \begin{tikzpicture}
+\begin{tikzpicture}
     \tikzstyle{marktmp}=[mark=x,ultra thick,only marks,mark size=7pt]
     \tikzstyle{thickdotted}=[ultra thick,dotted]
-    \tikzstyle{colstab}=[white!90!blue]
+    \tikzstyle{colstab}=[white!90!col1]
     \tikzstyle{colinstab}=[white!90!black]
-    \tikzstyle{fcolstab}=[fill=white!90!blue]
+    \tikzstyle{fcolstab}=[fill=white!90!col1]
     \tikzstyle{fcolinstab}=[fill=white!90!black]
     \begin{axis}[ticks=none,
         width=1.6\textheight,
@@ -37,18 +29,18 @@
     \coordinate (pt02) at (axis cs:6.5,4.5);
 
     \coordinate (pt1) at (axis cs:-12.5,2.0);
-    \addplot[marktmp,black!60!green] coordinates{ (-11,1.5) (-11,-1.5) };
-    \draw[thickdotted,black!60!green] (axis cs:-11,1.5) -- (axis cs:-11,-1.5) ;
+    \addplot[marktmp,col3] coordinates{ (-11,1.5) (-11,-1.5) };
+    \draw[thickdotted,col3] (axis cs:-11,1.5) -- (axis cs:-11,-1.5) ;
 
     \coordinate (pt2) at (axis cs:-7,1.0);
-    \addplot[marktmp,black!10!green]  coordinates{ (-5,0.5) (-5,-0.5) } ;
-    \draw[thickdotted,black!10!green] (axis cs:-5,0.5) -- (axis cs:-5,-0.5) ;
+    \addplot[marktmp,col2]  coordinates{ (-5,0.5) (-5,-0.5) } ;
+    \draw[thickdotted,col2] (axis cs:-5,0.5) -- (axis cs:-5,-0.5) ;
 
     \coordinate (pt3) at (axis cs:-10.25,-3.0);
-    \addplot[marktmp,black!50!red] coordinates{ (-8,0) } ;
+    \addplot[marktmp,col4] coordinates{ (-8,0) } ;
 
     \coordinate (pt4) at (axis cs:-4.75,-3.0);
-    \addplot[marktmp=x,red] coordinates{ (-2,0) } ;
+    \addplot[marktmp=x,col4] coordinates{ (-2,0) } ;
 
     \coordinate (pt5) at  (axis cs:1.25,-5);
     \coordinate (pt52) at (axis cs:1.25,-3);
@@ -56,15 +48,15 @@
 
     \coordinate (pt6) at (axis cs:1.25,2);
     \coordinate (pt62) at (axis cs:1.25,0);
-    \addplot[marktmp,black!50!white] coordinates{ (0,2) (0,-2) };
-    \draw[thickdotted,black!50!white] (axis cs:0,-2) to[bend right] (axis cs:0,2);
+    \addplot[marktmp,col5] coordinates{ (0,2) (0,-2) };
+    \draw[thickdotted,col5] (axis cs:0,-2) to[bend right] (axis cs:0,2);
 
     \coordinate (pt7) at (axis cs:8.25,2);
-    \addplot[marktmp,blue] coordinates{ (11,1.5) (11,-1.5) } ;
-    \draw[thickdotted,blue] (axis cs:11,1.5) -- (axis cs:11,-1.5);
+    \addplot[marktmp,col1] coordinates{ (11,1.5) (11,-1.5) } ;
+    \draw[thickdotted,col1] (axis cs:11,1.5) -- (axis cs:11,-1.5);
 
     \coordinate (pt8) at (axis cs:6.5,-3);
-    \addplot[marktmp,orange] coordinates{(8,0)};
+    \addplot[marktmp,col6] coordinates{(8,0)};
     \end{axis}
 
     \node at (pt01) {\textbf{\Large STABLE}};
@@ -92,7 +84,7 @@
         [   xmin=-0.5,xmax=6.5,
             ymin=-1.5,ymax=1.5
 	]
-        \addplot[signaln6g,domain=0:6] {1.2*sin(4.5*deg(x))*exp(-0.7*x)};
+        \addplot[signalg,domain=0:6] {1.2*sin(4.5*deg(x))*exp(-0.7*x)};
         \addplot[envelop,domain=0:6]       {1.2*exp(-0.7*x)};
         \addplot[envelop,domain=0:6]       {-1.2*exp(-0.7*x)};
         \end{axis}
@@ -106,7 +98,7 @@
         [   xmin=-0.5,xmax=6.5,
             ymin=-1.5,ymax=1.5
 	]
-        \addplot[signaln1g,domain=0:6] {1.2*sin(2.5*deg(x))*exp(-0.5*x)};
+        \addplot[signalo,domain=0:6] {1.2*sin(2.5*deg(x))*exp(-0.5*x)};
         \addplot[envelop,domain=0:6]       {1.2*exp(-0.5*x)};
         \addplot[envelop,domain=0:6]       {-1.2*exp(-0.5*x)};
         \end{axis}
@@ -120,7 +112,7 @@
 	[   xmin=-0.5,xmax=6.5,
 	    ymin=-0.5,ymax=3
         ]
-	\addplot [signaln3r,domain=0:6]  {2*exp(-0.75*x)};
+	\addplot [signalr,domain=0:6]  {2*exp(-0.75*x)};
 	\end{axis}
 	\end{tikzpicture}
     };
@@ -168,9 +160,9 @@
 	[   xmin=-0.5,xmax=8,
             ymin=-20,ymax=20,
         ]
-        \addplot[signaln1g,domain=0:8]  {sin(2.5*deg(x))*exp(0.40*x)+1};
-        \addplot[envelop,domain=0:8]        {exp(0.4*x)+1};
-        \addplot[envelop,domain=0:8]        {-exp(0.4*x)+1};
+        \addplot[signaln,domain=0:8]  {sin(2.5*deg(x))*exp(0.40*x)+1};
+        \addplot[envelop,domain=0:8]  {exp(0.4*x)+1};
+        \addplot[envelop,domain=0:8]  {-exp(0.4*x)+1};
         \end{axis}
         \end{tikzpicture}
     };
@@ -182,7 +174,7 @@
         [   xmin=-0.5,xmax=6.5,
 	    ymin=-2.5,ymax=2.5,
         ]
-        \addplot[signaln5w,domain=0:6.5] {sin(2.5*deg(x))};
+        \addplot[signaln,domain=0:6.5] {sin(2.5*deg(x))};
         \end{axis}
         \end{tikzpicture}
 	};
@@ -194,7 +186,7 @@
         [   xmin=-0.5,xmax=8.0,
 	    ymin=-20,ymax=20
         ]
-	\addplot[signalb,domain=0:8]   {sin(2.5*deg(x))*exp(0.40*x)+1};
+	\addplot[signalb,domain=0:8] {sin(2.5*deg(x))*exp(0.40*x)+1};
 	\addplot[envelop,domain=0:8] {exp(0.4*x)+1};
 	\addplot[envelop,domain=0:8] {-exp(0.4*x)+1};
         \end{axis}
@@ -208,21 +200,8 @@
 	[   xmin=-0.5,xmax=15,
 	    ymin=-0.5,ymax=6,
         ]
-        \addplot[signalo,domain=0:15] {1+exp(0.1*x)};
+        \addplot[signalv,domain=0:15] {1+exp(0.1*x)};
         \end{axis}
         \end{tikzpicture}
     };
-    \end{tikzpicture}
-    \caption{Stabilité d'un SLCI d'après la carte des pôles de sa fonction de
-             transfert et de leurs réponses impulsionnelles. 
-             (Vert) Deux pôles complexes conjugués. 
-             (Rouge) Pôle à partie réel négative. 
-             (Gris) Deux pôles complexes conjugués à partie réelle nulle.
-             (Noir) Pôle nul.
-             (Bleu) Deux pôles complexes conjugués à partie réelle positive.
-             (Orange) Pôle à partie réel positive.}
-    \end{figure}
-\end{landscape}
-\clearpage
-\pagestyle{fancy}
-\captionsetup{width=0.8\linewidth}
+\end{tikzpicture}

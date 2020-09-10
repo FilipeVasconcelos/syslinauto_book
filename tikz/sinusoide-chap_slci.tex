@@ -1,0 +1,35 @@
+\begin{tikzpicture}
+    \begin{axis}
+    [   axis line style = thick,
+        clip=false,
+        height=5cm,
+        width=10cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-2,
+        xmax=4*pi,
+        ymin=-1.5,
+        ymax=1.5,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={above left},
+        ytick={-1,1},
+        yticklabels={$-A$,$A$},
+        xtick={},
+        xticklabels={},
+    ]
+    \addplot[signalb,domain=-2:0]    {0};
+    \addplot[signalb,domain=0:4*pi]  {sin(deg(x))};
+    \addplot[signalr,domain=0:4*pi]  {sin(deg(x-pi*0.5))};
+    \draw[col1] (axis cs:pi*0.5,1) -- (axis cs:pi*0.5,1.25);
+    \draw[col1] (axis cs:pi*2.5,1) -- (axis cs:pi*2.5,1.25);
+    \draw[col1,ultra thick, latex-latex] (axis cs:pi*0.5,1.2) -- 
+    node[above,yshift=+0.2em]{$\dfrac{2\pi}{\omega}$} (axis cs:pi*2.5,1.2);
+    \draw[col1] (axis cs:pi*1.5,-1) -- (axis cs:pi*1.5,-1.25);
+    \draw[col1] (axis cs:pi*1.5+pi*0.5,-1) -- (axis cs:pi*1.5+pi*0.5,-1.25);
+    \draw[col1,ultra thick, latex-latex] (axis cs:pi*1.5,-1.2) --
+    node[below,yshift=-0.2em]{$\dfrac{\Delta\phi}{\omega}$}
+    (axis cs:pi*1.5+pi*0.5,-1.2);
+    \end{axis}
+\end{tikzpicture}

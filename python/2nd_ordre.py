@@ -1,6 +1,7 @@
 import numpy as np
 import sys
 
+# ------------------------------------------------------------------------------
 def second(t,w0,xi):
     a=xi**2-1
     if xi > 1:
@@ -16,6 +17,7 @@ def second(t,w0,xi):
         phi=np.arctan(sa/xi)
         return 1-(1/sa)*np.exp(-xi*w0*t)*np.sin(wd*t+phi)
 
+# ------------------------------------------------------------------------------
 def tracer_reponses(xis,ts):
     f=open("all.tab","w")
     for xi in xis :
@@ -26,12 +28,14 @@ def tracer_reponses(xis,ts):
         f.write("\n")
     f.close()
 
+# ------------------------------------------------------------------------------
 def dans_bande(v,x):
     if v>=1-x/100 and v<=1+x/100 :
         return True                                                                                               
     else:
         return False
 
+# ------------------------------------------------------------------------------
 def temps_de_reponse(xpct=5):
 
     pas_xi=0.01
@@ -56,7 +60,6 @@ def temps_de_reponse(xpct=5):
         xis.append(xi)
         twos.append(omega*t)
         xi+=pas_xi
-
 
     #xi>0.6 et xi<=1
     #On teste la sortie de bande en partant d'une valeur de t suffisamment grande.
@@ -92,6 +95,7 @@ def temps_de_reponse(xpct=5):
 
     return xis,twos
 
+# ------------------------------------------------------------------------------
 def status(index,tab):
     n=len(tab)
     period=n/8
@@ -99,6 +103,7 @@ def status(index,tab):
     if (index % period) != 0 : return  
     print('running : {0:04.1f}%'.format(pct))
 
+# ------------------------------------------------------------------------------
 def temps_de_montee(xis,ts):
     tm=[]
     period=0
@@ -120,6 +125,7 @@ def temps_de_montee(xis,ts):
         period+=1
     return tm
 
+# ------------------------------------------------------------------------------
 def temps_de_montee_vf(xis,ts):
     tm=[]
     period=0
@@ -137,8 +143,20 @@ def temps_de_montee_vf(xis,ts):
         #print(xi,t)
         period+=1
     return tm
+# ------------------------------------------------------------------------------
+def temps_de_montee_vf_analyt(xis,ts):
+    tm=[]
+    period=0
+    for xi in xis :
+        status(period,xis)
+        b=1-xi**2
+        a=b/xi
+        t=(np.pi-np.arctan(a))/np.sqrt(b)
+        tm.append(t)
+        period+=1
+    return tm
 
-
+# ------------------------------------------------------------------------------
 def temps_de_pic(xis,ts):
     tp=[]
     period=0
@@ -155,7 +173,7 @@ def temps_de_pic(xis,ts):
         period+=1
     return tp
 
-
+# ------------------------------------------------------------------------------
 if __name__=="__main__":
     
 
@@ -176,7 +194,7 @@ if __name__=="__main__":
         print("temps de montee done : tm.tab")
 
     # Temps de montée atteindre la valeur finale 
-    if True :
+    if False :
         xim=np.linspace(0.01,1,4096)
         ts=np.linspace(0,1000,8192)
         tm=temps_de_montee_vf(xim,ts)
@@ -199,12 +217,27 @@ if __name__=="__main__":
 
     # Temps de reponse
     if False :
-        xir,tr=temps_de_reponse()
-        print("temps de reponse à 5% done : tr.tab")
-        f=open("tr.tab","w")
-        for xi,t in zip(xir,tr):
+        for x in [1,2,5,10,20]: 
+            xir,tr=temps_de_reponse(xpct=x)
+            print("temps de reponse à "+str(x)+"% done : tr"+str(x)+".tab")
+            f=open("tr"+str(x)+".tab","w")
+            for xi,t in zip(xir,tr):
+                f.write(str(xi)+' '+str(t)+'\n')
+            f.close()
+
+    # Temps de montée à la valeur finale (analytique)
+    if True:
+        xim=np.linspace(0.01,10,4096)
+        ts=np.linspace(0,1000,8192)
+        tm=temps_de_montee_vf_analyt(xim,ts)
+        f=open("tm_vf_analyt.tab","w")
+        for xi,t in zip(xim,tm):
             f.write(str(xi)+' '+str(t)+'\n')
         f.close()
+        print("temps de montee (vf) done : tm_vf_analyt.tab")
 
 
-
+    #ts=np.linspace(0,1000,8192)
+    #print(temps_de_montee_vf([1.6],ts))
+    #print(temps_de_montee_vf([0.5],ts))
+    #print(temps_de_montee_vf([0.15],ts))

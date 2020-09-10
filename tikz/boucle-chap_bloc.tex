@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbCompSum[5.0]{comp}{E}{}{\pm}{+}{}
+    \sbRelier[$E$]{E}{comp}
+    \sbBloc[3.5]{B}{$H_1$}{comp}
+    \sbRelier[$\epsilon$]{comp}{B}
+    \sbSortie[5.0]{S}{B}
+    \sbRelier[$S$]{B}{S}
+    \sbDecaleNoeudy[4]{B}{r1}
+    \sbBlocr[-1.6]{B2}{$H_2$}{r1}
+    \sbRelieryx{B-S}{B2}
+    \sbRelierxy[$M$]{B2}{comp}
+\end{tikzpicture}

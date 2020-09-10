@@ -1,0 +1,38 @@
+\begin{tikzpicture}[scale=1.1,every node/.style={scale=1.1}]
+\sbEntree{E}
+\sbBloc[3]{a}{$A_d(p)$}{E}
+\sbRelier[$E(p)$]{E}{a}
+\sbComp{b}{a}
+\sbRelier{a}{b}
+\sbBloc[3]{c}{$C(p)$}{b}
+\sbRelier[$\epsilon(p)$]{b}{c}
+\sbBloc[3]{d}{$A_c(p)$}{c}
+\sbRelier{c}{d}
+\sbSumh[6.7]{e}{d}
+\sbDecaleNoeudy[-3]{e}{P}
+\sbRenvoiF[-3]{P}{e}{$P(p)$}
+\sbRelier[$U(p)$]{d}{e}
+\sbBloc{f}{$H(p)$}{e}
+\sbRelier{e}{f}
+\sbSortie[4]{S}{f}
+\sbRelier{f}{S}
+\sbDecaleNoeudy[5]{c}{r}
+\sbBlocr[-1.6]{g}{$G(p)$}{r}
+\sbRelieryx{f-S}{g}
+\sbRelierxy[$M(p)$]{g}{b}
+\sbNomLien[0.8]{S}{$S(p)$}
+\node[yshift=-0.8em] at (a.south) {\small Adaptateur};
+\node[yshift=-0.8em] at (c.south) {\small Correcteur};
+\node[yshift=-0.8em] at (d.south) {\small Actionneur};
+\node[yshift=-0.8em] at (f.south) {\small Système};
+\node[yshift=-0.8em] at (g.south) {\small Capteur};
+\node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
+\node[yshift=-0.8em] at (S.south) {\small Sortie};
+\node[yshift=2em,xshift=2.8em] at (P.east) {\small Perturbation};
+\draw[dvtb]  (-0.8,-4) rectangle node[col1,xshift=-3.2em,yshift=7em] 
+             {\textbf{Chaîne d'information}}(6.45,2.5);
+\draw[dvtr]  (6.7,-4)  rectangle node[col4,xshift=-5.9em,yshift=7em]  
+             {\textbf{Chaîne d'énergie}    }(14.8,2.5);
+\draw[dvtgf] (4,1)     -- node[col3,above] {Chaîne direct}    (14,1) ;
+\draw[dvtgf] (14,-3.7) -- node[col3,above] {Chaîne de retour} (4,-3.7) ;
+\end{tikzpicture}

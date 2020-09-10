@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        axis line style = thick,
+        width=0.60\textwidth,
+        xmin=1e-1,
+        xmax=1e1,
+        ymin=1e0,
+        ymax=1e2,
+        xlabel={$\xi$},
+        ylabel={$t_{5\%}\cdot\omega_0$},
+        label style={font=\Large},
+        legend cell align={left},
+        xmode=log,
+        ymode=log,
+        grid=both,
+        grid style={line width=.4pt, draw=black},
+        major grid style={line width=.4pt,draw=black},
+    ]%
+    \addplot[mark=none,vtcol1] table {python/tr2.tab};
+    \addplot[mark=none,vtcol2] table {python/tr5.tab};
+    \addplot[mark=none,vtcol3] table {python/tr10.tab};
+    \addplot[mark=none,vtcol4] table {python/tr20.tab};
+    \legend{$t_{2\%}$,$t_{5\%}$,$t_{10\%}$,$t_{20\%}$}    
+    \end{axis}
+\end{tikzpicture}

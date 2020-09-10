@@ -1,0 +1,9 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbBloc[3]{H1}{$\dfrac{K_1}{1+\tau_1 p}$}{E}
+    \sbRelier[$E(p)$]{E}{H1}
+    \sbBloc[3]{H2}{$\dfrac{K_2}{1+\tau_2 p}$}{H1}
+    \sbRelier[$X(p)$]{H1}{H2}
+    \sbSortie[3]{S}{H2}
+    \sbRelier[$S(p)$]{H2}{S}
+\end{tikzpicture}

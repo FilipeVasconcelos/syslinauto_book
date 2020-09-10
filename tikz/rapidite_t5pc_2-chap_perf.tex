@@ -1,0 +1,42 @@
+\pgfmathdeclarefunction{func}{1}{%
+    \pgfmathparse{%
+    1-((1./sqrt(1-#1*#1))*exp(-#1*x)*
+    sin(deg(x)*sqrt(1-#1*#1)+atan(sqrt(1-#1*#1)/#1)))
+    }%
+}
+\begin{tikzpicture}
+    \pgfmathsetmacro{\kk}{1.75}
+    \pgfmathsetmacro{\xm}{10.0}
+    \pgfmathsetmacro{\ym}{1.5*\kk}
+    \pgfmathsetmacro{\mc}{0.95*\kk}
+    \pgfmathsetmacro{\pc}{1.05*\kk}
+    \pgfmathsetmacro{\a}{0.48}               % amortissement xi
+    \pgfmathsetmacro{\tr}{5.2}               % temps de réponse à 5%
+    \begin{axis}
+    [   axis line style = thick,
+        axis x line=center,
+        axis y line=center,
+	ticks=none,
+        width=0.45\textwidth,
+        xmin=-1.0,
+        xmax=\xm,
+        ymin=0,
+        ymax=2.25,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={above left},
+        clip=false,
+    ]
+    \addplot[signalb,domain=-1:0] {0}                ;
+    \addplot[signalb,domain=0:\xm] {\kk*func(\a)}    ;
+    \draw[dtb] (axis cs:0,\mc) -- (axis cs:\xm,\mc)  ;
+    \draw[dtb] (axis cs:0,\pc) -- (axis cs:\xm,\pc)  ;
+    \node[right] at (axis cs:\xm,\kk) {\small $s(\infty)$}  ;
+    \draw[dvtr] (axis cs:\tr,0) node[below] {\small $t_{5\%}$} 
+             -- (axis cs:\tr,\pc);
+    \draw[dtb,{Latex[length=1.25mm]}-{Latex[length=1.25mm]}](axis cs:-0.25,\mc) 
+    -- node[midway,left] {\small $\pm5\%$} (axis cs:-0.25,\pc);
+    \draw[fill=col4,col4] (axis cs:\tr,\pc) circle (1.5pt);
+    \end{axis}
+\end{tikzpicture}

@@ -1,16 +1,8 @@
 \begin{tikzpicture}
-    \pgfplotscreateplotcyclelist{mycolorlist}{%
-            blue\\%
-            red\\%
-            brown!60!black\\%
-            black\\%
-            green!60!black\\%
-            red!60!yellow\\
-            }
     \begin{axis}
     [   ticklabel style = {font=\normalsize},
         legend style={draw=none},
-        legend pos=outer north east,
+        legend pos=north east,
         legend cell align={left},
         ylabel={Gain (dB)},
         xlabel={Pulsation (rad/s)},
@@ -18,10 +10,12 @@
         xmin=0.0, xmax=2,
         ymin=-8, ymax=10,
         major grid style={black!40},
-        cycle list name=mycolorlist,
+        xtick distance=0.5,
+        cycle list name=fmvcolist,
+        width=0.6\textwidth,
     ]
     \foreach \a in {0.2,0.3,0.4,0.5,0.6,0.707} 
-    \addplot+[thick,domain=0:2,samples=201] 
+    \addplot+[very thick,domain=0:2,samples=201] 
     {-20*log10(sqrt((1-x*x)^2 +(2*\a*x)^2))};
 
     \addplot[dashed,domain=0.1:5,samples=201] {0};

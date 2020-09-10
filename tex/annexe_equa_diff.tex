@@ -117,33 +117,8 @@ $$
 s(t)=s_0e^{-at}+\dfrac{b}{a}\left(1-e^{-at}\right)
 $$
 \begin{center}
-\tikzsetnextfilename{solutions_equadiff-annexeF-ext}
-\tikzstyle{thinfunc}=[thin,color=blue,samples=201]
-\begin{tikzpicture}
-    \pgfmathsetmacro{\t}{8}             
-    \begin{axis}
-    [   height=7.5cm,
-        width=10cm,
-        grid=both,
-        minor tick num=4,
-        xmin=0,
-        xmax=\t,
-        ymin=0,
-        ymax=1.0,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-    ]
-    \addplot [very thick,color=blue,domain=-1:0, samples=101]{0};
-    \pgfmathsetmacro{\a}{0.5}             
-    \pgfmathsetmacro{\b}{0.25}           
-                    
-    \foreach\s in {-2,-1.8,...,3.0}
-    {
-    \addplot[thinfunc,domain=0:\t] {\s*exp(-\a*x)+(\b/\a)*(1-exp(-\a*x))};
-    }
-    \end{axis}
-    \node[] at (9,3 ) {$\dfrac{b}{a}$};
-    \end{tikzpicture}
+\tikzsetnextfilename{solutions_equadiff-annexe_equa_diff-ext}
+\input{tikz/solutions_equadiff-annexe_equa_diff.tex}
 \end{center}
 Sur les trois termes de la solution générale, un seul est non
 nul pour $t\to\infty$. Il correspond au régime permanent de

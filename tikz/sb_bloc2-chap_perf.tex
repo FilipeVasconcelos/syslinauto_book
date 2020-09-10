@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{comp1}{E}
+    \sbRelier[$E(p)$]{E}{comp1}
+    \sbBloc[3]{H}{$H(p)$}{comp1}
+    \sbRelier[$\epsilon(p)$]{comp1}{H}
+    \sbSortie[3]{S}{H}
+    \sbRelier[$S(p)$]{H}{S}
+    \sbRenvoi[4]{H-S}{comp1}{}
+\end{tikzpicture}

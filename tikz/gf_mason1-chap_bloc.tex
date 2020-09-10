@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+    \gfEntree{$E$}{E}
+    \gfNoeud[3]{}{E}{X1}
+    \gfNoeud[3]{}{X1}{X2}
+    \gfNoeud[3]{}{X2}{X3}
+    \gfNoeud[3]{}{X3}{X4}
+    \gfNoeud[3]{}{X4}{X5}
+    \gfSortie[3]{$S$}{X5}{S}
+    \gfRelier[1]{E}{X1}
+    \gfRelier[1]{X1}{X2}
+    \gfRelier[$H_1$]{X2}{X3}
+    \gfRelier[$H_2$]{X3}{X4}
+    \gfRelier[$H_3$]{X4}{X5}
+    \gfRelier[1]{X5}{S}
+    \gfRelierB[-1][-]{X5}{X1}
+    \gfRelierB[$R_1$][-]{X4}{X2}
+    \gfRelierB[-$R_2$][+]{X5}{X3}
+\end{tikzpicture}

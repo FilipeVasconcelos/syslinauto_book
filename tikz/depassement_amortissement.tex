@@ -6,8 +6,7 @@
     \begin{axis}
     [   xmode=log,
         ymode=log,
-        legend style={draw=none},
-        legend pos=south west,
+        width=0.6\textwidth,
         axis line style = thick,
         xmin=0.01,
         xmax=1,
@@ -19,11 +18,15 @@
         grid=both,
         grid style={line width=.4pt, draw=black},
         major grid style={line width=.4pt,draw=black},
+        legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        label style={font=\Large},
+        legend cell align={left},
     ]
-    \addplot[signaltmp,red  ] {exp(-(x*\pi)/(sqrt(1-x*x)))};
-    \addplot[signaltmp,blue ] {exp(-(2*x*\pi)/(sqrt(1-x*x)))};
-    \addplot[signaltmp,green] {exp(-(3*x*\pi)/(sqrt(1-x*x)))};
-    \addplot[signaltmp,black] {exp(-(4*x*\pi)/(sqrt(1-x*x)))};
+    \addplot[signaltmp,vtcol1] {exp(-(x*\pi)/(sqrt(1-x*x)))};
+    \addplot[signaltmp,vtcol2] {exp(-(2*x*\pi)/(sqrt(1-x*x)))};
+    \addplot[signaltmp,vtcol3] {exp(-(3*x*\pi)/(sqrt(1-x*x)))};
+    \addplot[signaltmp,vtcol4] {exp(-(4*x*\pi)/(sqrt(1-x*x)))};
     \legend{$k=1$,$k=2$,$k=3$,$k=4$}
     \end{axis}
 \end{tikzpicture}

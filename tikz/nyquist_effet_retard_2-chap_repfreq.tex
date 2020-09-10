@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+\begin{axis}
+    [
+    axis line style = thick,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
+    ymin=-1,
+    ymax=1,
+    xmin=-0.8,
+    xmax=+1.3,
+    grid=both,
+    cycle list name=fmvcolist,
+    ]
+    \def\t{1.0}
+    \def\tu{0.5}
+
+    \foreach \tu in {0.5,1.0,2.0}
+    {
+    \addplot+[thick,domain=0:1,samples=200]
+    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
+     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
+    \addplot+[thick,domain=1:{10/\tu^2},samples=200] 
+    ({(cos(deg(\tu*x))-\t*x*sin(deg(\tu*x)))/(1+\t^2*x^2)},
+     {-(\t*x*cos(deg(\tu*x))+sin(deg(\tu*x)))/(1+\t^2*x^2)});
+}
+\end{axis}
+\end{tikzpicture}

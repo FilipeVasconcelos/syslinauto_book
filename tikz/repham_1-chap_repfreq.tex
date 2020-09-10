@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+    \begin{axis}
+    [   ticks=none,
+        axis line style = thick,
+        height=4cm,
+        width=12cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-2,
+        xmax=12,
+        ymin=-1.25,
+        ymax=1.25,
+        xlabel={$t$},
+        ylabel={\textcolor{col4}{$s(t)$} \textcolor{col1}{$e(t)$}},
+        xlabel style={below right},
+        ylabel style={right},
+    ]
+    \addplot[signalb,domain=0:11.5]  {sin(deg(x))};
+    \addplot[signalr,domain=0:11.5]  {0.99504*sin(deg(x)-5.7)};
+    \node[left] at (axis cs:0,0.5)   {$\omega=0.1$};
+    \end{axis}
+\end{tikzpicture}

@@ -117,32 +117,15 @@ du premier ordre aux signaux usuels présentés au chapitre~\cref{chap-slci}.
 %------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
-    \tikzsetnextfilename{1er_imp-chap3-ext}
-    \begin{tikzpicture}
-    \begin{axis}
-    [   legend style={draw=none},
-        axis line style = thick,
-        width=0.48\textwidth,
-        xmin=0,
-        xmax=10,
-        ymin=0,
-        ymax=1.01,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        label style={font=\Large},
-    ]
-    \addplot[signalb,domain=0:10] {exp(-x)};
-    \addplot[signalg,domain=0:10] {(exp(-x/2))/2};
-    \addplot[signalc,domain=0:10] {(exp(-x/3))/3};
-    \addplot[signalr,domain=0:10] {(exp(-x/4))/4};
-    \addplot[signalm,domain=0:10] {(exp(-x/5))/5};
-    \addplot[signaln,domain=0:10] {(exp(-x/6))/6};
-    \legend{$\tau=1$,$\tau=2$,$\tau=3$,$\tau=4$,$\tau=5$,$\tau=6$}
-    \end{axis}
-\end{tikzpicture}
-\caption{Réponse impulsionnelle d'un système du premier ordre pour 
-         différentes valeurs de la constante de temps $\tau$  
-         (\Cref{eq-1er_imp}) avec $K=1$ et $E_0=1$.\label{fig-1er_imp}}
+    \tikzsetnextfilename{1er_imp1-chap_model-ext}
+    \input{tikz/1er_imp1-chap_model.tex}
+    \hfill
+    \tikzsetnextfilename{1er_imp2-chap_model-ext}
+    \input{tikz/1er_imp2-chap_model.tex}
+    \caption{Réponse impulsionnelle d'un système du premier ordre avec : 
+             $E_0=1$ et (gauche) différentes valeurs de la constante 
+             de temps $\tau$ pour $K=1$; (droite) différentes valeurs 
+             du gain $K$ pour $\tau=1$ (\Cref{eq-1er_imp}).\label{fig-1er_imp}}
 \end{figure}
 %------------------------------------------------------------------------------
 
@@ -210,70 +193,15 @@ considère que le signal est nul).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
 \centering
-\tikzsetnextfilename{1er_ind1-chap3-ext}
-\begin{tikzpicture}
-\begin{axis}[%
-    legend style={draw=none,font=\scriptsize},
-    legend pos=south east,
-    axis line style = thick,
-    width=0.48\textwidth,
-    xmin=0,
-    xmax=10,
-    ymin=0,
-    ymax=1.1,
-    xlabel={$t$},
-    ylabel={$s(t)$},
-    label style={font=\Large},
-    legend cell align={left},
-]%
-\addplot[thick,color=black,domain=0:11.5,samples=101]
-{{1}};
-\addplot[thick,color=blue,domain=0:11.5,samples=101]
-{1-exp(-x)};
-\addplot[thick,color=green,domain=0:11.5,samples=101]
-{(1-exp(-x/2))};
-\addplot[thick,color=cyan,domain=0:11.5,samples=101]
-{(1-exp(-x/3))};
-\addplot[thick,color=red,domain=0:11.5,samples=101]
-{(1-exp(-x/4))};
-\addplot[thick,color=magenta,domain=0:11.5,samples=101]
-{(1-exp(-x/5))};
-\legend{échelon,$\tau=1$,$\tau=2$,$\tau=3$,$\tau=4$,$\tau=5$}
-\end{axis}%
-\end{tikzpicture}%
+\tikzsetnextfilename{1er_ind1-chap_model-ext}
+\input{tikz/1er_ind1-chap_model.tex}
 \hfill
-\tikzsetnextfilename{1er_ind2-chap3-ext}
-\begin{tikzpicture}
-\begin{axis}[
-    legend style={draw=none,font=\scriptsize},
-    legend pos=north east,
-    axis line style = thick,
-    width=0.48\textwidth,
-    xmin=0,
-    xmax=10,
-    ymin=0,
-    ymax=2.1,
-    xlabel={$t$},
-    ylabel={$s(t)$},
-    ylabel near ticks, yticklabel pos=right,
-    label style={font=\Large},
-    legend cell align={left},
-]%
-\addplot[thick,color=black,domain=0:11.5, samples=101]
-{{1}};%
-\addplot[thick,color=blue,domain=0:11.5, samples=101]
-{0.5*(1-exp(-x))};
-\addplot[thick,color=green,domain=0:11.5, samples=101]
-{1-exp(-x)};
-\addplot[thick,color=cyan,domain=0:11.5, samples=101]
-{2*(1-exp(-x))};
-\legend{échelon,$K=0.5$,$K=1$,$K=2$}
-\end{axis}
-\end{tikzpicture}
-\caption{Réponse indicielle d'un système du premier ordre avec $E_0=1$.
-		(gauche) Pour différentes valeurs de $\tau$ et avec $K=1$. 
-		(droite) Pour différentes valeurs du gain $K$ et 
-		avec $\tau=1$.\label{fig-1er_ind}}
+\tikzsetnextfilename{1er_ind2-chap_model-ext}
+\input{tikz/1er_ind2-chap_model.tex}
+\caption{Réponse indicielle d'un système du premier ordre avec : $E_0=1$ et 
+	 (gauche) pour différentes valeurs de $\tau$ et avec $K=1$;
+	 (droite) pour différentes valeurs du gain $K$ et 
+	 avec $\tau=1$.\label{fig-1er_ind}}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle}
@@ -295,7 +223,7 @@ La transformée de Laplace inverse de $S(p)$ (c.f ligne 11 du tableau
 de l'\cref{annexe-lap}), nous donne la forme générale de la réponse 
 indicielle d'un système du premier ordre:
 \begin{bequation}[ams align]
-\laplacei{S(p)}=s(t)=KE_0\left(1-e^{-t/\tau}\right)\label{eq-1er_ind}
+    \laplacei{S(p)}=s(t)=KE_0\left(1-e^{-t/\tau}\right)\label{eq-1er_ind}
 \end{bequation}
 La~\cref{fig-1er_ind} présente cette réponse indicielle pour 
 différentes valeurs de la constante de temps $\tau$.
@@ -350,66 +278,11 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
 \centering
-\tikzsetnextfilename{1er_ramp1-chap3-ext}
-\begin{tikzpicture}
-\begin{axis}[%
-    legend style={draw=none,font=\scriptsize},
-    legend pos=north west,
-    axis line style = thick,
-    width=0.48\textwidth,
-    xmin=0,
-    xmax=10,
-    ymin=0,
-    ymax=10,
-    xlabel={$t$},
-    ylabel={$s(t)$},
-    label style={font=\Large},
-    legend cell align={left},
-]%
-\addplot[thick,color=black,domain=0:11.5,samples=101]
-{x};
-\addplot[thick,color=blue,domain=0:11.5,samples=101]
-{x-(1-exp(-x))};
-\addplot[thick,color=green,domain=0:11.5,samples=101]
-{x-2*(1-exp(-x/2))};
-\addplot[thick,color=cyan,domain=0:11.5,samples=101]
-{x-3*(1-exp(-x/3))};
-\addplot[thick,color=red,domain=0:11.5,samples=101]
-{x-4*(1-exp(-x/4))};
-\addplot[thick,color=magenta,domain=0:11.5, samples=101]
-{x-5*(1-exp(-x/5))};
-\legend{rampe,$\tau=1$,$\tau=2$,$\tau=3$,$\tau=4$,$\tau=5$}
-\end{axis}%
-\end{tikzpicture}%
+\tikzsetnextfilename{1er_ramp1-chap_model-ext}
+\input{tikz/1er_ramp1-chap_model.tex}
 \hfill
-\tikzsetnextfilename{1er_ramp2-chap3-ext}
-\begin{tikzpicture}
-\begin{axis}[
-    legend style={draw=none,font=\scriptsize},
-    legend pos=north west,
-    axis line style = thick,
-    width=0.48\textwidth,
-    xmin=0,
-    xmax=10,
-    ymin=0,
-    ymax=10,
-    xlabel={$t$},
-    ylabel={$s(t)$},
-    ylabel near ticks, yticklabel pos=right,
-    label style={font=\Large},
-    legend cell align={left},
-]%
-\addplot[thick,color=black,domain=0:11.5,samples=101]
-{x};
-\addplot[thick,color=green,domain=0:11.5,samples=101]
-{0.5*(x-(1-exp(-x)))};
-\addplot[thick,color=blue,domain=0:11.5,samples=101]
-{x-(1-exp(-x))};
-\addplot[thick,color=cyan,domain=0:11.5,samples=101]
-{2*(x-(1-exp(-x)))};
-\legend{rampe,$K=0.5$,$K=1$,$K=2$}
-\end{axis}
-\end{tikzpicture}
+\tikzsetnextfilename{1er_ramp2-chap_model-ext}
+\input{tikz/1er_ramp2-chap_model.tex}
 \caption{Réponse à une rampe d'un système du premier ordre avec $E_0=1$. 
          (gauche) Pour différentes valeurs de $\tau$ et $K=1$ 
          (droite) Pour différentes valeurs du gain $K$ et $\tau=1$.
@@ -634,16 +507,8 @@ les constante de temps de deux systèmes du premier ordre fictifs
 placés en série :
 
 \begin{center}
-        \tikzsetnextfilename{2nd_sb_imp-chap3-ext}
-\begin{tikzpicture}
-    \sbEntree{E}
-    \sbBloc[3]{H1}{$\dfrac{K_1}{1+\tau_1 p}$}{E}
-        \sbRelier[$E(p)$]{E}{H1}
-        \sbBloc[3]{H2}{$\dfrac{K_2}{1+\tau_2 p}$}{H1}
-        \sbRelier[$X(p)$]{H1}{H2}
-    \sbSortie[3]{S}{H2}
-        \sbRelier[$S(p)$]{H2}{S}
-\end{tikzpicture}
+    \tikzsetnextfilename{2nd_sb_imp-chap_model-ext}
+    \input{tikz/2nd_sb_imp-chap_model.tex}
 \end{center}
 où $K_1K_2=K$.
 Dans le régime apériodique un système du second ordre sera toujours 
@@ -865,41 +730,8 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[!t]
 \begin{center}
-\tikzsetnextfilename{2nd_pp-chap3-ext}
-
-\pgfmathdeclarefunction{func}{1}{%
-    \pgfmathparse{%
-    1-((1./sqrt(1-#1*#1))*exp(-#1*x)*
-    sin(deg(x)*sqrt(1-#1*#1)+atan(sqrt(1-#1*#1)/#1)))
-    }%
-}
-
-\begin{tikzpicture}
-    \tikzstyle{signaltmp}=[signalb,thick,domain=0:20]
-    \begin{axis}
-    [   legend style={draw=none},
-        legend pos=outer north east,
-        axis line style = thick,
-        xmin=0,
-        xmax=20,
-        ymin=0,
-        ymax=2,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        ytick={0,0.5,1,1.5},
-        yticklabels={0,$0.5KE_0$,$KE_0$,$1.5KE_0$},
-        label style={font=\Large},
-    ]
-    % amortissement
-        \foreach[count=\i from 0,evaluate=\i as \redfrac using \i*100/9] 
-        \z in {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9}% 
-        {%
-        \edef\temp{\noexpand\addplot[signaltmp,red!\redfrac!blue] {func(\z))};
-        \noexpand\addlegendentry{$\xi=\z$}}
-        \temp
-        }
-\end{axis}
-\end{tikzpicture}
+\tikzsetnextfilename{2nd_pp-chap_model-ext}
+\input{tikz/2nd_pp-chap_model.tex}
 \caption{Réponse indicielle d'un système du second ordre en régime 
          pseudo-périodique pour différentes valeurs du taux d'amortissement 
          $\xi$ (\Cref{eq-1er_ramp}) avec $\omega_0=1$. \label{fig-2nd_pp}}
@@ -930,56 +762,9 @@ il nous faut d'abord déterminer le temps du premier maximum $t_1$.
 
 %------------------------------------------------------------------------------
 \begin{figure}[!h]
-\begin{center}
-    \tikzsetnextfilename{2nd_depassement_1-chap3-ext}
-    \begin{tikzpicture}
-        \pgfmathsetmacro{\a}{0.2}                    % amortissement xi
-        \pgfmathsetmacro{\b}{0.96}                   % 1-xi^2 
-        \pgfmathsetmacro{\w}{0.979795897113}         % w_d=w_0 sqrt(1-xi^2)
-        \pgfmathsetmacro{\p}{deg(1.369438406)}       % phi =arctan(xi/1-xi^2)
-        \pgfmathsetmacro{\tu}{3.206374575405548}     % t1 = 
-        \pgfmathsetmacro{\td}{6.4127491508093204}    % t2 = 2*t1
-        \pgfmathsetmacro{\ttt}{9.619123726213981}    % t3 = 3*t1
-        \pgfmathsetmacro{\tq}{12.82549830161864}     % t4 = 4*t1
-        \pgfmathsetmacro{\du}{1.526620599330303}     % dépassement d1 
-        \pgfmathsetmacro{\dd}{0.72267074436099255}   % dépassement d2 
-        \pgfmathsetmacro{\dt}{1.146047298816441}     % dépassement d3 
-        \pgfmathsetmacro{\dq}{0.92308848396671406}   % dépassement d4 
-
-        %>>> 1+np.exp(-0.2*np.pi/np.sqrt((1-0.2*0.2)))+1
-        %>>> 1-np.exp(-2*0.2*np.pi/np.sqrt((1-0.2*0.2)))+1
-        %>>> 1+np.exp(-3*0.2*np.pi/np.sqrt((1-0.2*0.2)))+1
-        %>>> 1-np.exp(-4*0.2*np.pi/np.sqrt((1-0.2*0.2)))+1
-    \begin{axis}
-    [   axis line style = thick,
-        axis x line=center,
-        axis y line=center,
-        xmin=-0.1,
-        xmax=20,
-        ymin=-0.1,
-        ymax=2.2,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        xlabel style={below right},
-        ylabel style={left},
-        xticklabels={$t_1$,$t_2$,$t_3$,$t_4$},
-        xtick={\tu,\td,\ttt,\tq},
-        yticklabels={0,$KE_0$,$2KE_0$},
-        ytick={0.001,1,2}
-    ]
-    \addplot[signalb,domain=0:20] {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+\p))};
-    \addplot[envelop,domain=0:20] {1+exp(-\a*x)};
-    \addplot[envelop,domain=0:20] {1-exp(-\a*x)};
-    \addplot[thick,domain=0:20]   {1};
-    \draw[utr] (axis cs:\tu,1)  -- (axis cs:\tu,\du)  node[above] {$D_1$};
-    \draw[utb] (axis cs:\td,1)  -- (axis cs:\td,\dd)  node[below] {$D_2$};
-    \draw[utg] (axis cs:\ttt,1) -- (axis cs:\ttt,\dt) node[above] {$D_3$};
-    \draw[utn] (axis cs:\tq,1)  -- (axis cs:\tq,\dq)  node[below] {$D_4$};
-    \draw(axis cs:\tu,0) -- (axis cs:\tu,0.1);
-    \draw(axis cs:\td,0) -- (axis cs:\td,0.1);
-    \end{axis}
-\end{tikzpicture}
-\end{center}
+    \centering
+    \tikzsetnextfilename{2nd_depassement_1-chap_model-ext}
+    \input{tikz/2nd_depassement_1-chap_model.tex}
     \caption{Définition du dépassement observé dans le cas de la réponse 
              indicielle en régime pseudo-périodique d'un système du second 
              ordre. Les deux enveloppes correspondent aux exponentielles 
@@ -991,7 +776,7 @@ il nous faut d'abord déterminer le temps du premier maximum $t_1$.
 %------------------------------------------------------------------------------
 \begin{figure}[!h]
 \begin{center}
-    \tikzsetnextfilename{2nd_depassement_2-chap3-ext}
+    \tikzsetnextfilename{2nd_depassement_2-chap_model-ext}
     \input{tikz/depassement_amortissement.tex}
     \caption{Variation de la valeur $D_k$ du k-ème dépassement en fonction 
              du taux d'amortissement $\xi$. \label{fig-2nd_depassement_2}}
@@ -1058,43 +843,8 @@ temps de réponse pour $\xi\sim 0.7$
 %------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{2nd_t5pc-chap3-ext}
-    \begin{tikzpicture}
-    \pgfmathsetmacro{\a}{0.2}             % amortissement xi
-    \pgfmathsetmacro{\b}{0.96}            % 1-xi^2 
-    \pgfmathsetmacro{\w}{0.979795897113}  % w_d=w_0 sqrt(1-xi^2)
-        \pgfmathsetmacro{\p}{deg(1.369438406)}     % phi =arctan(xi/1-xi^2)
-    \begin{axis}
-    [   axis line style = thick,
-        axis x line=center,
-        axis y line=center,
-        xmin=-0.1,
-        xmax=20,
-        ymin=-0.1,
-        ymax=1.6,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        xlabel style={below right},
-        ylabel style={left},
-        xticklabels={2,\textcolor{red}{$t_1$},10,\textcolor{blue}{$t_2$}},
-        xtick={2,5.29,10,13.74},
-        yticklabels={0,$KE_0$,2},
-        ytick={0.001,1,2}
-    ]
-    \addplot [signalb,domain=0:20] {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+\p))};
-    \addplot [thick,domain=0:20]   {1};
-    \addplot [envelop,domain=0:20] {1.05};
-    \addplot [envelop,domain=0:20] {0.95};
-        
-    \def\a{0.5}
-    \def\b{0.75}
-    \def\w{0.866025403784}
-    \def\p{deg(1.0471975512)}
-    \addplot[signalr,domain=0:20] {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+\p))};
-    \draw[blue,thick] (axis cs:13.74,0) -- (axis cs:13.74,2);
-    \draw[red,thick]  (axis cs:5.29,0) -- (axis cs:5.29,2);
-    \end{axis}
-    \end{tikzpicture}
+    \tikzsetnextfilename{2nd_t5pc-chap_model-ext}
+    \input{tikz/2nd_t5pc-chap_model.tex}
     \caption{Définition du temps de réponse à 5\% dans le cas de la 
     réponse indicielle en régime pseudo-périodique d'un système du 
     second ordre. Le temps de réponse à 5\% est définit comme le 
@@ -1105,42 +855,22 @@ temps de réponse pour $\xi\sim 0.7$
 %------------------------------------------------------------------------------
 
 %------------------------------------------------------------------------------
+%{\tikzset{external/export=false}
 \begin{figure}
 \centering
-\tikzsetnextfilename{rapidite_tr_2ndordre-chap3-ext}
-\begin{tikzpicture}
-    \begin{axis}
-    [   legend style={draw=none,font=\normalsize},
-        legend pos=outer north east,
-        axis line style = thick,
-        width=0.75\textwidth,
-        xmin=1e-1,
-        xmax=1e1,
-        ymin=1e0,
-        ymax=1e2,
-        xlabel={$\xi$},
-        ylabel={$t_{5\%}\cdot\omega_0$},
-        label style={font=\Large},
-        legend cell align={left},
-        xmode=log,
-        ymode=log,
-        grid=both,
-        grid style={line width=.4pt, draw=black},
-        major grid style={line width=.4pt,draw=black},
-    ]%
-        \addplot[mark=none,vtb]   table {python/tr.tab};
-    \end{axis}
-\end{tikzpicture}
-\caption{Temps de réponse à 5\% réduit en fonction du taux 
-         d'amortissement $\xi$. Le minimum est atteint pour $\xi\sim0.7$ 
-         pour lequel $\omega_0\cdot t_{5\%}\sim3$.
-	 \label{fig-2nd_temps_reponse}}
+    \tikzsetnextfilename{rapidite_tr_2ndordre-chap_model-ext}
+    \input{tikz/rapidite_tr_2ndordre-chap_model.tex}
+    \caption{Temps de réponse à 5\% réduit en fonction du taux 
+             d'amortissement $\xi$. Le minimum est atteint pour $\xi\sim0.7$ 
+             pour lequel $\omega_0\cdot t_{5\%}\sim3$.
+             \label{fig-2nd_temps_reponse}}
 \end{figure}
+%}
 %------------------------------------------------------------------------------
 
 %------------------------------------------------------------------------------
 {\tikzset{external/export=false}
-\input{tikz/reponses_temporelles_2nd_ordre.tex}
+\input{tex/reponses_temporelles_2nd_ordre.tex}
 }
 %------------------------------------------------------------------------------
 
@@ -1314,60 +1044,21 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+
 %------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
-    \tikzsetnextfilename{2nd_ramp-chap3-ext}
-    \begin{tikzpicture}
-    \begin{axis}
-    [   legend style={draw=none},
-        legend pos=outer north east,
-        axis line style = thick,
-        xmin=0,
-        xmax=10,
-        ymin=0,
-        ymax=10,
-        xlabel={$t$},
-        ylabel={$s(t)$},
-        label style={font=\Large},
-        cycle list name=color list,
-    ]
-    %entrée
-    \addplot[thick,color=black,domain=0:10, samples=101]{x};
-    % xi=2 apériodique 
-    \def\a{0.28867513459481292}
-    \def\u{3.73205080757}
-    \def\d{0.267949192431}
-    \def\us{13.928203230275509}
-    \def\ds{0.07179676972449088}
-    \addplot[signalb,domain=0:20] {x-\u-\d+\a*(\us*exp(-x/\u)-\ds*exp(-x/\d))};
-    % xi=1 critique
-    \addplot[signalg,domain=0:20] {((x-2)+(x+2)*exp(-x))};
-    % xi=0.1 pseudo-périodique
-    \def\a{0.1}
-    \def\b{0.99}
-    \def\w{0.994987437107}
-    \def\p{1.47062890563}
-    \addplot[signalr,domain=0:20] 
-    {x-2*\a+\a/\w*exp(-\a*x)*sin(\w*deg(x)+deg(\p))-
-           (1/\w)*exp(-\a*x)*sin(\w*deg(x))};
-
-    \end{axis}
-    \end{tikzpicture}
+    \tikzsetnextfilename{2nd_ramp-chap_model-ext}
+    \input{tikz/2nd_ramp-chap_model.tex}
     \caption{Réponse à une rampe d'un système du second ordre en 
-            (bleu) régime apériodique avec $\xi=2.0$, 
+            (bleu) régime apériodique avec $\xi=2$, 
             (vert) régime apériodique critique (i.e $\xi=1$) et en 
             (rouge) régime pseudo-périodique avec $\xi=0.1$. 
             Avec $\omega_0=1$, $K=1$ et $E_0=1$. \label{fig-2nd_ramp}}
 \end{figure}
 %------------------------------------------------------------------------------
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cas particulier de l'oscillateur harmonique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 
 Dans le cas où l'équation différentielle est de la forme 
 $$
@@ -1442,7 +1133,6 @@ $$
 s(t)=KE_0u(t)
 $$
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Intégrateur pur}
@@ -1471,53 +1161,6 @@ La  \textbf{réponse indicielle} est une rampe de pente $KE_0$ :
 $$
 s(t)=KE_0\int\limits_0^t u(\tau)\dd{\tau}=KE_0\left[\tau\right]_0^t=KE_0t
 $$
-%------------------------------------------------------------------------------
-%\begin{figure}
-%    \centering
-%    \tikzsetnextfilename{integrateur_1-chap3-ext}
-%    \begin{tikzpicture}
-%    \begin{axis}
-%    [   name=first,
-%        axis line style = thick,
-%        width=0.49\textwidth,
-%        xmin=-1,
-%        xmax=5,
-%        ymin=0,
-%        ymax=1.2,
-%        xlabel={$t$},
-%        ylabel={$s(t)$},
-%        label style={font=\Large},
-%    ]
-%    \addplot[very thick,color=blue,domain=-1:0, samples=10]{{0}};
-%    \addplot[very thick,color=blue,domain=0:11.5, samples=10]{{1}};
-%    \draw[dashed,very thick,blue]   (axis cs:0,0)--(axis cs:0,1);
-%    \draw[dblarw={black}{2pt}{2pt}] (axis cs:0,0)--(axis cs:0,1);
-%    \end{axis}%
-%    \begin{axis}
-%    [   at=(first.east),anchor=west,xshift=0.5cm,
-%        axis line style = thick,
-%        width=0.49\textwidth,
-%        xmin=-0.2,
-%        xmax=1.2,
-%        ymin=0,
-%        ymax=1.2,
-%        xlabel={$t$},
-%        ylabel={$s(t)$},
-%        ylabel near ticks, yticklabel pos=right,
-%        label style={font=\Large},
-%    ]
-%    \addplot[very thick,color=blue,domain=-1:0,samples=10]{{0}};
-%    \addplot[very thick,color=blue,domain=0:11.5,samples=10]{{x}};
-%    \draw[dashed,very thick,black] (axis cs:0,0)--(axis cs:0,1);
-%    \addplot[very thick,color=black,domain=-1:0,samples=10]{{0}};
-%    \addplot[very thick,color=black,domain=0:11.5,samples=10]{{1}};
-%    \end{axis}
-%    \end{tikzpicture}
-%\caption{(gauche) Réponse impulsionnelle 
-%         (droite) Réponse indicielle d'un intégrateur avec $K=1$ et $E_0=1$.
-%         \label{fig-integ}}
-%\end{figure}
-%------------------------------------------------------------------------------
 Autrement dit, le système est \textbf{instable}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
