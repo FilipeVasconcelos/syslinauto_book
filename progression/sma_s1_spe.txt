@@ -12,7 +12,7 @@
     12 séances de TD/TP
              
  ===============================================================================
-  Semaine 1 (16 Sep 2019)
+  Semaine 1 
  ===============================================================================
  -------------------------------------------------------------------------------
   Cours 1  
@@ -53,7 +53,7 @@
             - Détermination graphique de la valeure finale du temps de 
               réponse à 5%, du temps de montée, du dépassement.
  ===============================================================================
-  Semaine 2 (23 Sep 2019)
+  Semaine 2 
  ===============================================================================
  -------------------------------------------------------------------------------
   Cours 2  
@@ -88,14 +88,14 @@
   Chapitre 1 : Systèmes linéaires continus et invariants
 
             - Présentation de la méthodologie de résolution des équations 
-              différentielles. Introduction de la transformée de façon générale.
+              différentielles. Introduction de la transformée de Laplace schématique (domaine temporelle/de Laplace).
             - Transformée de Laplace.
                 - Définition
             - Propriétés de la transformée de Laplace : 
                 - Linéarité 
                 - retard en t
                 - retard en p
-                - dérivation (exemple d'une petite équa diff au passage)
+                - dérivation (exemple d'une petite équa. diff. au passage)
                 - intégration 
                 - Théorème de la valeur initiale
                 - Théorème de la valeur finale
@@ -145,7 +145,7 @@
 
             - Eléments de base des schémas fonctionnels 
                 - Bloc
-                - Flêche
+                - Flèche
                 - Comparateur/Sommateur
                 - Point de jonction/prélèvement
             - Transformation des schémas fonctionnels

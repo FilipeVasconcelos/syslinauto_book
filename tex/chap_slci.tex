@@ -255,7 +255,7 @@ c'est la relation fondamentale de la dynamique qui est
 la source importante d'équations différentielles (appelées équations 
 du mouvement).%, pourra selon comporter différent selon le 
 %niveau de précision et/ou des hypothèses utilisées. 
-En électronique, ce sont, par exemple, les lois des noeuds et mailles qui 
+ En électronique, ce sont, par exemple, les lois des noeuds et mailles qui 
 permettront d'écrire de telles équations. 
 
 Le degré de dérivation le plus grand de la sortie $n$ est appelé ordre. 
@@ -843,9 +843,9 @@ La propriété fondamentale de la transformée de Laplace est d'être linéaire.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Linéarité}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Soit deux signaux $s_1(t)$ et $s_2(t)$ continus et $S_1(p)$ et $S_2(p)$ leurs
+Soit deux signaux $s_1(t)$, $s_2(t)$ continus et $S_1(p)$, $S_2(p)$ leurs
 transformées de Laplace respectives. La transformée de Laplace d'une 
-relation linéaire quelconque de $s_1(t)$ et $s_2(t)$ est une relation linéaire 
+d'une combinaison linéaire quelconque de $s_1(t)$, $s_2(t)$ est la même combinaison linéaire 
 de $S_1(p)$ et $S_2(p)$. Autrement dit,
 \begin{bequation}[ams align]
 	\laplace{as_1(t)+bs_2(t)}=aS_1(p)+bS_2(p)
@@ -894,7 +894,7 @@ ou encore,
 \paragraph{Dérivation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit un signal $s(t)$ continu et dérivable pour $t\ge0$ et $S(p)$ 
-sa transformée. Par définition de la transformée de Laplace 
+sa transformée de Laplace. Par définition de la transformée de Laplace 
 $$
 \laplace{\devi{s(t)}{}}=\int_{0}^{+\infty} e^{-pt}\devi{s(t)}{}\dd{t}
 $$
@@ -966,8 +966,8 @@ uniquement la transformée de Laplace.
     s(\infty)=\lim\limits_{p\rightarrow0} p S(p)
 \end{bequation}
 où $s(\infty)$ est la valeur d'un signal $s(t)$ pour $t\to\infty$.
-Ce théorème n'est valable que si $s(\infty)$ est définie. On dira plus tard
-si le signal est stable.
+Ce théorème n'est valable que si $s(\infty)$ est définie. Ou comme on le 
+dira plus tard si le signal est stable.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -984,8 +984,9 @@ produit des signaux dans le domaine de Laplace. Formellement,
     \laplace{(h*e)(t)}=H(p)E(p)
 \end{bequation}
 Si cette propriété est fondamentale, nous ne l'utiliserons 
-que très exceptionnellement. Nous la rencontrerons à nouveau 
-lorsque nous introduierons la fonction de transfert d'un système linéaire.
+que très exceptionnellement. Nous la rencontrerons à nouveau, 
+dans ce chapitre, lorsque nous introduierons la fonction de 
+transfert d'un système linéaire.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1047,7 +1048,7 @@ ou encore
     \laplace{r(t)}=\laplace{t\cdot u(t)}=\dfrac{1}{p^2}.
 \end{bequation}
 
-On généralise aux ordres supérieures (parabolique,cubique\ldots) :
+On généralise aux ordres supérieures (\og parabolique\fg, \og cubique\fg\ldots) :
 \begin{bequation}[ams align]
     \laplace{\dfrac{1}{n!}t^n\cdot u(t)}=\dfrac{1}{p^{n+1}}.
 \end{bequation}
@@ -1347,11 +1348,19 @@ ou encore,
 
 Cette fonction $H(p)$, également appelé \textbf{transmittance}, caractérise 
 le système de façon univoque. Pour une entrée donnée il est possible de 
-prévoir la sortie d'un système caractérisé par sa fonction de transfert $H(p)$
+prévoir la sortie d'un système caractérisé par sa fonction de transfert $H(p)$.
 
+Nous représenterons très souvent cette relation dans le domaine de Laplace 
+par le schéma-bloc suivant : 
+% ------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{sb_bloc_FT-chap_slci-ext}
+    \input{tikz/sb_bloc_FT-chap_slci.tex}
+\end{center}
+% ------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Fonction de transfert et réponse impulsionnelle}
+\subsection{Lien entre la fonction de transfert et la réponse impulsionnelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 À partir de l'équation~\ref{eq-she}, le lien entre la fonction de transfert
@@ -1372,12 +1381,15 @@ $$
 s(t)=\laplacei{S(p)}=\laplacei{H(p)E(p)}
 =\int_{-\infty}^{+\infty}h(t-\tau)e(\tau)\dd{\tau}
 $$
+\newpage
 ou encore,
-$$
+\begin{bequation}[ams align]
 s(t)=(h*e)(t)
-$$
-ce qui exprime que \textbf{la réponse d'un système est donnée par le 
-produit de convolution de l'entrée  et la réponse impulsionnelle.}
+\end{bequation}
+Cette dernière exprime que \textbf{la réponse, dans le domaine temporel, 
+d'un système est donnée par le 
+produit de convolution de l'entrée $e(t)$ et la réponse impulsionnelle $h(t)$.}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1396,16 +1408,17 @@ H(p)=\dfrac{\sum\limits_{i=0}^{m}b_ip^i}{\sum\limits_{i=0}^{n}a_ip^i}.
 
 Il existe différentes façons équivalentes d'écrire cette fonction de transfert.
 Nous allons en introduire deux :
-la forme canonique et la forme factorisée. La forme canonique permet de 
-faire apparaître les intégrateurs purs du système. La forme factorisée 
+\textbf{la forme canonique} et \textbf{la forme factorisée}. La forme canonique 
+permet de faire apparaître les intégrateurs purs du système. La forme factorisée 
 utilise les racines de la fraction rationnelle définissant la 
 fonction de transfert. Pour montrer l'équivalence de ces représentations 
-nous allons les construire à partir de la forme générale de l'\cref{eq-ftgen} 
-et ou de la connaissance des pôles et zéros de la fonction de transfert.
+nous allons les construire à partir de la forme générale de l'\cref{eq-ftgen}.
+%et de la connaissance des racines de polynômes de la fraction rationnelle définissant 
+%la fonction de transfert.
 
 Une fonction de transfert peut être vue comme le fraction de deux polynômes 
-(i.e fraction rationnelle): un polynôme au numérateur $N(p)$ et un polynôme 
-au dénominateur $D(p)$.
+(formellement une fraction rationnelle) : un polynôme au numérateur $N(p)$ 
+et un polynôme au dénominateur $D(p)$.
 $$
 H(p)=\dfrac{N(p)}{D(p)}
 $$
@@ -1488,7 +1501,7 @@ s'écrira également très souvent:
 $$
 H(p)=\dfrac{K_\alpha N(p)}{p^\alpha D(p)}
 $$
-On rappellera que sous cette forme les polynômes $N(p)$ et $D(p)$ sont 
+On constate que sous cette forme les polynômes $N(p)$ et $D(p)$ sont 
 de la forme 
 $$
 1+a_1p+a_2p^2+\ldots+a_{n-\alpha}p^{n-\alpha}
@@ -1675,26 +1688,26 @@ La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Exercices du chapitre}
+\section{Exercices du chapitre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\small
-%\input{tex/exercices_chap0.tex}
+\small
+\input{tex/exercices_chap_slci.tex}
 
-%\setcounter{numexos}{0}
-%\normalsize
-%\newpage
+\setcounter{numexos}{0}
+\normalsize
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Corrigé des exercices}
+\section{Corrigé des exercices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\small
-%\input{tex/exercices_chap0_corrige.tex}
-%\normalsize
+\small
+\input{tex/exercices_corriges_chap_slci.tex}
+\normalsize
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
