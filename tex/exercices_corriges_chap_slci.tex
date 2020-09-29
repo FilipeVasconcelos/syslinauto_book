@@ -7,7 +7,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\tikzsetnextfilename{ex1_1_corrige-chap0-ext}
+%\tikzsetnextfilename{ex1_1_corrige-chap0-ext}
 \begin{center}
 \begin{tikzpicture}
    \begin{axis}[
@@ -34,7 +34,7 @@
         coordinates { (-1,0.01) (0,0.01) (0,1) (2,1)  (2,0.01) (5,0.01) };
         \end{axis}
 \end{tikzpicture}
-\tikzsetnextfilename{ex1_2_corrige-chap0-ext}
+%\tikzsetnextfilename{ex1_2_corrige-chap0-ext}
 \begin{tikzpicture}
    \begin{axis}[
    height=4cm,
@@ -82,7 +82,7 @@ $$
 \question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\tikzsetnextfilename{ex1_3_corrige-chap0-ext}
+%\tikzsetnextfilename{ex1_3_corrige-chap0-ext}
 \begin{center}
 \begin{tikzpicture}
    \begin{axis}[
@@ -109,7 +109,7 @@ $$
         {(-1,0.01) (0,0.01) (0,1) (2,1)  (2,-1) (4,-1) (4,0.01) (5,0.01)};
         \end{axis}
 \end{tikzpicture}
-\tikzsetnextfilename{ex1_4_corrige-chap0-ext}
+%\tikzsetnextfilename{ex1_4_corrige-chap0-ext}
 \begin{tikzpicture}
    \begin{axis}[
     height=4cm,
@@ -153,7 +153,7 @@ $$
 \question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\tikzsetnextfilename{ex1_5_corrige-chap0-ext}
+%\tikzsetnextfilename{ex1_5_corrige-chap0-ext}
 \begin{center}
 \begin{tikzpicture}
     \begin{axis}[
@@ -182,7 +182,7 @@ $$
     \addplot [very thick,color=blue,domain=4:5, samples=101]{0.05};
     \end{axis}
 \end{tikzpicture}
-\tikzsetnextfilename{ex1_6_corrige-chap0-ext}
+%\tikzsetnextfilename{ex1_6_corrige-chap0-ext}
 \begin{tikzpicture}
     \begin{axis}[
     height=4cm,
@@ -255,7 +255,7 @@ S(p) = H_2(p) X(p)
 où $H_2(p)$ est une fonction de transfert d'un SLCI d'entrée $X(p)$ 
 et de sortie $S(p)$.
 \begin{center}
-\tikzsetnextfilename{ex_2_corrige-chap0-ext}
+%\tikzsetnextfilename{ex_2_corrige-chap0-ext}
 \begin{tikzpicture}
     \sbEntree{E}
     \sbBloc[3]{H2}{$H_2(p)=\dfrac{(p+30)}{(p^2+110p+1000)}$}{E}
@@ -279,7 +279,7 @@ X(p) = H_1(p) E(p)
 où $H_2(p)$ est une fonction de transfert d'un SLCI d'entrée $E(p)$ 
 et de sortie $X(p)$ :
 \begin{center}
-\tikzsetnextfilename{ex2_2_corrige-chap0-ext}
+%\tikzsetnextfilename{ex2_2_corrige-chap0-ext}
 \begin{tikzpicture}
     \sbEntree{E}
     \sbBloc[3]{H1}{$H_1(p)=\dfrac{K}{(p+1)}$}{E}
@@ -294,7 +294,7 @@ et de sortie $X(p)$ :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Tracer le schéma fonctionnel complet du système
 \begin{center}
-\tikzsetnextfilename{ex_2_3_corrige-chap0-ext}
+%\tikzsetnextfilename{ex_2_3_corrige-chap0-ext}
 \begin{tikzpicture}
     \sbEntree{E}
     \sbBloc[3]{H1}{$H_1(p)$}{E}
@@ -317,7 +317,7 @@ $$
 On a alors une expression de la forme $S(p) =H(p) E(p)$,
 avec $H(p)=H_2(p) H_1(p)=\dfrac{K(p+30)}{(p^2+110p+1000)(p+1)}$
 \begin{center}
-\tikzsetnextfilename{ex_2_4_corrige-chap0-ext}
+%\tikzsetnextfilename{ex_2_4_corrige-chap0-ext}
 \begin{tikzpicture}
 \sbEntree{E}
 \sbBloc[3]{H1}{$H(p)=H_2(p) H_1(p)$}{E}
@@ -409,7 +409,7 @@ s(t) = \laplacei{S(p)} = KE_0u(t)\left(\dfrac{3}{100} -
 $$
 on vérifie que $s(+\infty)=\dfrac{3}{100}KE_0$, $s(0)=0$ et $\devi{s(0)}{}=0$
 \begin{center}
-\tikzsetnextfilename{ex_2_5_corrige-chap0-ext}
+%\tikzsetnextfilename{ex_2_5_corrige-chap0-ext}
     \begin{tikzpicture}
         \begin{axis}[
         scaled y ticks = false,
@@ -470,7 +470,7 @@ $$
 s(t) = \laplacei{S(p)}=e^{-t}-e^{-2t}+2e^{-2t}=e^{-t}+e^{-2t}
 $$
 \begin{center}
-    \tikzsetnextfilename{ex_3_1_corrige-chap0-ext}
+    %\tikzsetnextfilename{ex_3_1_corrige-chap0-ext}
     \begin{tikzpicture}
     \begin{axis}
     [   scaled y ticks = false,
@@ -502,8 +502,8 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\tbf{(2)$\devi{s(t)}{2}+3\devi{s(t)}{}+2s(t)=\devi{e(t)}{} + e(t)$ 
-avec $\devi{s(0)}{}=s(0)=0$ et $e(t) = e^{-3t}$}}
+%\tbf{(2)$\devi{s(t)}{2}+3\devi{s(t)}{}+2s(t)=\devi{e(t)}{} + e(t)$ 
+%avec $\devi{s(0)}{}=s(0)=0$ et $e(t) = e^{-3t}$}}
 La transformée de Laplace de l'équation différentielle donne :
 \begin{align*}
     p^2S(p)+3pS(p)+2S(p)&=pE(p)+E(p)\\
@@ -528,7 +528,7 @@ $$
 s(t) = \laplacei{S(p)}=e^{-2t}-e^{-3t}
 $$
 \begin{center}
-\tikzsetnextfilename{ex_3_2_corrige-chap0-ext}
+%\tikzsetnextfilename{ex_3_2_corrige-chap0-ext}
     \begin{tikzpicture}
         \begin{axis}[
         scaled y ticks = false,
@@ -606,7 +606,7 @@ $$
 s(t) = \laplacei{S(p)}= -e^{-t}+te^{-t}+e^{-2t} = (t-1)e^{-t}+e^{-2t}
 $$
 \begin{center}
-\tikzsetnextfilename{ex_3_3_corrige-chap0-ext}
+%\tikzsetnextfilename{ex_3_3_corrige-chap0-ext}
     \begin{tikzpicture}
         \begin{axis}[
         scaled y ticks = false,
@@ -640,8 +640,8 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{(4) $\devi{s(t)}{2} + \devi{s(t)}{} + s(t) = e(t)$ 
-avec $\devi{s(0)}{}=s(0)=0$ et $e(t) = 1$}}
+%\textbf{(4) $\devi{s(t)}{2} + \devi{s(t)}{} + s(t) = e(t)$ 
+%avec $\devi{s(0)}{}=s(0)=0$ et $e(t) = 1$}}
 La transformée de Laplace de l'équation différentielle donne :
 \begin{align*}
     p^2S(p)+pS(p)+S(p)&=E(p) \\
@@ -700,7 +700,7 @@ s(t) = \laplacei{S(p)}=
 $$
 
 \begin{center}
-\tikzsetnextfilename{ex_3_4_corrige-chap0-ext}
+%\tikzsetnextfilename{ex_3_4_corrige-chap0-ext}
     \begin{tikzpicture}
         \begin{axis}[
         scaled y ticks = false,
@@ -741,7 +741,7 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Déterminer $f_0(t)$ en fonction de $g_0(t)$. 
 %Donner la transformée de Laplace de $f_0(t)$.
-\tikzsetnextfilename{ex_4_1_corrige-chap0-ext}
+%\tikzsetnextfilename{ex_4_1_corrige-chap0-ext}
 \begin{tikzpicture}
         \begin{axis}[
         height=4cm,
@@ -768,7 +768,7 @@ $$
         \addplot[very thick,color=blue,domain=12:16, samples=101]{0.25*x-4};
         \end{axis}
 \end{tikzpicture}
-\tikzsetnextfilename{ex_4_2_corrige-chap0-ext}
+%\tikzsetnextfilename{ex_4_2_corrige-chap0-ext}
 \begin{tikzpicture}
         \begin{axis}[
         height=4cm,
