@@ -232,9 +232,10 @@
   DS 
  -------------------------------------------------------------------------------
             - Le DS pourra être composé de plusieurs exercices :
+                - Décomposition d'un signal en signaux usuels + Transformée de Laplace.
                 - Détermination d'une fonction de transfert à partir
-                  de différentes équations différentielles
-                - Réduction d'un schéma-bloc
+                  de différentes équations différentielles.
+                - Réduction d'un schéma-bloc.
                 - Tracer des réponses temporelles du premier ordre.
                 - Détermination des caractéristiques d'une réponse 
                   du second ordre.
