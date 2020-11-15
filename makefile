@@ -24,10 +24,10 @@ pdfd:
 pdf: 
 	pdflatex -shell-escape ${filename}
 	bibtex ${filename} ||true
-	#makeindex ${filename}.idx
-	#makeindex ${filename}.gls 
-	pdflatex ${filename}
-	pdflatex ${filename}
+	makeindex ${filename}.idx
+	makeindex ${filename}.gls 
+	pdflatex -shell-escape ${filename}
+	pdflatex -shell-escape ${filename}
 
 pdf-print: ps
 	ps2pdf -sPAPERSIZE=a4 -dAutoRotatePages=/None -dColorConversionStrategy=/LeaveColorUnchanged -dPDFSETTINGS=/printer ${filename}.ps

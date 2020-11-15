@@ -26,7 +26,7 @@ cat > standalone/${texname}.tex <<EOF
 \usepackage{gfluence}
 \usepackage{vecteurs}
 \usepackage{tikz,pgf,pgfplots}
-\pgfplotsset{compat=1.15}
+\pgfplotsset{compat=newest}
 \usepackage{pgf,tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
