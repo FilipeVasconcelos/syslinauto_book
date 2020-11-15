@@ -320,7 +320,6 @@ Le vecteur ou la liste nul est simplement déclaré par :
 \end{verbatim}
 \end{code}
 
-
 Les parenthèses permettent d'accéder aux élément d'une matrice et le 
 symbole \og\verb?:?\fg permet d'accéder à toute ou une partie d'une 
 ligne ou d'une colonne
@@ -369,6 +368,62 @@ Pour concaténer deux vecteurs ou matrices :
     5.    6.    5.    6. 
 \end{verbatim}
 \end{code}
+\paragraph{Fonctions pour construire des vecteurs et matrices élémentaires}
+On utilisera la fonction ones pour construire un vecteur ou une matrice remplie 
+de 1.
+Exemple pour construire un vecteur de 10 composantes de valeurs 1 :
+\begin{code}
+\begin{verbatim}
+--> ones(1,10)
+ ans  =
+
+    1.   1.   1.   1.   1.   1.   1.   1.   1.   1.
+
+\end{verbatim}
+\end{code}
+pour une matrice 3x3 :
+\begin{code}
+\begin{verbatim}
+--> ones(3,3)
+ ans  =
+
+    1.   1.   1.
+    1.   1.   1.
+    1.   1.   1.
+\end{verbatim}
+\end{code}
+
+Les fonctions \verb?zeros? et \verb?rand? fonctionnent sur le même principe 
+pour construire respectivement des vecteurs et matrices de zéros ou de nombres aléatoires.
+
+Les fonctions \verb?linspace? et \verb?logspace? permettent de construire respectivement 
+des vecteurs de valeurs linairement et logarithmiquement équidistantes.  
+
+Par exemple l'instruction suivante construit un vecteur de 9 éléments équidistants (de 0.5) 
+dont les valeures sont comprises entre 1 et 5 :
+\begin{code}
+\begin{verbatim}
+--> linspace(1,5,9)
+ ans  =
+
+    1.   1.5   2.   2.5   3.   3.5   4.   4.5   5.
+\end{verbatim}
+\end{code}
+et l'exemple suivant, correspond à un vecteur de 5 éléments dont les valeurs sont logarithmiquement
+équidistantes (10) entre 10$^1$ et 10$^5$:
+\begin{code}
+\begin{verbatim}
+--> logspace(1,5,5)
+ ans  =
+
+    10.   100.   1000.   10000.   100000.
+
+\end{verbatim}
+\end{code}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Opération élément par élément}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Les opérateurs mathématiques de bases peuvent être utilisés 
 sur les vecteur et matrices mais doivent respecter une certaine 
@@ -377,9 +432,7 @@ Notamment, les opérations \verb?*? et \verb?/? sont des opérations
 matricielles. Pour faire des opérations élément par élément,
 on fera précéder le signe opératoire d'un point : \verb?.*? \verb?./?.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemple :}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Exemple :
 \begin{code}
 \begin{verbatim}
 // définition de l'indéterminée du polynôme
@@ -428,24 +481,27 @@ graphique.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple : plot de deux fenêtres (sinus/cosinus)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Le code suivant permet de tracer les fonctions sinus et cosinus sur deux fenetres
+distinctes. La figure~\cref{fig-capture-SCILAB} présente une capture d'écran 
+d'une des fenêtres générées par SCILAB.
+
 \begin{code}
 \begin{verbatim}
-
 scf(0);clf(0); // création d'une première fenêtre
-t=0.0:0.05:100;
+t=0.0:0.05:10; 
 plot(t,sin(t),'r')
-legend('$s_1(t)$','$e_1(t)$')
+legend('$s_1(t)$')
 xlabel("$t$","fontsize",4);
-ylabel("$s_2(t)$","fontsize",4);
+ylabel("$s_1(t)$","fontsize",4);
 title('fonction sinus',"fontsize",4);
 
-scf(1);clf(1); / création d'une seconde fenêtre
-t=0.0:0.05:100;
+scf(1);clf(1); // création d'une seconde fenêtre    
+t=0.0:0.05:10;
 plot(t,cos(t),'r')
-legend('$s_2(t)$','$e_1(t)$')
+legend('$s_2(t)$')
 xlabel("$t$","fontsize",4);
 ylabel("$s_2(t)$","fontsize",4);
-title('fonction cosinus',"fontsize",4);
+title('fonction cosinus',"fontsize",4);  
 \end{verbatim}
 \end{code}
           
@@ -457,6 +513,12 @@ dans différents formats (vectorielle ou matricielle).
 Nous renvoyons au lecteur à la documentation de Scilab pour
 cet aspect. Il est également possible d'éditer une image en accédant
 au menu de la fenêtre graphique après l'avoir générée.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{fig/capture_SCILAB.eps}
+    \caption{Capture d'écran de la fenêtre graphique générée par SCILAB.\label{fig-capture-SCILAB}}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -606,23 +668,27 @@ la fraction rationnelle directement \verb?syslin("c",ft)?:
 // ======================================
 //  Définir un système du premier ordre
 // ======================================
-p=%s       // indéterminée du polynôme
-K=1;tau=1;
-ft=K/(1+tau*p)
-H=syslin('c',ft)
+p=%s                   // indéterminée du polynôme
+K=1,tau=1;             // paramètres du système
+
+H=K/(1+tau*p);         // fonction de tranfert
+
+PO=syslin('c',H)       // définition du SLCI PO:PremierOrdre
 \end{verbatim}
 \end{code}
 ou en définisant le numérateur et dénominateur séparément (c.-à-d \verb?syslin("c",num,den)?)
 \begin{code}
 \begin{verbatim}
 p=%s
-K=1;tau=1;
-num=K;
-den=1+tau*p
-H=syslin('c',num,den)
+K=1,tau=1;                // paramètres du système
+
+PO=syslin('c',K,1+tau*p)  // définition du SLCI PO:PremierOrdre
 \end{verbatim}
 \end{code}
 
+Il faut noter que les paramètres de la fonction de transfert sont affectés de valeurs
+numériques. En effet, SCILAB ne peut pas traiter des variables formelles mais uniquement
+des variables \og numériques\fg.
 %\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -630,6 +696,8 @@ H=syslin('c',num,den)
 \subsection{Simulation temporelle d'un système linéaire}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour simuler la réponse temporelle d'un système linéaire on utilisera la fonction 
+\verb?csim?.
 
 \begin{doc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -682,6 +750,42 @@ H=syslin('c',num,den)
 \end{itemize}
 \end{doc}
 
+\paragraph{Exemple d'utilisation}
+
+Pour simuler la réponse impulsionnelle on utilisera la chaîne de caractères 
+\verb?'impuls'? (ou les premiers caractères de cette chaîne). 
+
+Il faut également définir le vecteur temps qui imposera la 
+taille du vecteur de sortie. Le troisième argument est un système linéaire
+définit par la fonction \verb?syslin? présentée précedemment. 
+\begin{code}
+\begin{verbatim}
+t=0.0:0.05:20;              // définition du vecteur 
+                            // de temps
+// ----------------------
+// réponse impulsionnelle
+// ----------------------
+e1='imp'                    // 'imp' : impulsion de Dirac
+s1=csim(e1,t,PO)            // réponse impulsionnelle du sl PO
+                            // pour tous les points du vecteur t.
+
+\end{verbatim}
+\end{code}
+Pour la réponse indicielle, on utilisera la chaîne de caractères \verb?'step'?.
+\begin{code}
+\begin{verbatim}
+t=0.0:0.05:20;              // définition du vecteur 
+                            // de temps
+// ----------------------
+// réponse indicielle 
+// ----------------------
+e2='step'                   // 'step' : échélon unitaire.
+s2=csim(e2,t,PO)            // réponse impulsionnelle du sl PO
+                            // pour tous les points du vecteur t.
+
+\end{verbatim}
+\end{code}
+Pour toute autre fonction, on donnera 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
