@@ -88,7 +88,7 @@ par la fonction \verb?whos -name %?
 %i    // nombre imaginaire
 %inf  // infini
 %nan  // not-a-number
-%s %z // définition polynôme
+%s %z // définition de polynômes
 \end{verbatim}
 \end{code}
 
@@ -257,6 +257,8 @@ comme le polynôme dont la racine est nulle.
 \end{verbatim}
 \end{code}
 
+Il est également de possible d'utiliser la variable \verb?\%s? qui correspond
+à l'instruction \verb?s=poly(0,'s')?.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -482,8 +484,7 @@ graphique.
 \paragraph{Exemple : plot de deux fenêtres (sinus/cosinus)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le code suivant permet de tracer les fonctions sinus et cosinus sur deux fenetres
-distinctes. La figure~\cref{fig-capture-SCILAB} présente une capture d'écran 
-d'une des fenêtres générées par SCILAB.
+distinctes. 
 
 \begin{code}
 \begin{verbatim}
@@ -504,21 +505,23 @@ ylabel("$s_2(t)$","fontsize",4);
 title('fonction cosinus',"fontsize",4);  
 \end{verbatim}
 \end{code}
-          
-Les textes des légendes, titre des axes acceptent la syntaxe~\LaTeX.
-
-Il existe de nombreuses commandes pour modifier l'apparence
-d'une figure, de ces axes et pour pouvoir la sauvegarder
-dans différents formats (vectorielle ou matricielle).
-Nous renvoyons au lecteur à la documentation de Scilab pour
-cet aspect. Il est également possible d'éditer une image en accédant
-au menu de la fenêtre graphique après l'avoir générée.
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.8\textwidth]{fig/capture_SCILAB.eps}
     \caption{Capture d'écran de la fenêtre graphique générée par SCILAB.\label{fig-capture-SCILAB}}
 \end{figure}
+
+La figure~\cref{fig-capture-SCILAB} présente une capture d'écran 
+d'une des fenêtres générées par SCILAB.
+          
+Les textes des légendes, titre des axes acceptent la syntaxe~\LaTeX.
+Il existe de nombreuses commandes pour modifier l'apparence
+d'une figure, de ces axes et pour pouvoir la sauvegarder
+dans différents formats (vectorielle ou matricielle).
+Nous renvoyons au lecteur à la documentation de Scilab pour
+cet aspect. Il est également possible d'éditer une image en accédant
+au menu de la fenêtre graphique après l'avoir générée.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -568,43 +571,44 @@ endfunction
 Une façon usuelle de définir des fonctions est de mettre 
 celles-ci dans un fichier à extension \verb?.sci?. 
 Il faut alors la charger avec la fonction \verb?exec()?.
+Pour exécuter une fonction, il suffit de l'appeler en passant les 
+arguments nécessaires.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Appel d'une fonction :}
+\paragraph{Exemple d'une réponse temporelle analytique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Pour exécuter une fonction il suffit de l'appeler en passant les arguments 
-nécessaires.
+Nous souhaitons tracer la réponse temporelle d'un système linéaire dont la
+forme analytique est déterminée et de la forme :
+$$
+s(t)=\dfrac{1}{2}-e^{-t}-\dfrac{3}{2}e^{-2t}
+$$
+On écrira la fonction de la façon suivante :
 \begin{code}
 \begin{verbatim}
-function [u,v]=mafonction(a,b)
-    u=exp(a)
-    v=u*sin(b)
+function u=s(t)
+    u=0.5-exp(-t)+1.5*exp(-2*t)
 endfunction
-
--->mafonction(rand(),rand())
 \end{verbatim}
 \end{code}
-L'appel précédent ne renvoie que la valeur de \verb?u?. 
-Pour obtenir les deux valeurs escomptées il faut faire un appel sous la forme  :
+
+On peut maintenant l'appeler avec un arguments sous la forme de vecteurs. 
 \begin{code}
 \begin{verbatim}
--->[u,v]=test_function(rand(),rand())
- v  =
- 
-    0.5695456  
- u  =
- 
-    1.0707657  
+t=0:0.1:10
+plot2d(t,s(t),style=3)
 \end{verbatim}
 \end{code}
+La fonction renvoie un vecteur de même taille que le vecteur \verb?t?.
 
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{fig/capture_SCILAB-fonction.eps}
+\end{center}
 
-
-%\newpage
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{\emph{{\scshape Slci}}~avec Scilab}
+\section{\emph{{\scshape SLCI}}~avec Scilab}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -785,7 +789,52 @@ s2=csim(e2,t,PO)            // réponse impulsionnelle du sl PO
 
 \end{verbatim}
 \end{code}
-Pour toute autre fonction, on donnera 
+Pour toute autre fonction, on donnera le vecteur de la fonction explicitement. 
+Par exemple pour la réponse à une rampe unitaire on donnera simplement 
+le vecteur \verb?t?. \`A noter que pour la réponse indicielle, nous aurions pu utiliser
+la fonction \verb?ones? :
+
+\begin{code}
+\begin{verbatim}
+step=ones(size(t)(1),size(t)(2))
+s1=csim(step,t,PO)
+\end{verbatim}
+\end{code}
+
+On notera que l'on utilise ici la fonction \verb?size()? pour assurer que le vecteur 
+de la sollicitation est de même taille que le vecteur \verb?t?. 
+
+\paragraph{Approximation de l'impulsion de Dirac}
+
+Il est possible d'approximée l'impulsion de Dirac par un vecteur dont
+les valeurs sont toutes nulles sauf pour sa première composante. 
+L'amplitude du \og pic\fg dépendra de l'écart entre deux valeurs du vecteur temps $\Delta t$. 
+Les instructions suivantes permettent de verifier cette approximation :
+
+\begin{code}
+    \begin{verbatim}
+s=%s
+//définition d'une fonction de transfert du premier ordre
+H=syslin('c',1,1+s+s^2)
+
+t=0:0.001:16
+// simulation exacte de la réponse impulsionnelle
+exact=csim('imp',t,H)
+
+//approximation de l'impulsion de Dirac
+impuls=zeros(size(t)(1),size(t)(2))
+impuls(1)=2/(t(2)-t(1))  // "amplitude" de l'impulsion 2/Dt  
+//simulation approximée de la réponse impulsionnelle
+approx=csim(impuls,t,H)
+
+clf(0)
+plot2d(t,[exact' approx'],[1 2])
+\end{verbatim}
+\end{code}
+
+Cette approximation est d'autant meilleure que l'intervalle $\Delta t$ est petit 
+(autrement dit que le nombre de points du vecteur \verb?t?, pour un 
+intervalle donnée est grand). On utilisera cette approximation avec prudence.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -812,7 +861,6 @@ H=K/(1+tau*p);                  // fonction de tranfert
 PremierOrdre=syslin('c',H)      // définition du SLCI
 \end{verbatim}
 \end{code}
-
 
 Nous allons maintenant étudier les réponses temporelles 
 à différentes excitations du système du premier ordre.
@@ -964,6 +1012,24 @@ plzr(sl)
 \end{itemize}
 \end{doc}
 
+\paragraph{Exemple}
+Pour tracer la carte des pôles et zéros de la fonction de transfert $H(p)$ définit 
+par :
+$$
+H(p)=\dfrac{p+2}{p^2+p+1}
+$$
+On utilisera les instructions suivantes:
+\begin{code}
+\begin{verbatim}
+p=%s
+H=syslin('c',p+2,p^2+p+1)
+plzr(H)
+\end{verbatim}
+\end{code}
+
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{fig/capture_SCILAB-plzr.eps}
+\end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Asservissement}
@@ -1004,6 +1070,31 @@ Sl=Sl1/.Sl2
 \end{itemize}
 \end{doc}
 
+\paragraph{Exemple}
+Imaginons que nous souhaitons déterminer
+le système linéaire en boucle fermée à partir des systèmes de la chaîne directe $H(p)$
+et la chaîne de retour $R(p)$ comme définit par le schéma-bloc suivant:
+\begin{center}
+    \begin{tikzpicture}
+        \bbr
+    \end{tikzpicture}
+\end{center}
+Avec cette opération \verb?feedback?, il est possible de déterminer la fonction de transfert 
+en boucle fermée en une seule instruction.
+\begin{code}
+\begin{verbatim}
+--> p=%s
+--> H=syslin('c',1,1+p);
+--> R=syslin('c',1,1+p);
+--> HBF=H/.R
+ HBF  = 
+                 
+       1 + s      
+     -----------  
+               2  
+     2 + 2s + s 
+\end{verbatim}
+\end{code}
 
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
