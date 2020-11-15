@@ -550,12 +550,14 @@ Pour obtenir les deux valeurs escomptées il faut faire un appel sous la forme  
 Scilab permet de réaliser des études avancées des systèmes linéaires continus 
 et invariants.
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Définition d'un système linéaire}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La définition d'un système linéaire continu se fait avec la fonction 
+\verb?syslin?. 
+
 \begin{doc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonction syslin (extrait de la doc officiel: help syslin )}
@@ -592,7 +594,34 @@ sl=syslin(dom,H)
     \end{itemize}
 \end{doc}
 
-
+\paragraph{Exemple d'utilisation}
+Pour définir un système linéaire du premier ordre de fonction de transfert
+$$
+H(p)=\dfrac{K}{1+\tau p}
+$$
+à l'aide de la fonction \verb?syslin? il existe deux syntaxes, soit en utilisant 
+la fraction rationnelle directement \verb?syslin("c",ft)?:
+\begin{code}
+\begin{verbatim}
+// ======================================
+//  Définir un système du premier ordre
+// ======================================
+p=%s       // indéterminée du polynôme
+K=1;tau=1;
+ft=K/(1+tau*p)
+H=syslin('c',ft)
+\end{verbatim}
+\end{code}
+ou en définisant le numérateur et dénominateur séparément (c.-à-d \verb?syslin("c",num,den)?)
+\begin{code}
+\begin{verbatim}
+p=%s
+K=1;tau=1;
+num=K;
+den=1+tau*p
+H=syslin('c',num,den)
+\end{verbatim}
+\end{code}
 
 %\newpage
 
