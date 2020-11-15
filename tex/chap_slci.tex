@@ -56,7 +56,7 @@ les systèmes dynamiques linéaires.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Système}
+\subsection{La notion de Système}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La notion de \textbf{système} est centrale dans le monde de l'ingénierie.
@@ -95,9 +95,9 @@ l'identification et la caractérisation de ces systèmes.
 les systèmes comme des \og boîtes noires\fg pour lesquelles la structure 
 interne est inaccessible\footnote{\og Ce qui - en dernière analyse - justifie 
 l'attitude ludique, c'est que le seul moyen concevable de dévoiler une 
-boîte noire, c'est de jouer avec.\fg (René Thom)}. Une approche basée 
-sur la représentation des états internes au système sera 
-introduite au~\cref{chap-repreEtat}. 
+boîte noire, c'est de jouer avec.\fg (René Thom)}. %Une approche basée 
+%sur la représentation des états internes au système sera 
+%introduite au~\cref{chap-repreEtat}. 
 
 Pour résumer, nous ne traiterons dans ce document 
 que des systèmes monovariables que 
@@ -116,17 +116,16 @@ Cette représentation, dite en \textbf{bloc} ou
 %\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Système à temps continu}
+\subsection{Propriétés des SLCI}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{Un système à temps continu met en oeuvre des signaux 
-à temps continus}. Comme nous le verrons, ces signaux seront
-modélisés par des fonctions d'une variable continue $t$ de temps.
+Les systèmes qui vont nous intéresser dans ce document sont les systèmes
+\textbf{linéaires, continus et invariants}. Nous allons ici donner une définition
+de chacunes de ces propriétés ainsi que des propriétés secondaires que nous 
+rencontrerons au cours de notre étude.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Système linéaire}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Système linéaire}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Un système est dit linéaire si il respecte les deux principes suivants:
@@ -172,11 +171,32 @@ Un système est dit linéaire si il respecte les deux principes suivants:
    % s(t)=\sum_{k}^n \alpha_ks_k(t)
    % $$
 \end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Système à temps continu}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Un système à temps continu met en oeuvre des signaux 
+à temps continus}. Comme nous le verrons, ces signaux seront
+modélisés par des fonctions d'une variable continue $t$ de temps.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Système invariant}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Système causal}
+\textbf{Un système est dit invariant si la sortie ne dépend pas 
+explicitement du temps autrement que par l'intermédiaire de l'entrée.}
+
+On représente, schématiquement, un système invariant $\Sigma$, à 
+l'aide d'un schéma-bloc ci-dessous 
+(avec $\tau$ une temps quelconque.): 
+% ------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{sb_bloc_e3-chap_slci-ext}
+    \input{tikz/principe_invariance-chap_slci.tex}
+\end{center}
+% ------------------------------------------------------------------------------
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Système causal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
     \item \emph{Principe de causalité :}
@@ -188,51 +208,35 @@ Un système est dit linéaire si il respecte les deux principes suivants:
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Système invariant}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{Un système est dit invariant si la sortie ne dépend pas 
-explicitement du temps autrement que par l'intermédiaire de l'entrée.}
-
-On représente, schématiquement, un système invariant $\Sigma$, à 
-l'aide d'un schéma-bloc ci-dessous 
-(avec $\tau$ une temps quelconque.): 
-% ------------------------------------------------------------------------------
-\begin{center}
-    \tikzsetnextfilename{sb_bloc_e3-chap_slci-ext}
-    \input{tikz/sb_bloc_e3-chap_slci.tex}
-\end{center}
-% ------------------------------------------------------------------------------
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Système stable}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Système stable}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Il existe deux définitions équivalentes de la stabilité pour un 
 système \gls{slci}.
 
 \textbf{Un système est dit stable si à une entrée bornée le système 
 produit une sortie bornée}\footnote{Chez nos collègues anglo-saxons, on 
-rencontre la notionde BIBO (\og bounded input bounded output\fg)}
+rencontre la notion de BIBO (\og bounded input bounded output\fg)}
+ou encore
 
 \textbf{Un système est dit stable lorsque écarté de sa position d'équilibre, 
 il tend à y revenir}
 
-Nous présentons ici un définition encore peu pratique de 
-la stabilité des \glspl{slci}. Nous aurons l'occasion de préciser
-cette définition par des exemples plus concrets lorsque les outils
-de modélisation des systèmes et des signaux auront été introduits.
+Nous aurons l'occasion de préciser cette définition par des exemples plus 
+concrets lorsque les outils de modélisation des systèmes et des signaux 
+auront été introduits.
 
-Le \cref{chap-stab} est d'ailleurs totalement dédié
-à l'étude de cette propriété fondamentale.  
-
+Le \cref{chap-stab} est d'ailleurs totalement dédié à l'étude de cette 
+propriété fondamentale.  
+i
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Modélisation d'un SLCI}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Modélisation d'un SLCI}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Parmis les propriétés précédentes, les systèmes 
 Un système dit linéaire continu et invariant ou \gls{slci} 
 peut être modélisé par une équation différentielle à coefficients 
 constants possédant les propriétés précédentes qui s'écrit dans
@@ -271,7 +275,7 @@ a_2\devi{s(t)}{2}+a_1\devi{s(t)}{}+a_0 s(t)=b_0e(t)
 $$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Exemples de mise en équation}
+\subsection{Exemples de mise en équation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -492,7 +496,7 @@ sollicitation constante et une sollicitation oscillante).
 %Nous aurons l'occasion de rencontrer de nombreuses fois certains signaux.
 Certains signaux sont des briques de base pour la construction de
 signaux plus complexes. Il est alors essentiel de bien les caractériser.
-Ici, nous distingons les signaux généralement utilisés en 
+Ici, nous distinguons les signaux généralement utilisés en 
 entrée des signaux généralement rencontrées en sortie des \gls{slci}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -530,16 +534,10 @@ impulsion retardée de $\tau$ noté $\delta(t-\tau)$.
     \input{tikz/dirac-chap_slci.tex}
 \end{figure}
 
-L'impulsion de Dirac est expérimentalement approchée par un signal 
-bref et de grande amplitude. Il est possible de montrer que la fonction
-suivante $\delta_a(t)$ est une impulsion de Dirac lorsque $a\to0$.
-
-Nous la rencontrerons quelque fois sous sa forme généralisée, 
-$$
-e(t)=E_0\delta(t)
-$$
-où $e(t)$ est le signal d'entrée du système et $E_0$ la valeur de l'amplitude 
-de l'impulsion de Dirac dont l'unité dépend de la nature du problème considéré.
+L'impulsion de Dirac peut être expérimentalement approchée par un signal 
+bref et de grande amplitude. La figure~\ref{fig-dirac2} représente un modèle 
+approchée de l'impulsion de Dirac. Il est possible de montrer que cette fonction
+$\delta_a(t)$ s'approche d'une impulsion de Dirac lorsque $a\to0$.
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{dirac_reel-chap_slci-ext}
@@ -550,13 +548,20 @@ de l'impulsion de Dirac dont l'unité dépend de la nature du problème considé
              \label{fig-dirac2}}
 \end{figure}
 
+Nous rencontrerons quelque fois l'impulsion de Dirac sous sa forme généralisée, 
+$$
+e(t)=E_0\delta(t)
+$$
+où $e(t)$ est le signal d'entrée du système et $E_0$ la valeur de l'amplitude 
+de l'impulsion de Dirac dont la dimension dépendra de la nature du 
+problème considéré.
+
 La réponse d'un système à une impulsion de Dirac est appelée 
 \textbf{réponse impulsionnelle}.
 
-Dans la pratique, une telle sollicitation brève et de grande amplitude
+Nous verrons par la suite qu'une telle sollicitation brève et de grande amplitude
 permet de parfaitement caractériser le système. La réponse impulsionnelle, 
-qui en résulte, contient toute l'information du système 
-linéaire qui l'a élaboré.
+qui en résulte, contient toute l'information sur le système linéaire qui l'a élaboré.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{\'Echelon-unité}
@@ -590,11 +595,13 @@ $$
 e(t)=E_0u(t)
 $$
 où $e(t)$ est le signal d'entrée du système et $E_0$ la valeur seuil 
-de l'échelon dont l'unité dépend de la nature du problème considéré.
+de l'échelon dont la dimension dépend de la nature du problème considéré.
 
 D'après les propriétés du signal échelon-unité et de la causalité, il 
 est possible de rendre causale une fonction quelconque en la 
 multipliant par un échélon-unité.
+%Schéma produit d'une fonction quelconque par l'échelon unité.
+
 
 La réponse d'un système à un échelon est appelée 
 \textbf{réponse indicielle}.
@@ -604,7 +611,6 @@ de la distribution de Dirac,
 $$
 u(t)=\int\limits_{-\infty}^{t} \delta(\tau)\,\,\dd{\tau}
 $$
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Rampe-unité}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -637,8 +643,8 @@ Remarquons que la fonction rampe est l'intégrale de l'échelon-unité, notammen
 $$
 r(t)=\int\limits_{-\infty}^{t} u(\tau)\,\,\dd{\tau}
 $$
-La réponse d'un système à une rampe ne possède pas de nom spécifique, 
-utilisé pour la distinguer des autres réponses. On parlera donc simplement 
+La réponse d'un système à une rampe ne possède pas de nom spécifique 
+pour la distinguer des autres réponses. Nous parlerons donc simplement 
 de \textbf{réponse à une rampe}. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Sinuso\"ide}
@@ -669,8 +675,6 @@ lycéens $\sin(a+b)=\sin{a}\cos{b}+\sin{b}\cos{a}$}, $s(t)$ s'écrit :
 $$
 s(t)=A(\sin(\phi)\cos{\omega t}+\cos(\phi)\sin{\omega t})
 $$
-
-
 
 \begin{table}[!h]
 \ra{1.2}
@@ -762,7 +766,7 @@ $$
 où $a>0$ est l'inverse d'un temps caractéristique de l'amortissement.
 Cette fonction est donc le produit d'une exponentielle décroissante et 
 d'une sinuso\"ide.
-\begin{figure}[!h]
+\begin{figure}[!b]
     \centering
     \tikzsetnextfilename{sinusoide_amortie-chap_slci-ext}
     \input{tikz/sinusoide_amortie-chap_slci.tex}
@@ -1360,7 +1364,7 @@ par le schéma-bloc suivant :
 % ------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Lien entre la fonction de transfert et la réponse impulsionnelle}
+\subsection{Lien entre fonction de transfert et réponse impulsionnelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 À partir de l'équation~\ref{eq-she}, le lien entre la fonction de transfert

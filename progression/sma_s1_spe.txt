@@ -110,7 +110,10 @@
  -------------------------------------------------------------------------------
   TD 3
  -------------------------------------------------------------------------------
-            - 
+            - Transformée de Laplace :
+                - Résolution d'équations différentielles
+                - Valeure initiale/Finale
+                - Transformée de Laplace d'une fonction périodique  
  ===============================================================================
   Semaine 4 (07 Oct 2019) QCM 1
  ===============================================================================
@@ -134,7 +137,11 @@
  -------------------------------------------------------------------------------
   TD 4 
  -------------------------------------------------------------------------------
-            - Exercices sur les fonctions de transfert
+            - Exercices sur les fonctions de transfert :
+                - Détermination d'une fonction de transfert simple
+                - Cartes des pôles
+                - Système du second ordre
+                - Fonction de transfert d'un système masse-ressort/Dipôle électrique
  ===============================================================================
   Semaine 5 (14 Oct 2019)
  ===============================================================================
@@ -214,7 +221,7 @@
  -------------------------------------------------------------------------------
   TP 2 
  -------------------------------------------------------------------------------
-            - modélisation d'un système du second ordre   
+            - Modélisation d'un système du second ordre   
  ===============================================================================
   Semaine 8 (11 Nov 2019) Semaine du DS
  ===============================================================================
@@ -225,9 +232,10 @@
   DS 
  -------------------------------------------------------------------------------
             - Le DS pourra être composé de plusieurs exercices :
+                - Décomposition d'un signal en signaux usuels + Transformée de Laplace.
                 - Détermination d'une fonction de transfert à partir
-                  de différentes équations différentielles
-                - Réduction d'un schéma-bloc
+                  de différentes équations différentielles.
+                - Réduction d'un schéma-bloc.
                 - Tracer des réponses temporelles du premier ordre.
                 - Détermination des caractéristiques d'une réponse 
                   du second ordre.
