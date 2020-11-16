@@ -80,7 +80,5 @@ gvread: ps
 
 clean:
 	rm -f *.log *.auxlock *.ind *.ist *.aux *.out *.bbl *.blg *.mtc* *.toc *.maf *.idx *.gls *.ilg *.glo *.glg
-	rm -f figtikz/*.dpth figtikz/*.glo figtikz/*.glo-abr figtikz/*.idx figtikz/*.ist figtikz/*.log figtikz/*.md5 figtikz/*.mtc figtikz/*.mtc0 figtikz/*.slo figtikz/*.maf figtikz/*.ilg figtikz/*.ind figtikz/*.acn figtikz/*.dep
-
-
-
+	rm -f figtikz/*.md5 figtikz/*.dpth figtikz/*.glo figtikz/*.glo-abr figtikz/*.idx figtikz/*.ist figtikz/*.log figtikz/*.md5 figtikz/*.mtc figtikz/*.mtc0 figtikz/*.slo figtikz/*.maf figtikz/*.ilg figtikz/*.ind figtikz/*.acn figtikz/*.dep
+	rm -f *.acn *.acr *.alg *.gl*-* *.slg *.slo *.sls
