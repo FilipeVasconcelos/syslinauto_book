@@ -1,0 +1,9 @@
+#!/bin/bash
+declare -A data=(['laplace_table']="211-212" 
+                 ['scilab']="235-258")
+echo ${!data[@]}
+for cle in ${!data[@]}
+do
+    echo ${cle} ${data[$cle]} 
+    pdftk sma_auto.pdf cat ${data[$cle]} output extrait/${cle}.pdf
+done 
