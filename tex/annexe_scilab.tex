@@ -509,11 +509,11 @@ title('fonction cosinus',"fontsize",4);
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.8\textwidth]{fig/capture_SCILAB.eps}
-    \caption{Capture d'écran de la fenêtre graphique générée par SCILAB.\label{fig-capture-SCILAB}}
+    \caption{Capture d'écran de la fenêtre graphique générée par Scilab.\label{fig-capture-SCILAB}}
 \end{figure}
 
 La figure~\cref{fig-capture-SCILAB} présente une capture d'écran 
-d'une des fenêtres générées par SCILAB.
+d'une des fenêtres générées par Scilab.
           
 Les textes des légendes, titre des axes acceptent la syntaxe~\LaTeX.
 Il existe de nombreuses commandes pour modifier l'apparence
@@ -598,13 +598,17 @@ t=0:0.1:10
 plot2d(t,s(t),style=3)
 \end{verbatim}
 \end{code}
-La fonction renvoie un vecteur de même taille que le vecteur \verb?t?.
+La fonction renvoie un vecteur de même taille que le vecteur \verb?t? et peut
+donc être tracé avec la fonction \verb?plot2d?.
 
-\begin{center}
-    \includegraphics[width=0.5\textwidth]{fig/capture_SCILAB-fonction.eps}
-\end{center}
+\begin{figure}[!hb]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{fig/capture_SCILAB-fonction.eps}
+    \end{center}
+    \caption{Capture d'écran de la fenêtre générée par Scilab}
+\end{figure}
 
-\newpage
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -691,7 +695,7 @@ PO=syslin('c',K,1+tau*p)  // définition du SLCI PO:PremierOrdre
 \end{code}
 
 Il faut noter que les paramètres de la fonction de transfert sont affectés de valeurs
-numériques. En effet, SCILAB ne peut pas traiter des variables formelles mais uniquement
+numériques. En effet, Scilab ne peut pas traiter des variables formelles mais uniquement
 des variables \og numériques\fg.
 %\newpage
 
