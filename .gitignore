@@ -23,8 +23,8 @@
 *.ist
 *.maf
 *.mtc*
-*.pdf
 *.ps
+*.pdf
 *.slg
 *.sls
 *.toc

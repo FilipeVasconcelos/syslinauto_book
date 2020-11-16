@@ -20,6 +20,7 @@
             imageposition=right,
             version={4.0},
            ]{doclicense}
+
 \usepackage{ifthen}
 \usepackage[skip=0.3cm,hypcap=false]{caption} 
 \captionsetup{width=.85\linewidth,belowskip=0pt,labelfont=bf} 
@@ -49,7 +50,6 @@
 \usepackage[hyphenbreaks]{breakurl} 
 \usepackage[acronym,symbols,nogroupskip,nonumberlist]{glossaries-extra}
 \usepackage{glossary-superragged}
-%\setabbreviationstyle[acronym]{long-short}
 \makeglossaries
 \usepackage{tocbibind}
 \usepackage{titletoc}%
@@ -75,7 +75,11 @@
 \usepackage{lipsum}
 \usepackage{etoolbox}
 \usepackage[french,nameinlink,noabbrev]{cleveref}
+\crefname{appchap}{Annexe}{Annexes}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PGF/TikZ/PGFPLOTS
 \usepackage{pgf,tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
@@ -86,33 +90,25 @@
 \usetikzlibrary{calc,tikzmark}
 \usetikzlibrary{quotes,angles}
 \usetikzlibrary{arrows.meta,bending,automata,positioning}
-\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.geometric}       
 \usetikzlibrary{babel} 
 \usetikzlibrary{decorations.text}
 \usetikzlibrary{matrix}
-\usetkzobj{all} 
+%\usetkzobj{all} 2020
+
 \usetikzlibrary{external}
-\crefname{appchap}{Annexe}{Annexes}
 \tikzset{external/system call={pdflatex -shell-escape 
 -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"; 
 pdf2eps 1 "\image"
 }}
-%\tikzset{external/system call={latex -shell-escape 
-%-halt-on-error -interaction=batchmode -jobname "\image" "\texsource"; 
-%pdf2eps 1 "\image"
-%}}
-%\tikzset{external/system call={pdflatex \tikzexternalcheckshellescape
-%                                        -halt-on-error
-%                                        -interaction=batchmode 
-%                                        -jobname "\image" "\texsource"
-%                                        && pdftops -eps "\image.pdf"}}
+
 \tikzset{external/optimize command away=\AddToShipoutPicture}
 \tikzexternalize[prefix=./figtikz/]
 \usetikzlibrary{external}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% définition de l'année scolaire 
+% définition de l'année scolaire (page de garde) 
 \newcommand\lastyear{\advance\year by -1 \the\year\advance\year by 1}
 \newcommand\nextyear{\advance\year by 1 \the\year\advance\year by -1}
 \newcommand{\anneescolaire}{%
@@ -120,7 +116,6 @@ pdf2eps 1 "\image"
     {\lastyear--\the\year}
     {\the\year--\nextyear}
 }%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{booktabs}
@@ -138,13 +133,15 @@ pdf2eps 1 "\image"
     \kern 2.6pt % call this kernb
 }
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
-
 \def\fup#1{\raise+2pt\hbox{\footnotesize #1}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%GEOMETRY
 \usepackage[a4paper,headheight=16pt]{geometry}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%FANCY HEADER
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -218,12 +215,10 @@ pdf2eps 1 "\image"
 \makeatother
 \renewcommand{\theequation}{\thechapter.\arabic{equation}}
 \parindent0pt
-
 %lignes dans TOC et minitoc
 \makeatletter
 \renewcommand*\l@subsection{\@dottedtocline{2}{3.8em}{3.5em}}% Used to be {3.8em}{3.2em}
 \makeatother
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % footnote and hyperref
@@ -235,15 +230,14 @@ pdf2eps 1 "\image"
 
 \newcommand\isFootnote{%
     \ifx\footnote\nextToken\textsuperscript{,}\fi}
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %COLOR BOX 
 \usepackage[many,listings,skins,breakable]{tcolorbox}
 \usepackage{tcolorfmv}
 \tcbsetforeverylayer{shield externalize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % Cover picture
 \newcommand\BackgroundPic{%
 {\tikzset{external/export=false}
@@ -261,7 +255,6 @@ pdf2eps 1 "\image"
 }}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %red
 \newcommand{\hmr}[1]{%
 \ooalign{\hss\makebox[0pt]{
@@ -272,7 +265,6 @@ pdf2eps 1 "\image"
 \ooalign{\hss\makebox[0pt]{
 \fcolorbox{white}{blue!30}{$#1$}}\hss\cr\phantom{$#1$}}%
 }
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %page
@@ -395,7 +387,7 @@ pdf2eps 1 "\image"
 %\mainmatter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{tex/avantpropos}                %0 Introduction Générale 
+\include{tex/avantpropos}              %0 Avant-propos 
 \include{tex/chap_slci}                %1 SLCI                
 \include{tex/chap_bloc}                %2 Schémas fonctionnels-blocs
 \include{tex/chap_model}               %3 Modèles de SLCI
@@ -410,7 +402,7 @@ pdf2eps 1 "\image"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{appendices}
-\input{tex/annexe_alphagrec}           %A Alphabet grec
+\include{tex/annexe_alphagrec}         %A Alphabet grec
 \include{tex/annexe_usi}               %B Unités du Système International 
 \include{tex/annexe_laplace_irl}       %C Pierre-Simon de Laplace 
 \include{tex/annexe_laplace}           %D Transformation de Laplace 
@@ -419,12 +411,10 @@ pdf2eps 1 "\image"
 \include{tex/annexe_equa_diff}         %G Eq. diff. à coefficient constant
 \include{tex/annexe_des}               %H Décomposition en éléments simples
 \include{tex/annexe_2nd}               %I Système du second ordre
-%{\tikzset{external/export=false} 
 \include{tex/annexe_scilab}            %J Scilab
-%}
 \include{tex/annexe_log}               %K Echelle log  
 \include{tex/annexe_invL}              %L Laplace inverse 
-%\include{tex/todo}                    %M TODO
+\include{tex/todo}                     %M TODO
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
