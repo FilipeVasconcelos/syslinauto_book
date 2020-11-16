@@ -1,28 +1,29 @@
 .SUFFIXES: .tex .aux .bib
+mainfile=sma_auto
 
 pspdf:	ps 
-	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${filename}.ps
+	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${mainfile}.ps
 
 text: html
-	html2text -width 100 -style pretty ${filename}/${filename}.html | sed -n '/./,$$p' | head -n-2 >${filename}.txt
+	html2text -width 100 -style pretty ${mainfile}/${mainfile}.html | sed -n '/./,$$p' | head -n-2 >${filename}.txt
 
 html:
-	@#latex2html -split +0 -info "" -no_navigation ${filename}
-	htlatex ${filename}
+	@#latex2html -split +0 -info "" -no_navigation ${mainfile}
+	htlatex ${mainfile}
 
 ps:	dvi
-	dvips -t a4 ${filename}.dvi
+	dvips -t a4 ${mainfile}.dvi
 
 svg:	dvi
-	dvisvgm ${filename}.dvi
+	dvisvgm ${mainfile}.dvi
 
 dvi:
-	latex -shell-escape ${filename}
-	bibtex ${filename} ||true
-	makeindex ${filename}
-	makeglossaries ${filename}
-	latex -shell-escape ${filename}
-	latex -shell-escape ${filename}
+	latex -shell-escape ${mainfile}
+	bibtex ${mainfile} ||true
+	makeindex ${mainfile}
+	makeglossaries ${mainfile}
+	latex -shell-escape ${mainfile}
+	latex -shell-escape ${mainfile}
 
 clean:
 	rm -f *.log *.auxlock *.ind *.ist *.aux *.out *.bbl *.blg *.mtc* *.toc *.maf *.idx *.gls *.ilg *.glo *.glg
