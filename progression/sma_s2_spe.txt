@@ -7,8 +7,7 @@
   - Performances (précision, rapidité)      : 2 semaines
   - Stabilité (Routh, Revers, Nyquist)      : 3 semaines
   - Correcteurs (P, I,D, PI, PD, PID)       : 3 semaines
-  - Introduction à la représentation d'état : 2 semaines 
-    (hors programme d'examen ?)
+  - Introduction à la représentation d'état : 1 semaine (hors programme d'examen ?)
 
  ==============================================================================
   Semaine 1  (03 Fev 2020)

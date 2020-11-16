@@ -40,7 +40,7 @@
 \usepackage{siunitxfmv}
 \usepackage{afterpage}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{eso-pic}              %\AddToShipoutPicture  
+%\usepackage{eso-pic}              %\AddToShipoutPicture  
 \usepackage{calc}                
 \usepackage{imakeidx}
 \makeindex[columnsep=20pt,columnseprule]
@@ -101,8 +101,14 @@ pdf2eps 1 "\image"
 %-halt-on-error -interaction=batchmode -jobname "\image" "\texsource"; 
 %pdf2eps 1 "\image"
 %}}
-\tikzset{external/optimize command away=\AddToShipoutPicture}
+%\tikzset{external/system call={pdflatex \tikzexternalcheckshellescape
+%                                        -halt-on-error
+%                                        -interaction=batchmode 
+%                                        -jobname "\image" "\texsource"
+%                                        && pdftops -eps "\image.pdf"}}
+%\tikzset{external/optimize command away=\AddToShipoutPicture}
 \tikzexternalize[prefix=./figtikz/]
+\usetikzlibrary{external}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -359,7 +365,7 @@ pdf2eps 1 "\image"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{tex/pagedegarde}
+%\input{tex/pagedegarde}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -372,13 +378,13 @@ pdf2eps 1 "\image"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \thispagestyle{empty}
-\input{tex/pagedegarde2}
+%\input{tex/pagedegarde2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \thispagestyle{empty}
-\input{tex/pagedegarde3}
+%\input{tex/pagedegarde3}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -412,9 +418,9 @@ pdf2eps 1 "\image"
 \include{tex/annexe_equa_diff}         %G Eq. diff. à coefficient constant
 \include{tex/annexe_des}               %H Décomposition en éléments simples
 \include{tex/annexe_2nd}               %I Système du second ordre
-{\tikzset{external/export=false} 
-\include{tex/annexe_scilab}            %J Scilab
-}
+%{\tikzset{external/export=false} 
+%\include{tex/annexe_scilab}            %J Scilab
+%}
 \include{tex/annexe_log}               %K Echelle log  
 \include{tex/annexe_invL}              %L Laplace inverse 
 %\include{tex/todo}                    %M TODO

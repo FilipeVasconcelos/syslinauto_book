@@ -211,7 +211,7 @@
  -------------------------------------------------------------------------------
   Chapitre 3 : Modélisation des SLCI et leurs réponses temporelles
 
-            - Système du second ordre :
+            - Système du second ordre (partie 1):
                 - Définition 
                 - Fonction de transfert 
                 - Pôle de la fonction de transfert 
@@ -226,20 +226,19 @@
   Semaine 8 (11 Nov 2019) Semaine du DS
  ===============================================================================
  -------------------------------------------------------------------------------
-  Révision du DS 
+  Cours 8  
  -------------------------------------------------------------------------------
+  Chapitre 3 : Modélisation des SLCI et leurs réponses temporelles
  -------------------------------------------------------------------------------
-  DS 
+            - Système du second ordre (partie 2):
+            c.f Whiteboard cours 8
+
  -------------------------------------------------------------------------------
-            - Le DS pourra être composé de plusieurs exercices :
-                - Décomposition d'un signal en signaux usuels + Transformée de Laplace.
-                - Détermination d'une fonction de transfert à partir
-                  de différentes équations différentielles.
-                - Réduction d'un schéma-bloc.
-                - Tracer des réponses temporelles du premier ordre.
-                - Détermination des caractéristiques d'une réponse 
-                  du second ordre.
-             
+  TD 6 
+ -------------------------------------------------------------------------------
+            - Modélisation d'un système du second ordre 
+            - Lecture des abaques
+ 
  ===============================================================================
   Semaine 9 (18 Nov 2019) 
  ===============================================================================
@@ -328,4 +327,15 @@
             - /home/filipe/enseignement/auto/2018_2019_SPE/td/td_6
             - Exercices de révisions pour l'examen
  ===============================================================================
+ -------------------------------------------------------------------------------
+  DS 
+ -------------------------------------------------------------------------------
+            - Le DS pourra être composé de plusieurs exercices :
+                - Décomposition d'un signal en signaux usuels + Transformée de Laplace.
+                - Détermination d'une fonction de transfert à partir
+                  de différentes équations différentielles.
+                - Réduction d'un schéma-bloc.
+                - Tracer des réponses temporelles du premier ordre.
+                - Détermination des caractéristiques d'une réponse 
+                  du second ordre.
 \end{verbatim}
