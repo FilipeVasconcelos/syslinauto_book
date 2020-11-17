@@ -858,11 +858,11 @@ instructions suivantes :
 // ======================================
 
 p=poly(0,'p');
-K=1,tau=1;                      // paramètres du système
+K=1,tau=1;            // paramètres du système
 
-H=K/(1+tau*p);                  // fonction de tranfert
+H=K/(1+tau*p);        // fonction de tranfert
 
-PremierOrdre=syslin('c',H)      // définition du SLCI
+PO=syslin('c',H)      // définition du SLCI
 \end{verbatim}
 \end{code}
 
@@ -877,10 +877,10 @@ Nous allons maintenant étudier les réponses temporelles
 // réponse impulsionnelle
 // ------------------------
 e2='imp'                        // 'imp' : dirac
-s2=csim(e2,t,PremierOrdre);   
+s2=csim(e2,t,PO);   
 
 scf(1);clf(1);
-plot(t,s2,'r')
+plot2d(t,s2,style=2)
 
 legend('$s_2(t)$','$e_2(t)$')
 xlabel("$t$","fontsize",4);
@@ -888,6 +888,8 @@ ylabel("$s(t)$","fontsize",4);
 title('réponse impulsionnelle',"fontsize",4);
 \end{verbatim}
 \end{code}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle}
@@ -901,7 +903,7 @@ t=0.0:0.05:20;                  // définition du vecteur
 //  réponse indicielle
 // ---------------------
 e1='step'                       // 'step' : échelon
-s1=csim(e1,t,PremierOrdre);    
+s1=csim(e1,t,PO);    
 
 // clf : effacer le contenu de
 // la fenêtre graphique
@@ -909,7 +911,7 @@ s1=csim(e1,t,PremierOrdre);
 // fenêtre graphique
 
 scf(0);clf(0);
-plot(t,s1,'r')
+plot2d(t,s1,style=2)
 
 legend('$s_1(t)$','$e_1(t)$')
 xlabel("$t$","fontsize",4);
@@ -928,10 +930,10 @@ title('réponse indicielle',"fontsize",4);
 // réponse à une excitation sinuso\"idale 
 // -----------------------------------------
 e3=sin(t)
-s3=csim(e3,t,PremierOrdre);
+s3=csim(e3,t,PO);
 
 scf(2);clf(2);
-plot(t,s3,'r',t,e3,'b')
+plot2d(t,[s3,e3],style=[2,4])
 
 legend('$s_3(t)$','$e_3(t)$')
 xlabel("$t$","fontsize",4);
@@ -1031,9 +1033,12 @@ plzr(H)
 \end{verbatim}
 \end{code}
 
-\begin{center}
-    \includegraphics[width=0.8\textwidth]{fig/capture_SCILAB-plzr.eps}
-\end{center}
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{fig/capture_SCILAB-plzr.eps}
+    \end{center}
+    \caption{Capture d'écran de la carte des pôles générée par Scilab}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Asservissement}
@@ -1082,6 +1087,19 @@ et la chaîne de retour $R(p)$ comme définit par le schéma-bloc suivant:
     \tikzsetnextfilename{feedback-annexe_scilab-ext}
     \input{tikz/feedback-annexe_scilab.tex}
 \end{center}
+
+La fonction de transfert en boucle fermée $H_{BF}$ est donnée par la relation de Black:
+$$
+H_{BF}=\dfrac{H(p)}{1+R(p)H(p)}
+$$
+
+Pour $H(p)=\dfrac{1}{1+p}$ et $R(p)=\dfrac{1}{1+p}$ alors 
+$$
+H_{BF}=\dfrac{1}{1+p}\dfrac{1}{1+\dfrac{1}{(1+p)^2}}=\dfrac{1+p}{1+(1+p)^2}=\dfrac{1+p}{p^2+2p+2}
+$$
+
+
+
 Avec cette opération \verb?feedback?, il est possible de déterminer la fonction de transfert 
 en boucle fermée en une seule instruction.
 \begin{code}
