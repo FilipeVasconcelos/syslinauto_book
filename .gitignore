@@ -9,6 +9,7 @@
 *.mtc
 *.mtc0
 *.slo
+*.mw
 *.aux
 *.out
 *.bbl
@@ -47,3 +48,4 @@ beamer/c13
 beamer/c14
 svg/*.svg
 standalone/
+_minted*

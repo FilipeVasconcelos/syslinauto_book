@@ -54,32 +54,29 @@ multiplication~\verb?*?, puissance~\verb?** ou ^? ).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemples :}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 -->// ceci n'est pas un commentaire
 
 -->a=2
  a  =
       
     2. 
--->A=3;  \\ le résultat est caché
+-->A=3;   // le résultat est caché
 
--->a*A   \\ produit
+-->a*A    // produit
  ans  =
 
     6.  
--->ans**2 \\ utilisation de la valeur précédente
+-->ans**2 // utilisation de la valeur précédente
  ans  =
   
     36.  
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 Il existe quelques variables prédéfinies sous Scilab, elles sont appelées à 
 l'aide du symbole \og\verb?%?\fg. La liste de ces variables est accessible 
 par la fonction \verb?whos -name %?
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 %e    // constante d'Euler
 %eps  // précision machine epsilon
 %F %f // booléen false 0 
@@ -89,13 +86,11 @@ par la fonction \verb?whos -name %?
 %inf  // infini
 %nan  // not-a-number
 %s %z // définition de polynômes
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 
 Quelques opérateurs logiques : 
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 -->A=0;
 
 -->B=1;
@@ -124,8 +119,7 @@ Quelques opérateurs logiques :
  ans  =
  
   T
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -149,8 +143,7 @@ La seconde instuction est l'énoncé du polynôme utilisant cette indéterminée
 
 On définit deux polynômes $D(p)=1+2p+3p^2$ et $N(p)=1+p$ de la façon 
 suivante :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 -->p = poly(0, 'p');
 
 -->D=(1+2*p+3*p**2)
@@ -163,13 +156,11 @@ suivante :
  N  =
  
     1 + p
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 La fonction \verb?roots(D)? donne les racines du polynôme $D(p)$ :
 
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 -->roots(D)
  ans  =
  
@@ -179,12 +170,10 @@ La fonction \verb?roots(D)? donne les racines du polynôme $D(p)$ :
  ans  =
   
    - 1.
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 Scilab gère de la même manière les fractions rationnelles :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 -->H=N/D
  H  =
  
@@ -192,14 +181,12 @@ Scilab gère de la même manière les fractions rationnelles :
     -----------   
                2  
     1 + 2p + 3p 
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 Il est possible d'extraire les numérateurs et dénominateurs de 
 $H(p)=N(p)/D(p)$ par les variables \verb?H.num? et \verb?H.den? 
 respectivement :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 -->roots(H.den)               // pôles
  ans  =
  
@@ -210,8 +197,7 @@ respectivement :
  ans  =
  
   - 1.
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 Il est également possible de définir un polynôme à partir de ces racines 
 ou de ces coefficients en appelant seulement la fonction \verb?poly?.
@@ -220,42 +206,36 @@ ou de ces coefficients en appelant seulement la fonction \verb?poly?.
 \paragraph{\`A partir de ses racines:}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 -->poly([1 2],'p')    // polynôme dont les racines sont 1 et 2
  ans  =
  
               2  
     2 - 3p + p 
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{\`A partir des ses coefficient:}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 -->poly([1 2],'p','c')    // option 'c' nécessaire
  ans  =
  
     1 + 2p
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Remarque:}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Lorsque que l'on écrit \verb?p=poly(0,'p')?, on définit la variable \verb?p? 
 comme le polynôme dont la racine est nulle.
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 -->p=poly(0,'p')
  ans  =
 
     p
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 Il est également de possible d'utiliser la variable \verb?\%s? qui correspond
 à l'instruction \verb?s=poly(0,'s')?.
@@ -271,8 +251,7 @@ Il est également de possible d'utiliser la variable \verb?\%s? qui correspond
 %Scilab est adapté au calcul vectoriel/ matriciel numérique. 
 
 Pour définir un vecteur ligne :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 --> v=[1,2,3]
  v  =
  
@@ -288,45 +267,37 @@ Pour définir un vecteur ligne :
                           // de incr
  
     1.    1.5    2.    2.5    3.    3.5    4.
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 Pour définir un vecteur colonne :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 --> v=[1;2;3]
  v  =
  
     1.    
     2.
     3. 
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 Nous combinons les deux syntaxes précédentes pour définir une matrice : 
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 --> m=[1 2; 3 4 ; 5 6]
  m  =
  
     1.    2.  
     3.    4.  
     5.    6.  
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 Le vecteur ou la liste nul est simplement déclaré par :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 -->liste=[];
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 Les parenthèses permettent d'accéder aux élément d'une matrice et le 
 symbole \og\verb?:?\fg permet d'accéder à toute ou une partie d'une 
 ligne ou d'une colonne
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 -->v(1)
  ans  =
  
@@ -342,13 +313,11 @@ ligne ou d'une colonne
  ans  =
    
      1.    2. 
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 %\newpage
 Pour concaténer deux vecteurs ou matrices :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 -->u=[1,2,3];
  
 -->v=[4,5,6];
@@ -368,32 +337,27 @@ Pour concaténer deux vecteurs ou matrices :
     1.    2.    1.    2.  
     3.    4.    3.    4.  
     5.    6.    5.    6. 
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 \paragraph{Fonctions pour construire des vecteurs et matrices élémentaires}
 On utilisera la fonction ones pour construire un vecteur ou une matrice remplie 
 de 1.
 Exemple pour construire un vecteur de 10 composantes de valeurs 1 :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 --> ones(1,10)
  ans  =
 
     1.   1.   1.   1.   1.   1.   1.   1.   1.   1.
 
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 pour une matrice 3x3 :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 --> ones(3,3)
  ans  =
 
     1.   1.   1.
     1.   1.   1.
     1.   1.   1.
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 Les fonctions \verb?zeros? et \verb?rand? fonctionnent sur le même principe 
 pour construire respectivement des vecteurs et matrices de zéros ou de nombres aléatoires.
@@ -403,25 +367,21 @@ des vecteurs de valeurs linairement et logarithmiquement équidistantes.
 
 Par exemple l'instruction suivante construit un vecteur de 9 éléments équidistants (de 0.5) 
 dont les valeures sont comprises entre 1 et 5 :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 --> linspace(1,5,9)
  ans  =
 
     1.   1.5   2.   2.5   3.   3.5   4.   4.5   5.
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 et l'exemple suivant, correspond à un vecteur de 5 éléments dont les valeurs sont logarithmiquement
 équidistantes (10) entre 10$^1$ et 10$^5$:
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 --> logspace(1,5,5)
  ans  =
 
     10.   100.   1000.   10000.   100000.
 
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Opération élément par élément}
@@ -435,8 +395,7 @@ matricielles. Pour faire des opérations élément par élément,
 on fera précéder le signe opératoire d'un point : \verb?.*? \verb?./?.
 
 Exemple :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 // définition de l'indéterminée du polynôme
 -->p = poly(0, 'p');
 
@@ -454,8 +413,7 @@ Exemple :
     -----     ------      ------    
          2           2           2  
     p + p     10p + p     20p + p   
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 Scilab a été conçu pour le calcul matriciel et numérique. 
 Il existe de nombreuses opérations spécifiques aux matrices et à la 
@@ -463,11 +421,9 @@ résolution numériques que nous ne traiterons pas dans ce document.
 
 Pour accéder à l'aide en ligne, cliquez sur \verb/ ? >Aide Scilab/ 
 dans la barre de menus, ou tapez   dans la console :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 -->help <fonction>
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -486,8 +442,7 @@ graphique.
 Le code suivant permet de tracer les fonctions sinus et cosinus sur deux fenetres
 distinctes. 
 
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 scf(0);clf(0); // création d'une première fenêtre
 t=0.0:0.05:10; 
 plot(t,sin(t),'r')
@@ -503,8 +458,7 @@ legend('$s_2(t)$')
 xlabel("$t$","fontsize",4);
 ylabel("$s_2(t)$","fontsize",4);
 title('fonction cosinus',"fontsize",4);  
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 \begin{figure}[!ht]
     \centering
@@ -556,8 +510,7 @@ ou bien l'éditeur de ligne de commande.
 
 La fonction doit commencer par le mot réservé \verb?function? et finir par 
 \verb?endfunction? sous la forme :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 function [out1,out2,...,outN]=nomfonction(in1,in2,...,inP)
 
   // out1,out2,...,outN sont les variables de sortie
@@ -565,8 +518,7 @@ function [out1,out2,...,outN]=nomfonction(in1,in2,...,inP)
           
 <instructions>
 endfunction
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 Une façon usuelle de définir des fonctions est de mettre 
 celles-ci dans un fichier à extension \verb?.sci?. 
@@ -583,21 +535,17 @@ $$
 s(t)=\dfrac{1}{2}-e^{-t}-\dfrac{3}{2}e^{-2t}
 $$
 On écrira la fonction de la façon suivante :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 function u=s(t)
     u=0.5-exp(-t)+1.5*exp(-2*t)
 endfunction
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 On peut maintenant l'appeler avec un arguments sous la forme de vecteurs. 
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 t=0:0.1:10
 plot2d(t,s(t),style=3)
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 La fonction renvoie un vecteur de même taille que le vecteur \verb?t? et peut
 donc être tracé avec la fonction \verb?plot2d?.
 
@@ -634,12 +582,10 @@ La définition d'un système linéaire continu se fait avec la fonction
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{itemize}
         \item Syntaxe :
-        \begin{code}
-\begin{verbatim}
+        \begin{Scilabcode}
 sl=syslin(dom,N,D)
 sl=syslin(dom,H)
-\end{verbatim}
-        \end{code}
+        \end{Scilabcode}
         \item Paramètres :
             \begin{itemize}
                 \item \verb?dom? : chaîne de caractères \verb?('c','d')?, 
@@ -671,8 +617,7 @@ H(p)=\dfrac{K}{1+\tau p}
 $$
 à l'aide de la fonction \verb?syslin? il existe deux syntaxes, soit en utilisant 
 la fraction rationnelle directement \verb?syslin("c",ft)?:
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 // ======================================
 //  Définir un système du premier ordre
 // ======================================
@@ -682,17 +627,14 @@ K=1,tau=1;             // paramètres du système
 H=K/(1+tau*p);         // fonction de tranfert
 
 PO=syslin('c',H)       // définition du SLCI PO:PremierOrdre
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 ou en définisant le numérateur et dénominateur séparément (c.-à-d \verb?syslin("c",num,den)?)
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 p=%s
 K=1,tau=1;                // paramètres du système
 
 PO=syslin('c',K,1+tau*p)  // définition du SLCI PO:PremierOrdre
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 Il faut noter que les paramètres de la fonction de transfert sont affectés de valeurs
 numériques. En effet, Scilab ne peut pas traiter des variables formelles mais uniquement
@@ -713,11 +655,9 @@ Pour simuler la réponse temporelle d'un système linéaire on utilisera la fonc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
     \item Syntax :
-    \begin{code}
-\begin{verbatim}
+    \begin{Scilabcode}
 [y [,x]]=csim(u,t,sl,[x0 [,tol]])
-\end{verbatim}
-    \end{code}
+    \end{Scilabcode}
     \item Parameters :
     \begin{itemize}
         \item \verb?u?  function, list or string (control)
@@ -766,8 +706,7 @@ Pour simuler la réponse impulsionnelle on utilisera la chaîne de caractères
 Il faut également définir le vecteur temps qui imposera la 
 taille du vecteur de sortie. Le troisième argument est un système linéaire
 définit par la fonction \verb?syslin? présentée précedemment. 
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 t=0.0:0.05:20;              // définition du vecteur 
                             // de temps
 // ----------------------
@@ -777,11 +716,9 @@ e1='imp'                    // 'imp' : impulsion de Dirac
 s1=csim(e1,t,PO)            // réponse impulsionnelle du sl PO
                             // pour tous les points du vecteur t.
 
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 Pour la réponse indicielle, on utilisera la chaîne de caractères \verb?'step'?.
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 t=0.0:0.05:20;              // définition du vecteur 
                             // de temps
 // ----------------------
@@ -791,19 +728,16 @@ e2='step'                   // 'step' : échélon unitaire.
 s2=csim(e2,t,PO)            // réponse impulsionnelle du sl PO
                             // pour tous les points du vecteur t.
 
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 Pour toute autre fonction, on donnera le vecteur de la fonction explicitement. 
 Par exemple pour la réponse à une rampe unitaire on donnera simplement 
 le vecteur \verb?t?. \`A noter que pour la réponse indicielle, nous aurions pu utiliser
 la fonction \verb?ones? :
 
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 step=ones(size(t)(1),size(t)(2))
 s1=csim(step,t,PO)
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 On notera que l'on utilise ici la fonction \verb?size()? pour assurer que le vecteur 
 de la sollicitation est de même taille que le vecteur \verb?t?. 
@@ -815,8 +749,7 @@ les valeurs sont toutes nulles sauf pour sa première composante.
 L'amplitude du \og pic\fg dépendra de l'écart entre deux valeurs du vecteur temps $\Delta t$. 
 Les instructions suivantes permettent de verifier cette approximation :
 
-\begin{code}
-    \begin{verbatim}
+\begin{Scilabcode}
 s=%s
 //définition d'une fonction de transfert du premier ordre
 H=syslin('c',1,1+s+s^2)
@@ -833,8 +766,7 @@ approx=csim(impuls,t,H)
 
 clf(0)
 plot2d(t,[exact' approx'],[1 2])
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 Cette approximation est d'autant meilleure que l'intervalle $\Delta t$ est petit 
 (autrement dit que le nombre de points du vecteur \verb?t?, pour un 
@@ -851,34 +783,25 @@ H(p)=\dfrac{K}{1+\tau p }
 $$
 La définition sous Scilab de ce système se fait simplement par les quelques 
 instructions suivantes :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 // ======================================
 //  Définir un système du premier ordre
 // ======================================
-
 p=poly(0,'p');
-K=1,tau=1;            // paramètres du système
-
-H=K/(1+tau*p);        // fonction de tranfert
-
-PO=syslin('c',H)      // définition du SLCI
-\end{verbatim}
-\end{code}
+K=1,tau=1;                    // paramètres du système
+PO=syslin('c',K,1+tau*p)      // définition du SLCI
+\end{Scilabcode}
 
 Nous allons maintenant étudier les réponses temporelles 
 à différentes excitations du système du premier ordre.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse impulsionnnelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 // ------------------------
 // réponse impulsionnelle
 // ------------------------
-e2='imp'                        // 'imp' : dirac
-s2=csim(e2,t,PO);   
-
+s2=csim('imp',t,PO);   
 scf(1);clf(1);
 plot2d(t,s2,style=2)
 
@@ -886,16 +809,17 @@ legend('$s_2(t)$','$e_2(t)$')
 xlabel("$t$","fontsize",4);
 ylabel("$s(t)$","fontsize",4); 
 title('réponse impulsionnelle',"fontsize",4);
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
-
+%\begin{figure}
+    %\includegraphics[width=0.8\textwidth]{scilab/}
+%    \caption{Réponse impulsionnelle d'un système du second ordre}
+%\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 
 t=0.0:0.05:20;                  // définition du vecteur 
                                 // de temps
@@ -917,15 +841,13 @@ legend('$s_1(t)$','$e_1(t)$')
 xlabel("$t$","fontsize",4);
 ylabel("$s(t)$","fontsize",4); 
 title('réponse indicielle',"fontsize",4);
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse à une excitation sinuso\"idale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 // -----------------------------------------
 // réponse à une excitation sinuso\"idale 
 // -----------------------------------------
@@ -939,13 +861,11 @@ legend('$s_3(t)$','$e_3(t)$')
 xlabel("$t$","fontsize",4);
 ylabel("$s(t)$","fontsize",4); 
 title('réponse harmonique',"fontsize",4);
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 Ci-dessous nous présentons une façon d'étudier la réponse temporelle pour
 différentes valeurs d'un des paramètres du système du premier ordre.
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 scf(3);clf(3);
 for tau=1:1.0:10.
     H2=K/(1+tau*p)
@@ -954,8 +874,7 @@ for tau=1:1.0:10.
     s1=csim(e1,t,PremierOrdre);
     plot(t,s1,'r')
 end
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -964,8 +883,7 @@ end
 Scilab permet de tracer facilement les différents diagrammes de la réponse 
 fréquentielle d'un système. Nous donnons ici les fonctions les 
 plus importantes : 
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 fMin =0.01,fMax=100;
 p=poly(0,'p')
 K=1.,tau=1.;
@@ -988,8 +906,7 @@ nicholschart(colors=color('gray')*[2 2]) //abaque de Black
 // Lieu de Evans
 scf(3);clf(3);
 evans(PremierOrdre) ;
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1002,11 +919,9 @@ evans(PremierOrdre) ;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
     \item Syntax :
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 plzr(sl)
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
     \item Arguments :
     \begin{itemize}
         \item \verb?sl? syslin list (SIMO linear system) in continuous time.
@@ -1025,13 +940,11 @@ $$
 H(p)=\dfrac{p+2}{p^2+p+1}
 $$
 On utilisera les instructions suivantes:
-\begin{code}
-\begin{verbatim}
+\begin{Scilabcode}
 p=%s
 H=syslin('c',p+2,p^2+p+1)
 plzr(H)
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 \begin{figure}
     \begin{center}
@@ -1051,11 +964,9 @@ plzr(H)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
     \item Syntax :
-    \begin{code}
-\begin{verbatim}
+    \begin{Scilabcode}
 Sl=Sl1/.Sl2
-\end{verbatim}
-    \end{code}
+    \end{Scilabcode}
     \item Parameters :
     \begin{itemize}
         \item \verb?Sl1,Sl2?  linear systems (syslin list) in state-space or 
@@ -1098,12 +1009,9 @@ $$
 H_{BF}=\dfrac{1}{1+p}\dfrac{1}{1+\dfrac{1}{(1+p)^2}}=\dfrac{1+p}{1+(1+p)^2}=\dfrac{1+p}{p^2+2p+2}
 $$
 
-
-
-Avec cette opération \verb?feedback?, il est possible de déterminer la fonction de transfert 
-en boucle fermée en une seule instruction.
-\begin{code}
-\begin{verbatim}
+Avec l'opération \verb?feedback?, il est aisé de déterminer cette fonction de transfert 
+en boucle fermée en quelques instructions.
+\begin{Scilabcode}
 --> p=%s
 --> H=syslin('c',1,1+p);
 --> R=syslin('c',1,1+p);
@@ -1114,8 +1022,7 @@ en boucle fermée en une seule instruction.
      -----------  
                2  
      2 + 2s + s 
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
 
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1252,6 +1159,18 @@ ou récupérer ces données après la simulation (\og To Workspace \fg).
     \includegraphics[width=0.25\textwidth]{fig/TOWS_c.eps}
     \caption{Blocs d'échange avec Scilab\label{fig-workspace}}
 \end{figure}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Exemple complet}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\scilabcode{scilab/premier_ordre.sce}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
