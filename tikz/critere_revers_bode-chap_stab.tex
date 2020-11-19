@@ -63,15 +63,15 @@
     \def\ddd{9.1}
     \addplot [col3, mark = *]  coordinates {(\ttt,{-2.5*atan2(\ttt,1)})} {};
     \addplot [col1, mark = *]  coordinates {(3,{-2.5*atan2(3,1)})} {};
-    \addplot [col4, mark = *]             coordinates {(\ddd,{-2.5*atan2(\ddd,1)})} {};
+    \addplot [col4, mark = *]  coordinates {(\ddd,{-2.5*atan2(\ddd,1)})} {};
     \draw[col3,dashed] (1e-2,{-2.5*atan2(\ttt,1)}) 
     node[left] {$\phi(\omega_{c0})$} -- (\ttt,{-2.5*atan2(\ttt,1)}) ;
     \draw[col4,dashed]  (1e-2,{-2.5*atan2(\ddd,1)}) 
     node[left] {$\phi(\omega_{c0})$} -- (\ddd,{-2.5*atan2(\ddd,1)}) ;
     \draw[black,dashed] (1e-2,-180) node[left] {-180$\degree$} -- (1e2,-180) ;
     \end{axis}
-    \draw[col3,dashed] ($(pt1)+(-1,0)$) node[above] {$\omega_{c0}$} -- + (0,-7.5cm) ;
+    \draw[col3,dashed] ($(pt1)+(-1,0)$) node[above]{$\omega_{c0}$}--+(0,-7.5cm);
     \draw[col1,dashed] ($(pt1)+(0,0)$)  node[above,text width=1cm,align=center] 
     {$\omega_{c0}$} -- + (0,-7.5cm) ;
-    \draw[col4,dashed] ($(pt1)+(0.9,0)$) node[above] {$\omega_{c0}$} -- + (0,-7.5cm) ;
+    \draw[col4,dashed] ($(pt1)+(0.9,0)$)node[above]{$\omega_{c0}$}--+(0,-7.5cm);
 \end{tikzpicture}

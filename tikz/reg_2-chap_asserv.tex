@@ -1,3 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Nom des noeuds
+%                                      
+%                                      
+%   E ---- a ---- b ---- c ---- d ---- e ---- S
+%                 |                           |
+%                 |                           |
+%                  --------- f -----------
+% E : entrée
+% a : adaptateur 
+% b : comparateur
+% c : correcteur
+% d : actionneur
+% e : système
+% S : sortie
+% f : capteur
+% r : noeud décalé pour le retour
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}
     \sbEntree{E}
     \sbBloc[3]{a}{$A_d(p)$}{E}

@@ -1,7 +1,28 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Nom des noeuds
+%                                      P
+%                                      |
+%                                      |
+%   E ---- a ---- b ---- c ---- d ---- e ---- f ---- S
+%                 |                                  |
+%                 |                                  |
+%                  ------------ g -------------------
+% E : entrée
+% a : adaptateur 
+% b : comparateur
+% c : correcteur
+% d : actionneur
+% e : sommateur (perturbation)
+% P : perturbation
+% f : système 
+% S : sortie
+% g : capteur
+% r : noeud décalé pour le retour
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}[scale=1.1,every node/.style={scale=1.1}]
-\sbEntree{E}
-\sbBloc[3]{a}{$A_d(p)$}{E}
-\sbRelier[$E(p)$]{E}{a}
+    \sbEntree{E}
+    \sbBloc[3]{a}{$A_d(p)$}{E}
+    \sbRelier[$E(p)$]{E}{a}
 \sbComp{b}{a}
 \sbRelier{a}{b}
 \sbBloc[3]{c}{$C(p)$}{b}

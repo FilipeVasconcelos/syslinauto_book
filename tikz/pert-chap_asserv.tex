@@ -1,4 +1,25 @@
-    \begin{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Nom des noeuds
+%                        P             
+%                        |             
+%                        |              
+%   E ---- a ---- b ---- c ---- d ---- S
+%          |                           |
+%          |                           |
+%           ------------ e ------------ 
+%                        
+%                        
+% E : entrée
+% a : comparateur/régulateur
+% b : correcteur 
+% c : sommateur (perturbation)
+% d : système 
+% e : capteur
+% P : noeud décalé pour la perturbation
+% S : sortie
+% r : noeud décalé pour le retour
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}
     \sbEntree{E}
     \sbComp[4.5]{a}{E}
     \sbRelier[$E(p)$]{E}{a}
@@ -20,4 +41,4 @@
     \sbDecaleNoeudy[-3]{c}{P}
     \sbRenvoiF[-2]{P}{c}{$P(p)$}
     \node[right,yshift=2.5em]   at (P.east){\small Perturbation};
-    \end{tikzpicture}
+\end{tikzpicture}

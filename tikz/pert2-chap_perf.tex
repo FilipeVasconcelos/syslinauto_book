@@ -1,3 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Nom des noeuds
+%                        P1            P2 
+%                        |             |
+%                        |             | 
+%   E ---- a ---- b ---- c ---- d ---- e ---- S
+%          |                                  |
+%          |                                  |
+%           ------------ g ---- f ------------ 
+%                        |
+%                        |
+%                        P3
+% E  : entrée
+% a  : comparateur/régulateur
+% b  : correcteur 
+% c  : sommateur1 (perturbation)
+% d  : système 
+% e  : sommateur2 (perturbation)
+% f  : capteur
+% g  : sommateur3 (perturbation/bruit)
+% P1 : noeud décalé pour la perturbation
+% P2 : noeud décalé pour la perturbation
+% P3 : noeud décalé pour la perturbation
+% S  : sortie
+% r  : noeud décalé pour le retour
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}                  
     \sbEntree{E}
     \sbComp{comp1}{E}
