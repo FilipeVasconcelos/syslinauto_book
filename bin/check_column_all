@@ -1,6 +1,16 @@
 #!/bin/bash
+RED='\033[0;31m'
+NOC='\033[0m'
 for file in $1/*.tex
 do
-    bin/check_column $file
-    echo "-----------------------------------"
+    check=$(bin/check_column $file|grep "nombre de"|awk '{print $(NF)}')
+    if [ ${check} -ne 0 ]
+    then
+        echo -e "you should check for column overflow in ${RED}$file${NOC}"
+        echo "... and rerun this script to be sure"
+        bin/check_column $file
+        exit 1
+    fi
 done
+echo "no column overflow found in $1/*.tex"
+exit 0

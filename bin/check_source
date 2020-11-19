@@ -1,0 +1,4 @@
+#!/bin/bash
+bin/check_sep_all
+bin/check_column_all tex
+bin/check_column_all tikz 

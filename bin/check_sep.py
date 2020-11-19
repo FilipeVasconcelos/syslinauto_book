@@ -1,6 +1,5 @@
-#!/usr/local/bin/python3.7
+#!/usr/bin/python3
 import argparse
-
 # =============================================================================
 def main_parser():
     parser = argparse.ArgumentParser(description='Check separator in tex files')
@@ -16,8 +15,8 @@ def check(line,context):
 def check_start(line):
     return "{" in line
 # =============================================================================
-def check_finish(line):
-    return "}" in line
+def check_finish(line,sep):
+    return sep[2] in line
 # =============================================================================
 def return_start(kline,lines):
     k=0
@@ -25,47 +24,52 @@ def return_start(kline,lines):
         k+=1
     return k+kline
 # =============================================================================
-def return_finish(kline,lines):
+def return_finish(kline,lines,sep):
     k=0
-    while not check_finish(lines[kline+k]) :
+    while not check_finish(lines[kline+k],sep) :
         k+=1
     return k+kline
 # =============================================================================
-def check_separator(nb_sep,startline,finishline,lines):
+def check_separator(sep,startline,finishline,lines):
     separators=True
-    for i in range(startline-nb_sep,startline):
-        if lines[i].replace("\n","") != 80*"%":
+    for i in range(startline-sep[0],startline):
+        if lines[i].replace("\n","") != "%"+79*sep[1]:
             separators=False
-    for i in range(finishline+1,finishline+nb_sep+1):
-    #    print(i,lines[i],end='')
-        if lines[i].replace("\n","") != 80*"%":
+    for i in range(finishline+1,finishline+sep[0]+1):
+        if lines[i].replace("\n","") != "%"+79*sep[1]:
             separators=False
     return separators
 # =============================================================================
-def eomacro(lines,context,nb_sep):
+def eomacro(lines,context,sep):
     for kline,line in enumerate(lines):
         f=kline
         if check(line,checking) :
-            f=return_finish(kline,lines)
-            if not check_separator(nb_sep,kline,f,lines):
+            f=return_finish(kline,lines,sep)
+            if not check_separator(sep,kline,f,lines):
                print("problème séparateurs ligne :",kline,checking)
 # =============================================================================
 if __name__=="__main__":
 
     args=main_parser()
     filename=args.filename
-    print("début du script python")
-    print("check nombre de séparateurs des environnement LaTeX")
+    print("check nombre de séparateurs des environnement LaTeX (script Python)")
 
     f=open(filename,'r')
     lines=f.readlines()
     f.close()
 
-    checkings=["\chapter","\section","\subsection",
-               "\susubsection","\paragraph","\exercice","\question"]
-    nb_sep={"\chapter":4,"\section":3,"\subsection":2,
-            "\susubsection":1,"\paragraph":1,"\exercice":1,"\question":1}
+    sep={"\chapter":[4,"%","}"],
+         "\section":[3,"%","}"],
+         "\subsection":[2,"%","}"],
+         "\susubsection":[1,"%","}"],
+         "\paragraph":[1,"%","}"],
+         "\exercice":[1,"%","}"],
+         "\question":[1,"%","}"],
+         "\\begin{figure}":[1,"-","\\end{figure}"],
+         "\\begin{center}":[1,"-","\\end{center}"],
+         "\\begin{table}":[1,"-","\\end{table}"],
+         "\\begin{bequation}":[1,"-","\\end{bequation}"]
+         }
 
-    for checking in checkings :
-        eomacro(lines,checking,nb_sep[checking])
-    print("fin du script python")
+    for checking,data in sep.items() :
+        eomacro(lines,checking,data)

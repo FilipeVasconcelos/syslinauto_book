@@ -1,22 +1,24 @@
 #!/bin/bash
+check_nbsep(){
+    awk -v sep="$1" 'BEGIN{
+                                FS=":";sep_non=0
+                            } 
+                            {
+                                if (length($2) !=80) 
+                                {
+                                    sep_non+=1; 
+                                    print $1,$2,length($2) 
+                                }
+                            }
+                            END{
+                                print "#nombre de séparateurs "sep" != 80",sep_non;
+                            }' 
+}
 echo "-------------------------------------------------------------------------"
 echo Traitement du fichier $1
 echo "-------------------------------------------------------------------------"
-grep -n "%%" $1 | awk 'BEGIN{
-                                            FS=":";sep_non=0
-                                           } 
-                                           {
-                                              if (length($2) !=80) 
-                                              {
-                                                  sep_non+=1; 
-                                                  print $1,$2,length($2) 
-                                              }
-                                           }
-                                      END  {
-                                            print "nombre de séparateurs != 80",sep_non;
-                                           }
-                                      '
-
+grep -n "%%" $1 | check_nbsep "%%%" 
+grep -n "%-" $1 | check_nbsep "---" 
 echo "-------------------------------------------------------------------------"
 bin/check_sep.py $1
 echo 

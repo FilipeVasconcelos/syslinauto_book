@@ -1,0 +1,18 @@
+#!/bin/bash
+RED='\033[0;31m'
+NOC='\033[0m'
+for file in tex/*.tex
+do
+    check1=$(bin/check_sep $file |grep "#nombre de séparateurs %%%"|awk '{print $(NF)}')
+    check2=$(bin/check_sep $file |grep "#nombre de séparateurs ---"|awk '{print $(NF)}')
+    check3=$(bin/check_sep $file |grep "problème"|awk '{print $(NF)}')
+    if [ ${check1} -ne 0 ] || [ ${check2} -ne 0 ] || [ ! -z "${check3}" ]
+    then 
+        echo -e "you should check for separators errors in ${RED}$file${NOC}"
+        echo "... and rerun this script to be sure"
+        bin/check_sep $file
+        exit 1
+    fi
+done
+echo "no separators errors found in tex/*.tex"
+exit 0
