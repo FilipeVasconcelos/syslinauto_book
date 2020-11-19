@@ -1,6 +1,8 @@
 .SUFFIXES: .tex .aux .bib
 mainfile=sma_auto
 
+fast : dvifast
+	dvips -t a4 ${mainfile}.dvi
 pspdf:	ps 
 	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${mainfile}.ps
 
@@ -24,6 +26,10 @@ dvi:
 	makeglossaries ${mainfile}
 	latex -shell-escape ${mainfile}
 	latex -shell-escape ${mainfile}
+
+dvifast:
+	latex -shell-escape ${mainfile}
+
 
 clean:
 	rm -f *.log *.auxlock *.ind *.ist *.aux *.out *.bbl *.blg *.mtc* *.toc *.maf *.idx *.gls *.ilg *.glo *.glg
