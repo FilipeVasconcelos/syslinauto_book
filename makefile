@@ -2,9 +2,12 @@
 
 mainfile=sma_auto
 
-fast: dvifast
+fast: dvifast 
 	dvips -t a4 ${mainfile}.dvi
-pspdf: ps 
+	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${mainfile}.ps
+
+pspdf: dvi 
+	dvips -t a4 ${mainfile}.dvi
 	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${mainfile}.ps
 
 text: html
@@ -13,9 +16,6 @@ text: html
 html:
 	@#latex2html -split +0 -info "" -no_navigation ${mainfile}
 	htlatex ${mainfile}
-
-ps:	dvi
-	dvips -t a4 ${mainfile}.dvi
 
 svg:	dvi
 	dvisvgm ${mainfile}.dvi

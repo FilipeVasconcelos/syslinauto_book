@@ -108,10 +108,11 @@ s(t)=E_0|H(\jw)|\left(\dfrac{e^{j(\omega t+\phi)}
 \end{align*}
 où l'on reconnaît la forme exponentielle de la fonction sinus qui nous permet
 d'écrire :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     s(t)=E_0|H(\jw)|\sin{(\omega t+\phi)}\label{eq-rh}
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 Cette relation exprime que \textbf{l'excitation d'un {\protect{\gls{slci}}}
 ~par une entrée sinuso\"idale donne lieu, en régime permanent, à une réponse 
 harmonique dépendant de la fréquence d'excitation dont le gain en amplitude et
@@ -261,16 +262,22 @@ Un diagramme de Bode\footnote{\index{Bode, Hendrik}Hendrik Wade Bode
 (1905-1982), ingénieur, chercheur et inventeur américain} permet de 
 représenter le comportement fréquentielle d'un système quelconque en fonction 
 de la fréquence  d'excitation en entrée. Il se compose de deux graphiques :
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item[i)] le tracé du gain en décibel en fonction de la pulsation $\omega$:
+%-------------------------------------------------------------------------------
         \begin{bequation}[ams align] 
         G_{dB}(\omega)=20\log{G(\omega)}=20\log{|H(\jw)|} 
         \end{bequation}
+%-------------------------------------------------------------------------------
     \item[ii)] le tracé de la phase en fonction de la pulsation $\omega$ :
+%-------------------------------------------------------------------------------
         \begin{bequation}[ams align] 
         \phi(\omega)=\arg{H(\jw)}
         \end{bequation}
+%-------------------------------------------------------------------------------
 \end{itemize}
+%-------------------------------------------------------------------------------
 L'axe des pulsations étant généralement représenté par une échelle 
 logarithmique pour permmettre la représentation de la réponse harmonique sur 
 une large plage de valeurs en pulsation (\Cref{annexe-log}). Le calcul de la
@@ -414,15 +421,18 @@ $$
 G(\omega)=|H(\jw)|=K
 $$ 
 d'où le gain $G_{dB}$ en décibel :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 G_{dB}(\omega)= 20\log{K}
 \end{bequation} ce qui correspond à une constante en gain 
+%-------------------------------------------------------------------------------
 (\Cref{fig-bode_gain}) et la phase s'obtient à partir de l'argument 
 principale du nombre complexe $H(\jw)$:
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 \phi(\omega) = 0
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
@@ -451,14 +461,18 @@ $$
 G(\omega)=|H(\jw)|=\frac{K}{\omega}
 $$ 
 d'où le gain $G_{dB}$ en décibel :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 G_{dB}(\omega)= 20\log{K} - 20\log{\omega}
 \end{bequation} ce qui correspond à une pente de -20dB/décade 
+%-------------------------------------------------------------------------------
 (\Cref{fig-bode_int}) et la phase s'obtient à partir de l'argument principale 
 du nombre complexe $H(\jw)$:
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 \phi(\omega) = -\dfrac{\pi}{2}
 \end{bequation}
+%-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
@@ -483,14 +497,18 @@ $$
 G(\omega)=|H(\jw)|=K\jw
 $$ 
 d'où le gain $G_{dB}$ en décibel :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 G_{dB}(\omega)= 20\log{K} + 20\log{\omega}
 \end{bequation}
+%-------------------------------------------------------------------------------
 ce qui correspond à une pente de +20dB/décade (\Cref{fig-bode_deriv}) et
 la phase s'écrit simplement 
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 \phi(\omega) = \dfrac{\pi}{2}
 \end{bequation}
+%-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
@@ -515,13 +533,17 @@ $$
 G(\omega)=|H(\jw)|=1
 $$
 d'où le gain $G_{dB}$ en décibel :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
     G_{dB}(\omega)= \SI{0}{\decibel}
 \end{bequation}
+%-------------------------------------------------------------------------------
 et la phase s'écrit simplement
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
     \phi(\omega) = -\tau\omega
 \end{bequation}
+%-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
@@ -548,13 +570,17 @@ H(\jw)=\dfrac{K}{1+j\tau\omega }\label{eq-1er_ftjw}
 Le module de cette fonction de transfert $G(\omega) =|H(\jw)|$ s'écrit :
 $$G(\omega)=\dfrac{K}{\sqrt{1+\tau^2\omega^2}}$$
 Le gain en dB s'obtient alors par :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     G_{dB}(\omega)=20\log{K}-20\log{\sqrt{1+\tau^2\omega^2}}\label{eq-gain_1er}
 \end{bequation}
+%-------------------------------------------------------------------------------
 et la phase est simplement donné par la fonction tangente réciproque:
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     \phi(\omega)=\arg{H(\jw)}=-\arctan{(\tau\omega)}\label{eq-phase_1er} 
 \end{bequation}
+%-------------------------------------------------------------------------------
 Ce sont ces deux fonctions de la fréquence que nous traçons sur un diagramme
 de Bode. Elles sont représentés sur les~\cref{fig-bode_1er_1,fig-bode_1er_2}, 
 pour respectivement différentes valeurs du gain statique $K$ et du temps 
@@ -572,17 +598,20 @@ utilisée pour définir la \textbf{fréquence de coupure}.
 
 \`A basse fréquence, c'est à dire lorsque $\tau\omega\ll1$ ou 
 encore $\omega\ll\omega_0$, le gain et la phase se comporte comme, 
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
     G_{dB}(\omega)&\sim20\log{K} \\
     \phi(\omega)&\sim0\si{\degree}.
 \end{bequation} 
-
+%-------------------------------------------------------------------------------
 \`A haute fréquence, c'est à dire lorsque $\tau\omega\gg1$ ou 
 encore $\omega\gg\omega_0$, le gain et la phase se comporte comme,
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
     G_{dB}(\omega)&\sim20\log{K}-20\log{\frac{\omega}{\omega_0}} \\
     \phi(\omega)&\sim-\dfrac{\pi}{2}.
 \end{bequation} 
+%-------------------------------------------------------------------------------
 La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes 
 réels et les courbes asymptotiques.
 %-------------------------------------------------------------------------------
@@ -652,15 +681,18 @@ $$
 \phi(\omega)= \phi_1(\omega) + \phi_2(\omega)
 $$
 En reprenant les~\cref{eq-gain_1er,eq-phase_1er} on établit facilement que,
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 G_{dB}(\omega) = 20\log{K_1K_2}-20\log{\sqrt{1+\tau_1^2\omega^2}}
                 -20\log{\sqrt{1+\tau_2^2\omega^2}}
 \end{bequation}
+%-------------------------------------------------------------------------------
 et
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 \phi(\omega)=-\arctan{\tau_1\omega}-\arctan{\tau_2\omega}
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 L'étude asymptotique se fait en considérant deux fréquences de coupures 
 $\omega_{c1}=\frac{1}{\tau_1}$ et $\omega_{c2}=\frac{1}{\tau_2}$.
 Supposons d'abord, sans perte de généralité, que $\omega_{c2}>\omega_{c1}$ et 
@@ -668,32 +700,35 @@ considérons
 les trois domaines de fréquence ainsi définits selon que 
 $\omega\ll\omega_{c1}$, $\omega_{c1}<\omega<\omega_{c1}$ ou 
 $\omega\gg\omega_{c2}$
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pour $\omega\ll\omega_{c1}$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 G_{dB}(\omega)&\sim20\log{K_1K_2}\\
     \phi(\omega)&\sim0\si{\degree}
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pour $\omega_{c1}<\omega<\omega_{c1}$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 G_{dB}(\omega)&\sim20\log{K_1K_2}-20\log{\dfrac{\omega}
                                                {\omega_{c1}\omega_{c2}}}\\
 \phi(\omega)&\sim-90\si{\degree}
 \end{bequation}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pour $\omega\gg\omega_{c2}$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 G_{dB}(\omega)&\sim20\log{K_1K_2}-40\log{\dfrac{\omega}
                                                {\omega_{c1}\omega_{c2}}}\\
 \phi(\omega)&\sim-180\si{\degree}
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 La~\cref{fig-bode_1er_serie} présente le diagramme de Bode réel et 
 asymptotique de deux systèmes du premier ordre en cascade. On remarquera 
 que l'approximation asymptotique est suffisante pour décrire le gain de ce 
@@ -735,11 +770,14 @@ G(\omega)=\dfrac{K\omega^2_0}{\sqrt{(\omega^2_0-\omega^2)^2
          +(2\xi\omega_0\omega)^2}}
 $$
 Le gain en décibel s'écrit alors :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 G_{db}(\omega)=20\log{K\omega_0^2}-20\log{\sqrt{(\omega^2_0-\omega^2)^2
               +(2\xi\omega_0\omega)^2}}
 \end{bequation}
+%-------------------------------------------------------------------------------
 et la phase par l'argument princiale:
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 \phi(\omega)=
 \begin{cases}
@@ -751,24 +789,27 @@ et la phase par l'argument princiale:
     &\,\,\,\,\text{si $\omega^2=\omega^2_0$}
 \end{cases}
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 Comme précdemment, il est recommandé d'étudier les valeurs asymptotiques 
 du gain et de la phase.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pour $\omega \ll\omega_0$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 G_{dB}(\omega)&\sim20\log{K}\\
 \phi(\omega)&\sim0\si{\degree}
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pour $\omega \gg\omega_0$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 G_{dB}(\omega)&\sim20\log{K\omega^2_0}-40\log\omega\\
     \phi(\omega)&\sim-180\si{\degree}
 \end{bequation}
+%-------------------------------------------------------------------------------
 La~\cref{fig-bode_2nd_1} présente le diagramme de Bode associé à ces deux 
 fonctions pour $\xi=1$, ainsi que le diagramme de Bode asymptotique. 
 La~\cref{fig-bode_2nd_2} présente l'effet du taux d'amortissement $\xi$ sur 
@@ -835,13 +876,17 @@ $$
 La dérivée seconde étant positive, le dénominateur $D(X)$ présente un 
 minimum en $X_0$. Puisque $X>0$ et $\omega^2_0>0$ alors la condition sur le 
 taux d'amortissement est 
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     \xi<\dfrac{\sqrt{2}}{2}
 \end{bequation}
+%-------------------------------------------------------------------------------
 La \textbf{pulsation de résonance} est donc définit par : 
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 \omega_r=\omega_0\sqrt{1-2\xi^2}.
 \end{bequation}
+%-------------------------------------------------------------------------------
 La valeur du gain maximal est obtenue à la pulsation de résonance, 
 $$
 G(\omega_r)=\dfrac{K}{2\xi\sqrt{1-\xi^2}},
@@ -849,10 +894,11 @@ $$
 ce qui permet de définir le \textbf{facteur de surtension} $Q$ qui est le 
 rapport entre le maximum atteint par le gain et la valeur de l'asymptote 
 à basse fréquence, d'où 
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     Q=\dfrac{1}{2\xi\sqrt{1-\xi^2}}
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 D'après ces dernières expressions, on observe qu'à la limite $\xi\to0$, 
 la pulsation de résonance $\omega_r$ tend vers $\omega_0$, et le gain 
 maximal tend lui vers l'infini.
@@ -886,16 +932,18 @@ de transfert en différents modèles simples.
 Il est notamment toujours possible d'écrire une fonction de transfert 
 (~\cref{chap-model}) sous la forme d'un produit de gains purs, 
 d'intégrateurs, de dérivateurs, de systèmes du premier et du second ordre: 
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 H(p)= K_0p^{\alpha}\prod_{i} (1+\tau_ip)^{n_i}\prod_{j} 
       (1+2\xi_j\tau_jp+\tau_jp^2)^{n_j}
 \end{bequation}
+%-------------------------------------------------------------------------------
 où les exposants $\alpha$, $n_i$ et $n_j$ peuvent être positifs et négatifs. 
 
 Nous listons ci-dessous l'effet sur le gain et la phase d'un diagramme de 
 Bode pour chacuns de ces élements selon le signe des exposants $\alpha$, 
 $n_i$, et $n_j$.
-
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item le terme $K_0$ (i.e gain pur) provoque:
     \begin{itemize}
@@ -934,15 +982,13 @@ $n_i$, et $n_j$.
             \item phase : un saut de +180\si{\degree}
         \end{itemize}
 \end{itemize}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Exemple}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Soit la fonction de transfert $H(p)$ telle que 
-
 \begin{align}
     H(p) = \dfrac{100(p+1)^2}{(100p+1)(10p+1)(0.01p+1)}\label{eq-ft_qq}
 \end{align}
@@ -950,6 +996,7 @@ La première étape consiste à ordonner les temps caractéristiques par ordre
 décroissant cela nous permettra d'obtenir les pulsations propres par ordre 
 croissant. Ensuite, il faut identifier les différents modèles.
 Pour cet exemple, nous identifions :
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item un gain pur $K_0=100$
     \item un second ordre double au numérateur de temps caractéristique 
@@ -957,7 +1004,7 @@ Pour cet exemple, nous identifions :
     \item trois premier ordre au dénominateur de temps caractéristique 
           $\tau=\{0.01,10,100\}$
 \end{itemize}
-
+%-------------------------------------------------------------------------------
 Enfin, nous regroupons dans un tableau l'effet sur le gain et la phase pour 
 chaque domaines en pulsations compris entre les différentes pulsations 
 caractéristiques.
@@ -1006,17 +1053,20 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$.
 %-------------------------------------------------------------------------------
 Il est également possible de déterminer la forme analytique du gain et 
 de la phase.
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 G_{dB}(\omega)=40+20\log{(1+\tau_3^2\omega^2)}
                  -10\log{(1+\tau_1^2\omega^2)
                  (1+\tau_2^2\omega^2)(1+\tau_4^2\omega^2)}
 \end{bequation}
+%-------------------------------------------------------------------------------
 et
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 \phi(\omega)=2\arctan{\tau_3\omega}-\arctan{\tau_1\omega}
              -\arctan{\tau_2\omega}-\arctan{\tau_4\omega} 
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1024,6 +1074,7 @@ et
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item Définir la fonction de transfert $H(p)$ du modèle pour $p=\jw$
     \item \'Etablir la partie réelle et imaginaire du nombre complexe $H(\jw)$
@@ -1031,17 +1082,16 @@ Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
         $\omega$ de 0 à $+\infty$, c'est à dire $\Re{H(\jw)}$ 
           et $\Im{H(\jw)}$ dans le plan complexe.
 \end{itemize}
+%-------------------------------------------------------------------------------
 Dans chacuns des exemples suivants nous reproduisons le lieu de Nyquist 
 complet le domaine des pulsations négatives étant représenté en pointillé. 
 Dans la pratique, il suffit de tracer le symétrique par rapport à 
 l'axe des réels et d'inverser le sens de la flêche pour obtenir le sens de la 
 pulsation de $-\infty\to 0$. 
 \newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un gain pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Le diagramme de Nyquist d'un gain pur est trivial. En effet le nombre complexe 
 $H(\jw)$ étant égal à une constante réel $K$, le diagramme de Nyquist ce 
 limite à un point sur l'axe des réels quelque soit la valeur de $\omega$.
@@ -1064,7 +1114,6 @@ Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un intégrateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Le diagramme de Nyquist d'un intégrateur pur est également trivial, puisque 
 le nombre complexe $H(\jw)=\dfrac{K}{\jw}$ est un nombre imaginaire pur. 
 Cependant il dépend de la pulsation $\omega$.
@@ -1117,7 +1166,6 @@ Les parties réelles et imaginaires sont simplement donnés par :
     \Re{H(\jw)}&=\hphantom{-}\cos{\tau\omega}\\
     \Im{H(\jw)}&=-\sin{\tau\omega}
 \end{align*}
-
 Ces coordonnées dans le plan complexe sont celles du cercle unité 
 centré sur l'origine. Le lieu de transfert (c.a.d $\omega\to\infty$) 
 est la rotation infinie sur ce cercle. La \og vitesse angulaire\fg dépend 
@@ -1135,12 +1183,10 @@ de $\tau$.
 On remarquera cependant que ce modèle est fondamentalement 
 \textbf{instable} puisque le module $|H(\jw)|$ ne s'annule pas 
 lorsque $\omega\to\infty$, de ce fait nous le trouverons jamais seul.
-
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \index{Système du premier ordre!diagramme de Nyquist}
 La fonction de transfert d'un système du premier ordre s'écrit:
 $$
@@ -1343,10 +1389,8 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %chap_repfreq.tex
-

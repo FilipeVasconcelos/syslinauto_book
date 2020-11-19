@@ -56,10 +56,12 @@ types de signaux pour obtenir dans les différents cas :
 \end{itemize}
 Concrétement pour étudier l'erreur statique on cherche la limite à l'infini 
 de $\epsilon(t)$ ou encore en appliquant le théorème de la valeur finale :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 \epsilon(\infty)=\lim\limits_{t\to\infty} e(t)-s(t)
 	            =\lim\limits_{p\to 0} p\big(E(p)-S(p)\big)
 \end{bequation}
+%-------------------------------------------------------------------------------
 Rappelons que pour pouvoir appliquer ce théorème la valeur finale doit 
 être finie ou en d'autre mot le système doit être stable.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -119,10 +121,11 @@ $$
 \epsilon(p)=E(p)-S(p)=\left(1-\dfrac{H_{BO}(p)}{1+H_{BO}(p)}\right)E(p)
 $$
 en remplaçant $H_{BO}(p)$ par sa représentation générale:
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 \epsilon(p)=\dfrac{p^\alpha D(p)}{p^\alpha D(p)+KN(p)}E(p)
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 L'erreur statique $\epsilon_s$ est alors donnée par la limite (Théorème 
 de la valeur finale) :
 $$
@@ -130,11 +133,12 @@ $$
            \dfrac{p^\alpha D(p)}{p^\alpha D(p)+KN(p)}pE(p) 
 $$
 ou encore en utilisant les valeurs des polynômes en 0: 
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 	\epsilon_s=\lim\limits_{p\to 0} \dfrac{p^\alpha}{p^\alpha+K}pE(p)
 	\label{eq-erreurStatique}
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 Cette erreur dépend donc de la nature de la sollicitation (c.a.d $E(p)$) et 
 de la classe $\alpha$ de la fonction de transfert en boucle ouverte.
 
@@ -600,19 +604,22 @@ $$
 $$
 Cette expression est nulle que si $\sin{(\omega_d t_{M}+\phi)}=0$.
 On obtient alors :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 t_{M}=\dfrac{\pi-\phi}{\omega_d}\label{eq-tM}
 \end{bequation}
+%-------------------------------------------------------------------------------
 en fonction de $\xi$ uniquement cette relation devient :
 $$
 t_{M}=\dfrac{\pi-\arctan{\dfrac{\sqrt{1-\xi^2}}{\xi}}}{\omega_0\sqrt{1-\xi^2}}
 $$
 ou encore sous sa forme réduite en $\omega_0$:
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 t_{M}\cdot\omega_0=
 \dfrac{\pi-\arctan{\dfrac{\sqrt{1-\xi^2}}{\xi}}}{\sqrt{1-\xi^2}}\label{eq-tM}
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 Remarquons que pour le temps de réponse à 5\% minimal, le temps de montée à 
 la valeur finale réduit sont proche. \textbf{Autrement dit, pour $\xi\sim0.7$ 
 on a :
@@ -685,9 +692,11 @@ Le pôle $p_i$ est dit dominant si la valeur absolue
 de sa partie réelle est largement plus petite que celle de tout autre pôles 
 du système\footnote{Dans la pratique un rapport de 5 est 
 suffisant pour considérer une domination d'un pôle sur les autres}
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     \big|\Re{p_i}\big| \ll \big|\Re{p_j}\big|\;\; \forall j\neq i
 \end{bequation}
+%-------------------------------------------------------------------------------
 Pour observer l'influence d'un pôle dominant sur 
 la réponse temporelle d'un système linéaire, nous
 nous allons l'illustrer par l'étude d'une fonction 
@@ -710,7 +719,6 @@ deux fonctions de transferts $H_1(p)$ et $H_2(p)$ tel que :
 	H_1(p)&=\dfrac{6.25}{5p+1}\\
 	H_2(p)&=\dfrac{1.25}{p+1}
 \end{align*}
-
 Par définition, le pôle dominant est donné par $H_1(p)$.
 Pour observer, l'effet de chacuns des pôles, nous avons tracé 
 les réponses indicielles de ces trois fonctions de transfert

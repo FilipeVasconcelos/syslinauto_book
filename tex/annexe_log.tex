@@ -7,7 +7,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 En automatique, l'échelle logarithmique est très fréquemment 
 utilisée pour permettre la représentation
 graphique de variables dont les valeurs s'étalent sur plusieurs ordres 
@@ -15,7 +14,6 @@ de grandeur. Pour les diagrammes de Bode, il est courant de représenter le gain
 d'un \gls{slci}~en décibel \textbf{dB} qui est également une unité liée au 
 logarithme décimale. La maitrise du calcul logarithmique est donc indispensable
 pour l'établissement d'un diagramme de Bode.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -37,10 +35,10 @@ $$
 $$
 où la fonction $\ln{x}$ est la fonction logarithme néperien (i.e en base 
 naturelle $e$) 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Propriétés}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item $\log{(ab)}=\log{(a)} + \log{(b)}$
     \item $\log{\left(\dfrac{a}{b}\right)}=\log{a} - \log{(b)}$
@@ -49,8 +47,7 @@ naturelle $e$)
     \item $\log(x)=a \Leftrightarrow x=10^a $; $\log(1) = 0$; 
           $\log(10) = 1$ ; $\log(0.1) = -1$
 \end{itemize}
-
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -231,6 +228,7 @@ la fonction de transfert de l'\cref{eq-ft_annexe}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Deux fonctions permettent de tracer un diagramme de Bode avec Scilab.
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item \verb?bode(syslin,fMin,fMax)? trace le diagramme de Bode réel. 
           Cette fonction prend pour argument \verb?sys? un système linéaire 
@@ -239,13 +237,9 @@ Deux fonctions permettent de tracer un diagramme de Bode avec Scilab.
           4ème argument est donné). 
     \item \verb?bode_asymp(syslin,fMin,fMax)? trace le diagramme asymptotique.
 \end{itemize}
-
-
-\begin{code}
-\begin{verbatim}
-// ============================================================
-//                   Analyse Fréquentielle
-// ============================================================
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{Scilabcode}
 scf(grf);clf(grf);grf=grf+1;
 fMin =0.01,fMax=100;
 p=poly(0,'p')
@@ -258,8 +252,8 @@ bode(PremierOrdre,fMin,fMax,"rad");
 // diagrammme de Bode asymptotique
 //-----------------------------------
 bode_asymp(PremierOrdre,fMin,fMax);
-\end{verbatim}
-\end{code}
+\end{Scilabcode}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

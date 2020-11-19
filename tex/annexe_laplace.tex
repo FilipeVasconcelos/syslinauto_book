@@ -17,7 +17,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit $f$ une fonction de la variable réelle $t$ définie sur $\mathbb{R}$ 
 et supossée  nulle pour $t<0$, on appelle transformée de Laplace de $f$, 
-la fonction $F$ définie par :
+la unique fonction $F$ définie par :
 $$
 F(p) = \int_0^\infty e^{-pt} f(t) \mathrm{d}t
 $$
@@ -43,55 +43,50 @@ $\laplacei{F(p)}$ la transformée de Laplace inverse.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{itemize}
-%\item \emph{unicité} : a une fonction $f(t)$ il correspond une unique 
-%transformée de Laplace 	
-%\item \emph{addition} : 
-%$$ 
-%\mathcal{L}[f(t)+g(t)] = F(p) + G(p)
-%$$ 
-\item \emph{linéarité} :
-$$ 
-\laplace{af(t)+bg(t)} = aF(p) + bG(p)
-$$ 
-\item \emph{dilatation du temps} : 
-$$
-\laplace{f(kt)}=\dfrac{1}{k}F\left(\dfrac{p}{k}\right)
-$$
-\item \emph{produit de convolution} : 
-$$
-\laplace{f(t)*g(t)} = F(p)G(p)
-$$
-\item \emph{dérivation} : 
-\begin{align*}
-\laplace{\devi{f(t)}{}}&=pF(p) - f(0^+) \\
-\laplace{\devi{f(t)}{2}}&=p^2F(p) - pf(0^+) - f'(0^+)\\
-\laplace{\devi{f(t)}{n}}&=p^nF(p) 
-\end{align*}
-si toutes les conditions initiales sont nulles.
-\item \emph{intégration} :
-$$
-\laplace{\int_0^t f(u)du} = \dfrac{F(p)}{p} + \dfrac{g(0^+)}{p}
-$$
-avec :
-$g(t)=\int_0^t f(u)du$
-\item \emph{théorème du retard en (t)} :
-$$
-\laplace{f(t-\tau)}=e^{-\tau p}F(p)
-$$
-\item \emph{théorème du retard en (p)} :
-$$
-\laplacei{F(p+a)}=e^{-at}f(t)
-$$
-\item \emph{théorème de la valeur initiale} :
-$$
-\lim\limits_{t \to 0} f(t)=\lim\limits_{p \to \infty}\, p F(p)
-$$
-\item \emph{théorème de la valeur finale} :
-$$
-\lim\limits_{t \to \infty} f(t)=\lim\limits_{p \to 0}\,p F(p)
-$$
+    \item \emph{linéarité} :
+    $$ 
+    \laplace{af(t)+bg(t)} = aF(p) + bG(p)
+    $$ 
+    \item \emph{dilatation du temps} : 
+    $$
+    \laplace{f(kt)}=\dfrac{1}{k}F\left(\dfrac{p}{k}\right)
+    $$
+    \item \emph{produit de convolution} : 
+    $$
+    \laplace{f(t)*g(t)} = F(p)G(p)
+    $$
+    \item \emph{dérivation} : 
+    \begin{align*}
+        \laplace{\devi{f(t)}{}}&=pF(p) - f(0^+) \\
+        \laplace{\devi{f(t)}{2}}&=p^2F(p) - pf(0^+) - f'(0^+)\\
+        \laplace{\devi{f(t)}{n}}&=p^nF(p) 
+    \end{align*}
+    si toutes les conditions initiales sont nulles.
+    \item \emph{intégration} :
+        $$
+        \laplace{\int_0^t f(u)du} = \dfrac{F(p)}{p} + \dfrac{g(0^+)}{p}
+        $$
+        avec :  $g(t)=\int_0^t f(u)du$
+    \item \emph{théorème du retard en (t)} :
+        $$
+        \laplace{f(t-\tau)}=e^{-\tau p}F(p)
+        $$
+    \item \emph{théorème du retard en (p)} :
+        $$
+        \laplacei{F(p+a)}=e^{-at}f(t)
+        $$
+    \item \emph{théorème de la valeur initiale} :
+        $$
+        \lim\limits_{t \to 0} f(t)=\lim\limits_{p \to \infty}\, p F(p)
+        $$
+    \item \emph{théorème de la valeur finale} :
+        $$
+        \lim\limits_{t \to \infty} f(t)=\lim\limits_{p \to 0}\,p F(p)
+        $$
 \end{itemize}
+%-------------------------------------------------------------------------------
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

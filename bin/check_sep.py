@@ -52,7 +52,7 @@ if __name__=="__main__":
 
     args=main_parser()
     filename=args.filename
-    print("check nombre de séparateurs des environnement LaTeX (script Python)")
+    print("check nombre de séparateurs des environnements LaTeX (script Python)")
 
     f=open(filename,'r')
     lines=f.readlines()
@@ -68,8 +68,11 @@ if __name__=="__main__":
          "\\begin{figure}":[1,"-","\\end{figure}"],
          "\\begin{center}":[1,"-","\\end{center}"],
          "\\begin{table}":[1,"-","\\end{table}"],
-         "\\begin{bequation}":[1,"-","\\end{bequation}"]
+         "\\begin{bequation}":[1,"-","\\end{bequation}"],
+         "\\begin{itemize}":[1,"-","\\end{itemize}"]
          }
 
     for checking,data in sep.items() :
         eomacro(lines,checking,data)
+
+

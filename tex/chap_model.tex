@@ -61,9 +61,11 @@ Dans une dernière partie, nous allons
 Un système du premier ordre est un système régit par une équation
 différentielle linéaire à coefficient constant du premier ordre 
 (i.e $n=1$ pour l'\cref{eq-difflci}), de la forme générale :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     \tau\devi{s(t)}{}+s(t)=K e(t)\label{eq-1er}
 \end{bequation}
+%-------------------------------------------------------------------------------
 où $K$ est le gain statique et $\tau>0$ la constante de 
 temps du système. La condition sur le signe de $\tau$ sera 
 discutée au moment de l'établissement des réponses temporelles.
@@ -72,7 +74,6 @@ de confirmer que $\tau$ à la dimension d'un temps, mais surtout que
 la dimension du gain statique est donnée par le rapport des dimensions de 
 la sortie sur l'entrée. Autrement dit, c'est un paramètre sans dimension 
 c'est l'entrée et la sortie sont de même nature.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fonction de transfert d'un système du premier ordre}
@@ -86,10 +87,11 @@ $$
 $$
 La fonction de transfert $H(p)$ d'un système du premier ordre est 
 donc de la forme:
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     H(p)=\dfrac{S(p)}{E(p)}=\dfrac{K}{\tau p + 1}\label{eq-ft1er}
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Pôle de la fonction de transfert du premier ordre}
@@ -150,9 +152,11 @@ $$
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 7 du tableau de 
 l'\cref{annexe-lap}), nous donne la forme générale de la réponse impulsionnelle 
 d'un système du premier ordre:
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     \laplacei{S(p)}=s(t)=\dfrac{KE_0}{\tau} e^{-t/\tau}\label{eq-1er_imp}.
 \end{bequation}
+%-------------------------------------------------------------------------------
 Cette réponse correspond à une simple exponentielle décroissante pour $\tau>0$.
 La~\cref{fig-1er_imp} présente la réponse impulsionnelle d'un système 
 du premier ordre pour différentes valeurs de la constante de temps $\tau$.
@@ -223,9 +227,11 @@ $$
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 11 du tableau 
 de l'\cref{annexe-lap}), nous donne la forme générale de la réponse 
 indicielle d'un système du premier ordre:
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     \laplacei{S(p)}=s(t)=KE_0\left(1-e^{-t/\tau}\right)\label{eq-1er_ind}
 \end{bequation}
+%-------------------------------------------------------------------------------
 La~\cref{fig-1er_ind} présente cette réponse indicielle pour 
 différentes valeurs de la constante de temps $\tau$.
 Pour $t\to\infty$, la valeur de $s(t)$ tend vers $KE_0$.
@@ -828,14 +834,17 @@ pseudo-périodique (\Cref{eq-2-3_2nd}) :
     s(t_1) &= KE_0\left(1 + e^{-\alpha\pi/\omega_d}\right)
 \end{align*}
 Le dépassement est donc donné par l'expression : 
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     D=e^{-\dfrac{\xi\pi}{\sqrt{1-\xi^2}}}
 \end{bequation}
+%-------------------------------------------------------------------------------
 et le $k$-ème dépassement $D_k$ est lui donné par :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     D_k=e^{-\dfrac{k\xi\pi}{\sqrt{1-\xi^2}}}
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 La~\cref{fig-2nd_depassement_2} présente cette relation entre le 
 dépassement  et le taux d'amortissement. Il est possible d'utiliser 
 cette figure comme un abaque\footnote{Les abaques sont très répandus 
@@ -933,16 +942,20 @@ $$
 La transformée de Laplace inverse de $S(p)$ (c.f lignes 4 et 7 du 
 tableau de l'\cref{annexe-lap}), nous permet de déterminer la réponse à 
 une rampe du régime apériodique :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 s(t)=KE_0\left(t+\dfrac{p_1+p_2}{\omega_0^2}+\dfrac{1}{\omega_0^2(p_1-p_2)}
 \left(p_2^2e^{p_1t}-p_1^2e^{p_2t}\right)\right)
 \end{bequation}
+%-------------------------------------------------------------------------------
 posons $p_1=-1/\tau_1$ et $p_2=-1/\tau_2$, la réponse devient :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 s(t)=KE_0\left(t-\tau_1-\tau_2+\dfrac{1}{(\tau_1-\tau_2)}
 	     \left(\tau_1^2e^{-\frac{t}{\tau_1}}-
 		       \tau_2^2e^{-\frac{t}{\tau_2}}\right)\right)
 \end{bequation}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $\xi=1$ (régime apériodique critique),} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -977,14 +990,17 @@ $$
 La transformée de Laplace inverse de $S(p)$ (c.f lignes 3, 4, 7 
 et 8 du tableau de l'\cref{annexe-lap}), nous permet de déterminer 
 la réponse à une rampe du régime apériodique critique :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     s(t)=KE_0\left(\dfrac{2}{p_1}+t-\dfrac{2}{p_1}e^{p_1t}+te^{p_1t}\right)
 \end{bequation}
+%-------------------------------------------------------------------------------
 posons $p_1=-1/\tau$, la réponse devient :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     s(t)=KE_0(t-2\tau+(t+2\tau)e^{-\frac{t}{\tau}})
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $0<\xi<1$ (régime pseudo-périodique),} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1047,13 +1063,13 @@ et en notant que :
     \cos{2\phi}&=1-2\sin^2\phi=2\xi^2-1\\
     \sin{2\phi}&=2\sin\phi\cos\phi=2\xi\sqrt{1-\xi^2}
 \end{align*}
-
 on obtient :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+
 	     \dfrac{2\xi}{\omega_d}e^{-\alpha t}\sin{(\omega_d t+2\phi)}\right)
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
@@ -1132,9 +1148,11 @@ $$
 où $K$ est un constante. On a faire à un système dit à gain pur. 
 Autrement dit, la sortie est proportionnelle à l'entrée et de même nature.
 La fonction de transfert d'un tel système s'écrit :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-H(p)=\dfrac{S(p)}{E(p)}=K
+    H(p)=\dfrac{S(p)}{E(p)}=K
 \end{bequation}
+%-------------------------------------------------------------------------------
 La \textbf{réponse impulsionnelle} pour une entrée du type impulsion de 
 Dirac unitaire est elle même une impulsion de Dirac :
 $$
@@ -1161,10 +1179,11 @@ $$
 s(t)=K\int\limits_0^t e(\tau)\dd{\tau}
 $$
 La fonction de transfert est celle d'un intégrateur pur:
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 H(p)=\dfrac{S(p)}{E(p)}=\dfrac{K}{p}.
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 La \textbf{réponse impulsionnelle}, pour une entrée unitaire, est la 
 fonction échélon unitaire:
 $$
@@ -1175,7 +1194,6 @@ $$
 s(t)=KE_0\int\limits_0^t u(\tau)\dd{\tau}=KE_0\left[\tau\right]_0^t=KE_0t
 $$
 Autrement dit, le système est \textbf{instable}.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dérivateur pur}
@@ -1189,10 +1207,11 @@ $$
 où $K$ est un gain. On a à faire à un système dit dérivateur pur. 
 La sortie correspond alors à la dérivée de l'entrée.
 Sa fonction de transfert est de la forme :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 H(p)=\dfrac{S(p)}{E(p)}=Kp
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 La \textbf{réponse impulsionnelle} d'un dérivateur n'est pas définie. 
 La \textbf{réponse indicielle} est une impulsion de Dirac, par 
 définition de la dérivée d'un échelon :
@@ -1211,9 +1230,11 @@ $$
 s(t)=e(t-\tau)
 $$
 est dit à retard pur et sa fonction de transfert est de la forme :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 H(p)=\dfrac{S(p)}{E(p)}=Ke^{-\tau p}
 \end{bequation}
+%-------------------------------------------------------------------------------
 Les réponses temporelles sont donc de mêmes natures que 
 leurs solliciations, elles sont simplement retardés de $\tau$.
 \newpage
@@ -1256,10 +1277,12 @@ $$
 en toute rigueur il suffit d'exprimer le rapport 
 des produits comme un simple produits en permettant
 les exposants d'être négatifs, soit alors la forme plus condensée :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 H(p)= Kp^{\alpha}\prod_{i} (1+\tau_ip)^{n_i}\prod_{j} 
     (1+2\xi_j\tau_jp+\tau_jp^2)^{n_j}
 \end{bequation}
+%-------------------------------------------------------------------------------
 où $n_i$ et $n_j$ peuvent être positifs et négatifs. 
 
 Après décomposition en éléments simples, $H(p)$ s'écrit sous la forme 

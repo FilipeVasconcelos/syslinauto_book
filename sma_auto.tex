@@ -20,7 +20,6 @@
             imageposition=right,
             version={4.0},
            ]{doclicense}
-
 \usepackage{ifthen}
 \usepackage[skip=0.3cm,hypcap=false]{caption} 
 \captionsetup{width=.85\linewidth,belowskip=0pt,labelfont=bf} 
@@ -76,8 +75,6 @@
 \usepackage{etoolbox}
 \usepackage[french,nameinlink,noabbrev]{cleveref}
 \crefname{appchap}{Annexe}{Annexes}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PGF/TikZ/PGFPLOTS
@@ -96,17 +93,14 @@
 \usetikzlibrary{decorations.text}
 \usetikzlibrary{matrix}
 %\usetkzobj{all} 2020
-
 \usetikzlibrary{external}
 \tikzset{external/system call={pdflatex -shell-escape 
 -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"; 
 pdf2eps 1 "\image"
 }}
-
 \tikzset{external/optimize command away=\AddToShipoutPicture}
 \tikzexternalize[prefix=./figtikz/]
 \usetikzlibrary{external}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % définition de l'année scolaire (page de garde) 
@@ -135,7 +129,6 @@ pdf2eps 1 "\image"
 }
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 \def\fup#1{\raise+2pt\hbox{\footnotesize #1}}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %GEOMETRY
@@ -156,7 +149,6 @@ pdf2eps 1 "\image"
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \let\origprintindex\printindex
 \renewcommand*{\printindex}{%
   \pagestyle{plain}
@@ -164,18 +156,17 @@ pdf2eps 1 "\image"
 }
 \setcounter{minitocdepth}{2}
 \setcounter{secnumdepth}{3}
-
 \frenchbsetup{AutoSpaceFootnotes=false,FrenchFootnotes=false}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\textop}[1]{\relax\ifmmode\mathop{\text{#1}}\else\text{#1}\fi}
 \renewcommand{\bar}{\overline}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % à compléter...
 \newcommand*{\acpl}{\emph{à compléter}\ldots}
 \newcommand*{\acplhp}{\emph{à compléter (hors programme)}\ldots}
 \newcommand*{\todo}[1]{\emph{TODO : #1}}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Packages fmv
@@ -196,13 +187,13 @@ pdf2eps 1 "\image"
 \renewcommand{\question}{\ques[\sffamily]}
 \usepackage{routhtab}
 \usepackage{poles}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \loadglsentries{tex/acronyme}
 \loadglsentries{tex/glossaire}
 \loadglsentries{tex/symbole}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \addtocounter{secnumdepth}{1}
 \renewcommand{\thesection}{\arabic{section}}
@@ -286,7 +277,7 @@ pdf2eps 1 "\image"
 % includeonly individuel
 % ------------------------------------------------------------------------------
 %\includeonly{tex/avantpropos}
-%\includeonly{tex/chap_slci}            % Système linéaire
+\includeonly{tex/chap_slci}            % Système linéaire
 %\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
 %\includeonly{tex/chap_model}           % Modèles Usuels    
 %\includeonly{tex/chap_repfreq}         % Réponse harmonique
@@ -411,7 +402,7 @@ pdf2eps 1 "\image"
 \include{tex/annexe_scilab}            %J Scilab
 \include{tex/annexe_log}               %K Echelle log  
 \include{tex/annexe_invL}              %L Laplace inverse 
-\include{tex/todo}                     %M TODO
+%\include{tex/todo}                     %M TODO
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \backmatter
