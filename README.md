@@ -2,11 +2,9 @@
 
 ## Contexte
 
-Ce document correspond à la rédaction du cours du module Systèmes Mécaniques 
-et Automatiques (SMA) enseigné en deuxième année de l'ESME Sudria de Lille depuis
-janvier 2018.
+Ce document est le résultat du cours du module de Systèmes Mécaniques 
+et Automatiques (SMA) enseigné en deuxième année de l'ESME Sudria de 
+Lille depuis janvier 2018.
 
-
-## Organisation du document 
-
-
+## Auteur
+F. Vasconcelos
