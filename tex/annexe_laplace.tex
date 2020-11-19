@@ -100,13 +100,14 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{table}[!h]
-\centering
-\ra{1.9}
-\begin{tabular}{@{}P{0.5cm}P{3.9cm}P{8.9cm}@{}}
-\toprule
+    \ra{1.9}
+    \centering
+    \begin{tabular}{@{}P{0.5cm}P{3.9cm}P{8.9cm}@{}}
+    \toprule
     & $F(p)$ & $f(t)=\laplacei{F(p)}$ \\
-\midrule
+    \midrule
     1 & 
     1 & 
     $\delta(t)$ \\
@@ -155,104 +156,85 @@ $$
     16 & 
     $\dfrac{b-a}{(p+a)(p+b)}$ & 
     $e^{-at}-e^{-bt}$ \\
-\bottomrule
-\end{tabular}
-%}
-\captionof{table}{Table de transformées de Laplace d'après\cite{Ostertag}}
+    \bottomrule
+    \end{tabular}
+    \captionof{table}{Table de transformées de Laplace d'après\cite{Ostertag}}
 \end{table}
-%\clearpage
-%\renewcommand{\arraystretch}{2.25}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{table}[!htb]
-\ra{1.9}
-\centering
-%\resizebox{0.9\textwidth}{!}{
-\begin{tabular}{@{}P{0.5cm}P{3.9cm}P{8.9cm}@{}}
-\toprule
-& $F(p)$ & $f(t)=\laplacei{F(p)}$ \\
-\midrule
+    \ra{1.9}
+    \centering
+    \begin{tabular}{@{}P{0.5cm}P{3.9cm}P{8.9cm}@{}}
+    \toprule
+    & $F(p)$ & $f(t)=\laplacei{F(p)}$ \\
+    \midrule
     17 & 
     $\dfrac{(b-a)p}{(p+a)(p+b)}$ & 
     $-ae^{-at}+be^{-bt}$\\
-%\hline
     18 & 
     $\dfrac{(b-a)(p+z)}{(p+a)(p+b)}$ & 
     $(z-a)e^{-at}-(z-b)e^{-bt}$\\
-%\hline
     19 & 
     $\dfrac{ab}{p(p+a)(p+b)}$      & 
     $1+\dfrac{be^{-at}-ae^{-bt}}{a-b}$ \\
-%\hline
     20 & 
     $\dfrac{ab(p+z)}{p(p+a)(p+b)}$ & 
     $z+\dfrac{b(z-a)e^{-at}-a(z-b)e^{-bt}}{a-b}$ \\
-%\hline
     21 & 
     $\dfrac{1}{(p+a)(p+b)(p+c)}$   & 
     $\dfrac{e^{-at}}{(b-a)(c-a)}+
      \dfrac{e^{-bt}}{(c-b)(a-b)}+
      \dfrac{e^{-ct}}{(a-c)(b-c)}$ \\
-%\hline
     22 & 
     $\dfrac{p+z}{(p+a)(p+b)(p+c)}$& 
     $\dfrac{(z-a)e^{-at}}{(b-a)(c-a)}+
      \dfrac{(z-b)e^{-bt}}{(c-b)(a-b)}+
      \dfrac{(z-c)e^{-ct}}{(a-c)(b-c)}$ \\
-%\hline
     23 & 
     $\dfrac{\omega}{p^2+\omega^2}$ & 
     $\sin\omega t$ \\
-%\hline
     24 & 
     $\dfrac{p}{p^2+\omega^2}$ & 
     $\cos\omega t$ \\
-%\hline
     25 & 
     $\dfrac{p+z}{p^2+\omega^2}$ & 
     $\sqrt{\dfrac{z^2+\omega^2}{\omega^2}}\sin{(\omega t+\phi)}$ 
     avec $\phi=\arctan{\dfrac{\omega}{z}}$ \\
-%\hline
     26 & 
     $\dfrac{\omega^2}{p(p^2+\omega^2)}$ 
     & $1-\cos\omega t$\\
-%\hline
     27 & $\dfrac{\omega^2(p+z)}{p(p^2+\omega)^2}$ & 
     $z-\sqrt{\dfrac{z^2+\omega^2}{\omega^2}}\cos{(\omega t+\phi)}$ 
     avec $\phi=\arctan{\dfrac{\omega}{z}}$\\
-%\hline
-%28 & $\dfrac{\omega}{p^2-\omega^2}$ & $\sinh{\omega t}$&\\[20pt]
-%\hline
-%29 & $\dfrac{p}{p^2-\omega^2}$ & $\cosh{\omega t}$&\\[20pt]
-%\hline
+    %28 & $\dfrac{\omega}{p^2-\omega^2}$ & $\sinh{\omega t}$&\\[20pt]
+    %29 & $\dfrac{p}{p^2-\omega^2}$ & $\cosh{\omega t}$&\\[20pt]
     28 & 
     $\dfrac{\omega}{(p+a)^2+\omega^2}$ & 
     $e^{-at}\sin{\omega t}$ \\
-%\hline
     29 & 
     $\dfrac{p+a}{(p+a)^2+\omega^2}$ & 
     $e^{-at}\cos{\omega t}$ \\
-%\hline
     30 & 
     $\dfrac{p+z}{(p+a)^2+\omega^2}$ & 
     $\sqrt{\dfrac{(z-a)^2+\omega^2}{\omega^2}}
      e^{-at}\sin{(\omega t+\phi)}$ 
      avec $\phi=\arctan{\dfrac{\omega}{z-a}}$\\
-%\hline
     31 & 
     $\dfrac{\omega^2}{p^2+2\xi\omega p +\omega^2}$ 
     avec $\xi<1$& $\dfrac{\omega}{\sqrt{1-\xi^2}}
     e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t}$\\
-%\hline
     32 & 
     $\dfrac{\omega^2}{p(p^2+2\xi\omega p +\omega^2)}$ 
     avec $\xi<1$ & $1-\dfrac{1}{\sqrt{1-\xi^2}}
     e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2}t+\phi}$ 
     avec $\phi=\arccos{\xi}$\\
-\bottomrule
-\end{tabular}
-%}
-\captionof{table}{(suite) Table de transformées de 
+    \bottomrule
+    \end{tabular}
+    \captionof{table}{(suite) Table de transformées de 
                   Laplace d'après~\cite{Ostertag}}
 \end{table}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

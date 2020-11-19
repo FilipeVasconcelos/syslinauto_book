@@ -61,27 +61,28 @@ naturelle $e$)
 Sur une \textbf{échelle linéaire} décimale classique, des couples de 
 graduations dont la \textbf{différence} ($\Delta$ ci-dessous) vaut 10 sont à 
 égales distances. 
-
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{log_1-annexe_log-ext}
     \input{tikz/log_1-annexe_log.tex}
 \end{center}
-
+%-------------------------------------------------------------------------------
 Sur une \textbf{échelle logarithmique} décimale, des couples de graduations 
 dont le \textbf{rapport} ($\alpha$ ci-dessous) vaut 10 sont à égales distances.
-
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{log_2-annexe_log-ext}
     \input{tikz/log_2-annexe_log.tex}
 \end{center}
-
+%-------------------------------------------------------------------------------
 On généralise cette l'égalité entre le rapport et n'importe quelle 
 distance constante sur l'axe à échelle logarithmique.
-
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{log_3-annexe_log-ext}
     \input{tikz/log_3-annexe_log.tex}
 \end{center}
+%-------------------------------------------------------------------------------
 On remarquera que dans le cas ci-dessus, les valeurs 16,32 et 64 n'ont pas 
 de graduation qui leurs sont propres mais ces valeurs sont bien déterminées 
 par la distance constante entre deux graduation de rapport $\alpha=2$. 
@@ -113,7 +114,6 @@ correspond à dix fois le logarithme décimal du rapport.
 $$
 X_{dB}=10\log{\dfrac{P_s}{P_e}}
 $$
-
 Le gain en décibel reporté sur un diagramme de Bode correspond à 
 la valeur relative à 1 du carré du gain $G$ (le carré de l'amplitude d'un 
 signal pouvant être définit comme une puissance). Ainsi,
@@ -124,7 +124,7 @@ Nous rappellons que le gain $G(\omega)$, dit naturel, est le module de la
 fonction de transfert $G(\omega)=|H(\jw)|$. Le~\cref{tab-equiv_dB} donne 
 l'équivalence entre le gain naturel $G$ et gain décibel $G_{dB}$ pour 
 différentes valeurs particulières frequemment rencontrées dans ce cours.
-
+%-------------------------------------------------------------------------------
 \begin{table}[!t]
     \begin{tabular}{@{}P{1cm}P{1cm}P{1cm}P{1cm}P{1cm}
                        P{1cm}P{1cm}P{1cm}P{1cm}P{1cm}@{}}
@@ -137,8 +137,7 @@ différentes valeurs particulières frequemment rencontrées dans ce cours.
     \caption{\'Equivalence entre gain naturel $G$ et gain 
              décibel $G_{dB}$. D'après~\cite{laroche}\label{tab-equiv_dB}}
 \end{table}
-
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -146,7 +145,6 @@ différentes valeurs particulières frequemment rencontrées dans ce cours.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Un diagramme de Bode d'un fonction complexe $H(\jw)$ est composé de deux 
 courbes (i.e gain et phase) en représentation semi-logarithmique.
 
@@ -154,7 +152,6 @@ Soit la fonction complexe du premier ordre telle que
 \begin{align}
 H(\jw)=\dfrac{1}{1+\jw}\label{eq-ft_annexe}
 \end{align}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Tracé du gain}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -182,7 +179,7 @@ Dans le cas des hautes fréquences, lorsque la pulsation est mutiplié par
 qu'à haute fréquence le gain possède une pente de \textbf{-20dB par décade}. 
 La pulsation de coupure est ici de $\omega_{c}=1$, c'est cette pulsation qui 
 marque la \og séparation\fg entre basses et hautes fréquences. 
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
     \tikzsetnextfilename{bode_1-annexe_log-ext}
@@ -192,7 +189,7 @@ marque la \og séparation\fg entre basses et hautes fréquences.
     \caption{Diagramme de Bode d'un système du premier ordre.
     \label{fig-bode_annexe}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Tracé de la phase}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

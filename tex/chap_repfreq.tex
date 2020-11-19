@@ -17,14 +17,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Dans ce chapitre, nous allons établir la forme de la réponse d'un \gls{slci}~à 
 une entrée sinuso\"idale, dite \textbf{réponse harmonique} en régime permanent.
 Nous présenterons ensuite en détail les différentes représentations graphiques 
 qui constitueront l'\textbf{analyse fréquentielle} de cette réponse harmonique.
 Nous verrons en fin de chapitre une étude du transitoire dans des cas usuels.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -32,11 +29,9 @@ Nous verrons en fin de chapitre une étude du transitoire dans des cas usuels.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %L'excitation d'un \SLCI~par une entrée sinuso\"idale donne lieu, en régime 
 %permanent, à une réponse harmonique dépendant de la fréquence d'excitation. 
 %Nous allons ici établir la forme de cette réponse.
-
 Soit un \gls{slci}~défini par une fonction de transfert $H(p)$ auquel on 
 applique une entrée sinuso\"idale $e(t)$ tel que :
 $$
@@ -57,7 +52,6 @@ l'\cref{annexe-lap}), on obtient alors :
 $$
 S(p)=H(p)\dfrac{E_0\omega}{p^2+\omega^2}
 $$
-
 Les pôles de la fonction de transfert $H(p)$ donnent lieu au 
 régime transitoire alors que les pôles de l'excitation donnent 
 lieu au régime permanent. 
@@ -66,12 +60,10 @@ s'écrit alors:
 $$
 S(p)=H(p)\dfrac{E_0\omega}{(p+\jw)(p-\jw)}
 $$
-
 En régime permanent, la décomposition de $S(p)$ en éléments simples s'écrit :
 $$
 S(p)=\dfrac{A}{p-\jw} + \dfrac{B}{p+\jw}
 $$
-
 où les coefficients s'obtiennent par évaluation :
 \begin{align*}
     A&=(p-\jw)S(p)\bigg|_{p=\hphantom{-}\jw}=
@@ -81,7 +73,6 @@ où les coefficients s'obtiennent par évaluation :
        \dfrac{E_0\omega}{p-\jw}H(p)\bigg|_{p=-\jw}=
        -\dfrac{E_0}{2j}H(-\jw)
 \end{align*}
-
 nous obtenons donc :
 $$
 S(p)=\dfrac{E_0}{2j}\left(\dfrac{H(\jw)}{p-\jw}-\dfrac{H(-\jw)}{p+\jw} \right)
@@ -103,14 +94,13 @@ où $|H(\jw)|$ et $\phi$ sont respectivement le module et l'argument du nombre
 complexe $H(\jw)$ 
 et où l'on montre de plus que $H(-\jw)$ est égale à son conjugué (i.e 
 $H(-\jw)=\overline{H(\jw)}$).
-%%%
-%%%
+%
+%
 % on peut montrer la symétrie conjuguée par le produit de convolution 
 % MIT 6.003 Signals and Systems, Fall 2011   
 % Video 9 . Frequency Response vers 36:39
-%%%
-%%%
-
+%
+%
 La réponse temporelle peut alors s'écrire sous la forme 
 \begin{align*}
 s(t)=E_0|H(\jw)|\left(\dfrac{e^{j(\omega t+\phi)}
@@ -171,6 +161,7 @@ ordre:
 Le~\cref{tab-1ertemp} présente le module et l'argument pour quelques valeurs 
 particulières de $\omega$ 
 ($\omega=0.1$, $1$ et $\SI{10}{\radian\per\second}$).
+%-------------------------------------------------------------------------------
 \begin{table}
     \ra{1.3}
     \centering
@@ -188,6 +179,7 @@ particulières de $\omega$
         fonction de transfert du premier ordre, pour $K=1$ et 
         $\tau=\SI{1}{\second}$\label{tab-1ertemp}.}
 \end{table}
+%-------------------------------------------------------------------------------
 D'après ces valeurs, nous constatons que le rapport des amplitudes décroit et
 que le déphasage augmente lorsque la pulsation de l'excitation augmente.
 
@@ -199,8 +191,7 @@ est-il de toutes les autres valeurs de la pulsation ?
 Nous allons maintenant généraliser cette analyse sans pour autant avoir à 
 tracer la réponse temporelle pour toutes les pulsations que l'on souhaite 
 étudier.
-
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{repham_1-chap_repfreq-ext}
@@ -217,7 +208,7 @@ tracer la réponse temporelle pour toutes les pulsations que l'on souhaite
              augmente. (bleu) excitation $e(t)$ (rouge) sortie $s(t)$.
              \label{fig-repham}}
 \end{figure}
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -286,7 +277,7 @@ une large plage de valeurs en pulsation (\Cref{annexe-log}). Le calcul de la
 phase passe lui par la détermination de l'argument principale 
 (\Cref{annexe-NC}).
 
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{sche_bode-chap_repfreq-ext}
@@ -296,7 +287,7 @@ phase passe lui par la détermination de l'argument principale
              représentés en fonction de la pulsation (à l'échelle log) sur 
              deux repères distincts.\label{fig-sche_bode}}
 \end{figure}
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 La principale propriété du diagramme de Bode est de permettre de 
 simplifier un grand nombre calcul. En effet, dans le cas par exemple où 
@@ -329,7 +320,7 @@ des parties réel et imaginaire de $H(\jw)$, en considérant les pulsations
 négatives, c'est à dire entre $\omega\rightarrow-\infty$ et 
 $\omega\rightarrow+\infty$. 
 
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{sche_nyquist_1-chap_repfreq-ext}
@@ -344,7 +335,7 @@ $\omega\rightarrow+\infty$.
              complet de Nyquist, symmétrique par rapport à l'axe des réels.
              \label{fig-sche_nyquist}}
 \end{figure}
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -365,7 +356,7 @@ Fonction de Transfert en Boucle ouverte (FTBO).
 %(moins important dans une premiere découverte des \SLCI.
 %Il pourra être introduit séparément dans le cas des systèmes asservis.)
 
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{sche_black-chap_repfreq-ext}
@@ -375,7 +366,7 @@ Fonction de Transfert en Boucle ouverte (FTBO).
              le lieu de Black pour différentes valeurs de la pulsation $\omega$
              de 0 à $\infty$.\label{fig-sche_black}}
 \end{figure}
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -432,7 +423,7 @@ principale du nombre complexe $H(\jw)$:
 \phi(\omega) = 0
 \end{bequation}
 
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
     \tikzsetnextfilename{bode_gain_1-chap_repfreq-ext}
@@ -445,7 +436,7 @@ principale du nombre complexe $H(\jw)$:
              phase reste inchangée lorsque le gain statique $K$ varie et que 
              seul le gain $G_{dB}(\omega)$ est modifié. \label{fig-bode_gain}}
 \end{figure}
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \newpage
 
 
@@ -468,7 +459,7 @@ du nombre complexe $H(\jw)$:
 \begin{bequation}[ams align*]
 \phi(\omega) = -\dfrac{\pi}{2}
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
     \tikzsetnextfilename{bode_integ_1-chap_repfreq-ext}
@@ -481,7 +472,7 @@ du nombre complexe $H(\jw)$:
              que le gain s'annule pour $\omega=K$ et que la phase reste 
              inchangée.\label{fig-bode_int}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un dérivateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -500,8 +491,7 @@ la phase s'écrit simplement
 \begin{bequation}[ams align*]
 \phi(\omega) = \dfrac{\pi}{2}
 \end{bequation}
-
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
     \tikzsetnextfilename{bode_deriv_1-chap_repfreq-ext}
@@ -514,8 +504,7 @@ la phase s'écrit simplement
              que le gain s'annule pour $\omega=\frac{1}{K}$ et que la phase 
              reste inchangée.\label{fig-bode_deriv}}
 \end{figure}
-% ------------------------------------------------------------------------------
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système à retard pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -533,8 +522,7 @@ et la phase s'écrit simplement
 \begin{bequation}[ams align*]
     \phi(\omega) = -\tau\omega
 \end{bequation}
-
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
     \tikzsetnextfilename{bode_retard_1-chap_repfreq-ext}
@@ -547,8 +535,7 @@ et la phase s'écrit simplement
              pulsations et le déphasage est monotone décroissant en fonction 
              de la pulsation\label{fig-bode_retard_1}.}
 \end{figure}
-% ------------------------------------------------------------------------------
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -598,8 +585,7 @@ encore $\omega\gg\omega_0$, le gain et la phase se comporte comme,
 \end{bequation} 
 La~\cref{fig-bode_1er_3} présente sur un même diagramme de Bode, les courbes 
 réels et les courbes asymptotiques.
-
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
     \tikzsetnextfilename{bode_1er_1-chap_repfreq-ext}
@@ -612,9 +598,8 @@ réels et les courbes asymptotiques.
              (rouge) $K=10$. L'effet du gain $K$ est de décaler verticalement 
              la courbe de gain.\label{fig-bode_1er_1}}
 \end{figure}
-% ------------------------------------------------------------------------------
-
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!b]
     \centering
     \tikzsetnextfilename{bode_1er_3-chap_repfreq-ext}
@@ -628,10 +613,9 @@ réels et les courbes asymptotiques.
              de décaler horizontalement la courbe de phase.
              \label{fig-bode_1er_2}}
 \end{figure}
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \afterpage{\clearpage}
-
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!t]
 \centering
 \tikzsetnextfilename{bode_1er_5-chap_repfreq-ext}
@@ -647,7 +631,7 @@ réels et les courbes asymptotiques.
          gain de \SI{-3}{\dB} et une phase de -45\si{\degree} à la fréquence 
          de coupure.\label{fig-bode_1er_3}}
 \end{figure}
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode de deux systèmes du premier ordre en série }
@@ -721,7 +705,7 @@ quelques valeurs particulières de la pulsation.
 Comme nous l'avons déjà rencontré, l'étude de deux systèmes du premier 
 ordre en série correspond à l'étude d'un système du second ordre en 
 régime apériodique.
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
     \tikzsetnextfilename{bode_1er_serie_2nd_1-chap_repfreq-ext}
@@ -734,7 +718,7 @@ régime apériodique.
     diagramme réel et (rouge) le diagramme asymptotique.
     \label{fig-bode_1er_serie}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système second d'ordre}
@@ -792,8 +776,7 @@ le diagramme de Bode. Il est possible d'observer une augmentation de la valeur
 maximum du gain proche de la fréquence de coupure.
 C'est ce phénomène de résonance que nous allons discuter dans la 
 prochaine partie.
-
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
     \tikzsetnextfilename{bode_2nd_1-chap_repfreq-ext}
@@ -805,7 +788,7 @@ prochaine partie.
     (\Cref{eq-2nd_ftjw}) avec $K=1$, $\omega_0=1$ et $\xi=1$
     \label{fig-bode_2nd_1}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
     \tikzsetnextfilename{bode_2nd_3-chap_repfreq-ext}
@@ -814,8 +797,8 @@ prochaine partie.
              (\Cref{eq-2nd_ftjw}) pour différentes valeurs de $\xi$ avec 
              $K=1$ et $\omega_0=1$\label{fig-bode_2nd_2}}
 \end{figure}
+%-------------------------------------------------------------------------------
 \afterpage{\clearpage}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Phénomène de résonance}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -877,7 +860,7 @@ La pulsation $\omega_0$ est donc la valeur pour lequel le phénomène de
 résonance est le plus intense.
 La~\cref{fig-gain_2nd} présente la position du gain  maximum à la pulsation 
 de résonance pour différentes valeurs du taux d'amortissement.
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{gain_resonance-chap_repfreq-ext}
@@ -890,9 +873,9 @@ de résonance pour différentes valeurs du taux d'amortissement.
              exceptionnelle d'une échelle linéaire pour les pulsations.
              \label{fig-gain_2nd}}
 \end{figure}
+%-------------------------------------------------------------------------------
 \afterpage{\clearpage}
 \newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système d'ordre quelconque}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -981,7 +964,7 @@ caractéristiques.
 On adopte la notation suivante : $\tau_1=100$, $\tau_2=10$, $\tau_3=1$ 
 et $\tau_4=0.01$, avec $\omega_i=1/\tau_i$, on obtient alors:
 $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$.
-
+%-------------------------------------------------------------------------------
 \begin{table}[!h]
     \ra{1.3}
     \centering
@@ -1007,8 +990,8 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$.
     \bottomrule
     \end{tabular}}
 \end{table}
-
-
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
     \tikzsetnextfilename{bode_exemple_1-chap_repfreq-ext}
@@ -1020,7 +1003,7 @@ $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$.
              l'\cref{eq-ft_qq} (bleu) diagramme de Bode réel et (rouge) 
              diagramme de Bode asymptotique.\label{fig-bode_qq}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 Il est également possible de déterminer la forme analytique du gain et 
 de la phase.
 \begin{bequation}[ams align]
@@ -1067,7 +1050,7 @@ Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
     \Re{H(\jw)}&=K\\
     \Im{H(\jw)}&=0\\
 \end{align*}
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{nyquist_gainpur-chap_repfreq-ext}
@@ -1076,7 +1059,7 @@ Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
              est représenté par un point sur l'axe des réels à la valeur $K$ 
              (ici $K=5$). \label{fig-nyquist_1}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un intégrateur pur}
@@ -1089,7 +1072,7 @@ Cependant il dépend de la pulsation $\omega$.
     \Re{H(\jw)}&=0\\
     \Im{H(\jw)}&=\dfrac{-K}{\omega}
 \end{align*}
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{nyquist_integ-chap_repfreq-ext}
@@ -1098,12 +1081,11 @@ Cependant il dépend de la pulsation $\omega$.
              est représenté par une demi droite sur l'axe des nombres 
              imaginaires purs négatifs.\label{fig-nyquist_2}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un dérivateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Le diagramme de Nyquist d'un dérivateur pur est également représentatif d'un 
 nombre complexe $H(\jw)=K\jw$ imaginaire pur. Les parties réelles et imaginaire
 de ce nombre complexe sont :
@@ -1111,7 +1093,7 @@ de ce nombre complexe sont :
     \Re{H(\jw)}&=0\\
     \Im{H(\jw)}&=K\omega
 \end{align*}
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{nyquist_deriv-chap_repfreq-ext}
@@ -1120,12 +1102,11 @@ de ce nombre complexe sont :
              est représenté par une demi droite sur l'axe des nombres 
              imaginaires purs positifs.\label{fig-nyquist_3}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un retard pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \index{Retard pur!diagramme de Nyquist}
 La fonction de transfert d'un retard pur s'écrit :
 $$
@@ -1141,7 +1122,7 @@ Ces coordonnées dans le plan complexe sont celles du cercle unité
 centré sur l'origine. Le lieu de transfert (c.a.d $\omega\to\infty$) 
 est la rotation infinie sur ce cercle. La \og vitesse angulaire\fg dépend 
 de $\tau$.
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{nyquist_retard-chap_repfreq-ext}
@@ -1150,7 +1131,7 @@ de $\tau$.
              est représenté par le cercle unité dans le plan complexe.
              \label{fig-nyquist_4}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 On remarquera cependant que ce modèle est fondamentalement 
 \textbf{instable} puisque le module $|H(\jw)|$ ne s'annule pas 
 lorsque $\omega\to\infty$, de ce fait nous le trouverons jamais seul.
@@ -1199,6 +1180,7 @@ de rayon $K/2$
 $$
 \left(X-\dfrac{K}{2}\right)^2+Y^2=\left(\dfrac{K}{2}\right)^2
 $$
+%-------------------------------------------------------------------------------
 \begin{table}
     \ra{1.3}
     \centering
@@ -1214,7 +1196,8 @@ $$
     \caption{Quelques valeurs particulières de $\Re{H(\jw)}$ et $\Im{H(\jw)}$
     selon $\omega$ pour un système du premier ordre\label{tab-nyquist-vp_1er}.}
 \end{table}
-
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{nyquist_1er-chap_repfreq-ext}
@@ -1226,13 +1209,11 @@ $$
              correspond à un cercle de rayon $K/2$ et de centre $(K/2,0)$ 
              \label{fig-nyquist_1er}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 \newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \index{Système du second ordre!diagramme de Nyquist}
 La fonction de transfert d'un système du second ordre s'écrit:
 $$
@@ -1246,7 +1227,7 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     \Im{H(\jw)}&=\dfrac{-2\xi\omega_0^2\omega^2}{(\omega_0^2-\omega^2)^2
     +4\xi^2\omega_0^2\omega^2}\\
 \end{align*}
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{nyquist_2nd_1-chap_repfreq-ext}
@@ -1256,6 +1237,8 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
              une demi cardio\"iode dans le plan des nombres imaginaires 
              négatifs.\label{fig-nyquist_2nd_1}}
 \end{figure}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{nyquist_2nd_2-chap_repfreq-ext}
@@ -1265,7 +1248,7 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
              lieu de Nyquist est représenté par une demi cardio\"iode dans le 
              plan des imaginaires négatifs.\label{fig-nyquist_2nd_2}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Effet d'un retard sur le diagramme de Nyquist}
@@ -1291,7 +1274,7 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 \dfrac{-K\left(\tau\omega\cos{\tau_1\omega+\sin{\tau_1\omega}}\right)}
 {1+\tau^2\omega^2}\\
 \end{align*}
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{nyquist_effet_retard_1-chap_repfreq-ext}
@@ -1301,7 +1284,8 @@ Les parties réels et imaginaire de la fonction de transfert sont:
              de Nyquist est représenté par une spirale.
              \label{fig-nyquist_effet_retard_1}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{nyquist_effet_retard_2-chap_repfreq-ext}
@@ -1314,8 +1298,7 @@ Les parties réels et imaginaire de la fonction de transfert sont:
              ici représenté que l'intervalle $\omega\in[0,\dfrac{10}{\tau_1}]$ 
              \label{fig-nyquist_effet_retard_2}}
 \end{figure}
-
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Diagrammes de Black: méthodologie générale}

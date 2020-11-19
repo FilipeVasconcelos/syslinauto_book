@@ -2,7 +2,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter[Asservissements Linéaires]{Asservissements des systèmes linéaires\label{chap-asservis}}
+\chapter[Asservissements Linéaires]{Asservissements des systèmes 
+linéaires\label{chap-asservis}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -16,17 +17,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
-\centering
-\includegraphics[width=0.45\linewidth,height=10cm]
-{fig/Georgetown_PowerPlant_Museum_m.eps}
-\caption{Exemple historique de régulateur : Régulateur 
-de vitesse de Watt (d'après \cite{watt})\label{fig-hist}}
+    \centering
+    \includegraphics[width=0.45\linewidth,height=10cm]
+    {fig/Georgetown_PowerPlant_Museum_m.eps}
+    \caption{Exemple historique de régulateur : Régulateur 
+             de vitesse de Watt (d'après \cite{watt})\label{fig-hist}}
 \end{figure}
-% ------------------------------------------------------------------------------
-
+%-------------------------------------------------------------------------------
 Les chapitres précédents nous ont permis de caractériser, modéliser et
 analyser la réponse temporelle des systèmes linéaires.
 Nous allons maintenant aborder la possibilité du \textbf{contrôle} de ces 
@@ -59,22 +58,12 @@ est la \textbf{réponse}. Le problème de \textbf{l'asservissement} consiste
 La \textbf{régulation} est un cas particulier d'asservissement, consistant
 à contrôler la sortie d'un système pour une consigne fixe quelque soit 
 les perturbations auxquelles serait soumis le système.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Nom des noeuds
-%                                      
-%                                      
-%   E ---- a ---- S
-%
-% E : entrée
-% a : système 
-% S : sortie
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{sb_bloc0-chap_asserv-ext}
     \input{tikz/sb_bloc0-chap_asserv.tex}
 \end{center}
-
+%-------------------------------------------------------------------------------
 Nous avons pu caractériser la sortie en fonction de différentes 
 critères de performances: rapidité, précision, stabilité et dépassement\ldots
 pour différents systèmes linéaires modèles (c.f~\cref{chap-model}). 
@@ -91,60 +80,33 @@ d'un système linéaire :% soit en boucle ouverte soit en boucle fermée.
           sa commande (notée $U(p)$).
           Remarquons que la consigne est maintenant
           l'entrée du correcteur.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Nom des noeuds
-%                                      
-%                                      
-%   E ---- a ---- b ---- S
-%
-% E : entrée
-% a : correcteur 
-% b : système 
-% S : sortie
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{center}
-    \tikzsetnextfilename{sb_bloc1-chap_asserv-ext}
-    \input{tikz/sb_bloc1-chap_asserv.tex}
-\end{center}
-
+%-------------------------------------------------------------------------------
+    \begin{center}
+        \tikzsetnextfilename{sb_bloc1-chap_asserv-ext}
+        \input{tikz/sb_bloc1-chap_asserv.tex}
+    \end{center}
+%-------------------------------------------------------------------------------
     \item En \textbf{boucle fermée}: le principe consiste à récupérer 
           le signal de sortie pour ajuster le signal de commande. 
           Pour celà, on place le système (corrigée ou non) dans une 
           boucle de contre-réaction (négative). 
           Les relations entre la sortie et la consigne dans une telle 
           boucle ont été largement étudiées au \cref{chap-schemabloc}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Nom des noeuds
-%                                      
-%                                      
-%   E ---- a ---- b ---- c ---- S
-%          |                    |
-%          |                    |
-%          ---------------------
-%
-% E : entrée
-% a : comparateur
-% b : correcteur
-% c : système
-% S : sortie
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{center}
-    \tikzsetnextfilename{sb_bloc2-chap_asserv-ext}
-    \input{tikz/sb_bloc2-chap_asserv.tex}
-\end{center}
+%-------------------------------------------------------------------------------
+    \begin{center}
+        \tikzsetnextfilename{sb_bloc2-chap_asserv-ext}
+        \input{tikz/sb_bloc2-chap_asserv.tex}
+    \end{center}
+%-------------------------------------------------------------------------------
           Le signal correspondant à la différence entre la consigne
           et la réponse globale du système en boucle fermée est
           appelée l'\textbf{écart} $\epsilon(p)$.
 \end{itemize}
-
 La rétroaction\footnote{\emph{feedback} (en anglais)} est devenu incontournable
 dans les applications industrielles et technologiques. Par abus de langage 
 c'est le système en boucle fermée que l'on nomme asservissement. Cependant, la 
 définition précédente de l'asservissement s'applique très bien dans 
 le cas de la boucle ouverte.
-
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -153,45 +115,26 @@ le cas de la boucle ouverte.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Schémas fonctionnels associés aux systèmes asservis}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Classiquement, un asservissement se représente par le schéma fonctionnel de 
 la figure (\cref{fig-reg}). Celui-ci comporte en générale un \textbf{régulateur}
 permettant de comparer l'image de la sortie obtenue par un capteur 
 à la consigne. Ce régulateur est en générale accompagné d'un \textbf{correcteur}
 permettant de corriger la boucle ouverte du système linéaire.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Nom des noeuds
-%                                      
-%   E ---- a ---- b ---- c ---- S
-%          |                |
-%          |                |
-%            ---- d ------- 
-% E : entrée
-% a : comparateur
-% b : correcteur
-% c : système
-% S : sortie
-% d : capteur
-% r : noeud décalé pour le retour
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%avec cadre régulateur
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
-\centering
+    \centering
     \tikzsetnextfilename{reg_1-chap_asserv-ext}
     \input{tikz/reg_1-chap_asserv.tex}
     \caption{Schéma fonctionnel classique de l'asservissement d'un système 
              présentant un correcteur et un capteur. (c.f~\cref{tab-asser})
              \label{fig-reg}}
 \end{figure}
-
-
+%-------------------------------------------------------------------------------
 La \textbf{mesure} $M(p)$ est l'image de la sortie par l'intermédiaire
 du capteur. Il est alors en générale nécessaire d'adapter la consigne pour
 que l'écart $\epsilon(p)$ soit représentatif de l'écart entre la consigne
@@ -201,26 +144,7 @@ Le procédé/système peux nécéssité d'un \textbf{actionneur} qui agit en
 transmettant/convertissant l'énergie nécéssaire à son action. 
 La~\cref{fig-reg2} présente une forme augmentée de schéma fonctionnel
 présentant ces nouveaux constituants.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Nom des noeuds
-%                                      
-%                                      
-%   E ---- a ---- b ---- c ---- d ---- e ---- S
-%                 |                           |
-%                 |                           |
-%                  --------- f -----------
-% E : entrée
-% a : adaptateur 
-% b : comparateur
-% c : correcteur
-% d : actionneur
-% e : système
-% S : sortie
-% f : capteur
-% r : noeud décalé pour le retour
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{reg_2-chap_asserv-ext}
@@ -229,34 +153,13 @@ présentant ces nouveaux constituants.
              présentant un adaptateur et actionneur. (c.f~\cref{tab-asser})
              \label{fig-reg2}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Présence d'une perturbation : la régulation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Nom des noeuds
-%                        P             
-%                        |             
-%                        |              
-%   E ---- a ---- b ---- c ---- d ---- S
-%          |                           |
-%          |                           |
-%           ------------ e ------------ 
-%                        
-%                        
-% E : entrée
-% a : comparateur/régulateur
-% b : correcteur 
-% c : sommateur (perturbation)
-% d : système 
-% e : capteur
-% P : noeud décalé pour la perturbation
-% S : sortie
-% r : noeud décalé pour le retour
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{pert-chap_asserv-ext}
@@ -264,33 +167,8 @@ présentant ces nouveaux constituants.
     \caption{Schéma fonctionnel de l'asservissement d'un système 
              présentant une perturbation.\label{fig-pert}}
 \end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Nom des noeuds
-%                        P1            P2 
-%                        |             |
-%                        |             | 
-%   E ---- a ---- b ---- c ---- d ---- e ---- S
-%          |                                  |
-%          |                                  |
-%           ------------ g ---- f ------------ 
-%                        |
-%                        |
-%                        P3
-% E  : entrée
-% a  : comparateur/régulateur
-% b  : correcteur 
-% c  : sommateur1 (perturbation)
-% d  : système 
-% e  : sommateur2 (perturbation)
-% f  : capteur
-% g  : sommateur3 (perturbation/bruit)
-% P1 : noeud décalé pour la perturbation
-% P2 : noeud décalé pour la perturbation
-% P3 : noeud décalé pour la perturbation
-% S  : sortie
-% r  : noeud décalé pour le retour
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{pert_2-chap_asserv-ext}
@@ -298,49 +176,30 @@ présentant ces nouveaux constituants.
     \caption{Schéma fonctionnel de l'asservissement d'un système 
              présentant différents types de perturbations. \label{fig-pert2}}
 \end{figure}
-
-
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Schéma fonctionnel complet}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 En regroupant les différents constituants d'un asservissement
 nous pouvons réaliser le découpage du schéma fonctionnel en 
 chaîne d'énergie et en chaîne d'information comme présenté par 
 la~\cref{fig-asser}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Nom des noeuds
-%                                      P
-%                                      |
-%                                      |
-%   E ---- a ---- b ---- c ---- d ---- e ---- f ---- S
-%                 |                                  |
-%                 |                                  |
-%                  ------------ g -------------------
-% E : entrée
-% a : adaptateur 
-% b : comparateur
-% c : correcteur
-% d : actionneur
-% e : sommateur (perturbation)
-% P : perturbation
-% f : système 
-% S : sortie
-% g : capteur
-% r : noeud décalé pour le retour
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{landscape}
 \vspace*{\fill}
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{asser-chap_asserv-ext}
     \input{tikz/asser-chap_asserv.tex}
 \end{center}
+%-------------------------------------------------------------------------------
 \captionof{figure}{Décomposition en chaîne d'information et chaîne 
                    d'énergie d'un schéma bloc d'asservissement 
                    complet (c.f~\cref{tab-asser}). \label{fig-asser}}
 \vspace*{\fill}
 \end{landscape}
-
-
+%-------------------------------------------------------------------------------
 \begin{table}[!h]
     \ra{1.5}
     \centering
@@ -386,86 +245,80 @@ Sortie          & Le signal de sortie du système que l'on souhaite
                 & $S(p)$                                                \\
         \bottomrule
     \end{tabular}
-\caption{Terminologie et définition associés à l'asservissement des 
-         systèmes.\label{tab-asser}}
+    \caption{Terminologie et définition associés à l'asservissement des 
+             systèmes.\label{tab-asser}}
 \end{table}
-
+%-------------------------------------------------------------------------------
 \clearpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fonctions de transfert associées à l'asservissement}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Chacuns des blocs du schéma fonctionnel d'un asservissement~\cref{fig-asser} 
 permet de définir une fonction de transfert reliant localement une entrée 
 et une sortie.
 Nous allons définir quelques fonctions de transferts fondamentales à 
 l'étude d'un système asservis.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonction de transfert de la chaîne directe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 La~\gls{ftcd}, que nous noterons $H_{CD}(p)$ est liée à 
 la chaîne d'action de l'asservissement. Elle lie la sortie $S(p)$ à 
 l'écart $\epsilon(p)$. Formellement,
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 H_{CD}(p)=\dfrac{S(p)}{\epsilon(p)}
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonction de transfert de la chaîne de retour}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 La~\gls{ftcr}, que nous noterons $H_{CR}(p)$ est 
 liée à la chaîne de mesure de l'asservissement. Elle lie l'image 
 de la sortie $M(p)$ à la sortie $S(p)$. 
 Elle correspond essentiellement au capteur.
 Formellement,
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-H_{CR}(p)=\dfrac{M(p)}{S(p)}
+    H_{CR}(p)=\dfrac{M(p)}{S(p)}
 \end{bequation}
+%-------------------------------------------------------------------------------
 Dans le cas d'un retour unitaire $H_{CR}(p)=1$, c'est à dire que la sortie est 
 la consigne sont de même nature.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonction de transfert en boucle ouverte}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 La~\gls{ftbo}, que nous noterons $H_{BO}(p)$ correspond
 à la fonction de transfert du système non asservi. Elle lie l'image de la 
 sortie $M(p)$ à l'écart $\epsilon(p)$. Formellement,
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-H_{BO}(p)=\dfrac{M(p)}{\epsilon(p)}=
-\dfrac{M(p)}{S(p)}\dfrac{S(p)}{\epsilon(p)}=H_{CR}(p)H_{CD}(p)
+    H_{BO}(p)=\dfrac{M(p)}{\epsilon(p)}=
+    \dfrac{M(p)}{S(p)}\dfrac{S(p)}{\epsilon(p)}=H_{CR}(p)H_{CD}(p)
 \end{bequation}
+%-------------------------------------------------------------------------------
 Dans le cas d'un retour unitaire on obtient $H_{BO}(p)=H_{CD}(p)$
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonction de transfert en boucle fermée}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 La~\gls{ftbf}, que nous noterons $H_{BF}(p)$ correspond
 explicitement à la fonction de transfert du système asservi. 
 Elle lie la sortie du système $S(p)$ à la consigne $E(p)$. Formellement et en 
 appliquant la réduction des schémas blocs (c.f~\cref{sec-boucle}),
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-H_{BF}(p)=\dfrac{S(p)}{E(p)}=\dfrac{H_{CD}(p)}{1+H_{CR}(p)H_{CD}(p)}=
-\dfrac{H_{CD}(p)}{1+H_{BO}(p)}
+    H_{BF}(p)=\dfrac{S(p)}{E(p)}=\dfrac{H_{CD}(p)}{1+H_{CR}(p)H_{CD}(p)}=
+    \dfrac{H_{CD}(p)}{1+H_{BO}(p)}
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 Remarquons que dans le cas d'une boucle de contre réaction unitaire 
 (c.a.d $H_{CR}(p)=1$), la~\gls{ftbf} se réduit à :
 $$
 H_{BF}(p)=\dfrac{H_{BO}(p)}{1+H_{BO}(p)}
 $$
-
 Dans le cas d'une contre réaction unitaire, la~\gls{ftbf} ne dépend 
 que de la~\gls{ftbo}.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -473,25 +326,23 @@ que de la~\gls{ftbo}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Dans cette partie, nous présentons les asservissements par boucle 
 de contre-réaction unitaire par de systèmes modèles déjà introduits 
 au~\cref{chap-model}. Nous pourrons dégager la règle générale suivante :
 \textbf{l'ordre $n$ d'une fonction de transfert en boucle ouverte $H_{BO}(p)$
 est conservé en boucle fermée par l'asservissement.}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Asservissement d'un intégrateur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Considérons un système intégrateur asservi et régi par le schéma-bloc suivant :
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{asser_int-chap_asserv-ext}
     \input{tikz/asser_int-chap_asserv.tex}
 \end{center}
-
+%-------------------------------------------------------------------------------
 La fonction de transfert en boucle ouverte $H_{BO}(p)$ est telle que :
 $$
 H_{BO}(p)=\dfrac{K}{p}
@@ -512,19 +363,19 @@ sont fondamentalement stable (du moins pour $\tau>0$) et que les intégrateurs
 sont instables.
 Ainsi, nous observons que \textbf{l'asservissement permet de stabiliser un 
 système intrinsèquement instable.} 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Asservissement d'un système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Considérons un système du premier ordre asservi et régi par le schéma-bloc 
 suivant :
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{asser_1er-chap_asserv-ext}
     \input{tikz/asser_1er-chap_asserv.tex}
 \end{center}
+%-------------------------------------------------------------------------------
 La fonction de transfert en boucle ouverte $H_{BO}(p)$ du procédé est alors 
 tel que:
 $$
@@ -550,26 +401,25 @@ premier ordre de la~\gls{ftbf} :
        K_{BF}&=\dfrac{K}{1+K}\\
     \tau_{BF}&=\dfrac{\tau}{1+K}
 \end{align*}
-
 Constatons que le gain statique en boucle ouverte $K$ intervient 
 dans la définition du gain statique $K_{BF}$ et de la constante de temps 
 $\tau_{BF}$ en boucle fermée. Ainsi en modifiant le paramètre $K$, il est 
 possible de jouer sur les deux paramètres régissant la boucle fermée.
 Pour $K>0$, le domaine de définition des paramètres du système en boucle 
 fermée sont  $K_{BF}\in[0,1[$ et  $\tau_{BF}\in]0,\tau]$
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Asservissement d'un système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Considérons un système du second ordre asservi et régi par le schéma-bloc 
 suivant :
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{asser_2nd-chap_asserv-ext}
     \input{tikz/asser_2nd-chap_asserv.tex}
 \end{center}
+%-------------------------------------------------------------------------------
 La fonction de transfert en boucle ouverte du procédé $H_{BO}(p)$ est tel que:
 $$
 H_{BO}(p)=\dfrac{K\omega^2_0}{\omega^2_0+2\xi\omega_0p+p^2}
@@ -597,10 +447,8 @@ second ordre de la~\gls{ftbf} :
     \omega_{0,BF}&=\omega_0\sqrt{1+K}\\
     \xi_{BF}&=\dfrac{\xi}{\sqrt{1+K}}
 \end{align*}
-
 On remarque que influencer le gain de la boucle ouverte permet de modifier
 tous les paramètres du second ordre de la boucle fermée.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

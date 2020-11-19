@@ -72,7 +72,6 @@ multiplication~\verb?*?, puissance~\verb?** ou ^? ).
   
     36.  
 \end{Scilabcode}
-
 Il existe quelques variables prédéfinies sous Scilab, elles sont appelées à 
 l'aide du symbole \og\verb?%?\fg. La liste de ces variables est accessible 
 par la fonction \verb?whos -name %?
@@ -87,8 +86,6 @@ par la fonction \verb?whos -name %?
 %nan  // not-a-number
 %s %z // définition de polynômes
 \end{Scilabcode}
-
-
 Quelques opérateurs logiques : 
 \begin{Scilabcode}
 -->A=0;
@@ -120,8 +117,6 @@ Quelques opérateurs logiques :
  
   T
 \end{Scilabcode}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -136,11 +131,9 @@ La déclaration d'un polynôme se fait à l'aide de deux instructions.
 La première utilise la fonction \verb?poly(0, "p")? qui définit 
 \og \verb?p?\fg comme l'indéterminée d'un polynôme. 
 La seconde instuction est l'énoncé du polynôme utilisant cette indéterminée. 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple :}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 On définit deux polynômes $D(p)=1+2p+3p^2$ et $N(p)=1+p$ de la façon 
 suivante :
 \begin{Scilabcode}
@@ -157,9 +150,7 @@ suivante :
  
     1 + p
 \end{Scilabcode}
-
 La fonction \verb?roots(D)? donne les racines du polynôme $D(p)$ :
-
 \begin{Scilabcode}
 -->roots(D)
  ans  =
@@ -198,14 +189,11 @@ respectivement :
  
   - 1.
 \end{Scilabcode}
-
 Il est également possible de définir un polynôme à partir de ces racines 
 ou de ces coefficients en appelant seulement la fonction \verb?poly?.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{\`A partir de ses racines:}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{Scilabcode}
 -->poly([1 2],'p')    // polynôme dont les racines sont 1 et 2
  ans  =
@@ -213,18 +201,15 @@ ou de ces coefficients en appelant seulement la fonction \verb?poly?.
               2  
     2 - 3p + p 
 \end{Scilabcode}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{\`A partir des ses coefficient:}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{Scilabcode}
 -->poly([1 2],'p','c')    // option 'c' nécessaire
  ans  =
  
     1 + 2p
 \end{Scilabcode}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Remarque:}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -236,10 +221,8 @@ comme le polynôme dont la racine est nulle.
 
     p
 \end{Scilabcode}
-
-Il est également de possible d'utiliser la variable \verb?\%s? qui correspond
+Il est également possible d'utiliser la variable \verb?\%s? qui correspond
 à l'instruction \verb?s=poly(0,'s')?.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -247,9 +230,6 @@ Il est également de possible d'utiliser la variable \verb?\%s? qui correspond
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%Scilab est adapté au calcul vectoriel/ matriciel numérique. 
-
 Pour définir un vecteur ligne :
 \begin{Scilabcode}
 --> v=[1,2,3]
@@ -268,7 +248,6 @@ Pour définir un vecteur ligne :
  
     1.    1.5    2.    2.5    3.    3.5    4.
 \end{Scilabcode}
-
 Pour définir un vecteur colonne :
 \begin{Scilabcode}
 --> v=[1;2;3]
@@ -278,7 +257,6 @@ Pour définir un vecteur colonne :
     2.
     3. 
 \end{Scilabcode}
-
 Nous combinons les deux syntaxes précédentes pour définir une matrice : 
 \begin{Scilabcode}
 --> m=[1 2; 3 4 ; 5 6]
@@ -288,12 +266,10 @@ Nous combinons les deux syntaxes précédentes pour définir une matrice :
     3.    4.  
     5.    6.  
 \end{Scilabcode}
-
 Le vecteur ou la liste nul est simplement déclaré par :
 \begin{Scilabcode}
 -->liste=[];
 \end{Scilabcode}
-
 Les parenthèses permettent d'accéder aux élément d'une matrice et le 
 symbole \og\verb?:?\fg permet d'accéder à toute ou une partie d'une 
 ligne ou d'une colonne
@@ -314,7 +290,6 @@ ligne ou d'une colonne
    
      1.    2. 
 \end{Scilabcode}
-
 %\newpage
 Pour concaténer deux vecteurs ou matrices :
 \begin{Scilabcode}
@@ -338,7 +313,9 @@ Pour concaténer deux vecteurs ou matrices :
     3.    4.    3.    4.  
     5.    6.    5.    6. 
 \end{Scilabcode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonctions pour construire des vecteurs et matrices élémentaires}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On utilisera la fonction ones pour construire un vecteur ou une matrice remplie 
 de 1.
 Exemple pour construire un vecteur de 10 composantes de valeurs 1 :
@@ -358,23 +335,24 @@ pour une matrice 3x3 :
     1.   1.   1.
     1.   1.   1.
 \end{Scilabcode}
-
 Les fonctions \verb?zeros? et \verb?rand? fonctionnent sur le même principe 
-pour construire respectivement des vecteurs et matrices de zéros ou de nombres aléatoires.
+pour construire respectivement des vecteurs et matrices de zéros ou de nombres 
+aléatoires.
 
-Les fonctions \verb?linspace? et \verb?logspace? permettent de construire respectivement 
-des vecteurs de valeurs linairement et logarithmiquement équidistantes.  
+Les fonctions \verb?linspace? et \verb?logspace? permettent de construire 
+respectivement des vecteurs de valeurs linairement et logarithmiquement 
+équidistantes.  
 
-Par exemple l'instruction suivante construit un vecteur de 9 éléments équidistants (de 0.5) 
-dont les valeures sont comprises entre 1 et 5 :
+Par exemple l'instruction suivante construit un vecteur de 9 éléments 
+équidistants (de 0.5) dont les valeures sont comprises entre 1 et 5 :
 \begin{Scilabcode}
 --> linspace(1,5,9)
  ans  =
 
     1.   1.5   2.   2.5   3.   3.5   4.   4.5   5.
 \end{Scilabcode}
-et l'exemple suivant, correspond à un vecteur de 5 éléments dont les valeurs sont logarithmiquement
-équidistantes (10) entre 10$^1$ et 10$^5$:
+et l'exemple suivant, correspond à un vecteur de 5 éléments dont les 
+valeurs sont logarithmiquement équidistantes (10) entre 10$^1$ et 10$^5$:
 \begin{Scilabcode}
 --> logspace(1,5,5)
  ans  =
@@ -382,11 +360,9 @@ et l'exemple suivant, correspond à un vecteur de 5 éléments dont les valeurs 
     10.   100.   1000.   10000.   100000.
 
 \end{Scilabcode}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Opération élément par élément}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Les opérateurs mathématiques de bases peuvent être utilisés 
 sur les vecteur et matrices mais doivent respecter une certaine 
 cohérence des dimensions des objets de chaque coté de l'opérateur. 
@@ -414,7 +390,6 @@ Exemple :
          2           2           2  
     p + p     10p + p     20p + p   
 \end{Scilabcode}
-
 Scilab a été conçu pour le calcul matriciel et numérique. 
 Il existe de nombreuses opérations spécifiques aux matrices et à la 
 résolution numériques que nous ne traiterons pas dans ce document.
@@ -424,7 +399,6 @@ dans la barre de menus, ou tapez   dans la console :
 \begin{Scilabcode}
 -->help <fonction>
 \end{Scilabcode}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -435,13 +409,11 @@ dans la barre de menus, ou tapez   dans la console :
 On utilisera les fonctions \verb?scf? et \verb?clf?  pour respectivement
 créer une nouvelle fenêtre graphique et éffacer le contenu d'une fenêtre 
 graphique.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple : plot de deux fenêtres (sinus/cosinus)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Le code suivant permet de tracer les fonctions sinus et cosinus sur deux fenetres
-distinctes. 
-
+Le code suivant permet de tracer les fonctions sinus et cosinus sur deux 
+fenêtres distinctes. 
 \begin{Scilabcode}
 scf(0);clf(0); // création d'une première fenêtre
 t=0.0:0.05:10; 
@@ -459,13 +431,15 @@ xlabel("$t$","fontsize",4);
 ylabel("$s_2(t)$","fontsize",4);
 title('fonction cosinus',"fontsize",4);  
 \end{Scilabcode}
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!ht]
+%-------------------------------------------------------------------------------
     \centering
     \includegraphics[width=0.8\textwidth]{fig/capture_SCILAB.eps}
-    \caption{Capture d'écran de la fenêtre graphique générée par Scilab.\label{fig-capture-SCILAB}}
+    \caption{Capture d'écran de la fenêtre graphique générée 
+             par Scilab.\label{fig-capture-SCILAB}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 La figure~\cref{fig-capture-SCILAB} présente une capture d'écran 
 d'une des fenêtres générées par Scilab.
           
@@ -548,14 +522,13 @@ plot2d(t,s(t),style=3)
 \end{Scilabcode}
 La fonction renvoie un vecteur de même taille que le vecteur \verb?t? et peut
 donc être tracé avec la fonction \verb?plot2d?.
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!hb]
-    \begin{center}
-        \includegraphics[width=0.8\textwidth]{fig/capture_SCILAB-fonction.eps}
-    \end{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{fig/capture_SCILAB-fonction.eps}
     \caption{Capture d'écran de la fenêtre générée par Scilab}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -609,14 +582,15 @@ sl=syslin(dom,H)
             \end{itemize}
     \end{itemize}
 \end{doc}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple d'utilisation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour définir un système linéaire du premier ordre de fonction de transfert
 $$
 H(p)=\dfrac{K}{1+\tau p}
 $$
-à l'aide de la fonction \verb?syslin? il existe deux syntaxes, soit en utilisant 
-la fraction rationnelle directement \verb?syslin("c",ft)?:
+à l'aide de la fonction \verb?syslin? il existe deux syntaxes, soit en 
+utilisant la fraction rationnelle directement \verb?syslin("c",ft)?:
 \begin{Scilabcode}
 // ======================================
 //  Définir un système du premier ordre
@@ -628,7 +602,8 @@ H=K/(1+tau*p);         // fonction de tranfert
 
 PO=syslin('c',H)       // définition du SLCI PO:PremierOrdre
 \end{Scilabcode}
-ou en définisant le numérateur et dénominateur séparément (c.-à-d \verb?syslin("c",num,den)?)
+ou en définisant le numérateur et dénominateur séparément 
+(c.-à-d \verb?syslin("c",num,den)?)
 \begin{Scilabcode}
 p=%s
 K=1,tau=1;                // paramètres du système
@@ -636,23 +611,22 @@ K=1,tau=1;                // paramètres du système
 PO=syslin('c',K,1+tau*p)  // définition du SLCI PO:PremierOrdre
 \end{Scilabcode}
 
-Il faut noter que les paramètres de la fonction de transfert sont affectés de valeurs
-numériques. En effet, Scilab ne peut pas traiter des variables formelles mais uniquement
-des variables \og numériques\fg.
+Il faut noter que les paramètres de la fonction de transfert sont affectés 
+de valeurs numériques. En effet, Scilab ne peut pas traiter des variables 
+formelles mais uniquement des variables \og numériques\fg.
 %\newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Simulation temporelle d'un système linéaire}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Pour simuler la réponse temporelle d'un système linéaire on utilisera la fonction 
-\verb?csim?.
+Pour simuler la réponse temporelle d'un système linéaire on utilisera la 
+fonction \verb?csim?.
 
-\begin{doc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonction csim (extrait de la doc officiel (en anglais): help csim )}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{doc}
 \begin{itemize}
     \item Syntax :
     \begin{Scilabcode}
@@ -698,7 +672,9 @@ Pour simuler la réponse temporelle d'un système linéaire on utilisera la fonc
 \end{itemize}
 \end{doc}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple d'utilisation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Pour simuler la réponse impulsionnelle on utilisera la chaîne de caractères 
 \verb?'impuls'? (ou les premiers caractères de cette chaîne). 
@@ -731,22 +707,25 @@ s2=csim(e2,t,PO)            // réponse impulsionnelle du sl PO
 \end{Scilabcode}
 Pour toute autre fonction, on donnera le vecteur de la fonction explicitement. 
 Par exemple pour la réponse à une rampe unitaire on donnera simplement 
-le vecteur \verb?t?. \`A noter que pour la réponse indicielle, nous aurions pu utiliser
-la fonction \verb?ones? :
+le vecteur \verb?t?. \`A noter que pour la réponse indicielle, nous aurions 
+pu utiliser la fonction \verb?ones? :
 
 \begin{Scilabcode}
 step=ones(size(t)(1),size(t)(2))
 s1=csim(step,t,PO)
 \end{Scilabcode}
 
-On notera que l'on utilise ici la fonction \verb?size()? pour assurer que le vecteur 
-de la sollicitation est de même taille que le vecteur \verb?t?. 
+On notera que l'on utilise ici la fonction \verb?size()? pour assurer que le 
+vecteur de la sollicitation est de même taille que le vecteur \verb?t?. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Approximation de l'impulsion de Dirac}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Il est possible d'approximée l'impulsion de Dirac par un vecteur dont
 les valeurs sont toutes nulles sauf pour sa première composante. 
-L'amplitude du \og pic\fg dépendra de l'écart entre deux valeurs du vecteur temps $\Delta t$. 
+L'amplitude du \og pic\fg dépendra de l'écart entre deux valeurs du vecteur 
+temps $\Delta t$.
 Les instructions suivantes permettent de verifier cette approximation :
 
 \begin{Scilabcode}
@@ -768,8 +747,8 @@ clf(0)
 plot2d(t,[exact' approx'],[1 2])
 \end{Scilabcode}
 
-Cette approximation est d'autant meilleure que l'intervalle $\Delta t$ est petit 
-(autrement dit que le nombre de points du vecteur \verb?t?, pour un 
+Cette approximation est d'autant meilleure que l'intervalle $\Delta t$ est 
+petit (autrement dit que le nombre de points du vecteur \verb?t?, pour un 
 intervalle donnée est grand). On utilisera cette approximation avec prudence.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -810,12 +789,13 @@ xlabel("$t$","fontsize",4);
 ylabel("$s(t)$","fontsize",4); 
 title('réponse impulsionnelle',"fontsize",4);
 \end{Scilabcode}
-
+%-------------------------------------------------------------------------------
 %\begin{figure}
+%-------------------------------------------------------------------------------
     %\includegraphics[width=0.8\textwidth]{scilab/}
 %    \caption{Réponse impulsionnelle d'un système du second ordre}
 %\end{figure}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -932,10 +912,11 @@ plzr(sl)
     \end{itemize}
 \end{itemize}
 \end{doc}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple}
-Pour tracer la carte des pôles et zéros de la fonction de transfert $H(p)$ définit 
-par :
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour tracer la carte des pôles et zéros de la fonction de transfert $H(p)$ 
+définit par :
 $$
 H(p)=\dfrac{p+2}{p^2+p+1}
 $$
@@ -945,13 +926,13 @@ p=%s
 H=syslin('c',p+2,p^2+p+1)
 plzr(H)
 \end{Scilabcode}
-
+%-------------------------------------------------------------------------------
 \begin{figure}
-    \begin{center}
-        \includegraphics[width=0.8\textwidth]{fig/capture_SCILAB-plzr.eps}
-    \end{center}
+    \centering
+    \includegraphics[width=0.8\textwidth]{fig/capture_SCILAB-plzr.eps}
     \caption{Capture d'écran de la carte des pôles générée par Scilab}
 \end{figure}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Asservissement}
@@ -989,28 +970,33 @@ Sl=Sl1/.Sl2
     \end{itemize}
 \end{itemize}
 \end{doc}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Imaginons que nous souhaitons déterminer
-le système linéaire en boucle fermée à partir des systèmes de la chaîne directe $H(p)$
-et la chaîne de retour $R(p)$ comme définit par le schéma-bloc suivant:
+le système linéaire en boucle fermée à partir des systèmes de la chaîne 
+directe $H(p)$ et la chaîne de retour $R(p)$ comme définit par le schéma-bloc 
+suivant:
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{feedback-annexe_scilab-ext}
     \input{tikz/feedback-annexe_scilab.tex}
 \end{center}
-
-La fonction de transfert en boucle fermée $H_{BF}$ est donnée par la relation de Black:
+%-------------------------------------------------------------------------------
+La fonction de transfert en boucle fermée $H_{BF}$ est donnée par la relation 
+de Black:
 $$
 H_{BF}=\dfrac{H(p)}{1+R(p)H(p)}
 $$
 
 Pour $H(p)=\dfrac{1}{1+p}$ et $R(p)=\dfrac{1}{1+p}$ alors 
 $$
-H_{BF}=\dfrac{1}{1+p}\dfrac{1}{1+\dfrac{1}{(1+p)^2}}=\dfrac{1+p}{1+(1+p)^2}=\dfrac{1+p}{p^2+2p+2}
+H_{BF}=\dfrac{1}{1+p}\dfrac{1}{1+\dfrac{1}{(1+p)^2}}
+      =\dfrac{1+p}{1+(1+p)^2}=\dfrac{1+p}{p^2+2p+2}
 $$
 
-Avec l'opération \verb?feedback?, il est aisé de déterminer cette fonction de transfert 
-en boucle fermée en quelques instructions.
+Avec l'opération \verb?feedback?, il est aisé de déterminer cette fonction 
+de transfert en boucle fermée en quelques instructions.
 \begin{Scilabcode}
 --> p=%s
 --> H=syslin('c',1,1+p);
@@ -1023,7 +1009,6 @@ en boucle fermée en quelques instructions.
                2  
      2 + 2s + s 
 \end{Scilabcode}
-
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1035,8 +1020,8 @@ en boucle fermée en quelques instructions.
 Nous présentons ici le module Xcos intégré à Scilab. Xcos inclut un 
 éditeur graphique pour facilement représenté les schémas fonctionnels
 en connectant des blocs entre eux. Cette présentation/tutoriel étant loin 
-d'être complète, nous renvoyons le lecteur à la documentation officielle de Xcos
-pour obtenir davantage de détails~\cite{steer2014scilab,premier,xcos}. 
+d'être complète, nous renvoyons le lecteur à la documentation officielle de 
+Xcos pour obtenir davantage de détails~\cite{steer2014scilab,premier,xcos}. 
 %sur l'utilisation de ce module (notamment les références
 %suivantes~\cite{steer2014scilab,premier,xcos}, sur lesquelles est basé le 
 petit tuto suivant.)
@@ -1069,7 +1054,7 @@ Il est possible de construire des super-blocs qui incorpore d'autres blocs pour
 faciliter la lecture d'un diagramme complexe. \newline
 Nous allons créer un diagramme simple. Pour celà, placer les blocs suivants 
 dans la fenêtre d'édition:
-
+%-------------------------------------------------------------------------------
 \begin{table}[!h]
     \centering
     \begin{tabular}{@{}P{4cm}P{6cm}P{4cm}@{}}
@@ -1106,18 +1091,17 @@ dans la fenêtre d'édition:
     \bottomrule
 \end{tabular}
 \end{table}
-
+%-------------------------------------------------------------------------------
 Connecter les blocs pour obtenir le schéma bloc Xcos de la 
 figure~\ref{fig-simple}.
-
+%-------------------------------------------------------------------------------
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{fig/diagramme_simple.eps}
     \caption{Exemple de diagramme simple\label{fig-simple}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 Il faut maintenant simuler et visualiser les résultats.  
-
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1152,14 +1136,15 @@ Plusieurs paramètres peuvent être ajustés :
 On utilisera les blocs particuliers dans le cas où l'on souhaite 
 utiliser des données à partir de Scilab (\og From Workspace\fg) 
 ou récupérer ces données après la simulation (\og To Workspace \fg).
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
+%-------------------------------------------------------------------------------
     \centering
     \includegraphics[width=0.25\textwidth]{fig/FROMWSB.eps}\hspace{3cm}
     \includegraphics[width=0.25\textwidth]{fig/TOWS_c.eps}
     \caption{Blocs d'échange avec Scilab\label{fig-workspace}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -8,6 +8,7 @@
 \question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\tikzsetnextfilename{ex1_1_corrige-chap0-ext}
+%-------------------------------------------------------------------------------
 \begin{center}
 \begin{tikzpicture}
    \begin{axis}[
@@ -63,6 +64,7 @@
         \end{axis}
 \end{tikzpicture}
 \end{center}
+%-------------------------------------------------------------------------------
 $$
 \color{blue}p_a(t)=\color{col4}u(t)\color{col3}-u(t-a)
 $$ 
@@ -83,6 +85,7 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\tikzsetnextfilename{ex1_3_corrige-chap0-ext}
+%-------------------------------------------------------------------------------
 \begin{center}
 \begin{tikzpicture}
    \begin{axis}[
@@ -138,6 +141,7 @@ $$
     \end{axis}
 \end{tikzpicture}
 \end{center}
+%-------------------------------------------------------------------------------
 $$
 \color{blue}u_a(t)=\color{col4}p_a(t)\color{col3}-p_a(t-a)
 $$ 
@@ -154,6 +158,7 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\tikzsetnextfilename{ex1_5_corrige-chap0-ext}
+%-------------------------------------------------------------------------------
 \begin{center}
 \begin{tikzpicture}
     \begin{axis}[
@@ -211,6 +216,7 @@ $$
     \end{axis}
 \end{tikzpicture}
 \end{center}
+%-------------------------------------------------------------------------------
 $$
 g_0(t)=\dfrac{2E}{T}\int_{0}^{t}u_{T/2}(t)\,\,\mathrm{d}\tau
 $$
@@ -254,6 +260,7 @@ S(p) = H_2(p) X(p)
 \end{align}
 où $H_2(p)$ est une fonction de transfert d'un SLCI d'entrée $X(p)$ 
 et de sortie $S(p)$.
+%-------------------------------------------------------------------------------
 \begin{center}
 %\tikzsetnextfilename{ex_2_corrige-chap0-ext}
 \begin{tikzpicture}
@@ -264,7 +271,7 @@ et de sortie $S(p)$.
         \sbRelier[$S(p)$]{H2}{S}
 \end{tikzpicture}
 \end{center}
-
+%-------------------------------------------------------------------------------
 La seconde équation différentielle, dans le domaine de Laplace, donne : 
 \begin{align*}
     pX(p)+X(p)=KE(p) \\
@@ -278,6 +285,7 @@ X(p) = H_1(p) E(p)
 \end{align}
 où $H_2(p)$ est une fonction de transfert d'un SLCI d'entrée $E(p)$ 
 et de sortie $X(p)$ :
+%-------------------------------------------------------------------------------
 \begin{center}
 %\tikzsetnextfilename{ex2_2_corrige-chap0-ext}
 \begin{tikzpicture}
@@ -288,11 +296,12 @@ et de sortie $X(p)$ :
         \sbRelier[$X(p)$]{H1}{S}
 \end{tikzpicture}
 \end{center}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Tracer le schéma fonctionnel complet du système
+%-------------------------------------------------------------------------------
 \begin{center}
 %\tikzsetnextfilename{ex_2_3_corrige-chap0-ext}
 \begin{tikzpicture}
@@ -305,6 +314,7 @@ Tracer le schéma fonctionnel complet du système
     \sbRelier[$S(p)$]{H2}{S}
 \end{tikzpicture}
 \end{center}
+%-------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
@@ -316,6 +326,7 @@ S(p) = H_2(p) H_1(p) E(p)
 $$
 On a alors une expression de la forme $S(p) =H(p) E(p)$,
 avec $H(p)=H_2(p) H_1(p)=\dfrac{K(p+30)}{(p^2+110p+1000)(p+1)}$
+%-------------------------------------------------------------------------------
 \begin{center}
 %\tikzsetnextfilename{ex_2_4_corrige-chap0-ext}
 \begin{tikzpicture}
@@ -326,6 +337,7 @@ avec $H(p)=H_2(p) H_1(p)=\dfrac{K(p+30)}{(p^2+110p+1000)(p+1)}$
 \sbRelier[$S(p)$]{H1}{S}
 \end{tikzpicture}
 \end{center}
+%-------------------------------------------------------------------------------
 On sollicite le système avec un échelon $e(t)=E_0 u(t)$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -408,6 +420,7 @@ s(t) = \laplacei{S(p)} = KE_0u(t)\left(\dfrac{3}{100} -
                          \dfrac{7}{89100}e^{-100t} \right) 
 $$
 on vérifie que $s(+\infty)=\dfrac{3}{100}KE_0$, $s(0)=0$ et $\devi{s(0)}{}=0$
+%-------------------------------------------------------------------------------
 \begin{center}
 %\tikzsetnextfilename{ex_2_5_corrige-chap0-ext}
     \begin{tikzpicture}
@@ -435,15 +448,13 @@ on vérifie que $s(+\infty)=\dfrac{3}{100}KE_0$, $s(0)=0$ et $\devi{s(0)}{}=0$
         \end{axis}
     \end{tikzpicture}
 \end{center}
-
-
+%-------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Fonction de transfert, réponse temporelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
@@ -469,6 +480,7 @@ la transformée inverse donne :
 $$
 s(t) = \laplacei{S(p)}=e^{-t}-e^{-2t}+2e^{-2t}=e^{-t}+e^{-2t}
 $$
+%-------------------------------------------------------------------------------
 \begin{center}
     %\tikzsetnextfilename{ex_3_1_corrige-chap0-ext}
     \begin{tikzpicture}
@@ -497,7 +509,7 @@ $$
     \end{axis}
     \end{tikzpicture}
 \end{center}
-
+%-------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
@@ -527,6 +539,7 @@ la transformée inverse donne :
 $$
 s(t) = \laplacei{S(p)}=e^{-2t}-e^{-3t}
 $$
+%-------------------------------------------------------------------------------
 \begin{center}
 %\tikzsetnextfilename{ex_3_2_corrige-chap0-ext}
     \begin{tikzpicture}
@@ -555,7 +568,7 @@ $$
         \end{axis}
     \end{tikzpicture}
 \end{center}
-
+%-------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
@@ -605,6 +618,7 @@ la transformée inverse donne :
 $$
 s(t) = \laplacei{S(p)}= -e^{-t}+te^{-t}+e^{-2t} = (t-1)e^{-t}+e^{-2t}
 $$
+%-------------------------------------------------------------------------------
 \begin{center}
 %\tikzsetnextfilename{ex_3_3_corrige-chap0-ext}
     \begin{tikzpicture}
@@ -635,7 +649,7 @@ $$
         \end{axis}
     \end{tikzpicture}
 \end{center}
-
+%-------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
@@ -698,7 +712,7 @@ s(t) = \laplacei{S(p)}=
 1-e^{-\frac{t}{2}}\cos{\left(\dfrac{\sqrt{3}}{2}t\right)}-
 \dfrac{1}{\sqrt{3}}e^{-\frac{t}{2}}\sin{\left(\dfrac{\sqrt{3}}{2}t\right)}
 $$
-
+%-------------------------------------------------------------------------------
 \begin{center}
 %\tikzsetnextfilename{ex_3_4_corrige-chap0-ext}
     \begin{tikzpicture}
@@ -728,7 +742,7 @@ $$
         \end{axis}
     \end{tikzpicture}
 \end{center}
-
+%-------------------------------------------------------------------------------
 \newpage 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -742,6 +756,8 @@ $$
 %Déterminer $f_0(t)$ en fonction de $g_0(t)$. 
 %Donner la transformée de Laplace de $f_0(t)$.
 %\tikzsetnextfilename{ex_4_1_corrige-chap0-ext}
+%-------------------------------------------------------------------------------
+\begin{center}
 \begin{tikzpicture}
         \begin{axis}[
         height=4cm,
@@ -768,7 +784,11 @@ $$
         \addplot[very thick,color=blue,domain=12:16, samples=101]{0.25*x-4};
         \end{axis}
 \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
 %\tikzsetnextfilename{ex_4_2_corrige-chap0-ext}
+%-------------------------------------------------------------------------------
+\begin{center}
 \begin{tikzpicture}
         \begin{axis}[
         height=4cm,
@@ -800,6 +820,8 @@ $$
         \addplot [very thick,color=col3,domain=16:20, samples=101]{-0.01};
         \end{axis}
 \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
 $$
 \color{blue}f_0(t)=\color{col4}g_0(t)\color{col3}-g_0(t-T)
 $$

@@ -7,12 +7,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph[Représentation d'un nombre complexe]
           {Représentation géométrique d'un nombre complexe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Un nombre complexe $z$ est définit par un couple 
 de nombre réel $(x,y)$, tel que 
 $$
@@ -40,8 +38,7 @@ $$
 
 Dans la représentation géométrique le conjugé $\bar{z}$ est le symétrique 
 de $z$ par rapport à l'axe des réels (\Cref{fig-plan_complexe}).
-
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{plan_complexe-annexe_cplx-ext}
@@ -52,7 +49,7 @@ de $z$ par rapport à l'axe des réels (\Cref{fig-plan_complexe}).
              par rapport à l'axe des réel.
              \label{fig-plan_complexe}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Définition du module d'un nombre complexe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -66,13 +63,10 @@ où $x=\Re{z}$ et $y=\Im{z}$ comme définit précedemment.
 
 Dans le plan complexe, le module $|z|$ correspond à la distance à l'origine du 
 point correspondant à $z$ dans le plan complexe.
-
 %Le module de $\bar{z}$ est égale au module de $z$.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Propriétés du module}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Soient $z_1$ et $z_2$ deux nombres complexes.
 \begin{itemize}
     \item $|z_1|=0 \Leftrightarrow z_1=0$
@@ -82,7 +76,7 @@ Soient $z_1$ et $z_2$ deux nombres complexes.
     \item $|z_1+z_2|\le|z_1|+|z_2|$
     \item $|-z|=|z|$;$|\bar{z}|=|z|$
 \end{itemize}
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{plan_complexe_2-annexe_cplx-ext}
@@ -95,7 +89,7 @@ Soient $z_1$ et $z_2$ deux nombres complexes.
              \arcsin{\left(\frac{y}{|z|}\right)}=
              \arctan{\left(\frac{y}{x}\right)}$.\label{fig-plan_complexe2}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Définition de l'argument d'un nombre complexe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -105,8 +99,6 @@ $z$ (\Cref{fig-plan_complexe2}). Le couple $(|z|,\theta=\arg{(z)})$ sont donc
 les coordonnées polaires de la représentation géométrique d'un nombre complexe.
 L'argument est définit à $2\pi$ près. On appelle argument principal celui qui 
 est compris entre $[-\pi,\pi]$
-
-%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Propriétés de l'argument}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -120,7 +112,6 @@ Soient $z$, $z_1$ et $z_2$ des nombres complexes.
           pour $z_2\neq0$
     \item $\arg(z\bar{z})=\arg(z)+\arg(\bar{z})=\arg(z)-\arg(z)=0[2\pi]$
 \end{itemize}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Calcul de l'argument principal d'un nombre complexe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -144,7 +135,7 @@ La formule précédente nécessite de distinguer plusieurs cas.
 Cependant, de nombreux langages de programmation fournissent
 une variante de la fonction arc tangente, qui est souvent appélee
 \verb?atan2(b,a)?, et qui traite ces différents cas. 
-%Rappelons la représentation graphique de la fonction $\arctan$:
+%-------------------------------------------------------------------------------
 \begin{figure}[!ht]
     \centering
     \tikzsetnextfilename{arctangente-annexe_cplx-ext}
@@ -152,7 +143,7 @@ une variante de la fonction arc tangente, qui est souvent appélee
     \caption{Représentation graphique de la fonction arc tangente.
              \label{fig-arctangente}}
 \end{figure}
-%\clearpage
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Forme exponentielle ou polaire d'un nombre complexe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -177,6 +168,7 @@ s'exprimer sous forme d'exponentielle complexe:
     \sin{\omega t}&=\dfrac{e^{\jw t}-e^{-\jw t}}{2j} \\
     \cos{\omega t}&=\dfrac{e^{\jw t}+e^{-\jw t}}{2}
 \end{align*}
+%-------------------------------------------------------------------------------
 \begin{figure}[!ht]
     \centering
     \tikzsetnextfilename{cercle_trigo-annexe_cplx-ext}
@@ -184,7 +176,7 @@ s'exprimer sous forme d'exponentielle complexe:
     \caption{Quelques points particuliers du cercletrigonométrique 
     ou cercle unité.}
 \end{figure}
-%\afterpage{\clearpage}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -8,10 +8,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \minitoc
 \newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -23,7 +21,6 @@ Les performances qui vont nous interesser dans
 ce chapitre sont la \textbf{précision} et la \textbf{rapidité}.
 Dans les deux cas, nous allons observer que les performances
 en boucle fermée dépendent du système en boucle ouverte. 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -37,7 +34,6 @@ Dans le domaine de Laplace, cet écart devient :
 $$
 \epsilon(p)=E(p)-S(p)
 $$
-
 On distingue deux cas :
 \begin{itemize}
     \item En régime permanent, cet écart $\epsilon_s$ est nommée 
@@ -45,7 +41,6 @@ On distingue deux cas :
     \item En régime transitoire, cet écart $\epsilon(t)=e(t)-s(t)$ est 
 		  nommée \textbf{erreur dynamique.}
 \end{itemize}
-
 L'erreur dynamique consiste à suivre l'écart défini précedemment durant 
 le transitoire.
 
@@ -67,21 +62,19 @@ de $\epsilon(t)$ ou encore en appliquant le théorème de la valeur finale :
 \end{bequation}
 Rappelons que pour pouvoir appliquer ce théorème la valeur finale doit 
 être finie ou en d'autre mot le système doit être stable.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Précision en boucle ouverte}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Soit un système caractérisé par la fonction de transfert $H(p)$ 
 est sollicité par l'entrée $E(p)$. La sortie $S(p)$ est alors donnée par :
-
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{sb_bloc1-chap_perf-ext}
     \input{tikz/sb_bloc1-chap_perf.tex}
 \end{center}
-
+%-------------------------------------------------------------------------------
 L'erreur statique est alors donnée par :
 $$
 \epsilon(\infty)=\lim\limits_{p\to 0} p\big(E(p)-H(p)E(p)\big)
@@ -100,22 +93,19 @@ $$
 $$
 
 Le système est prècis (c.a.d $\epsilon(\infty)=0$) si $K=1$. 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Précision en boucle fermée}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Considérons le cas d'un système asservi de fonction de transfert $H(p)$
 par une boucle de contre-réaction à retour unitaire.
-
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{sb_bloc2-chap_perf-ext}
     \input{tikz/sb_bloc2-chap_perf.tex}
 \end{center}
-
+%-------------------------------------------------------------------------------
 La~\gls{ftbo} est simplement donnée par $H(p)$. Dans le cas le plus
 générale, il est toujours possible d'écrire une fonction de transfert
 sous la forme canonique (\Cref{chap-slci}) :
@@ -124,8 +114,6 @@ H_{BO}(p)=\dfrac{K}{p^\alpha}\cdot\dfrac{N(p)}{D(p)}
 $$
 avec $\alpha$ la classe du système en boucle ouverte, $K$ le gain statique et 
 $N(p)$ et $D(p)$ deux polynômes tels que $N(0)=D(0)=1$. 
-
-
 Dans le domaine de Laplace l'écart $\epsilon(p)$ s'écrit :
 $$
 \epsilon(p)=E(p)-S(p)=\left(1-\dfrac{H_{BO}(p)}{1+H_{BO}(p)}\right)E(p)
@@ -152,11 +140,9 @@ de la classe $\alpha$ de la fonction de transfert en boucle ouverte.
 
 Nous allons maintenant considérer différentes types de sollicitations pour 
 différentes classes de système en boucle ouverte.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Erreur statique indicielle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 L'erreur indicielle est l'erreur entre la sortie d'un système et une 
 sollicitation en échelon $e(t)=E_0u(t)$ de transformée de Laplace 
 $E(p)=\dfrac{E_0}{p}$. 
@@ -178,7 +164,6 @@ $$
 \epsilon_s=\lim\limits_{p\to 0} \dfrac{p^\alpha}{p^\alpha+K}E_0=0
 $$
 Les réponses indicielle des systèmes de classe $\alpha>0$ sont donc précis.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Erreur statique de poursuite}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -211,11 +196,9 @@ $$
 \epsilon_s=\lim\limits_{p\to 0}\dfrac{p^{\alpha-1}}{p^\alpha+K}E_0=0
 $$
 Le système est donc prècis.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Erreur statique d'accélération}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 L'erreur d'accélération est l'erreur statique d'un système soumis à un signal
 parabolique $e(t)=E_0t^2 u(t)$ de transformée de Laplace 
 $E(p)=\dfrac{2E_0}{p^3}$
@@ -239,6 +222,7 @@ $$
 $$
 et s'annule pour $\alpha>2$
 
+%-------------------------------------------------------------------------------
 \begin{table}
     \ra{2.0}
     \centering
@@ -251,20 +235,18 @@ et s'annule pour $\alpha>2$
     $\dfrac{2E_0}{p^3}$&$+\infty$&$+\infty$&$\dfrac{2E_0}{K}$&0\\
     \bottomrule
     \end{tabular}
-\caption{Résumé des erreurs statiques pour différentes 
-         sollicitations et classe de système en boucle ouverte}
+    \caption{Résumé des erreurs statiques pour différentes 
+             sollicitations et classe de système en boucle ouverte}
 \end{table}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Effet d'une perturbation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Cas générale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 On considère maintenant l'effet d'une perturbation sur la précision d'un 
 système asservis.
 Sans perte de généralité, on ne considèrera que le cas d'une perturbation 
@@ -280,12 +262,12 @@ et $H_2(p)$ de forme canonique :
 \end{align*}
 de les gains statiques $K_i$, de classe $\alpha_i$, de polynômes $N_i(p)$
 et $D_i(p)$ tels que $N_i(0)=$ et $D_i(0)=0$.
-
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{reduc_mult1-chap_perf-ext}
     \input{tikz/reduc_mult1-chap_perf.tex}
 \end{center}
-
+%-------------------------------------------------------------------------------
 Pour déterminer l'écart à la consigne d'un tel système, il faut déterminer
 la sortie globale du système asservis à deux entrées 
 (c.f~\cref{chap_bloc}~\cref{sec-bloc_multE}).
@@ -324,12 +306,12 @@ rejeter cette contribution.
 
 La fonction de transfert $H_{E=0}$, de la régulation, correspondant à une 
 consigne nulle, s'obtient en considérant le schéma-bloc suivant :
-
+%-------------------------------------------------------------------------------
 \begin{center}                                                  
     \tikzsetnextfilename{pert1-chap_perf-ext}
     \input{tikz/pert1-chap_perf.tex}
 \end{center}                                                    
-
+%-------------------------------------------------------------------------------
 \newcommand{\pau}{p^{\alpha_1}}
 \newcommand{\pad}{p^{\alpha_2}}
 en boucle fermée, on a alors:
@@ -341,15 +323,14 @@ $$
 H_{E=0}(p)=
 \dfrac{\pau K_2N_2(p)D_1(p)}{\pau\pad D_1(p)D_2(p)+K_1K_2N_1(p)N_2(p)}
 $$
-
 Examinons l'erreur en régime permanent pour une perturbation constante.
 C'est à dire pour perturbation $P(p)$ en échelon telle que 
 $P(p)=\dfrac{P_0}{p}$. L'erreur dû à la perturbation en régime permanent 
 est alors :
 \begin{align*}
-\epsilon_P&=\lim\limits_{p\to0} p\epsilon_P\\
-\epsilon_P&=\lim\limits_{p\to0} -H_{E=0}P_0\\
-\epsilon_P&=\lim\limits_{p\to0}\dfrac{\pau K_2}{\pau\pad+K_1K_2}P_0
+    \epsilon_P&=\lim\limits_{p\to0} p\epsilon_P\\
+    \epsilon_P&=\lim\limits_{p\to0} -H_{E=0}P_0\\
+    \epsilon_P&=\lim\limits_{p\to0}\dfrac{\pau K_2}{\pau\pad+K_1K_2}P_0
 \end{align*}
 \textbf{La perturbation est rejétée si $\alpha_1>0$, c'est à dire s'il existe
 au moins un intégrateur en amont de la perturbation.}
@@ -358,17 +339,18 @@ donnée par :
 $$
 \epsilon_P=\lim\limits_{p\to0}\dfrac{K_2}{\pau\pad+K_1K_2}P_0
 $$
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Exemple de rejet de perturbation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous allons voir ici le rejet d'une perturbation d'un système du premier ordre. 
 On considère le système du premier ordre, en boucle ouverte, placé dans une 
 boucle de contre réaction unitaire avec un intégrateur comme ci-dessous :
+%-------------------------------------------------------------------------------
 \begin{center}                           
     \tikzsetnextfilename{pert2-chap_perf-ext}
     \input{tikz/pert2-chap_perf.tex}
 \end{center}                             
+%-------------------------------------------------------------------------------
 On souhaite réguler ce système pour une consigne en échelon.
 D'après les résultats précédents, l'erreur statique de position est nulle 
 en asservissement puisque le système présente au moins un intégrateur. 
@@ -387,6 +369,7 @@ $$
 L'erreur statique de position totale est donc non nulle. La perturbation
 n'est pas rejétée comme on peut le voir sur la simulation de la réponse
 temporelle globale de ce système (c.f~\cref{fig-pert1}).
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{pert1_data-chap_perf-ext}
@@ -396,6 +379,7 @@ temporelle globale de ce système (c.f~\cref{fig-pert1}).
              de la réponse temporelle est obtenue pour les paramètres suivants:
              $E_0=1$, $\tau=15$\label{fig-pert1}}
 \end{figure}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Si l'intégrateur est en amont de la perturbation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -406,6 +390,7 @@ $$
 L'erreur statique de position totale est donc nulle. La perturbation
 est rejétée, comme on peut le voir sur la simulation de la réponse
 temporelle globale de ce système (c.f~\cref{fig-pert2}).
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{pert2_data-chap_perf-ext}
@@ -415,6 +400,7 @@ temporelle globale de ce système (c.f~\cref{fig-pert2}).
              de la réponse temporelle est obtenue pour les paramètres suivants: 
              $E_0=1$, $\tau=15$\label{fig-pert2}}
 \end{figure}
+%-------------------------------------------------------------------------------
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -456,6 +442,7 @@ tend asymptotiquement en oscillant vers la valeur finale, le temps de
 réponse à 5\% correspond au temps pour lequel le signal de la réponse reste
 dans une bande à 5\% autour de la valeur finale. 
 
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{rapidite_t5pc_1-chap_perf-ext}
@@ -466,6 +453,7 @@ dans une bande à 5\% autour de la valeur finale.
              d'une résonse temporelle sans pseudo-oscillations et (à droite) 
              dans le cas d'un réponse temporelle avec pseudo-oscillations}
 \end{figure}
+%-------------------------------------------------------------------------------
 
 Il apparait clair que dans le cas d'une réponse présentant des oscillations,
 le temps de réponse à 5\% va dépendre de l'amplitude et la période des 
@@ -480,7 +468,7 @@ réponse passe pour la première fois par la valeur finale. Cependant,
 il faut remarquer que pour certaine réponse la valeur finale n'est 
 jamais atteinte en un temps fini. Cette dernière définition
 n'a donc de sens qu'en régime pseudo-périodique.
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{rapidite_tm_1-chap_perf-ext}
@@ -491,7 +479,7 @@ n'a donc de sens qu'en régime pseudo-périodique.
              d'une résonse temporelle sans pseudo-oscillations et (à droite) 
              dans le cas d'un réponse temporelle avec pseudo-oscillations}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 Quelque soit la grandeur utilisée pour caractériser les performances de rapidité
 d'un système linéaire, on dira que \textbf{plus le temps de réponse à 5\% et le
 temps de montée $t_m$ seront faibles plus le système sera rapide.}
@@ -561,8 +549,7 @@ apériodique ($\xi>1$)), le système est le plus rapide pour
 $t_{5\%}\cdot\omega_0\sim5$. Dans le cas où un dépassement relatif est 
 autorisé, la temps de réponse minimal est obtenu pour $\xi\sim 0.7$ soit
 pour $t_{5\%}\cdot\omega_0\sim3$.}
-
-%------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}
     \centering
     \tikzsetnextfilename{rapidite_tr_2ndordre-chap_perf-ext}
@@ -580,9 +567,8 @@ pour $t_{5\%}\cdot\omega_0\sim3$.}
              de $\xi$.
              \label{fig-2nd_temps_reponse_1}}
 \end{figure}
-%------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \clearpage
-
 Il est possible de déterminer une relation analytique pour le temps
 de montée à la valeur finale $t_{M}$. Rappelons quelques résultats obtenus
 pour la réponse indicielle d'un système du second ordre en régime 
@@ -633,9 +619,7 @@ on a :
 $$
 t_{M}=t_{5\%}
 $$}
-
-
-%------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{figure}[!b]
     \centering
     \tikzsetnextfilename{rapidite_tr_2ndordre_2-chap_perf-ext}
@@ -648,8 +632,7 @@ $$}
              texte (c.f~\cref{eq-tM}). 
              \label{fig-2nd_temps_reponse_2}}
 \end{figure}
-%------------------------------------------------------------------------------
-
+%-------------------------------------------------------------------------------
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Effet du bouclage sur un système du second ordre}
@@ -677,29 +660,24 @@ système plus rapide en boucle fermée,
           $K$.
 \end{itemize}
 }
-
 Dans le cas où $\xi_{BF}<0.7$ une conclusion générale est impossible on 
 se reportera sur les abaques du temps de réponse ou du temps de montée en 
 fonction du coefficient d'amortissement pour établir la rapidité du système
 en boucle fermée.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Réponse harmonique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Définition de la bande passante à -x\si{\dB}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\acpl
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Influence des pôles dominants}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Soient $p_1,\ldots,p_n$ les pôles d'un système stable\footnote{À partir 
 des résultats obtenus dans ce chapitre il est déjà clair que la stabilité
 d'un système dépend également des pôles de sa fonction de transfert}.
@@ -710,7 +688,6 @@ suffisant pour considérer une domination d'un pôle sur les autres}
 \begin{bequation}[ams align]
     \big|\Re{p_i}\big| \ll \big|\Re{p_j}\big|\;\; \forall j\neq i
 \end{bequation}
-
 Pour observer l'influence d'un pôle dominant sur 
 la réponse temporelle d'un système linéaire, nous
 nous allons l'illustrer par l'étude d'une fonction 
@@ -741,7 +718,7 @@ les réponses indicielles de ces trois fonctions de transfert
 Nous constatons que la réponse indicielle $s_1(t)$ de la fonction
 de transfert $H_1(p)$ domine le temps de réponse de la sortie
 globale $s(t)$.
-
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{pole_dominant-chap_perf-ext}
@@ -755,11 +732,10 @@ globale $s(t)$.
              (à droite) carte des pôles du système en question
              \label{fig-poles_dominants}}
 \end{figure}
-
+%-------------------------------------------------------------------------------
 En conclusion, l'étude des pôles dominants de la fonction de transfert 
 d'un système est, en première approximation, suffisante pour caractériser 
 la rapidité d'un système que se soit en boucle ouverte ou en boucle fermée.
-
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
