@@ -1,0 +1,17 @@
+#!/bin/bash
+GRE='\033[0;32m'
+RED='\033[0;31m'
+NOC='\033[0m'
+for file in $1/*.tex
+do
+    check1=$(bin/check_math ${file})
+    if [ ! -z "${check1}" ]
+    then 
+        echo -e "you should check for math display errors in ${RED}$file${NOC}"
+        echo "... and rerun this script to be sure"
+        bin/check_math $file
+        exit 1
+    fi
+done
+echo -e "${GRE}no math display errors found in $1/*.tex${NOC}"
+exit 0
