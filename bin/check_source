@@ -1,4 +1,13 @@
 #!/bin/bash
+GRE='\033[0;32m'
+NOC='\033[0m'
 bin/check_sep_all
+[ $? -ne 0 ] && exit 1
 bin/check_column_all tex
+[ $? -ne 0 ] && exit 1
 bin/check_column_all tikz 
+[ $? -ne 0 ] && exit 1
+bin/check_math_all tex
+[ $? -ne 0 ] && exit 1
+bin/check_math_all tikz 
+echo -e "${GRE}everything ok${NOC}"

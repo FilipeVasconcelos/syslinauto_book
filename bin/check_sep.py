@@ -69,7 +69,9 @@ if __name__=="__main__":
          "\\begin{center}":[1,"-","\\end{center}"],
          "\\begin{table}":[1,"-","\\end{table}"],
          "\\begin{bequation}":[1,"-","\\end{bequation}"],
-         "\\begin{itemize}":[1,"-","\\end{itemize}"]
+         "\\begin{itemize}":[1,"-","\\end{itemize}"],
+         "\\begin{criteria}":[1,"-","\\end{criteria}"],
+         "\\begin{definition}":[1,"-","\\end{definition}"]
          }
 
     for checking,data in sep.items() :
