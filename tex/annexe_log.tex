@@ -30,9 +30,9 @@ ceci avant le développement de calculateur numérique performant.}.
 
 Formellement, la fonction logarithme décimal $\log{(x)}$ est défini 
 analytiquement par 
-$$
+\[
 \log{(x)}=\dfrac{\ln{(x)}}{\ln{(10)}}
-$$
+\]
 où la fonction $\ln{x}$ est la fonction logarithme néperien (i.e en base 
 naturelle $e$) 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -108,15 +108,15 @@ exprimant la valeur relative entre deux quantités (de puissances en
 particuliers) par le logarithme décimal de leur rapport. Le décibel (\si{\dB}), 
 plus couramment utilisé, est définie comme un dixieme de bel, et donc 
 correspond à dix fois le logarithme décimal du rapport.
-$$
+\[
 X_{dB}=10\log{\dfrac{P_s}{P_e}}
-$$
+\]
 Le gain en décibel reporté sur un diagramme de Bode correspond à 
 la valeur relative à 1 du carré du gain $G$ (le carré de l'amplitude d'un 
 signal pouvant être définit comme une puissance). Ainsi,
-$$
+\[
 G_{dB}=10\log{G^2} = 20\log{G}
-$$
+\]
 Nous rappellons que le gain $G(\omega)$, dit naturel, est le module de la
 fonction de transfert $G(\omega)=|H(\jw)|$. Le~\cref{tab-equiv_dB} donne 
 l'équivalence entre le gain naturel $G$ et gain décibel $G_{dB}$ pour 
@@ -153,24 +153,24 @@ H(\jw)=\dfrac{1}{1+\jw}\label{eq-ft_annexe}
 \paragraph{Tracé du gain}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le gain de cette fonction de transfert $G(\omega)=|H(\jw)|$ s'écrit :
-$$
+\[
 G(\omega)=\dfrac{1}{\sqrt{1+\omega^2}}
-$$
+\]
 le gain en décibel est donc :
-$$
+\[
 G_{dB}(\omega)=20\log{\dfrac{1}{\sqrt{1+\omega^2}}}=-20\log{\sqrt{1+\omega^2}}
-$$
+\]
 C'est cette fonction qu'il faut tracer point par point sur le diagramme 
 de Bode, cependant il est généralement recommandé d'étudier les asymptotes 
 de cette fonction avant de tracer la courbe. Pour les basses fréquences, le 
 gain en décibel ce commporte comme 
-$$
+\[
 G_{dB}(\omega)\sim-20\log{1}\sim 0\text{dB}
-$$ 
+\] 
 et pour les hautes fréquences, comme
-$$
+\[
 G_{dB}(\omega)\sim -20\log{\omega}.
-$$
+\]
 Dans le cas des hautes fréquences, lorsque la pulsation est mutiplié par 
 10 (i.e une décade ) le gain diminue de \SI{-20}{\dB}, on dit également 
 qu'à haute fréquence le gain possède une pente de \textbf{-20dB par décade}. 
@@ -192,33 +192,31 @@ marque la \og séparation\fg entre basses et hautes fréquences.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La phase $\phi(\omega)$ correspond à l'argument principale (\Cref{annexe-NC}) 
 de la fonction complexe $H(\jw)$.
-$$
+\[
 \phi(\omega)=\arg{H(\jw)}=-\arg{(1+\jw)}=-\arctan{\omega}
-$$
+\]
 C'est cette fonction $\phi(\omega)$ qu'il faut tracer point par point 
 sur le diagramme de Bode, mais comme précedemment
 il est conseillé de déterminer les asymptotes à basse et haute fréquence.
 \`A basse fréquence, la phase se comporte comme,
-$$
+\[
 \phi(\omega)\sim 0
-$$ 
+\] 
 et à haute fréquence, comme, 
-$$
+\[
 \phi(\omega)\sim -\dfrac{\pi}{2}.
-$$
+\]
 Les asymptotes sont une approximation bien plus 
 grossière dans le cas de la phase. 
 En générale, il est recommandé de 
 calculer la phase pour des valeurs particulières de la 
 pulsation. Par exemple, à la pulsation de coupure, 
 lorsque $\omega=$1, la phase est de -45\degree, en effet,
-$$
+\[
 \phi(1)=-\arg{(1+\jw)}=-\dfrac{\pi}{4}
-$$
-
+\]
 La~\cref{fig-bode_annexe} présente le diagramme de Bode associé à 
 la fonction de transfert de l'\cref{eq-ft_annexe}.
-
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

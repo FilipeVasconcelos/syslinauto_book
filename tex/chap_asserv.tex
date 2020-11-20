@@ -73,7 +73,7 @@ ces exigences de performances choisis initialement.
 
 Il existe deux approches pour élaborer la \textbf{commande} 
 d'un système linéaire :% soit en boucle ouverte soit en boucle fermée.
-
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item En \textbf{boucle ouverte}: on place un correcteur $C(p)$
           en amont du système pour élaborer 
@@ -102,6 +102,7 @@ d'un système linéaire :% soit en boucle ouverte soit en boucle fermée.
           et la réponse globale du système en boucle fermée est
           appelée l'\textbf{écart} $\epsilon(p)$.
 \end{itemize}
+%-------------------------------------------------------------------------------
 La rétroaction\footnote{\emph{feedback} (en anglais)} est devenu incontournable
 dans les applications industrielles et technologiques. Par abus de langage 
 c'est le système en boucle fermée que l'on nomme asservissement. Cependant, la 
@@ -314,9 +315,9 @@ appliquant la réduction des schémas blocs (c.f~\cref{sec-boucle}),
 %-------------------------------------------------------------------------------
 Remarquons que dans le cas d'une boucle de contre réaction unitaire 
 (c.a.d $H_{CR}(p)=1$), la~\gls{ftbf} se réduit à :
-$$
+\[
 H_{BF}(p)=\dfrac{H_{BO}(p)}{1+H_{BO}(p)}
-$$
+\]
 Dans le cas d'une contre réaction unitaire, la~\gls{ftbf} ne dépend 
 que de la~\gls{ftbo}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -344,14 +345,14 @@ Considérons un système intégrateur asservi et régi par le schéma-bloc suiva
 \end{center}
 %-------------------------------------------------------------------------------
 La fonction de transfert en boucle ouverte $H_{BO}(p)$ est telle que :
-$$
+\[
 H_{BO}(p)=\dfrac{K}{p}
-$$
+\]
 avec $K$ le gain statique. 
 La~\gls{ftbf} est alors donnée :
-$$
+\[
 H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=\dfrac{K}{p+K}=\dfrac{1}{\tau_{BF} p+1}
-$$
+\]
 Remarquons qu'un intégrateur asservi devient un système du premier 
 ordre de gain statique unité et de constante de temps $\tau_{BF}=\dfrac{1}{K}$ 
 où $K$ est le gain statique de la~\gls{ftbo}\footnote{Un intégrateur étant 
@@ -378,21 +379,21 @@ suivant :
 %-------------------------------------------------------------------------------
 La fonction de transfert en boucle ouverte $H_{BO}(p)$ du procédé est alors 
 tel que:
-$$
+\[
 H_{BO}(p)=\dfrac{K}{1+\tau p}
-$$
+\]
 où $K$ est le gain statique et $\tau$ la constante de temps 
 du système en boucle ouverte. 
 La~\gls{ftbf} est alors donnée :
-$$
+\[
 H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=\dfrac{K}{(1+K)+\tau p}
-$$
+\]
 Remarquons que comme attendu la~\gls{ftbf} reste du premier ordre. 
 Sous sa forme canonique cette fonction de transfert devient :
-$$
+\[
 H_{BF}(p)=\dfrac{\dfrac{K}{1+K}}{1+\dfrac{\tau}{1+K}p}
 =\dfrac{K_{BF}}{1+\tau_{BF} p}
-$$
+\]
 où $K_{BF}$ est le gain statique et $\tau_{BF}$ la constante de temps du 
 système boucle fermée. Par identification, on alors les rélations suivantes 
 entre les paramètres du premier ordre de la~\gls{ftbo} et les paramètres du 
@@ -421,24 +422,24 @@ suivant :
 \end{center}
 %-------------------------------------------------------------------------------
 La fonction de transfert en boucle ouverte du procédé $H_{BO}(p)$ est tel que:
-$$
+\[
 H_{BO}(p)=\dfrac{K\omega^2_0}{\omega^2_0+2\xi\omega_0p+p^2}
-$$
+\]
 où $K$ est le gain statique, $\omega_0$ la pulsation propre et $\xi$ 
 le coefficient d'amortissement du système en boucle ouverte.
 La~\gls{ftbf} est donnée par :
-$$
+\[
 H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=
 \dfrac{K\omega^2_0}{\omega^2_0(1+K)+2\xi\omega_0p+p^2}
-$$
+\]
 Une nouvelle fois, nous constatons que la fonction de transfert en 
 boucle fermée est du même ordre que celle en boucle ouverte. 
 Sous une forme canonique la~\gls{ftbf} devient :
-$$
+\[
 H_{BF}(p)=\dfrac{K\omega^2_0}{\omega^2_0(1+K)+2\xi\omega_0p+p^2}=
 \dfrac{K_{BF}\omega^2_{0,BF}}{\omega^2_{0,BF}(1+K_{BF})+
 2\xi_{BF}\omega_{0,BF}p+p^2}
-$$
+\]
 Par identification, on alors les rélations suivantes entre 
 les paramètres du second ordre de la~\gls{ftbo} et les paramètres du 
 second ordre de la~\gls{ftbf} :

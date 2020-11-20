@@ -33,12 +33,12 @@ tend à y revenir}
 
 Rappel sur les réponses temporelles du premier ordre et du second ordre \ldots
 \acpl
-
+%-------------------------------------------------------------------------------
 \begin{criteria}{Condition fondamentale de stabilité}
     \textbf{Un système est stable si sa fonction de transfert ne possède aucun 
             pôles à partie réelle positive.}
 \end{criteria}
-
+%-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \clearpage
 \thispagestyle{empty}
@@ -80,14 +80,16 @@ Rappel sur les réponses temporelles du premier ordre et du second ordre \ldots
     \input{tikz/asser-chap_stab.tex}
 \end{center}
 %-------------------------------------------------------------------------------
-$$
+\[
 H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{a_mp^m+a_{m-1}p^{m-1}+\ldots+a_1p+a_0}
                                    {b_np^n+b_{n-1}p^{n-1}+\ldots+b_1p+b_0}
-$$
+\]
+%-------------------------------------------------------------------------------
 \begin{criteria}{Condition de stabilité d'un système asservi (1)}
     \textbf{Un système asservi est stable si sa fonction de transfert en 
             boucle fermée ne possède aucun pôles à partie réelle positive.}
 \end{criteria}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Inconvénients de la condition fondamentale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -126,17 +128,17 @@ cette propriété en posant deux conditions pour établir qu'un polynôme est
 un polynôme de Hurwitz. Dans le cas de l'application de la stabilité des 
 systèmes linéaires asservis, la première condition s'énonce 
 de la façon suivante :
+%-------------------------------------------------------------------------------
 \begin{criteria}{Condition nécessaire de Routh-Hurwitz }
     \textbf{Un système asservi d'ordre $n$ est stable en boucle fermée 
     si tous les coefficients ($b_i\forall i\neq n$) de son équation 
     caractéristique sont de même signe que $b_n$.}
 \end{criteria}
-
+%-------------------------------------------------------------------------------
 \textbf{Cette condition nécessaire s'avère suffisante si le système est du 
 premier ou du second ordre.} Pour un ordre supérieur il faut construire le 
 tableau de Routh à partir des coefficients de $D(p)$,
 pour appliquer une condition supplémentaire. 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Tableau de Routh}
@@ -302,39 +304,23 @@ A_{21} & A_{22} \\ A_{31} & A_{22}
     A_{41}      & A_{42}     & A_{43}    & \cdots & \cdots    & \cdots   \\
     \vdots    & \vdots     & \vdots     & \vdots & \vdots     & \vdots   \\
     \end{vmatrix}
-\Rightarrow
-A_{42}=-\dfrac{1}{A_{31}}
-\begin{vmatrix} 
-A_{21} & A_{23} \\ A_{31} & A_{33} 
+    \Rightarrow
+    A_{42}=-\dfrac{1}{A_{31}}
+    \begin{vmatrix} 
+        A_{21} & A_{23} \\ A_{31} & A_{33} 
 \end{vmatrix}
 \]
-
 Et ainsi de suite jusque la dernière ligne du tableau. 
-
 La formule générale pour obtenir l'élément $A_{ij}$ est alors :
-
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-A_{ij}=-\dfrac{1}{A_{(i-1)1}}
-\begin{vmatrix} 
-A_{(i-2)1} & A_{(i-2)(j+1)} \\ 
-A_{(i-1)1} & A_{(i-1)(j+1)} 
-\end{vmatrix}
+    A_{ij}=-\dfrac{1}{A_{(i-1)1}}
+    \begin{vmatrix} 
+        A_{(i-2)1} & A_{(i-2)(j+1)} \\ 
+        A_{(i-1)1} & A_{(i-1)(j+1)} 
+    \end{vmatrix}
 \end{bequation}
-
-\newcommand*{\DoTikzmarkU}[1]{%
-\tikzset{external/export next=false}
-    \tikz[remember picture] \coordinate[shift={(-1ex,1.75ex)}](#1);%
-}
-\newcommand*{\DoTikzmarkD}[1]{%
-\tikzset{external/export next=false}
-    \tikz[remember picture] \coordinate[shift={(-1ex,-0ex)}](#1);%
-}
-
-\renewcommand*{\colrow}[3][]{%
-\tikzset{external/export next=false}
-  \tikz[overlay,remember picture, line width=40pt]
-    \draw[shorten >=-1.25em, shorten <=-.5em, #1] (#2.north)--(#3.north);
-}
+%-------------------------------------------------------------------------------
 Le critère s'applique sur la première colonne ainsi construit dite 
 \textbf{colonne des pivots} du tableau de Routh. 
 \[
@@ -348,39 +334,36 @@ Le critère s'applique sur la première colonne ainsi construit dite
     p^0    \\
 \end{matrix}
 \begin{vmatrix}
-    b_n\DoTikzmarkU{n1}  & b_{n-2}    & b_{n-4}    & \cdots & b_2      & b_0\\
-    b_{n-1}              & b_{n-3}    & b_{n-5}    & \cdots & b_1      & 0 \\
-    A_{31}               & A_{32}     & A_{33}     & \cdots & A_{3(k-1)} & 0 \\
-    A_{41}               & A_{42}     & A_{43}     & \cdots & 0        & 0 \\
-    \vdots               & \vdots     & \vdots     & \vdots & \vdots   & 0 \\
-    A_{(n-1)1}           & A_{(n-1)2} & 0          & \cdots & 0        & 0 \\
-    b_0\DoTikzmarkD{n2}  & 0          & 0          & \cdots & 0        & 0
+    b_n\DoTikzmark{-1ex}{1.75ex}{n1} & b_{n-2} & b_{n-4}& \cdots & b_2  & b_0\\
+    b_{n-1}              & b_{n-3}   & b_{n-5} & \cdots & b_1      & 0 \\
+    A_{31}               & A_{32}    & A_{33}  & \cdots & A_{3(k-1)} & 0 \\
+    A_{41}               & A_{42}    & A_{43}  & \cdots & 0        & 0 \\
+    \vdots               & \vdots    & \vdots  & \vdots & \vdots   & 0 \\
+    A_{(n-1)1}           & A_{(n-1)2}& 0       & \cdots & 0        & 0 \\
+    b_0\DoTikzmark{-1ex}{-0ex}{n2}    & 0       & 0      & \cdots & 0 & 0
 \end{vmatrix}
 \]
 \colrow[col3,opacity=.2]{n1}{n2}
-
+%-------------------------------------------------------------------------------
 \begin{criteria}{Critère de Routh-Hurtwitz}
     \textbf{Un système asservi est stable en boucle fermée
             si tous les termes de la colonne des pivots 
             du tableau de Routh du polynôme caractéristique 
             de la fonction de transfert en boucle fermée sont de même signes.}
 \end{criteria}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Remarques:}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le nombre de changement de signe, nous donne le nombre de pôles à partie 
 réelle positives (instables) de la fonction de transfert en boucle fermée.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Propriétés du tableau de Routh}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Nous énonçons ici quelques propriétés du tableau de Routh 
 pour faciliter ou permettre l'application du critère dans 
 des cas particuliers~\cite{Ostertag}. 
-
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item Pour simplifier les calculs, il est possible de factorisée par un 
           entier une ligne du tableau.
@@ -393,9 +376,9 @@ des cas particuliers~\cite{Ostertag}.
           du tableau de Routh indique que le polynôme du dénominateur de la 
           fonction de transfert possède une paire de pôles, qui sont racines de 
           l'équation auxiliaire :
-    $$
-    Ap^2+B=0
-    $$
+    \[
+        Ap^2+B=0
+    \]
     où $A$ et $B$ sont les coefficients de la ligne précédente du tableau. 
     On peut alors continuer le tableau en remplaçant la ligne de coefficients 
     nuls par les coefficients de la dérivée de l'équation auxiliaire. 
@@ -406,7 +389,7 @@ des cas particuliers~\cite{Ostertag}.
     réelle positive, ou il converge vers des oscillations entretenues si les 
     autres racines ont toutes une partie réelle négative.
 \end{itemize}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Exemple d'application du critère de Routh-Hurwitz}
@@ -430,13 +413,13 @@ Soit un système asservi défini par le schéma-bloc suivant :
 \end{center}
 %-------------------------------------------------------------------------------
 La fonction de transfert en boucle fermée $H_{BF}(p)$ s'écrit :
-$$
-H_{BF}(p)=\dfrac{H_{BO}(p)}{1+H_{BO}(p)}=\dfrac{K}{p^3+p^2+3p+K}.
-$$
+\[
+    H_{BF}(p)=\dfrac{H_{BO}(p)}{1+H_{BO}(p)}=\dfrac{K}{p^3+p^2+3p+K}.
+\]
 L'équation caractéristique $D(p)$ de $H_{BF}$ est donc 
-$$
-D(p)=p^3+p^2+3p+K,
-$$
+\[
+    D(p)=p^3+p^2+3p+K,
+\]
 Nous constatons que le système est d'ordre 3 de coefficients :
 \begin{align*}
     b_3&=1\\
@@ -447,7 +430,7 @@ Nous constatons que le système est d'ordre 3 de coefficients :
 Le critère nécessaire de Routh est donc respecté pour $K>0$. L'équation 
 caractéristique étant d'ordre 3, il nous faut construire le tableau de Routh, 
 afin de vérifier le critère supplémentaire :
-$$
+\[
 \begin{matrix}
     p^3 \\
     p^2 \\
@@ -461,52 +444,38 @@ $$
     \hline
     A_{31}  & 0  \\
     A_{41}  & 0    
-    \end{vmatrix}
-$$
+\end{vmatrix}
+\]
 
-$$
+\[
 A_{31}=-\begin{vmatrix}1 & 3 \\ 1 & K\end{vmatrix}=3-K
-$$
+\]
 
-$$
+\[
 A_{41}=-\dfrac{1}{A_{31}}\begin{vmatrix} 1 & K \\ A_{31} & 0 \end{vmatrix}=K
-$$
-\renewcommand*{\DoTikzmarkU}[1]{%
-\tikzset{external/export next=false}
-    \tikz[remember picture] \coordinate[shift={(-0.6ex,1.75ex)}](#1);%
-}
-\renewcommand*{\DoTikzmarkD}[1]{% 
-\tikzset{external/export next=false}
-    \tikz[remember picture] \coordinate[shift={(-0.6ex,-6ex)}](#1);%
-}
-\renewcommand*{\colrow}[3][]{%
-\tikzset{external/export next=false}
-  \tikz[overlay,remember picture, line width=30pt]
-  \draw[shorten >=-.5em, shorten <=-.5em, #1] (#2.north)--(#3.north);
-}
+\]
 \[
 \begin{matrix}
     p^3 \\
     p^2 \\
-   % \hline
     p^1 \\
     p^0 \\
 \end{matrix}
 \begin{vmatrix}
-    1\DoTikzmarkU{n3}   & 3  \\
-    1\DoTikzmarkD{n4}     & K  \\
-   % \hline
+    1\DoTikzmark{-0.6ex}{1.75ex}{n3}   & 3  \\
+    1\DoTikzmark{-0.6ex}{-6ex}{n4}     & K  \\
     3-K                      & 0  \\
     K                        & 0    
     \end{vmatrix}
 \]
 \colrow[col3,opacity=.2]{n3}{n4}
+
 La colonne des pivots sont tous de même signe si $3-K>0$ et $K>0$ (déjà établie 
 par la condition nécessaire de Routh). La condition sur $K$ pour que le 
 système soit stable en boucle fermée est donc :
-$$
-0<K<3
-$$
+\[
+    0<K<3
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -531,14 +500,14 @@ pour l'asservissement d'un système de fonction de transfert $H(p)$, telle que :
 la fonction de transfert en boucle ouverte $H_{BO}(p)$ est simplement donné 
 par $H(p)$, et comme nous l'avons déjà rencontré à plusieurs occasions, la 
 fonction de transfert en boucle fermée $H_{BF}(p)$ est égale à 
-$$
-H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{H_{BO}(p)}{1+H_{BO}(p)},
-$$
+\[
+    H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{H_{BO}(p)}{1+H_{BO}(p)},
+\]
 \'Etudier les pôles de l'équation caractéristique $D(p)=0$ est équivalent 
 à étudier l'équation $1+H_{BO}(p)=0$, ou encore 
-$$
-D(p)=0\Leftrightarrow1+H_{BO}(p)=0\Leftrightarrow H_{BO}(p)=-1
-$$
+\[
+    D(p)=0\Leftrightarrow1+H_{BO}(p)=0\Leftrightarrow H_{BO}(p)=-1
+\]
 Il est alors possible d'étudier la fonction de transfert en boucle ouverte par 
 rapport à -1 plutôt que par rapport à l'origine. 
 %Ce \textbf{point critique}\index{Point critique} du 
@@ -554,22 +523,22 @@ H_{BO}(p)=\dfrac{N_{BO}(p)}{D_{BO}(p)} \\
 1+H_{BO}(p)=\dfrac{N_{BO}(p)+D_{BO}(p)}{D_{BO}(p)}
 \end{align*}
 on a alors pour la fonction de transfert en boucle fermée, 
-$$
+\[
 H_{BF}(p)=\dfrac{\dfrac{N_{BO}(p)}{D_{BO}(p)}}{1+\dfrac{N_{BO}(p)}{D_{BO}(p)}}
          =\dfrac{N_{BO}(p)}{D_{BO}(p)+N_{BO}(p)}
-$$
+\]
 Nous remarquons alors que les zéros de $1+H_{BO}(p)$ 
 sont les pôles de la fonction de transfert en boucle fermée 
 $H_{BF}(p)$ et que les pôles de $1+H_{BO}(p)$ co\"incident avec 
 les pôles de $H_{BO}(p)$. Il est donc possible de 
 réinterpréter la condition stabilité d'un système asservi :
-
+%-------------------------------------------------------------------------------
 \begin{criteria}{Condition de stabilité d'un système asservi (2)}
     \textbf{Un système asservi est stable en boucle fermée si sa fonction 
     de transfert en boucle ouverte ne possède aucun \emph{zéros} à partie 
     réelle positive.}
 \end{criteria}
-
+%-------------------------------------------------------------------------------
 Nous allons établir un critère que nous pourrons appliquer sur la réponse 
 harmonique et ses différentes représentations graphiques.
 
@@ -577,63 +546,68 @@ Supposons le système asservi précédent décrit par la fonction de transfert
 en boucle ouverte $H_{BO}(p)$. Par définition cette fonction de transfert 
 est le rapport de la sortie $S(p)$ sur l'écart $\epsilon(p)$ que l'on 
 souhaite minimiser.
-$$
-S(p)=H_{BO}(p)\epsilon(p)
-$$
+\[
+    S(p)=H_{BO}(p)\epsilon(p)
+\]
 Considérons une entrée $e(t)$ sinuso\"idale de la forme :
-$$
-e(t)=E_0\sin{\omega t}
-$$
+\[
+    e(t)=E_0\sin{\omega t}
+\]
 au premier instant, on a alors 
-$$
-\epsilon(t)=E_0\sin{\omega t}
-$$
+\[
+    \epsilon(t)=E_0\sin{\omega t}
+\]
 en régime permanent la sortie est alors de la forme (c.f~\cref{chap-repfreq}) :
-$$
-s(t)=E_0|H_{BO}(\jw)|\sin{(\omega t+\phi)}
-$$
+\[
+    s(t)=E_0|H_{BO}(\jw)|\sin{(\omega t+\phi)}
+\]
 l'écart $\epsilon(t)=e(t)-s(t)$ est maximum pour une sortie en opposition 
 de phase. Il existe donc une pulsation $\omega_\pi$ pour laquelle:
+%-------------------------------------------------------------------------------
 \begin{align*}
     \phi=\arg{H_{BO}(j\omega_\pi)}=-\pi
 \end{align*}
-
+%-------------------------------------------------------------------------------
 En Pour cette pulsation et ce déphasage: 
-$$
-S(p)=-\big|H_{BO}(j\omega_\pi)\big|\epsilon(p)
-$$
+\[
+    S(p)=-\big|H_{BO}(j\omega_\pi)\big|\epsilon(p)
+\]
 en posant $K=|H_{BO}(j\omega_\pi)|$, on identifie la \gls{ftbo} a :
-$$
-H_{BO}(p)=-K
-$$
-
+\[
+    H_{BO}(p)=-K
+\]
 L'écart dans le domaine de Laplace devient:
+%-------------------------------------------------------------------------------
 \begin{align*}
     \epsilon(p)&=E(p)-S(p)\\
     \epsilon(p)&=E(p)+K\epsilon(p)
 \end{align*}
+%-------------------------------------------------------------------------------
 Remplaçons à nouveau $\epsilon(p)$ par sa définition (pour simuler une 
 deuxième boucle) : 
+%-------------------------------------------------------------------------------
 \begin{align*}
     \epsilon(p)&=E(p)+K(E(p)-S(p))=E(p)(1+K)+K^2\epsilon(p)
 \end{align*}
+%-------------------------------------------------------------------------------
 et ainsi de suite :
+%-------------------------------------------------------------------------------
 \begin{align*}
     \epsilon(p)&=E(p)(1+K)+K^2\left(E(p)-S(p)\right)
                 =E(p)(1+K+K^2)+K^3\epsilon(p)\\
 \end{align*}
+%-------------------------------------------------------------------------------
 on obtient après $n$ substitutions :
-$$
+\[
 \epsilon(p)=E(p)\sum_{i=0}^{n}K^i+K^n\epsilon(p)
-$$
-
+\]
 La stabilité du système est alors liée à la convergence de cette somme.
 La somme diverge si $K\geq1$ et converge si $K<1$. 
 \textbf{Autrement dit le système est stable en boucle fermée 
 pour $\big|H_{BO}(\jw)\big|<1$.}
 
 Nous pouvons donc énoncer le critère de stabilité dit du revers :
-
+%-------------------------------------------------------------------------------
 \begin{criteria}{Critère de stabilité du revers}
     \textbf{Un système est stable en boucle fermée si lorque le 
     déphasage en boucle ouverte est de -180\degree~le module $|H_{BO}(\jw)|$ 
@@ -643,7 +617,7 @@ Nous pouvons donc énoncer le critère de stabilité dit du revers :
     le système est stable en boucle fermée si $|H_{BO}(j\omega_\pi)|<1$ ou 
     $20\log{|H_{BO}(j\omega_\pi)|}<\SI{0}{\dB}$.
 \end{criteria}
-
+%-------------------------------------------------------------------------------
 Dans le plan complexe, un  déphasage de -$\pi$ et un gain naturel de 1 
 correspond au point de coordonnées $(-1,0)$ ce que nous avons défini comme 
 le point critique à partir de l'équation caractéristique $1+H_{BO}=0$. 
@@ -683,13 +657,14 @@ passe par le point critique de coordonnées (-1,0).
 \end{figure}
 %-------------------------------------------------------------------------------
 Nous pouvons maintenant formuler le critère du revers de Nyquist :
-
+%-------------------------------------------------------------------------------
 \begin{criteria}{Critère du revers de Nyquist}
 \textbf{Un système est stable en boucle fermée si lorsque parcourant 
         le lieu de Nyquist de la boucle ouverte dans le sens des 
         pulsations croissantes, on laisse le point critique sur la 
         \emph{gauche}.}
 \end{criteria}
+%-------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -709,12 +684,14 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
              \label{fig-black_revers}}
 \end{figure}
 %-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{criteria}{Critère du revers de Black}
 \textbf{Un système est stable en boucle fermée si lorsque parcourant 
         le lieu de Black de la boucle ouverte dans le sens des 
         pulsations croissantes, on laisse le point critique sur 
         la \emph{droite}.}
 \end{criteria}
+%-------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -727,13 +704,15 @@ en boucle ouverte. Le point critique
 dans le plan de Bode est représenté par deux verticales coupant les deux 
 graphes en gain et en déphasage. De ce fait il faut vérifier deux conditions 
 pour respecter le critère du revers dans le plan de Bode 
+%-------------------------------------------------------------------------------
 \begin{criteria}{Critère du revers de Bode (1)}
 \textbf{Un système est stable en boucle fermée si, pour la pulsation 
         $\omega_{1}$ telle que le module de la fonction de transfert en boucle 
         ouverte est égal à 1 (c.a.d $H_{BO}(\omega_{1})=1$ ou $\SI{0}{\dB}$), 
         le déphasage $\phi(\omega_1)$ est supérieur à -180\degree}
 \end{criteria}
-
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{criteria}{Critère du revers de Bode (2)}
     \textbf{Un système est stable en boucle fermée si, pour la pulsation 
     $\omega_{c}$ (pulsation critique) telle que l'argument de la fonction de 
@@ -741,7 +720,7 @@ pour respecter le critère du revers dans le plan de Bode
     (c.a.d $\phi(\omega_c)=-180\degree$), le gain $G_{dB}(\omega_c)$ est 
     négatif.}
 \end{criteria}
-
+%-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
 \centering
@@ -768,25 +747,27 @@ critique, nous définissons les marges de stabilité.
 %\subsection{Marge de phase}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{definition}{Marge de phase}
 La marge de phase $M_{\phi}$ est définie par :
 $M_\phi=\pi+\arg{H_{BO}(j\omega_{c0})}$ où $\omega_{c0}$ est la pulsation de 
 coupure pour laquelle le gain naturel $G(\omega_{c0})=|H_{BO}(j\omega_{c0})|=1$
 ( ou encore 0~\si{\dB} ) 
 \end{definition}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Marge de gain}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{definition}{Marge de gain}
 La marge de gain $M_G$ est définir par $M_G=-20\log{|H(j\omega_\pi)|}$ où 
 $\omega_{\pi}$ est la pulsation pour laquelle le déphasage vaut 
 \SI{-180}{\degree} $\phi(\omega_\pi)=\arg{(H_{BO}(j\omega_{c0}))}=-\pi$
 ou autrement l'argument du point critique dans le plan complexe.
 \end{definition}
-
+%-------------------------------------------------------------------------------
 Ces marges de stabilités sont en générales imposées par le cahier des charges.
 En générales es valeurs pour $M_{\phi}$ de 45 à 60\degree et
 pour $M_G$ de 6 à 15~\si{\dB} sont considérées comme satisfaisantes.
@@ -833,9 +814,9 @@ courbe $F(\mathcal{C})$ image $F(p)$ de $\mathcal{C}$.
     le sens anti-trigonométrique, le contour $\Gamma=F(\mathcal{C})$ fait un 
     nombre de tours $N$ autour de l'origine dans le sens trigonométrique égal 
     à,
-    $$
-    N=Z-P
-    $$
+    \[ 
+        N=Z-P
+    \]
 \end{theorem}
 
 On se rapportera à la~\cref{fig-contour_cauchy} pour un exemple d'application 
@@ -912,9 +893,9 @@ $r\rightarrow0$ centré sur les pôles nuls.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Contour de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 La~\cref{fig-contours} (a) présente le contour de Nyquist. Celui-ci est 
 composé de 3 portions:
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item \textbf{I} : l'axe des imaginaires positifs pour laquelle $p=\jw$ 
           avec $\omega\in[0,\infty[$,
@@ -924,8 +905,7 @@ composé de 3 portions:
     \item \textbf{III}: l'axe des imaginaires négatifs  pour laquelle $p=-\jw$ 
           avec $\omega\in]-\infty,0]$, symétrique de \textbf{I}
 \end{itemize}
-
-
+%-------------------------------------------------------------------------------
 %La courbe image d'une fonction de transfert $H_{BO}(p)$
 %en boucle ouverte de ces deux portions. 
 L'image de la portion \textbf{I} est donné par 
@@ -957,6 +937,7 @@ suivante : $H_1(p)=\dfrac{1}{1+p}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La~\cref{fig-contours} (b) présente un contour de Bromwich dans le cas $p=0$ 
 est pôle de la fonction de transfert. Celui-ci est composé de 4 portions:
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item \textbf{I} : l'axe des imaginaires positifs pour laquelle 
           $p=\jw$ avec $\omega\in[0,\infty[$,
@@ -970,6 +951,7 @@ est pôle de la fonction de transfert. Celui-ci est composé de 4 portions:
           pour lequel $p=re^{j\theta}$ avec $r\rightarrow0$ et 
           $\omega\in]-\infty,0]$.
 \end{itemize}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

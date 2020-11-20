@@ -13,9 +13,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Un nombre complexe $z$ est définit par un couple 
 de nombre réel $(x,y)$, tel que 
-$$
+\[
 z=x+jy,
-$$
+\]
 où $j$ est le nombre imaginaire pur tel que $j^2=-1$\footnote{En mathématiques 
 et en physique, le nombre imaginaire pur est généralement noté $i$. Ici nous 
 utilisons la convention des automaticiens et des électroniciens pour ne
@@ -32,10 +32,9 @@ point du plan correspondent respectivement
 \paragraph{Définition du conjugué d'un nombre complexe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le conjugué de $z$ est le nombre noté $\bar{z}$ tel que :
-$$
+\[
 \bar{z}=\Re{z}-j\Im{z}=x-jy
-$$
-
+\]
 Dans la représentation géométrique le conjugé $\bar{z}$ est le symétrique 
 de $z$ par rapport à l'axe des réels (\Cref{fig-plan_complexe}).
 %-------------------------------------------------------------------------------
@@ -56,9 +55,9 @@ de $z$ par rapport à l'axe des réels (\Cref{fig-plan_complexe}).
 Le module d'un nombre complexe noté $|z|$ est la 
 racine carrée de la somme des carrés de $\Re{z}$ et de $\Im{z}$, 
 autrement dit, 
-$$
+\[
 |z|=\sqrt{x^2+y^2},
-$$
+\]
 où $x=\Re{z}$ et $y=\Im{z}$ comme définit précedemment.
 
 Dans le plan complexe, le module $|z|$ correspond à la distance à l'origine du 
@@ -124,7 +123,7 @@ l'argument principale pour des questions d'unicité
 (i.e $\arg{z}\in[-\pi,\pi]$). 
 Soit $\phi$ l'argument principale d'un nombre complexe $z=a+ib$, alors 
 $\phi$ est définit par :
-$$
+\[
 \phi=
 \begin{cases}
     \hphantom{-}\arctan{(b/a)}     & \text{si $a>0$} \\
@@ -134,7 +133,7 @@ $$
                 -\pi/2             & \text{si $a=0$ et $b<0$} \\
     \hphantom{-}0                  & \text{si $a=0$ et $b=0$} \\
 \end{cases}
-$$
+\]
 La formule précédente nécessite de distinguer plusieurs cas.
 Cependant, de nombreux langages de programmation fournissent
 une variante de la fonction arc tangente, qui est souvent appélee
@@ -152,17 +151,17 @@ une variante de la fonction arc tangente, qui est souvent appélee
 \paragraph{Forme exponentielle ou polaire d'un nombre complexe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La formule d'Euler 
-$$
+\[
 e^{i\theta}=\cos\theta+i\sin\theta
-$$
+\]
 permet d'écrire tout nombre complexe sous sa forme exponentielle : 
-$$
+\[
 z=|z|e^{i\theta}
-$$
+\]
 Une conséquence spectaculaire de la formule d'Euler est que
-$$
+\[
 e^{i\pi}=-1.
-$$
+\]
 On notera que $e^{i\theta}$ est un nombre complexe de module 1 admettant 
 $\theta$ pour argument. Lorsque $\theta$ varie de $0$ à $2\pi$, l'image du 
 nombre complexe $e^{i\theta}$ décrit le cercle unité.

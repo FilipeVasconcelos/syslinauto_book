@@ -65,20 +65,20 @@
 \end{tikzpicture}
 \end{center}
 %-------------------------------------------------------------------------------
-$$
-\color{blue}p_a(t)=\color{col4}u(t)\color{col3}-u(t-a)
-$$ 
+\[
+    \color{blue}p_a(t)=\color{col4}u(t)\color{col3}-u(t-a)
+\] 
 où $u(t)$ est la fonction échelon unité.
 
 On rappel la transformée de Laplace d'une fonction retardée :
-$$
-\laplace{f(t-\tau)} = e^{-\tau p}F(p)
-$$
+\[
+    \laplace{f(t-\tau)} = e^{-\tau p}F(p)
+\]
 La transformée de Laplace de $p_a(t)$ est donnée par : 
-$$
-P_a(p) = \laplace{p_a(t)}=\laplace{u(t)}-\laplace{u(t-a)}
-=\dfrac{1}{p}(1-e^{-a p})
-$$
+\[
+    P_a(p) = \laplace{p_a(t)}=\laplace{u(t)}-\laplace{u(t-a)}
+           =\dfrac{1}{p}(1-e^{-a p})
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
@@ -142,21 +142,19 @@ $$
 \end{tikzpicture}
 \end{center}
 %-------------------------------------------------------------------------------
-$$
-\color{blue}u_a(t)=\color{col4}p_a(t)\color{col3}-p_a(t-a)
-$$ 
+\[
+    \color{blue}u_a(t)=\color{col4}p_a(t)\color{col3}-p_a(t-a)
+\] 
 où $p_a(t)$ est la fonction fonction porte construite précédemment.
 
 La transformée de Laplace de $u_a(t)$ est donnée par :
-$$
-U_a(p)=\laplace{u_a(t)}=\laplace{p_a(t)}-\laplace{p_a(t-a)}
-      =P_a(p)(1-e^{-a p})=\dfrac{(1-e^{-ap})^2}{p}
-$$
-
+\[
+    U_a(p)=\laplace{u_a(t)}=\laplace{p_a(t)}-\laplace{p_a(t-a)}
+          =P_a(p)(1-e^{-a p})=\dfrac{(1-e^{-ap})^2}{p}
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %\tikzsetnextfilename{ex1_5_corrige-chap0-ext}
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -217,46 +215,40 @@ $$
 \end{tikzpicture}
 \end{center}
 %-------------------------------------------------------------------------------
-$$
+\[
 g_0(t)=\dfrac{2E}{T}\int_{0}^{t}u_{T/2}(t)\,\,\mathrm{d}\tau
-$$
-
+\]
 On rappel la transformée de Laplace de l'intégrale d'une fonction:
-$$
+\[
 \laplace{\int_{0}^{t}f(t)\,\,\mathrm{d}\tau}=\dfrac{F(p)}{p}
-$$
-
-
+\]
 La transformée de Laplace de $g_0(t)$ est donnée par :
-$$
+\[
 G_0(p) = \laplace{g_0(t)}=\dfrac{2E}{T}\dfrac{(1-e^{-Tp/2})^2}{p^2}
-$$
-
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Décomposition en signaux usuels (2)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{\'Etude d'équations différentielles}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La première équation différentielle dans le domaine de Laplace, donne : 
 \begin{align*}
-p^2S(p)+110pS(p)+1000S(p)=pX(p)+30X(p) \\
-S(p) ( p^2+110p+1000) = (p+30)X(p) \\
-S(p) = \dfrac{(p+30)}{(p^2+110p+1000)} X(p) 
+    p^2S(p)+110pS(p)+1000S(p)=pX(p)+30X(p) \\
+    S(p) ( p^2+110p+1000) = (p+30)X(p) \\
+    S(p) = \dfrac{(p+30)}{(p^2+110p+1000)} X(p) 
 \end{align*}
 cette dernière expression est de la forme :
 \begin{align}
-S(p) = H_2(p) X(p)
-\label{eq-h2}
+    S(p) = H_2(p) X(p)
+    \label{eq-h2}
 \end{align}
 où $H_2(p)$ est une fonction de transfert d'un SLCI d'entrée $X(p)$ 
 et de sortie $S(p)$.
@@ -321,9 +313,9 @@ Tracer le schéma fonctionnel complet du système
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Déterminer la fonction de transfert du système.
 A partir des equations \ref{eq-h2} et \ref{eq-h1}, on peut écrire :
-$$
-S(p) = H_2(p) H_1(p) E(p)
-$$
+\[
+    S(p) = H_2(p) H_1(p) E(p)
+\]
 On a alors une expression de la forme $S(p) =H(p) E(p)$,
 avec $H(p)=H_2(p) H_1(p)=\dfrac{K(p+30)}{(p^2+110p+1000)(p+1)}$
 %-------------------------------------------------------------------------------
@@ -339,56 +331,51 @@ avec $H(p)=H_2(p) H_1(p)=\dfrac{K(p+30)}{(p^2+110p+1000)(p+1)}$
 \end{center}
 %-------------------------------------------------------------------------------
 On sollicite le système avec un échelon $e(t)=E_0 u(t)$
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Déterminer la valeur finale de la sortie et la tangente à l'origine.
 La valeur finale peut être obtenue par la propriété de la transformée 
 de Laplace que l'on nomme le théorème de la valeur finale:
-$$
+\[
 \lim\limits_{t \rightarrow +\infty} f(t) = \lim\limits_{p \rightarrow 0} pF(p)
-$$
+\]
 dans le cas où le système précédent est sollicité par un échelon:
-$$
+\[
 pS(p)=\dfrac{KE_0(p+30)}{(p^2+110p+1000)(p+1)}
-$$
-$$
+\]
+\[
 \lim\limits_{t \rightarrow +\infty} s(t) = \lim\limits_{p \rightarrow 0} pS(p) 
                                          = \dfrac{3}{100}KE_0
-$$
+\]
 pour déterminer la tangente à l'origine on applique le théorème de la valeur 
 initiale à la dérivée du signal.
-$$
+\[
 \lim\limits_{t \rightarrow 0} \devi{s(0)}{} = 
 \lim\limits_{p \rightarrow +\infty} p^2S(p))= 0
-$$
+\]
 la tangente de $s(t)$ est donc horizontal en 0.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Déterminer la sortie $s(t)$ et tracer le signal.
 Pour déterminer le signal de sortie $s(t)$, nous allons appliquer la 
 transformée de Laplace inverse sur :
-$$
+\[
 S(p) = \dfrac{KE_0(p+30)}{(p^2+110p+1000)(p+1)p}
-$$
+\]
 pour celà nous allons décomposer en élément simple cette fraction rationnelle. 
 Le polynôme $p^2+110p+1000$ admet comme racine $p_1=-10$ et $p_2=-100$. 
 On peut donc récrire : 
-$$
+\[
 S(p)=\dfrac{KE_0(p+30)}{p(p+1)(p+10)(p+100)}
-$$
+\]
 décomposons $S(p)$ de la manière suivante:
-$$
+\[
 S(p)=\dfrac{A}{p}+\dfrac{B}{p+1}+\dfrac{C}{p+10}+\dfrac{D}{p+100}
-$$
-
+\]
 les différents coefficients $A$,$B$,$C$ et $D$ peuvent être déterminés par 
 les limites suivantes :
-
 \begin{align*}
     A&=\lim\limits_{p \rightarrow 0} p S(p) = 
     \lim\limits_{p \rightarrow 0} 
@@ -407,18 +394,16 @@ les limites suivantes :
     \dfrac{KE_0(p+30)}{p(p+1)(p+10)}=
     \dfrac{7}{89100}KE_0 
 \end{align*}
-
-$$
+\[
 S(p) = KE_0\left(\dfrac{3}{100}  \dfrac{1}{p} -\dfrac{29}{891}\dfrac{1}{p+1} +
                                  \dfrac{1}{405}\dfrac{1}{p+10} + 
                                  \dfrac{7}{89100}\dfrac{1}{p+100} \right)
-$$
-
-$$
+\]
+\[
 s(t) = \laplacei{S(p)} = KE_0u(t)\left(\dfrac{3}{100} - 
                          \dfrac{29}{891}e^{-t}+\dfrac{1}{405}e^{-10t}+
                          \dfrac{7}{89100}e^{-100t} \right) 
-$$
+\]
 on vérifie que $s(+\infty)=\dfrac{3}{100}KE_0$, $s(0)=0$ et $\devi{s(0)}{}=0$
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -469,17 +454,17 @@ La transformée de Laplace de l'équation différentielle donne :
 \end{align*}
 La fonction de transfert est le rapport de la sortie et de l'entrée lorsque 
 les CI sont nulles, ici :
-$$
+\[
 H(p)=\dfrac{1}{p+2}
-$$
+\]
 pour $e(t)=e^{-t}$, $E(p)=\dfrac{1}{(p+1)}$ on peut alors écrire :
-$$
+\[
 S(p)=\dfrac{1}{(p+1)(p+2)}+\dfrac{2}{p+2}
-$$
+\]
 la transformée inverse donne :
-$$
+\[
 s(t) = \laplacei{S(p)}=e^{-t}-e^{-2t}+2e^{-2t}=e^{-t}+e^{-2t}
-$$
+\]
 %-------------------------------------------------------------------------------
 \begin{center}
     %\tikzsetnextfilename{ex_3_1_corrige-chap0-ext}
@@ -523,22 +508,22 @@ La transformée de Laplace de l'équation différentielle donne :
     S(p) &= \dfrac{p+1}{p^2+3p+2}E(p)
 \end{align*}
 La fonction de transfert est donné par la fraction rationnelle :
-$$
+\[
 H(p)=\dfrac{p+1}{p^2+3p+2}
-$$
+\]
 les pôles de $H(p)$ sont $p_1=-2$ et $p_2=-1$, on peut donc factoriser la 
 relation précédente par les pôles :
-$$
+\[
 S(p) = \dfrac{p+1}{(p+1)(p+2)}E(p)=\dfrac{1}{(p+2)}E(p)
-$$
+\]
 pour $e(t)=e^{-3t}$, $E(p)=\dfrac{1}{p+3}$
-$$
+\[
 S(p)=\dfrac{1}{(p+2)(p+3)}
-$$
+\]
 la transformée inverse donne :
-$$
+\[
 s(t) = \laplacei{S(p)}=e^{-2t}-e^{-3t}
-$$
+\]
 %-------------------------------------------------------------------------------
 \begin{center}
 %\tikzsetnextfilename{ex_3_2_corrige-chap0-ext}
@@ -581,25 +566,25 @@ La transformée de Laplace de l'équation différentielle donne :
     S(p)&=\dfrac{1}{p^2+2p+1}E(p)
 \end{align*}
 La fonction de transfert est donné par la fraction rationnelle :
-$$
+\[
 H(p)=\dfrac{1}{p^2+2p+1}
-$$
+\]
 le pôle de $H(p)$ est $p_1=-1$ qui est une racine double
-$$
+\[
 S(p) = \dfrac{1}{(p+1)^2}E(p)
-$$
+\]
 pour $e(t)=e^{-2t}$, $E(p)=\dfrac{1}{p+2}$
-$$
+\[
 S(p)=\dfrac{1}{(p+1)^2(p+2)}
-$$
+\]
 décomposons $S(p)$ en élément simple:
-$$
+\[
 S(p)=\dfrac{A}{p+1}+\dfrac{B}{(p+1)^2}+\dfrac{C}{(p+2)}
-$$
-$$
+\]
+\[
 A(p^2+3p+2)+B(p+2)+C(p+1)^2=1
-$$
-$$
+\]
+\[
 \begin{cases}
      A+C&=0 \\
     3A+B+2C&=0 \\
@@ -610,14 +595,14 @@ $$
     B=1\\
     C=1
 \end{cases}
-$$
-$$
+\]
+\[
 S(p)=-\dfrac{1}{p+1}+\dfrac{1}{(p+1)^2}+\dfrac{1}{(p+2)}
-$$
+\]
 la transformée inverse donne :
-$$
+\[
 s(t) = \laplacei{S(p)}= -e^{-t}+te^{-t}+e^{-2t} = (t-1)e^{-t}+e^{-2t}
-$$
+\]
 %-------------------------------------------------------------------------------
 \begin{center}
 %\tikzsetnextfilename{ex_3_3_corrige-chap0-ext}
@@ -662,26 +647,26 @@ La transformée de Laplace de l'équation différentielle donne :
     S(p)&=\dfrac{1}{p^2+p+1}E(p)
 \end{align*}
 La fonction de transfert est donné par la fraction rationnelle :
-$$
+\[
 H(p)=\dfrac{1}{p^2+p+1}
-$$
+\]
 les pôles de $H(p)$ sont deux complexes conjugués: 
 $p_{1,2}=-\dfrac{1}{2}\pm j\dfrac{\sqrt{3}}{2}$
-$$
+\[
 S(p) = \dfrac{1}{\left(\left(p+\dfrac{1}{2}\right)^2+
        \dfrac{3}{4}\right)}E(p)
-$$
+\]
 pour $e(t)=1$, $E(p)=\dfrac{1}{p}$
-$$
+\[
 S(p) =\dfrac{1}{p\left(p^2+p+1\right)}
-$$
+\]
 décomposons $S(p)$ en élément simple:
-$$
+\[
 S(p)=\dfrac{A}{p}+\dfrac{Bp+C}{\left(p^2+p+1\right)}
-$$
-$$
+\]
+\[
 A=\lim\limits_{p \rightarrow 0} pS(p) = 1
-$$
+\]
 \begin{align*}
     p^2+p+1 + Bp^2+Cp &= 1 \\
     \begin{cases}
@@ -707,11 +692,11 @@ $$
                                       \dfrac{3}{4}\right)}
 \end{align*}
 la transformée inverse donne :
-$$
+\[
 s(t) = \laplacei{S(p)}=
 1-e^{-\frac{t}{2}}\cos{\left(\dfrac{\sqrt{3}}{2}t\right)}-
 \dfrac{1}{\sqrt{3}}e^{-\frac{t}{2}}\sin{\left(\dfrac{\sqrt{3}}{2}t\right)}
-$$
+\]
 %-------------------------------------------------------------------------------
 \begin{center}
 %\tikzsetnextfilename{ex_3_4_corrige-chap0-ext}
@@ -822,14 +807,14 @@ $$
 \end{tikzpicture}
 \end{center}
 %-------------------------------------------------------------------------------
-$$
+\[
 \color{blue}f_0(t)=\color{col4}g_0(t)\color{col3}-g_0(t-T)
-$$
+\]
 où $g_0(t)$ est la fonction \og dent de scie\fg construite précédemment.
-$$
+\[
 F_0(p)=\laplace{f_0(t)}=G_0(p)(1-e^{-Tp})
 =\dfrac{2E}{T}\dfrac{(1-e^{-Tp/2})^2}{p^2}(1-e^{-Tp})
-$$
+\]
 \begin{align*}
     F(p)&=\dfrac{F_0(p)}{1-e^{-2Tp}} \\
     F(p)&=\dfrac{2E}{Tp^2}\dfrac{(1-e^{-Tp/2})^2(1-e^{-Tp})}{1-e^{-2Tp}}\\

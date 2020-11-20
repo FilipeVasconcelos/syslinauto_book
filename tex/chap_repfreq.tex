@@ -34,9 +34,9 @@ Nous verrons en fin de chapitre une étude du transitoire dans des cas usuels.
 %Nous allons ici établir la forme de cette réponse.
 Soit un \gls{slci}~défini par une fonction de transfert $H(p)$ auquel on 
 applique une entrée sinuso\"idale $e(t)$ tel que :
-$$
+\[
 e(t)=E_0\sin\omega t 
-$$
+\]
 d'amplitude $E_0$ et de pulsation $\omega$\footnote{Strictement, $\omega$ est 
 une pulsation en unité \si{\radian\per\second}, la fréquence associée étant 
 $f=\omega/2\pi$, en \si{\per\second} ou \si{\hertz}. Cependant, par abus de 
@@ -44,26 +44,26 @@ langage, il est courant de se référer en terme de fréquence en parlant de la
 pulsation $\omega$. Nous prendrons cependant soin d'utiliser la bonne forme 
 dans nos applications numériques.}. Dans le domaine de Laplace, la sortie $S(p)$
 est de la forme :
-$$
+\[
 S(p)=H(p)E(p)
-$$
+\]
 où $E(p)$ est la transformée de Laplace d'un sinus (c.f ligne 23 du tableau de 
 l'\cref{annexe-lap}), on obtient alors :
-$$
+\[
 S(p)=H(p)\dfrac{E_0\omega}{p^2+\omega^2}
-$$
+\]
 Les pôles de la fonction de transfert $H(p)$ donnent lieu au 
 régime transitoire alors que les pôles de l'excitation donnent 
 lieu au régime permanent. 
 Les deux pôles de l'excitation sont $p_{1,2}=\pm\jw$. La forme factorisée 
 s'écrit alors:
-$$
+\[
 S(p)=H(p)\dfrac{E_0\omega}{(p+\jw)(p-\jw)}
-$$
+\]
 En régime permanent, la décomposition de $S(p)$ en éléments simples s'écrit :
-$$
+\[
 S(p)=\dfrac{A}{p-\jw} + \dfrac{B}{p+\jw}
-$$
+\]
 où les coefficients s'obtiennent par évaluation :
 \begin{align*}
     A&=(p-\jw)S(p)\bigg|_{p=\hphantom{-}\jw}=
@@ -74,16 +74,14 @@ où les coefficients s'obtiennent par évaluation :
        -\dfrac{E_0}{2j}H(-\jw)
 \end{align*}
 nous obtenons donc :
-$$
+\[
 S(p)=\dfrac{E_0}{2j}\left(\dfrac{H(\jw)}{p-\jw}-\dfrac{H(-\jw)}{p+\jw} \right)
-$$
-
+\]
 La transformée de Laplace inverse de la sortie $S(p)$ permet d'obtenir la 
 réponse temporelle 
-$$
+\[
 s(t)=\dfrac{E_0}{2j}\left(H(\jw)e^{\jw t}-H(-\jw)e^{-\jw t}\right)
-$$
-
+\]
 En écrivant le nombre complexe $H(\jw)$ sous sa forme exponentielle 
 (\Cref{annexe-NC}) :
 \begin{align*}
@@ -143,9 +141,9 @@ nous la noterons donc $\phi(\omega)$ par la suite.
 \index{Système du premier ordre!réponse harmonique dans le domaine temporel}
 Considérons un \gls{slci}~définit par une fonction de transfert $H(p)$ du 
 premier ordre (\Cref{eq-ft1er}) de forme canonique:
-$$
+\[
 H(p)=\dfrac{1}{1+p}
-$$
+\]
 avec $K=$1, $\tau=\SI{1}{\second}$.
 
 Comme nous venons de le montrer la réponse harmonique est complétement 
@@ -237,6 +235,7 @@ c'est ce qui constitue l'analyse fréquentielle des \gls{slci}.
 
 Dans cette partie, nous présenterons trois types de représentations graphiques, 
 notamment :
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item le diagramme de Bode,
     \item le diagramme de Nyquist,
@@ -244,20 +243,17 @@ notamment :
     \index{Nichols, Nathaniel}Nathaniel B. Nichols, (1914–1997) 
            ingénieur américain.}. 
 \end{itemize}
+%-------------------------------------------------------------------------------
 Nous étudierons en détail les diagrammes des modèles usuels que nous 
 avons déjà rencontrés au chapitre précédent (\Cref{chap-model})
 
-%Remarquons que la représentation 
 Le terme \textbf{lieu de transfert} est communément utilisé pour parler du 
 points de coordonnées $(\omega, \phi(\omega),G(\omega))$.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Diagramme de Bode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Un diagramme de Bode\footnote{\index{Bode, Hendrik}Hendrik Wade Bode 
 (1905-1982), ingénieur, chercheur et inventeur américain} permet de 
 représenter le comportement fréquentielle d'un système quelconque en fonction 
@@ -267,13 +263,13 @@ de la fréquence  d'excitation en entrée. Il se compose de deux graphiques :
     \item[i)] le tracé du gain en décibel en fonction de la pulsation $\omega$:
 %-------------------------------------------------------------------------------
         \begin{bequation}[ams align] 
-        G_{dB}(\omega)=20\log{G(\omega)}=20\log{|H(\jw)|} 
+            G_{dB}(\omega)=20\log{G(\omega)}=20\log{|H(\jw)|} 
         \end{bequation}
 %-------------------------------------------------------------------------------
     \item[ii)] le tracé de la phase en fonction de la pulsation $\omega$ :
 %-------------------------------------------------------------------------------
         \begin{bequation}[ams align] 
-        \phi(\omega)=\arg{H(\jw)}
+            \phi(\omega)=\arg{H(\jw)}
         \end{bequation}
 %-------------------------------------------------------------------------------
 \end{itemize}
@@ -283,7 +279,6 @@ logarithmique pour permmettre la représentation de la réponse harmonique sur
 une large plage de valeurs en pulsation (\Cref{annexe-log}). Le calcul de la
 phase passe lui par la détermination de l'argument principale 
 (\Cref{annexe-NC}).
-
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -299,21 +294,19 @@ phase passe lui par la détermination de l'argument principale
 La principale propriété du diagramme de Bode est de permettre de 
 simplifier un grand nombre calcul. En effet, dans le cas par exemple où 
 deux systèmes $H_1$ et $H_2$ sont mis en série,
-$$
+\[
 H(\jw)=H_1(\jw)H_2(\jw),
-$$
+\]
 Le diagramme de Bode de $H(\jw)$ est la somme de deux diagrammes indépendants:
-$$
+\[
 \mathrm{Bode}(total)=\mathrm{Bode}(1)+\mathrm{Bode}(2)
-$$
+\]
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Diagramme de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 Un diagramme de Nyquist\footnote{\index{Nyquist, Harry}Harry 
 Nyquist (1889-1976), électronicien, ingénieur américain.} 
 présente la partie imaginaire et la partie réelle de $H(\jw)$ pour différentes 
@@ -326,7 +319,6 @@ respectivement l'angle avec l'axe des réels et la distance à l'origine
 des parties réel et imaginaire de $H(\jw)$, en considérant les pulsations 
 négatives, c'est à dire entre $\omega\rightarrow-\infty$ et 
 $\omega\rightarrow+\infty$. 
-
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -343,14 +335,11 @@ $\omega\rightarrow+\infty$.
              \label{fig-sche_nyquist}}
 \end{figure}
 %-------------------------------------------------------------------------------
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Diagramme de Black-Nichols}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Le diagramme de Black-Nichols\footnote{Il également simplement appelé diagramme 
 de Black.} consiste à tracer le gain en décibel $G_{dB}(\omega)$ en fonction de 
 la phase, paramétré par la pulsation $\omega$. À l'instar du diagramme de 
@@ -362,7 +351,6 @@ partir de la connaissance du lieu de transfert dans le plan de Black de la
 Fonction de Transfert en Boucle ouverte (FTBO).
 %(moins important dans une premiere découverte des \SLCI.
 %Il pourra être introduit séparément dans le cas des systèmes asservis.)
-
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -374,7 +362,6 @@ Fonction de Transfert en Boucle ouverte (FTBO).
              de 0 à $\infty$.\label{fig-sche_black}}
 \end{figure}
 %-------------------------------------------------------------------------------
-
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -383,7 +370,6 @@ Fonction de Transfert en Boucle ouverte (FTBO).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Nous allons ici présenter la forme canonique des diagrammes fréquentielles 
 (Bode, Nyquist et Black-Nichols) pour les modèles usuels rencontrées dans 
 l'étude des \gls{slci}. Les diagrammes de Bode restent l'outil principale et 
@@ -394,6 +380,7 @@ fera l'objet d'une présentation plus détaillée.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item Définir la fonction de transfert $H(p)$ du modèle pour $p=\jw$
     \item \'Etablir la fonction du gain $G(\omega)$ à partir du 
@@ -408,18 +395,16 @@ Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
     \item Tracer le diagramme de Bode \textbf{réel} et le diagramme 
           de Bode \textbf{asymptotique}.
 \end{itemize}
-
+%-------------------------------------------------------------------------------
 \newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un gain pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 La fonction de transfert d'un gain pur est de la forme $H(\jw)=K$,
 le gain est donc simplement donné par 
-$$
+\[
 G(\omega)=|H(\jw)|=K
-$$ 
+\] 
 d'où le gain $G_{dB}$ en décibel :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
@@ -448,18 +433,14 @@ principale du nombre complexe $H(\jw)$:
 \end{figure}
 %-------------------------------------------------------------------------------
 \newpage
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un intégrateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 La fonction de transfert d'un intégrateur pur est de la forme 
 $H(\jw)=\frac{K}{\jw}$, le gain est donc simplement donné par 
-$$
+\[
 G(\omega)=|H(\jw)|=\frac{K}{\omega}
-$$ 
+\] 
 d'où le gain $G_{dB}$ en décibel :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
@@ -490,23 +471,22 @@ du nombre complexe $H(\jw)$:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un dérivateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 La fonction de transfert d'un dérivateur pur est de la forme $H(\jw)=K\jw$,
 le gain est donc simplement donné par 
-$$
+\[
 G(\omega)=|H(\jw)|=K\jw
-$$ 
+\] 
 d'où le gain $G_{dB}$ en décibel :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
-G_{dB}(\omega)= 20\log{K} + 20\log{\omega}
+    G_{dB}(\omega)= 20\log{K} + 20\log{\omega}
 \end{bequation}
 %-------------------------------------------------------------------------------
 ce qui correspond à une pente de +20dB/décade (\Cref{fig-bode_deriv}) et
 la phase s'écrit simplement 
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
-\phi(\omega) = \dfrac{\pi}{2}
+    \phi(\omega) = \dfrac{\pi}{2}
 \end{bequation}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
@@ -529,9 +509,9 @@ la phase s'écrit simplement
 \index{Retard pur!diagramme de Bode}
 La fonction de transfert d'un retard pur est de la forme $H(\jw)=e^{-\jtw}$,
 le gain est donc simplement donné par
-$$
+\[
 G(\omega)=|H(\jw)|=1
-$$
+\]
 d'où le gain $G_{dB}$ en décibel :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
@@ -568,7 +548,9 @@ H(\jw)=\dfrac{K}{1+j\tau\omega }\label{eq-1er_ftjw}
 \end{align}
 
 Le module de cette fonction de transfert $G(\omega) =|H(\jw)|$ s'écrit :
-$$G(\omega)=\dfrac{K}{\sqrt{1+\tau^2\omega^2}}$$
+\[
+    G(\omega)=\dfrac{K}{\sqrt{1+\tau^2\omega^2}}
+\]
 Le gain en dB s'obtient alors par :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -586,7 +568,6 @@ de Bode. Elles sont représentés sur les~\cref{fig-bode_1er_1,fig-bode_1er_2},
 pour respectivement différentes valeurs du gain statique $K$ et du temps 
 caractéristique $\tau$.
 \newline
-
 Il est cependant recommandé de déterminer les asymptotes 
 de ces deux fonctions à basse et haute fréquence. 
 Pour celà, nous introduisons une \textbf{fréquence de cassure} 
@@ -661,36 +642,36 @@ réels et les courbes asymptotiques.
          de coupure.\label{fig-bode_1er_3}}
 \end{figure}
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode de deux systèmes du premier ordre en série }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La fonction de transfert globale de deux systèmes du premier ordre en série 
 s'écrit:
 \begin{align}
-H(\jw)=\dfrac{K_1K_2}{(1+j\tau_1\omega)(1+j\tau_2\omega)}\label{eq-1er_serie}
+    H(\jw)=\dfrac{K_1K_2}{(1+j\tau_1\omega)(1+j\tau_2\omega)}
+    \label{eq-1er_serie}
 \end{align}
 On utilise la propriété du logarithme pour écrire le gain globale 
 $G_{dB}(\omega)$ comme une somme de gain de deux systèmes du premier ordre, 
 soit
-$$
+\[
 G_{dB}(\omega) = G_{dB1}(\omega) + G_{dB2}(\omega)
-$$
+\]
 De même pour la phase:
-$$
+\[
 \phi(\omega)= \phi_1(\omega) + \phi_2(\omega)
-$$
+\]
 En reprenant les~\cref{eq-gain_1er,eq-phase_1er} on établit facilement que,
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
-G_{dB}(\omega) = 20\log{K_1K_2}-20\log{\sqrt{1+\tau_1^2\omega^2}}
-                -20\log{\sqrt{1+\tau_2^2\omega^2}}
+    G_{dB}(\omega) = 20\log{K_1K_2}-20\log{\sqrt{1+\tau_1^2\omega^2}}
+                    -20\log{\sqrt{1+\tau_2^2\omega^2}}
 \end{bequation}
 %-------------------------------------------------------------------------------
 et
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
-\phi(\omega)=-\arctan{\tau_1\omega}-\arctan{\tau_2\omega}
+    \phi(\omega)=-\arctan{\tau_1\omega}-\arctan{\tau_2\omega}
 \end{bequation}
 %-------------------------------------------------------------------------------
 L'étude asymptotique se fait en considérant deux fréquences de coupures 
@@ -705,8 +686,8 @@ $\omega\gg\omega_{c2}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
-G_{dB}(\omega)&\sim20\log{K_1K_2}\\
-    \phi(\omega)&\sim0\si{\degree}
+    G_{dB}(\omega)&\sim20\log{K_1K_2}\\
+      \phi(\omega)&\sim0\si{\degree}
 \end{bequation}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -714,9 +695,9 @@ G_{dB}(\omega)&\sim20\log{K_1K_2}\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
-G_{dB}(\omega)&\sim20\log{K_1K_2}-20\log{\dfrac{\omega}
-                                               {\omega_{c1}\omega_{c2}}}\\
-\phi(\omega)&\sim-90\si{\degree}
+    G_{dB}(\omega)&\sim20\log{K_1K_2}-20\log{\dfrac{\omega}
+                                        {\omega_{c1}\omega_{c2}}}\\
+    \phi(\omega)&\sim-90\si{\degree}
 \end{bequation}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -724,9 +705,9 @@ G_{dB}(\omega)&\sim20\log{K_1K_2}-20\log{\dfrac{\omega}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
-G_{dB}(\omega)&\sim20\log{K_1K_2}-40\log{\dfrac{\omega}
-                                               {\omega_{c1}\omega_{c2}}}\\
-\phi(\omega)&\sim-180\si{\degree}
+    G_{dB}(\omega)&\sim20\log{K_1K_2}-40\log{\dfrac{\omega}
+                                        {\omega_{c1}\omega_{c2}}}\\
+    \phi(\omega)&\sim-180\si{\degree}
 \end{bequation}
 %-------------------------------------------------------------------------------
 La~\cref{fig-bode_1er_serie} présente le diagramme de Bode réel et 
@@ -765,40 +746,40 @@ H(\jw)=\dfrac{K\omega^2_0}{(\omega^2_0-\omega^2)+j2\xi\omega_0\omega}
 \label{eq-2nd_ftjw}
 \end{align}
 Le gain s'obtient en calculant le module de ce nombre complexe :
-$$
+\[
 G(\omega)=\dfrac{K\omega^2_0}{\sqrt{(\omega^2_0-\omega^2)^2
          +(2\xi\omega_0\omega)^2}}
-$$
+\]
 Le gain en décibel s'écrit alors :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
-G_{db}(\omega)=20\log{K\omega_0^2}-20\log{\sqrt{(\omega^2_0-\omega^2)^2
-              +(2\xi\omega_0\omega)^2}}
+    G_{db}(\omega)=20\log{K\omega_0^2}-20\log{\sqrt{(\omega^2_0-\omega^2)^2
+                                               +(2\xi\omega_0\omega)^2}}
 \end{bequation}
 %-------------------------------------------------------------------------------
 et la phase par l'argument princiale:
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
-\phi(\omega)=
-\begin{cases}
+    \phi(\omega)=
+    \begin{cases}
     -\arctan{\left(\dfrac{2\xi\omega_0\omega}{\omega_0^2-\omega^2}\right)}     
-    &\,\,\,\,\text{si $\omega^2<\omega^2_0$}\\
+        &\,\,\,\,\text{si $\omega^2<\omega^2_0$}\\
     -\arctan{\left(\dfrac{2\xi\omega_0\omega}{\omega_0^2-\omega^2}\right)}+\pi 
-    &\,\,\,\,\text{si $\omega^2>\omega^2_0$}\\
+        &\,\,\,\,\text{si $\omega^2>\omega^2_0$}\\
     -\dfrac{\pi}{2}                                                            
     &\,\,\,\,\text{si $\omega^2=\omega^2_0$}
-\end{cases}
+    \end{cases}
 \end{bequation}
 %-------------------------------------------------------------------------------
-Comme précdemment, il est recommandé d'étudier les valeurs asymptotiques 
+Comme précédemment, il est recommandé d'étudier les valeurs asymptotiques 
 du gain et de la phase.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Pour $\omega \ll\omega_0$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
-G_{dB}(\omega)&\sim20\log{K}\\
-\phi(\omega)&\sim0\si{\degree}
+    G_{dB}(\omega)&\sim20\log{K}\\
+    \phi(\omega)&\sim0\si{\degree}
 \end{bequation}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -849,30 +830,30 @@ grandeurs caractéristiques de ce phénomène de résonance.
 L'approche suivante s'inspire en partie de~\cite{laroche}.
 
 Partons du gain naturel $G(\omega)$ d'un système du second ordre pour lequel,
-$$
+\[
 G(\omega)=\dfrac{K\omega^2_0}{\sqrt{(\omega^2_0-\omega^2)^2
 +(2\xi\omega_0\omega)^2}}
-$$
+\]
 on pose $X=\omega^2$, et on porte le gain au carré pour éliminer la 
 racine carrée. 
 On obtient alors,
-$$
+\[
 (G(\omega))^2=\dfrac{K^2\omega^4_0}{(\omega^2_0-X)^2+(2\xi\omega_0)^2X}
-$$
+\]
 Le numérateur étant constant, le gain présentera un maximum si le 
 dénominateur présente un minimum. Notons $D(X)$, ce dénominateur qui 
 s'écrit:
-$$
+\[
 D(X)=(\omega^2_0-X)^2+(2\xi\omega_0)^2X
-$$
+\]
 Calculons, la dérivée par rapport à $X$,
-$$
+\[
 \dfrac{\mathrm{d}D(X)}{\mathrm{d}X}=-2(\omega^2_0-X)+(2\xi\omega_0)^2
-$$
+\]
 qui s'annule pour 
-$$
+\[
 X=X_0=\omega^2_0(1-2\xi^2).
-$$
+\]
 La dérivée seconde étant positive, le dénominateur $D(X)$ présente un 
 minimum en $X_0$. Puisque $X>0$ et $\omega^2_0>0$ alors la condition sur le 
 taux d'amortissement est 
@@ -884,13 +865,13 @@ taux d'amortissement est
 La \textbf{pulsation de résonance} est donc définit par : 
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-\omega_r=\omega_0\sqrt{1-2\xi^2}.
+    \omega_r=\omega_0\sqrt{1-2\xi^2}.
 \end{bequation}
 %-------------------------------------------------------------------------------
 La valeur du gain maximal est obtenue à la pulsation de résonance, 
-$$
+\[
 G(\omega_r)=\dfrac{K}{2\xi\sqrt{1-\xi^2}},
-$$
+\]
 ce qui permet de définir le \textbf{facteur de surtension} $Q$ qui est le 
 rapport entre le maximum atteint par le gain et la valeur de l'asymptote 
 à basse fréquence, d'où 
@@ -934,8 +915,8 @@ Il est notamment toujours possible d'écrire une fonction de transfert
 d'intégrateurs, de dérivateurs, de systèmes du premier et du second ordre: 
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-H(p)= K_0p^{\alpha}\prod_{i} (1+\tau_ip)^{n_i}\prod_{j} 
-      (1+2\xi_j\tau_jp+\tau_jp^2)^{n_j}
+    H(p)= K_0p^{\alpha}\prod_{i} (1+\tau_ip)^{n_i}\prod_{j} 
+         (1+2\xi_j\tau_jp+\tau_jp^2)^{n_j}
 \end{bequation}
 %-------------------------------------------------------------------------------
 où les exposants $\alpha$, $n_i$ et $n_j$ peuvent être positifs et négatifs. 
@@ -946,41 +927,53 @@ $n_i$, et $n_j$.
 %-------------------------------------------------------------------------------
 \begin{itemize}
     \item le terme $K_0$ (i.e gain pur) provoque:
-    \begin{itemize}
-        \item gain  : $+20\log{K_0}$
-        \item phase : rien 
-    \end{itemize}
+%-------------------------------------------------------------------------------
+        \begin{itemize}
+            \item gain  : $+20\log{K_0}$
+            \item phase : rien 
+        \end{itemize}
+%-------------------------------------------------------------------------------
     \item le terme $K_0p^{\alpha}$ (i.e intégrateur si $\alpha<0$ ou 
           dérivateur si $\alpha>0$) provoque :
+%-------------------------------------------------------------------------------
         \begin{itemize}
             \item gain  : pente de 20$\alpha$ dB/décade 
             \item phase : 90$\alpha$\si{\degree}
         \end{itemize}
+%-------------------------------------------------------------------------------
     \item un terme $\dfrac{1}{(1+\tau_ip)}$ (i.e premier ordre au 
           dénominateur si $n_i=-1$) provoque, en $\omega=\frac{1}{\tau_i}$
+%-------------------------------------------------------------------------------
         \begin{itemize}
             \item gain  : une rupture de pente de -20 dB/décade 
             \item phase : un saut de -90\si{\degree}
         \end{itemize}
+%-------------------------------------------------------------------------------
     \item un terme $(1+\tau_ip)$ (i.e premier ordre au numérateur si $n_i=1$) 
           provoque, en $\omega=\frac{1}{\tau_i}$
+%-------------------------------------------------------------------------------
         \begin{itemize}
             \item gain  : une rupture de pente de +20 dB/décade 
             \item phase : un saut de +90\si{\degree}
         \end{itemize}
+%-------------------------------------------------------------------------------
     \item un terme $\dfrac{1}{(1+2\xi_j\tau_jp+\tau_jp^2)}$ 
           (i.e second ordre au dénominateur si $n_j=-1$) provoque, 
           en $\omega=\frac{1}{\tau_j}$
+%-------------------------------------------------------------------------------
         \begin{itemize}
             \item gain  : une rupture de pente de -40 dB/décade 
             \item phase : un saut de -180\si{\degree}
         \end{itemize}
+%-------------------------------------------------------------------------------
     \item un terme $(1+2\xi_j\tau_jp+\tau_jp^2)$ (i.e second ordre au 
           numérateur si $n_j=-1$) provoque, en $\omega=\frac{1}{\tau_j}$
+%-------------------------------------------------------------------------------
         \begin{itemize}
             \item gain  : une rupture de pente de +40 dB/décade 
             \item phase : un saut de +180\si{\degree}
         \end{itemize}
+%-------------------------------------------------------------------------------
 \end{itemize}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1158,9 +1151,9 @@ de ce nombre complexe sont :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Retard pur!diagramme de Nyquist}
 La fonction de transfert d'un retard pur s'écrit :
-$$
+\[
 H(\jw)=e^{-j\tau\omega}
-$$
+\]
 Les parties réelles et imaginaires sont simplement donnés par :
 \begin{align*}
     \Re{H(\jw)}&=\hphantom{-}\cos{\tau\omega}\\
@@ -1189,9 +1182,9 @@ lorsque $\omega\to\infty$, de ce fait nous le trouverons jamais seul.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du premier ordre!diagramme de Nyquist}
 La fonction de transfert d'un système du premier ordre s'écrit:
-$$
+\[
 H(\jw)=\dfrac{K}{1+j\tau\omega}
-$$
+\]
 Les parties réelle et imaginaire de cette fonction de transfert sont données 
 par:
 \begin{align*}
@@ -1206,26 +1199,26 @@ Le lieu complet de Nyquist d'un système du premier ordre à la forme d'un
 cercle, nous allons établir ses caractéristiques\cite{9782729860127}.
 
 Posons tout d'abord, 
-$$
+\[
 X=\Re{H(\jw)}=\dfrac{K}{1+\tau^2\omega^2}
-$$
+\]
 on peut écrire,
-$$
+\[
 \tau^2\omega^2=\dfrac{K}{X}-1
-$$
+\]
 En posant maintenant, 
-$$
+\[
 Y=\Im{H(\jw)}=\dfrac{\tau\omega}{1+\tau^2\omega}=-\tau\omega X
-$$
+\]
 on obtient une relation entre $Y$ et $X$:
-$$
+\[
 Y^2=\left(\dfrac{K}{X}-1\right)X^2
-$$
+\]
 on reconnaît alors l'équation d'un cercle de centre $(K/2,0)$ et 
 de rayon $K/2$
-$$
+\[
 \left(X-\dfrac{K}{2}\right)^2+Y^2=\left(\dfrac{K}{2}\right)^2
-$$
+\]
 %-------------------------------------------------------------------------------
 \begin{table}
     \ra{1.3}
@@ -1262,9 +1255,9 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du second ordre!diagramme de Nyquist}
 La fonction de transfert d'un système du second ordre s'écrit:
-$$
+\[
 H(\jw)=\dfrac{K\omega_0^2}{(\omega_0^2-\omega^2)+j2\xi\omega_0\omega}
-$$
+\]
 Les parties réel et imaginaire de cette fonction de transfert sont données par:
 \begin{align*}
     \Re{H(\jw)}&=
@@ -1301,24 +1294,24 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Retard pur!effet d'un retard sur le diagramme de Nyquist}
 La fonction de transfert $H_R(\jw)$ d'un retard est donnée par la relation :
-$$
+\[
 H_R(\jw)=e^{-j\tau_1\omega}=\cos{\tau_1\omega}-j\sin{\tau_1\omega}
-$$
+\]
 avec $\tau_1$ le retard. 
 \'Etudions l'effet de ce retard sur le diagramme de Nyquist d'un système 
 du premier ordre $H(\jw)$. La fonction de transfert modifié est:
-$$
+\[
 H(\jw)=\dfrac{K}{1+j\tau\omega}H_R(\jw)=
 \dfrac{K}{1+j\tau\omega}\left(\cos{\tau\omega}-j\sin{\tau\omega}\right)
-$$
+\]
 Les parties réels et imaginaire de la fonction de transfert sont:
 \begin{align*}
-\Re{H(\jw)}&=
-\dfrac{K\left(\cos{\tau_1\omega-\tau\omega\sin{\tau_1\omega}}\right)}
+    \Re{H(\jw)}&=
+    \dfrac{K\left(\cos{\tau_1\omega-\tau\omega\sin{\tau_1\omega}}\right)}
       {1+\tau^2\omega^2}\\
-\Im{H(\jw)}&=
-\dfrac{-K\left(\tau\omega\cos{\tau_1\omega+\sin{\tau_1\omega}}\right)}
-{1+\tau^2\omega^2}\\
+    \Im{H(\jw)}&=
+    \dfrac{-K\left(\tau\omega\cos{\tau_1\omega+\sin{\tau_1\omega}}\right)}
+    {1+\tau^2\omega^2}\\
 \end{align*}
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
@@ -1372,7 +1365,6 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \acplhp
-
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

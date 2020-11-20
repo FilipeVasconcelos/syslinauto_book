@@ -129,55 +129,54 @@ que nous rencontrerons au cours de notre étude.
 
 Un système est dit linéaire si il respecte les deux principes suivants:
 
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item \emph{Principe de proportionnalité :}
-          \textbf{Si $s(t)$ est la réponse à une entrée $e(t)$, alors 
-          pour une entrée $\alpha e(t)$ la réponse est $\alpha s(t)$.}
+        \textbf{Si $s(t)$ est la réponse à une entrée $e(t)$, alors 
+        pour une entrée $\alpha e(t)$ la réponse est $\alpha s(t)$.}
         
-    On exprime, schématiquement, ce principe de la façon suivante pour 
-    un système linéaire $\Sigma$:
+        On exprime, schématiquement, ce principe de la façon suivante pour 
+        un système linéaire $\Sigma$:
 %-------------------------------------------------------------------------------
-    \begin{center}
-        \tikzsetnextfilename{principe_linearite-chap_slci-ext}
-        \input{tikz/principe_linearite-chap_slci.tex}
-    \end{center}
+        \begin{center}
+            \tikzsetnextfilename{principe_linearite-chap_slci-ext}
+            \input{tikz/principe_linearite-chap_slci.tex}
+        \end{center}
 %-------------------------------------------------------------------------------
 
     \item \emph{Principe de superposition :}
-     \textbf{Si l'entrée du système se décompose en une somme 
+        \textbf{Si l'entrée du système se décompose en une somme 
         de plusieurs entrées alors la sortie du système sera la somme des 
         sorties correspondant à chaque entrée séparée.}
 
-    Une nouvelle fois, il est possible d'exprimer ce principe de la façon 
-    suivante pour un système linéaire $\Sigma$:
+        Une nouvelle fois, il est possible d'exprimer ce principe de la façon 
+        suivante pour un système linéaire $\Sigma$:
 %-------------------------------------------------------------------------------
-    \begin{center}
-    \tikzsetnextfilename{sb_bloc_e1-chap_slci-ext}
-    \input{tikz/sb_bloc_e1-chap_slci.tex}
-    \end{center}
+        \begin{center}
+            \tikzsetnextfilename{sb_bloc_e1-chap_slci-ext}
+            \input{tikz/sb_bloc_e1-chap_slci.tex}
+        \end{center}
 %-------------------------------------------------------------------------------
-
-    Notons que ceci reste vrai pour une combinaison linéaire des entrées :
+        Notons que ceci reste vrai pour une combinaison linéaire des entrées :
 %-------------------------------------------------------------------------------
-    \begin{center}
-    \tikzsetnextfilename{sb_bloc_e2-chap_slci-ext}
-    \input{tikz/sb_bloc_e2-chap_slci.tex}
-    \end{center}
+        \begin{center}
+            \tikzsetnextfilename{sb_bloc_e2-chap_slci-ext}
+            \input{tikz/sb_bloc_e2-chap_slci.tex}
+        \end{center}
 %-------------------------------------------------------------------------------
-    avec $\alpha\ \text{et}\ \beta\in\mathbb{R}$, ou un nombre quelconques 
-    d'entrées.
-   % $$
-   % s(t)=\sum_{k}^n \alpha_ks_k(t)
-   % $$
+        avec $\alpha\ \text{et}\ \beta\in\mathbb{R}$, ou un nombre quelconques 
+        d'entrées.
+        %\[ 
+        % s(t)=\sum_{k}^n \alpha_ks_k(t)
+        %\]
 \end{itemize}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Système à temps continu}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textbf{Un système à temps continu met en oeuvre des signaux 
 à temps continus}. Comme nous le verrons, ces signaux seront
 modélisés par des fonctions d'une variable continue $t$ de temps.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Système invariant}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -193,19 +192,19 @@ l'aide d'un schéma-bloc ci-dessous
     \input{tikz/principe_invariance-chap_slci.tex}
 \end{center}
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Système causal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item \emph{Principe de causalité :}
         C'est un principe fort de la physique :
         \textbf{\og L'éffet ne précèdant pas sa cause\fg} alors 
         \textbf{\og La réponse du système ne précède pas son excitation\fg}.
         Formellememnt, un système est dit causal si 
-        $$e(t)=0\quad\forall t\le t_0 \Rightarrow s(t)=0\quad\forall t\le t_0$$
+        \[ e(t)=0\quad\forall t\le t_0 \Rightarrow s(t)=0\quad\forall t\le t_0\]
 \end{itemize}
-
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Système stable}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -269,13 +268,13 @@ permettront d'écrire de telles équations.
 
 Prenons l'exemple d'un système d'ordre $n=2$, de classe 0 et $m=0$, 
 son équation différentielle sera de la forme :
-$$
+\[
 a_2\devi{s(t)}{2}+a_1\devi{s(t)}{}+a_0 s(t)=b_0e(t)
-$$
+\]
 Un système d'ordre $n=2$, $m=1$ et de classe $c=1$ sera alors de la forme :
-$$
+\[
 a_2\devi{s(t)}{2}+a_1\devi{s(t)}{}=b_0e(t)
-$$
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Exemples de mises en équation}
@@ -325,9 +324,9 @@ La masse est soumise à une force $\vect{F}=F(t)\xx{}$.
 
 En appliquant le principe fondamentale de la dynamique en projection 
 sur la direction $x$, on obtient l'équation du mouvement suivante :
-$$
+\[
 m\devi{x(t)}{2}+b\devi{x(t)}{}+kx(t)=F(t)
-$$
+\]
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -368,18 +367,18 @@ t&\rightarrow s(t)
 
 Il existe cependant d'autres type de signaux qui sont très souvent confondus 
 à tord:
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item un signal \emph{quantifié} est un signal continu 
           dont la valeur ne peut prendre que des valeurs discrètes. 
     \item un signal \emph{discret} est un signal à temps discret.
     \item un signal \emph{numérique} est un signal discret et quantifié.   
 \end{itemize}
-
+%-------------------------------------------------------------------------------
 \textbf{Dans le reste de ce document, nous ne traiterons que
 du cas de signaux en temps continu}. Les signaux en temps discret
 sont généralement abordées lors d'un cours 
 avancé d'automatique en cycle ingénieur.
-
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -436,9 +435,9 @@ s_0(t) =
 \end{align*}
 Le signal $s(t)$ est alors la somme (série) du motif retardé de $nT$ 
 avec $n\in\mathbb{N}$ tel que :
-$$
+\[
 s(t)=\sum_0^\infty s_0(t-nT)
-$$
+\]
 L'analyse de Fourier est un outil fondamental pour l'étude 
 de ces signaux périodiques. Elle sort cependant légérement du cadre de 
 ce cours.
@@ -535,9 +534,9 @@ $\delta_a(t)$ s'approche d'une impulsion de Dirac lorsque $a\to0$.
 \end{figure}
 %-------------------------------------------------------------------------------
 Nous rencontrerons quelque fois l'impulsion de Dirac sous sa forme généralisée, 
-$$
+\[
 e(t)=E_0\delta(t)
-$$
+\]
 où $e(t)$ est le signal d'entrée du système et $E_0$ la valeur de l'amplitude 
 de l'impulsion de Dirac dont la dimension dépendra de la nature du 
 problème considéré.
@@ -554,14 +553,13 @@ linéaire qui l'a élaboré.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Signaux usuels!échelon unité}
 L'échelon-unité est défini par la fonction, noté $u(t)$, telle que :
-$$
+\[
 u(t)=
 \begin{cases} 
 0 \qquad \forall t<0    \\ 
 1 \qquad \forall t\geq 0 
 \end{cases}
-$$
-
+\]
 Cette fonction présente une marche\footnote{Nos 
 collègues anglo-saxons l'appelle la \og\emph{step function}\fg} à $t=0$. 
 Ci dessous nous la représentons avec la fonction retardée $u(t-\tau)$.
@@ -575,13 +573,12 @@ Ci dessous nous la représentons avec la fonction retardée $u(t-\tau)$.
             \label{fig-echelon}}
 \end{figure}
 %-------------------------------------------------------------------------------
-
 En général, l'échelon-unité est utilisé en entrée de nos systèmes pour 
 modéliser des états fermé/ouvert (\og on/off\fg) ou encore en régulation.
 Nous la rencontrerons souvent sous sa forme généralisée, 
-$$
+\[
 e(t)=E_0u(t)
-$$
+\]
 où $e(t)$ est le signal d'entrée du système et $E_0$ la valeur seuil 
 de l'échelon dont la dimension dépend de la nature du problème considéré.
 
@@ -595,9 +592,9 @@ La réponse d'un système à un échelon est appelée
 
 Remarquons que la fonction échelon-unité est l'intégrale 
 de la distribution de Dirac,
-$$
+\[
 u(t)=\int\limits_{-\infty}^{t} \delta(\tau)\,\,\dd{\tau}
-$$
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Rampe-unité}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -605,17 +602,17 @@ $$
 Le signal rampe-unité\footnote{On retrouve parfois~\cite{sueurautomatique} 
 le terme d'échelon vitesse pour désigner la fonction rampe} est
 modélisé par la fonction $r(t)$ telle que :
-$$
+\[
 r(t)=
 \begin{cases}
 	0\,\,\,\,t<0 \\
 	t\,\,\,\,t\geq0 
 \end{cases}
-$$
+\]
 ou autrement dit, en utilisant la propriété de causalité de l'échelon:
-$$
+\[
 r(t)=t\cdot u(t)
-$$
+\]
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -628,9 +625,9 @@ $$
 \end{figure}
 %-------------------------------------------------------------------------------
 Remarquons que la fonction rampe est l'intégrale de l'échelon-unité, notamment 
-$$
+\[
 r(t)=\int\limits_{-\infty}^{t} u(\tau)\,\,\dd{\tau}
-$$
+\]
 La réponse d'un système à une rampe ne possède pas de nom spécifique 
 pour la distinguer des autres réponses. Nous parlerons donc simplement 
 de \textbf{réponse à une rampe}. 
@@ -639,9 +636,9 @@ de \textbf{réponse à une rampe}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Signaux usuels!sinuso\"ide}
 Le signal périodique sinuso\"idal $s(t)$ est la fonction telle que :
-$$
-s(t)=A\sin{(\omega t +\phi)}\cdot u(t)
-$$
+\[
+    s(t)=A\sin{(\omega t +\phi)}\cdot u(t)
+\]
 avec $A$ son amplitude, $\omega$ sa pulsation (en \si{\radian\per\second}) 
 et $\phi$ sa phase (\si{\radian}).
 %La pulsation permet de définir la fréquence $f=\dfrac{\omega}{2\pi}$ 
@@ -661,9 +658,9 @@ Il est possible de voir le signal sinuso\"idal comme la combinaison
 linéaire de la fonction cosinus et sinus. En effet, en utilisant une 
 des rélations trigonométriques simples\footnote{à savoir la comptine des 
 lycéens $\sin(a+b)=\sin{a}\cos{b}+\sin{b}\cos{a}$}, $s(t)$ s'écrit :
-$$
-s(t)=A(\sin(\phi)\cos{\omega t}+\cos(\phi)\sin{\omega t})
-$$
+\[
+    s(t)=A(\sin(\phi)\cos{\omega t}+\cos(\phi)\sin{\omega t})
+\]
 %-------------------------------------------------------------------------------
 \begin{table}[!h]
     \ra{1.2}
@@ -726,9 +723,9 @@ deux signaux sinuso\"idaux.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Signaux usuels!exponentielle décroissante}
 La fonction exponentielle décroissante $s(t)$ est telle que :
-$$
-s(t)=e^{-at}\cdot u(t)
-$$  
+\[
+    s(t)=e^{-at}\cdot u(t)
+\]
 avec $a$ l'inverse d'un temps caractéristique d'un amortissement.
 Cette fonction tend vers 0 pour tout $a>0$ à $t\rightarrow\infty$ et 
 diverge pour $a<0$.
@@ -746,9 +743,9 @@ diverge pour $a<0$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Signaux usuels!sinuso\"ide amortie}
 La fonction sinuso\"idale amortie $s(t)$ est la fonction telle que :
-$$
-s(t)=Ae^{-at}\sin{(\omega t +\phi)}\cdot u(t)
-$$
+\[
+    s(t)=Ae^{-at}\sin{(\omega t +\phi)}\cdot u(t)
+\]
 où $a>0$ est l'inverse d'un temps caractéristique de l'amortissement.
 Cette fonction est donc le produit d'une exponentielle décroissante et 
 d'une sinuso\"ide.
@@ -777,7 +774,6 @@ pour l'étude des \gls{slci}. Celle-çi nous sera très utile pour
 la résolution des équations différentielles 
 et nous permettra également de définir la notion de 
 fonction de transfert reliant l'entrée et la sortie d'un système linéaire.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Définition}
@@ -797,16 +793,15 @@ Laplace de la fonction $s(t)$ du domaine temporel.}
 De plus la transformée $S(p)$ de $s(t)$ est unique et parfaitement définie. 
 Connaissant $S(p)$ on en déduit $s(t)$
 par la transformation inverse 
-$$
-s(t)=\laplacei{S(p)}
-$$
+\[
+    s(t)=\laplacei{S(p)}
+\]
 %Les transformations inverses sont tabulées à l'\cref{annexe-lap}. 
-
 Il existe une forme analytique de la transformée inverse basée sur
 la formule de Mellin-Fourier\cite{Ostertag}:
-$$
-s(t)=\laplacei{S(p)}=\int_{c-j\infty}^{c+j\infty} e^{pt}S(p)\dd{p}
-$$
+\[
+    s(t)=\laplacei{S(p)}=\int_{c-j\infty}^{c+j\infty} e^{pt}S(p)\dd{p}
+\]
 L'intégration de celle-ci est difficile à mettre en oeuvre\footnote{
 Il existe différentes méthodes numériques de transformée de Laplace 
 inverse (\cref{annexe-invL}). Ces méthodes, hors programme, peuvent 
@@ -847,16 +842,16 @@ combinaison linéaire de $S_1(p)$ et $S_2(p)$. Autrement dit,
 \paragraph{Retard en $t$ (temporel)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit $s(t-\tau)$ un signal $s(t)$ présentant un retard $\tau$.
-$$
-\laplace{s(t-\tau)}=\int_{0}^{+\infty} e^{-pt}s(t-\tau)\dd{t}
-$$
+\[
+    \laplace{s(t-\tau)}=\int_{0}^{+\infty} e^{-pt}s(t-\tau)\dd{t}
+\]
 en appliquant le changement de variable $t'=t-\tau$, on obtient $t=t'+\tau$ 
 et $\dd{t}=\dd{t}$
-$$
+\[
 \laplace{s(t-\tau)}
 =\int_{\tau}^{+\infty} e^{-p(t'+\tau)}s(t')\dd{t'}
 =e^{-p\tau}\int_{0}^{+\infty} e^{-pt'}s(t')\dd{t'}
-$$
+\]
 on reconnaît dans cette dernière expression la définition de la 
 transformée de Laplace, on écrit alors :
 %-------------------------------------------------------------------------------
@@ -869,11 +864,11 @@ transformée de Laplace, on écrit alors :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit $s(t)$ un signal de transformée de Laplace $S(p)$. La transformée 
 de Laplace du signal modifié $e^{-at}s(t)$ s'écrit :
-$$
+\[
 \laplace{e^{-at}s(t)}
 =\int_{0}^{+\infty} e^{-pt}e^{-at}s(t)\dd{t}
 =\int_{0}^{+\infty} e^{-(p+a)t}s(t)\dd{t}
-$$
+\]
 on reconnaît dans cette dernière expression la définition de la transformée 
 de Laplace pour $p+a$, on obtient donc la transformée, 
 %-------------------------------------------------------------------------------
@@ -892,9 +887,9 @@ ou encore,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit un signal $s(t)$ continu et dérivable pour $t\ge0$ et $S(p)$ 
 sa transformée de Laplace. Par définition de la transformée de Laplace 
-$$
+\[
 \laplace{\devi{s(t)}{}}=\int_{0}^{+\infty} e^{-pt}\devi{s(t)}{}\dd{t}
-$$
+\]
 par intégration par parties
 \begin{align*}
     v=e^{-pt}\qquad&\dd{u}=\devi{s(t)}{}\dd{t}\\
@@ -903,7 +898,7 @@ par intégration par parties
 \begin{align*}
 \laplace{\devi{s(t)}{}}&=\left[s(t)e^{-pt}\right]_0
                          ^{+\infty}-p\int_{0}^{+\infty}e^{-pt}s(t)\dd{t}\\
-                       &=-s(0)+pS(p)
+                         &=-s(0)+pS(p)
 \end{align*}
 ou encore
 %-------------------------------------------------------------------------------
@@ -913,9 +908,9 @@ ou encore
 %-------------------------------------------------------------------------------
 On généralise à tous les ordres de dérivation dans le cas de conditions 
 initiales nulles.
-$$
+\[
 \laplace{\devi{s(t)}{n}}=p^nS(p)
-$$
+\]
 Remarquons alors que \textbf{dériver dans le domaine temporel consiste 
 à multiplier par $p$ dans le domaine de Laplace.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -923,9 +918,9 @@ Remarquons alors que \textbf{dériver dans le domaine temporel consiste
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soient  des signaux $v(t)$ et $s(t)$ tel que 
 $v(t)=\int_{0}^{t}s(\tau)\dd{\tau}$. Par définition,
-$$
+\[
 \laplace{v(t)}=\int_{0}^{+\infty} e^{-pt}v(t)\dd{t}
-$$
+\]
 par intégration par parties,
 \begin{align*}
     v=v(t)\qquad&\dd{u}=e^{-pt}\dd{t}\\
@@ -976,9 +971,9 @@ dira plus tard si le signal est stable.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le produit de convolution de deux signaux $h(t)$ et $e(t)$ que l'on 
 note $(h*e)(t)$ est défini par :
-$$
-(h*e)(t)=\int_{-\infty}^{+\infty}h(t-\tau)e(\tau)\dd{\tau}
-$$
+\[
+    (h*e)(t)=\int_{-\infty}^{+\infty}h(t-\tau)e(\tau)\dd{\tau}
+\]
 La transformée de Laplace transforme le produit de convolution en un simple
 produit des signaux dans le domaine de Laplace. Formellement,
 %-------------------------------------------------------------------------------
@@ -1003,9 +998,9 @@ au paragraphe~\ref{sec-signaux_usuels}
 Par simple application des définitions 
 de la~\gls{tl} et de l'impulsion de Dirac, la transformée d'une 
 impulsion de Dirac $\delta(t)$ s'écrit:
-$$
-\laplace{\delta(t)}=\int_{0}^{+\infty} e^{-pt}\,\delta(t)\dd{t}=1
-$$
+\[
+    \laplace{\delta(t)}=\int_{0}^{+\infty} e^{-pt}\,\delta(t)\dd{t}=1
+\]
 ou encore
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -1016,11 +1011,11 @@ ou encore
 \paragraph{Transformée d'un échelon-unité}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La transformée de Laplace d'un signal échelon-unité  s'écrit : 
-$$
+\[
 \laplace{u(t)}=\int_{0}^{+\infty}e^{-pt}\,u(t)\dd{t}
 =\int_{0}^{+\infty} e^{-pt}\dd{t}
 =\left[\dfrac{-e^{-pt}}{p}\right]_0^{+\infty}=\dfrac{1}{p}
-$$
+\]
 ou encore
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -1032,20 +1027,20 @@ Dans le cas de la forme généralisée, il suffit de multiplier par une constant
 \paragraph{Transformée d'une rampe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La transformée de Laplace d'un signal rampe s'écrit :
-$$
+\[
 \laplace{r(t)}=\int_{0}^{+\infty} e^{-pt}r(t)\dd{t}
 =\int_{0}^{+\infty} te^{-pt}\dd{t}
-$$
+\]
 Par intégration par parties:
 \begin{align*}
     v=-\dfrac{1}{p}e^{-pt}\qquad&\dd{u}=\dd{t}\\
     \dd{v}=e^{-pt}\dd{t}\qquad&u=t
 \end{align*}
-$$
+\[
 \int_{0}^{+\infty} te^{-pt}\dd{t}
 =\left[-t\dfrac{1}{p}e^{-pt}\right]_0^{+\infty}-\int_{0}^{+\infty}
 -\dfrac{1}{p}e^{-pt}\dd{t}=\dfrac{1}{p^2}
-$$
+\]
 ou encore
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -1063,10 +1058,10 @@ cubique\fg\ldots) :
 \paragraph{Transformée d'une exponentielle décroissante}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La transformée de Laplace d'une exponentielle décroissante s'écrit :
-$$
+\[
 \laplace{e^{-at}u(t)}=\int_{0}^{+\infty} e^{-pt}e^{-at}\dd{t}
 =\int_{0}^{+\infty} e^{-(p+a)t}\dd{t} = \dfrac{1}{p+a}
-$$
+\]
 ou encore
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -1203,21 +1198,21 @@ totalement indispensable pour la caractérisation d'un \gls{slci}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 L'équation caractéristique associée à cette équation différentielle est 
 donnée par 
-$$
-r^2+2r+1=0
-$$
+\[
+    r^2+2r+1=0
+\]
 cette équation possède une solution double $r_{1,2}=-1$.
 La solution générale de l'équation homogène $s_0(t)$ (c.a.d sans second membre) 
 est donc de la forme :
-$$
-s_0(t)=(\alpha t+\beta)e^{-t}.
-$$
+\[
+    s_0(t)=(\alpha t+\beta)e^{-t}.
+\]
 Une solution particulière $s_1(t)=1$ nous est trivialement donnée par l'entrée 
 en échelon qui correspond au régime permanent.
 La solution générale est donc donnée par :
-$$
-s(t)=(\alpha t+\beta)e^{-t}+1
-$$
+\[
+    s(t)=(\alpha t+\beta)e^{-t}+1
+\]
 Dérivons cette solution générale pour pouvoir déterminer les coefficients 
 $\alpha$, $\beta$ en utilisant les conditions initiales,
 \begin{align*}
@@ -1225,7 +1220,6 @@ $\alpha$, $\beta$ en utilisant les conditions initiales,
      s(0)&=-1\Rightarrow\beta+1=-1\Rightarrow\beta=-2 \\
     s'(0)&=\hphantom{-}2\Rightarrow\alpha+2=\hphantom{-}2\Rightarrow\alpha=0
 \end{align*}
-
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
@@ -1276,14 +1270,15 @@ forme de la réponse $S(p)$ dans le domaine de Laplace.
 \end{align*}
 de Laplace usuels, nous allons décomposer cette
 fraction rationnelle en éléments simples (\Cref{annexe-DES}).
-$$
-S(p)=\dfrac{A}{p}+\dfrac{B}{p+1}+\dfrac{C}{(p+1)^2}
-$$
+\[
+    S(p)=\dfrac{A}{p}+\dfrac{B}{p+1}+\dfrac{C}{(p+1)^2}
+\]
 Par identification, 
-$$
-S(p)=\dfrac{A(p+1)^2+Bp(p+1)+Cp}{p(p+1)^2}=\dfrac{1-p^2}{p\left(p+1\right)^2}
-$$
-$$
+\[
+    S(p)=\dfrac{A(p+1)^2+Bp(p+1)+Cp}{p(p+1)^2}
+        =\dfrac{1-p^2}{p\left(p+1\right)^2}
+\]
+\[
 \begin{cases}
     A+B&=-1 \\
     2A+B+C&=0 \\
@@ -1293,22 +1288,22 @@ $$
     B&=-2\\
     C&=0
 \end{cases}
-$$
+\]
 La réponse $S(p)$ se décompose donc de la façon suivante en éléments simples:
-$$
-S(p)=\dfrac{1}{p}-\dfrac{2}{p+1}
-$$
+\[
+    S(p)=\dfrac{1}{p}-\dfrac{2}{p+1}
+\]
 Il est maintenant plus aisé d'appliquer la transformation de Laplace inverse, 
 en utilisant le tableau des transformées de Laplace usuels 
 (c.f lignes 3 et 7 du tableau de l'\Cref{annexe-lap}) pour obtenir la 
 réponse temporelle $s(t)$. Notamment,
-$$
-\laplacei{\dfrac{1}{p}}=1
-$$
+\[
+    \laplacei{\dfrac{1}{p}}=1
+\]
 et
-$$
-\laplacei{\dfrac{2}{p+1}}=2e^{-t}
-$$
+\[
+    \laplacei{\dfrac{2}{p+1}}=2e^{-t}
+\]
 soit 
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -1368,17 +1363,17 @@ de transfert puisque $\laplace{\delta(t)}=E(p)=1$. Autrement dit,
 la fonction de transfert d'un système est la réponse impulsionnelle 
 dans le domaine de Laplace. Formellement, si $h(t)$ est la réponse 
 impulsionnelle d'un système alors,
-$$
-H(p) = \laplace{h(t)}
-$$
+\[
+    H(p) = \laplace{h(t)}
+\]
 D'après la propriété du produit de convolution, nous savons que 
 le produit de deux fonctions dans le domaine de Laplace correspond au 
 produit de convolution de ces deux fonctions dans le domaine temporelle, 
 dans le cas de l'équation~\ref{eq-she},
-$$
-s(t)=\laplacei{S(p)}=\laplacei{H(p)E(p)}
-=\int_{-\infty}^{+\infty}h(t-\tau)e(\tau)\dd{\tau}
-$$
+\[
+    s(t)=\laplacei{S(p)}=\laplacei{H(p)E(p)}
+    =\int_{-\infty}^{+\infty}h(t-\tau)e(\tau)\dd{\tau}
+\]
 \newpage
 ou encore,
 %-------------------------------------------------------------------------------
@@ -1417,9 +1412,9 @@ nous allons les construire à partir de la forme générale de l'\cref{eq-ftgen}
 Une fonction de transfert peut être vue comme le fraction de deux polynômes 
 (formellement une fraction rationnelle) : un polynôme au numérateur $N(p)$ 
 et un polynôme au dénominateur $D(p)$.
-$$
-H(p)=\dfrac{N(p)}{D(p)}
-$$
+\[
+    H(p)=\dfrac{N(p)}{D(p)}
+\]
 Ces polynômes possèdent des racines dans $\mathbb{C}$. Les 
 \textbf{racines de $N(p)$ sont dits les zéros de $H(p)$} et 
 les \textbf{racines de $D(p)$ sont dits les pôles de $H(p)$}.
@@ -1441,9 +1436,9 @@ La transformée de Laplace de cette équation nous donne,
 	S(p)&=\dfrac{1}{p^2+2p+1}E(p)
 \end{align*}
 La fonction de transfert associée à cette équation différentielle est donc 
-$$
-H(p)=\dfrac{1}{p^2+2p+1}
-$$
+\[
+    H(p)=\dfrac{1}{p^2+2p+1}
+\]
 Il est aisé de constater que la fonction de transfert est d'ordre deux 
 et ne possède pas de zéro.
 
@@ -1452,27 +1447,28 @@ et ne possède pas de zéro.
 \paragraph{Forme canonique de la fonction de transfert}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Développons les sommes de l'\cref{eq-ftgen},
-$$
-H(p)=\dfrac{b_0+b_1p+b_2p^2+\ldots+b_mp^m}{a_0+a_1p+a_2p^2+\ldots+a_np^n}.
-$$
+\[
+    H(p)=\dfrac{b_0+b_1p+b_2p^2+\ldots+b_mp^m}{a_0+a_1p+a_2p^2+\ldots+a_np^n}.
+\]
 La forme canonique dépend du nombre d'intégrateur du système. 
 Par exemple, si $a_0$ est non nul, l'expression précédente se factorise 
 sous la forme,
-$$
-H(p)=K_0\cdot\dfrac{1+b'_1p+b'_2p^2+\ldots+b'_mp^m}
-                   {1+a'_1p+a'_2p^2+\ldots+a'_np^n}.
-$$
+\[
+    H(p)=K_0\cdot\dfrac{1+b'_1p+b'_2p^2+\ldots+b'_mp^m}
+                       {1+a'_1p+a'_2p^2+\ldots+a'_np^n}.
+\]
 avec $K_0=\dfrac{b_0}{a_0}$, $a'_i=\dfrac{a_i}{a_0}$ et 
 $b'_i=\dfrac{b_i}{b_0}$. Dans ce cas, le système est dit de 
 classe 0 et ne possède aucun intégrateur.
 
 Si maintenant $a_0$ est nul et $a_1$ non nul, la fonction de transfert 
 peut s'écrire,
-$$
-H(p)=\dfrac{K_1}{p}
-\cdot
-\dfrac{1+b'_1p+b'_2p^2+\ldots+b'_mp^m}{1+a'_1p+a'_2p^2+\ldots+a'_{n-1}p^{n-1}}.
-$$
+\[
+    H(p)=\dfrac{K_1}{p}
+    \cdot
+    \dfrac{1+b'_1p+b'_2p^2+\ldots+b'_mp^m}
+          {1+a'_1p+a'_2p^2+\ldots+a'_{n-1}p^{n-1}}.
+\]
 avec $K_1=\dfrac{b_0}{a_1}$, $a'_i=\dfrac{a_{i+1}}{a_1}$ et 
 $b'_i=\dfrac{b_i}{b_0}$. Dans ce cas, le système est dit de classe 1 
 et possède un intégrateur.
@@ -1481,10 +1477,10 @@ On généralise donc la forme canonique de la fonction de transfert d'un
 système de classe $\alpha\ge0$ sous la forme, 
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-H(p)=\dfrac{K_\alpha}{p^\alpha}
-\cdot
-\dfrac{\sum\limits_{i=0}^{m}b'_i p^i}{\sum\limits_{i=0}^{n-\alpha}a'_ip^i} 
-\label{eq-ftcan} 
+    H(p)=\dfrac{K_\alpha}{p^\alpha}
+    \cdot
+    \dfrac{\sum\limits_{i=0}^{m}b'_i p^i}{\sum\limits_{i=0}^{n-\alpha}a'_ip^i} 
+    \label{eq-ftcan} 
 \end{bequation}
 %-------------------------------------------------------------------------------
 où $K_\alpha=\dfrac{b_0}{a_\alpha}$ est \textbf{le gain statique}, 
@@ -1498,28 +1494,28 @@ de l'équation différentielle.}.
 En posant respectivement $N(p)$ et $D(p)$ les polynômes du numérateur 
 et du dénomintateur. La forme canonique de la fonction de transfert 
 s'écrira également très souvent:
-$$
-H(p)=\dfrac{K_\alpha N(p)}{p^\alpha D(p)}
-$$
+\[
+    H(p)=\dfrac{K_\alpha N(p)}{p^\alpha D(p)}
+\]
 On constate que sous cette forme les polynômes $N(p)$ et $D(p)$ sont 
 de la forme 
-$$
-1+a_1p+a_2p^2+\ldots+a_{n-\alpha}p^{n-\alpha}
-$$
+\[
+    1+a_1p+a_2p^2+\ldots+a_{n-\alpha}p^{n-\alpha}
+\]
 et donc $N(0)=1$ et $D(0)=1$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple de forme canonique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit un système décrit par la fonction de transfert suivante:
-$$
-H(p)=\dfrac{2p+5}{p^3+2p^2+4p}
-$$
+\[
+    H(p)=\dfrac{2p+5}{p^3+2p^2+4p}
+\]
 Le coefficient d'ordre 0 étant nul au dénominateur, le système est de classe 1, 
 la forme canonique de cette fonction de transfert est 
 donc\footnote{Il est d'usage en automatique d'écrire les nombres rationnels 
 par leurs valeurs numériques plutôt que par leurs fractions. } donnée par
 \begin{align*}
-H(p)=\dfrac{K(0.4p+1)}{p(0.25p^2+0.5p+1)},
+    H(p)=\dfrac{K(0.4p+1)}{p(0.25p^2+0.5p+1)},
 \end{align*}
 où le gain statique $K=$1.25.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1531,7 +1527,8 @@ Il est alors possible de factoriser par les pôles et les zéros pour
 écrire la fonction de transfert sous la forme:
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-H(p)=k\cdot\dfrac{\prod\limits_{j=0}^{m}(p-z_j)}{\prod\limits_{i=0}^{n}(p-p_i)},
+    H(p)=k\cdot\dfrac{\prod\limits_{j=0}^{m}(p-z_j)}
+                     {\prod\limits_{i=0}^{n}(p-p_i)},
 \end{bequation}
 %-------------------------------------------------------------------------------
 avec $k=\dfrac{b_m}{a_n}$. On remarquera que cette constante $k$ 
@@ -1543,21 +1540,21 @@ de la réponse harmonique (c.f~\cref{chap-repfreq}).
 \paragraph{Exemple de fonction de transfert factorisée}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit la fonction de transfert $H(p)$ tel que
-$$
-H(p)=\dfrac{6p+12}{2p^2+4p+1.5}	
-$$
+\[
+    H(p)=\dfrac{6p+12}{2p^2+4p+1.5}	
+\]
 En factorisant par les coefficients d'ordre maximum au numérateur et 
 au dénominateur, et en observant que la fonction de transfert possède un 
 zéro ($z_1=-2$) et deux pôles ($p_1=-1.5$ et $p_2=-0.5$), 
 on peut réécrire $H(p)$ sous sa forme factorisée:
-$$
-H(p)=\dfrac{6}{2}\cdot\dfrac{p+2}{p^2+2p+0.75}
-$$
+\[
+    H(p)=\dfrac{6}{2}\cdot\dfrac{p+2}{p^2+2p+0.75}
+\]
 La fonction de transfert possède un zéro ($z_1=-2$) et deux pôles 
 ($p_1=-1.5$ et $p_2=-0.5$). Elle peut alors s'écrire :
-$$
-H(p)=\dfrac{k(p+2)}{(p+1.5)(p+0.5)}
-$$
+\[
+    H(p)=\dfrac{k(p+2)}{(p+1.5)(p+0.5)}
+\]
 avec $k=3$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Carte des pôles et zéros d'une fonction de transfert}
@@ -1575,7 +1572,7 @@ ingénieur, automaticien américain} pour l'étude des systèmes asservis.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit $H(p)$ une fonction de transfert telle que,
 \begin{align}
-H(p)=\dfrac{p-1}{p^2+2p+2}\label{eq-ft_carte}
+    H(p)=\dfrac{p-1}{p^2+2p+2}\label{eq-ft_carte}
 \end{align}
 Cette fonction de transfert possède un zéro réel ($z_1=1$) et deux 
 pôles complexes conjugués ($p_{1,2}=-1\pm j$).
@@ -1618,13 +1615,13 @@ La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert
 %systèmes du premier ordre en série.
 
 %Prenons l'exemple de la fonction de transfert définie par  
-%$$
-%H(p)=\dfrac{5}{(p+1)(5p+1)}
-%$$
+%\[
+%       H(p)=\dfrac{5}{(p+1)(5p+1)}
+%\]
 %et de décomposition en éléments simples telle que :
-%$$
-%H(p)=\dfrac{A}{p+1}+\dfrac{B}{5p+1}
-%$$
+%\[
+%       H(p)=\dfrac{A}{p+1}+\dfrac{B}{5p+1}
+%\]
 %Par identification on peut écrire $H(p)$ en fonction de
 %deux fonctions de transferts $H_1(p)$ et $H_2(p)$ tel que :
 %\begin{align*}
