@@ -44,7 +44,7 @@ de ces modèles à partir de leurs réponses temporelles.
 
 Finalement, nous présenterons des méthodes d'identifications des comportements 
 de ces modèles.     
-\newpage
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -328,9 +328,7 @@ rampe d'un système du premier ordre:
 La pente à l'origine peut être obtenue directement en dérivant la réponse 
 temporelle $s(t)$. On constate alors que $s'(0)=0$ quelque soit $\tau$. 
 À la limite $t\to\infty$ la réponse à une rampe tend vers $t-\tau$.
-
-
-\newpage
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -466,14 +464,13 @@ S(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}
 où $E(p)=1$ dans le cas d'une impulsion de Dirac unitaire\footnote{Nous avons 
 ici posé $E_0=1$ pour alléger la notation.}.
 
-\'Etudions la forme analytique des réponses impulsionnelles dans les 
+\'Etudions la forme analytique des réponses impulsionnelles pour les 
 différents régimes du système du second ordre. Nous rappellons que l'étude 
 de la réponse impulsionnelle revient à étudier la fonction de 
 transfert du système. 
-
 \`A l'aide du théorème de la valeur finale, 
 il est dors et déjà possible de déterminer la valeur finale de la réponse
-indicielle quelque soit le régime.
+impulsionnelle quelque soit le régime.
 \[
 s(\infty)=\lim\limits_{p\to 0} pS(p) = 0
 \]
@@ -557,9 +554,19 @@ de l'\cref{annexe-lap}), nous donne la forme générale de la réponse
 impulsionnelle d'un système du second ordre en régime pseudo-périodique :  
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-s(t)=\dfrac{K\omega_d}{1-\xi^2}e^{-\xi\omega_0 t}\sin{\omega_d t}
-\label{eq-1-3_2nd} 
+    s(t)=\dfrac{K\omega_d}{1-\xi^2}e^{-\xi\omega_0 t}\sin{\omega_d t}
+    \label{eq-1-3_2nd} 
 \end{bequation}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{figure}[!t]
+    \centering
+    \tikzsetnextfilename{2nd_pp_imp-chap_model-ext}
+    \input{tikz/2nd_pp_imp-chap_model.tex}
+    \caption{Réponse impulsionnelle d'un système du second ordre en régime 
+             pseudo-périodique pour différentes valeurs du taux d'amortissement 
+             $\xi$ (\Cref{eq-1-3_2nd}) avec $\omega_0=1$. \label{fig-2nd_pp_imp}}
+\end{figure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle\label{subsubsec-2nd_ind}}
@@ -572,9 +579,8 @@ S(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}\cdot\dfrac{E_0}{p}
 \]
 où $E(p)=\dfrac{E_0}{p}$ est une entrée échelon.
 
-\'Etudions la forme analytique des réponses indicielles dans les différents 
+\'Etudions la forme analytique des réponses indicielles pour les différents 
 régimes du système du second ordre. 
-
 \`A l'aide du théorème de la valeur finale, 
 il est dors et déjà possible de déterminer la valeur finale de la réponse
 indicielle quelque soit le régime.
@@ -727,10 +733,10 @@ du second ordre en régime pseudo-périodique s'écrit :
            \sin{(\omega_d t+\phi)}\right)\label{eq-2-3_2nd} 
 \end{bequation}
 %-------------------------------------------------------------------------------
-La valeur finale est obtenue pour 
-\[
-s(\infty)=\lim\limits_{p\to 0}pS(p)
-\]
+%La valeur finale est obtenue pour 
+%\[
+%s(\infty)=\lim\limits_{p\to 0}pS(p)
+%\]
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
@@ -741,7 +747,6 @@ s(\infty)=\lim\limits_{p\to 0}pS(p)
              $\xi$ (\Cref{eq-1er_ramp}) avec $\omega_0=1$. \label{fig-2nd_pp}}
 \end{figure}
 %-------------------------------------------------------------------------------
-
 Il est maintenant possible d'interpréter les différentes grandeurs 
 introduites. En effet, cette réponse a la forme d'une sinuso\"ide 
 de pulsation $\omega_d$ (dite pseudo-pulsation), de phase $\phi$ et 
@@ -750,8 +755,7 @@ La~\cref{fig-2nd_pp} présente cette réponse indicielle du régime
 pseudo-périodique pour différentes valeurs du taux d'amortissement pour 
 une pulsation propre $\omega_0=1$. Nous constatons que comme attendu, 
 l'amplitude des oscillations augmente lorsque le taux d'amortissement diminue.
-
-\newpage
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dépassement et temps de réponse à 5\%}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1093,7 +1097,7 @@ s(t)=\laplace{S(p)}=\dfrac{KE_0}{\omega_0}\sin{\omega_0t}
 \]
 Ce qui correspond bien à l'oscillation incessante d'un oscillateur non amortie
 que l'on a déplacé de son état d'équilibre.
-\newpage
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1208,7 +1212,7 @@ est dit à retard pur et sa fonction de transfert est de la forme :
 %-------------------------------------------------------------------------------
 Les réponses temporelles sont donc de mêmes natures que 
 leurs solliciations, elles sont simplement retardés de $\tau$.
-\newpage
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1317,7 +1321,7 @@ le dépassement ou encore la stabilité sont gouvernées
 par la fonction de transfert de temps caractéristique le plus grand. 
 L'influence des pôles dominants seront traités lors de l'étude 
 de chacunes des performances attendues par non système asservis.
-\newpage
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
