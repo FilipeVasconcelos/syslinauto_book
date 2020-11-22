@@ -44,6 +44,7 @@ les systèmes dynamiques linéaires.
 \end{figure}
 %-------------------------------------------------------------------------------
 \newpage
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,7 +53,6 @@ les systèmes dynamiques linéaires.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{La notion de Système}
@@ -61,7 +61,33 @@ les systèmes dynamiques linéaires.
 La notion de \textbf{système} est centrale dans le monde de l'ingénierie.
 Il existe de nombreuses définitions selon le domaine 
 d'application auquel il est associé. Dans le cadre de ce cours, nous nous 
-reposerons sur la systémique\footnote{Avec la cybernétique, la systémique est 
+reposerons sur la systémique
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{ClaudeShannon.eps}
+    \caption*{\textbf{Claude Shannon} (1916-2001), ingénieur et 
+              mathématicien américain. 
+              Père fondateur de la théorie de l'information.}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{NorbertWiener.eps}
+    \caption*{\textbf{Norbert Wiener} (1894-1964) est un mathématicien 
+              américain. Père fondateur de la cybernétique}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{MarvinMinsky.eps}
+    \caption*{\textbf{Marvin Minsky} (1916-2001), mathématicien américain. 
+              Auteur de l'expression \og intelligence artificielle\fg}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
+\footnote{Avec la cybernétique, la systémique est 
 un courant de pensée pluridisciplinaire apparue progressivement au milieu du 
 \textsc{\romannumeral 20}\textsuperscript{e}~siècle, sous l'impulsion des 
 travaux précurseurs de Claude Shannon\index{Shannon, Claude}, 
@@ -109,6 +135,8 @@ dépendants du temps et $\Sigma$ est le système traitant l'entrée $e(t)$ et
 élaborant la sortie $s(t)$ délimité par un bloc. 
 Cette représentation, dite en \textbf{bloc} ou 
 \textbf{schema-bloc}, sera généralisée au~\cref{chap-schemabloc}.
+\clearpage
+\restoregeometry
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Propriétés des SLCI}
@@ -185,7 +213,6 @@ l'aide d'un schéma-bloc ci-dessous
     \input{tikz/principe_invariance-chap_slci.tex}
 \end{center}
 %-------------------------------------------------------------------------------
-\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Système causal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -217,7 +244,6 @@ Nous aurons l'occasion de préciser cette définition par des exemples plus
 concrets lorsque les outils de modélisation des systèmes et des signaux 
 auront été introduits. Le \cref{chap-stab} est d'ailleurs totalement dédié 
 à l'étude de cette propriété fondamentale.  
-%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -227,11 +253,11 @@ auront été introduits. Le \cref{chap-stab} est d'ailleurs totalement dédié
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{\'Equation différentielles à coefficients constants}
+\subsection{\'Equation différentielle à coefficients constants}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Des systèmes possédant les propriétés précédentes sont dit \textbf{linéaire 
-continu et invariant} ou \gls{slci}. Ceux-ci seront modélisés et régis 
+Les systèmes possédant les propriétés précédentes sont dit \textbf{linéaires 
+continus et invariants} ou \gls{slci}. Ceux-ci seront modélisés et régis 
 par une équation différentielle à coefficients 
 constants qui s'écrit dans le cas générale :
 %-------------------------------------------------------------------------------
@@ -247,24 +273,29 @@ Le degré de dérivation de la sortie $n$ le plus grand est appelé \textbf{ordr
 On parlera alors de \textbf{l'ordre du système} $n$. Le paramètre $c$ qui 
 correspond au degré de dérivation le plus petit de la sortie est appelé la
 classe du système.
-Ces équations différentielles proviennent directement de la modélisation 
-de la physique d'un problème donnée (qu'il soit mécanique, électronique, 
-optique \ldots).
+Pour un problème donné, ces équations différentielles proviennent 
+directement de la modélisation de la physique (qu'il soit mécanique, 
+électronique, optique \ldots).
 Par exemple, dans le cas d'un problème de mécanique, 
 c'est la relation fondamentale de la dynamique qui est 
 la source importante d'équations différentielles (appelées équations 
 du mouvement).
 En électronique, ce sont, par exemple, les lois des noeuds et mailles qui 
 permettront d'écrire de telles équations. 
-
-Prenons l'exemple d'un système d'ordre $n=2$, de classe 0 et $m=0$, 
-son équation différentielle sera de la forme :
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemples}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour un système d'ordre $n=2$, de classe 0 et $m=0$, 
+son équation différentielle sera alors de la forme :
 \[
-a_2\devi{s(t)}{2}+a_1\devi{s(t)}{}+a_0 s(t)=b_0e(t)
+    a_2\devi{s(t)}{2}+a_1\devi{s(t)}{}+a_0 s(t)=b_0e(t)
 \]
-Un système d'ordre $n=2$, $m=1$ et de classe $c=1$ sera alors de la forme :
+ou encore pour un système d'ordre $n=3$, de classe 
+$c=1$ et avec $m=1$, l'équation différentielle sera de la forme :
 \[
-a_2\devi{s(t)}{2}+a_1\devi{s(t)}{}=b_0e(t)
+    a_3\devi{s(t)}{3}+a_2\devi{s(t)}{2}+a_1\devi{s(t)}{}
+    =b_0e(t)+b_1\devi{e(t)}{}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -283,18 +314,20 @@ On observe alors la décharge du condensateur à travers une resistance $R$.
 On souhaite suivre la quantité de charge aux bornes du condensateur au 
 cours du temps.
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]      
+\begin{marginfigure}[-8em]   
     \centering
     \tikzsetnextfilename{decharge_condensateur-chap_slci-ext}
     \input{tikz/decharge_condensateur-chap_slci.tex}
     \caption{Circuit RC ouvert.\label{fig-decharge_condensateur}}
-\end{figure}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
 La somme des tensions aux bornes du condensateur et de la résistance 
 étant nulle, on a :
+%-------------------------------------------------------------------------------
 \begin{align*}
     R\devi{q(t)}{}+\dfrac{1}{C}q(t)=0 
 \end{align*}
+%-------------------------------------------------------------------------------
 Comme précédemment, on identifie formellemet cette équation différentielle 
 à la forme générale de l'\cref{eq-difflci} avec $s(t)=q(t)$, $e(t)=0$, 
 $n=$1, $m=0$, $a_1=R$, $a_0=\dfrac{1}{C}$.
@@ -312,22 +345,23 @@ de raideur $k$ et un amortisseur de coefficient de frottement
 visqueux $b$ (c.a.d que la force est 
 proportionnelle à la vitesse). 
 La masse est soumise à une force $\vect{F}=F(t)\xx{}$.
-
-En appliquant le principe fondamentale de la dynamique en projection 
-sur la direction $x$, on obtient l'équation du mouvement suivante :
-\[
-m\devi{x(t)}{2}+b\devi{x(t)}{}+kx(t)=F(t)
-\]
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
+\begin{marginfigure}[-8em]
     \centering
     \tikzsetnextfilename{masse_ressort-chap_slci-ext}
     \input{tikz/masse_ressort-chap_slci.tex}
     \caption{(gauche) Système masse-ressort. (droite) Schéma-bloc de ce même 
     système.
     \label{fig-masse-ressort}}
-\end{figure}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
+En appliquant le principe fondamentale de la dynamique en projection 
+sur la direction $x$, on obtient l'équation du mouvement suivante :
+\[
+m\devi{x(t)}{2}+b\devi{x(t)}{}+kx(t)=F(t)
+\]
+\newpage
+\restoregeometry
 La résolution de cette équation du mouvement permet de connaitre la position 
 de la masse à chaque instant connaissant la force exterieur 
 appliquée $F(t)$. Le système masse-ressort peut être assimilé à un~\gls{slci} 
@@ -349,11 +383,12 @@ de la sollicitation ou de la réponse d'un système.}
 
 Les signaux continus sont modélisés mathématiquement par des fonctions 
 continues du temps. Formellement, par une fonction $s$ telle que :
+%-------------------------------------------------------------------------------
 \begin{align*}
 s : \mathbb{R}&\rightarrow\mathbb{R} \\  
 t&\rightarrow s(t) 
 \end{align*}    
-
+%-------------------------------------------------------------------------------
 Il existe cependant d'autres type de signaux qui sont très souvent confondus 
 à tord:
 %-------------------------------------------------------------------------------
@@ -415,13 +450,15 @@ $\omega$ définit par rapport au cercle unité $\omega=2\pi f$.
 %-------------------------------------------------------------------------------
 Le signal complet peut être totalement d'écrit en considérant un motif de base 
 $s_0(t)$ telle que
+%-------------------------------------------------------------------------------
 \begin{align*}
-s_0(t) =
-\begin{dcases}
-    s(t)&\quad\text{pour}\quad 0\le t\le T   \\
-    0&\quad\text{pour}\quad t>T
-\end{dcases}
+    s_0(t) =
+    \begin{dcases}
+        s(t)&\quad\text{pour}\quad 0\le t\le T   \\
+        0&\quad\text{pour}\quad t>T
+    \end{dcases}
 \end{align*}
+%-------------------------------------------------------------------------------
 Le signal $s(t)$ est alors la somme (série) du motif retardé de $nT$ 
 avec $n\in\mathbb{N}$ tel que :
 \[
@@ -430,6 +467,7 @@ s(t)=\sum_0^\infty s_0(t-nT)
 L'analyse de Fourier est un outil fondamental pour l'étude 
 de ces signaux périodiques. Elle sort cependant légérement du cadre de 
 ce cours.
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Stable}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -462,6 +500,8 @@ sollicitation constante et une sollicitation oscillante).
             (en rouge) réponses instables.\label{fig-stabilite_signaux}}
 \end{figure}
 %-------------------------------------------------------------------------------
+\newpage
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Signaux usuels rencontrés\ldots\label{sec-signaux_usuels}}
@@ -478,11 +518,22 @@ entrée des signaux généralement rencontrées en sortie des \gls{slci}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Impulsion de Dirac\index{Signaux usuels!Impulsion de Dirac}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-L'impulsion de Dirac\footnote{\index{Dirac, Paul}Paul Dirac, (1902-1984) 
-mathématicien et physicien britannique} $\delta(t)$ est une \og fonction\fg 
+L'impulsion de Dirac
+$\delta(t)$ est une \og fonction\fg 
 \footnote{Les guillemets sont essentiels pour ne pas se fâcher avec 
 nos collègues mathématiciens. En effet ce signal est un exemple classique de la 
 théorie des distributions qui étend la notion de fonction} telle que
+%-------------------------------------------------------------------------------
+\begin{marginfigure}[0.5em]
+    \centering
+    \includegraphics[width=0.9\linewidth]{PaulDirac.eps} 
+    \captionsetup{width=0.8\linewidth}
+    \caption*{\index{Dirac, Paul}\textbf{Paul Dirac}, (1902-1984) 
+              mathématicien et physicien britannique. Auteur de 
+              contributions majeures en mécanique quantique} 
+\end{marginfigure}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{align*}
     \delta(t) : 
     \begin{dcases}
@@ -490,6 +541,7 @@ théorie des distributions qui étend la notion de fonction} telle que
         \int\limits_{-\infty}^{+\infty}  \delta(t)f(t)\,\,\dd{t}&=f(0)	
     \end{dcases}
 \end{align*}
+%-------------------------------------------------------------------------------
 C'est fonction est donc nulle partout sauf en $t=0$ où elle prend 
 une valeur infinie. C'est pourquoi l'intégrale sur tous les nombres réels 
 d'une impulsion de Dirac est normalisée à 1.
@@ -509,7 +561,7 @@ bref et de grande amplitude. La figure~\ref{fig-dirac2} représente un modèle
 approchée de l'impulsion de Dirac. Il est possible de montrer que cette fonction
 $\delta_a(t)$ s'approche d'une impulsion de Dirac lorsque $a\to0$.
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
+\begin{marginfigure}
     \centering
     \tikzsetnextfilename{dirac_reel-chap_slci-ext}
     \input{tikz/dirac_reel-chap_slci.tex}
@@ -517,7 +569,7 @@ $\delta_a(t)$ s'approche d'une impulsion de Dirac lorsque $a\to0$.
              Celle-ci tend vers l'impulsion de Dirac pour $a\to0$. 
              On remarquera que l'aire du rectangle est toujours égale à 1.
              \label{fig-dirac2}}
-\end{figure}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
 Nous rencontrerons quelque fois l'impulsion de Dirac sous sa forme généralisée, 
 \[
@@ -526,10 +578,8 @@ e(t)=E_0\delta(t)
 où $e(t)$ est le signal d'entrée du système et $E_0$ la valeur de l'amplitude 
 de l'impulsion de Dirac dont la dimension dépendra de la nature du 
 problème considéré.
-
 La réponse d'un système à une impulsion de Dirac est appelée 
 \textbf{réponse impulsionnelle}.
-
 Nous verrons par la suite qu'une telle sollicitation brève et de grande 
 amplitude permet de parfaitement caractériser le système. La réponse 
 impulsionnelle, qui en résulte, contient toute l'information sur le système 
@@ -550,14 +600,14 @@ Cette fonction présente une marche\footnote{Nos
 collègues anglo-saxons l'appelle la \og\emph{step function}\fg} à $t=0$. 
 Ci dessous nous la représentons avec la fonction retardée $u(t-\tau)$.
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
+\begin{marginfigure}
     \centering
     \tikzsetnextfilename{echelon-chap_slci-ext}
     \input{tikz/echelon-chap_slci.tex}
     \caption{Représentation graphique de (gauche) la fonction échelon-unité 
              et (droite) la fonction échelon-unité retardée de $\tau$
             \label{fig-echelon}}
-\end{figure}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
 En général, l'échelon-unité est utilisé en entrée de nos systèmes pour 
 modéliser des états fermé/ouvert (\og on/off\fg) ou encore en régulation.
@@ -581,6 +631,16 @@ de la distribution de Dirac,
 \[
     u(t)=\int\limits_{-\infty}^{t} \delta(\tau)\,\,\dd{\tau}
 \]
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \tikzsetnextfilename{rampe-chap_slci-ext}
+    \input{tikz/rampe-chap_slci.tex}
+    \caption{Représentation graphique de (gauche) la fonction rampe-unité et 
+                                     (droite) la fonction rampe-unité retardée
+                                     de $\tau$\label{fig-rampe}}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Rampe-unité}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -599,17 +659,6 @@ ou autrement dit, en utilisant la propriété de causalité de l'échelon:
 \[
     r(t)=t\cdot u(t)
 \]
-%-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{rampe-chap_slci-ext}
-    \input{tikz/rampe-chap_slci.tex}
-\caption{Représentation graphique de (gauche) la fonction rampe-unité et 
-                                     (droite) la fonction rampe-unité retardée
-                                     de $\tau$
-\label{fig-rampe}}
-\end{figure}
-%-------------------------------------------------------------------------------
 Remarquons que la fonction rampe est l'intégrale de l'échelon-unité, notamment 
 \[
     r(t)=\int\limits_{-\infty}^{t} u(\tau)\,\,\dd{\tau}
@@ -631,14 +680,14 @@ et $\phi$ sa phase (\si{\radian}).
 %en \si{\hertz}, elle même liée à la période $T=\dfrac{1}{f}$ en 
 %\si{\second}.
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
+\begin{marginfigure}[-4em]
     \centering
     \tikzsetnextfilename{sinusoide-chap_slci-ext}
-    \input{tikz/sinusoide-chap_slci.tex}
+    \resizebox{\linewidth}{!}{\input{tikz/sinusoide-chap_slci.tex}}
     \caption{Représentation de signaux sinuso\"idaux de même pulsation 
              et amplitude. (bleu) de phase $\phi=0$ et 
             (rouge) de phase $\phi=-\dfrac{\pi}{2}$.\label{fig-sin}}
-\end{figure}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
 Il est possible de voir le signal sinuso\"idal comme la combinaison
 linéaire de la fonction cosinus et sinus. En effet, en utilisant une 
@@ -647,52 +696,6 @@ lycéens $\sin(a+b)=\sin{a}\cos{b}+\sin{b}\cos{a}$}, $s(t)$ s'écrit :
 \[
     s(t)=A(\sin(\phi)\cos{\omega t}+\cos(\phi)\sin{\omega t})
 \]
-%-------------------------------------------------------------------------------
-\begin{table}[!h]
-    \ra{1.2}
-    \centering
-    \begin{tabular}{@{}ccc@{}}
-    \toprule
-    Déphasage       & Terminologie         & Graphe \\
-    \midrule
-    $\Delta\phi=0$  
-    &\og en phase\fg      
-    &
-    {\tikzset{external/export=false}       
-    \raisebox{-.5\height}{\input{tikz/sinusoide_enp-chap_slci.tex}}
-    }  \\
-    \midrule
-    $\Delta\phi=\pm\pi$         
-    & \og en opposition de phase\fg 
-    &
-    {\tikzset{external/export=false}       
-    \raisebox{-.5\height}{\input{tikz/sinusoide_enop-chap_slci.tex}} 
-    }  \\
-    \midrule
-    $\Delta\phi=-\dfrac{\pi}{2}$ 
-    &\begin{tabular}{@{}c@{}}\og en quadrature de phase\fg \\
-                                 (retard de phase)
-     \end{tabular} 
-    &
-    {\tikzset{external/export=false}       
-    \raisebox{-.5\height}{  \input{tikz/sinusoide_enqp-chap_slci.tex}}
-    }\\
-    \midrule
-    $\Delta\phi=\dfrac{\pi}{2}$ 
-    & \begin{tabular}{@{}c@{}}\og en quadrature de phase\fg \\ 
-                          (avance de phase)
-      \end{tabular} 
-    & 
-    {\tikzset{external/export=false}       
-    \raisebox{-.5\height}{\input{tikz/sinusoide_enqp2-chap_slci.tex}} 
-    }\\
-    \bottomrule
-    \end{tabular}
-    \caption{Différents types de déphasage d'un (rouge) signal sinusoidal 
-             $s_2(t)$ par rapport à (bleu) un signal de référence $s_1(t)$ 
-         de phase nulle.\label{tab-sin_deph}}
-\end{table}
-%-------------------------------------------------------------------------------
 La réponse d'un système à une sinuso\"ide est appelée la 
 \textbf{réponse harmonique} et son analyse fera l'objet de tout 
 un chapitre (\Cref{chap-repfreq}).
@@ -714,13 +717,13 @@ avec $a$ l'inverse d'un temps caractéristique d'un amortissement.
 Cette fonction tend vers 0 pour tout $a>0$ à $t\rightarrow\infty$ et 
 diverge pour $a<0$.
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
+\begin{marginfigure}[-8em]
     \centering
     \tikzsetnextfilename{exp_dec-chap_slci-ext}
-    \input{tikz/exp_dec-chap_slci.tex}
+    \resizebox{\linewidth}{!}{\input{tikz/exp_dec-chap_slci.tex}}
     \caption{Représentation de la fonction exponentielle pour 
              différentes valeurs du paramètre $a$.\label{fig-exp}}
-\end{figure}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Sinuso\"ide amortie}
@@ -734,15 +737,81 @@ où $a>0$ est l'inverse d'un temps caractéristique de l'amortissement.
 Cette fonction est donc le produit d'une exponentielle décroissante et 
 d'une sinuso\"ide.
 %-------------------------------------------------------------------------------
-\begin{figure}[!hb]
+\begin{marginfigure}[-8em]
     \centering
     \tikzsetnextfilename{sinusoide_amortie-chap_slci-ext}
-    \input{tikz/sinusoide_amortie-chap_slci.tex}
+    \resizebox{\linewidth}{!}{\input{tikz/sinusoide_amortie-chap_slci.tex}}
     \caption{Représentation d'un sinuso\"ide amortie. L'enveloppe en pointillé 
              correspond aux fonctions $Ae^{-at}$ et $-Ae^{-at}$.
              \label{fig-sin_amor}}
-\end{figure}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
+\newpage
+\restoregeometry
+%-------------------------------------------------------------------------------
+\begin{table}[!h]
+    \ra{1.2}
+    \centering
+    \begin{tabular}{@{}P{0.15\linewidth}P{0.3\linewidth}P{0.5\linewidth}@{}}
+    \toprule
+    Déphasage       & Terminologie         & Graphe \\
+    \midrule
+    $\Delta\phi=0$  
+    &\og en phase\fg      
+    &
+    {\tikzset{external/export=false}       
+        \raisebox{-.5\height}{%
+            \resizebox{\linewidth}{!}{%
+                \input{tikz/sinusoide_enp-chap_slci.tex}
+            }
+        }
+    }  \\
+    \midrule
+    $\Delta\phi=\pm\pi$         
+    & \og en opposition de phase\fg 
+    &
+    {\tikzset{external/export=false}       
+        \raisebox{-.5\height}{%
+            \resizebox{\linewidth}{!}{%
+                \input{tikz/sinusoide_enop-chap_slci.tex}
+            }
+        }
+    }  \\
+    \midrule
+    $\Delta\phi=-\dfrac{\pi}{2}$ 
+    &\begin{tabular}{@{}c@{}}\og en quadrature de phase\fg \\
+                                 (retard de phase)
+     \end{tabular} 
+    &
+    {\tikzset{external/export=false}       
+        \raisebox{-.5\height}{%  
+            \resizebox{\linewidth}{!}{%
+                \input{tikz/sinusoide_enqp-chap_slci.tex}
+            }
+        }
+    }\\
+    \midrule
+    $\Delta\phi=\dfrac{\pi}{2}$ 
+    & \begin{tabular}{@{}c@{}}\og en quadrature de phase\fg \\ 
+                          (avance de phase)
+      \end{tabular} 
+    & 
+    {\tikzset{external/export=false}       
+        \raisebox{-.5\height}{%  
+            \resizebox{\linewidth}{!}{%
+                \input{tikz/sinusoide_enqp2-chap_slci.tex}
+            }
+        }
+    }\\
+    \bottomrule
+    \end{tabular}
+    \caption{Différents types de déphasage d'un (rouge) signal sinusoidal 
+             $s_2(t)$ par rapport à (bleu) un signal de référence $s_1(t)$ 
+         de phase nulle.\label{tab-sin_deph}}
+\end{table}
+%-------------------------------------------------------------------------------
+\newpage
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -750,21 +819,29 @@ d'une sinuso\"ide.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La transformée de Laplace\footnote{\index{Laplace, Pierre-Simon}
-Pierre-Simon de Laplace, (1749-1827) mathématicien, astronome, physicien et 
-homme politique français} est l'outil indispensable 
-pour l'étude des \gls{slci}. Celle-çi nous sera très utile pour 
+La transformée de Laplace est l'outil mathématique indispensable 
+pour l'étude des \gls{slci}. Celle-çi est utile pour 
 la résolution des équations différentielles 
-et nous permettra également de définir la notion de 
-fonction de transfert reliant l'entrée et la sortie d'un système linéaire.
+et elle est essentiel pour la définition de la fonction de transfert qui relie
+l'entrée et la sortie d'un système linéaire.
+%-------------------------------------------------------------------------------
+\begin{marginfigure}[4em]
+    \centering
+    \includegraphics[width=0.9\linewidth]{fig/Pierre-Simon-Laplace_2}
+    \captionsetup{width=0.8\linewidth}
+    \caption*{\index{Laplace, Pierre-Simon}\textbf{Pierre-Simon, marquis 
+             de Laplace}, (1745-1827) mathématicien, astronome, physicien 
+             et homme politique français. (Paris, musée d'Orsay)}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Définition}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Transformée de Laplace}
-La~\gls{tl}, notée $\mathscr{L}$, d'une fonction causale $s$ (pour signal) 
-d'une variable réelle $t$ (pour temps), est la fonction $S$ 
+La~\gls{tl}, notée $\mathscr{L}$, d'un signal causal $s$ 
+fonction d'une variable réelle $t$, est la fonction $S$ 
 de la variable complexe $p$, définie par :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -772,14 +849,19 @@ S(p)=\laplace{s(t)}=\int_{0}^{+\infty} e^{-pt}s(t)\dd{t}.\label{eq-lap}
 \end{bequation}
 %-------------------------------------------------------------------------------
 On dit également que \textbf{$S(p)$ est l'image dans le domaine de 
-Laplace de la fonction $s(t)$ du domaine temporel.}
-De plus la transformée $S(p)$ de $s(t)$ est unique et parfaitement définie. 
-Connaissant $S(p)$ on en déduit $s(t)$
-par la transformation inverse 
+Laplace de la fonction $s(t)$ définie dans le domaine temporel.}
+Remarquons, dès à présent l'utilisation d'une convention utile: 
+\textbf{les fonctions du temps seront toujours désignées par une
+minuscule, et les fonctions complexes par la majuscule respective}.
+Notons que la transformée de Laplace n'est valide que lorsque la partie réelle 
+de p est plus grande qu'une certaine valeur réelle $\alpha$, que l'on nomme 
+l'abscisse de convergence avec $-\infty\le\alpha\le+\infty$.
+
+La transformée $S(p)$ de $s(t)$ étant unique, connaissant $S(p)$ on 
+en déduit $s(t)$ par la transformation inverse 
 \[
     s(t)=\laplacei{S(p)}
 \]
-%Les transformations inverses sont tabulées à l'\cref{annexe-lap}. 
 Il existe une forme analytique de la transformée inverse basée sur
 la formule de Mellin-Fourier\cite{Ostertag}:
 \[
@@ -789,15 +871,12 @@ L'intégration de celle-ci est difficile à mettre en oeuvre\footnote{
 Il existe différentes méthodes numériques de transformée de Laplace 
 inverse (\cref{annexe-invL}). Ces méthodes, hors programme, peuvent 
 cependant faire l'objet d'un projet numérique intéressant.}, 
-on préferera utilisé les tables de transformations de Laplace pour 
+on préferera l'utilisation des tables de transformations de Laplace pour 
 réaliser la correspondance inverse (\cref{annexe-lap}). Lorsque la 
 transformation n'existe pas dans les tables, il est possible de 
 réaliser une décompostion en éléments simples de la réponse $S(p)$ pour 
 se placer dans un cas usuel (\cref{annexe-DES}).
 
-Remarquons, dès à présent l'utilisation d'une convention utile: 
-\textbf{les fonctions du temps seront toujours désignées par une
-minuscule, et les fonctions complexes par la majuscule respective}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -874,15 +953,19 @@ sa transformée de Laplace. Par définition de la transformée de Laplace
 \laplace{\devi{s(t)}{}}=\int_{0}^{+\infty} e^{-pt}\devi{s(t)}{}\dd{t}
 \]
 par intégration par parties
+%-------------------------------------------------------------------------------
 \begin{align*}
     v=e^{-pt}\qquad&\dd{u}=\devi{s(t)}{}\dd{t}\\
     \dd{v}=-pe^{-pt}\dd{t}\qquad&u=s(t)
 \end{align*}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{align*}
 \laplace{\devi{s(t)}{}}&=\left[s(t)e^{-pt}\right]_0
                          ^{+\infty}-p\int_{0}^{+\infty}e^{-pt}s(t)\dd{t}\\
                          &=-s(0)+pS(p)
 \end{align*}
+%-------------------------------------------------------------------------------
 ou encore
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -905,16 +988,19 @@ $v(t)=\int_{0}^{t}s(\tau)\dd{\tau}$. Par définition,
 \laplace{v(t)}=\int_{0}^{+\infty} e^{-pt}v(t)\dd{t}
 \]
 par intégration par parties,
+%-------------------------------------------------------------------------------
 \begin{align*}
     v=v(t)\qquad&\dd{u}=e^{-pt}\dd{t}\\
     \dd{v}=s(t)\dd{t}\qquad&u=-\dfrac{1}{p}e^{-pt}
 \end{align*} 
+%-------------------------------------------------------------------------------
 \begin{align*}
     \laplace{v(t)}&=\left[-\dfrac{1}{p}v(t)e^{-pt}\right]_0^{+\infty}
                           -\int_{0}^{+\infty}
                           -\dfrac{1}{p}e^{-pt}s(t)\dd{t} \\
     &=\dfrac{1}{p}\int_{0}^{+\infty} e^{-pt}s(t)\dd{t}+\dfrac{s(0)}{p}
 \end{align*}
+%-------------------------------------------------------------------------------
 ou encore
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -1015,10 +1101,12 @@ La transformée de Laplace d'un signal rampe s'écrit :
 =\int_{0}^{+\infty} te^{-pt}\dd{t}
 \]
 Par intégration par parties:
+%-------------------------------------------------------------------------------
 \begin{align*}
     v=-\dfrac{1}{p}e^{-pt}\qquad&\dd{u}=\dd{t}\\
     \dd{v}=e^{-pt}\dd{t}\qquad&u=t
 \end{align*}
+%-------------------------------------------------------------------------------
 \[
 \int_{0}^{+\infty} te^{-pt}\dd{t}
 =\left[-t\dfrac{1}{p}e^{-pt}\right]_0^{+\infty}-\int_{0}^{+\infty}
@@ -1057,6 +1145,7 @@ Nous aurions pu utiliser la propriété du retard en $p$
 \paragraph{Transformée d'un sinus}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La transformée de Laplace d'un sinus s'écrit :
+%-------------------------------------------------------------------------------
 \begin{align*}
 \laplace{\sin{\omega t}\cdot u(t)}&=
 \int_{0}^{+\infty}e^{-pt}\dfrac{e^{\jw t}-e^{-\jw t}}{2j}\dd{t}\\
@@ -1065,6 +1154,7 @@ La transformée de Laplace d'un sinus s'écrit :
 &=\dfrac{1}{2j}\left( \dfrac{1}{p-\jw}-\dfrac{1}{p+\jw}\right)\\
 &=\dfrac{\omega}{p^2+\omega^2}
 \end{align*}
+%-------------------------------------------------------------------------------
 ou encore
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -1075,6 +1165,7 @@ ou encore
 \paragraph{Transformée d'un cosinus}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La transformée de Laplace d'un cosinus s'écrit :
+%-------------------------------------------------------------------------------
 \begin{align*}
 \laplace{\cos{\omega t}\cdot u(t)}&=\int_{0}^{+\infty}e^{-pt}
 \dfrac{e^{\jw t}+e^{-\jw t}}{2}\dd{t}\\
@@ -1083,6 +1174,7 @@ La transformée de Laplace d'un cosinus s'écrit :
 &=\dfrac{1}{2}\left( \dfrac{1}{p-\jw}+\dfrac{1}{p+\jw}\right)\\
 &=\dfrac{p}{p^2+\omega^2}
 \end{align*}
+%-------------------------------------------------------------------------------
 ou encore
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -1121,10 +1213,12 @@ coefficients constants.
 
 Comme nous l'avons déjà discuté, la forme générale de ces équations est 
 donnée par :
+%-------------------------------------------------------------------------------
 \begin{align}
     \sum_{i=0}^{n}a_i\devi{s(t)}{i}=\sum_{i=0}^{m}b_i\devi{e(t)}{i}
     \label{eq-ltemp}
 \end{align}
+%-------------------------------------------------------------------------------
 avec $n,m\in\mathbb{N}$, $s(t)$ le signal de sortie, $e(t)$ le signal 
 d'entrée et $a_i,b_i\in\mathbb{R}$. L'équation est dite d'ordre $n$.
 
@@ -1132,9 +1226,17 @@ Sous cette forme, cette équation différentielle constitue ce que l'on
 nomme \textbf{la loi temporelle} du système. Sans perte de généralité, on ne 
 considèrera dans un premier temps que les systèmes pour lesquels toutes les 
 \textbf{conditions initialles sont nulles}, appelées également les conditions 
-d'Heaviside\footnote{\index{Heaviside, Oliver}Oliver Heaviside, (1850-1925), 
-physicien britannique.}.
-
+d'Heaviside
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{OliverHeaviside.eps}
+    \captionsetup{width=0.8\linewidth}
+    \caption*{\index{Heaviside, Oliver}Oliver Heaviside, (1850-1925), physicien 
+              britannique. Il développa le calcul opérationnel pour résoudre 
+              les équations différentielles}.
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 En appliquant la transformée de Laplace à l'\cref{eq-ltemp}, on obtient 
 ce que l'on nomme \textbf{la loi fréquentielle} du système :
 %-------------------------------------------------------------------------------
@@ -1145,8 +1247,8 @@ ce que l'on nomme \textbf{la loi fréquentielle} du système :
 La résolution algébrique de cette équation est simplement donnée par :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-S(p)=\dfrac{\sum\limits_{i=0}^{m}b_ip^i}
-{\sum\limits_{i=0}^{n}a_ip^i}E(p)\label{eq-lfreq2}
+    S(p)=\dfrac{\sum\limits_{i=0}^{m}b_ip^i}
+    {\sum\limits_{i=0}^{n}a_ip^i}E(p)\label{eq-lfreq2}
 \end{bequation}
 %-------------------------------------------------------------------------------
 La solution dans le domaine temporelle $s(t)$ de l'équation différentielle 
@@ -1158,9 +1260,11 @@ est appliqué à un exemple complet au paragraphe suivant.
 \subsubsection{Exemple complet}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit l'équation différentielle suivante :
+%-------------------------------------------------------------------------------
 \begin{align}
 \devi{s(t)}{2}+2\devi{s(t)}{} + s(t) = e(t)\label{eq-diff1}
 \end{align}
+%-------------------------------------------------------------------------------
 où $e(t)$ et $s(t)$ sont respectivement les fonctions temporelles d'entrée 
 et de sortie du système régit par cette équation différentielle avec 
 pour conditions initiales (CI) 
@@ -1198,11 +1302,13 @@ La solution générale est donc donnée par :
 \]
 Dérivons cette solution générale pour pouvoir déterminer les coefficients 
 $\alpha$, $\beta$ en utilisant les conditions initiales,
+%-------------------------------------------------------------------------------
 \begin{align*}
     s'(t)&=\alpha e^{-t}-(\alpha t+\beta)e^{-t}\\
      s(0)&=-1\Rightarrow\beta+1=-1\Rightarrow\beta=-2 \\
     s'(0)&=\hphantom{-}2\Rightarrow\alpha+2=\hphantom{-}2\Rightarrow\alpha=0
 \end{align*}
+%-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
@@ -1233,24 +1339,30 @@ La transformée de Laplace est linéaire. Il nous est alors possible
 de l'appliquer aux différents termes de l'équation 
 différentielle~(\ref{eq-diff1}) séparément.
 On obtient pour chacuns des termes :
+%-------------------------------------------------------------------------------
 \begin{align*}
     \laplace{s(t)} &= S(p), \\
     \laplace{\devi{s(t)}{}} &= pS(p)-s(0) = pS(p) +1, \\
     \laplace{\devi{s(t)}{2}} &= p^2S(p)-ps(0)-s'(0) = p^2S(p) + p -2,\\
     \laplace{u(t)} &= \dfrac{1}{p}.
 \end{align*}
+%-------------------------------------------------------------------------------
 L'équation différentielle~(\ref{eq-diff1}) devient dans le domaine 
 de Laplace :
+%-------------------------------------------------------------------------------
 \begin{align*}
 p^2S(p)+p-2+2pS(p)+2+S(p)=\dfrac{1}{p} 
 \end{align*}
+%-------------------------------------------------------------------------------
 En réarrangeant cette expression, il est possible de déterminer la 
 forme de la réponse $S(p)$ dans le domaine de Laplace.
+%-------------------------------------------------------------------------------
 \begin{align*}
     S(p)\left(p^2+2p+1\right)+p&=\dfrac{1}{p} \\
     S(p)\left(p+1\right)^2 &= \dfrac{1-p^2}{p}\\
     S(p)&= \dfrac{1-p^2}{p\left(p+1\right)^2}
 \end{align*}
+%-------------------------------------------------------------------------------
 de Laplace usuels, nous allons décomposer cette
 fraction rationnelle en éléments simples (\Cref{annexe-DES}).
 \[
@@ -1313,7 +1425,7 @@ La fonction de transfert $H(p)$ d'un système est donnée par le rapport de la
 sortie $S(p)$ et l'entrée $E(p)$ dans le domaine de Laplace. 
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-H(p)=\dfrac{S(p)}{E(p)}
+    H(p)=\dfrac{S(p)}{E(p)}
 \end{bequation}
 %-------------------------------------------------------------------------------
 ou encore,
@@ -1409,15 +1521,19 @@ Il en vient qu'une fonction de transfert possède $m$ zéros et $n$ pôles.
 Reprenons l'équation différentielle de la section précédente, dans 
 les conditions de Heaviside, afin de construire la fonction de 
 transfert qui lui est associée. 
+%-------------------------------------------------------------------------------
 \begin{align}
 \devi{s(t)}{2}+2\devi{s(t)}{} + s(t) = e(t)
 \end{align}
+%-------------------------------------------------------------------------------
 La transformée de Laplace de cette équation nous donne,
+%-------------------------------------------------------------------------------
 \begin{align*}
 	p^2S(p)+2pS(p)+S(p)&=E(p)\\
 	S(p)\left(p^2+2p+1\right)&=E(p)\\
 	S(p)&=\dfrac{1}{p^2+2p+1}E(p)
 \end{align*}
+%-------------------------------------------------------------------------------
 La fonction de transfert associée à cette équation différentielle est donc 
 \[
     H(p)=\dfrac{1}{p^2+2p+1}
@@ -1497,9 +1613,11 @@ Le coefficient d'ordre 0 étant nul au dénominateur, le système est de classe 
 la forme canonique de cette fonction de transfert est 
 donc\footnote{Il est d'usage en automatique d'écrire les nombres rationnels 
 par leurs valeurs numériques plutôt que par leurs fractions. } donnée par
+%-------------------------------------------------------------------------------
 \begin{align*}
     H(p)=\dfrac{K(0.4p+1)}{p(0.25p^2+0.5p+1)},
 \end{align*}
+%-------------------------------------------------------------------------------
 où le gain statique $K=$1.25.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Forme factorisée de la fonction de transfert}
@@ -1548,21 +1666,35 @@ graphiquement à l'aide d'une carte des pôles et des zéros dans le plan comple
 de représentation, les pôles sont représentés par des ($\times$) 
 et les zéros par des ($\circ$). La carte des pôles et des zéros 
 d'une fonction de transfert est essentielle pour la construction du 
-lieu d'Evans\footnote{Walter Richard Evans, (1920-1999), 
-ingénieur, automaticien américain} pour l'étude des systèmes asservis.
+lieu d'Evans
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{WalterEvans.eps} 
+    \captionsetup{width=0.8\linewidth}
+    \caption*{Walter Richard Evans, (1920-1999),ingénieur, automaticien 
+    américain. Il développa la méthode graphique, qui porte son nom,
+    permettant d'étudier les pôles des systèmes asservis.}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
+pour l'étude des systèmes asservis.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple de carte de pôles et zéros d'une fonction de transfert}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit $H(p)$ une fonction de transfert telle que,
+%-------------------------------------------------------------------------------
 \begin{align}
     H(p)=\dfrac{p-1}{p^2+2p+2}\label{eq-ft_carte}
 \end{align}
+%-------------------------------------------------------------------------------
 Cette fonction de transfert possède un zéro réel ($z_1=1$) et deux 
 pôles complexes conjugués ($p_{1,2}=-1\pm j$).
 La forme factorisée de $H(p)$ est donc
+%-------------------------------------------------------------------------------
 \begin{align} 
     H(p)=\dfrac{p-1}{(p+1+j)(p+1-j)}
 \end{align}
+%-------------------------------------------------------------------------------
 La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
@@ -1607,11 +1739,13 @@ La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert
 %\]
 %Par identification on peut écrire $H(p)$ en fonction de
 %deux fonctions de transferts $H_1(p)$ et $H_2(p)$ tel que :
+%-------------------------------------------------------------------------------
 %\begin{align*}
 %	H(p)&=H_1(p)-H_2(p)\\
 %	H_1(p)&=\dfrac{6.25}{5p+1}\\
 %	H_2(p)&=\dfrac{1.25}{p+1}
 %\end{align*}
+%-------------------------------------------------------------------------------
 %Par définition, le pôle dominant est donné par $H_1(p)$.
 %Pour observer son effet traçons les réponses indicielles 
 %de ces trois fonctions de transfert.
@@ -1636,6 +1770,7 @@ La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert
 %\paragraph{Transformée d'une sinuso\"ide amortie}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %La transformée de Laplace d'un signal sinuso\"idal amortie s'écrit :
+%-------------------------------------------------------------------------------
 %\begin{align*}
 %\laplace{e^{-at}\sin{\omega t}\cdot u(t)}&=\int_{0}^{+\infty}e^{-pt}e^{-at}
 %\dfrac{e^{\jw t}-e^{-\jw t}}{2j}\dd{t}\\
@@ -1644,6 +1779,7 @@ La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert
 %&=\dfrac{1}{2j}\left( \dfrac{1}{(p+a)-\jw}-\dfrac{1}{(p+a)+\jw}\right)\\
 %&=\dfrac{\omega}{(p+a)^2+\omega^2}
 %\end{align*}
+%-------------------------------------------------------------------------------
 %ou encore
 %-------------------------------------------------------------------------------
 %\begin{bequation}[ams align]

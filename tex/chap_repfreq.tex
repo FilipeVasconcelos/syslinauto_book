@@ -65,6 +65,7 @@ En régime permanent, la décomposition de $S(p)$ en éléments simples s'écrit
 S(p)=\dfrac{A}{p-\jw} + \dfrac{B}{p+\jw}
 \]
 où les coefficients s'obtiennent par évaluation :
+%-------------------------------------------------------------------------------
 \begin{align*}
     A&=(p-\jw)S(p)\bigg|_{p=\hphantom{-}\jw}=
        \dfrac{E_0\omega}{p+\jw}H(p)\bigg|_{p=\hphantom{-}\jw}=
@@ -73,6 +74,7 @@ où les coefficients s'obtiennent par évaluation :
        \dfrac{E_0\omega}{p-\jw}H(p)\bigg|_{p=-\jw}=
        -\dfrac{E_0}{2j}H(-\jw)
 \end{align*}
+%-------------------------------------------------------------------------------
 nous obtenons donc :
 \[
 S(p)=\dfrac{E_0}{2j}\left(\dfrac{H(\jw)}{p-\jw}-\dfrac{H(-\jw)}{p+\jw} \right)
@@ -84,10 +86,12 @@ s(t)=\dfrac{E_0}{2j}\left(H(\jw)e^{\jw t}-H(-\jw)e^{-\jw t}\right)
 \]
 En écrivant le nombre complexe $H(\jw)$ sous sa forme exponentielle 
 (\Cref{annexe-NC}) :
+%-------------------------------------------------------------------------------
 \begin{align*}
     H(\jw)  &= |H(\jw)| e^{j\phi} \\
     H(-\jw) &= |H(\jw)| e^{-j\phi}
 \end{align*}
+%-------------------------------------------------------------------------------
 où $|H(\jw)|$ et $\phi$ sont respectivement le module et l'argument du nombre
 complexe $H(\jw)$ 
 et où l'on montre de plus que $H(-\jw)$ est égale à son conjugué (i.e 
@@ -100,10 +104,12 @@ $H(-\jw)=\overline{H(\jw)}$).
 %
 %
 La réponse temporelle peut alors s'écrire sous la forme 
+%-------------------------------------------------------------------------------
 \begin{align*}
 s(t)=E_0|H(\jw)|\left(\dfrac{e^{j(\omega t+\phi)}
     -e^{-j(\omega t+\phi)}}{2j}\right)
 \end{align*}
+%-------------------------------------------------------------------------------
 où l'on reconnaît la forme exponentielle de la fonction sinus qui nous permet
 d'écrire :
 %-------------------------------------------------------------------------------
@@ -120,12 +126,13 @@ de transfert du système.}
 \`A noter que $H(\jw)$ correspond au rapport de la sortie sur l'entrée,
 ainsi le gain $|H(\jw)|$ et la phase peuvent être définits à partir de la 
 sortie et de l'entrée du signal,
+%-------------------------------------------------------------------------------
 \begin{align*}
     H(\jw) &= \dfrac{S(\jw)}{E(\jw)} \\
     |H(\jw)|&= \dfrac{|S(\jw)|}{|E(\jw)|} \\
     \arg{H(\jw)}&=\arg{S(\jw)}-\arg{E(\jw)}
 \end{align*}
-
+%-------------------------------------------------------------------------------
 Le gain $|H(\jw)|$ est une fonction réelle de $\omega$ de ce fait nous 
 utiliserons par la suite $G(\omega)$ pour noter plus explicitement cette 
 dépendance. La phase est également une fonction de la pulsation d'excitation, 
@@ -153,10 +160,12 @@ sur l'entrée et l'argument à la différence de phase entre la sortie et l'entr
 
 Calculons donc ces deux quantités pour notre fonction de transfert du premier 
 ordre:
+%-------------------------------------------------------------------------------
 \begin{align*}
     G(\omega)   &=|H(\jw)|               =\left|\dfrac{1}{1+\jtw}\right|\\
     \phi(\omega)&=\arg\left(H(\jw)\right)=-\arctan(\omega\tau)
 \end{align*}
+%-------------------------------------------------------------------------------
 Le~\cref{tab-1ertemp} présente le module et l'argument pour quelques valeurs 
 particulières de $\omega$ 
 ($\omega=0.1$, $1$ et $\SI{10}{\radian\per\second}$).
@@ -241,6 +250,15 @@ notamment :
            ingénieur américain.}. 
 \end{itemize}
 %-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{NathanielNichols.eps} 
+    \captionsetup{width=0.8\linewidth}
+    \caption*{\index{Nichols, Nathaniel} Nathaniel B. Nichols, (1914–1997)
+              ingénieur américain.}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 Nous étudierons en détail les diagrammes des modèles usuels que nous 
 avons déjà rencontrés au chapitre précédent (\Cref{chap-model})
 
@@ -251,10 +269,9 @@ points de coordonnées $(\omega, \phi(\omega),G(\omega))$.
 \subsection{Diagramme de Bode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Un diagramme de Bode\footnote{\index{Bode, Hendrik}Hendrik Wade Bode 
-(1905-1982), ingénieur, chercheur et inventeur américain} permet de 
-représenter le comportement fréquentielle d'un système quelconque en fonction 
-de la fréquence  d'excitation en entrée. Il se compose de deux graphiques :
+Le diagramme de Bode permet de représenter le comportement fréquentielle 
+d'un système quelconque en fonction de la fréquence d'excitation en entrée. 
+Il se compose de deux graphiques :
 %-------------------------------------------------------------------------------
 \begin{itemize}
     \item[i)] le tracé du gain en décibel en fonction de la pulsation $\omega$:
@@ -270,6 +287,15 @@ de la fréquence  d'excitation en entrée. Il se compose de deux graphiques :
         \end{bequation}
 %-------------------------------------------------------------------------------
 \end{itemize}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{HendrikBode.eps} 
+    \captionsetup{width=0.8\linewidth}
+    \caption*{\index{Bode, Hendrik} Hendrik Wade Bode
+    (1905-1982), ingénieur, chercheur et inventeur américain.}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
 L'axe des pulsations étant généralement représenté par une échelle 
 logarithmique pour permmettre la représentation de la réponse harmonique sur 
@@ -304,9 +330,8 @@ Le diagramme de Bode de $H(\jw)$ est la somme de deux diagrammes indépendants:
 \subsection{Diagramme de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Un diagramme de Nyquist\footnote{\index{Nyquist, Harry}Harry 
-Nyquist (1889-1976), électronicien, ingénieur américain.} 
-présente la partie imaginaire et la partie réelle de $H(\jw)$ pour différentes 
+Un diagramme de Nyquist présente la partie imaginaire et la partie 
+réelle de $H(\jw)$ pour différentes 
 valeurs paramétrées de $\omega$. Il a l'avantage de combiner les deux 
 graphiques du diagramme de Bode en un seul. En effet, la phase et l'amplitude 
 d'un point dans le plan complexe peut être déterminé graphiquement par 
@@ -315,7 +340,17 @@ respectivement l'angle avec l'axe des réels et la distance à l'origine
 \textbf{le lieu de Nyquist}. Le lieu de Nyquist complet est le tracé théorique 
 des parties réel et imaginaire de $H(\jw)$, en considérant les pulsations 
 négatives, c'est à dire entre $\omega\rightarrow-\infty$ et 
-$\omega\rightarrow+\infty$. 
+$\omega\rightarrow+\infty$.
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{HarryNyquist} 
+    \captionsetup{width=0.8\linewidth}
+    \caption*{\index{Nyquist, Harry} Harry Nyquist (1889-1976), électronicien et
+    ingénieur américain. Il réalisa d'importante contributions à la théorie 
+    de l'information.}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -540,10 +575,11 @@ et la phase s'écrit simplement
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du premier ordre!diagramme de Bode}
 Un système du premier ordre présente une fonction de transfert de la forme:
+%-------------------------------------------------------------------------------
 \begin{align}
 H(\jw)=\dfrac{K}{1+j\tau\omega }\label{eq-1er_ftjw}
 \end{align}
-
+%-------------------------------------------------------------------------------
 Le module de cette fonction de transfert $G(\omega) =|H(\jw)|$ s'écrit :
 \[
     G(\omega)=\dfrac{K}{\sqrt{1+\tau^2\omega^2}}
@@ -644,10 +680,12 @@ réels et les courbes asymptotiques.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La fonction de transfert globale de deux systèmes du premier ordre en série 
 s'écrit:
+%-------------------------------------------------------------------------------
 \begin{align}
     H(\jw)=\dfrac{K_1K_2}{(1+j\tau_1\omega)(1+j\tau_2\omega)}
     \label{eq-1er_serie}
 \end{align}
+%-------------------------------------------------------------------------------
 On utilise la propriété du logarithme pour écrire le gain globale 
 $G_{dB}(\omega)$ comme une somme de gain de deux systèmes du premier ordre, 
 soit
@@ -738,13 +776,15 @@ régime apériodique.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La fonction de transfert d'un système du second ordre (\Cref{eq-2nd_ft}) 
 est donnée par :
+%-------------------------------------------------------------------------------
 \begin{align}
-H(\jw)=\dfrac{K\omega^2_0}{(\omega^2_0-\omega^2)+j2\xi\omega_0\omega}
-\label{eq-2nd_ftjw}
+    H(\jw)=\dfrac{K\omega^2_0}{(\omega^2_0-\omega^2)+j2\xi\omega_0\omega}
+    \label{eq-2nd_ftjw}
 \end{align}
+%-------------------------------------------------------------------------------
 Le gain s'obtient en calculant le module de ce nombre complexe :
 \[
-G(\omega)=\dfrac{K\omega^2_0}{\sqrt{(\omega^2_0-\omega^2)^2
+    G(\omega)=\dfrac{K\omega^2_0}{\sqrt{(\omega^2_0-\omega^2)^2
          +(2\xi\omega_0\omega)^2}}
 \]
 Le gain en décibel s'écrit alors :
@@ -979,9 +1019,11 @@ $n_i$, et $n_j$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit la fonction de transfert $H(p)$ telle que 
+%-------------------------------------------------------------------------------
 \begin{align}
     H(p) = \dfrac{100(p+1)^2}{(100p+1)(10p+1)(0.01p+1)}\label{eq-ft_qq}
 \end{align}
+%-------------------------------------------------------------------------------
 La première étape consiste à ordonner les temps caractéristiques par ordre 
 décroissant cela nous permettra d'obtenir les pulsations propres par ordre 
 croissant. Ensuite, il faut identifier les différents modèles.
@@ -1086,6 +1128,7 @@ Le diagramme de Nyquist d'un gain pur est trivial. En effet le nombre complexe
 $H(\jw)$ étant égal à une constante réel $K$, le diagramme de Nyquist ce 
 limite à un point sur l'axe des réels quelque soit la valeur de $\omega$.
 Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
+%-------------------------------------------------------------------------------
 \begin{align*}
     \Re{H(\jw)}&=K\\
     \Im{H(\jw)}&=0\\
@@ -1107,6 +1150,7 @@ Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
 Le diagramme de Nyquist d'un intégrateur pur est également trivial, puisque 
 le nombre complexe $H(\jw)=\dfrac{K}{\jw}$ est un nombre imaginaire pur. 
 Cependant il dépend de la pulsation $\omega$.
+%-------------------------------------------------------------------------------
 \begin{align*}
     \Re{H(\jw)}&=0\\
     \Im{H(\jw)}&=\dfrac{-K}{\omega}
@@ -1128,6 +1172,7 @@ Cependant il dépend de la pulsation $\omega$.
 Le diagramme de Nyquist d'un dérivateur pur est également représentatif d'un 
 nombre complexe $H(\jw)=K\jw$ imaginaire pur. Les parties réelles et imaginaire
 de ce nombre complexe sont :
+%-------------------------------------------------------------------------------
 \begin{align*}
     \Re{H(\jw)}&=0\\
     \Im{H(\jw)}&=K\omega
@@ -1152,10 +1197,12 @@ La fonction de transfert d'un retard pur s'écrit :
 H(\jw)=e^{-j\tau\omega}
 \]
 Les parties réelles et imaginaires sont simplement donnés par :
+%-------------------------------------------------------------------------------
 \begin{align*}
     \Re{H(\jw)}&=\hphantom{-}\cos{\tau\omega}\\
     \Im{H(\jw)}&=-\sin{\tau\omega}
 \end{align*}
+%-------------------------------------------------------------------------------
 Ces coordonnées dans le plan complexe sont celles du cercle unité 
 centré sur l'origine. Le lieu de transfert (c.a.d $\omega\to\infty$) 
 est la rotation infinie sur ce cercle. La \og vitesse angulaire\fg dépend 
@@ -1184,10 +1231,12 @@ H(\jw)=\dfrac{K}{1+j\tau\omega}
 \]
 Les parties réelle et imaginaire de cette fonction de transfert sont données 
 par:
+%-------------------------------------------------------------------------------
 \begin{align*}
     \Re{H(\jw)}&=\dfrac{K}{1+\tau^2\omega^2}\\
     \Im{H(\jw)}&=-\dfrac{K\tau\omega}{1+\tau^2\omega^2}\\
 \end{align*}
+%-------------------------------------------------------------------------------
 Nous avons regroupé dans le~\cref{tab-nyquist-vp_1er} quelques valeurs 
 particulières de $\Re{H(\jw)}$ et $\Im{H(\jw)}$ pour quelques valeurs 
 de $\omega$.
@@ -1256,6 +1305,7 @@ La fonction de transfert d'un système du second ordre s'écrit:
 H(\jw)=\dfrac{K\omega_0^2}{(\omega_0^2-\omega^2)+j2\xi\omega_0\omega}
 \]
 Les parties réel et imaginaire de cette fonction de transfert sont données par:
+%-------------------------------------------------------------------------------
 \begin{align*}
     \Re{H(\jw)}&=
     \dfrac{K\omega_0^2(\omega_0^2-\omega^2)}{(\omega_0^2-\omega^2)^2
@@ -1302,6 +1352,7 @@ H(\jw)=\dfrac{K}{1+j\tau\omega}H_R(\jw)=
 \dfrac{K}{1+j\tau\omega}\left(\cos{\tau\omega}-j\sin{\tau\omega}\right)
 \]
 Les parties réels et imaginaire de la fonction de transfert sont:
+%-------------------------------------------------------------------------------
 \begin{align*}
     \Re{H(\jw)}&=
     \dfrac{K\left(\cos{\tau_1\omega-\tau\omega\sin{\tau_1\omega}}\right)}

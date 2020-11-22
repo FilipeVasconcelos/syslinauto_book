@@ -146,30 +146,33 @@ Un diagramme de Bode d'un fonction complexe $H(\jw)$ est composé de deux
 courbes (i.e gain et phase) en représentation semi-logarithmique.
 
 Soit la fonction complexe du premier ordre telle que 
+%-------------------------------------------------------------------------------
 \begin{align}
-H(\jw)=\dfrac{1}{1+\jw}\label{eq-ft_annexe}
+    H(\jw)=\dfrac{1}{1+\jw}\label{eq-ft_annexe}
 \end{align}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Tracé du gain}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le gain de cette fonction de transfert $G(\omega)=|H(\jw)|$ s'écrit :
 \[
-G(\omega)=\dfrac{1}{\sqrt{1+\omega^2}}
+    G(\omega)=\dfrac{1}{\sqrt{1+\omega^2}}
 \]
 le gain en décibel est donc :
 \[
-G_{dB}(\omega)=20\log{\dfrac{1}{\sqrt{1+\omega^2}}}=-20\log{\sqrt{1+\omega^2}}
+    G_{dB}(\omega)=20\log{\dfrac{1}{\sqrt{1+\omega^2}}}
+                  =-20\log{\sqrt{1+\omega^2}}
 \]
 C'est cette fonction qu'il faut tracer point par point sur le diagramme 
 de Bode, cependant il est généralement recommandé d'étudier les asymptotes 
 de cette fonction avant de tracer la courbe. Pour les basses fréquences, le 
 gain en décibel ce commporte comme 
 \[
-G_{dB}(\omega)\sim-20\log{1}\sim 0\text{dB}
+    G_{dB}(\omega)\sim-20\log{1}\sim 0\text{dB}
 \] 
 et pour les hautes fréquences, comme
 \[
-G_{dB}(\omega)\sim -20\log{\omega}.
+    G_{dB}(\omega)\sim -20\log{\omega}.
 \]
 Dans le cas des hautes fréquences, lorsque la pulsation est mutiplié par 
 10 (i.e une décade ) le gain diminue de \SI{-20}{\dB}, on dit également 

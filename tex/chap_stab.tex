@@ -65,12 +65,9 @@ Rappel sur les réponses temporelles du premier ordre et du second ordre \ldots
 \pagestyle{fancy}
 \captionsetup{width=0.8\linewidth}
 %-------------------------------------------------------------------------------
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Notion de pôles dominants}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Système asservi}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -102,26 +99,42 @@ H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{a_mp^m+a_{m-1}p^{m-1}+\ldots+a_1p+a_0}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Le critère de Routh\footnote{\index{Routh, Edward}Edward John Routh 
-(1831-1907), mathématicien anglais.} est dit algébrique car il s'établit 
+Le critère de Routh est dit algébrique car il s'établit 
 dirctement sur la fonction de transfert en boucle fermée du système asservi. 
 
 Pour appliquer le critère fondamentale de stabilité à cette fonction de 
 transfert, il nous faut étudier \textbf{le polynôme caractéristique}:
+%-------------------------------------------------------------------------------
 \begin{align}
     D(p)&=0 \nonumber\\
     b_np^n+b_{n-1}p^{n-1}+\ldots+b_1p+b_0 &= 0
 \end{align}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{EdwardRouth.eps} 
+    \captionsetup{width=0.8\linewidth}
+    \caption*{\index{Routh, Edward}Edward John Routh (1831-1907), 
+             mathématicien anglais.}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 pour déterminer si ce polynôme possède des racines toutes à partie réelle 
 strictement négative. Les polynômes de ce type sont dits en mathématiques 
-de Hurwitz\footnote{\index{Hurwitz, Adolf}Adolf Hurwitz (1859-1919), 
-mathématicien allemand.}\footnote{Un polynôme de Hurwitz est un polynôme à 
+de Hurwitz\footnote{Un polynôme de Hurwitz est un polynôme à 
 coefficients réels dont les racines sont toutes à partie réelle strictement 
 négative.}.
 C'est pourquoi le critère suivant est également connu sous le nom de 
 \textbf{critère de Routh-Hurwitz}.
-
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{AdolfHurwitz.eps} 
+    \captionsetup{width=0.8\linewidth}
+    \caption*{\index{Hurwitz, Adolf}Adolf Hurwitz (1859-1919),
+    mathématicien allemand.}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 Il est possible de conclure sur la nature des racines d'un polynôme 
 en étudiant ses coefficients. Le critère de Routh-Hurwitz se base sur 
 cette propriété en posant deux conditions pour établir qu'un polynôme est 
@@ -421,12 +434,14 @@ L'équation caractéristique $D(p)$ de $H_{BF}$ est donc
     D(p)=p^3+p^2+3p+K,
 \]
 Nous constatons que le système est d'ordre 3 de coefficients :
+%-------------------------------------------------------------------------------
 \begin{align*}
     b_3&=1\\
     b_2&=1\\
     b_1&=3\\
     b_0&=K
 \end{align*}
+%-------------------------------------------------------------------------------
 Le critère nécessaire de Routh est donc respecté pour $K>0$. L'équation 
 caractéristique étant d'ordre 3, il nous faut construire le tableau de Routh, 
 afin de vérifier le critère supplémentaire :
@@ -518,10 +533,12 @@ ces fonctions de transferts en fonction des polynomes du numérateur et
 du dénominateur de la boucle ouverte.
 En effet, la fonction de transfert en boucle ouverte
 est en générale une fraction rationnelle de la forme:
+%-------------------------------------------------------------------------------
 \begin{align*}
 H_{BO}(p)=\dfrac{N_{BO}(p)}{D_{BO}(p)} \\
 1+H_{BO}(p)=\dfrac{N_{BO}(p)+D_{BO}(p)}{D_{BO}(p)}
 \end{align*}
+%-------------------------------------------------------------------------------
 on a alors pour la fonction de transfert en boucle fermée, 
 \[
 H_{BF}(p)=\dfrac{\dfrac{N_{BO}(p)}{D_{BO}(p)}}{1+\dfrac{N_{BO}(p)}{D_{BO}(p)}}
@@ -790,7 +807,14 @@ pour $M_G$ de 6 à 15~\si{\dB} sont considérées comme satisfaisantes.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le critère de Nyquist généralise le critère du revers.
 Il s'appuie sur le principe de l'argument de Cauchy
-\footnote{Augustin Louis Cauchy (1789-1857), mathématicien français (X1807)}
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{AugustinCauchy} 
+    \captionsetup{width=0.8\linewidth}
+    \caption*{Augustin Louis Cauchy (1789-1857), mathématicien français (X1807)}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 \footnote{Nous ne donnerons qu'une présentation élémentaire et sans 
 démonstration de ce théorème. Un cours d'analyse complexe permettra de 
 compléter cette présentation. On trouvera dans \cite{laas_pc7bis,reg}, 
@@ -864,14 +888,20 @@ sont comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours})
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Contours de Nyquist et de Bromwich}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Pour pouvoir appliquer le critère de Nyquist par l'intermédiaire du principe 
 de l'argument de Cauchy, il nous faut définir le contour orienté dans le plan 
 $p$ qui entoure la zone instable (c.a.d le demi-plan à partie réelle positive).
 Nous présentons deux types de contours le contour de Nyquist et ceux de 
-Bromwich\footnote{Thomas John I'Anson Bromwich (1875-1929), mathématicien 
-anglais.}
-
+Bromwich.
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{ThomasBromwich.eps} 
+    \captionsetup{width=0.8\linewidth}
+    \caption*{\index{Bromwich, Thomas}Thomas John I'Anson Bromwich (1875-1929), 
+    mathématicien anglais.}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 La~\cref{fig-contours} présente les contours classiques pour l'application 
 du critère de Nyquist. Ces contours sont composés de tout l'axe des 
 imaginaires, d'un demi cercle de rayon infini centré sur l'origine et dans le
@@ -915,11 +945,9 @@ l'origine du plan en 0. L'image de la portion \textbf{III} peut être
 déterminé à partir de l'image de la portion \textbf{I} par symétrie par 
 rapport à l'axe des réels\footnote{On notera en effet que 
 $H_{BO}(-\jw)=\Re{H_{BO}(\jw)}-\Im{H_{BO}(\jw)}$}.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Déterminons l'image par le contour de Bromwich de la fonction de transfert 
 suivante : $H_1(p)=\dfrac{1}{1+p}$
 %-------------------------------------------------------------------------------

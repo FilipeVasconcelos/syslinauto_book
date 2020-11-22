@@ -18,19 +18,30 @@ linéaires\label{chap-asservis}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
+\begin{marginfigure}
     \centering
-    \includegraphics[width=0.45\linewidth,height=10cm]
-    {fig/Georgetown_PowerPlant_Museum_m.eps}
+    \includegraphics[width=0.9\linewidth]{Georgetown_PowerPlant_Museum_m.eps}
+    \captionsetup{width=0.85\linewidth}
     \caption{Exemple historique de régulateur : Régulateur 
              de vitesse de Watt (d'après \cite{watt})\label{fig-hist}}
-\end{figure}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{Centrifugal_governor.eps} 
+    \captionsetup{width=0.85\linewidth}
+    \caption*{Dessin d'un régulateur à boules. Les boules en rotation s'élèvent 
+    lorque la vitesse augmente, qui referme la valve d'arrivé de vapeur, ce qui 
+    entraîne une diminution de la vitesse de rotation de l'arbre entrainant 
+    le régulateur jusqu'à qu'un équilibre entre ces deux effets s'installe.}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
 Les chapitres précédents nous ont permis de caractériser, modéliser et
 analyser la réponse temporelle des systèmes linéaires.
 Nous allons maintenant aborder la possibilité du \textbf{contrôle} de ces 
 systèmes par l'intermédiaire de l'\textbf{asservissement} et de 
-\textbf{régulation}. 
+la \textbf{régulation}. 
 L'idée sous-jacente est de permettre le contrôle automatique d'un système
 sans l'intervention d'un opérateur humain dans l'établissement d'une commande
 d'un système. 
@@ -44,7 +55,6 @@ il était important de contrôler la vitesse angulaire des turbines à vapeur.
 Le mécanisme de Watt permet avec un dispositif de retroaction d'agir sur la 
 valve d'arrivée de la vapeur en fonction de la vitesse de l'axe de la turbine.
 
-\clearpage
 Jusqu'à présent nous nous sommes intéressés à l'étude de système 
 linéaire \og isolé\fg (de fonction de transfert $H(p)$) 
 qui pour une entrée $E(p)$, élaborait une sortie $S(p)$\footnote{Nous
@@ -108,7 +118,6 @@ dans les applications industrielles et technologiques. Par abus de langage
 c'est le système en boucle fermée que l'on nomme asservissement. Cependant, la 
 définition précédente de l'asservissement s'applique très bien dans 
 le cas de la boucle ouverte.
-\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -204,7 +213,7 @@ la~\cref{fig-asser}
 \begin{table}[!h]
     \ra{1.5}
     \centering
-    \begin{tabular}{@{}P{3cm}m{8.5cm}P{3cm}@{}}
+    \begin{tabular}{@{}P{0.2\linewidth}m{0.6\linewidth}P{0.2\linewidth}@{}}
     \toprule
 Composants      & Description & Fonction de transfert ou signal associés\\
     \midrule
@@ -250,7 +259,6 @@ Sortie          & Le signal de sortie du système que l'on souhaite
              systèmes.\label{tab-asser}}
 \end{table}
 %-------------------------------------------------------------------------------
-\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fonctions de transfert associées à l'asservissement}
@@ -398,10 +406,12 @@ où $K_{BF}$ est le gain statique et $\tau_{BF}$ la constante de temps du
 système boucle fermée. Par identification, on alors les rélations suivantes 
 entre les paramètres du premier ordre de la~\gls{ftbo} et les paramètres du 
 premier ordre de la~\gls{ftbf} :
+%-------------------------------------------------------------------------------
 \begin{align*}
        K_{BF}&=\dfrac{K}{1+K}\\
     \tau_{BF}&=\dfrac{\tau}{1+K}
 \end{align*}
+%-------------------------------------------------------------------------------
 Constatons que le gain statique en boucle ouverte $K$ intervient 
 dans la définition du gain statique $K_{BF}$ et de la constante de temps 
 $\tau_{BF}$ en boucle fermée. Ainsi en modifiant le paramètre $K$, il est 
@@ -443,11 +453,13 @@ H_{BF}(p)=\dfrac{K\omega^2_0}{\omega^2_0(1+K)+2\xi\omega_0p+p^2}=
 Par identification, on alors les rélations suivantes entre 
 les paramètres du second ordre de la~\gls{ftbo} et les paramètres du 
 second ordre de la~\gls{ftbf} :
+%-------------------------------------------------------------------------------
 \begin{align*}
-       K_{BF}&=\dfrac{K}{1+K}\\
-    \omega_{0,BF}&=\omega_0\sqrt{1+K}\\
-    \xi_{BF}&=\dfrac{\xi}{\sqrt{1+K}}
+    K_{BF}       &=\dfrac{K}{1+K}         \\
+    \omega_{0,BF}&=\omega_0\sqrt{1+K}     \\
+    \xi_{BF}     &=\dfrac{\xi}{\sqrt{1+K}}
 \end{align*}
+%-------------------------------------------------------------------------------
 On remarque que influencer le gain de la boucle ouverte permet de modifier
 tous les paramètres du second ordre de la boucle fermée.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

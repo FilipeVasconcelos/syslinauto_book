@@ -71,6 +71,9 @@ if __name__=="__main__":
          "\\begin{bequation}":[1,"-","\\end{bequation}"],
          "\\begin{itemize}":[1,"-","\\end{itemize}"],
          "\\begin{criteria}":[1,"-","\\end{criteria}"],
+         "\\begin{align}":[1,"-","\\end{align}"],
+         "\\begin{align*}":[1,"-","\\end{align*}"],
+         "\\begin{marginfigure}":[1,"-","\\end{marginfigure}"],
          "\\begin{definition}":[1,"-","\\end{definition}"]
          }
 

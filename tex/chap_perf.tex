@@ -257,10 +257,12 @@ obligatoire mais facilite l'interprétation des résultats.
 
 Considérons le schéma bloc suivant avec les fonctions de transfert $H_1(p)$ 
 et $H_2(p)$ de forme canonique :
+%-------------------------------------------------------------------------------
 \begin{align*}
     H_1(p)=\dfrac{K_1}{p^{\alpha_1}}\dfrac{N_1(p)}{D_1(p)} \\
     H_2(p)=\dfrac{K_2}{p^{\alpha_2}}\dfrac{N_2(p)}{D_2(p)}
 \end{align*}
+%-------------------------------------------------------------------------------
 de les gains statiques $K_i$, de classe $\alpha_i$, de polynômes $N_i(p)$
 et $D_i(p)$ tels que $N_i(0)=$ et $D_i(0)=0$.
 %-------------------------------------------------------------------------------
@@ -275,10 +277,12 @@ la sortie globale du système asservis à deux entrées
 
 On se donne les formes canoniques suivantes pour les deux fonctions de 
 transferts $H_1(p)$ et $H_2(p)$ tels que :
+%-------------------------------------------------------------------------------
 \begin{align*}
 H_1(p)=\dfrac{K_1}{p^{\alpha_1}}\dfrac{N_1(p)}{D_1(p)}\\
 H_2(p)=\dfrac{K_2}{p^{\alpha_2}}\dfrac{N_2(p)}{D_2(p)}
 \end{align*}
+%-------------------------------------------------------------------------------
 avec $K_i$, $\alpha_i$, $N_i(p)$ et $D_i(p)$ respectivement les gains statiques,
 la classe et les polynômes en $p$ tels que $N_i(0)=1$ et $D_i(0)=1$.
 
@@ -327,11 +331,13 @@ Examinons l'erreur en régime permanent pour une perturbation constante.
 C'est à dire pour perturbation $P(p)$ en échelon telle que 
 $P(p)=\dfrac{P_0}{p}$. L'erreur dû à la perturbation en régime permanent 
 est alors :
+%-------------------------------------------------------------------------------
 \begin{align*}
     \epsilon_P&=\lim\limits_{p\to0} p\epsilon_P\\
     \epsilon_P&=\lim\limits_{p\to0} -H_{E=0}P_0\\
     \epsilon_P&=\lim\limits_{p\to0}\dfrac{\pau K_2}{\pau\pad+K_1K_2}P_0
 \end{align*}
+%-------------------------------------------------------------------------------
 \textbf{La perturbation est rejétée si $\alpha_1>0$, c'est à dire s'il existe
 au moins un intégrateur en amont de la perturbation.}
 En effet si $\alpha_1=0$, l'erreur dû à la perturbation est finie et 
@@ -492,11 +498,13 @@ Le temps de réponse à 5\% $t_{5\%}$ est tel que $s(t_{5\%})=0.95K$,
 t_{5\%}=-\tau\log{0.05}\sim3\tau.
 \]
 Le temps de montée $t_m=t_2-t_1$ avec $t_1$ et $t_2$, les temps tels que :
+%-------------------------------------------------------------------------------
 \begin{align*}
     s(t_1)&=0.1K\\
     s(t_2)&=0.9K\\
     t_m   &=-\tau\log{\dfrac{0.1}{0.9}}\sim2.2\tau
 \end{align*}
+%-------------------------------------------------------------------------------
 Le temps de réponse à 5\% et le temps de montée $t_m$ dépendent 
 directement de la constante. Ce qui permet de conclure que 
 \textbf{plus la constante de temps $\tau$ d'un système du premier
@@ -508,10 +516,12 @@ Nous avons montré au~\cref{chap-asservis} que les paramètres de
 la~\gls{ftbf} d'un système du premier ordre $(K_{BF},\tau_{BF})$ peuvent 
 être obtenues à partir des paramètres de la~\gls{ftbo}. Notamment les relations
 suivantes :
+%-------------------------------------------------------------------------------
 \begin{align*}
        K_{BF}&=\dfrac{K}{1+K}\\
     \tau_{BF}&=\dfrac{\tau}{1+K}
 \end{align*}
+%-------------------------------------------------------------------------------
 Il est alors possible de modifier la constante de temps en boucle fermée en 
 modifiant la valeur du gain statique en boucle ouverte. Pour augmenter
 la rapidité d'un système, on augmentera le gain statique de la~\gls{ftbo} pour
@@ -636,11 +646,13 @@ au~\cref{chap-asservis} que les paramètres de la~\gls{ftbf} d'un système
 du second ordre $(K_{BF},\xi_{BF},\omega_{0,BF})$ peuvent 
 être obtenues à partir des paramètres de la~\gls{ftbo}. Notamment les relations
 suivantes :
+%-------------------------------------------------------------------------------
 \begin{align*}
     K_{BF}&=\dfrac{K}{1+K}\\
     \omega_{0,BF}&=\omega_0\sqrt{1+K}\\
     \xi_{BF}&=\dfrac{\xi}{\sqrt{1+K}}
 \end{align*}
+%-------------------------------------------------------------------------------
 En s'appuyant sur l'abaque discuté precedemment, il est possible 
 de modifier les performances de rapidité de la boucle fermée en modifiant 
 le gain de la boucle ouverte, notamment il est possible de rendre un 
@@ -703,11 +715,13 @@ H(p)=\dfrac{A}{p+1}+\dfrac{B}{5p+1}
 \]
 Par identification on peut écrire $H(p)$ en fonction de
 deux fonctions de transferts $H_1(p)$ et $H_2(p)$ tel que :
+%-------------------------------------------------------------------------------
 \begin{align*}
 	H(p)&=H_1(p)-H_2(p)\\
 	H_1(p)&=\dfrac{6.25}{5p+1}\\
 	H_2(p)&=\dfrac{1.25}{p+1}
 \end{align*}
+%-------------------------------------------------------------------------------
 Par définition, le pôle dominant est donné par $H_1(p)$.
 Pour observer, l'effet de chacuns des pôles, nous avons tracé 
 les réponses indicielles de ces trois fonctions de transfert

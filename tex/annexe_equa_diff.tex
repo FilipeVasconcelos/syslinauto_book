@@ -11,9 +11,11 @@
 \chaptermark{Équations différentielles}
 La forme générale d'une équation différentielle à coefficients constants est 
 donnée par :
+%-------------------------------------------------------------------------------
 \begin{align}
 \sum_{i=0}^{n}a_i\devi{s(t)}{i}=\sum_{i=0}^{m}b_i\devi{e(t)}{i}
 \end{align}
+%-------------------------------------------------------------------------------
 avec $a_i$ et $b_i$ des coefficients réels et $m$ et $n$ des entiers naturels 
 tels que $m\le n$. L'ordre de l'équation est donnée par $n$.
 
@@ -103,10 +105,12 @@ avec $C$ une constante d'intégration.
 s_2(t)=\dfrac{b}{a}+Ce^{-at}.
 \]
 La solution générale est donnée par la somme des deux réponses précédentes :
+%-------------------------------------------------------------------------------
 \begin{align*}
     s(t)&=s_1(t)+s_2(t)\\
     s(t)&=s_0e^{-at}+\dfrac{b}{a}+Ce^{-at}
 \end{align*}
+%-------------------------------------------------------------------------------
 La constante $C$ se détermine à partir de la condition initiale:
 \[
 s(t)=s_0e^{-at}+\dfrac{b}{a}\left(1-e^{-at}\right)
@@ -120,11 +124,13 @@ s(t)=s_0e^{-at}+\dfrac{b}{a}\left(1-e^{-at}\right)
 Sur les trois termes de la solution générale, un seul est non
 nul pour $t\to\infty$. Il correspond au régime permanent de
 la réponse. Les deux autres correspondent au régime transitoire.
+%-------------------------------------------------------------------------------
 \begin{align*}
     s(t)=\textcolor{orange}{s_0e^{-at}-\dfrac{b}{a}e^{-at}}&+
     \textcolor{magenta}{\dfrac{b}{a}}\\
     \textcolor{orange}{transitoire} &\quad\textcolor{magenta}{permanent}
 \end{align*}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
