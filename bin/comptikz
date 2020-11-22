@@ -1,7 +1,7 @@
 #!/bin/bash
+[ ! -d standalone ] && mkdir standalone
 name=$1
 for file in tikz/$name.tex
-#for file in tikz/exemple_5-chap2.tex
 do
     basenameextension=${file##*/}
     echo $basenameextension
@@ -58,4 +58,3 @@ EOF
     dvips -o standalone/${texname}.ps standalone/${texname}.dvi #&> /dev/null
     ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None standalone/${texname}.ps standalone/${texname}.pdf #&> /dev/null 
 done
-
