@@ -439,8 +439,8 @@ d'origine des temps par rapport au signal $s(t)$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Un signal est dit \textbf{périodique} s'il se reproduit identique à lui
 même au bout d'un même intervalle de temps ou periode $T$. On définit alors 
-sa fréquence $f$ qui est l'inverse de la période $f=1/T$ ou la pulsation 
-$\omega$ définit par rapport au cercle unité $\omega=2\pi f$.
+sa fréquence $f=1/T$ qui est l'inverse de la période $T$ ou la pulsation 
+$\omega$ définie par rapport au cercle unité $\omega=2\pi f$.
 %-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
@@ -876,8 +876,8 @@ réaliser la correspondance inverse (\cref{annexe-lap}). Lorsque la
 transformation n'existe pas dans les tables, il est possible de 
 réaliser une décompostion en éléments simples de la réponse $S(p)$ pour 
 se placer dans un cas usuel (\cref{annexe-DES}).
-
-
+\newpage
+\restoregeometry
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Propriétés}
@@ -886,20 +886,19 @@ se placer dans un cas usuel (\cref{annexe-DES}).
 Nous allons ici uniquement présenter les principales propriétés de la TL, 
 on se rapportera à nouveau à l'\cref{annexe-lap} pour 
 une liste exhaustive de ces propriétés.
-
-La propriété fondamentale de la transformée de Laplace est d'être linéaire.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Linéarité}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Soit deux signaux $s_1(t)$, $s_2(t)$ continus et $S_1(p)$, $S_2(p)$ leurs
-transformées de Laplace respectives. La transformée de Laplace d'une 
-d'une combinaison linéaire quelconque de $s_1(t)$, $s_2(t)$ est la même 
-combinaison linéaire de $S_1(p)$ et $S_2(p)$. Autrement dit,
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     \laplace{as_1(t)+bs_2(t)}=aS_1(p)+bS_2(p)
 \end{bequation}
 %-------------------------------------------------------------------------------
+La propriété fondamentale de la transformée de Laplace est d'être linéaire.
+Soit deux signaux $s_1(t)$, $s_2(t)$ continus et $S_1(p)$, $S_2(p)$ leurs
+transformées de Laplace respectives. La transformée de Laplace d'une 
+d'une combinaison linéaire quelconque de $s_1(t)$, $s_2(t)$ est la même 
+combinaison linéaire de $S_1(p)$ et $S_2(p)$. Autrement dit,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Retard en $t$ (temporel)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1181,6 +1180,8 @@ ou encore
     \laplace{\cos{\omega t}\cdot u(t)}=\dfrac{p}{p^2+\omega^2}
 \end{bequation}
 %-------------------------------------------------------------------------------
+\newpage
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection[Application de la transformée de Laplace]
@@ -1221,22 +1222,23 @@ donnée par :
 %-------------------------------------------------------------------------------
 avec $n,m\in\mathbb{N}$, $s(t)$ le signal de sortie, $e(t)$ le signal 
 d'entrée et $a_i,b_i\in\mathbb{R}$. L'équation est dite d'ordre $n$.
-
+%-------------------------------------------------------------------------------
+\begin{marginfigure}[-15em]
+    \centering
+    \includegraphics[width=0.9\linewidth]{OliverHeaviside.eps}
+    \captionsetup{width=0.8\linewidth}
+    \caption*{\index{Heaviside, Oliver}\textbf{Oliver Heaviside} (1850-1925), physicien 
+              britannique. Il développa le calcul opérationnel pour résoudre 
+              les équations différentielles}.
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 Sous cette forme, cette équation différentielle constitue ce que l'on 
 nomme \textbf{la loi temporelle} du système. Sans perte de généralité, on ne 
 considèrera dans un premier temps que les systèmes pour lesquels toutes les 
 \textbf{conditions initialles sont nulles}, appelées également les conditions 
 d'Heaviside
-%-------------------------------------------------------------------------------
-\begin{marginfigure}
-    \centering
-    \includegraphics[width=0.9\linewidth]{OliverHeaviside.eps}
-    \captionsetup{width=0.8\linewidth}
-    \caption*{\index{Heaviside, Oliver}Oliver Heaviside, (1850-1925), physicien 
-              britannique. Il développa le calcul opérationnel pour résoudre 
-              les équations différentielles}.
-\end{marginfigure}
-%-------------------------------------------------------------------------------
+\newpage
+\restoregeometry
 En appliquant la transformée de Laplace à l'\cref{eq-ltemp}, on obtient 
 ce que l'on nomme \textbf{la loi fréquentielle} du système :
 %-------------------------------------------------------------------------------
@@ -1265,21 +1267,26 @@ Soit l'équation différentielle suivante :
 \devi{s(t)}{2}+2\devi{s(t)}{} + s(t) = e(t)\label{eq-diff1}
 \end{align}
 %-------------------------------------------------------------------------------
-où $e(t)$ et $s(t)$ sont respectivement les fonctions temporelles d'entrée 
-et de sortie du système régit par cette équation différentielle avec 
-pour conditions initiales (CI) 
-$s(0)=-1$ et $s'(0)=2$.
+où $e(t)$ et $s(t)$ sont respectivement les fonctions temporelles de l'entrée 
+et de la sortie du système régit par cette équation différentielle. 
 Nous considérons la réponse à un échelon-unité ( i.e $e(t)=u(t)$ ) 
-
+avec pour conditions initiales :
+%-------------------------------------------------------------------------------
+\begin{align*}
+    s(0) &=-1\\
+    s'(0)&=2.
+\end{align*}
+%-------------------------------------------------------------------------------
 Nous allons résoudre cette équation par deux méthodes différentes: 
-la méthode direct de résolution d'équations différentielles avec 
-second membre, et par l'application de la transformée de Laplace.
-
+\textbf{la méthode direct de résolution d'équations différentielles avec 
+second membre}, et par l'\textbf{application de la transformée de Laplace}.
 Nous pourrons observer que l'application de la TL pour la résolution
 des équations différentielles est une méthode plus systèmatique qui 
 s'affranchit de la forme particulière de l'équation différentielle 
 auquelle on a à faire. Nous verrons que la transformée de Laplace devient 
 totalement indispensable pour la caractérisation d'un \gls{slci}.
+\newpage
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Résolution par la méthode direct}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1309,20 +1316,20 @@ $\alpha$, $\beta$ en utilisant les conditions initiales,
     s'(0)&=\hphantom{-}2\Rightarrow\alpha+2=\hphantom{-}2\Rightarrow\alpha=0
 \end{align*}
 %-------------------------------------------------------------------------------
+La solution générale de l'équation différentielle~(\ref{eq-diff1}) est 
+donc donnée par 
 %-------------------------------------------------------------------------------
-\begin{figure}[!t]
+\begin{marginfigure}
     \centering
     \tikzsetnextfilename{sol_eq_diff-chap_slci-ext}
-    \input{tikz/sol_eq_diff-chap_slci.tex}
+    \resizebox{\linewidth}{!}{\input{tikz/sol_eq_diff-chap_slci.tex}}
     \caption{Représentation de la solution générale de l'équation 
              différentielle~(\ref{eq-diff1}) pour $e(t)=u(t)$. 
              On vérifie lors du tracé que l'on observe bien les principales 
              propriétes du signal (i.e conditions initiales, 
              valeurs finales).\label{fig-solution}}
-\end{figure}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
-La solution générale de l'équation différentielle~(\ref{eq-diff1}) est 
-donc donnée par 
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 s(t)=1-2e^{-t}.
@@ -1347,6 +1354,8 @@ On obtient pour chacuns des termes :
     \laplace{u(t)} &= \dfrac{1}{p}.
 \end{align*}
 %-------------------------------------------------------------------------------
+\newpage
+\restoregeometry
 L'équation différentielle~(\ref{eq-diff1}) devient dans le domaine 
 de Laplace :
 %-------------------------------------------------------------------------------
@@ -1359,7 +1368,7 @@ forme de la réponse $S(p)$ dans le domaine de Laplace.
 %-------------------------------------------------------------------------------
 \begin{align*}
     S(p)\left(p^2+2p+1\right)+p&=\dfrac{1}{p} \\
-    S(p)\left(p+1\right)^2 &= \dfrac{1-p^2}{p}\\
+    %S(p)\left(p+1\right)^2 &= \dfrac{1-p^2}{p}\\
     S(p)&= \dfrac{1-p^2}{p\left(p+1\right)^2}
 \end{align*}
 %-------------------------------------------------------------------------------
@@ -1652,11 +1661,12 @@ on peut réécrire $H(p)$ sous sa forme factorisée:
     H(p)=\dfrac{6}{2}\cdot\dfrac{p+2}{p^2+2p+0.75}
 \]
 La fonction de transfert possède un zéro ($z_1=-2$) et deux pôles 
-($p_1=-1.5$ et $p_2=-0.5$). Elle peut alors s'écrire :
+($p_1=-1.5$ et $p_2=-0.5$). Elle peut alors s'écrire (avec $k=3$) :
 \[
     H(p)=\dfrac{k(p+2)}{(p+1.5)(p+0.5)}
 \]
-avec $k=3$.
+\newpage
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Carte des pôles et zéros d'une fonction de transfert}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1672,7 +1682,7 @@ lieu d'Evans
     \centering
     \includegraphics[width=0.9\linewidth]{WalterEvans.eps} 
     \captionsetup{width=0.8\linewidth}
-    \caption*{Walter Richard Evans, (1920-1999),ingénieur, automaticien 
+    \caption*{\textbf{Walter Richard Evans}, (1920-1999),ingénieur, automaticien 
     américain. Il développa la méthode graphique, qui porte son nom,
     permettant d'étudier les pôles des systèmes asservis.}
 \end{marginfigure}
@@ -1789,7 +1799,8 @@ La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert
 %Remarquons que pour cette transformée, nous aurions pu faire usage
 %de la propriété du théorème de l'amortissement (c.f propriétés du paragraphe 
 %précédent).
-%\newpage
+\newpage
+\restoregeometry
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

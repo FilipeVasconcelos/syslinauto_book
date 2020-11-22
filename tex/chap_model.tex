@@ -81,6 +81,8 @@ de confirmer que $\tau$ à la dimension d'un temps, mais surtout que
 la dimension du gain statique est donnée par le rapport des dimensions de 
 la sortie sur l'entrée. Autrement dit, c'est un paramètre sans dimension 
 si l'entrée et la sortie sont de même nature.
+\newpage
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fonction de transfert d'un système du premier ordre}
@@ -152,7 +154,9 @@ domaine de Laplace, de la forme :
 \[
 S(p)=H(p)E(p)=\dfrac{KE_0}{(\tau p+1)}.
 \]
-\marginnote{$\dfrac{1}{(p+a)}\rightarrow e^{-at}$}[-2em]
+\newpage
+\restoregeometry
+%\marginnote{$\dfrac{1}{(p+a)}\rightarrow e^{-at}$}[-2em]
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 7 du tableau de 
 l'\cref{annexe-lap}), nous donne la forme générale de la réponse impulsionnelle 
 d'un système du premier ordre:
@@ -257,7 +261,7 @@ Dans le domaine de Laplace la sortie est donc de la forme :
 \[
 S(p)=H(p)E(p)=\dfrac{KE_0}{p(1+\tau p)}=\dfrac{KE_0}{\tau p(p+\frac{1}{\tau})}
 \]
-\marginnote{$\dfrac{a}{p(p+a)}\rightarrow 1-e^{-at}$}[-2em]
+%\marginnote{$\dfrac{a}{p(p+a)}\rightarrow 1-e^{-at}$}[-2em]
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 11 du tableau 
 de l'\cref{annexe-lap}), nous donne la forme générale de la réponse 
 indicielle d'un système du premier ordre:
@@ -325,11 +329,11 @@ et $u(t)$ la fonction échelon.
 
 La réponse à une rampe d'un système du premier ordre est, dans le domaine 
 de Laplace, de la forme :
-\marginnote{
-    \resizebox{\linewidth}{!}{%
-        $\dfrac{a}{p^2(p+a)}\rightarrow\dfrac{1}{a}\left(at+ate^{-at}\right)$
-    }
-}
+%\marginnote{
+%    \resizebox{\linewidth}{!}{%
+%        $\dfrac{a}{p^2(p+a)}\rightarrow\dfrac{1}{a}\left(at+ate^{-at}\right)$
+%    }
+%}
 \[
 S(p)=H(p)E(p)=\dfrac{KE_0}{p^2(1+\tau p)}
 \]
@@ -351,7 +355,6 @@ rampe d'un système du premier ordre:
 %               (\cref{eq-1er_ramp}) avec $K=1$ et $E_0=1$ \label{fig-1er_ramp}}
 %\end{figure}
 %-------------------------------------------------------------------------------
-
 La pente à l'origine peut être obtenue directement en dérivant la réponse 
 temporelle $s(t)$. On constate alors que $s'(0)=0$ quelque soit $\tau$. 
 À la limite $t\to\infty$ la réponse à une rampe tend vers $t-\tau$.
@@ -509,7 +512,7 @@ La sortie dans le domaine de Laplace s'écrit :
 \[
 S(p)=\dfrac{K\omega^2_0}{(p-p_1)(p-p_2)}
 \]
-\marginnote{$\dfrac{b-a}{(p+a)(p+b)}\rightarrow e^{-at}-e^{-bt}$}[-1em]
+%\marginnote{$\dfrac{b-a}{(p+a)(p+b)}\rightarrow e^{-at}-e^{-bt}$}[-1em]
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 16 du tableau 
 de l'\cref{annexe-lap}), nous donne la forme générale de la réponse 
 impulsionnelle d'un système du second ordre en régime apériodique:
@@ -824,7 +827,7 @@ il nous faut d'abord déterminer le temps du premier maximum $t_1$.
 %-------------------------------------------------------------------------------
 Pour celà il suffit de déterminer le temps pour lequel la dérivée 
 du signal $s(t)$ s'annule. On calcul alors un temps $t_1$ à $T_d/2$ 
-où $T_d$ est la pseudo-période définit à partir de la 
+où $T_d$ est la pseudo-période défini à partir de la 
 pseudo-pulsation $\omega_d$. 
 On a alors :
 %-------------------------------------------------------------------------------
@@ -833,7 +836,7 @@ T_d=\dfrac{2\pi}{\omega_d}\\
 t_1 = \dfrac{\pi}{\omega_d}
 \end{align*}
 %-------------------------------------------------------------------------------
-Formellement, le premier dépassement est définit par :
+Formellement, le premier dépassement est défini par :
 \[
 D_1=\left|\dfrac{s(t_1)-s(\infty)}{s(\infty)-s(0)}\right|
 \]
@@ -882,7 +885,6 @@ La~\cref{fig-2nd_temps_reponse} présente la variation du temps de
 réponse à 5\% réduit à la pulsation (i.e $\omega_0\cdot t_{5\%}$ ) 
 en fonction du taux d'amortissement $\xi$. On observe un minimum du 
 temps de réponse pour $\xi\sim 0.7$
-
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -890,13 +892,12 @@ temps de réponse pour $\xi\sim 0.7$
     \input{tikz/2nd_t5pc-chap_model.tex}
     \caption{Définition du temps de réponse à 5\% dans le cas de la 
     réponse indicielle en régime pseudo-périodique d'un système du 
-    second ordre. Le temps de réponse à 5\% est définit comme le 
+    second ordre. Le temps de réponse à 5\% est défini comme le 
     temps minimal pour que le signal soit compris dans une bande 
     à $\pm$5\% autour de la valeur finale. Réponse indicielle 
     pour (bleu) $\xi=0.2$ et (rouge) $\xi=0.5$.\label{fig-2nd_t5pc} }
 \end{figure}
 %-------------------------------------------------------------------------------
-
 %-------------------------------------------------------------------------------
 \begin{figure}
 \centering
@@ -908,13 +909,11 @@ temps de réponse pour $\xi\sim 0.7$
              \label{fig-2nd_temps_reponse}}
 \end{figure}
 %-------------------------------------------------------------------------------
-
 %-------------------------------------------------------------------------------
 {\tikzset{external/export=false}
 \input{tex/reponses_temporelles_2nd_ordre.tex}
 }
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse à une rampe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

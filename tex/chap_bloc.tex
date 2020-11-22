@@ -80,7 +80,7 @@ par une majuscule.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le bloc est la représentation d'une fonction de transfert entre deux 
 grandeurs dans le domaine de Laplace. Par exemple, la relation entre l'entrée 
-$E$ et la sortie $S$ définit par la fonction de transfert $H$ qui s'écrit 
+$E$ et la sortie $S$ définie par la fonction de transfert $H$ qui s'écrit 
 formellement, 
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -144,6 +144,7 @@ lieu à deux branches auxquelles sont associées la même grandeur $S$.
 %-------------------------------------------------------------------------------
 Dans cette configuration, la branche 1 est dite \og direct\fg et la 
 branche 2 est dite de \og retour\fg.
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -197,13 +198,15 @@ sont équivalents.
 \end{center}
 %-------------------------------------------------------------------------------
 La démonstration est également triviale.
+\newpage
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{La boucle de contre-réaction (positive ou négative)
           \label{sec-boucle}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La boucle de contre-réaction\footnote{\og Positive or negative feedback\fg, 
-chez nos collègues anglophones.} peut être réduite à une simple fonction 
-de transfert. Considérons un système définit par le schéma-bloc ci-dessous, 
+chez nos collègues anglophones.}peut être réduite à une simple fonction 
+de transfert. Considérons un système défini par le schéma-bloc ci-dessous, 
 composé des différents élements de bases.
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -213,7 +216,6 @@ composé des différents élements de bases.
 %-------------------------------------------------------------------------------
 Notons l'utilisation du symbole $\pm$ pour envisager à la fois les 
 comparateurs et sommateurs.
-
 Déterminons la relation entre l'entrée $E$ et la sortie $S$ de ce système.
 Pour celà réécrivons les relations linéaires simples issus de ce schéma-bloc.
 On sait que :
@@ -224,7 +226,7 @@ On sait que :
     S&=H_1\epsilon \label{eq-fb.3}
 \end{align}
 %-------------------------------------------------------------------------------
-Introduisons l'\cref{eq-fb.2} dans~(\ref{eq-fb.1}) et le résulat ainsi 
+Introduisons l'\cref{eq-fb.2} dans~(\ref{eq-fb.1}) et le résultat ainsi 
 obtenu dans~(\ref{eq-fb.3}):
 %-------------------------------------------------------------------------------
 \begin{align*}
@@ -246,8 +248,8 @@ On obtient alors la formule de Black
     \centering
     \includegraphics[width=0.9\linewidth]{HaroldBlack.eps}
     \captionsetup{width=0.8\linewidth}
-    \caption*{\index{Black, Harold}Harold Stephen Black (1898-1983) ingénieur, 
-              électronicien américain. Découvreur de la boucle de 
+    \caption*{\index{Black, Harold}\textbf{Harold Stephen Black} (1898-1983) 
+              ingénieur, électronicien américain. Découvreur de la boucle de 
               contre-réaction négative}, 
 \end{marginfigure}
 %-------------------------------------------------------------------------------
@@ -259,7 +261,6 @@ reliant la sortie est l'entrée d'une boucle de contre-réaction :
 %-------------------------------------------------------------------------------
 Notons l'inversion du signe du dénominateur de la formule 
 selon que la boucle est positive ou négative.
-
 La boucle de contre-réaction est donc équivalente au schéma-bloc 
 simplifié suivant :
 %-------------------------------------------------------------------------------
@@ -268,6 +269,8 @@ simplifié suivant :
     \input{tikz/boucle_eq-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
+\newpage
+\restoregeometry
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Boucle de contre-réaction unitaire}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -350,6 +353,7 @@ de prélèvement. Ansi les deux schémas-blocs ci-dessous sont équivalents:
     \input{tikz/dep_jonc3-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -706,7 +710,7 @@ manière suivante :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{6. Boucles de contre-réaction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Considérons la boucle de contre-réaction définit par le schéma fonctionnel et 
+Considérons la boucle de contre-réaction définie par le schéma fonctionnel et 
 le graphe de fluence équivalent:
 %-------------------------------------------------------------------------------
 \begin{center}

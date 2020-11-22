@@ -13,7 +13,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Introduction}
+\section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -137,14 +137,13 @@ Le gain $|H(\jw)|$ est une fonction réelle de $\omega$ de ce fait nous
 utiliserons par la suite $G(\omega)$ pour noter plus explicitement cette 
 dépendance. La phase est également une fonction de la pulsation d'excitation, 
 nous la noterons donc $\phi(\omega)$ par la suite.
-
-
+\newpage
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Réponse harmonique dans le domaine temporel}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \index{Système du premier ordre!réponse harmonique dans le domaine temporel}
 Considérons un \gls{slci}~définit par une fonction de transfert $H(p)$ du 
 premier ordre (\Cref{eq-ft1er}) de forme canonique:
@@ -188,7 +187,7 @@ particulières de $\omega$
         $\tau=\SI{1}{\second}$\label{tab-1ertemp}.}
 \end{table}
 %-------------------------------------------------------------------------------
-D'après ces valeurs, nous constatons que le rapport des amplitudes décroit et
+D'après ces valeurs, nous constatons que le rapport des amplitudes décroît et
 que le déphasage augmente lorsque la pulsation de l'excitation augmente.
 
 La~\cref{fig-repham} présente la forme des réponses temporelles de ce système 
@@ -200,14 +199,14 @@ Nous allons maintenant généraliser cette analyse sans pour autant avoir à
 tracer la réponse temporelle pour toutes les pulsations que l'on souhaite 
 étudier.
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
+\begin{marginfigure}[-20em]
     \centering
     \tikzsetnextfilename{repham_1-chap_repfreq-ext}
-    \input{tikz/repham_1-chap_repfreq.tex}
+    \resizebox{\linewidth}{!}{\input{tikz/repham_1-chap_repfreq.tex}}
     \tikzsetnextfilename{repham_2-chap_repfreq-ext}
-    \input{tikz/repham_2-chap_repfreq.tex}
+    \resizebox{\linewidth}{!}{\input{tikz/repham_2-chap_repfreq.tex}}
     \tikzsetnextfilename{repham_3-chap_repfreq-ext}
-    \input{tikz/repham_3-chap_repfreq.tex}
+    \resizebox{\linewidth}{!}{\input{tikz/repham_3-chap_repfreq.tex}}
     \caption{Réponse harmonique (en régime permanent) (\Cref{eq-rh}) d'un 
              système du premier ordre pour différentes pulsations d'excitation 
              de la forme $e(t)=\sin{\omega t}$, (données du~\cref{tab-1ertemp}).
@@ -215,7 +214,7 @@ tracer la réponse temporelle pour toutes les pulsations que l'on souhaite
              diminution de l'amplitude lorsque la fréquence d'excitations 
              augmente. (bleu) excitation $e(t)$ (rouge) sortie $s(t)$.
              \label{fig-repham}}
-\end{figure}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -223,11 +222,11 @@ tracer la réponse temporelle pour toutes les pulsations que l'on souhaite
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\acpl
-%\newpage
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Représentation graphique de la réponse harmonique}
+\section[Représentation graphique]{Représentation graphique de la réponse harmonique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -245,19 +244,8 @@ notamment :
 \begin{itemize}
     \item le diagramme de Bode,
     \item le diagramme de Nyquist,
-    \item et le diagramme de Black-Nichols\footnote{
-    \index{Nichols, Nathaniel}Nathaniel B. Nichols, (1914–1997) 
-           ingénieur américain.}. 
+    \item et le diagramme de Black-Nichols
 \end{itemize}
-%-------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------
-\begin{marginfigure}
-    \centering
-    \includegraphics[width=0.9\linewidth]{NathanielNichols.eps} 
-    \captionsetup{width=0.8\linewidth}
-    \caption*{\index{Nichols, Nathaniel} Nathaniel B. Nichols, (1914–1997)
-              ingénieur américain.}
-\end{marginfigure}
 %-------------------------------------------------------------------------------
 Nous étudierons en détail les diagrammes des modèles usuels que nous 
 avons déjà rencontrés au chapitre précédent (\Cref{chap-model})
@@ -293,7 +281,7 @@ Il se compose de deux graphiques :
     \centering
     \includegraphics[width=0.9\linewidth]{HendrikBode.eps} 
     \captionsetup{width=0.8\linewidth}
-    \caption*{\index{Bode, Hendrik} Hendrik Wade Bode
+    \caption*{\index{Bode, Hendrik}\textbf{Hendrik Wade Bode}
     (1905-1982), ingénieur, chercheur et inventeur américain.}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
@@ -330,29 +318,8 @@ Le diagramme de Bode de $H(\jw)$ est la somme de deux diagrammes indépendants:
 \subsection{Diagramme de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Un diagramme de Nyquist présente la partie imaginaire et la partie 
-réelle de $H(\jw)$ pour différentes 
-valeurs paramétrées de $\omega$. Il a l'avantage de combiner les deux 
-graphiques du diagramme de Bode en un seul. En effet, la phase et l'amplitude 
-d'un point dans le plan complexe peut être déterminé graphiquement par 
-respectivement l'angle avec l'axe des réels et la distance à l'origine 
-(\Cref{annexe-NC}). Cette représentation graphique est communément appelée 
-\textbf{le lieu de Nyquist}. Le lieu de Nyquist complet est le tracé théorique 
-des parties réel et imaginaire de $H(\jw)$, en considérant les pulsations 
-négatives, c'est à dire entre $\omega\rightarrow-\infty$ et 
-$\omega\rightarrow+\infty$.
 %-------------------------------------------------------------------------------
-\begin{marginfigure}
-    \centering
-    \includegraphics[width=0.9\linewidth]{HarryNyquist} 
-    \captionsetup{width=0.8\linewidth}
-    \caption*{\index{Nyquist, Harry} Harry Nyquist (1889-1976), électronicien et
-    ingénieur américain. Il réalisa d'importante contributions à la théorie 
-    de l'information.}
-\end{marginfigure}
-%-------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------
-\begin{figure}[!h]
+\begin{figure}[!b]
     \centering
     \tikzsetnextfilename{sche_nyquist_1-chap_repfreq-ext}
     \input{tikz/sche_nyquist_1-chap_repfreq.tex}
@@ -367,6 +334,29 @@ $\omega\rightarrow+\infty$.
              \label{fig-sche_nyquist}}
 \end{figure}
 %-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{marginfigure}[2em]
+    \centering
+    \includegraphics[width=0.9\linewidth]{HarryNyquist} 
+    \captionsetup{width=0.8\linewidth}
+    \caption*{\index{Nyquist, Harry}\textbf{Harry Nyquist} (1889-1976), électronicien et
+    ingénieur américain. Il réalisa d'importante contributions à la théorie 
+    de l'information.}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
+Un diagramme de Nyquist présente la partie imaginaire et la partie 
+réelle de $H(\jw)$ pour différentes 
+valeurs paramétrées de $\omega$. Il a l'avantage de combiner les deux 
+graphiques du diagramme de Bode en un seul. En effet, la phase et l'amplitude 
+d'un point dans le plan complexe peut être déterminé graphiquement par 
+respectivement l'angle avec l'axe des réels et la distance à l'origine 
+(\Cref{annexe-NC}). Cette représentation graphique est communément appelée 
+\textbf{le lieu de Nyquist}. Le lieu de Nyquist complet est le tracé théorique 
+des parties réel et imaginaire de $H(\jw)$, en considérant les pulsations 
+négatives, c'est à dire entre $\omega\rightarrow-\infty$ et 
+$\omega\rightarrow+\infty$.
+%\clearpage
+%\restoregeometry
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Diagramme de Black-Nichols}
@@ -381,6 +371,15 @@ l'étude des systèmes asservis (\Cref{chap-asservis}) pour déterminer le lieu
 de transfert dans le plan de Black d'un système en boucle fermée (FTBF) à 
 partir de la connaissance du lieu de transfert dans le plan de Black de la 
 Fonction de Transfert en Boucle ouverte (FTBO).
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{NathanielNichols.eps} 
+    \captionsetup{width=0.8\linewidth}
+    \caption*{\index{Nichols, Nathaniel}\textbf{Nathaniel B. Nichols}, (1914–1997)
+              ingénieur américain.}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 %(moins important dans une premiere découverte des \SLCI.
 %Il pourra être introduit séparément dans le cas des systèmes asservis.)
 %-------------------------------------------------------------------------------
@@ -394,7 +393,8 @@ Fonction de Transfert en Boucle ouverte (FTBO).
              de 0 à $\infty$.\label{fig-sche_black}}
 \end{figure}
 %-------------------------------------------------------------------------------
-%\newpage
+\newpage
+\restoregeometry
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -419,7 +419,7 @@ Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
           module de $|H(\jw)|$
     \item \'Etablir la fonction de la phase $\phi(\omega)$ à partir de 
           l'argument principale de $|H(\jw)|$.
-          L'argument principale est définit à l'\Cref{annexe-NC}.
+          L'argument principale est défini à l'\Cref{annexe-NC}.
     \item Si les fonctions $G(\omega)$ et $\phi(\omega)$ ne sont pas de 
           simples constantes, réalisér une étude
           asymptotique pour $\omega\rightarrow 0$ et 
@@ -428,7 +428,7 @@ Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
           de Bode \textbf{asymptotique}.
 \end{itemize}
 %-------------------------------------------------------------------------------
-%\newpage
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un gain pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -451,7 +451,7 @@ principale du nombre complexe $H(\jw)$:
 \end{bequation}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
-\begin{figure}[!htb]
+\begin{figure}[!h]
     \centering
     \tikzsetnextfilename{bode_gain_1-chap_repfreq-ext}
     \input{tikz/bode_gain_1-chap_repfreq.tex}
@@ -464,7 +464,7 @@ principale du nombre complexe $H(\jw)$:
              seul le gain $G_{dB}(\omega)$ est modifié. \label{fig-bode_gain}}
 \end{figure}
 %-------------------------------------------------------------------------------
-%\newpage
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un intégrateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -535,6 +535,7 @@ la phase s'écrit simplement
              reste inchangée.\label{fig-bode_deriv}}
 \end{figure}
 %-------------------------------------------------------------------------------
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système à retard pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -570,6 +571,7 @@ et la phase s'écrit simplement
              de la pulsation\label{fig-bode_retard_1}.}
 \end{figure}
 %-------------------------------------------------------------------------------
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -899,7 +901,7 @@ taux d'amortissement est
     \xi<\dfrac{\sqrt{2}}{2}
 \end{bequation}
 %-------------------------------------------------------------------------------
-La \textbf{pulsation de résonance} est donc définit par : 
+La \textbf{pulsation de résonance} est donc définie par : 
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     \omega_r=\omega_0\sqrt{1-2\xi^2}.

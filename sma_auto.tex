@@ -5,15 +5,15 @@
 %  date   : 2017-2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[%
-    paper=a4
-    ,fontsize=12pt % common are 10, 11 or 12
-    ,headings=big
+     paper=a4
+    ,fontsize=12pt       % common are 10, 11 or 12
+    ,headings=huge
     %,parskip
     ,numbers=noendperiod % 2.3.1 vs 2.3.1. (no dot after the last chapter number)
     ,twoside=true
-    ,toc=bibliography % Bibliography appears in Table of Contents (without a numbr)
-    ,toc=listof % List of Figures and List of Tables appear in Table of Contents
-    ,version=last % Use latest version of the KOMA-Script
+    ,toc=bibliography    % Bibliography appears in Table of Contents (without a numbr)
+    ,toc=listof          % List of Figures and List of Tables appear in Table of Contents
+    ,version=last        % Use latest version of the KOMA-Script
     ]{scrbook}
 \usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc}
@@ -96,6 +96,10 @@
 \usepackage{etoolbox}
 \usepackage[french,nameinlink,noabbrev]{cleveref}
 \crefname{appchap}{Annexe}{Annexes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Added package to solve the problem
+\usepackage[]{hypdvips}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PGF/TikZ/PGFPLOTS
@@ -246,7 +250,7 @@ pdf2eps 1 "\image"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % redefine paragraph
 \renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
-{1\baselineskip plus 1.5\baselineskip minus 0.5\baselineskip}%
+{1\baselineskip plus 0.5\baselineskip minus 0.25\baselineskip}%
 {0.25\baselineskip plus 0.25\baselineskip minus 0.25\baselineskip}%
 {\normalfont\normalsize\bfseries}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -328,7 +332,7 @@ pdf2eps 1 "\image"
 % includeonly individuel
 % ------------------------------------------------------------------------------
 %\includeonly{tex/avantpropos}
-\includeonly{tex/chap_slci}            % Système linéaire
+%\includeonly{tex/chap_slci}            % Système linéaire
 %\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
 %\includeonly{tex/chap_model}           % Modèles Usuels    
 %\includeonly{tex/chap_repfreq}         % Réponse harmonique
