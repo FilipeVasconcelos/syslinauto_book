@@ -160,12 +160,12 @@ permettant de corriger la boucle ouverte du système.
 %\end{figure}
 %-------------------------------------------------------------------------------
 La \textbf{mesure} $M(p)$ est l'image de la sortie élaborée par 
-l'intermédiaire du capteur. Il est alors en générale nécessaire d'adapter la consigne pour
-que l'écart $\epsilon(p)$ soit représentatif de l'écart entre la consigne
-et la sortie et non de son image. Ainsi, on retrouvera très souvent 
-un \textbf{adaptateur} permmettant d'obtenir l'image de la consigne.
-Le procédé/système peux nécéssité d'un \textbf{actionneur} qui agit en 
-transmettant/convertissant l'énergie nécéssaire à son action et qui
+l'intermédiaire du capteur. Il est alors en générale nécessaire d'adapter 
+la consigne pour que l'écart $\epsilon(p)$ soit représentatif de l'écart 
+entre la consigne et la sortie et non de son image. Ainsi, on retrouvera 
+très souvent un \textbf{adaptateur} permmettant d'obtenir l'image 
+de la consigne. Le procédé/système peux nécéssité d'un \textbf{actionneur} qui 
+agit en transmettant/convertissant l'énergie nécéssaire à son action et qui
 élabore son nouveau signal de commande $U(p)$
 La~\cref{fig-reg2} présente une forme augmentée de schéma fonctionnel
 présentant ces nouveaux constituants. 
@@ -177,12 +177,12 @@ présentant ces nouveaux constituants.
 La prise en compte de pertubation se fait simplement en considérant un schéma
 fonctionnel à plusieurs entrée à l'instar du schéma-blocs de 
 la~\cref{fig-pert2}. En général, la perturbation se trouve en amont
-du système et le signal de perturbation $P(p)$ est simplement sommé à la commande
-$U(p)$. On dit que l'on a à faire à une \textbf{perturbation en entrée}. 
-Si celle-ci se trouve en aval du système, on parle alors de \textbf{perturbation de 
-sortie}. Il est également possible de considérer la perturbation introduite par les
-constituants de l'asservissement eux-mêmes, on parlera alors de 
-\textbf{bruit de mesure}.
+du système et le signal de perturbation $P(p)$ est simplement sommé à la 
+commande $U(p)$. On dit que l'on a à faire à une \textbf{perturbation 
+en entrée}. Si celle-ci se trouve en aval du système, on parle alors de 
+\textbf{perturbation de sortie}. Il est également possible de considérer la 
+perturbation introduite par les constituants de l'asservissement eux-mêmes, 
+on parlera alors de \textbf{bruit de mesure}.
 La régulation consiste, pour une consigne donnée, à annuler l'erreur 
 quelque soit la nature et le nombre des perturbations.
 %-------------------------------------------------------------------------------

@@ -19,8 +19,10 @@
     \node [above right] at (axis cs:  0,-10)  {$\omega\rightarrow-\infty$};
     \node [below right]       at (axis cs:  0, 0)   {$\omega=0$};
     \addplot [col1, mark = *] coordinates {(0, 0)} {};
-    \addplot [col1,ultra thick,domain=0:5,samples=50,-{Latex[length=3mm]}](0,{x});
-    \addplot [col1,ultra thick,domain=4:10,samples=50](0,{x});
+    \addplot [col1,ultra thick,domain=0:5,samples=50,-{Latex[length=3mm]}]
+    (0,{x});
+    \addplot [col1,ultra thick,domain=4:10,samples=50]
+    (0,{x});
     \addplot [col2,ultra thick,domain=-10:-5,samples=50,-{Latex[length=3mm]}]
     (0,{x});
     \addplot [col2,ultra thick,domain=-6:0,samples=50]
