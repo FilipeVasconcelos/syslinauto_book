@@ -35,6 +35,7 @@
             }
 \begin{axis}
     [
+    axis lines=center,
     name=nyq1,
     axis line style = thick,
     xlabel=$\Re{H(\jw)}$,
@@ -47,6 +48,10 @@
     cycle list name=mycolorlist,
     legend style={draw=none,yshift=1em},
     legend pos=outer north east, 
+    x label style={below right},
+    y label style={left},
+    yticklabels={,,},
+    xticklabels={,,},
     ]
     \tikzstyle{lieua}=[thick,samples=100,-{Latex[length=3mm]}]
     \tikzstyle{lieu}=[thick,samples=100]
@@ -101,6 +106,7 @@
             }
 \begin{axis}
     [
+    axis lines=center,
     at={(nyq1.below south west)},yshift=-0.2cm,anchor=north west,
     axis line style = thick,
     xlabel=$\Re{H(\jw)}$,
@@ -113,6 +119,10 @@
     cycle list name=mycolorlist,
     legend style={draw=none,yshift=1em},
     legend pos=outer north east,
+    x label style={below right},
+    y label style={left},
+    yticklabels={,,},
+    xticklabels={,,},
     ]
     \tikzstyle{lieua}=[thick,samples=200,-{Latex[length=3mm]}]
     \tikzstyle{lieu}=[thick,samples=200]

@@ -139,6 +139,7 @@ dépendance. La phase est également une fonction de la pulsation d'excitation,
 nous la noterons donc $\phi(\omega)$ par la suite.
 \newpage
 \newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Réponse harmonique dans le domaine temporel}
@@ -280,7 +281,6 @@ Il se compose de deux graphiques :
 \begin{marginfigure}
     \centering
     \includegraphics[width=0.9\linewidth]{HendrikBode.eps} 
-    \captionsetup{width=0.8\linewidth}
     \caption*{\index{Bode, Hendrik}\textbf{Hendrik Wade Bode}
     (1905-1982), ingénieur, chercheur et inventeur américain.}
 \end{marginfigure}
@@ -338,7 +338,6 @@ Le diagramme de Bode de $H(\jw)$ est la somme de deux diagrammes indépendants:
 \begin{marginfigure}[2em]
     \centering
     \includegraphics[width=0.9\linewidth]{HarryNyquist} 
-    \captionsetup{width=0.8\linewidth}
     \caption*{\index{Nyquist, Harry}\textbf{Harry Nyquist} (1889-1976), électronicien et
     ingénieur américain. Il réalisa d'importante contributions à la théorie 
     de l'information.}
@@ -357,6 +356,7 @@ négatives, c'est à dire entre $\omega\rightarrow-\infty$ et
 $\omega\rightarrow+\infty$.
 %\clearpage
 %\restoregeometry
+%\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Diagramme de Black-Nichols}
@@ -375,7 +375,6 @@ Fonction de Transfert en Boucle ouverte (FTBO).
 \begin{marginfigure}
     \centering
     \includegraphics[width=0.9\linewidth]{NathanielNichols.eps} 
-    \captionsetup{width=0.8\linewidth}
     \caption*{\index{Nichols, Nathaniel}\textbf{Nathaniel B. Nichols}, (1914–1997)
               ingénieur américain.}
 \end{marginfigure}
@@ -395,6 +394,7 @@ Fonction de Transfert en Boucle ouverte (FTBO).
 %-------------------------------------------------------------------------------
 \newpage
 \restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -500,6 +500,7 @@ du nombre complexe $H(\jw)$:
              inchangée.\label{fig-bode_int}}
 \end{figure}
 %-------------------------------------------------------------------------------
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un dérivateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1102,6 +1103,8 @@ et
 \end{bequation}
 %-------------------------------------------------------------------------------
 \clearpage
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Diagrammes de Nyquist: méthodologie générale}
@@ -1110,18 +1113,30 @@ et
 Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
 %-------------------------------------------------------------------------------
 \begin{itemize}
-    \item Définir la fonction de transfert $H(p)$ du modèle pour $p=\jw$
+    \item Définir la fonction de transfert complexe $H(\jw)$ du modèle,
     \item \'Etablir la partie réelle et imaginaire du nombre complexe $H(\jw)$
-    \item Tracer le lieu de Nyquist point par point, pour différentes valeurs de
-        $\omega$ de 0 à $+\infty$, c'est à dire $\Re{H(\jw)}$ 
-          et $\Im{H(\jw)}$ dans le plan complexe.
+    \item Tracer le lieu de Nyquist, c'est à dire $\Re{H(\jw)}$ et $\Im{H(\jw)}$ 
+          pour différentes valeurs de $\omega$ de 0 à $+\infty$. 
 \end{itemize}
 %-------------------------------------------------------------------------------
-Dans chacuns des exemples suivants nous reproduisons le lieu de Nyquist 
-complet le domaine des pulsations négatives étant représenté en pointillé. 
-Dans la pratique, il suffit de tracer le symétrique par rapport à 
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \tikzsetnextfilename{nyquist_contour-chap_stab-ext}
+    \input{tikz/nyquist_contour-chap_stab.tex}
+    \caption{Contour de Nyquist: le lieu de Nyquist complet est 
+             la courbe paramétrée des parties réelle et imaginaire 
+             de $H(p)$ lorsque $p$ parcours ce contour.}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
+Dans chacuns des modèles, nous reproduirons le lieu de Nyquist 
+complet avec le domaine des pulsations négatives. Dans la pratique, il suffit 
+de tracer le symétrique par rapport à 
 l'axe des réels et d'inverser le sens de la flêche pour obtenir le sens de la 
 pulsation de $-\infty\to 0$. 
+En toute rigueur le lieu de Nyquist est l'image du contour de Nyquist de la 
+fraction rationnelle $H(p)$, nous aurons l'occasion de revoir ce contour
+au~\cref{chap-stab}.    
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un gain pur}
@@ -1131,19 +1146,19 @@ $H(\jw)$ étant égal à une constante réel $K$, le diagramme de Nyquist ce
 limite à un point sur l'axe des réels quelque soit la valeur de $\omega$.
 Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
 %-------------------------------------------------------------------------------
+\begin{marginfigure}[-3em]
+    \centering
+    \tikzsetnextfilename{nyquist_gainpur-chap_repfreq-ext}
+    \resizebox{\linewidth}{!}{\input{tikz/nyquist_gainpur-chap_repfreq.tex}}
+    \caption{Diagramme de Nyquist d'un gain pur. Le nombre complexe $H(\jw)$ 
+             est représenté par un point sur l'axe des réels à la valeur $K$. 
+             \label{fig-nyquist_1}}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 \begin{align*}
     \Re{H(\jw)}&=K\\
     \Im{H(\jw)}&=0\\
 \end{align*}
-%-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{nyquist_gainpur-chap_repfreq-ext}
-    \input{tikz/nyquist_gainpur-chap_repfreq.tex}
-    \caption{Diagramme de Nyquist d'un gain pur. Le nombre complexe $H(\jw)$ 
-             est représenté par un point sur l'axe des réels à la valeur $K$ 
-             (ici $K=5$). \label{fig-nyquist_1}}
-\end{figure}
 %-------------------------------------------------------------------------------
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1151,23 +1166,23 @@ Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le diagramme de Nyquist d'un intégrateur pur est également trivial, puisque 
 le nombre complexe $H(\jw)=\dfrac{K}{\jw}$ est un nombre imaginaire pur. 
-Cependant il dépend de la pulsation $\omega$.
+qui dépend cependant directement de la pulsation $\omega$. 
 %-------------------------------------------------------------------------------
 \begin{align*}
     \Re{H(\jw)}&=0\\
     \Im{H(\jw)}&=\dfrac{-K}{\omega}
 \end{align*}
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
+\begin{marginfigure}
     \centering
     \tikzsetnextfilename{nyquist_integ-chap_repfreq-ext}
-    \input{tikz/nyquist_integ-chap_repfreq.tex}
+    \resizebox{\linewidth}{!}{\input{tikz/nyquist_integ-chap_repfreq.tex}}
     \caption{Diagramme de Nyquist d'un intégrateur pur. Le lieu de Nyquist 
              est représenté par une demi droite sur l'axe des nombres 
              imaginaires purs négatifs.\label{fig-nyquist_2}}
-\end{figure}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
-%\newpage
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un dérivateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1175,20 +1190,22 @@ Le diagramme de Nyquist d'un dérivateur pur est également représentatif d'un
 nombre complexe $H(\jw)=K\jw$ imaginaire pur. Les parties réelles et imaginaire
 de ce nombre complexe sont :
 %-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \tikzsetnextfilename{nyquist_deriv-chap_repfreq-ext}
+    \resizebox{\linewidth}{!}{\input{tikz/nyquist_deriv-chap_repfreq.tex}}
+    \caption{Diagramme de Nyquist d'un dérivateur pur. Le lieu de Nyquist 
+             est représenté par une demi droite sur l'axe des nombres 
+             imaginaires purs positifs.\label{fig-nyquist_3}}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 \begin{align*}
     \Re{H(\jw)}&=0\\
     \Im{H(\jw)}&=K\omega
 \end{align*}
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{nyquist_deriv-chap_repfreq-ext}
-    \input{tikz/nyquist_deriv-chap_repfreq.tex}
-    \caption{Diagramme de Nyquist d'un dérivateur pur. Le lieu de Nyquist 
-             est représenté par une demi droite sur l'axe des nombres 
-             imaginaires purs positifs.\label{fig-nyquist_3}}
-\end{figure}
-%-------------------------------------------------------------------------------
+On remarquera que le module le module $|H(\jw)|$ ne s'annule pas
+lorsque $\omega\to\infty$. Il est donc intrinsèquement instable.
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un retard pur}
@@ -1198,6 +1215,16 @@ La fonction de transfert d'un retard pur s'écrit :
 \[
 H(\jw)=e^{-j\tau\omega}
 \]
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \tikzsetnextfilename{nyquist_retard-chap_repfreq-ext}
+    \resizebox{\linewidth}{!}{\input{tikz/nyquist_retard-chap_repfreq.tex}}
+    \caption{Diagramme de Nyquist d'un retard pur. Le lieu de Nyquist 
+             est représenté par le cercle unité dans le plan complexe.
+             \label{fig-nyquist_4}}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 Les parties réelles et imaginaires sont simplement donnés par :
 %-------------------------------------------------------------------------------
 \begin{align*}
@@ -1209,16 +1236,6 @@ Ces coordonnées dans le plan complexe sont celles du cercle unité
 centré sur l'origine. Le lieu de transfert (c.a.d $\omega\to\infty$) 
 est la rotation infinie sur ce cercle. La \og vitesse angulaire\fg dépend 
 de $\tau$.
-%-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{nyquist_retard-chap_repfreq-ext}
-    \input{tikz/nyquist_retard-chap_repfreq.tex}
-    \caption{Diagramme de Nyquist d'un retard pur. Le lieu de Nyquist 
-             est représenté par le cercle unité dans le plan complexe.
-             \label{fig-nyquist_4}}
-\end{figure}
-%-------------------------------------------------------------------------------
 On remarquera cependant que ce modèle est fondamentalement 
 \textbf{instable} puisque le module $|H(\jw)|$ ne s'annule pas 
 lorsque $\omega\to\infty$, de ce fait nous le trouverons jamais seul.
@@ -1234,6 +1251,25 @@ H(\jw)=\dfrac{K}{1+j\tau\omega}
 Les parties réelle et imaginaire de cette fonction de transfert sont données 
 par:
 %-------------------------------------------------------------------------------
+\begin{margintable}
+    \ra{1.3}
+    \centering
+    \resizebox{\linewidth}{!}{
+    \begin{tabular}{P{2.0cm}P{2.0cm}P{2.0cm}P{2.0cm}}
+        \toprule
+        & $\omega=0$  & $\omega\to\infty$ & $\omega=\dfrac{1}{\tau}$ \\[0em]
+        \midrule
+        $\Re{H(\jw)}$ & $K$               & 0               & $K/2$  \\[0em]
+        \midrule
+        $\Im{H(\jw)}$ & 0                 & 0               & $-K/2$ \\[0em]
+        \bottomrule
+    \end{tabular}
+    }
+    \caption{Quelques valeurs particulières de $\Re{H(\jw)}$ et $\Im{H(\jw)}$
+    selon $\omega$ pour un système du premier ordre\label{tab-nyquist-vp_1er}.}
+\end{margintable}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{align*}
     \Re{H(\jw)}&=\dfrac{K}{1+\tau^2\omega^2}\\
     \Im{H(\jw)}&=-\dfrac{K\tau\omega}{1+\tau^2\omega^2}\\
@@ -1242,10 +1278,11 @@ par:
 Nous avons regroupé dans le~\cref{tab-nyquist-vp_1er} quelques valeurs 
 particulières de $\Re{H(\jw)}$ et $\Im{H(\jw)}$ pour quelques valeurs 
 de $\omega$.
-
+\newpage
+\restoregeometry
+\captionsetup{width=\linewidth}
 Le lieu complet de Nyquist d'un système du premier ordre à la forme d'un 
-cercle, nous allons établir ses caractéristiques\cite{9782729860127}.
-
+cercle, nous allons établir ses caractéristiques~\cite{9782729860127}.
 Posons tout d'abord, 
 \[
 X=\Re{H(\jw)}=\dfrac{K}{1+\tau^2\omega^2}
@@ -1268,36 +1305,20 @@ de rayon $K/2$
 \left(X-\dfrac{K}{2}\right)^2+Y^2=\left(\dfrac{K}{2}\right)^2
 \]
 %-------------------------------------------------------------------------------
-\begin{table}
-    \ra{1.3}
-    \centering
-    \begin{tabular}{P{2.0cm}P{2.0cm}P{2.0cm}P{2.0cm}}
-        \toprule
-        & $\omega=0$  & $\omega\to\infty$ & $\omega=\dfrac{1}{\tau}$ \\[0em]
-        \midrule
-        $\Re{H(\jw)}$ & $K$               & 0               & $K/2$  \\[0em]
-        \midrule
-        $\Im{H(\jw)}$ & 0                 & 0               & $-K/2$ \\[0em]
-        \bottomrule
-    \end{tabular}
-    \caption{Quelques valeurs particulières de $\Re{H(\jw)}$ et $\Im{H(\jw)}$
-    selon $\omega$ pour un système du premier ordre\label{tab-nyquist-vp_1er}.}
-\end{table}
-%-------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------
-\begin{figure}[!h]
+\begin{figure}[!hb]
     \centering
     \tikzsetnextfilename{nyquist_1er-chap_repfreq-ext}
     \input{tikz/nyquist_1er-chap_repfreq.tex}
-    \caption{Diagramme de Nyquist d'un système du premier ordre. 
-             Avec $K=1$ et $\tau=1$. Le lieu de Nyquist 
-             est représenté par un demi cercle idans le plan des nombres 
-             imaginaires négatifs. Le lieu de Nyquist complet 
-             correspond à un cercle de rayon $K/2$ et de centre $(K/2,0)$ 
+    \caption{Diagramme de Nyquist d'un système du premier ordre 
+             (avec $K=1$,$\tau=1$). 
+             Le lieu de Nyquist est représenté par un demi cercle 
+             dans le plan des nombres imaginaires négatifs. Le lieu de 
+             Nyquist complet correspond à un cercle de 
+             rayon $K/2$ et de centre $(K/2,0)$ 
              \label{fig-nyquist_1er}}
 \end{figure}
 %-------------------------------------------------------------------------------
-%\newpage
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1313,31 +1334,24 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     \dfrac{K\omega_0^2(\omega_0^2-\omega^2)}{(\omega_0^2-\omega^2)^2
     +4\xi^2\omega_0^2\omega^2}\\
     \Im{H(\jw)}&=\dfrac{-2\xi\omega_0^2\omega^2}{(\omega_0^2-\omega^2)^2
-    +4\xi^2\omega_0^2\omega^2}\\
+    +4\xi^2\omega_0^2\omega^2}
 \end{align*}
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{nyquist_2nd_1-chap_repfreq-ext}
     \input{tikz/nyquist_2nd_1-chap_repfreq.tex}
-    \caption{Diagramme de Nyquist d'un système du second ordre. 
-             Avec $K=1$ et $\tau=1$. Le lieu de Nyquist est représenté par 
+
+    \tikzsetnextfilename{nyquist_2nd_2-chap_repfreq-ext}
+    \input{tikz/nyquist_2nd_3-chap_repfreq.tex}
+    \caption{Diagramme de Nyquist d'un système du second ordre 
+             (avec $K=1$,$\omega_0=1$ et (haut) $\xi=0.6$ (bas) $\xi=0.4$ ). 
+             Le lieu de Nyquist est représenté par 
              une demi cardio\"iode dans le plan des nombres imaginaires 
              négatifs.\label{fig-nyquist_2nd_1}}
 \end{figure}
 %-------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{nyquist_2nd_2-chap_repfreq-ext}
-    \input{tikz/nyquist_2nd_2-chap_repfreq.tex}
-    \caption{Diagramme de Nyquist d'un système du second ordre pour différentes 
-             valeurs du taux d'amortissement $\xi$. Avec $K=1$ et $\tau=1$. Le 
-             lieu de Nyquist est représenté par une demi cardio\"iode dans le 
-             plan des imaginaires négatifs.\label{fig-nyquist_2nd_2}}
-\end{figure}
-%-------------------------------------------------------------------------------
-%\newpage
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Effet d'un retard sur le diagramme de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1361,7 +1375,7 @@ Les parties réels et imaginaire de la fonction de transfert sont:
       {1+\tau^2\omega^2}\\
     \Im{H(\jw)}&=
     \dfrac{-K\left(\tau\omega\cos{\tau_1\omega+\sin{\tau_1\omega}}\right)}
-    {1+\tau^2\omega^2}\\
+    {1+\tau^2\omega^2}
 \end{align*}
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
@@ -1388,12 +1402,12 @@ Les parties réels et imaginaire de la fonction de transfert sont:
              \label{fig-nyquist_effet_retard_2}}
 \end{figure}
 %-------------------------------------------------------------------------------
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Diagrammes de Black: méthodologie générale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -11,6 +11,7 @@ linéaires\label{chap-asservis}}
 \minitoc
 \newpage
 \newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -22,7 +23,6 @@ linéaires\label{chap-asservis}}
 \begin{marginfigure}
     \centering
     \includegraphics[width=0.9\linewidth]{Georgetown_PowerPlant_Museum_m.eps}
-    \captionsetup{width=0.85\linewidth}
     \caption{Exemple historique de régulateur : Régulateur 
              de vitesse de Watt (d'après \cite{watt})\label{fig-hist}}
 \end{marginfigure}
@@ -31,7 +31,6 @@ linéaires\label{chap-asservis}}
 \begin{marginfigure}
     \centering
     \includegraphics[width=0.9\linewidth]{Centrifugal_governor.eps} 
-    \captionsetup{width=0.85\linewidth}
     \caption*{Dessin d'un régulateur à boules. Les boules en rotation s'élèvent 
     lorque la vitesse augmente, qui referme la valve d'arrivé de vapeur, ce qui 
     entraîne une diminution de la vitesse de rotation de l'arbre entrainant 
@@ -63,8 +62,10 @@ continuerons, dans ce chapitre et les suivants, de représenter
 les signaux et systèmes linéaires dans le domaine de Laplace. Une approche 
 temporelle sera introduite au~\cref{chap-repreEtat}}. Dans le contexte du 
 contrôle de ces systèmes l'entrée est appelée \textbf{consigne} et la sortie
-est la \textbf{réponse}. Le problème de \textbf{l'asservissement} consiste 
-à faire en sorte que la réponse suive la consigne au cours du temps.
+est la \textbf{réponse}. La différence entre l'entrée et la sortie est 
+appelée \textbf{l'erreur}. Le problème de \textbf{l'asservissement} consiste 
+alors à annuler cette erreur à chaque instant ou encore à faire en sorte que 
+la réponse suive la consigne au cours du temps.
 
 La \textbf{régulation} est un cas particulier d'asservissement, consistant
 à contrôler la sortie d'un système pour une consigne fixe quelque soit 
@@ -83,6 +84,7 @@ signal $E(p)$ pour contrôler la sortie $S(p)$ en fonction de
 ces exigences de performances choisis initialement.
 \newpage
 \restoregeometry
+\captionsetup{width=0.9\linewidth}
 Il existe deux approches pour élaborer la \textbf{commande} 
 d'un système linéaire :% soit en boucle ouverte soit en boucle fermée.
 %-------------------------------------------------------------------------------
@@ -133,29 +135,10 @@ le cas de la boucle ouverte.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Classiquement, un asservissement se représente par le schéma fonctionnel de 
-la figure (\cref{fig-reg}). Celui-ci comporte en générale un \textbf{régulateur}
-permettant de comparer l'image de la sortie obtenue par un capteur 
-à la consigne. Ce régulateur est en générale accompagné d'un \textbf{correcteur}
-permettant de corriger la boucle ouverte du système linéaire.
-%-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{reg_1-chap_asserv-ext}
-    \input{tikz/reg_1-chap_asserv.tex}
-    \caption{Schéma fonctionnel classique de l'asservissement d'un système 
-             présentant un correcteur et un capteur. (c.f~\cref{tab-asser})
-             \label{fig-reg}}
-\end{figure}
-%-------------------------------------------------------------------------------
-La \textbf{mesure} $M(p)$ est l'image de la sortie par l'intermédiaire
-du capteur. Il est alors en générale nécessaire d'adapter la consigne pour
-que l'écart $\epsilon(p)$ soit représentatif de l'écart entre la consigne
-et la sortie et non de son image. Ainsi, on retrouvera très souvent 
-un \textbf{adaptateur} permmettant d'obtenir l'image de la consigne.
-Le procédé/système peux nécéssité d'un \textbf{actionneur} qui agit en 
-transmettant/convertissant l'énergie nécéssaire à son action. 
-La~\cref{fig-reg2} présente une forme augmentée de schéma fonctionnel
-présentant ces nouveaux constituants.
+la~\cref{fig-reg2}. Celui-ci comporte en générale un \textbf{régulateur}
+permettant de comparer l'entrée et la sortie. Ce régulateur est en 
+générale accompagné d'un \textbf{correcteur}
+permettant de corriger la boucle ouverte du système.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -166,20 +149,53 @@ présentant ces nouveaux constituants.
              \label{fig-reg2}}
 \end{figure}
 %-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+%\begin{figure}[!hb]
+%    \centering
+%    \tikzsetnextfilename{reg_1-chap_asserv-ext}
+%    \input{tikz/reg_1-chap_asserv.tex}
+%    \caption{Schéma fonctionnel classique de l'asservissement d'un système 
+%             présentant un correcteur et un capteur. (c.f~\cref{tab-asser})
+%             \label{fig-reg}}
+%\end{figure}
+%-------------------------------------------------------------------------------
+La \textbf{mesure} $M(p)$ est l'image de la sortie élaborée par 
+l'intermédiaire du capteur. Il est alors en générale nécessaire d'adapter la consigne pour
+que l'écart $\epsilon(p)$ soit représentatif de l'écart entre la consigne
+et la sortie et non de son image. Ainsi, on retrouvera très souvent 
+un \textbf{adaptateur} permmettant d'obtenir l'image de la consigne.
+Le procédé/système peux nécéssité d'un \textbf{actionneur} qui agit en 
+transmettant/convertissant l'énergie nécéssaire à son action et qui
+élabore son nouveau signal de commande $U(p)$
+La~\cref{fig-reg2} présente une forme augmentée de schéma fonctionnel
+présentant ces nouveaux constituants. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Présence d'une perturbation : la régulation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La prise en compte de pertubation se fait simplement en considérant un schéma
+fonctionnel à plusieurs entrée à l'instar du schéma-blocs de 
+la~\cref{fig-pert2}. En général, la perturbation se trouve en amont
+du système et le signal de perturbation $P(p)$ est simplement sommé à la commande
+$U(p)$. On dit que l'on a à faire à une \textbf{perturbation en entrée}. 
+Si celle-ci se trouve en aval du système, on parle alors de \textbf{perturbation de 
+sortie}. Il est également possible de considérer la perturbation introduite par les
+constituants de l'asservissement eux-mêmes, on parlera alors de 
+\textbf{bruit de mesure}.
+La régulation consiste, pour une consigne donnée, à annuler l'erreur 
+quelque soit la nature et le nombre des perturbations.
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{pert-chap_asserv-ext}
-    \input{tikz/pert-chap_asserv.tex}
-    \caption{Schéma fonctionnel de l'asservissement d'un système 
-             présentant une perturbation.\label{fig-pert}}
-\end{figure}
+%\begin{figure}[!h]
+%    \centering
+%    \tikzsetnextfilename{pert-chap_asserv-ext}
+%    \input{tikz/pert-chap_asserv.tex}
+%    \caption{Schéma fonctionnel de l'asservissement d'un système 
+%             présentant une perturbation.\label{fig-pert}}
+%\end{figure}
 %-------------------------------------------------------------------------------
+La position de la perturbation 
+
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -198,19 +214,19 @@ En regroupant les différents constituants d'un asservissement
 nous pouvons réaliser le découpage du schéma fonctionnel en 
 chaîne d'énergie et en chaîne d'information comme présenté par 
 la~\cref{fig-asser}
-\begin{landscape}
-\vspace*{\fill}
+%\begin{landscape}
+%\vspace*{\fill}
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{asser-chap_asserv-ext}
-    \input{tikz/asser-chap_asserv.tex}
-\end{center}
-%-------------------------------------------------------------------------------
-\captionof{figure}{Décomposition en chaîne d'information et chaîne 
+    \resizebox{\linewidth}{!}{\input{tikz/asser-chap_asserv.tex}}
+    \captionof{figure}{Décomposition en chaîne d'information et chaîne 
                    d'énergie d'un schéma bloc d'asservissement 
                    complet (c.f~\cref{tab-asser}). \label{fig-asser}}
-\vspace*{\fill}
-\end{landscape}
+\end{center}
+%-------------------------------------------------------------------------------
+%\vspace*{\fill}
+%\end{landscape}
 %-------------------------------------------------------------------------------
 \begin{table}[!h]
     \ra{1.5}

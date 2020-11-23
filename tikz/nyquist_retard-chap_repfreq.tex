@@ -1,6 +1,7 @@
 \begin{tikzpicture}
 \begin{axis}
     [
+    axis lines=center,
     axis line style = thick,
     xlabel=$\Re{H(\jw)}$,
     ylabel=$\Im{H(\jw)}$,
@@ -9,12 +10,16 @@
     xmin=-1.5,
     xmax=+1.5,
     grid=both,
+    x label style={below right},
+    y label style={left},
+    yticklabels={,,},
+    xticklabels={,,},
     ]     
-\node[right]       at (axis cs:  1, 0)   {\scriptsize$\omega=0$};
+\node[below left]       at (axis cs:  1, 0)   {\large$\omega=0$};
 \addplot[col1, mark = *] coordinates {(1, 0)} {};
-\addplot[col1,thick,domain=pi/2:-pi/2-0.2,samples=50,-{Latex[length=3mm]}]
-    ({cos(deg(x))},{sin(deg(x))}); 
-\addplot [col1,thick,domain=-pi/2:-3*pi/2-0.2,samples=50,-{Latex[length=3mm]}]
-    ({cos(deg(x))},{sin(deg(x))}); 
+\addplot[col1,ultra thick,domain=pi/2:-pi/2-0.2,samples=50,-{Latex[length=3mm]}]
+    ({cos(deg(x))},{sin(deg(x))});
+\addplot [col1,ultra thick,domain=-pi/2:-3*pi/2-0.2,samples=50,-{Latex[length=3mm]}]
+    ({cos(deg(x))},{sin(deg(x))});
 \end{axis}
 \end{tikzpicture}

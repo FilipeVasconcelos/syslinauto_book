@@ -19,12 +19,12 @@ declare -A data=(['chap_slci']="13-50"
                  ['annexe_equa_diff']="223-226"
                  ['annexe_des']="227-230"
                  ['annexe_2nd']="231-236"
-                 ['annexe_scilab']="237-264"
+                 ['annexe_scilab']="203-228"
                  ['annexe_log']="261-266"
                  ['annexe_invL']="267-268"
                  ['todo']="269-271"
                  ['laplace_table']="213-214")
-for cle in ${!data[@]}
+for cle in "annexe_scilab" #${!data[@]}
 do
     echo ${cle} ${data[$cle]} 
     echo "pdftk sma_auto.pdf cat ${data[$cle]} output extract/${cle}.pdf"

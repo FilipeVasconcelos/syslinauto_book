@@ -83,6 +83,7 @@ la sortie sur l'entrée. Autrement dit, c'est un paramètre sans dimension
 si l'entrée et la sortie sont de même nature.
 \newpage
 \newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fonction de transfert d'un système du premier ordre}
@@ -156,6 +157,34 @@ S(p)=H(p)E(p)=\dfrac{KE_0}{(\tau p+1)}.
 \]
 \newpage
 \restoregeometry
+\captionsetup{width=0.9\linewidth}
+%-------------------------------------------------------------------------------
+\begin{figure}[!ht]
+    \centering
+    \tikzsetnextfilename{1er_imp1-chap_model-ext}
+    \input{tikz/1er_imp1-chap_model.tex}
+    \hfill
+    \tikzsetnextfilename{1er_imp2-chap_model-ext}
+    \input{tikz/1er_imp2-chap_model.tex}
+    
+    $\,$\newline 
+    \ra{1.3}
+    \setlength{\ltmp}{0.15\linewidth}
+    \begin{tabular}{@{}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}@{}}
+        \toprule
+        & $t=0.5\tau$        & $t=\tau$ & $t=3\tau$ & $t=7\tau$ \\
+        \midrule
+        $\dfrac{s(t)}{KE_0}$ & 0.606    & 0.368     & 0.05& $\sim$ 0\\  
+        \bottomrule
+    \end{tabular}
+    \caption{Réponse impulsionnelle d'un système du premier ordre avec : 
+             $E_0=1$ et (gauche) différentes valeurs de la constante 
+             de temps $\tau$ pour $K=1$; (droite) différentes valeurs 
+             du gain $K$ pour $\tau=1$ (\Cref{eq-1er_imp}). (Tableau) 
+             Quelques valeurs particulières de la réponse impulsionnelle
+             d'un système du premier ordre\label{fig-1er_imp}}
+\end{figure}
+%-------------------------------------------------------------------------------
 %\marginnote{$\dfrac{1}{(p+a)}\rightarrow e^{-at}$}[-2em]
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 7 du tableau de 
 l'\cref{annexe-lap}), nous donne la forme générale de la réponse impulsionnelle 
@@ -187,36 +216,6 @@ réponse à 5\% est de l'ordre de 3$\tau$ (i.e $-\log{5\%}$). Le transitoire
 est lui de l'ordre de $7\tau$ (c'est à dire le temps à partir duquel on 
 considère que le signal est nul).
 %-------------------------------------------------------------------------------
-\begin{figure}[!t]
-    \centering
-    \tikzsetnextfilename{1er_imp1-chap_model-ext}
-    \input{tikz/1er_imp1-chap_model.tex}
-    \hfill
-    \tikzsetnextfilename{1er_imp2-chap_model-ext}
-    \input{tikz/1er_imp2-chap_model.tex}
-    \caption{Réponse impulsionnelle d'un système du premier ordre avec : 
-             $E_0=1$ et (gauche) différentes valeurs de la constante 
-             de temps $\tau$ pour $K=1$; (droite) différentes valeurs 
-             du gain $K$ pour $\tau=1$ (\Cref{eq-1er_imp}).\label{fig-1er_imp}}
-\end{figure}
-%-------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------
-\begin{table}
-    \ra{1.3}
-    \centering
-    \setlength{\ltmp}{0.15\textwidth}
-    \begin{tabular}{@{}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}@{}}
-        \toprule
-        & $t=0.5\tau$        & $t=\tau$ & $t=3\tau$ & $t=7\tau$ \\
-        \midrule
-        $\dfrac{s(t)}{KE_0}$ & 0.606    & 0.368     & 0.05& $\sim$ 0\\  
-        \bottomrule
-    \end{tabular}
-    \caption{Quelques valeurs particulières de la réponse impulsionnelle 
-             d'un système du premier ordre\label{tab-1er_imp}.}
-\end{table}
-%-------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------
 \begin{figure}[!ht]
     \centering
     \tikzsetnextfilename{1er_ind1-chap_model-ext}
@@ -224,17 +223,9 @@ considère que le signal est nul).
     \hfill
     \tikzsetnextfilename{1er_ind2-chap_model-ext}
     \input{tikz/1er_ind2-chap_model.tex}
-    \caption{Réponse indicielle d'un système du premier ordre avec : $E_0=1$ 
-             et (gauche) pour différentes valeurs de $\tau$ et avec $K=1$;
-	     (droite) pour différentes valeurs du gain $K$ et 
-	     avec $\tau=1$.\label{fig-1er_ind}}
-\end{figure}
-%-------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------
-\begin{table}[!ht]
+    
     \ra{1.3}
-    \centering
-    \setlength{\ltmp}{0.15\textwidth}
+    \setlength{\ltmp}{0.15\linewidth}
     \begin{tabular}{@{}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}@{}}
         \toprule
         & $t=0.5\tau$        & $t=\tau$    & $t=3\tau$ & $t=7\tau$      \\
@@ -242,9 +233,13 @@ considère que le signal est nul).
         $\dfrac{s(t)}{KE_0}$ & 0.393       & 0.632     & 0.950  & 0.999 \\
         \bottomrule
     \end{tabular}
-    \caption{Quelques valeurs particulières de la réponse indicielle 
-             d'un système du premier ordre\label{tab-1er_ind}.}
-\end{table}
+    \caption{Réponse indicielle d'un système du premier ordre avec : $E_0=1$ 
+             et (gauche) pour différentes valeurs de $\tau$ et avec $K=1$;
+	     (droite) pour différentes valeurs du gain $K$ et 
+             avec $\tau=1$.(Tableau) Quelques valeurs particulières de la 
+             réponse indicielle d'un système du premier ordre
+             \label{fig-1er_ind}}
+\end{figure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle}

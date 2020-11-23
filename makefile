@@ -9,6 +9,13 @@ fast: dvifast
 pspdf: dvi 
 	dvips -t a4 ${mainfile}.dvi
 	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${mainfile}.ps
+pdf:  
+	pdflatex -shell-escape ${mainfile}
+	bibtex ${mainfile} ||true
+	makeindex ${mainfile}
+	makeglossaries ${mainfile}
+	pdflatex -shell-escape ${mainfile}
+	pdflatex -shell-escape ${mainfile}
 
 text: html
 	html2text -width 100 -style pretty ${mainfile}/${mainfile}.html | sed -n '/./,$$p' | head -n-2 >${mainfile}.txt

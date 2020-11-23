@@ -1,7 +1,7 @@
 #!/bin/bash
 [ ! -d standalone ] && mkdir standalone
 name=$1
-for file in tikz/$name.tex
+for file in $name 
 do
     basenameextension=${file##*/}
     echo $basenameextension

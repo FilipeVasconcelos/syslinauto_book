@@ -63,7 +63,7 @@ Rappel sur les réponses temporelles du premier ordre et du second ordre \ldots
 \end{landscape}
 \clearpage
 \pagestyle{fancy}
-\captionsetup{width=0.8\linewidth}
+\captionsetup{width=\linewidth}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Notion de pôles dominants}
@@ -92,6 +92,7 @@ H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{a_mp^m+a_{m-1}p^{m-1}+\ldots+a_1p+a_0}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -115,7 +116,6 @@ transfert, il nous faut étudier \textbf{le polynôme caractéristique}:
 \begin{marginfigure}
     \centering
     \includegraphics[width=0.9\linewidth]{EdwardRouth.eps} 
-    \captionsetup{width=0.8\linewidth}
     \caption*{\index{Routh, Edward}Edward John Routh (1831-1907), 
              mathématicien anglais.}
 \end{marginfigure}
@@ -131,7 +131,6 @@ C'est pourquoi le critère suivant est également connu sous le nom de
 \begin{marginfigure}
     \centering
     \includegraphics[width=0.9\linewidth]{AdolfHurwitz.eps} 
-    \captionsetup{width=0.8\linewidth}
     \caption*{\index{Hurwitz, Adolf}Adolf Hurwitz (1859-1919),
     mathématicien allemand.}
 \end{marginfigure}
@@ -161,9 +160,9 @@ pour appliquer une condition supplémentaire.
 Dans le cas où la condition nécessaire est respectée et $n>2$, il faut 
 constuire le \textbf{tableau de Routh} à partir des coefficients de l'équation 
 caractéristique de la fonction de transfert en boucle fermée.
-
 \newpage
 \restoregeometry
+\captionsetup{width=0.9\linewidth}
 Le tableau de Routh est constitué de $n$ lignes et de $k$ colonnes 
 où $k=n/2+1$\footnote{On réalise ici une division entière. Par exemple 
 si $n=5$, $k=2+1=3$ et si $n=6$, $k=3+1=4$}. L'élément $A_{ij}$ correspond 
@@ -803,6 +802,7 @@ pour $M_G$ de 6 à 15~\si{\dB} sont considérées comme satisfaisantes.
 %-------------------------------------------------------------------------------
 \newpage
 \newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -812,19 +812,20 @@ pour $M_G$ de 6 à 15~\si{\dB} sont considérées comme satisfaisantes.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le critère de Nyquist généralise le critère du revers.
 Il s'appuie sur le principe de l'argument de Cauchy
-%-------------------------------------------------------------------------------
-\begin{marginfigure}
-    \centering
-    \includegraphics[width=0.9\linewidth]{AugustinCauchy} 
-    \captionsetup{width=0.8\linewidth}
-    \caption*{Augustin Louis Cauchy (1789-1857), mathématicien français (X1807)}
-\end{marginfigure}
-%-------------------------------------------------------------------------------
 \footnote{Nous ne donnerons qu'une présentation élémentaire et sans 
 démonstration de ce théorème. Un cours d'analyse complexe permettra de 
 compléter cette présentation. On trouvera dans \cite{laas_pc7bis,reg}, 
 une introduction plus détaillée ainsi qu'une bibliographie très fournie 
-sur le sujet.}. Nous suivrons la présentation \og graphique\fg~ de ce théorème 
+sur le sujet.}.
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{AugustinCauchy} 
+    \caption*{\index{Cauchy, Augustin Louis}\textbf{Augustin Louis Cauchy} 
+              (1789-1857), mathématicien français (X1807)}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
+Nous suivrons la présentation \og graphique\fg~ de ce théorème 
 et du critère de Nyquist donné par~\cite{reg}. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Principe de l'argument de Cauchy}
@@ -902,8 +903,7 @@ Bromwich.
 \begin{marginfigure}
     \centering
     \includegraphics[width=0.9\linewidth]{ThomasBromwich.eps} 
-    \captionsetup{width=0.8\linewidth}
-    \caption*{\index{Bromwich, Thomas}Thomas John I'Anson Bromwich (1875-1929), 
+    \caption*{\index{Bromwich, Thomas}\textbf{Thomas John I'Anson Bromwich} (1875-1929), 
     mathématicien anglais.}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
@@ -914,17 +914,21 @@ cas où $p=0$ est un pôle ou un zéro de la fonction de transfert en boucle
 ouverte, le contour est également composé d'un cercle de rayon 
 $r\rightarrow0$ centré sur les pôles nuls.
 
-\captionsetup{width=.9\linewidth} 
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{nyquist_contours-chap_stab-ext}
-    \input{tikz/nyquist_contours-chap_stab.tex}
-    \caption{(a) Contour de Nyquist et 
-             (b,c) contours de Bromwich.\label{fig-contours}} 
+    \tikzsetnextfilename{nyquist_contour-chap_stab-ext}
+    \input{tikz/nyquist_contour-chap_stab.tex}
+    \tikzsetnextfilename{bromwich_contour1-chap_stab-ext}
+    \input{tikz/bromwich_contour1-chap_stab.tex}
+    \tikzsetnextfilename{bromwich_contour2-chap_stab-ext}
+    \input{tikz/bromwich_contour2-chap_stab.tex}
+    \caption{(a) Contour de Nyquist :  $H_{BO}$ ne possède aucun pôle ou zéro et 
+             contours de Bromwich: (b) 0 est un pôle\\ ou zéro de $H_{BO}$
+             (c) 0, $p_1$ et $p_2$ sont des pôles\\ ou zéros de $H_{BO}$.
+             \label{fig-contours}} 
 \end{figure}
 %-------------------------------------------------------------------------------
-\captionsetup{width=.85\linewidth} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Contour de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1002,6 +1006,7 @@ suivante : $H_2(p)=\dfrac{1}{p(1+p)}$
 \end{figure}
 %-------------------------------------------------------------------------------
 \restoregeometry
+\captionsetup{width=0.9\linewidth}
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,6 +1,7 @@
 \begin{tikzpicture}
 \begin{axis}
     [
+    axis lines=center,
     axis line style = thick,
     xlabel=$\Re{H(\jw)}$,
     ylabel=$\Im{H(\jw)}$,
@@ -9,6 +10,8 @@
     xmin=-0.8,
     xmax=+1.3,
     grid=both,
+    x label style={below right},
+    y label style={left},
     ]
     \def\t{1.0}
     \def\tu{1.1}
