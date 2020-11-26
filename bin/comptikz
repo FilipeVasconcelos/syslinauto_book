@@ -1,7 +1,6 @@
 #!/bin/bash
 name=$1
 for file in tikz/$name.tex
-#for file in tikz/exemple_5-chap2.tex
 do
     basenameextension=${file##*/}
     echo $basenameextension
@@ -53,7 +52,6 @@ EOF
     echo "\verb?$file?"       >> standalone/${texname}.tex  
     echo "\end{figure}"       >> standalone/${texname}.tex  
     echo "\end{document}"     >> standalone/${texname}.tex
-#    cat standalone/${texname}.tex
     latex -output-directory standalone standalone/${texname}.tex
     dvips -o standalone/${texname}.ps standalone/${texname}.dvi #&> /dev/null
     ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None standalone/${texname}.ps standalone/${texname}.pdf #&> /dev/null 
