@@ -1,4 +1,5 @@
 #!/bin/bash
+GRE='\033[0;32m'
 RED='\033[0;31m'
 NOC='\033[0m'
 for file in $1/*.tex
@@ -12,5 +13,5 @@ do
         exit 1
     fi
 done
-echo "no column overflow found in $1/*.tex"
+echo -e "${GRE}no column overflow found in $1/*.tex${NOC}"
 exit 0

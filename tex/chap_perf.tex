@@ -31,21 +31,24 @@ en boucle fermée dépendent du système en boucle ouverte.
 Un système est précis si l'écart que l'on note $\epsilon(t)$ 
 entre l'entrée $e(t)$ et la sortie $s(t)$ est nul.
 Dans le domaine de Laplace, cet écart devient :
-$$
+\[
 \epsilon(p)=E(p)-S(p)
-$$
+\]
 On distingue deux cas :
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item En régime permanent, cet écart $\epsilon_s$ est nommée 
 		  \textbf{erreur statique. }
     \item En régime transitoire, cet écart $\epsilon(t)=e(t)-s(t)$ est 
 		  nommée \textbf{erreur dynamique.}
 \end{itemize}
+%-------------------------------------------------------------------------------
 L'erreur dynamique consiste à suivre l'écart défini précedemment durant 
 le transitoire.
 
 Pour étudier l'erreur statique, on sollicite le système à différents 
 types de signaux pour obtenir dans les différents cas :
+%-------------------------------------------------------------------------------
 \begin{itemize}
 	\item l'\textbf{erreur indicielle} ou l'erreur de position qui est 
 		  l'erreur statique de la réponse indicielle.
@@ -54,6 +57,7 @@ types de signaux pour obtenir dans les différents cas :
 	\item l'\textbf{erreur en accélération} qui est l'erreur statique 
 		  de la réponse à une parabole.
 \end{itemize}
+%-------------------------------------------------------------------------------
 Concrétement pour étudier l'erreur statique on cherche la limite à l'infini 
 de $\epsilon(t)$ ou encore en appliquant le théorème de la valeur finale :
 %-------------------------------------------------------------------------------
@@ -78,10 +82,10 @@ est sollicité par l'entrée $E(p)$. La sortie $S(p)$ est alors donnée par :
 \end{center}
 %-------------------------------------------------------------------------------
 L'erreur statique est alors donnée par :
-$$
+\[
 \epsilon(\infty)=\lim\limits_{p\to 0} p\big(E(p)-H(p)E(p)\big)
                 =\lim\limits_{p\to 0} p\big(1-H(p)\big)E(p)
-$$
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Exemple d'un premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -89,11 +93,10 @@ Prenons l'exemple d'un système du 1er ordre de fonction de transfert canonique
 $H(p)=\dfrac{K}{1+\tau p}$ que l'on sollicite avec un échelon 
 d'amplitude (consigne) $E_0$.
 L'erreur statique est alors donnée par :
-$$
+\[
 \epsilon(\infty)=\lim\limits_{p\to 0}\left(1-\dfrac{K}{1+\tau p}\right)E_0
                 =(1-K)E_0
-$$
-
+\]
 Le système est prècis (c.a.d $\epsilon(\infty)=0$) si $K=1$. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -111,27 +114,27 @@ par une boucle de contre-réaction à retour unitaire.
 La~\gls{ftbo} est simplement donnée par $H(p)$. Dans le cas le plus
 générale, il est toujours possible d'écrire une fonction de transfert
 sous la forme canonique (\Cref{chap-slci}) :
-$$
+\[
 H_{BO}(p)=\dfrac{K}{p^\alpha}\cdot\dfrac{N(p)}{D(p)}
-$$
+\]
 avec $\alpha$ la classe du système en boucle ouverte, $K$ le gain statique et 
 $N(p)$ et $D(p)$ deux polynômes tels que $N(0)=D(0)=1$. 
 Dans le domaine de Laplace l'écart $\epsilon(p)$ s'écrit :
-$$
+\[
 \epsilon(p)=E(p)-S(p)=\left(1-\dfrac{H_{BO}(p)}{1+H_{BO}(p)}\right)E(p)
-$$
+\]
 en remplaçant $H_{BO}(p)$ par sa représentation générale:
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-\epsilon(p)=\dfrac{p^\alpha D(p)}{p^\alpha D(p)+KN(p)}E(p)
+    \epsilon(p)=\dfrac{p^\alpha D(p)}{p^\alpha D(p)+KN(p)}E(p)
 \end{bequation}
 %-------------------------------------------------------------------------------
 L'erreur statique $\epsilon_s$ est alors donnée par la limite (Théorème 
 de la valeur finale) :
-$$
+\[
 \epsilon_s=\lim\limits_{p\to 0} p\epsilon(p)=\lim\limits_{p\to 0} 
            \dfrac{p^\alpha D(p)}{p^\alpha D(p)+KN(p)}pE(p) 
-$$
+\]
 ou encore en utilisant les valeurs des polynômes en 0: 
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -152,21 +155,20 @@ sollicitation en échelon $e(t)=E_0u(t)$ de transformée de Laplace
 $E(p)=\dfrac{E_0}{p}$. 
 Pour une telle entrée, l'erreur statique (c.f \cref{eq-erreurStatique}) 
 devient :
-$$
+\[
 \epsilon_s=\lim\limits_{p\to 0} \dfrac{p^\alpha}{p^\alpha+K}E_0
-$$
-
+\]
 Dans le cas d'un système de classe $\alpha=0$ en boucle ouverte :
-$$
+\[
 \epsilon_s=\lim\limits_{p\to 0} \dfrac{p^0}{p^0+K}E_0=\dfrac{E_0}{1+K}.
-$$
+\]
 L'erreur est finie mais les réponses indicielles des systèmes de classe 
 $\alpha=0$ en boucle ouverte ne sont pas précis.
 
 Dans les autres cas $\alpha>0$, l'erreur statique s'annule :
-$$
+\[
 \epsilon_s=\lim\limits_{p\to 0} \dfrac{p^\alpha}{p^\alpha+K}E_0=0
-$$
+\]
 Les réponses indicielle des systèmes de classe $\alpha>0$ sont donc précis.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Erreur statique de poursuite}
@@ -176,29 +178,27 @@ du type $e(t)=r(t)=E_0t u(t)$
 de transformée de Laplace $E(p)=\dfrac{E_0}{p^2}$
 
 Pour une telle entrée, l'erreur statique devient :
-$$
+\[
 \epsilon_s=\lim\limits_{p\to 0} \dfrac{p^\alpha}{p^\alpha+K}\dfrac{E_0}{p}
           =\dfrac{p^{\alpha-1}}{p^\alpha+K}E_0 
-$$
-
+\]
 Dans le cas d'un système de classe $\alpha=0$ en boucle ouverte, 
 l'erreur devient :
-$$
+\[
 \epsilon_s=\lim\limits_{p\to 0}\dfrac{p^{-1}}{p^0+K}E_0=+\infty
-$$
+\]
 Le système est incapable de suivre l'entrée souhaitée.
 
 Dans le cas d'un système de classe $\alpha=1$ en boucle ouverte, 
 l'erreur devient :
-$$
+\[
 \epsilon_s=\lim\limits_{p\to 0}\dfrac{p^0}{p+K}E_0=\dfrac{E_0}{K}
-$$
-
+\]
 Dans le cas d'un système de classe $\alpha>1$ en boucle ouverte, 
 l'erreur devient :
-$$
+\[
 \epsilon_s=\lim\limits_{p\to 0}\dfrac{p^{\alpha-1}}{p^\alpha+K}E_0=0
-$$
+\]
 Le système est donc prècis.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Erreur statique d'accélération}
@@ -208,24 +208,21 @@ parabolique $e(t)=E_0t^2 u(t)$ de transformée de Laplace
 $E(p)=\dfrac{2E_0}{p^3}$
 
 Pour une telle entrée, l'erreur statique devient :
-$$
-\epsilon_s=\lim\limits_{p\to 0} \dfrac{p^\alpha}{p^\alpha+K}\dfrac{2E_0}{p^2}
+\[
+\epsilon_s=\lim\limits_{p\to 0}\dfrac{p^\alpha}{p^\alpha+K}\dfrac{2E_0}{p^2}
           =\dfrac{p^{\alpha-2}}{p^\alpha+K}2E_0 
-$$
-
+\]
 Dans le cas d'un système de classe $\alpha<2$ en boucle ouverte, 
 l'erreur devient :
-$$
+\[
 \epsilon_s=+\infty
-$$
-
+\]
 Pour un système de classe $\alpha=2$ en boucle ouverte, 
 l'erreur est finie :
-$$
+\[
 \epsilon_s=\dfrac{2E_0}{K}
-$$
+\]
 et s'annule pour $\alpha>2$
-
 %-------------------------------------------------------------------------------
 \begin{table}
     \ra{2.0}
@@ -260,10 +257,12 @@ obligatoire mais facilite l'interprétation des résultats.
 
 Considérons le schéma bloc suivant avec les fonctions de transfert $H_1(p)$ 
 et $H_2(p)$ de forme canonique :
+%-------------------------------------------------------------------------------
 \begin{align*}
     H_1(p)=\dfrac{K_1}{p^{\alpha_1}}\dfrac{N_1(p)}{D_1(p)} \\
     H_2(p)=\dfrac{K_2}{p^{\alpha_2}}\dfrac{N_2(p)}{D_2(p)}
 \end{align*}
+%-------------------------------------------------------------------------------
 de les gains statiques $K_i$, de classe $\alpha_i$, de polynômes $N_i(p)$
 et $D_i(p)$ tels que $N_i(0)=$ et $D_i(0)=0$.
 %-------------------------------------------------------------------------------
@@ -278,33 +277,34 @@ la sortie globale du système asservis à deux entrées
 
 On se donne les formes canoniques suivantes pour les deux fonctions de 
 transferts $H_1(p)$ et $H_2(p)$ tels que :
+%-------------------------------------------------------------------------------
 \begin{align*}
 H_1(p)=\dfrac{K_1}{p^{\alpha_1}}\dfrac{N_1(p)}{D_1(p)}\\
 H_2(p)=\dfrac{K_2}{p^{\alpha_2}}\dfrac{N_2(p)}{D_2(p)}
 \end{align*}
+%-------------------------------------------------------------------------------
 avec $K_i$, $\alpha_i$, $N_i(p)$ et $D_i(p)$ respectivement les gains statiques,
 la classe et les polynômes en $p$ tels que $N_i(0)=1$ et $D_i(0)=1$.
 
 Pour déterminer l'écart, il nous faut déterminer la sortie globale $S(p)$ pour
 des entrées multiples (c.f~\Cref{chap-schemabloc}-\cref{sec-multE}).
 Cette sortie est sous la forme :
-$$
+\[
 S(p)=H_{P=0}E(p)+H_{E=0}P(p)
-$$
+\]
 c'est à dire que c'est la somme des contributions des deux entrées prises
 séparément.
 L'écart est alors donné par 
-$$
+\[
 \epsilon(p)=E(p)-S(p)=\left(1-H_{P=0}\right)E(p)-H_{E=0}P(p)
-$$
+\]
 Le premier terme correspond à l'écart de l'asservissement que nous avons 
 déjà étudié précedemment, le second terme, que l'on note $\epsilon_P(p)$, 
 est la contribution à l'écart dû à la perturbation.
 La fonction de transfert de l'asservissement est donnée par :
-$$
+\[
 H_{P=0}=\dfrac{H_1H_2(p)}{1+H_1(p)H_2(p)} 
-$$
-
+\]
 Dans le cas de la régulation d'un système asservis, il est nécessaire de 
 rejeter cette contribution.
 
@@ -319,30 +319,32 @@ consigne nulle, s'obtient en considérant le schéma-bloc suivant :
 \newcommand{\pau}{p^{\alpha_1}}
 \newcommand{\pad}{p^{\alpha_2}}
 en boucle fermée, on a alors:
-$$
+\[
 H_{E=0}(p)=\dfrac{H_2(p)}{1+H_1(p)H_2(p)}
-$$
+\]
 en remplaçant par leurs formes canoniques générales :
-$$
+\[
 H_{E=0}(p)=
 \dfrac{\pau K_2N_2(p)D_1(p)}{\pau\pad D_1(p)D_2(p)+K_1K_2N_1(p)N_2(p)}
-$$
+\]
 Examinons l'erreur en régime permanent pour une perturbation constante.
 C'est à dire pour perturbation $P(p)$ en échelon telle que 
 $P(p)=\dfrac{P_0}{p}$. L'erreur dû à la perturbation en régime permanent 
 est alors :
+%-------------------------------------------------------------------------------
 \begin{align*}
     \epsilon_P&=\lim\limits_{p\to0} p\epsilon_P\\
     \epsilon_P&=\lim\limits_{p\to0} -H_{E=0}P_0\\
     \epsilon_P&=\lim\limits_{p\to0}\dfrac{\pau K_2}{\pau\pad+K_1K_2}P_0
 \end{align*}
+%-------------------------------------------------------------------------------
 \textbf{La perturbation est rejétée si $\alpha_1>0$, c'est à dire s'il existe
 au moins un intégrateur en amont de la perturbation.}
 En effet si $\alpha_1=0$, l'erreur dû à la perturbation est finie et 
 donnée par :
-$$
+\[
 \epsilon_P=\lim\limits_{p\to0}\dfrac{K_2}{\pau\pad+K_1K_2}P_0
-$$
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Exemple de rejet de perturbation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -366,10 +368,10 @@ que $P(p)=e^{-\tau p}\dfrac{P_0}{p}$ retardée d'un temps $\tau>0$.
 \paragraph{Si l'intégrateur est en aval de la perturbation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dans un tel cas l'erreur dû à la perturbation est donnée par :
-$$
+\[
 \epsilon_P=\lim\limits_{p\to0}p\epsilon_P(p)=
 \lim\limits_{p\to0}\dfrac{e^{-\tau p}}{p(p+1)+1}P_0=P_0
-$$
+\]
 L'erreur statique de position totale est donc non nulle. La perturbation
 n'est pas rejétée comme on peut le voir sur la simulation de la réponse
 temporelle globale de ce système (c.f~\cref{fig-pert1}).
@@ -388,9 +390,9 @@ temporelle globale de ce système (c.f~\cref{fig-pert1}).
 \paragraph{Si l'intégrateur est en amont de la perturbation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dans un tel cas l'erreur dû à la perturbation est donnée par :
-$$
+\[
 \epsilon_P=\lim\limits_{p\to0}\dfrac{pe^{-\tau p}}{p(p+1)+1}P_0=0
-$$
+\]
 L'erreur statique de position totale est donc nulle. La perturbation
 est rejétée, comme on peut le voir sur la simulation de la réponse
 temporelle globale de ce système (c.f~\cref{fig-pert2}).
@@ -424,7 +426,6 @@ Dans le cas des systèmes en boucle ouverte, nous ne rappelerons que les
 résultats obtenues dans les chapitres précédents. 
 L'objectif principale est ici d'évaluer l'effet du bouclage sur ce critère 
 de performance.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Réponse temporelle}
@@ -435,17 +436,14 @@ l'intermédiaire de deux valeurs : $t_{5\%}$ le \textbf{temps de réponse à 5\%
 et $t_m$ le \textbf{temps de montée}. 
 On rappel ici les définitions de ces deux temps ainsi que 
 les résultats obtenues au~\cref{chap-model} pour les systèmes modèles.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Temps de réponse à 5\% et temps de montée}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Le temps de réponse à 5\% d'un système correspond au temps mis par la réponse 
 pour atteindre 5\% de sa valeur finale $s(\infty)$. Dans le cas où la réponse 
 tend asymptotiquement en oscillant vers la valeur finale, le temps de
 réponse à 5\% correspond au temps pour lequel le signal de la réponse reste
 dans une bande à 5\% autour de la valeur finale. 
-
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -458,7 +456,6 @@ dans une bande à 5\% autour de la valeur finale.
              dans le cas d'un réponse temporelle avec pseudo-oscillations}
 \end{figure}
 %-------------------------------------------------------------------------------
-
 Il apparait clair que dans le cas d'une réponse présentant des oscillations,
 le temps de réponse à 5\% va dépendre de l'amplitude et la période des 
 pseudo-oscillations. Dans le cas où l'on souhaite caractériser la rapidité
@@ -487,33 +484,31 @@ n'a donc de sens qu'en régime pseudo-périodique.
 Quelque soit la grandeur utilisée pour caractériser les performances de rapidité
 d'un système linéaire, on dira que \textbf{plus le temps de réponse à 5\% et le
 temps de montée $t_m$ seront faibles plus le système sera rapide.}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La réponse indicielle $s(t)$, à un échelon unitaire, 
 d'un système du premier ordre est donnée par l'\cref{eq-1er_ind} 
 du~\cref{chap-model}, à savoir :
-$$
+\[
 s(t)=K\left(1-e^{-t/\tau}\right)
-$$
+\]
 Le temps de réponse à 5\% $t_{5\%}$ est tel que $s(t_{5\%})=0.95K$, 
-$$
+\[
 t_{5\%}=-\tau\log{0.05}\sim3\tau.
-$$
-
+\]
 Le temps de montée $t_m=t_2-t_1$ avec $t_1$ et $t_2$, les temps tels que :
+%-------------------------------------------------------------------------------
 \begin{align*}
     s(t_1)&=0.1K\\
     s(t_2)&=0.9K\\
     t_m   &=-\tau\log{\dfrac{0.1}{0.9}}\sim2.2\tau
 \end{align*}
-
+%-------------------------------------------------------------------------------
 Le temps de réponse à 5\% et le temps de montée $t_m$ dépendent 
 directement de la constante. Ce qui permet de conclure que 
 \textbf{plus la constante de temps $\tau$ d'un système du premier
 ordre est faible plus le système est rapide.}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Effet du bouclage sur un système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -521,16 +516,16 @@ Nous avons montré au~\cref{chap-asservis} que les paramètres de
 la~\gls{ftbf} d'un système du premier ordre $(K_{BF},\tau_{BF})$ peuvent 
 être obtenues à partir des paramètres de la~\gls{ftbo}. Notamment les relations
 suivantes :
+%-------------------------------------------------------------------------------
 \begin{align*}
        K_{BF}&=\dfrac{K}{1+K}\\
     \tau_{BF}&=\dfrac{\tau}{1+K}
 \end{align*}
-
+%-------------------------------------------------------------------------------
 Il est alors possible de modifier la constante de temps en boucle fermée en 
 modifiant la valeur du gain statique en boucle ouverte. Pour augmenter
 la rapidité d'un système, on augmentera le gain statique de la~\gls{ftbo} pour
 diminuer les temps de réponse et de montée.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -577,31 +572,33 @@ Il est possible de déterminer une relation analytique pour le temps
 de montée à la valeur finale $t_{M}$. Rappelons quelques résultats obtenus
 pour la réponse indicielle d'un système du second ordre en régime 
 pseudo-périodique (c.f~\Cref{chap-model}\cref{subsubsec-2nd_ind}) :
+%-------------------------------------------------------------------------------
 \begin{itemize}
-\item La fonction de transfert d'un système du second ordre est donnée
-par:
-$$
-H(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}
-$$
-\item La réponse indicielle pour échelon unitaire tend vers 
-      le gain statique $K$ 
-\item La réponse indicielle pour une échelon unitaire et en régime 
-      pseudo-périodique est donnée par : 
-$$
+    \item La fonction de transfert d'un système du second ordre est donnée
+          par:
+    \[ 
+    H(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}
+    \]
+    \item La réponse indicielle pour échelon unitaire tend vers 
+          le gain statique $K$ 
+    \item La réponse indicielle pour une échelon unitaire et en régime 
+          pseudo-périodique est donnée par : 
+    \[
     s(t) = K \left( 1 - 
            \dfrac{1}{\sqrt{1-\xi^2}} 
            e^{-\xi\omega_0 t}
            \sin{(\omega_d t+\phi)}\right)\label{eq-2-3_2nd} 
-$$
+    \]
 \end{itemize}
+%-------------------------------------------------------------------------------
 Le temps de montée à la valeur finale $t_{M}$ est tel que, 
-$$
+\[
 s(t_{M})=K
-$$
+\]
 ou encore  
-$$
+\[
 \dfrac{1}{\sqrt{1-\xi^2}}e^{-\xi\omega_0 t_{M}}\sin{(\omega_d t_{M}+\phi)}=0
-$$
+\]
 Cette expression est nulle que si $\sin{(\omega_d t_{M}+\phi)}=0$.
 On obtient alors :
 %-------------------------------------------------------------------------------
@@ -610,9 +607,9 @@ t_{M}=\dfrac{\pi-\phi}{\omega_d}\label{eq-tM}
 \end{bequation}
 %-------------------------------------------------------------------------------
 en fonction de $\xi$ uniquement cette relation devient :
-$$
+\[
 t_{M}=\dfrac{\pi-\arctan{\dfrac{\sqrt{1-\xi^2}}{\xi}}}{\omega_0\sqrt{1-\xi^2}}
-$$
+\]
 ou encore sous sa forme réduite en $\omega_0$:
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -623,9 +620,9 @@ t_{M}\cdot\omega_0=
 Remarquons que pour le temps de réponse à 5\% minimal, le temps de montée à 
 la valeur finale réduit sont proche. \textbf{Autrement dit, pour $\xi\sim0.7$ 
 on a :
-$$
+\[
 t_{M}=t_{5\%}
-$$}
+\]}
 %-------------------------------------------------------------------------------
 \begin{figure}[!b]
     \centering
@@ -649,16 +646,19 @@ au~\cref{chap-asservis} que les paramètres de la~\gls{ftbf} d'un système
 du second ordre $(K_{BF},\xi_{BF},\omega_{0,BF})$ peuvent 
 être obtenues à partir des paramètres de la~\gls{ftbo}. Notamment les relations
 suivantes :
+%-------------------------------------------------------------------------------
 \begin{align*}
     K_{BF}&=\dfrac{K}{1+K}\\
     \omega_{0,BF}&=\omega_0\sqrt{1+K}\\
     \xi_{BF}&=\dfrac{\xi}{\sqrt{1+K}}
 \end{align*}
+%-------------------------------------------------------------------------------
 En s'appuyant sur l'abaque discuté precedemment, il est possible 
 de modifier les performances de rapidité de la boucle fermée en modifiant 
 le gain de la boucle ouverte, notamment il est possible de rendre un 
 système plus rapide en boucle fermée,
 \textbf{
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item en augmentant la valeur de la pulsation propre du système 
           par l'intermédiaire du gain $K$ de la~\gls{ftbo}.
@@ -666,6 +666,7 @@ système plus rapide en boucle fermée,
           $\xi_{BF}>0.7$, c'est à dire en augmentant le gain en boucle ouverte
           $K$.
 \end{itemize}
+%-------------------------------------------------------------------------------
 }
 Dans le cas où $\xi_{BF}<0.7$ une conclusion générale est impossible on 
 se reportera sur les abaques du temps de réponse ou du temps de montée en 
@@ -709,16 +710,18 @@ Prenons l'exemple de la fonction de transfert définie par
 H(p)=\dfrac{5}{(p+1)(5p+1)}\label{eq-ft-chap_perf}
 \end{equation}
 et de décomposition en éléments simples telle que :
-$$
+\[
 H(p)=\dfrac{A}{p+1}+\dfrac{B}{5p+1}
-$$
+\]
 Par identification on peut écrire $H(p)$ en fonction de
 deux fonctions de transferts $H_1(p)$ et $H_2(p)$ tel que :
+%-------------------------------------------------------------------------------
 \begin{align*}
 	H(p)&=H_1(p)-H_2(p)\\
 	H_1(p)&=\dfrac{6.25}{5p+1}\\
 	H_2(p)&=\dfrac{1.25}{p+1}
 \end{align*}
+%-------------------------------------------------------------------------------
 Par définition, le pôle dominant est donné par $H_1(p)$.
 Pour observer, l'effet de chacuns des pôles, nous avons tracé 
 les réponses indicielles de ces trois fonctions de transfert

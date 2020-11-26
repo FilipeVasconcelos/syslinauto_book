@@ -19,9 +19,9 @@ En automatique, la détermination d'une réponse temporelle $s(t)$
 correspond à déterminer la transformée 
 de Laplace inverse d'une fraction rationnelle $S(p)$ 
 définie dans le domaine de Laplace. Autrement dit, 
-$$
+\[
 s(t)=\laplacei{S(p)}
-$$
+\]
 Cette inversion passe généralement par l'utiliation des tables de 
 transformées de Laplace (c.f \Cref{annexe-lap}).
 Cependant, ces tables peuvent ne pas être complètes. La~\gls{des} de $S(p)$, 
@@ -45,9 +45,9 @@ pas la lecture du chapitre du cours de mathématiques qui lui est consacré.
 Dans le cas qui nous intéresse la fraction rationnelle est la 
 réponse $S(p)$ défini dans le domaine de Laplace.
 Cette grandeur est de la forme,
-$$
+\[
 S(p)=\dfrac{N(p)}{D(p)}
-$$
+\]
 où $N(p)$ et $D(p)$ sont deux polynômes de degrés $m$ et $n$ respectivement.
 En générale, nous aurons à faire à des systèmes pour lesquels $m\le n$. 
 Une des conséquences est que \textbf{la décomposition en élements 
@@ -66,55 +66,55 @@ rappelons que dans $\mathbb{R}[p]$, les polynômes irréductibles sont
 les polynômes de degré 1 et les polynômes de degré 2 de discriminant négatif.}
 unitaire\footnote{Un polynôme unitaire est un polynôme dont le coefficient 
 de degré le plus grand est 1.} de la forme:
-$$
+\[
 D(p)=a\prod_{k=1}^r(p-\alpha_k)^{m_k}\prod_{k=1}^s(p^2+\beta_lp+\gamma_l)^{n_k}
-$$
+\]
 où $a$ est une constante qui est le coefficient du terme de plus haut degré 
 de $D(p)$, les $\alpha_k$ sont les pôles de multiplicités $m_k$, les polynômes
 de degré 2 sont sans pôles réels (i.e $\beta_i-4\gamma_i<0$).
 
 Alors il existe une famille unique de rééls $A_{k,i}$, $B_{l,j}$ et 
 $C_{l,j}$ telles que :
+%-------------------------------------------------------------------------------
 \begin{align}
 S(p)=\sum_{k=1}^r\sum_{i=1}^{m_k} \dfrac{A_{k,i}}{\left(p-\alpha_k\right)^i}+
      \sum_{l=1}^s\sum_{j=1}^{n_l} \dfrac{B_{l,j}p+C_{l,j}}{\left(p^2+\beta_lp+
      \gamma_l\right)^j}
 \end{align}
-
+%-------------------------------------------------------------------------------
 On appelle cette écriture la \textbf{décomposition en éléments simples} de 
 $S(p)$ sur $\mathbb{R}$.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple 1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit $S(p)$ tel que:
-$$
+\[
 S(p)=\dfrac{1}{(p^2-1)(p^2+1)^2}
-$$
+\]
 où $D(p)$ se factorise sous la forme :
-$$
+\[
 D(p)=(p^2-1)(p^2+1)^2=(p-1)(p+1)(p^2+1)^2
-$$
+\]
 On obtient une décomposition en éléments simples de $S(p)$ de la forme :
-$$
+\[
 S(p)=\dfrac{A}{p-1}+\dfrac{B}{p+1}+\dfrac{Cp+D}{p^2+1}+\dfrac{Ep+F}{p^2+1}
-$$
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple 2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit $S(p)$ tel que:
-$$
+\[
 S(p)=\dfrac{4p^3}{(p^2-1)^2}
-$$
+\]
 où $D(p)$ se factorise sous la forme :
-$$
+\[
 D(p)=(p^2-1)^2=\left((p-1)(p+1)\right)^2
-$$
+\]
 On obtient une décomposition en éléments simples de $S(p)$ de la forme :
-$$
+\[
 S(p)=\dfrac{A}{p-1}+\dfrac{B}{(p-1)^2}+\dfrac{C}{p+1}+\dfrac{D}{(p+1)^2}
-$$
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -143,32 +143,32 @@ un système d'équations sur les coéfficients à déterminer.
 \paragraph{Exemple 1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit $S(p)$ tel que:
-$$
+\[
 S(p)=\dfrac{1}{(p+1)(p+2)}
-$$
+\]
 sa décomposition en éléments simples est donnée par :
-$$
+\[
 S(p)=\dfrac{A}{p+1}+\dfrac{B}{p+2}
-$$
+\]
 au même dénominateur on obtient
-$$
+\[
 S(p)=\dfrac{A(p+2)+B(p+1)}{(p+1)(p+2)}
     =\dfrac{(A+B)p+(2A+B)}{(p+1)(p+2)}
     =\dfrac{1}{(p+1)(p+2)}
-$$
+\]
 Le système d'équations sur les coéfficients de la décomposition sont :
-$$
+\[
 \begin{cases}
     A+B=0\\
     2A+B=1
 \end{cases}
-$$
+\]
 Sa résolution nous donne, $A=1$ et $B=-1$.
 La décompositon en éléments simples de $S(p)$ est donc finalement donnée 
 par :
-$$
+\[
 S(p)=\dfrac{1}{p+1}-\dfrac{1}{p+2}
-$$
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

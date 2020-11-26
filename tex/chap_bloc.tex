@@ -9,7 +9,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \minitoc
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -47,13 +46,14 @@ applications (ex : éléctronique, réseaux de neurones).
 Les schémas fonctionnels sont composés de quatre éléments de base:
 \textbf{les flèches, les blocs, les comparateurs et sommateurs et les points 
 de prélèvement}
+%-------------------------------------------------------------------------------
 %\begin{itemize}
 %    \item les flèches.
 %    \item les blocs.
 %    \item les comparateurs et sommateurs.
 %    \item les points de prélèvement.
 %\end{itemize}
-
+%-------------------------------------------------------------------------------
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Flèche}
@@ -74,15 +74,13 @@ représentation de grandeur dans le domaine de Laplace.
 Pour alléger la notation dans ce chapitre, nous omettrons 
 très souvent la variable $p$ des grandeurs dans le domaine de Laplace désignées 
 par une majuscule.
-
-\newpage
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Bloc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Le bloc est la représentation d'une fonction de transfert entre deux 
 grandeurs dans le domaine de Laplace. Par exemple, la relation entre l'entrée 
-$E$ et la sortie $S$ définit par la fonction de transfert $H$ qui s'écrit 
+$E$ et la sortie $S$ définie par la fonction de transfert $H$ qui s'écrit 
 formellement, 
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -110,9 +108,9 @@ Nous parlerons respectivement de comparateur ou de sommateur dans le cas
 d'une différence ou d'une somme entre deux grandeurs. 
 
 Par exemple, la relation 
-$$
+\[
 S = E_1-E_2 
-$$
+\]
 est équivalente au comparateur suivant :
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -121,9 +119,9 @@ est équivalente au comparateur suivant :
 \end{center}
 %-------------------------------------------------------------------------------
 De même la somme de deux grandeurs,
-$$
+\[
 S = E_1+E_2
-$$
+\]
 est équivalente au sommateur suivant :
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -146,6 +144,7 @@ lieu à deux branches auxquelles sont associées la même grandeur $S$.
 %-------------------------------------------------------------------------------
 Dans cette configuration, la branche 1 est dite \og direct\fg et la 
 branche 2 est dite de \og retour\fg.
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -199,13 +198,16 @@ sont équivalents.
 \end{center}
 %-------------------------------------------------------------------------------
 La démonstration est également triviale.
+\newpage
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{La boucle de contre-réaction (positive ou négative)
           \label{sec-boucle}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La boucle de contre-réaction\footnote{\og Positive or negative feedback\fg, 
-chez nos collègues anglophones.} peut être réduite à une simple fonction 
-de transfert. Considérons un système définit par le schéma-bloc ci-dessous, 
+chez nos collègues anglophones.}peut être réduite à une simple fonction 
+de transfert. Considérons un système défini par le schéma-bloc ci-dessous, 
 composé des différents élements de bases.
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -215,30 +217,42 @@ composé des différents élements de bases.
 %-------------------------------------------------------------------------------
 Notons l'utilisation du symbole $\pm$ pour envisager à la fois les 
 comparateurs et sommateurs.
-
 Déterminons la relation entre l'entrée $E$ et la sortie $S$ de ce système.
 Pour celà réécrivons les relations linéaires simples issus de ce schéma-bloc.
 On sait que :
+%-------------------------------------------------------------------------------
 \begin{align}
     \epsilon&=E\pm M \label{eq-fb.1}\\
     M&=H_2S       \label{eq-fb.2}\\
     S&=H_1\epsilon \label{eq-fb.3}
 \end{align}
-Introduisons l'\cref{eq-fb.2} dans~(\ref{eq-fb.1}) et le résulat ainsi 
+%-------------------------------------------------------------------------------
+Introduisons l'\cref{eq-fb.2} dans~(\ref{eq-fb.1}) et le résultat ainsi 
 obtenu dans~(\ref{eq-fb.3}):
+%-------------------------------------------------------------------------------
 \begin{align*}
     \epsilon&=E\pm H_2S \\
      S&=H_1\big(E\pm H_2S\big) \\
      S&=H_1E\pm H_1H_2S
 \end{align*}
+%-------------------------------------------------------------------------------
 Regroupons les termes dépendant de la sortie ensemble pour déterminer 
 la relation entre l'entrée et la sortie.
+%-------------------------------------------------------------------------------
 \begin{align*}
     S\big(1\mp H_1H_2\big)&=H_1E 
 \end{align*}
-On obtient alors la formule de Black\footnote{
-\index{Black, Harold}Harold Stephen Black (1898-1983) ingénieur, 
-électronicien américain.}, 
+%-------------------------------------------------------------------------------
+On obtient alors la formule de Black
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{HaroldBlack.eps}
+    \caption*{\index{Black, Harold}\textbf{Harold Stephen Black} (1898-1983) 
+              ingénieur, électronicien américain. Découvreur de la boucle de 
+              contre-réaction négative}, 
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 reliant la sortie est l'entrée d'une boucle de contre-réaction :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -247,7 +261,6 @@ reliant la sortie est l'entrée d'une boucle de contre-réaction :
 %-------------------------------------------------------------------------------
 Notons l'inversion du signe du dénominateur de la formule 
 selon que la boucle est positive ou négative.
-
 La boucle de contre-réaction est donc équivalente au schéma-bloc 
 simplifié suivant :
 %-------------------------------------------------------------------------------
@@ -256,6 +269,9 @@ simplifié suivant :
     \input{tikz/boucle_eq-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
+\newpage
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Boucle de contre-réaction unitaire}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -338,6 +354,7 @@ de prélèvement. Ansi les deux schémas-blocs ci-dessous sont équivalents:
     \input{tikz/dep_jonc3-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -366,9 +383,9 @@ Dans un premier temps, on considère l'entrée $P$ nulle, le schéma-bloc devien
 %-------------------------------------------------------------------------------
 La sortie $S_{P\equiv 0}$ (i.e lorsque $P\equiv0$) est donc donnée 
 par la formule de Black pour la boucle de contre-réaction ainsi obtenue.
-$$
+\[
 S_{P\equiv 0}=\dfrac{H_1H_2}{1+R_1H_1H_2} E
-$$
+\]
 Dans le cas où l'on considère maintenant l'entrée $E$ comme nulle,
 le schéma-bloc se réduit de la façon suivante :
 %-------------------------------------------------------------------------------
@@ -378,9 +395,9 @@ le schéma-bloc se réduit de la façon suivante :
 \end{center}
 %-------------------------------------------------------------------------------
 La sortie $S_{E\equiv 0}$ est donc donnée par,
-$$
+\[
 S_{E\equiv 0}=\dfrac{H_2}{1+R_1H_1H_2} P
-$$
+\]
 La sortie totale $S$ du système à deux entrées est la somme de ses
 sorties indépendantes,
 %-------------------------------------------------------------------------------
@@ -490,9 +507,9 @@ précédemment mais en ayant incorporer une nouvelle entrée $P$.
 La première étape consiste à déterminer la fonction de transfert globale entre
 la sortie $S$ et $E$ pour $P\equiv0$.
 Celle-ci correspond à la fonction de transfert déterminée précédemment, soit :
-$$
+\[
      S_{P\equiv0}=\dfrac{H_1H_2H_3H_4}{1+R_1H_3H_4+R_2R_3H_1H_2H_3}E
-$$
+\]
 Le schéma fonctionnel réduit pour $E\equiv0$ est maintenant :
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -519,11 +536,13 @@ La réduction de cette dernière boucle de contre réaction nous donne alors
 la fonction de transfert globale pour $E\equiv0$. 
 En utilisant le principe de superposition, on montre alors que la fonction 
 de transfert globale pour les deux entrées est:
+%-------------------------------------------------------------------------------
 \begin{align*}
     S&=S_{P\equiv 0}+S_{E\equiv 0} \\
     S&=\dfrac{H_1H_2H_3H_4}{1+R_1H_3H_4+R_2R_3H_1H_2H_3} E + 
        \dfrac{H_2H_3H_4}{1+R_1H_3H_4+R_2R_3H_1H_2H_3} P 
 \end{align*}
+%-------------------------------------------------------------------------------
 %\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -561,9 +580,9 @@ de transfert se représente par le graphe de fluence suivant:
 \begin{center}
     \tikzsetnextfilename{gf_1-chap_bloc-ext}
     \input{tikz/gf_1-chap_bloc.tex}
-$$
-S=HE
-$$
+    \[
+        S=HE
+    \]
 \end{center}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -579,6 +598,7 @@ différentes définitions:
     \caption{Graphe de fluence présentant les différents éléments de bases, 
     types de noeuds et de branches.}
 \end{figure}
+%-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{itemize}
     \item Une \textbf{source} ou noeud d'entrée est un noeud 
@@ -604,6 +624,7 @@ différentes définitions:
           $\{X_2\rightarrow X_2\}$ (cette dernière est appelée boucle 
           élémentaire)
 \end{itemize}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Algèbre des graphes de fluences}
@@ -622,9 +643,9 @@ vers ce noeud.
     \input{tikz/gf_add-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
-$$
+\[
 S=H_1E_1+H_2E_2
-$$
+\]
 Le comparateur/sommateur présentait précedemment est équivalent au graphe 
 de fluence suivant:
 %-------------------------------------------------------------------------------
@@ -644,11 +665,13 @@ La valeur d'un noeud est transmise par chaque branche quittant ce noeud.
 \end{center}
 %-------------------------------------------------------------------------------
 Ce graphe représente les équations suivantes :
+%-------------------------------------------------------------------------------
 \begin{align*}
     X_1&=H_1E_1+H_2E_2\\
     S_1&=H_3X_1=H_1H_3E_1+H_2H_3E_2\\
     S_2&=H_4X_1=H_1H_4E_1+H_2H_4E_2
 \end{align*}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{3. Branches en série}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -688,7 +711,7 @@ manière suivante :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{6. Boucles de contre-réaction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Considérons la boucle de contre-réaction définit par le schéma fonctionnel et 
+Considérons la boucle de contre-réaction définie par le schéma fonctionnel et 
 le graphe de fluence équivalent:
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -711,13 +734,13 @@ Il est possible d'éliminer le noeud porté par la variable $\epsilon$:
 \end{center}
 %-------------------------------------------------------------------------------
 Ce dernier graphe exprime la relation suivante :
-$$
+\[
 S=H_1E-H_1H_2S
-$$
+\]
 d'où l'expression déjà établie :
-$$
+\[
     S=\dfrac{H_1}{1+H_1H_2}E,
-$$
+\]
 qui se représente simplement par le graphe de fluence :
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -746,11 +769,16 @@ suivant\footnote{Remarquons que le graphe précédent exprime la relation
 $S=H(E-S)$ qui nous donne bien la fonction de transfert $\frac{H}{1+H}$. 
 Cependant, cette expression exprime une grandeur que l'on cherche en fonction 
 d'elle même. En remplaçant, $S$ par sa définition $H(E-S)$, on obtient
-$$S=HE-H(H(E-S))=HE-H^2E+H^2S=H(1-H)E+H^2S.$$ En procédant de même avec 
-cette nouvelle expression, on obtient une relation de récurrence. 
+\[
+    S=HE-H(H(E-S))=HE-H^2E+H^2S=H(1-H)E+H^2S.
+\]
+En procédant de même avec cette nouvelle expression, on obtient une 
+relation de récurrence. 
+%-------------------------------------------------------------------------------
 \begin{align*}
     S=EH\sum_k^n (-1)^kH^k+(-1)^{(n+1)}H^{n+1}S
 \end{align*}
+%-------------------------------------------------------------------------------
 Pour $n\rightarrow\infty$, on reconnaît la série géométrique 
 $\sum_k^n(-1)^kH^k=\frac{1}{1+H}$ et $H^{n+1}\rightarrow 0$ pour $|H|<1$.
 La sortie $S$ tend donc bien vers la fonction de transfert attendue, 
@@ -787,6 +815,7 @@ H=\dfrac{S}{E}=\dfrac{1}{\Delta}\sum_k G_k\Delta_k
 \end{bequation}
 %-------------------------------------------------------------------------------
 où
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item $k$ dénombre les parcours ouverts entre $E$ et $S$,
     \item $G_k$ est le gain du $k$-ème parcours ouverts
@@ -804,6 +833,7 @@ où
     \item $\Delta_i$ est le déterminant du graphe obtenu en supprimant le 
         parcours ouvert de gain $G_i$.
 \end{itemize}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple 1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -814,21 +844,23 @@ où
 \end{center}
 %-------------------------------------------------------------------------------
 Ce graphe de fluence possède trois boucles de gain :
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item $-H_1H_2H_3$
     \item $R_1H_1H_2$
     \item $-R_2H_2H_3$ 
 \end{itemize}
+%-------------------------------------------------------------------------------
 et un parcours ouvert $H_1H_2H_3$ de déterminant $\Delta_k=1$. Les boucles 
 étant toutes disjointes, le determinant du graphe est donc simplement 
 donné par :
-$$
+\[
 \Delta=1-R_1H_1H_2+H_1H_2H_3+R_2H_2H_3
-$$
+\]
 La fonction de transfert de ce graphe de fluence est donc :
-$$
+\[
 H=\dfrac{H_1H_2H_3}{1-R_1H_1H_2+H_1H_2H_3+R_2H_2H_3}
-$$
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple 2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -841,25 +873,26 @@ $$
 Ce graphe de fluence présente 2 boucles non disjointes de gain $R_3$ 
 et $R_2H_3H_4$ et 2 parcours ouverts de gain $H_1H_2H_3H_4$ et $R_1H_1H_4$.
 Le déterminant du graphe est donc donné par 
-$$
+\[
 \Delta=1-R_3-R_2H_3H_4
-$$
+\]
 La fonction de transfert associé à ce graphe de fluence est donc:
-$$
+\[
 H=\dfrac{H_1H_2H_3H_4+R_1H_1H_4}{1-R_3-R_2H_3H_4}
-$$
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Schéma-bloc dans le domaine temporel}
+\section{Schéma-bloc dans le domaine temporel}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
+\acplhp
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section*{Exercices du chapitre}
+\section*{Exercices du chapitre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -867,7 +900,7 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section*{Corrigé des exercices}
+\section*{Corrigé des exercices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

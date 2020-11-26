@@ -17,18 +17,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Dans ce chapitre, nous allons étudier la réponse 
-temporelle de différents \gls{slci} modèles. Ces modèles sont 
+temporelle de différents \gls{slci} modèles usuels de l'automatique. 
+Ces modèles sont 
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item les systèmes du \textbf{premier ordre},
     \item les systèmes du \textbf{second ordre},
-    \item les systèmes gain, intégrateur, dérivateur et retard purs.
+    \item les systèmes \textbf{gain}, \textbf{intégrateur}, \textbf{dérivateur} 
+          et \textbf{retard} purs.
 \end{itemize}
+%-------------------------------------------------------------------------------
 Ces modèles reflètent les différentes équations différentielles et 
 systèmes physiques généralement rencontrés dans la nature.
 Les deux plus importants sont les systèmes du premier et second ordre 
-qui sont pour cette raison éxaminer en détail. 
+qui seront pour cette raison examiner en détail. 
+Les autres systèmes (i.e gain, intégrateur, dérivateur et retard) 
+sont des systèmes modèles théoriques qui ne présentent en générale qu'en 
+présence des systèmes du premier ou du second ordre. Nous voulons ici simplement
+établir l'effet de ces modèles théoriques sur la réponse temporelles.
 Nous généraliserons aux systèmes d'ordre supérieur en montrant 
 que toute fonction de transferts peut se factoriser en un produit
 de ces systèmes modèles.
@@ -37,13 +44,14 @@ Nous suivrons la même présentation pour tous les modèles:
 nous donnerons d'abord l'équation différentielle régissant le système, puis 
 sa fonction de transfert ainsi que ses pôles, avant de 
 déterminer analytiquement les différentes réponses temporelles : 
-impulsionnelle, indicielle et la réponse à une rampe. 
+\textbf{impulsionnelle, indicielle et la réponse à une rampe}. 
 Le principal objectif de cette étude est d'établir les caractéristiques 
 de ces modèles à partir de leurs réponses temporelles.
 
-Dans une dernière partie, nous allons     
-
-\newpage
+Finalement, nous résumerons nos observations en présentant la méthodologie  
+d'identification des comportements des modèles usuels à partir de la mesure
+de leurs réponses temporelles.     
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -51,7 +59,6 @@ Dans une dernière partie, nous allons
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Définition d'un système du premier ordre}
@@ -59,21 +66,24 @@ Dans une dernière partie, nous allons
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du premier ordre!définition}
 Un système du premier ordre est un système régit par une équation
-différentielle linéaire à coefficient constant du premier ordre 
+différentielle linéaire à coefficients constants du premier ordre 
 (i.e $n=1$ pour l'\cref{eq-difflci}), de la forme générale :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     \tau\devi{s(t)}{}+s(t)=K e(t)\label{eq-1er}
 \end{bequation}
 %-------------------------------------------------------------------------------
-où $K$ est le gain statique et $\tau>0$ la constante de 
-temps du système. La condition sur le signe de $\tau$ sera 
+où \textbf{$K$ est le gain statique} et \textbf{$\tau>0$ la constante de 
+temps du système}. La condition sur le signe de $\tau$ sera 
 discutée au moment de l'établissement des réponses temporelles.
 L'analyse dimentionnelle de cette équation différentielle, nous permet 
 de confirmer que $\tau$ à la dimension d'un temps, mais surtout que 
 la dimension du gain statique est donnée par le rapport des dimensions de 
 la sortie sur l'entrée. Autrement dit, c'est un paramètre sans dimension 
-c'est l'entrée et la sortie sont de même nature.
+si l'entrée et la sortie sont de même nature.
+\newpage
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fonction de transfert d'un système du premier ordre}
@@ -82,9 +92,9 @@ c'est l'entrée et la sortie sont de même nature.
 \index{Système du premier ordre!fonction de transfert}
 La transformée de Laplace de l'\cref{eq-1er}, dans les conditions de 
 Heaviside, nous donne :
-$$
+\[
 \tau pS(p)+S(p)=KE(p)
-$$
+\]
 La fonction de transfert $H(p)$ d'un système du premier ordre est 
 donc de la forme:
 %-------------------------------------------------------------------------------
@@ -99,16 +109,28 @@ donc de la forme:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Un système du premier ordre ne possède qu'un seul pôle qui est trivialement 
 déterminé par la résolution de l'équation :
-$$
+\[
 \tau p + 1 =0
-$$
+\]
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \resizebox{\marginparwidth}{!}{
+    \begin{tikzpicture}
+        \carte[l][-1.75]
+        \dpole{-1.5}{0}{1}[col1]
+        \node[above,yshift=1em] at (p1) {$\tau$};
+    \end{tikzpicture}%
+    }
+    \caption*{Carte des pôles et zéros d'un système du premier ordre}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 ce pôle $p_1=-\dfrac{1}{\tau}$ est donc réel négatif pour $\tau>0$.
 La fonction de transfert d'un système du premier peut alors s'écrire 
 sous la forme factorisée suivante
-$$
+\[
 H(p)=\dfrac{K}{(p-p_1)}=\dfrac{K}{\tau\left(p+\dfrac{1}{\tau}\right)}.
-$$
-
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Réponses temporelles d'un système du premier ordre}
@@ -116,22 +138,6 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous allons maintenant établir les réponses temporelles d'un système 
 du premier ordre aux signaux usuels présentés au chapitre~\cref{chap-slci}.
-
-%-------------------------------------------------------------------------------
-\begin{figure}[!t]
-    \centering
-    \tikzsetnextfilename{1er_imp1-chap_model-ext}
-    \input{tikz/1er_imp1-chap_model.tex}
-    \hfill
-    \tikzsetnextfilename{1er_imp2-chap_model-ext}
-    \input{tikz/1er_imp2-chap_model.tex}
-    \caption{Réponse impulsionnelle d'un système du premier ordre avec : 
-             $E_0=1$ et (gauche) différentes valeurs de la constante 
-             de temps $\tau$ pour $K=1$; (droite) différentes valeurs 
-             du gain $K$ pour $\tau=1$ (\Cref{eq-1er_imp}).\label{fig-1er_imp}}
-\end{figure}
-%-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse impulsionnelle}
@@ -139,16 +145,47 @@ du premier ordre aux signaux usuels présentés au chapitre~\cref{chap-slci}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du premier ordre!réponse impulsionnelle}
 Nous condidérons une excitation impulsionnelle de la forme :
-$$
+\[
 e(t)=E_0\delta(t),
-$$
+\]
 où $\delta(t)$ est l'impulsion de Dirac et $E_0$ est une constante.
 
 La réponse impulsionnelle d'un système du premier ordre est, dans le 
 domaine de Laplace, de la forme :
-$$
+\[
 S(p)=H(p)E(p)=\dfrac{KE_0}{(\tau p+1)}.
-$$
+\]
+\newpage
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
+%-------------------------------------------------------------------------------
+\begin{figure}[!ht]
+    \centering
+    \tikzsetnextfilename{1er_imp1-chap_model-ext}
+    \input{tikz/1er_imp1-chap_model.tex}
+    \hfill
+    \tikzsetnextfilename{1er_imp2-chap_model-ext}
+    \input{tikz/1er_imp2-chap_model.tex}
+    
+    $\,$\newline 
+    \ra{1.3}
+    \setlength{\ltmp}{0.15\linewidth}
+    \begin{tabular}{@{}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}@{}}
+        \toprule
+        & $t=0.5\tau$        & $t=\tau$ & $t=3\tau$ & $t=7\tau$ \\
+        \midrule
+        $\dfrac{s(t)}{KE_0}$ & 0.606    & 0.368     & 0.05& $\sim$ 0\\  
+        \bottomrule
+    \end{tabular}
+    \caption{Réponse impulsionnelle d'un système du premier ordre avec : 
+             $E_0=1$ et (gauche) différentes valeurs de la constante 
+             de temps $\tau$ pour $K=1$; (droite) différentes valeurs 
+             du gain $K$ pour $\tau=1$ (\Cref{eq-1er_imp}). (Tableau) 
+             Quelques valeurs particulières de la réponse impulsionnelle
+             d'un système du premier ordre\label{fig-1er_imp}}
+\end{figure}
+%-------------------------------------------------------------------------------
+%\marginnote{$\dfrac{1}{(p+a)}\rightarrow e^{-at}$}[-2em]
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 7 du tableau de 
 l'\cref{annexe-lap}), nous donne la forme générale de la réponse impulsionnelle 
 d'un système du premier ordre:
@@ -167,9 +204,9 @@ $\tau$ est strictement positif pour une question de stabilité.
 Il est également possible d'observer que la pente à l'origine dépend de la 
 constante de temps. La pente à l'origine peut être obtenue directement en 
 dérivant la réponse temporelle $s(t)$ 
-$$
+\[
 s'(0)=-\dfrac{KE_0}{\tau^2}
-$$
+\]      
 La pente à l'origine est négative et inversemment proportionnelle 
 au carré de la constante de temps du système $\tau$.
 
@@ -179,51 +216,47 @@ réponse à 5\% est de l'ordre de 3$\tau$ (i.e $-\log{5\%}$). Le transitoire
 est lui de l'ordre de $7\tau$ (c'est à dire le temps à partir duquel on 
 considère que le signal est nul).
 %-------------------------------------------------------------------------------
-\begin{table}
-    \ra{1.3}
+\begin{figure}[!ht]
     \centering
-    \setlength{\ltmp}{0.15\textwidth}
+    \tikzsetnextfilename{1er_ind1-chap_model-ext}
+    \input{tikz/1er_ind1-chap_model.tex}
+    \hfill
+    \tikzsetnextfilename{1er_ind2-chap_model-ext}
+    \input{tikz/1er_ind2-chap_model.tex}
+    
+    \ra{1.3}
+    \setlength{\ltmp}{0.15\linewidth}
     \begin{tabular}{@{}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}@{}}
         \toprule
-        & $t=0.5\tau$        & $t=\tau$ & $t=3\tau$ & $t=7\tau$ \\
+        & $t=0.5\tau$        & $t=\tau$    & $t=3\tau$ & $t=7\tau$      \\
         \midrule
-        $\dfrac{s(t)}{KE_0}$ & 0.606    & 0.368     & 0.05& $\sim$ 0\\  
+        $\dfrac{s(t)}{KE_0}$ & 0.393       & 0.632     & 0.950  & 0.999 \\
         \bottomrule
     \end{tabular}
-    \caption{Quelques valeurs particulières de la réponse impulsionnelle 
-             d'un système du premier ordre\label{tab-1er_imp}.}
-\end{table}
-%-------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------
-\begin{figure}
-\centering
-\tikzsetnextfilename{1er_ind1-chap_model-ext}
-\input{tikz/1er_ind1-chap_model.tex}
-\hfill
-\tikzsetnextfilename{1er_ind2-chap_model-ext}
-\input{tikz/1er_ind2-chap_model.tex}
-\caption{Réponse indicielle d'un système du premier ordre avec : $E_0=1$ et 
-	 (gauche) pour différentes valeurs de $\tau$ et avec $K=1$;
-	 (droite) pour différentes valeurs du gain $K$ et 
-	 avec $\tau=1$.\label{fig-1er_ind}}
+    \caption{Réponse indicielle d'un système du premier ordre avec : $E_0=1$ 
+             et (gauche) pour différentes valeurs de $\tau$ et avec $K=1$;
+	     (droite) pour différentes valeurs du gain $K$ et 
+             avec $\tau=1$.(Tableau) Quelques valeurs particulières de la 
+             réponse indicielle d'un système du premier ordre
+             \label{fig-1er_ind}}
 \end{figure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du premier ordre!réponse indicielle}
-
 Pour déterminer la réponse indicielle, nous considérons une entrée 
 $e(t)$ en échelon telle que :
-$$
+\[
 e(t)=E_0\cdot u(t),
-$$
+\]
 où $u(t)$ est l'échelon unitaire et $E_0$ est une constante.
 
 Dans le domaine de Laplace la sortie est donc de la forme :
-$$
+\[
 S(p)=H(p)E(p)=\dfrac{KE_0}{p(1+\tau p)}=\dfrac{KE_0}{\tau p(p+\frac{1}{\tau})}
-$$
+\]
+%\marginnote{$\dfrac{a}{p(p+a)}\rightarrow 1-e^{-at}$}[-2em]
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 11 du tableau 
 de l'\cref{annexe-lap}), nous donne la forme générale de la réponse 
 indicielle d'un système du premier ordre:
@@ -240,15 +273,15 @@ Pour $t\to\infty$, la valeur de $s(t)$ tend vers $KE_0$.
 %sur la fonction dans le domaine de Laplace puisque 
 %$pS(p)$ ne possède qu'un seul pôle à partie réelle négative. 
 %Ainsi,
-%$$
+%\[
 %\lim_{t\to\infty}s(t)=\lim_{p\to0}pS(p)=\lim_{p\to0}
 %\dfrac{KE_0}{\tau p+1}=KE_0
-%$$}.
+%\]}.
 La pente à l'origine peut être obtenue directement en dérivant 
 la réponse temporelle $s(t)$
-$$
+\[
 s'(0)=\dfrac{KE_0}{\tau}
-$$
+\]
 La pente à l'origine est positive et inversemment proportionnelle 
 à la constante de temps du système.
 
@@ -256,30 +289,14 @@ Le~\cref{tab-1er_ind} donne quelques valeurs particulières de la réponse
 indicielle. D'après celui-ci, on constate que le temps de réponse à 
 5\% $t_{5\%}$ (temps au bout duquel la réponse indicielle atteint 95\% 
 du signal final) est donné par :
-$$
+\[
 t_{5\%}=-\tau\log{0.05}\sim3\tau.
-$$
-%-------------------------------------------------------------------------------
-\begin{table}
-    \ra{1.3}
-    \centering
-    \setlength{\ltmp}{0.15\textwidth}
-    \begin{tabular}{@{}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}@{}}
-        \toprule
-        & $t=0.5\tau$        & $t=\tau$    & $t=3\tau$ & $t=7\tau$      \\
-        \midrule
-        $\dfrac{s(t)}{KE_0}$ & 0.393       & 0.632     & 0.950  & 0.999 \\
-        \bottomrule
-    \end{tabular}
-    \caption{Quelques valeurs particulières de la réponse indicielle 
-             d'un système du premier ordre\label{tab-1er_ind}.}
-\end{table}
-%-------------------------------------------------------------------------------
+\]
 Le temps de montée $t_m$ (temps au bout duquel la réponse de 10\% 
 à 90\% du signal final) est donné par :
-$$
+\[
 t_m=-\tau\log{\dfrac{0.1}{0.9}}\sim2.2\tau
-$$
+\]
 %-------------------------------------------------------------------------------
 \begin{figure}
 \centering
@@ -299,18 +316,22 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du premier ordre!réponse à une rampe}
 Nous considérons maitenant une excitation rampe de la forme:
-$$
+\[
 e(t)=E_0\cdot r(t)=E_0 t\cdot u(t) 
-$$
+\]
 où $E_0$ est une constante, $r(t)$ est la fonction rampe unitaire 
 et $u(t)$ la fonction échelon. 
 
 La réponse à une rampe d'un système du premier ordre est, dans le domaine 
 de Laplace, de la forme :
-$$
+%\marginnote{
+%    \resizebox{\linewidth}{!}{%
+%        $\dfrac{a}{p^2(p+a)}\rightarrow\dfrac{1}{a}\left(at+ate^{-at}\right)$
+%    }
+%}
+\[
 S(p)=H(p)E(p)=\dfrac{KE_0}{p^2(1+\tau p)}
-$$
-
+\]
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 12 du tableau 
 de l'\cref{annexe-lap}), nous donne la forme générale de la réponse à une 
 rampe d'un système du premier ordre:
@@ -329,13 +350,10 @@ rampe d'un système du premier ordre:
 %               (\cref{eq-1er_ramp}) avec $K=1$ et $E_0=1$ \label{fig-1er_ramp}}
 %\end{figure}
 %-------------------------------------------------------------------------------
-
 La pente à l'origine peut être obtenue directement en dérivant la réponse 
 temporelle $s(t)$. On constate alors que $s'(0)=0$ quelque soit $\tau$. 
 À la limite $t\to\infty$ la réponse à une rampe tend vers $t-\tau$.
-
-
-\newpage
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -343,7 +361,6 @@ temporelle $s(t)$. On constate alors que $s'(0)=0$ quelque soit $\tau$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Définition d'un système du second ordre}
@@ -352,13 +369,12 @@ temporelle $s(t)$. On constate alors que $s'(0)=0$ quelque soit $\tau$.
 \index{Système du second ordre!définition}
 Un système du second ordre est un système régit par une équation 
 différentielle du second ordre de forme générale :
-$$
+\[
 \devi{s(t)}{2}+2\xi\omega_0\devi{s(t)}{}+\omega^2_0s(t)=K\omega^2_0e(t)
-$$
+\]
 où $\xi>0$ est le coefficient d'amortissement, $K$ le gain statique et 
 $\omega_0>0$ la pulsation propre du système. Cette pulsation est celle de 
 l'oscillateur harmonique équivalent sans amortissement ($\xi=0$).
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fonction de transfert d'un système du second ordre}
@@ -367,9 +383,9 @@ l'oscillateur harmonique équivalent sans amortissement ($\xi=0$).
 \index{Système du second ordre!fonction de transfert}
 La transformée de Laplace de l'équation différentielle est, lorsque les CI 
 sont toutes nulles :
-$$
+\[
 S(p)\left(p^2+2\xi\omega_0p+\omega^2_0\right)=K\omega^2_0E(p).
-$$
+\]
 La fonction de transfert $H(p)$ de ce système est donc donnée par :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -379,64 +395,61 @@ La fonction de transfert $H(p)$ de ce système est donc donnée par :
 %-------------------------------------------------------------------------------
 La forme suivante, pour laquelle on a factorisée par $\omega^2_0$, est 
 également très courante:
-$$
+\[
 H(p)=\dfrac{K}{\left(\dfrac{p}{\omega_0}\right)^2
     +\dfrac{2\xi p}{\omega_0}+1}
-$$
-
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Pôles de la fonction de transfert du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Les pôles de la fonction de transfert sont donnés par les racines du polynôme :
-$$
+\[
 p^2+2\xi\omega_0p+\omega_0^2 = 0
-$$
+\]
 le discriminant de ce polynôme est :
-$$
+\[
 \Delta=4\xi^2\omega^2_0-4\omega_0^2=4\omega_0^2(\xi^2-1)
-$$
-
+\]
 Les racines de ce polynôme dépendent donc du signe de $\Delta$ 
 et ainsi de la valeur du taux d'amortissement $\xi$ définissant les 
 différents régimes d'un système du second ordre :
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item Régime apériodique pour $\xi>1$
     \item Régime apériodique critique pour $\xi=1$
     \item Régime pseudo-périodique pour $0<\xi<1$
 \end{itemize}
+%-------------------------------------------------------------------------------
 à noter que le cas $\xi=0$ correspond à un régime périodique associé à 
 l'oscillateur harmonique au cas de l'oscillateur harmonique.
 Le cas $\xi<0$ correspond à un cas divergent par définition (instable) et 
 ne sera donc pas traité.
-
-Le~\cref{tab-poles_2nd} résume les différents types de pôles rencontrées dans 
-les différents régimes du système du second ordre.
 %-------------------------------------------------------------------------------
-\begin{table}[!h]
+\begin{table}[!b]
     \ra{1.3}
     \centering
     \setlength{\ltmp}{0.3\textwidth}
     \begin{tabular}{@{}P{\ltmp}P{\ltmp}P{\ltmp}@{}}
     \toprule
-    Régime  & Pôles   & Carte des pôles                                \\
+    Régime  & Pôles   & Carte des pôles                                    \\
     \midrule
-    Régime apériodique$$\xi>1$$                                        &
-    Deux pôles réels $$p_{1,2}=-\xi\omega_0\pm\omega_0\sqrt{\xi^2-1}$$ & 
+        Régime apériodique\[\xi>1\]                                        &
+        Deux pôles réels \[p_{1,2}=-\xi\omega_0\pm\omega_0\sqrt{\xi^2-1}\] & 
     {\tikzset{external/export=false}
-     \raisebox{-.5\height}{\input{tikz/poles_reels.tex}}}              \\
+     \raisebox{-.5\height}{\input{tikz/poles_reels.tex}}}                  \\
     \midrule
-    Régime apériodique critique $$\xi=1$$                              & 
-    Un pôle double réel$$p_1=p_2=-\omega_0$$                           & 
+        Régime apériodique critique \[\xi=1\]                              & 
+        Un pôle double réel\[p_1=p_2=-\omega_0\]                           & 
     {\tikzset{external/export=false}
-     \raisebox{-.5\height}{\input{tikz/poles_double.tex}}}             \\
+     \raisebox{-.5\height}{\input{tikz/poles_double.tex}}}                 \\
     \midrule
-    Régime pseudo-périodique $$0<\xi<1$$                               & 
-    Deux pôles complexes conjugués $$p_{1,2}=-\alpha\pm j\omega_d$$         
-    avec $\alpha=\xi\omega_0$ et $\omega_d=\omega_0\sqrt{1-\xi^2}$     &
+        Régime pseudo-périodique \[0<\xi<1\]                               & 
+        Deux pôles complexes conjugués \[p_{1,2}=-\alpha\pm j\omega_d\]         
+    avec $\alpha=\xi\omega_0$ et $\omega_d=\omega_0\sqrt{1-\xi^2}$         &
     {\tikzset{external/export=false}
-     \raisebox{-.5\height}{\input{tikz/poles_complexes.tex}}}          \\
+     \raisebox{-.5\height}{\input{tikz/poles_complexes.tex}}}              \\
     \bottomrule
     \end{tabular}
     \caption{Pôles de la fonction de transfert d'un système du second 
@@ -444,15 +457,16 @@ les différents régimes du système du second ordre.
              \label{tab-poles_2nd}}
 \end{table}
 %-------------------------------------------------------------------------------
+Le~\cref{tab-poles_2nd} résume les différents types de pôles rencontrées dans 
+les différents régimes du système du second ordre.
 Quelque soit le régime du système du second ordre, on peut écrire la fonction 
 de transfert de la façon suivante en utilsant les pôles appropriés:
-$$
+\[
 H(p)=\dfrac{K\omega^2_0}{(p-p_1)(p-p_2)}
-$$
+\]
 Nous remarquerons également que le produit $p_1p_2=\omega^2_0$ quelque soit 
 le régime du système, cette relation nous sera très utile pour 
 l'établissement des réponses temporelles des différents régimes.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Réponses temporelles d'un système du second ordre}
@@ -466,38 +480,34 @@ graphiques de ces réponses temporelles à l'\cref{annexe-2nd}.
 \subsubsection{Réponse impulsionnelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du second ordre!réponse impulsionnelle}
-
 La réponse impulsionnelle d'un système du second ordre est, dans le domaine 
 de Laplace, donnée par :
-$$
+\[
 S(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}
-$$
+\]
 où $E(p)=1$ dans le cas d'une impulsion de Dirac unitaire\footnote{Nous avons 
 ici posé $E_0=1$ pour alléger la notation.}.
 
-\'Etudions la forme analytique des réponses impulsionnelles dans les 
+\'Etudions la forme analytique des réponses impulsionnelles pour les 
 différents régimes du système du second ordre. Nous rappellons que l'étude 
 de la réponse impulsionnelle revient à étudier la fonction de 
 transfert du système. 
-
 \`A l'aide du théorème de la valeur finale, 
 il est dors et déjà possible de déterminer la valeur finale de la réponse
-indicielle quelque soit le régime.
-$$
+impulsionnelle quelque soit le régime.
+\[
 s(\infty)=\lim\limits_{p\to 0} pS(p) = 0
-$$
+\]
 Un système du second ordre est intrinsèquement stable au vu de 
 la définition de la stabilité.
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Dans le cas $\xi>1$ (régime apériodique),}
+\paragraph{Dans le cas $\xi>1$ (régime apériodique)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-la sortie dans le domaine de Laplace s'écrit :
-$$
+La sortie dans le domaine de Laplace s'écrit :
+\[
 S(p)=\dfrac{K\omega^2_0}{(p-p_1)(p-p_2)}
-$$
+\]
+%\marginnote{$\dfrac{b-a}{(p+a)(p+b)}\rightarrow e^{-at}-e^{-bt}$}[-1em]
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 16 du tableau 
 de l'\cref{annexe-lap}), nous donne la forme générale de la réponse 
 impulsionnelle d'un système du second ordre en régime apériodique:
@@ -527,14 +537,13 @@ placés en série :
 où $K_1K_2=K$.
 Dans le régime apériodique un système du second ordre sera toujours 
 considérer comme la mise en cascade de deux systèmes du premier ordre.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Dans le cas $\xi=1$ (régime apériodique critique),}
+\paragraph{Dans le cas $\xi=1$ (régime apériodique critique)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-la sortie dans le domaine de Laplace s'écrit :
-$$
+La sortie dans le domaine de Laplace s'écrit :
+\[
 S(p)=\dfrac{K\omega^2_0}{(p-p_1)^2}
-$$
+\]
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 8 du tableau 
 de l'\cref{annexe-lap}), nous donne la forme générale de la réponse 
 impulsionnelle d'un système du second ordre en régime apériodique critique:
@@ -549,32 +558,40 @@ posons $p_1=-1/\tau$, la réponse devient :
     s(t)=K\omega^2_0 t e^{-\frac{t}{\tau}}\label{eq-1-2_2nd} 
 \end{bequation}
 %-------------------------------------------------------------------------------
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Dans le cas $0<\xi<1$ (régime pseudo-périodique),}
+\paragraph{Dans le cas $0<\xi<1$ (régime pseudo-périodique)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-la sortie dans le domaine de Laplace s'écrit :
-$$
+La sortie dans le domaine de Laplace s'écrit :
+\[
 S(p)=\dfrac{K\omega^2_0}{(p-p_1)(p-p_2)} = 
 \dfrac{\omega^2_0}{(p+\xi\omega_0-j\omega_0\sqrt{1-\xi^2})
 (p+\xi\omega_0+j\omega_0\sqrt{1-\xi^2})}
-$$
+\]
 en posant $\alpha=\xi\omega_0$ et $\omega_d=\omega_0\sqrt{1-\xi^2}$, 
 la sortie $S(p)$ devient :
-$$
+\[
 S(p)=\dfrac{K\omega^2_0}{(p+\alpha-j\omega_d)(p+\alpha+j\omega_d)} = 
      \dfrac{K\omega^2_0}{(p+\alpha)^2+\omega^2_d}=
      \dfrac{K\omega_d}{1-\xi^2}\cdot\dfrac{\omega_d}{(p+\alpha)^2+\omega^2_d}
-$$
+\]
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 30 du tableau 
 de l'\cref{annexe-lap}), nous donne la forme générale de la réponse 
 impulsionnelle d'un système du second ordre en régime pseudo-périodique :  
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-s(t)=\dfrac{K\omega_d}{1-\xi^2}e^{-\xi\omega_0 t}\sin{\omega_d t}
-\label{eq-1-3_2nd} 
+    s(t)=\dfrac{K\omega_d}{1-\xi^2}e^{-\xi\omega_0 t}\sin{\omega_d t}
+    \label{eq-1-3_2nd} 
 \end{bequation}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{figure}[!t]
+    \centering
+    \tikzsetnextfilename{2nd_pp_imp-chap_model-ext}
+    \input{tikz/2nd_pp_imp-chap_model.tex}
+    \caption{Réponse impulsionnelle d'un système du second ordre en régime 
+             pseudo-périodique pour différentes valeurs du taux d'amortissement 
+             $\xi$ (\Cref{eq-1-3_2nd}) avec $\omega_0=1$.\label{fig-2nd_pp_imp}}
+\end{figure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse indicielle\label{subsubsec-2nd_ind}}
@@ -582,36 +599,33 @@ s(t)=\dfrac{K\omega_d}{1-\xi^2}e^{-\xi\omega_0 t}\sin{\omega_d t}
 \index{Système du second ordre!réponse indicielle}
 La réponse indicielle d'un système du second ordre est, dans le domaine 
 de Laplace, donnée par :
-$$
+\[
 S(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}\cdot\dfrac{E_0}{p}
-$$
+\]
 où $E(p)=\dfrac{E_0}{p}$ est une entrée échelon.
 
-\'Etudions la forme analytique des réponses indicielles dans les différents 
+\'Etudions la forme analytique des réponses indicielles pour les différents 
 régimes du système du second ordre. 
-
 \`A l'aide du théorème de la valeur finale, 
 il est dors et déjà possible de déterminer la valeur finale de la réponse
 indicielle quelque soit le régime.
-$$
+\[
 s(\infty)=\lim\limits_{p\to 0} pS(p) = KE_0
-$$
-
-
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Dans le cas $\xi>1$ (régime apériodique),} 
+\paragraph{Dans le cas $\xi>1$ (régime apériodique)} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-la sortie dans le domaine de Laplace s'écrit :
-$$
+La sortie dans le domaine de Laplace s'écrit :
+\[
 S(p)=\dfrac{K\omega^2_0}{(p-p_1)(p-p_2)}\cdot\dfrac{E_0}{p}
-$$
+\]
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 19 du 
 tableau de l'\cref{annexe-lap}), nous donne la forme générale de la 
 réponse indicielle d'un système du second ordre en régime apériodique:
-%$$
+%\[
 %s(t)=\dfrac{KE_0\omega^2_0}{p_1p_2}\left(1+\dfrac{1}{p_1-p_2}
 %(p_2e^{p_1t}-p_1e^{p_2t})\right)
-%$$
+%\]
 %et en réarrangant les termes : 
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -628,20 +642,19 @@ s(t)=KE_0\left(1+\dfrac{1}{\tau_1-\tau_2}
 %-------------------------------------------------------------------------------
 Nous pouvons à nouveau envisager cette réponse comme la réponse 
 de deux systèmes du premier ordre en série.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Dans le cas $\xi=1$ (régime apériodique critique),} 
+\paragraph{Dans le cas $\xi=1$ (régime apériodique critique)} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-la sortie dans le domaine de Laplace s'écrit :
-$$
+La sortie dans le domaine de Laplace s'écrit :
+\[
 S(p)=\dfrac{K\omega^2_0}{(p-p_1)^2}\cdot\dfrac{E_0}{p}
-$$
+\]
 La transformée de Laplace inverse de $S(p)$ (c.f ligne 14 du tableau 
 de l'\cref{annexe-lap}), nous donne la forme générale de la réponse indicielle 
 d'un système du second ordre en régime apériodique critique:
-$$
+\[
 s(t)=\dfrac{KE_0\omega^2_0}{p^2_1}\left(1-(1-p_1t)e^{p_1t}\right)
-$$
+\]
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     s(t)=KE_0\left(1-e^{p_1t}+p_1te^{p_1t}\right)
@@ -655,53 +668,53 @@ en posant $p_1=-\dfrac{1}{\tau}$, on obtient:
 \end{bequation}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Dans le cas $0<\xi<1$ (régime pseudo-périodique),} 
+\paragraph{Dans le cas $0<\xi<1$ (régime pseudo-périodique)} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-la sortie $S(p)$ dans le domaine de Laplace s'écrit :
-
-%$$
+La sortie $S(p)$ dans le domaine de Laplace s'écrit :
+%\[
 %S(p)=\dfrac{\omega^2_0}{(p-p_1)(p-p_2)}\cdot\dfrac{1}{p} 
 %= \dfrac{\omega^2_0}{(p-\xi\omega_0-j\omega_0\sqrt{1-\xi^2})
 %(p-\xi\omega_0+j\omega_0\sqrt{1-\xi^2})}\cdot\dfrac{1}{p}
-%$$
+%\]
 %en posant $\alpha=\xi\omega_0$ et $\omega_d=\omega_0\sqrt{1-\xi^2}$ ,
 %$S(p)$ devient :
-%$$
+%\[
 %S(p)=\dfrac{\omega^2_0}{(p-\alpha-j\omega_d)(p-\alpha+j\omega_d)}
 %\cdot\dfrac{1}{p} = \dfrac{\omega^2_0}{(p-\alpha)^2+\omega^2_d}
 %\cdot\dfrac{1}{p}
-%$$
-$$
+%\]
+\[
 S(p)=\dfrac{K\omega^2_0}{(p+\alpha)^2+\omega^2_d}\cdot\dfrac{E_0}{p}
-$$
+\]
 où l'on a posé $\alpha=\xi\omega_0$ et $\omega_d=\omega_0\sqrt{1-\xi^2}$.
 
 Décomposons $S(p)$ en éléments simples,
-$$
+\[
 S(p)=\dfrac{A}{p} + \dfrac{B(p+\alpha)+C}{(p+\alpha)^2+\omega^2_d}
-$$
+\]
 procédons par évaluation pour $A$:
-$$
+\[
 A=pS(p)\Big|_{p=0}=\dfrac{KE_0\omega^2_0}{\alpha^2+\omega^2_d}=KE_0
-$$
-
+\]
 et identification pour B et C :
+%-------------------------------------------------------------------------------
 \begin{align*}
     &KE_0((p+\alpha)^2+\omega^2_d) + Bp^2+\alpha Bp+Cp = KE_0\omega^2_0 \\
     \iff & KE_0p^2+2KE_0\alpha p+KE_0(\alpha^2+\omega^2_d) + Bp^2+\alpha Bp+Cp 
     = KE_0\omega^2_0 \\ 
-\iff & 
-\begin{cases}
+    \iff & 
+    \begin{cases}
       B+KE_0 = 0 \\ 
       2KE_0\alpha+\alpha B+C=0
-\end{cases} \\
-\iff & \begin{cases}
-      B=-KE_0     \\
-      C=-KE_0\alpha
-  \end{cases}
+    \end{cases} \\
+    \iff & \begin{cases}
+            B=-KE_0     \\
+            C=-KE_0\alpha
+            \end{cases}
 \end{align*}
-
+%-------------------------------------------------------------------------------
 on obtient alors :
+%-------------------------------------------------------------------------------
 \begin{align*}
     S(p)&=KE_0\left(\dfrac{1}{p} - 
           \dfrac{(p+\alpha)}{(p+\alpha)^2+\omega^2_d} - 
@@ -711,10 +724,11 @@ on obtient alors :
           \dfrac{\xi}{\sqrt{1-\xi^2}} 
           \dfrac{\omega_d}{(p+\alpha)^2+\omega^2_d}\right)
 \end{align*}
-
+%-------------------------------------------------------------------------------
 La transformée de Laplace inverse de $S(p)$ (c.f lignes 3, 30 et 
 31 du tableau de l'\cref{annexe-lap}), nous permet de déterminer 
 la réponse indicielle :
+%-------------------------------------------------------------------------------
 \begin{align*}
     s(t) &= KE_0\left(1 - 
             e^{-\alpha t}\cos{(\omega_d t)} - 
@@ -726,19 +740,22 @@ la réponse indicielle :
             \left ( \sqrt{1-\xi^2}\cos{(\omega_d t)} 
             + \xi\sin{(\omega_d t)}\right)\right) \\
 \end{align*}
+%-------------------------------------------------------------------------------
 en posant : 
+%-------------------------------------------------------------------------------
 \begin{align*}
     \cos{\phi}&=\xi\\
     \sin{\phi}&=\sqrt{1-\xi^2}
 \end{align*}
+%-------------------------------------------------------------------------------
 on obtient :
-$$
+\[
 s(t) = KE_0 \left( 1- 
        \dfrac{1}{\sqrt{1-\xi^2}} 
        e^{-\alpha t}
        \left(\sin{\phi}\cos{(\omega_d t)} + 
        \cos\phi\sin{(\omega_d t)}\right) \right)
-$$
+\]
 et enfin la forme générale de la réponse indicielle d'un système 
 du second ordre en régime pseudo-périodique s'écrit :
 %-------------------------------------------------------------------------------
@@ -749,10 +766,10 @@ du second ordre en régime pseudo-périodique s'écrit :
            \sin{(\omega_d t+\phi)}\right)\label{eq-2-3_2nd} 
 \end{bequation}
 %-------------------------------------------------------------------------------
-La valeur finale est obtenue pour 
-$$
-s(\infty)=\lim\limits_{p\to 0}pS(p)
-$$
+%La valeur finale est obtenue pour 
+%\[
+%s(\infty)=\lim\limits_{p\to 0}pS(p)
+%\]
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
@@ -763,7 +780,6 @@ $$
              $\xi$ (\Cref{eq-1er_ramp}) avec $\omega_0=1$. \label{fig-2nd_pp}}
 \end{figure}
 %-------------------------------------------------------------------------------
-
 Il est maintenant possible d'interpréter les différentes grandeurs 
 introduites. En effet, cette réponse a la forme d'une sinuso\"ide 
 de pulsation $\omega_d$ (dite pseudo-pulsation), de phase $\phi$ et 
@@ -772,8 +788,7 @@ La~\cref{fig-2nd_pp} présente cette réponse indicielle du régime
 pseudo-périodique pour différentes valeurs du taux d'amortissement pour 
 une pulsation propre $\omega_0=1$. Nous constatons que comme attendu, 
 l'amplitude des oscillations augmente lorsque le taux d'amortissement diminue.
-
-\newpage
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dépassement et temps de réponse à 5\%}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -807,24 +822,26 @@ il nous faut d'abord déterminer le temps du premier maximum $t_1$.
 %-------------------------------------------------------------------------------
 Pour celà il suffit de déterminer le temps pour lequel la dérivée 
 du signal $s(t)$ s'annule. On calcul alors un temps $t_1$ à $T_d/2$ 
-où $T_d$ est la pseudo-période définit à partir de la 
+où $T_d$ est la pseudo-période défini à partir de la 
 pseudo-pulsation $\omega_d$. 
 On a alors :
+%-------------------------------------------------------------------------------
 \begin{align*}
 T_d=\dfrac{2\pi}{\omega_d}\\
 t_1 = \dfrac{\pi}{\omega_d}
 \end{align*}
-
-Formellement, le premier dépassement est définit par :
-$$
+%-------------------------------------------------------------------------------
+Formellement, le premier dépassement est défini par :
+\[
 D_1=\left|\dfrac{s(t_1)-s(\infty)}{s(\infty)-s(0)}\right|
-$$
+\]
 où $s(0)$, $s(\infty)$ et $s(t_1)$ sont respectivement la valeur initiale, 
 la valeur finale et la valeur du premier maximum du signal.
 
 La valeur $s(t_1)$ s'obtient en remplaçant la valeur de $t_1$ dans la 
 forme analytique de la réponse indicielle du régime 
 pseudo-périodique (\Cref{eq-2-3_2nd}) :
+%-------------------------------------------------------------------------------
 \begin{align*}
     s(t_1) &= KE_0\left(1 - 
     \dfrac{1}{\sqrt{1-\xi^2}} 
@@ -833,6 +850,7 @@ pseudo-périodique (\Cref{eq-2-3_2nd}) :
     e^{-\alpha\pi/\omega_d}\sin{(\pi+\phi)}\right) \\
     s(t_1) &= KE_0\left(1 + e^{-\alpha\pi/\omega_d}\right)
 \end{align*}
+%-------------------------------------------------------------------------------
 Le dépassement est donc donné par l'expression : 
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -853,7 +871,6 @@ en lisant des valeurs directement sur un graphique.}
 facilitant le calcul du dépassement connaissant le taux d'amortissement 
 et inversement.
 \newline
-
 Il n'existe pas de relation analytique simple pour déterminer 
 le temps de réponse à 5\% (c.f définition donnée par la~\cref{fig-2nd_t5pc}) 
 en fonction du taux d'amortissement. Nous avons alors procéder par une 
@@ -863,7 +880,6 @@ La~\cref{fig-2nd_temps_reponse} présente la variation du temps de
 réponse à 5\% réduit à la pulsation (i.e $\omega_0\cdot t_{5\%}$ ) 
 en fonction du taux d'amortissement $\xi$. On observe un minimum du 
 temps de réponse pour $\xi\sim 0.7$
-
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -871,13 +887,12 @@ temps de réponse pour $\xi\sim 0.7$
     \input{tikz/2nd_t5pc-chap_model.tex}
     \caption{Définition du temps de réponse à 5\% dans le cas de la 
     réponse indicielle en régime pseudo-périodique d'un système du 
-    second ordre. Le temps de réponse à 5\% est définit comme le 
+    second ordre. Le temps de réponse à 5\% est défini comme le 
     temps minimal pour que le signal soit compris dans une bande 
     à $\pm$5\% autour de la valeur finale. Réponse indicielle 
     pour (bleu) $\xi=0.2$ et (rouge) $\xi=0.5$.\label{fig-2nd_t5pc} }
 \end{figure}
 %-------------------------------------------------------------------------------
-
 %-------------------------------------------------------------------------------
 \begin{figure}
 \centering
@@ -889,38 +904,36 @@ temps de réponse pour $\xi\sim 0.7$
              \label{fig-2nd_temps_reponse}}
 \end{figure}
 %-------------------------------------------------------------------------------
-
 %-------------------------------------------------------------------------------
 {\tikzset{external/export=false}
 \input{tex/reponses_temporelles_2nd_ordre.tex}
 }
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse à une rampe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du second ordre!réponse à une rampe}
 La réponse à une rampe d'un système du second ordre est, dans le domaine 
 de Laplace, donnée par
-$$
+\[
 S(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}\cdot\dfrac{E_0}{p^2}
-$$
+\]
 où $E(p)=\dfrac{E_0}{p^2}$ est un signal rampe.
 \'Etudions la forme analytique des réponses à une rampe dans les différents 
 régimes du système du second ordre.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Dans le cas $\xi>1$ (régime apériodique),}
+\paragraph{Dans le cas $\xi>1$ (régime apériodique)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-écrivons la sortie $S(p)$ sous la forme :
-$$
+\'Ecrivons la sortie $S(p)$ sous la forme :
+\[
 S(p)=\dfrac{K\omega_0^2}{(p-p_1)(p-p_2)}\cdot\dfrac{E_0}{p^2}
-$$
+\]
 la décomposition en éléments simples de $S(p)$ s'écrit:
-$$
+\[
 S(p)=\dfrac{A}{p}+\dfrac{B}{p^2}+\dfrac{C}{p-p_1}+\dfrac{D}{p-p_2}.
-$$
+\]
 Procédons par évaluation pour obtenir les coefficients $B$, $C$ et $D$:
+%-------------------------------------------------------------------------------
 \begin{align*}
     B=p^2S(p)\Big|_{p=0}      &=KE_0,\\
     C=(p-p_1)S(p)\Big|_{p=p_1}&=\dfrac{KE_0\omega_0^2}{p_1^2(p_1-p_2)}
@@ -928,17 +941,18 @@ Procédons par évaluation pour obtenir les coefficients $B$, $C$ et $D$:
     D=(p-p_2)S(p)\Big|_{p=p_2}&=\dfrac{KE_0\omega_0^2}{p_2^2(p_2-p_1)}
      =\dfrac{-KE_0 p_1^2}{\omega_0^2(p_1-p_2)},
 \end{align*}
+%-------------------------------------------------------------------------------
 et par indentification pour $A$:
-$$
+\[
 A=KE_0\dfrac{p_1+p_2}{\omega_0^2}
-$$
+\]
 la sortie $S(p)$ devient alors :
-$$
+\[
 S(p)=KE_0\left(\dfrac{p_1+p_2}{\omega_0^2}\cdot\dfrac{1}{p} + 
                \dfrac{1}{p^2} + 
                \dfrac{1}{\omega_0^2(p_1-p_2)}
                \left(\dfrac{p_2^2}{p-p_1}-\dfrac{p_1^2}{p-p_2} \right)\right)
-$$
+\]
 La transformée de Laplace inverse de $S(p)$ (c.f lignes 4 et 7 du 
 tableau de l'\cref{annexe-lap}), nous permet de déterminer la réponse à 
 une rampe du régime apériodique :
@@ -957,36 +971,38 @@ s(t)=KE_0\left(t-\tau_1-\tau_2+\dfrac{1}{(\tau_1-\tau_2)}
 \end{bequation}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Dans le cas $\xi=1$ (régime apériodique critique),} 
+\paragraph{Dans le cas $\xi=1$ (régime apériodique critique)} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-écrivons la sortie $S(p)$ sous la forme :
-$$
+\'Ecrivons la sortie $S(p)$ sous la forme :
+\[
 S(p)=\dfrac{K\omega_0^2}{(p-p_1)^2}\cdot\dfrac{E_0}{p^2}.
-$$
+\]
 La décomposition en éléments simples de $S(p)$ s'écrit:
-$$
+\[
 S(p)=\dfrac{A}{p}+\dfrac{B}{p^2}+\dfrac{C}{(p-p_1)}+\dfrac{D}{(p-p_1)^2}.
-$$ 
+\] 
 Procédons par évaluation pour obtenir les coefficients $B$ et $D$:
+%-------------------------------------------------------------------------------
 \begin{align*}
     B=p^2S(p)\Big|_{p=0}        &=KE_0,\\
     D=(p-p_1)^2S(p)\Big|_{p=p_1}&=KE_0,\\
 \end{align*}
+%-------------------------------------------------------------------------------
 par identification on obtient:
-$$
+\[
 A=KE_0\dfrac{2}{p_1}
-$$
+\]
 et en utilisant la parité de la fonction $C=-A$.
 
 La sortie $S(p)$ devient alors :
-$$
+\[
 S(p)=KE_0\left(\dfrac{2}{p_1}\cdot
  			   \dfrac{1}{p}+ 
                \dfrac{1}{p^2}-
 			   \dfrac{2}{p_1}\cdot
 			   \dfrac{1}{(p-p_1)}+ 
 			   \dfrac{1}{(p-p_1)^2}\right) 
-$$
+\]
 La transformée de Laplace inverse de $S(p)$ (c.f lignes 3, 4, 7 
 et 8 du tableau de l'\cref{annexe-lap}), nous permet de déterminer 
 la réponse à une rampe du régime apériodique critique :
@@ -1002,74 +1018,82 @@ posons $p_1=-1/\tau$, la réponse devient :
 \end{bequation}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Dans le cas $0<\xi<1$ (régime pseudo-périodique),} 
+\paragraph{Dans le cas $0<\xi<1$ (régime pseudo-périodique)} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-écrivons la sortie $S(p)$ sous la forme:
-$$
+\'Ecrivons la sortie $S(p)$ sous la forme:
+\[
 S(p)=\dfrac{K\omega_0^2}{(p+\alpha)^2+\omega_d^2}\cdot\dfrac{E_0}{p^2},
-$$
+\]
 où, rappellons que $\alpha=\xi\omega_0$ et $\omega_d=\omega_0\sqrt{1-\xi^2}$.
 
 La décomposition en éléments simples de $S(p)$ s'écrit:
-$$
+\[
 S(p)=\dfrac{A}{p}+\dfrac{B}{p^2}+\dfrac{C(p+\alpha)+D}{(p+\alpha)^2+\omega_d^2}.
-$$ 
+\] 
 Procédons par évaluation pour obtenir le coefficient $B$:
-$$
+\[
 B=p^2S(p)\Big|_{p=0}=\dfrac{KE_0\omega_0^2}{\alpha^2+\omega_d^2}=KE_0,
-$$
+\]
 où $\alpha^2+\omega_d^2=\omega_0^2$ par définition.
 
 Par identification du numérateur,
 on obtient les relations suivantes sur les coefficients:
-$$
+\[
 \begin{cases}
     p^3:\,\,\,\,\,A+C=0\\
     p^2:\,\,\,\,\,B+2A\alpha+C\alpha+D=0\\
     p^1:\,\,\,\,\,2B\alpha+A(\alpha^2+\omega_d^2)=0
 \end{cases}
-$$
+\]
 On a alors :
+%-------------------------------------------------------------------------------
 \begin{align*}
-    A=-\dfrac{2\alpha}{\alpha^2+\omega_d^2}B&=-\dfrac{2\xi}{\omega_0}KE_0\\
+    A&=-\dfrac{2\alpha}{\alpha^2+\omega_d^2}\\
+    B&=-\dfrac{2\xi}{\omega_0}KE_0\\
     C=-A&=\dfrac{2\xi}{\omega_0}KE_0\\
     D=-B-A\alpha&=KE_0\left(\dfrac{2\xi}{\omega_0}\alpha-1\right)=KE_0(2\xi^2-1)
 \end{align*}
+%-------------------------------------------------------------------------------
 La sortie $S(p)$ s'écrit donc :
-$$
+\[
 S(p)=KE_0\left(\dfrac{1}{p^2}-\dfrac{2\xi}{\omega_0}\cdot
                \dfrac{1}{p}+\dfrac{2\xi}{\omega_0}\cdot
 			   \dfrac{p+\alpha}{(p+\alpha)^2+\omega_d^2}+
 			   \dfrac{2\xi^2-1}{\omega_d}\cdot\dfrac{\omega_d}
 			   {(p+\alpha)^2+\omega_d^2}\right)
-$$
+\]
 La transformée de Laplace inverse de $S(p)$ (c.f lignes 3, 4, 30 
 et 31 du tableau de l'\cref{annexe-lap}), nous permet de déterminer la 
 réponse à une rampe du régime pseudo-périodique :
+%-------------------------------------------------------------------------------
 \begin{align*}
-s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+
-\dfrac{2\xi\sqrt{1-\xi^2}}{\omega_d}
-e^{-\alpha t}\cos{\omega_d t}+
-\dfrac{2\xi^2-1}{\omega_d}e^{-\alpha t}\sin{\omega_d t}
-\right)\\
+    s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+
+    \dfrac{2\xi\sqrt{1-\xi^2}}{\omega_d}
+    e^{-\alpha t}\cos{\omega_d t}+
+    \dfrac{2\xi^2-1}{\omega_d}e^{-\alpha t}\sin{\omega_d t}
+    \right)\\
 \end{align*}
+%-------------------------------------------------------------------------------
 en posant à nouveau : 
+%-------------------------------------------------------------------------------
 \begin{align*}
     \cos{\phi}&=\xi\\
     \sin{\phi}&=\sqrt{1-\xi^2}
 \end{align*}
+%-------------------------------------------------------------------------------
 et en notant que :
+%-------------------------------------------------------------------------------
 \begin{align*}
     \cos{2\phi}&=1-2\sin^2\phi=2\xi^2-1\\
     \sin{2\phi}&=2\sin\phi\cos\phi=2\xi\sqrt{1-\xi^2}
 \end{align*}
+%-------------------------------------------------------------------------------
 on obtient :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+
 	     \dfrac{2\xi}{\omega_d}e^{-\alpha t}\sin{(\omega_d t+2\phi)}\right)
 \end{bequation}
-%-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
@@ -1082,17 +1106,15 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+
             Avec $\omega_0=1$, $K=1$ et $E_0=1$. \label{fig-2nd_ramp}}
 \end{figure}
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cas particulier de l'oscillateur harmonique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Dans le cas où l'équation différentielle est de la forme 
-$$
+\[
 \devi{s(t)}{2}+\omega_0^2 s(t)=Ke(t)
-$$
+\]
 c'est à dire sans amortissement ($\xi=0$), on se retrouve alors dans le 
 cas classique de l'oscillateur harmonique.
 Nous allons ici étudier ce modèle limite qui est d'une grande importance 
@@ -1100,26 +1122,24 @@ en physique. Ceci afin de constater que l'approche utilisée tout le long de
 ce chapitre permet également de décrire ce modèle important. 
 
 La fonction de transfert de l'équation différentielle précédente s'écrit :
-$$
+\[
 H(p)=\dfrac{S(p)}{E(p)}=\dfrac{K}{p^2+\omega_o^2}
-$$
-
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse impulsionnelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La réponse impulsionnelle d'un oscillateur harmonique est, dans le domaine 
 de Laplace, donnée par 
-$$
+\[
 S(p)=\dfrac{KE_0}{p^2+\omega_o^2}
-$$
+\]
 La réponse dans le domaine temporel est donnée par :
-$$
+\[
 s(t)=\laplace{S(p)}=\dfrac{KE_0}{\omega_0}\sin{\omega_0t}
-$$
+\]
 Ce qui correspond bien à l'oscillation incessante d'un oscillateur non amortie
 que l'on a déplacé de son état d'équilibre.
-
-\newpage
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1131,7 +1151,6 @@ que l'on a déplacé de son état d'équilibre.
 %qui physiquement ne se retrouveront jamais seuls. Cependant, nous aurons
 %la possibilité de les rencontrer conjointement avec les modèles du premier 
 %et du second ordre.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Gain pur}
@@ -1142,9 +1161,9 @@ Dans le cas où l'équation différentielle\footnote{Bien évidemment
 dans ce cas présent, l'équation différentielle est d'ordre 0. Ce qui est 
 un cas très particulier d'équation différentielle.}~régissant le système 
 est de la forme :
-$$
+\[
 s(t)=Ke(t)
-$$
+\]
 où $K$ est un constante. On a faire à un système dit à gain pur. 
 Autrement dit, la sortie est proportionnelle à l'entrée et de même nature.
 La fonction de transfert d'un tel système s'écrit :
@@ -1155,15 +1174,14 @@ La fonction de transfert d'un tel système s'écrit :
 %-------------------------------------------------------------------------------
 La \textbf{réponse impulsionnelle} pour une entrée du type impulsion de 
 Dirac unitaire est elle même une impulsion de Dirac :
-$$
+\[
 s(t)=K\delta(t)
-$$
+\]
 De même pour la \textbf{réponse indicielle} pour une entrée en 
 échelon $e(t)=E_0u(t)$
-$$
+\[
 s(t)=KE_0u(t)
-$$
-
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Intégrateur pur}
@@ -1171,13 +1189,13 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Intégrateur pur}
 Dans le cas où l'équation différentielle régissant le système est de la forme :
-$$
+\[
 \devi{s(t)}{}=Ke(t)
-$$
+\]
 où $K$ est un gain. La sortie correspond à l'intégrale de l'entrée :
-$$
+\[
 s(t)=K\int\limits_0^t e(\tau)\dd{\tau}
-$$
+\]
 La fonction de transfert est celle d'un intégrateur pur:
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -1186,13 +1204,13 @@ H(p)=\dfrac{S(p)}{E(p)}=\dfrac{K}{p}.
 %-------------------------------------------------------------------------------
 La \textbf{réponse impulsionnelle}, pour une entrée unitaire, est la 
 fonction échélon unitaire:
-$$
+\[
 s(t)=K\int\limits_0^t \delta(\tau)\dd{\tau}=Ku(t)
-$$
+\]
 La  \textbf{réponse indicielle} est une rampe de pente $KE_0$ :
-$$
+\[
 s(t)=KE_0\int\limits_0^t u(\tau)\dd{\tau}=KE_0\left[\tau\right]_0^t=KE_0t
-$$
+\]
 Autrement dit, le système est \textbf{instable}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1201,9 +1219,9 @@ Autrement dit, le système est \textbf{instable}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Dérivateur pur}
 Dans le cas où l'équation différentielle régissant le système est de la forme :
-$$
+\[
 s(t)=K\devi{e(t)}{}
-$$
+\]
 où $K$ est un gain. On a à faire à un système dit dérivateur pur. 
 La sortie correspond alors à la dérivée de l'entrée.
 Sa fonction de transfert est de la forme :
@@ -1215,10 +1233,9 @@ H(p)=\dfrac{S(p)}{E(p)}=Kp
 La \textbf{réponse impulsionnelle} d'un dérivateur n'est pas définie. 
 La \textbf{réponse indicielle} est une impulsion de Dirac, par 
 définition de la dérivée d'un échelon :
-$$
+\[
 s(t)=K\delta(t)
-$$
-
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Retard pur}
@@ -1226,18 +1243,18 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Retard pur}
 Un système régit par l'équation différentielle :
-$$
+\[
 s(t)=e(t-\tau)
-$$
+\]
 est dit à retard pur et sa fonction de transfert est de la forme :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-H(p)=\dfrac{S(p)}{E(p)}=Ke^{-\tau p}
+    H(p)=\dfrac{S(p)}{E(p)}=Ke^{-\tau p}
 \end{bequation}
 %-------------------------------------------------------------------------------
 Les réponses temporelles sont donc de mêmes natures que 
 leurs solliciations, elles sont simplement retardés de $\tau$.
-\newpage
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1259,27 +1276,27 @@ rationnelle en $p$ et d'utiliser la propriété de linéarité de la sortie.
 
 Rappelons (c.f ~\cref{chap-slci}) que toute fonction de transfert peut être 
 mise sous la forme factorisé suivante  
-$$
+\[
 H(p)=\dfrac{K}{p^\alpha}\cdot\dfrac{N(p)}{D(p)}
-$$
+\]
 avec $K$ le gain statique, $\alpha$ la classe (ou le nombre d'intégrateur) et 
 deux polynômes $N(p)$ et $D(p)$.
 
 Les deux polynômes peuvent se factoriser comme un produit de polynômes 
 irréductibles unitaires, c'est à dire :
-$$
+\[
 H(p)=
 \dfrac{K}{p^\alpha}
 \dfrac{\prod\limits_i (1+\tau_ip)\prod\limits_j 
 (1+2\xi_j\tau_jp+\tau_jp^2)}{\prod\limits_i (1+\tau_ip)\prod\limits_j 
 (1+2\xi_j\tau_jp+\tau_jp^2)}
-$$
+\]
 en toute rigueur il suffit d'exprimer le rapport 
 des produits comme un simple produits en permettant
 les exposants d'être négatifs, soit alors la forme plus condensée :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-H(p)= Kp^{\alpha}\prod_{i} (1+\tau_ip)^{n_i}\prod_{j} 
+    H(p)= Kp^{\alpha}\prod_{i} (1+\tau_ip)^{n_i}\prod_{j} 
     (1+2\xi_j\tau_jp+\tau_jp^2)^{n_j}
 \end{bequation}
 %-------------------------------------------------------------------------------
@@ -1287,62 +1304,56 @@ où $n_i$ et $n_j$ peuvent être positifs et négatifs.
 
 Après décomposition en éléments simples, $H(p)$ s'écrit sous la forme 
 d'une somme de systèmes du 1er et second ordre.
-$$
+\[
 H(p)=\sum_i H_i(p)
-$$
+\]
 La réponse temporelle $s(t)$ d'un tel système sortie est alors la somme 
 des réponses de chacuns des sous systèmes $H_i(p)$
-$$
+\[
 s(t)=\sum_i s_i(t)
-$$
-
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Exemple d'une fonction de transfert d'ordre 3}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Soit un système caractérisé par la fonction de transfert $H(p)$ tel
 que :
-$$
+\[
 H(p)=\dfrac{3p+1}{p^3+9p^2+23p+15}
-$$
+\]
 On détermine, après un peu d'algèbre, les trois pôles 
 $p_1=-1$, $p_2=-3$ et $p_3=-5$ ainsi que la forme factorisée de la fonction 
 de transfert :
-$$
+\[
 H(p)=\dfrac{3p+1}{(p+1)(p+3)(p+5)}
-$$
-
+\]
 La décomposition en éléments simples est donné par :
-$$
+\[
 H(p)=\dfrac{0.25}{p+1}+\dfrac{1}{p+3}-\dfrac{1.25}{p+5}
-$$
+\]
 et sous forme factorisée :
-$$
+\[
 H(p)=\dfrac{0.25}{p+1}+\dfrac{1/3}{\frac{1}{3}p+1}-\dfrac{0.25}{0.2p+1}
-$$
-
+\]
 La réponse temporelles est donc la somme des réponses temporelles de trois 
 systèmes du premier ordre $H_1(p)$, $H_2(p)$ et $H_3(p) $ ayant 
 respectivement pour paramètres ($K_1=0.25$,$\tau_1=1$), 
-($K_2=1/3,$$\tau_2=1/3$) et ($K_3=-0.25$,$\tau_3=0.2$)
+($K_2=1/3$,$\tau_2=1/3$) et ($K_3=-0.25$,$\tau_3=0.2$)
 
 Pour la réponse indicielle à un échelon d'amplitude $E_0$ les 
 réponses $s_i(t)$ de chacunes de ces fonctions de transferts sont de la 
 forme :
-$$
+\[
 s_i(t)=K_iE_0\left(1-e^{-t/\tau_i}\right)
-$$
-
+\]
 La réponse indicielle du système est alors
-$$
+\[
 s(t)=\sum_i s_i(t) = 
 \dfrac{E_0}{4}\left(1-e^{-t}\right)+
 \dfrac{E_0}{3}\left(1-e^{-3t}\right)-
 \dfrac{E_0}{4}\left(1-e^{-5t}\right)
-$$
-
+\]
 La valeur finale est donnée par la somme algébrique des valeurs finales de 
 chacunes des fonctions de transfert.
 
@@ -1352,9 +1363,7 @@ le dépassement ou encore la stabilité sont gouvernées
 par la fonction de transfert de temps caractéristique le plus grand. 
 L'influence des pôles dominants seront traités lors de l'étude 
 de chacunes des performances attendues par non système asservis.
-
-\newpage
-
+%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1362,26 +1371,20 @@ de chacunes des performances attendues par non système asservis.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %La modèles de \gls{slci} Nous venons de voir les différents types de modèles 
 %mathématiques et leurs caractéristiques. Ces modèles sont 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Formule de Bureau}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \acplhp
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Modèle de Strejc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \acplhp
-
-
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

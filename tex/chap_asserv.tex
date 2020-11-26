@@ -10,6 +10,8 @@ linéaires\label{chap-asservis}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \minitoc
 \newpage
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -18,19 +20,28 @@ linéaires\label{chap-asservis}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
+\begin{marginfigure}
     \centering
-    \includegraphics[width=0.45\linewidth,height=10cm]
-    {fig/Georgetown_PowerPlant_Museum_m.eps}
+    \includegraphics[width=0.9\linewidth]{Georgetown_PowerPlant_Museum_m.eps}
     \caption{Exemple historique de régulateur : Régulateur 
              de vitesse de Watt (d'après \cite{watt})\label{fig-hist}}
-\end{figure}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{Centrifugal_governor.eps} 
+    \caption*{Dessin d'un régulateur à boules. Les boules en rotation s'élèvent 
+    lorque la vitesse augmente, qui referme la valve d'arrivé de vapeur, ce qui 
+    entraîne une diminution de la vitesse de rotation de l'arbre entrainant 
+    le régulateur jusqu'à qu'un équilibre entre ces deux effets s'installe.}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
 Les chapitres précédents nous ont permis de caractériser, modéliser et
 analyser la réponse temporelle des systèmes linéaires.
 Nous allons maintenant aborder la possibilité du \textbf{contrôle} de ces 
 systèmes par l'intermédiaire de l'\textbf{asservissement} et de 
-\textbf{régulation}. 
+la \textbf{régulation}. 
 L'idée sous-jacente est de permettre le contrôle automatique d'un système
 sans l'intervention d'un opérateur humain dans l'établissement d'une commande
 d'un système. 
@@ -44,7 +55,6 @@ il était important de contrôler la vitesse angulaire des turbines à vapeur.
 Le mécanisme de Watt permet avec un dispositif de retroaction d'agir sur la 
 valve d'arrivée de la vapeur en fonction de la vitesse de l'axe de la turbine.
 
-\clearpage
 Jusqu'à présent nous nous sommes intéressés à l'étude de système 
 linéaire \og isolé\fg (de fonction de transfert $H(p)$) 
 qui pour une entrée $E(p)$, élaborait une sortie $S(p)$\footnote{Nous
@@ -52,8 +62,10 @@ continuerons, dans ce chapitre et les suivants, de représenter
 les signaux et systèmes linéaires dans le domaine de Laplace. Une approche 
 temporelle sera introduite au~\cref{chap-repreEtat}}. Dans le contexte du 
 contrôle de ces systèmes l'entrée est appelée \textbf{consigne} et la sortie
-est la \textbf{réponse}. Le problème de \textbf{l'asservissement} consiste 
-à faire en sorte que la réponse suive la consigne au cours du temps.
+est la \textbf{réponse}. La différence entre l'entrée et la sortie est 
+appelée \textbf{l'erreur}. Le problème de \textbf{l'asservissement} consiste 
+alors à annuler cette erreur à chaque instant ou encore à faire en sorte que 
+la réponse suive la consigne au cours du temps.
 
 La \textbf{régulation} est un cas particulier d'asservissement, consistant
 à contrôler la sortie d'un système pour une consigne fixe quelque soit 
@@ -70,10 +82,12 @@ pour différents systèmes linéaires modèles (c.f~\cref{chap-model}).
 La question est de savoir comment agir sur le 
 signal $E(p)$ pour contrôler la sortie $S(p)$ en fonction de 
 ces exigences de performances choisis initialement.
-
+\newpage
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 Il existe deux approches pour élaborer la \textbf{commande} 
 d'un système linéaire :% soit en boucle ouverte soit en boucle fermée.
-
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item En \textbf{boucle ouverte}: on place un correcteur $C(p)$
           en amont du système pour élaborer 
@@ -102,12 +116,12 @@ d'un système linéaire :% soit en boucle ouverte soit en boucle fermée.
           et la réponse globale du système en boucle fermée est
           appelée l'\textbf{écart} $\epsilon(p)$.
 \end{itemize}
+%-------------------------------------------------------------------------------
 La rétroaction\footnote{\emph{feedback} (en anglais)} est devenu incontournable
 dans les applications industrielles et technologiques. Par abus de langage 
 c'est le système en boucle fermée que l'on nomme asservissement. Cependant, la 
 définition précédente de l'asservissement s'applique très bien dans 
 le cas de la boucle ouverte.
-\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -121,29 +135,10 @@ le cas de la boucle ouverte.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Classiquement, un asservissement se représente par le schéma fonctionnel de 
-la figure (\cref{fig-reg}). Celui-ci comporte en générale un \textbf{régulateur}
-permettant de comparer l'image de la sortie obtenue par un capteur 
-à la consigne. Ce régulateur est en générale accompagné d'un \textbf{correcteur}
-permettant de corriger la boucle ouverte du système linéaire.
-%-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{reg_1-chap_asserv-ext}
-    \input{tikz/reg_1-chap_asserv.tex}
-    \caption{Schéma fonctionnel classique de l'asservissement d'un système 
-             présentant un correcteur et un capteur. (c.f~\cref{tab-asser})
-             \label{fig-reg}}
-\end{figure}
-%-------------------------------------------------------------------------------
-La \textbf{mesure} $M(p)$ est l'image de la sortie par l'intermédiaire
-du capteur. Il est alors en générale nécessaire d'adapter la consigne pour
-que l'écart $\epsilon(p)$ soit représentatif de l'écart entre la consigne
-et la sortie et non de son image. Ainsi, on retrouvera très souvent 
-un \textbf{adaptateur} permmettant d'obtenir l'image de la consigne.
-Le procédé/système peux nécéssité d'un \textbf{actionneur} qui agit en 
-transmettant/convertissant l'énergie nécéssaire à son action. 
-La~\cref{fig-reg2} présente une forme augmentée de schéma fonctionnel
-présentant ces nouveaux constituants.
+la~\cref{fig-reg2}. Celui-ci comporte en générale un \textbf{régulateur}
+permettant de comparer l'entrée et la sortie. Ce régulateur est en 
+générale accompagné d'un \textbf{correcteur}
+permettant de corriger la boucle ouverte du système.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -154,20 +149,53 @@ présentant ces nouveaux constituants.
              \label{fig-reg2}}
 \end{figure}
 %-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+%\begin{figure}[!hb]
+%    \centering
+%    \tikzsetnextfilename{reg_1-chap_asserv-ext}
+%    \input{tikz/reg_1-chap_asserv.tex}
+%    \caption{Schéma fonctionnel classique de l'asservissement d'un système 
+%             présentant un correcteur et un capteur. (c.f~\cref{tab-asser})
+%             \label{fig-reg}}
+%\end{figure}
+%-------------------------------------------------------------------------------
+La \textbf{mesure} $M(p)$ est l'image de la sortie élaborée par 
+l'intermédiaire du capteur. Il est alors en générale nécessaire d'adapter 
+la consigne pour que l'écart $\epsilon(p)$ soit représentatif de l'écart 
+entre la consigne et la sortie et non de son image. Ainsi, on retrouvera 
+très souvent un \textbf{adaptateur} permmettant d'obtenir l'image 
+de la consigne. Le procédé/système peux nécéssité d'un \textbf{actionneur} qui 
+agit en transmettant/convertissant l'énergie nécéssaire à son action et qui
+élabore son nouveau signal de commande $U(p)$
+La~\cref{fig-reg2} présente une forme augmentée de schéma fonctionnel
+présentant ces nouveaux constituants. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Présence d'une perturbation : la régulation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La prise en compte de pertubation se fait simplement en considérant un schéma
+fonctionnel à plusieurs entrée à l'instar du schéma-blocs de 
+la~\cref{fig-pert2}. En général, la perturbation se trouve en amont
+du système et le signal de perturbation $P(p)$ est simplement sommé à la 
+commande $U(p)$. On dit que l'on a à faire à une \textbf{perturbation 
+en entrée}. Si celle-ci se trouve en aval du système, on parle alors de 
+\textbf{perturbation de sortie}. Il est également possible de considérer la 
+perturbation introduite par les constituants de l'asservissement eux-mêmes, 
+on parlera alors de \textbf{bruit de mesure}.
+La régulation consiste, pour une consigne donnée, à annuler l'erreur 
+quelque soit la nature et le nombre des perturbations.
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{pert-chap_asserv-ext}
-    \input{tikz/pert-chap_asserv.tex}
-    \caption{Schéma fonctionnel de l'asservissement d'un système 
-             présentant une perturbation.\label{fig-pert}}
-\end{figure}
+%\begin{figure}[!h]
+%    \centering
+%    \tikzsetnextfilename{pert-chap_asserv-ext}
+%    \input{tikz/pert-chap_asserv.tex}
+%    \caption{Schéma fonctionnel de l'asservissement d'un système 
+%             présentant une perturbation.\label{fig-pert}}
+%\end{figure}
 %-------------------------------------------------------------------------------
+La position de la perturbation 
+
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -186,24 +214,24 @@ En regroupant les différents constituants d'un asservissement
 nous pouvons réaliser le découpage du schéma fonctionnel en 
 chaîne d'énergie et en chaîne d'information comme présenté par 
 la~\cref{fig-asser}
-\begin{landscape}
-\vspace*{\fill}
+%\begin{landscape}
+%\vspace*{\fill}
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{asser-chap_asserv-ext}
-    \input{tikz/asser-chap_asserv.tex}
-\end{center}
-%-------------------------------------------------------------------------------
-\captionof{figure}{Décomposition en chaîne d'information et chaîne 
+    \resizebox{\linewidth}{!}{\input{tikz/asser-chap_asserv.tex}}
+    \captionof{figure}{Décomposition en chaîne d'information et chaîne 
                    d'énergie d'un schéma bloc d'asservissement 
                    complet (c.f~\cref{tab-asser}). \label{fig-asser}}
-\vspace*{\fill}
-\end{landscape}
+\end{center}
+%-------------------------------------------------------------------------------
+%\vspace*{\fill}
+%\end{landscape}
 %-------------------------------------------------------------------------------
 \begin{table}[!h]
     \ra{1.5}
     \centering
-    \begin{tabular}{@{}P{3cm}m{8.5cm}P{3cm}@{}}
+    \begin{tabular}{@{}P{0.2\linewidth}m{0.6\linewidth}P{0.2\linewidth}@{}}
     \toprule
 Composants      & Description & Fonction de transfert ou signal associés\\
     \midrule
@@ -249,7 +277,6 @@ Sortie          & Le signal de sortie du système que l'on souhaite
              systèmes.\label{tab-asser}}
 \end{table}
 %-------------------------------------------------------------------------------
-\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fonctions de transfert associées à l'asservissement}
@@ -314,9 +341,9 @@ appliquant la réduction des schémas blocs (c.f~\cref{sec-boucle}),
 %-------------------------------------------------------------------------------
 Remarquons que dans le cas d'une boucle de contre réaction unitaire 
 (c.a.d $H_{CR}(p)=1$), la~\gls{ftbf} se réduit à :
-$$
+\[
 H_{BF}(p)=\dfrac{H_{BO}(p)}{1+H_{BO}(p)}
-$$
+\]
 Dans le cas d'une contre réaction unitaire, la~\gls{ftbf} ne dépend 
 que de la~\gls{ftbo}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -344,14 +371,14 @@ Considérons un système intégrateur asservi et régi par le schéma-bloc suiva
 \end{center}
 %-------------------------------------------------------------------------------
 La fonction de transfert en boucle ouverte $H_{BO}(p)$ est telle que :
-$$
+\[
 H_{BO}(p)=\dfrac{K}{p}
-$$
+\]
 avec $K$ le gain statique. 
 La~\gls{ftbf} est alors donnée :
-$$
+\[
 H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=\dfrac{K}{p+K}=\dfrac{1}{\tau_{BF} p+1}
-$$
+\]
 Remarquons qu'un intégrateur asservi devient un système du premier 
 ordre de gain statique unité et de constante de temps $\tau_{BF}=\dfrac{1}{K}$ 
 où $K$ est le gain statique de la~\gls{ftbo}\footnote{Un intégrateur étant 
@@ -378,29 +405,31 @@ suivant :
 %-------------------------------------------------------------------------------
 La fonction de transfert en boucle ouverte $H_{BO}(p)$ du procédé est alors 
 tel que:
-$$
+\[
 H_{BO}(p)=\dfrac{K}{1+\tau p}
-$$
+\]
 où $K$ est le gain statique et $\tau$ la constante de temps 
 du système en boucle ouverte. 
 La~\gls{ftbf} est alors donnée :
-$$
+\[
 H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=\dfrac{K}{(1+K)+\tau p}
-$$
+\]
 Remarquons que comme attendu la~\gls{ftbf} reste du premier ordre. 
 Sous sa forme canonique cette fonction de transfert devient :
-$$
+\[
 H_{BF}(p)=\dfrac{\dfrac{K}{1+K}}{1+\dfrac{\tau}{1+K}p}
 =\dfrac{K_{BF}}{1+\tau_{BF} p}
-$$
+\]
 où $K_{BF}$ est le gain statique et $\tau_{BF}$ la constante de temps du 
 système boucle fermée. Par identification, on alors les rélations suivantes 
 entre les paramètres du premier ordre de la~\gls{ftbo} et les paramètres du 
 premier ordre de la~\gls{ftbf} :
+%-------------------------------------------------------------------------------
 \begin{align*}
        K_{BF}&=\dfrac{K}{1+K}\\
     \tau_{BF}&=\dfrac{\tau}{1+K}
 \end{align*}
+%-------------------------------------------------------------------------------
 Constatons que le gain statique en boucle ouverte $K$ intervient 
 dans la définition du gain statique $K_{BF}$ et de la constante de temps 
 $\tau_{BF}$ en boucle fermée. Ainsi en modifiant le paramètre $K$, il est 
@@ -421,32 +450,34 @@ suivant :
 \end{center}
 %-------------------------------------------------------------------------------
 La fonction de transfert en boucle ouverte du procédé $H_{BO}(p)$ est tel que:
-$$
+\[
 H_{BO}(p)=\dfrac{K\omega^2_0}{\omega^2_0+2\xi\omega_0p+p^2}
-$$
+\]
 où $K$ est le gain statique, $\omega_0$ la pulsation propre et $\xi$ 
 le coefficient d'amortissement du système en boucle ouverte.
 La~\gls{ftbf} est donnée par :
-$$
+\[
 H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=
 \dfrac{K\omega^2_0}{\omega^2_0(1+K)+2\xi\omega_0p+p^2}
-$$
+\]
 Une nouvelle fois, nous constatons que la fonction de transfert en 
 boucle fermée est du même ordre que celle en boucle ouverte. 
 Sous une forme canonique la~\gls{ftbf} devient :
-$$
+\[
 H_{BF}(p)=\dfrac{K\omega^2_0}{\omega^2_0(1+K)+2\xi\omega_0p+p^2}=
 \dfrac{K_{BF}\omega^2_{0,BF}}{\omega^2_{0,BF}(1+K_{BF})+
 2\xi_{BF}\omega_{0,BF}p+p^2}
-$$
+\]
 Par identification, on alors les rélations suivantes entre 
 les paramètres du second ordre de la~\gls{ftbo} et les paramètres du 
 second ordre de la~\gls{ftbf} :
+%-------------------------------------------------------------------------------
 \begin{align*}
-       K_{BF}&=\dfrac{K}{1+K}\\
-    \omega_{0,BF}&=\omega_0\sqrt{1+K}\\
-    \xi_{BF}&=\dfrac{\xi}{\sqrt{1+K}}
+    K_{BF}       &=\dfrac{K}{1+K}         \\
+    \omega_{0,BF}&=\omega_0\sqrt{1+K}     \\
+    \xi_{BF}     &=\dfrac{\xi}{\sqrt{1+K}}
 \end{align*}
+%-------------------------------------------------------------------------------
 On remarque que influencer le gain de la boucle ouverte permet de modifier
 tous les paramètres du second ordre de la boucle fermée.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

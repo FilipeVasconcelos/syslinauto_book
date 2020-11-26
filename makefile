@@ -9,6 +9,13 @@ fast: dvifast
 pspdf: dvi 
 	dvips -t a4 ${mainfile}.dvi
 	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${mainfile}.ps
+pdf:  
+	pdflatex -shell-escape ${mainfile}
+	bibtex ${mainfile} ||true
+	makeindex ${mainfile}
+	makeglossaries ${mainfile}
+	pdflatex -shell-escape ${mainfile}
+	pdflatex -shell-escape ${mainfile}
 
 text: html
 	html2text -width 100 -style pretty ${mainfile}/${mainfile}.html | sed -n '/./,$$p' | head -n-2 >${mainfile}.txt
@@ -32,8 +39,7 @@ dvifast:
 	latex -shell-escape ${mainfile}
 
 clean:
-	rm -f *.log *.auxlock *.ind *.ist   *.aux *.out *.bbl *.blg *.mtc* *.toc *.maf *.idx *.gls *.ilg *.glo *.glg 
-	      *.acn *.acr     *.alg *.gl*-* *.slg *.slo *.sls
+	rm -f *.log *.auxlock *.ind *.ist   *.aux *.out *.bbl *.blg *.mtc* *.toc *.maf *.idx *.gls *.ilg *.glo *.glg *.acn *.acr     *.alg *.gl*-* *.slg *.slo *.sls
 cleanfig: 
 	rm -f figtikz/*.dpth figtikz/*.glo figtikz/*.glo-abr figtikz/*.idx figtikz/*.ist figtikz/*.log figtikz/*.mtc 
 	      figtikz/*.mtc0 figtikz/*.slo figtikz/*.maf     figtikz/*.ilg figtikz/*.ind figtikz/*.acn figtikz/*.dep

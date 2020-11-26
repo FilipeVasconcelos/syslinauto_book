@@ -11,9 +11,11 @@
 \chaptermark{Équations différentielles}
 La forme générale d'une équation différentielle à coefficients constants est 
 donnée par :
+%-------------------------------------------------------------------------------
 \begin{align}
 \sum_{i=0}^{n}a_i\devi{s(t)}{i}=\sum_{i=0}^{m}b_i\devi{e(t)}{i}
 \end{align}
+%-------------------------------------------------------------------------------
 avec $a_i$ et $b_i$ des coefficients réels et $m$ et $n$ des entiers naturels 
 tels que $m\le n$. L'ordre de l'équation est donnée par $n$.
 
@@ -33,13 +35,13 @@ au~\Cref{chap-slci} (c.a.d Impulsion de Dirac, échelon-unité et rampe).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La forme générale d'une équation différentielle du premier ordre est
 donnée par : 
-$$
+\[
 a_1\devi{s(t)}{}+a_0s(t)=b_0e(t)
-$$
+\]
 Il est toujours possible de simplifier une telle équation sous la forme :
-$$
+\[
 \devi{s(t)}{}+\dfrac{a_0}{a_1}s(t)=\dfrac{b_0}{a_1}e(t)
-$$
+\]
 La forme canonique d'une équation différentielle du premier ordre est alors :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -52,65 +54,67 @@ La forme canonique d'une équation différentielle du premier ordre est alors :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La solution générale de l'équation sans second membre est de la forme :
-$$
+\[
 s(t) = C e^{-\frac{a_0}{a_1}t}\,\,\,\,\text{avec}\,\,\,\,C\in\mathbb{R}
-$$
+\]
 On considère l'équation différentielle suivante régissant l'entrée
 et la sortie d'un SLCI\footnote{Système Linéaire Continu et Invariant} :
-$$
+\[
 \devi{s(t)}{}+as(t)=be(t)
-$$
+\]
 avec pour condition initiale $s(0)=s_0$.
 On cherche à déterminer la réponse indicielle de ce système.
 La réponse libre du système $s_1(t)$ satisfait l'équation différentielle
-$$
+\[
 \devi{s_1(t)}{}=-as_1(t)
-$$
+\]
 Cette réponse ne dépend que des conditions initiales, ici $s(0)=s_0$.
 Cette solution est donc de la forme :
-$$
+\[
 s_1(t)=Ce^{-at}
-$$
+\]
 avec $C$ une constante réel. La réponse doit satisfaire la condition 
 initiale $s(0)=s_0$. Ce qui impose :
-$$
+\[
 s_1(t)=s_0e^{-at}
-$$
+\]
 La réponse indicielle est donnée pour $e(t)=u(t)$. Pour $t>0$, l'équation 
 différentielle avec second membre est alors :
-$$
+\[
 \devi{s(t)}{}+as(t)=b
-$$
+\]
 Déterminons une solution particulière $s_2(t)$ de cette équation 
 différentielle de la forme :
-$$
+\[
 s_2(t)=\lambda(t)e^{-at}.
-$$
+\]
 En introduisant, celle-ci dans l'équation différentielle on a alors :
-$$
+\[
 \lambda'(t)e^{-at}-a\lambda(t)e^{-at}+a\lambda(t)e^{-at}=b
-$$
+\]
 On cherche une primitive de la dérivée de $\lambda$ à partir de :
-$$
+\[
 \lambda'(t)=be^{at}
-$$
+\]
 soit alors :
-$$
+\[
 \lambda(t)=\dfrac{b}{a}e^{at}+C
-$$
+\]
 avec $C$ une constante d'intégration.
-$$
+\[
 s_2(t)=\dfrac{b}{a}+Ce^{-at}.
-$$
+\]
 La solution générale est donnée par la somme des deux réponses précédentes :
+%-------------------------------------------------------------------------------
 \begin{align*}
     s(t)&=s_1(t)+s_2(t)\\
     s(t)&=s_0e^{-at}+\dfrac{b}{a}+Ce^{-at}
 \end{align*}
+%-------------------------------------------------------------------------------
 La constante $C$ se détermine à partir de la condition initiale:
-$$
+\[
 s(t)=s_0e^{-at}+\dfrac{b}{a}\left(1-e^{-at}\right)
-$$
+\]
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{solutions_equadiff-annexe_equa_diff-ext}
@@ -120,11 +124,13 @@ $$
 Sur les trois termes de la solution générale, un seul est non
 nul pour $t\to\infty$. Il correspond au régime permanent de
 la réponse. Les deux autres correspondent au régime transitoire.
+%-------------------------------------------------------------------------------
 \begin{align*}
     s(t)=\textcolor{orange}{s_0e^{-at}-\dfrac{b}{a}e^{-at}}&+
     \textcolor{magenta}{\dfrac{b}{a}}\\
     \textcolor{orange}{transitoire} &\quad\textcolor{magenta}{permanent}
 \end{align*}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

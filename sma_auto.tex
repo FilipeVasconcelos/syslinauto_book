@@ -4,7 +4,18 @@
 %  auteur : Filipe Manuel Vasconcelos
 %  date   : 2017-2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[a4paper,12pt]{scrbook}
+\documentclass[%
+    % nohypdvips
+    paper=a4
+    ,fontsize=12pt       % common are 10, 11 or 12
+    ,headings=huge
+    %,parskip
+    ,numbers=noendperiod % 2.3.1 vs 2.3.1. (no dot after the last chapter number)
+    ,twoside=true
+    ,toc=bibliography    % Bibliography appears in Table of Contents (without a numbr)
+    ,toc=listof          % List of Figures and List of Tables appear in Table of Contents
+    ,version=last        % Use latest version of the KOMA-Script
+    ]{scrbook}
 \usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -20,9 +31,24 @@
             imageposition=right,
             version={4.0},
            ]{doclicense}
+\usepackage[dvipsnames]{xcolor}
+%\makeatletter
+%\def\colore{\edef\colordend{\pdfliteral{\current@color}}}%pdftex version
+%\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%KOMA color 
+\definecolor{col1}{RGB}{57,106,177}
+\colorlet{headingscolor}{col1}
+\addtokomafont{chapter}{\color{headingscolor}}
+\addtokomafont{section}{\color{headingscolor}}
+\addtokomafont{subsection}{\color{headingscolor}}
+\addtokomafont{subsubsection}{\color{headingscolor}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{ifthen}
 \usepackage[skip=0.3cm,hypcap=false]{caption} 
-\captionsetup{width=.85\linewidth,belowskip=0pt,labelfont=bf} 
+\captionsetup{width=0.95\linewidth,belowskip=0pt,labelfont=bf} 
 \usepackage[french]{minitoc}
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{mathrsfs}
@@ -39,17 +65,18 @@
 \usepackage{siunitx}
 \usepackage{siunitxfmv}
 \usepackage{afterpage}
-\usepackage[dvipsnames]{xcolor}
 \usepackage{eso-pic}              %\AddToShipoutPicture  
 \usepackage{calc}                
 \usepackage{imakeidx}
 \makeindex[columnsep=20pt,columnseprule]
-\usepackage[colorlinks]{hyperref}  
+\usepackage[colorlinks=false,linktocpage]{hyperref}  
 \usepackage{url} 
 \usepackage[hyphenbreaks]{breakurl} 
 \usepackage[acronym,symbols,nogroupskip,nonumberlist]{glossaries-extra}
 \usepackage{glossary-superragged}
 \makeglossaries
+\glssetcategoryattribute{acronym}{nohyperfirst}{true}
+\setabbreviationstyle[acronym]{long-short}
 \usepackage{tocbibind}
 \usepackage{titletoc}%
 \usepackage{float}
@@ -75,6 +102,10 @@
 \usepackage{etoolbox}
 \usepackage[french,nameinlink,noabbrev]{cleveref}
 \crefname{appchap}{Annexe}{Annexes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Added package to solve the problem
+%\usepackage{hypdvips}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PGF/TikZ/PGFPLOTS
@@ -121,6 +152,7 @@ pdf2eps 1 "\image"
 \usepackage{tabularx}
 \newlength{\ltmp}
 \newlength{\ldtmp}
+\newlength{\lctmp}
 \usepackage{footnote}
 \renewcommand{\footnoterule}{%
     \kern -3pt  % call this kerna
@@ -132,21 +164,42 @@ pdf2eps 1 "\image"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %GEOMETRY
-\usepackage[a4paper,headheight=16pt]{geometry}
+%\usepackage[a4paper,headheight=30pt]{geometry}
+%\usepackage[
+%      top=2cm,
+%      bottom=2cm,
+%      left=3cm,
+%      right=2cm,
+%      headheight=17pt, % as per the warning by fancyhdr
+%      includehead,includefoot,
+%      heightrounded, % to avoid spurious underfull messages
+%      ]{geometry}
+\usepackage{geometry}
+\geometry{% siehe geometry.pdf (Figure 1)
+          bottom=25mm,
+          inner=25mm,
+          outer=30mm,
+          showframe=false, % For debugging: try true and see the layout frames
+         }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %FANCY HEADER
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\fancyhf{}
-\fancyhead[LO]{\bfseries\rightmark}
-\fancyhead[RO]{\makebox[0pt][l]{\makebox[2cm][r]{\bfseries \thepage}}}
-\fancyhead[LE]{\makebox[0pt][r]{\makebox[2cm][l]{\bfseries \thepage}}}
-\fancyhead[RE]{\bfseries\leftmark}
+\cfoot{}
+\fancyhead[LO]{\color{col1}\bfseries\rightmark}
+\fancyhead[RO]{\makebox[0pt][l]{\makebox[2cm][r]{\color{col1}\bfseries \thepage}}}
+\fancyhead[LE]{\makebox[0pt][r]{\makebox[2cm][l]{\color{col1}\bfseries \thepage}}}
+\fancyhead[RE]{\color{col1}\bfseries\leftmark}
+\renewcommand{\headrule}{\color{col1}\hrulefill}
+\renewcommand{\headrulewidth}{0.4pt} % and the line
+
 \fancypagestyle{plain}{%
-\fancyhead{} % get rid of headers
-\renewcommand{\headrulewidth}{0pt} % and the line
-}
+\fancyhf{}%
+\renewcommand{\headrule}{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \let\origprintindex\printindex
@@ -183,8 +236,9 @@ pdf2eps 1 "\image"
 \usepackage{tdexoq}
 \let\exo\exercice
 \let\ques\question
-\renewcommand{\exercice}[1]{\exo{#1}[\large][\sffamily]}
-\renewcommand{\question}{\ques[\sffamily]}
+\renewcommand{\exercice}[1]{\exo{#1}[\large][\color{col1}\sffamily]}
+\renewcommand{\question}[1]{\ques[\color{col1}\sffamily]{#1}}
+\usetikzlibrary{external}
 \usepackage{routhtab}
 \usepackage{poles}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -200,10 +254,13 @@ pdf2eps 1 "\image"
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 \@addtoreset{equation}{chapter}
-\renewcommand\paragraph{\@startsection{paragraph}{5}{\parindent}%
-{3.25ex \@plus1ex \@minus .2ex}%
-{0.75ex plus 0.1ex}% space after heading
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% redefine paragraph
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+{1\baselineskip plus 0.5\baselineskip minus 0.25\baselineskip}%
+{0.25\baselineskip plus 0.25\baselineskip minus 0.25\baselineskip}%
 {\normalfont\normalsize\bfseries}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatother
 \renewcommand{\theequation}{\thechapter.\arabic{equation}}
 \parindent0pt
@@ -234,6 +291,11 @@ pdf2eps 1 "\image"
 \usepackage{morewrites}
 \usepackage{minted}
 \usepackage{mintedscilabfmv}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{marginnote}
+\usepackage{sidenotes}
+\renewcommand*{\marginfont}{\footnotesize\color{red}\sffamily}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Cover picture
@@ -280,7 +342,7 @@ pdf2eps 1 "\image"
 %\includeonly{tex/chap_slci}            % Système linéaire
 %\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
 %\includeonly{tex/chap_model}           % Modèles Usuels    
-%\includeonly{tex/chap_repfreq}         % Réponse harmonique
+%\includeonly{tex/chap_repfreq,tex/chap_stab}         % Réponse harmonique
 %\includeonly{tex/chap_asserv}          % Asservissement 
 %\includeonly{tex/chap_perf}            % Perf. des sys asservis 
 %\includeonly{tex/chap_stab}            % Stabilité des sys. asservis 
@@ -353,6 +415,7 @@ pdf2eps 1 "\image"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
 \input{tex/pagedegarde}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -370,6 +433,7 @@ pdf2eps 1 "\image"
 \clearpage
 \thispagestyle{empty}
 \input{tex/pagedegarde3}
+%\frontmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \dominitoc
@@ -392,7 +456,7 @@ pdf2eps 1 "\image"
 \begin{appendices}
 \include{tex/annexe_alphagrec}         %A Alphabet grec
 \include{tex/annexe_usi}               %B Unités du Système International 
-\include{tex/annexe_laplace_irl}       %C Pierre-Simon de Laplace 
+%\include{tex/annexe_laplace_irl}       %C Pierre-Simon de Laplace 
 \include{tex/annexe_laplace}           %D Transformation de Laplace 
 \include{tex/annexe_cplx}              %E Rappel sur les nombres complexes
 \include{tex/annexe_seriefourier}      %F Analyse de Fourier
@@ -405,7 +469,7 @@ pdf2eps 1 "\image"
 %\include{tex/todo}                     %M TODO
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\backmatter
+%\backmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \nocite{*}
@@ -433,7 +497,7 @@ pdf2eps 1 "\image"
 \cleartoleftpage
 $\,$
 \thispagestyle{empty}
-\pagecolor{yellow!15}
+\pagecolor{col1!30}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

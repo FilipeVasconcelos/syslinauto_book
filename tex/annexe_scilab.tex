@@ -33,7 +33,6 @@ des fichiers de commande (scripts) contenant des instructions (format texte).
 On peut exécuter des programmes Fortran ou C à partir de Scilab.
 Scilab est complété par un environnement graphique Xcos comparable 
 à l'environnement graphique Simulink fourni avec Matlab. 
-
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -129,7 +128,7 @@ En automatique, la définition de la fonction de transfert
 fait intervenir des polynômes et des fractions rationnelles.
 
 La déclaration d'un polynôme se fait à l'aide de deux instructions. 
-La première utilise la fonction \verb?poly(0, "p")? qui définit 
+La première utilise la fonction \verb?poly(0, "p")? qui définie 
 \og \verb?p?\fg comme l'indéterminée d'un polynôme. 
 La seconde instuction est l'énoncé du polynôme utilisant cette indéterminée. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -232,6 +231,7 @@ comme le polynôme dont la racine est nulle.
 %-------------------------------------------------------------------------------
 Il est également possible d'utiliser la variable \verb?\%s? qui correspond
 à l'instruction \verb?s=poly(0,'s')?.
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -252,9 +252,8 @@ Pour définir un vecteur ligne :
  
     1.    2.    3.
 
--->v=1:0.5:4              // a:incr:b
- v  =                     // vecteur de composante allant de a à b par incrément 
-                          // de incr
+-->v=1:0.5:4           // a:incr:b
+ v  =                  // vecteur allant de a à b par incrément de incr
  
     1.    1.5    2.    2.5    3.    3.5    4.
 \end{Scilabcode}
@@ -477,9 +476,9 @@ arguments nécessaires.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous souhaitons tracer la réponse temporelle d'un système linéaire dont la
 forme analytique est déterminée et de la forme :
-$$
+\[
 s(t)=\dfrac{1}{2}-e^{-t}-\dfrac{3}{2}e^{-2t}
-$$
+\]
 On écrira la fonction de la façon suivante :
 %-------------------------------------------------------------------------------
 \begin{Scilabcode}
@@ -576,6 +575,7 @@ La définition d'un système linéaire continu se fait avec la fonction
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonction syslin (extrait de la doc officiel: help syslin )}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
     \begin{itemize}
         \item Syntaxe :
 %-------------------------------------------------------------------------------
@@ -585,6 +585,7 @@ sl=syslin(dom,H)
         \end{Scilabcode}
 %-------------------------------------------------------------------------------
         \item Paramètres :
+%-------------------------------------------------------------------------------
             \begin{itemize}
                 \item \verb?dom? : chaîne de caractères \verb?('c','d')?, 
                       ou \verb?[]? ou un scalaire.
@@ -593,7 +594,9 @@ sl=syslin(dom,H)
                 \item \verb?sl?  : tlist (liste de type "\verb?syslin?") 
                       représentant le système dynamique
             \end{itemize}
+%-------------------------------------------------------------------------------
         \item Description : 
+%-------------------------------------------------------------------------------
             \begin{itemize}
                 \item \verb?syslin? définit un système dynamique linéaire en 
                       tant que liste typée, et vérifie la consistance des 
@@ -605,15 +608,17 @@ sl=syslin(dom,H)
                       (en secondes), 
                       \verb?dom=[]? si le domaine temporel n'est pas défini
             \end{itemize}
+%-------------------------------------------------------------------------------
     \end{itemize}
+%-------------------------------------------------------------------------------
 \end{doc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple d'utilisation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour définir un système linéaire du premier ordre de fonction de transfert
-$$
+\[
 H(p)=\dfrac{K}{1+\tau p}
-$$
+\]
 à l'aide de la fonction \verb?syslin? il existe deux syntaxes, soit en 
 utilisant la fraction rationnelle directement \verb?syslin("c",ft)?:
 %-------------------------------------------------------------------------------
@@ -646,12 +651,14 @@ fonction \verb?csim?.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonction csim (extrait de la doc officiel (en anglais): help csim )}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item Syntax :
     \begin{Scilabcode}
 [y [,x]]=csim(u,t,sl,[x0 [,tol]])
     \end{Scilabcode}
     \item Parameters :
+%-------------------------------------------------------------------------------
     \begin{itemize}
         \item \verb?u?  function, list or string (control)
         \item \verb?t?  real vector specifying times with, \verb?t(1)? is the 
@@ -662,9 +669,9 @@ fonction \verb?csim?.
         \item \verb?tol? a 2 vector \verb?[atol rtol]? defining absolute and 
               relative tolerances for \verb?ode? solver
     \end{itemize}
-
+%-------------------------------------------------------------------------------
     \item Description :
-
+%-------------------------------------------------------------------------------
     \begin{itemize} 
         \item \verb?csim? simulation of the controlled linear system \verb?sl?.
               \verb?sl? is assumed to be a continuous-time system represented 
@@ -672,8 +679,9 @@ fonction \verb?csim?.
         \item \verb?u?  is the control and \verb?x0? the initial state.
         \item \verb?y?  is the output and \verb?x? the state.
     \end{itemize}
-
+%-------------------------------------------------------------------------------
     The control can be:
+%-------------------------------------------------------------------------------
     \begin{itemize}
         \item a function : \verb?[inputs]=u(t)?
         \item a list : \verb?list(ut,parameter1,....,parametern)? such that:
@@ -687,8 +695,10 @@ fonction \verb?csim?.
               \verb?sl? must have a single input and \verb?x0=0?)
         \item a vector giving the values of \verb?u? corresponding to each 
               \verb?t? value.
+    \end{itemize}
+%-------------------------------------------------------------------------------
 \end{itemize}
-\end{itemize}
+%-------------------------------------------------------------------------------
 \end{doc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple d'utilisation}
@@ -698,7 +708,7 @@ Pour simuler la réponse impulsionnelle on utilisera la chaîne de caractères
 
 Il faut également définir le vecteur temps qui imposera la 
 taille du vecteur de sortie. Le troisième argument est un système linéaire
-définit par la fonction \verb?syslin? présentée précedemment. 
+défini par la fonction \verb?syslin? présentée précedemment. 
 %-------------------------------------------------------------------------------
 \begin{Scilabcode}
 t=0.0:0.05:20;             // définition du vecteur temps 
@@ -764,6 +774,7 @@ intervalle donnée est grand). On utilisera cette approximation avec prudence.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonction plzr (extrait de la doc officiel (en anglais): help plzr )}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item Syntax :
 %-------------------------------------------------------------------------------
@@ -772,23 +783,28 @@ plzr(sl)
 \end{Scilabcode}
 %-------------------------------------------------------------------------------
     \item Arguments :
+%-------------------------------------------------------------------------------
     \begin{itemize}
         \item \verb?sl? syslin list (SIMO linear system) in continuous time.
     \end{itemize}
+%-------------------------------------------------------------------------------
     \item Description :
+%-------------------------------------------------------------------------------
     \begin{itemize}
         \item \verb?plzr(sl)? produces a pole-zero plot of the linear system sl.
     \end{itemize}
+%-------------------------------------------------------------------------------
 \end{itemize}
+%-------------------------------------------------------------------------------
 \end{doc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour tracer la carte des pôles et zéros de la fonction de transfert $H(p)$ 
-définit par :
-$$
+défini par :
+\[
 H(p)=\dfrac{p+2}{p^2+p+1}
-$$
+\]
 On utilisera les instructions suivantes:
 %-------------------------------------------------------------------------------
 \begin{Scilabcode}
@@ -815,6 +831,7 @@ plzr(H)
 \paragraph{Fonction feedback (extrait de la doc officiel (en anglais): 
            help feedback)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item Syntax :
 %-------------------------------------------------------------------------------
@@ -823,13 +840,16 @@ Sl=Sl1/.Sl2
     \end{Scilabcode}
 %-------------------------------------------------------------------------------
     \item Parameters :
+%-------------------------------------------------------------------------------
     \begin{itemize}
         \item \verb?Sl1,Sl2?  linear systems (syslin list) in state-space or 
               transfer form, or ordinary gain matrices.
         \item \verb?Sl? linear system (syslin list) in state-space or 
               transfer form.
     \end{itemize}
+%-------------------------------------------------------------------------------
     \item Description :
+%-------------------------------------------------------------------------------
     \begin{itemize} 
         \item The feedback operation is denoted by /. (slashdot). 
         \item This command returns \verb?Sl=Sl1*(I+Sl2*Sl1)^-1?, i.e 
@@ -840,14 +860,16 @@ Sl=Sl1/.Sl2
         \item Caution: do not use with decimal point (e.g. \verb?1/.1? 
               is ambiguous!)
     \end{itemize}
+%-------------------------------------------------------------------------------
 \end{itemize}
+%-------------------------------------------------------------------------------
 \end{doc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Imaginons que nous souhaitons déterminer
 le système linéaire en boucle fermée à partir des systèmes de la chaîne 
-directe $H(p)$ et la chaîne de retour $R(p)$ comme définit par le schéma-bloc 
+directe $H(p)$ et la chaîne de retour $R(p)$ comme défini par le schéma-bloc 
 suivant:
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -857,14 +879,14 @@ suivant:
 %-------------------------------------------------------------------------------
 La fonction de transfert en boucle fermée $H_{BF}$ est donnée par la relation 
 de Black:
-$$
+\[
 H_{BF}=\dfrac{H(p)}{1+R(p)H(p)}
-$$
+\]
 Pour $H(p)=\dfrac{1}{1+p}$ et $R(p)=\dfrac{1}{1+p}$ alors 
-$$
+\[
 H_{BF}=\dfrac{1}{1+p}\dfrac{1}{1+\dfrac{1}{(1+p)^2}}
       =\dfrac{1+p}{1+(1+p)^2}=\dfrac{1+p}{p^2+2p+2}
-$$
+\]
 Avec l'opération \verb?feedback?, il est aisé de déterminer cette fonction 
 de transfert en boucle fermée en quelques instructions.
 %-------------------------------------------------------------------------------
@@ -900,13 +922,14 @@ Xcos pour obtenir davantage de détails~\cite{steer2014scilab,premier,xcos}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Après avoir lancé Scilab, éxécuter une des instructions suivantes :
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item Taper la commande \verb?xcos? dans la console;
     \item Cliquer sur l'icône : \raisebox{-\mydepth}{\fbox{
           \includegraphics[height=\myheight]{fig/xcos.eps}}}
     \item Menu $\rightarrow$ Applications $\rightarrow$ Xcos
 \end{itemize}
-
+%-------------------------------------------------------------------------------
 Xcos ouvre par défaut le navigateur de palettes et une fenêtre d'édition. 
 Pour construire le diagramme il suffit de faire glisser les blocs dans la 
 fenêtre d'édition.
@@ -984,6 +1007,7 @@ Pour arrêter une simulation : cliquer sur l'icône :
     \fbox{\includegraphics[height=\myheight]{fig/stop.eps}}
 }
 Plusieurs paramètres peuvent être ajustés :
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item La durée de la simulation : Simulation $\rightarrow$ 
           Configurer $\rightarrow$ Temps d'intégration final
@@ -992,6 +1016,7 @@ Plusieurs paramètres peuvent être ajustés :
     \item Les paramètres de la fonction de transfert : Cliquer sur le bloc CLR 
           (N'oubliez pas d'ajouter un contexte si vous utiliser des variables)
 \end{itemize}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Blocs \og To Workspace \fg~ou \og From Workspace\fg}

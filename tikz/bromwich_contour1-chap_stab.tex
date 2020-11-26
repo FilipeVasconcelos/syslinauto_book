@@ -1,0 +1,48 @@
+\begin{tikzpicture}
+    \begin{axis}[
+    ticks=none,
+    axis line style = thick,
+    axis lines = center,
+    height=6cm,
+    width=0.25\linewidth,
+    xlabel=$\Re{p}$,
+    ylabel=$\Im{p}$,
+    xlabel style={below},
+    ylabel style={left},
+    ymin=-1.6,
+    ymax=1.6,
+    xmin=-0.5,
+    xmax=0.6,
+    clip=false]
+    \draw[col1,thick,-{Latex[length=2.5mm]}] 
+    (axis cs:0,-1.4) -- (axis cs:0,-0.7);
+    \draw[col1,thick] 
+    (axis cs:0,-0.75) -- (axis cs:0,-0.15) ;
+    \addplot[col1,very thick,domain=-90:-50,samples=10] 
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[col1,very thick,domain=-51:-52,samples=10] 
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[col1,very thick,domain=-50:60,samples=10] 
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \addplot[col1,very thick,domain=54:90,samples=10] 
+    ({0.15*cos(x)},{0.15*sin(x)});
+    \draw[col1,thick,-{Latex[length=2.5mm]}]        
+    (axis cs:0,0.15) -- (axis cs:0,0.7) ;
+    \draw[col1,thick] (axis cs:0,0.65) -- (axis cs:0,1.4) ;
+    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \addplot[col1,very thick,domain=-58:-90,samples=10] 
+    ({1.4*cos(x)},{1.4*sin(x)});
+    \draw[dashed,thick] 
+    (axis cs:0,0) -- (axis cs:{1.4*cos(20)},{1.4*sin(20)}) 
+    node[midway,above,yshift=0.5em] {\small$R\rightarrow\infty$};
+    \addplot[mark=x,black,ultra thick,only marks,mark size=4pt] 
+    coordinates{(0,0)};
+    %\node[below, text width=6cm,text justified,align=center] at 
+    %(axis cs:0,-1.6) {(b) 0 est un pôle\\ ou zéro de $H_{BO}$};
+%    \draw[green,ultra thick] (axis cs:0,0) circle (1.9cm);
+    \end{axis}
+
+\end{tikzpicture}

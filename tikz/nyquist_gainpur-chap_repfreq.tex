@@ -1,6 +1,7 @@
 \begin{tikzpicture}
 \begin{axis}
     [
+    axis lines=center,
     axis line style = thick,
     xlabel=$\Re{H(\jw)}$,
     ylabel=$\Im{H(\jw)}$,
@@ -9,9 +10,13 @@
     xmin=-10,
     xmax=+10,
     grid=both,
+    x label style={below right},
+    y label style={left},
+    yticklabels={,,},
+    xticklabels={,,},
     ]     
-    \node [below]       at (axis cs:  5, 0)   {$\forall\omega$};
-    \node [above,col1]       at (axis cs:  5, 0)   {$K$};
-    \addplot [col1, mark = *] coordinates {(5, 0)} {};
+    \node [below,yshift=-1em]     at (axis cs: 5, 0)   {\large$\forall\omega$};
+    \node [above,col1,yshift=1em] at (axis cs: 5, 0)   {\large$K$};
+    \addplot [col1,mark options={scale=1.5},mark = *] coordinates {(5, 0)} {};
 \end{axis}
 \end{tikzpicture}
