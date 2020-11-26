@@ -63,7 +63,7 @@ if __name__=="__main__":
          "\subsection":[2,"%","}"],
          "\susubsection":[1,"%","}"],
          "\paragraph":[1,"%","}"],
-         "\exercice":[1,"%","}"],
+         "\exercice":[2,"%","}"],
          "\question":[1,"%","}"],
          "\\begin{figure}":[1,"-","\\end{figure}"],
          "\\begin{center}":[1,"-","\\end{center}"],

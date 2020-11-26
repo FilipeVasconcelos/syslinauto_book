@@ -1,0 +1,8 @@
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{} 
+    \captionsetup{width=0.8\linewidth}
+    \caption*{}
+\end{marginfigure}
+%-------------------------------------------------------------------------------

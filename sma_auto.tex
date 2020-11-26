@@ -32,6 +32,9 @@
             version={4.0},
            ]{doclicense}
 \usepackage[dvipsnames]{xcolor}
+%\makeatletter
+%\def\colore{\edef\colordend{\pdfliteral{\current@color}}}%pdftex version
+%\makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %KOMA color 
@@ -72,6 +75,8 @@
 \usepackage[acronym,symbols,nogroupskip,nonumberlist]{glossaries-extra}
 \usepackage{glossary-superragged}
 \makeglossaries
+\glssetcategoryattribute{acronym}{nohyperfirst}{true}
+\setabbreviationstyle[acronym]{long-short}
 \usepackage{tocbibind}
 \usepackage{titletoc}%
 \usepackage{float}
@@ -231,8 +236,8 @@ pdf2eps 1 "\image"
 \usepackage{tdexoq}
 \let\exo\exercice
 \let\ques\question
-\renewcommand{\exercice}[1]{\exo{#1}[\large][\sffamily]}
-\renewcommand{\question}{\ques[\sffamily]}
+\renewcommand{\exercice}[1]{\exo{#1}[\large][\color{col1}\sffamily]}
+\renewcommand{\question}[1]{\ques[\color{col1}\sffamily]{#1}}
 \usetikzlibrary{external}
 \usepackage{routhtab}
 \usepackage{poles}
