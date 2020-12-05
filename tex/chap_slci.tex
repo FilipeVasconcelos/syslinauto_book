@@ -817,6 +817,47 @@ d'une sinuso\"ide.
 \end{table}
 %-------------------------------------------------------------------------------
 \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Décomposition d'un signal en signaux usuels}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La fonction obtenue par le produit d'une ue fonction quelconque 
+par la fonction échelon unitaire $u(t)$ est une fonction causale.
+\begin{center}
+    \input{tikz/fonction_qqc-causal-chap-slci.tex}
+\end{center}
+Si on retranche la fonction $e(t)=f(t)u(t)$ à partir d'un certain temps
+$\tau$ à l'aide de la fonction échelon unité retardé $u(t-\tau)$ 
+il est possible de sélectionner une portion de la fonction initiale.
+\begin{center}
+    \input{tikz/fonction_qqc-causal2-chap-slci.tex}
+\end{center}
+\`A l'aide de ces propriétés il est possible de décomposer un signal 
+quelconque en une somme de signaux usuels.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemple}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit le signal d'entrée défini par le graphe ci-dessous
+\begin{center}
+    \input{tikz/fonction_creneau-chap-slci.tex}
+\end{center}
+C'est donc un signal qui est nul pour $t<0$ (causal) et $t>2$, et défini
+par $t$ ($e_1(t)$) pour $t\in[0,1]$ et la fonction $2-t$ ($e_2(t)$) pour 
+$t\in[1,2]$. 
+
+Il suffit alors d'annuler les fonctions $e_1(t)$ pour $t>1$ et 
+$e_2(t)$ pour $t>2$.
+En utilisant la propriété des fonctions échelon unitaire retardé, la fonction 
+$e(t)$ peut être décomposé en une simple somme de fonctions usuels:
+\[
+    e(t)=e_1(t)\left(u(t)-u(t-1)\right) + e_2(t)\left(u(t-1)-u(t-2))\right)
+\]
+en regroupant les termes on obtient alors:
+\[
+    e(t)=tu(t)+2(1-t)u(t-1)-(2-t)u(t-2)
+\]
+\newpage
 \newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 \captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -832,7 +873,7 @@ la résolution des équations différentielles
 et elle est essentiel pour la définition de la fonction de transfert qui relie
 l'entrée et la sortie d'un système linéaire.
 %-------------------------------------------------------------------------------
-\begin{marginfigure}[4em]
+\begin{marginfigure}
     \centering
     \includegraphics[width=0.9\linewidth]{fig/Pierre-Simon-Laplace_2}
     \caption*{\index{Laplace, Pierre-Simon}\textbf{Pierre-Simon, marquis 
@@ -1015,7 +1056,6 @@ ou encore
 %-------------------------------------------------------------------------------
 Remarquons alors que \textbf{intégrer dans le domaine temporel consiste à 
 diviser par $p$ dans le domaine de Laplace.}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Théorème de la valeur initiale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1231,7 +1271,7 @@ donnée par :
 avec $n,m\in\mathbb{N}$, $s(t)$ le signal de sortie, $e(t)$ le signal 
 d'entrée et $a_i,b_i\in\mathbb{R}$. L'équation est dite d'ordre $n$.
 %-------------------------------------------------------------------------------
-\begin{marginfigure}[-15em]
+\begin{marginfigure}
     \centering
     \includegraphics[width=0.9\linewidth]{OliverHeaviside.eps}
     \caption*{\index{Heaviside, Oliver}\textbf{Oliver Heaviside} (1850-1925), 

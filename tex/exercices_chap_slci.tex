@@ -1,17 +1,3 @@
-\makeatletter
-\newcount\my@repeat@count
-\newcommand{\myrepeat}[2]{%
-    \begingroup
-    \my@repeat@count=\z@
-    \@whilenum\my@repeat@count<#1\do{#2\advance\my@repeat@count\@ne}%
-    \endgroup
-}
-\makeatother
-\newcommand{\mystar}{{\color{col1}\fontfamily{lmr}\selectfont$\star$}}
-\newcommand{\facile}{\marginpar{\myrepeat{1}{\mystar}}}
-\newcommand{\moyen}{\marginpar{\myrepeat{2}{\mystar}}}
-\newcommand{\difficile}{\marginpar{\myrepeat{3}{\mystar}}}
-\newcommand{\tresdifficile}{\marginpar{\myrepeat{4}{\mystar}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \moyen\exercice{L'impulsion de Dirac approchée}
@@ -40,15 +26,3 @@ $\delta_a(t)$ définie par le graphe ci-contre.
           de Laplace de $\delta_a(t)$ tend bien vers 1.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{Soit la fonction $g_a(t)$ définie par le graphe ci-contre. 
-          Décomposer $g_a(t)$ à l'aide de fonctions échelons et/ou rampes. Donner sa 
-          transformée de Laplace.}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%-------------------------------------------------------------------------------
-\begin{marginfigure}
-    \centering
-    \tikzsetnextfilename{fonction_creneau-chap-slci-ext}
-    \input{tikz/fonction_creneau-chap-slci.tex}
-\end{marginfigure}
-%-------------------------------------------------------------------------------
