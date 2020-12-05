@@ -1,5 +1,6 @@
 \begin{tikzpicture}[baseline=0]
-   \begin{axis}[
+    \begin{axis}
+    [
         name=ff,
         height=4cm,
         width=6cm,
@@ -19,11 +20,12 @@
         xticklabels={,},
         xtick={1,2},
         x tick label style={below},
-        ]
-        \addplot [very thick,col1,domain=-1:2.9, samples=100]{2*x^3-1.6*x^2-1.4*x+0.7};
-   \end{axis}
-        \node at (6,1.5) {\Large$\times u(t)=$};  
-   \begin{axis}[
+    ]
+        \addplot[signalb,domain=-1:2.9,samples=100]{2*x^3-1.6*x^2-1.4*x+0.7};
+    \end{axis}
+    \node at (6,1.5) {\Large$\times u(t)=$};  
+    \begin{axis}
+    [
         at={(ff.south east)}, 
         xshift=3cm,
         height=4cm,
@@ -44,9 +46,8 @@
         xticklabels={,},
         xtick={1,2},
         x tick label style={below},
-        ]
-        \addplot [very thick,col1,domain=-1:0, samples=50]{0};
-        \addplot [very thick,col1,domain=0:2.9, samples=100]{2*x^3-1.6*x^2-1.4*x+0.7};
-   \end{axis}
-
+    ]
+        \addplot[signalb,domain=-1:0,samples=50]{0};
+        \addplot[signalb,domain=0:2.9,samples=100]{2*x^3-1.6*x^2-1.4*x+0.7};
+    \end{axis}
 \end{tikzpicture}

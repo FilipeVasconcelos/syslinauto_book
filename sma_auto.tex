@@ -64,6 +64,7 @@
 \usepackage{mathtools}
 \usepackage{siunitx}
 \usepackage{siunitxfmv}
+\renewcommand*{\degree}{\si{\degree}}
 \usepackage{afterpage}
 \usepackage{eso-pic}              %\AddToShipoutPicture  
 \usepackage{calc}                
@@ -105,7 +106,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Added package to solve the problem
-%\usepackage{hypdvips}
+\usepackage{hypdvips}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PGF/TikZ/PGFPLOTS
@@ -342,7 +343,7 @@ pdf2eps 1 "\image"
 %\includeonly{tex/chap_slci}            % Système linéaire
 %\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
 %\includeonly{tex/chap_model}           % Modèles Usuels    
-%\includeonly{tex/chap_repfreq,tex/chap_stab}         % Réponse harmonique
+%\includeonly{tex/chap_repfreq}         % Réponse harmonique
 %\includeonly{tex/chap_asserv}          % Asservissement 
 %\includeonly{tex/chap_perf}            % Perf. des sys asservis 
 %\includeonly{tex/chap_stab}            % Stabilité des sys. asservis 
