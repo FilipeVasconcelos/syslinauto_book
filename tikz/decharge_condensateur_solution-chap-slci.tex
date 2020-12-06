@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+    \begin{axis}
+    [
+        height=6cm,
+        width=9cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-1,
+        xmax=6,
+        ymin=-0.25,
+        ymax=1.5,
+        xlabel={$t$},
+        ylabel={$q(t)$},
+        xlabel style={below right},
+        ylabel style={above left},
+        yticklabels={0},
+        ytick={0},
+        y tick label style={anchor=east},
+        xticklabels={0,1,2,3,4,5},
+        xtick={0,1,2,3,4,5},
+        x tick label style={below},
+    ]
+        \addplot [signalb,domain=-1:0]{1};
+        \addplot [signalb,domain=0:5.9,samples=200]{exp(-x)};
+        \node[above left] at (axis cs:0,1) {$q_0$};
+    \end{axis}
+\end{tikzpicture}

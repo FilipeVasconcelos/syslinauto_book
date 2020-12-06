@@ -5,8 +5,8 @@
         width=6cm,
         axis x line=center,
         axis y line=center,
-        xmin=-1,
-        xmax=1.5,
+        xmin=-0.5,
+        xmax=2.5,
         ymin=-0.5,
         ymax=1.5,
         xlabel={$t$},
@@ -22,7 +22,7 @@
     ]
         \addplot [signalb,domain=-1:0]{0};
         \addplot [signalb,domain=0:1]{-x+1};
-        \addplot [signalb,domain=1:1.45]{0};
+        \addplot [signalb,domain=1:2.45]{0};
         \draw[signalb] (axis cs:0,0) -- (axis cs:0,1);
     \end{axis}
 \end{tikzpicture}
