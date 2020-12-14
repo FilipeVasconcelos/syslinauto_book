@@ -306,7 +306,7 @@ $c=1$ et avec $m=1$, l'équation différentielle sera de la forme :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Décharge d'un condensateur}
+\paragraph{Décharge d'un condensateur\label{para-decharge}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Considérons un condensateur de capacité électrique $C$ 
 initialement chargé en circuit ouvert.
@@ -314,7 +314,7 @@ initialement chargé en circuit ouvert.
 un courant $i(t)$ parcourt le circuit.
 On observe alors la décharge du condensateur à travers une resistance $R$. 
 
-On souhaite suivre la quantité de charge aux bornes du condensateur au 
+On souhaite suivre la quantité de charge $q(t)$ aux bornes du condensateur au 
 cours du temps.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}[-8em]   
@@ -347,7 +347,7 @@ couplée avec un ressort de constante
 de raideur $k$ et un amortisseur de coefficient de frottement 
 visqueux $b$ (c.a.d que la force est 
 proportionnelle à la vitesse). 
-La masse est soumise à une force $\vect{F}=F(t)\xx{}$.
+La masse est soumise à une force $\vect{f}=f(t)\xx{}$.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}[-8em]
     \centering
@@ -361,19 +361,19 @@ La masse est soumise à une force $\vect{F}=F(t)\xx{}$.
 En appliquant le principe fondamentale de la dynamique en projection 
 sur la direction $x$, on obtient l'équation du mouvement suivante :
 \[
-m\devi{x(t)}{2}+b\devi{x(t)}{}+kx(t)=F(t)
+m\devi{x(t)}{2}+b\devi{x(t)}{}+kx(t)=f(t)
 \]
 \newpage
 \restoregeometry
 \captionsetup{width=0.9\linewidth}
 La résolution de cette équation du mouvement permet de connaitre la position 
 de la masse à chaque instant connaissant la force exterieur 
-appliquée $F(t)$. Le système masse-ressort peut être assimilé à un~\gls{slci} 
-dont l'entrée $e(t)$ est la force $F(t)$ et la sortie $s(t)$ est la 
+appliquée $f(t)$. Le système masse-ressort peut être assimilé à un~\gls{slci} 
+dont l'entrée $e(t)$ est la force $f(t)$ et la sortie $s(t)$ est la 
 position $x(t)$ de la masse (c.f le schéma-bloc de la \cref{fig-masse-ressort})
 
 Formellement, on identifie cette équation différentielle à la forme générale 
-de l'\cref{eq-difflci} pour $s(t)=x(t)$, $e(t)=F(t)$, 
+de l'\cref{eq-difflci} pour $s(t)=x(t)$, $e(t)=f(t)$, 
 $n=$2, $m=0$, $a_2=m$, $a_1=b$, $a_0=k_r$ et $b_0=$1.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

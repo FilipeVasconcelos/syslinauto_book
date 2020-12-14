@@ -49,12 +49,44 @@ ou encore
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Le signal est composé de deux paraboles. 
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{fonction_parabole2-chap-slci-ext}
+    \input{tikz/fonction_parabole2-chap-slci.tex}
+\end{figure}
+%-------------------------------------------------------------------------------
 \[
-    e(t)=t^2\left(u(t)-u(t-1)\right)+(t-2)^2\left(u(t-1)-u(t-2)\right)
+e(t)=
+\begin{cases}
+    0&\quad t<0\\
+    t^2&\quad t\in[0,1]\\
+    (t-2)^2&\quad t\in[1,2]\\
+    0&\quad t>2
+\end{cases}
+\]
+\`A l'aide des fonctions échelons le signal s'écrit alors 
+\[
+    e(t)=t^2\left(u(t)-u(t-1)\right)+(t-2)^2\left(u(t-1)-u(t-2)\right).
+\]
+En regroupant les termes on peut réecrire cette expression sous la forme :
+\[
+    e(t)=t^2u(t)-4(t-1)u(t-1)-t^2u(t-2)+4(t-1)u(t-2)
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{Donner la transformée de Laplace $E(p)$ de ce signal.}
+\question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On rapelle que la transformé de Laplace de la fonction $f(t)=t^2$ 
+est $F(p)=\dfrac{2}{p^3}$. On obtient alors pour la transformée $E(p)$ de $e(t)$ :
+\[
+    E(p)=\dfrac{2}{p^3}-4e^{-p}\left(\dfrac{1}{p^2}-\dfrac{1}{p}\right)
+        -e^{-2p}\dfrac{2}{p^3}+4e^{-2p}\left(\dfrac{1}{p^2}-\dfrac{1}{p}\right)
+\]
+\[
+    E(p)=\dfrac{2}{p^3}\left(1-e^{-2p}\right)
+        -4\left(\dfrac{1}{p^2}-\dfrac{1}{p}\right)\left(e^{-p}-e^{-2p}\right)
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -191,27 +223,52 @@ l'impulsion de Dirac.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Dans cet exercice nous allons appliquer la méthodologie générale pour la
+résolution d'une équation différentielle à coefficients constants.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de l'équation différentielle de la décharge d'un
+condensateur est donnée par :
 \[
     \tau(pQ(p)-q_0)+Q(p)=0
 \]
+où $q_0$ est la condition initialle de $q(t)$.
+La résolution algébrique de cette équation nous donne 
 \[
     Q(p)(\tau p+1)=q_0\tau
 \]
+ou encore :
 \[
     Q(p)=q_0\dfrac{\tau}{\tau p+1}
 \]
+Remarquons que cette solution ne dépend que des conditions initiales, il n'est 
+pas possible de définir une fonction de transfert dans ce cas particulier.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour déterminer la solution $q(t)$ de l'équation différentielle, il suffit de 
+déterminer la transformée inverse de $Q(p)$.
+
+La transformée inverse de la fonction $F(p)=\dfrac{1}{p+a}$ est $f(t)=e^{-a}$.
+Donc sous la forme,
 \[
-    Q(p)=q_0\dfrac{1}{p+\dfrac{1}{\tau}}
+    Q(p)=q_0\dfrac{1}{p+\dfrac{1}{\tau}},
 \]
+la transformée inverse de $Q(p)$ est simplement donnée par 
 \[
     q(t)=q_0e^{-\dfrac{t}{\tau}}
 \]
+
+\begin{center}
+    \tikzsetnextfilename{laplace_schema_decharge_condensateur-chap_slci-ext}
+    \input{tikz/laplace_schema_decharge_condensateur.tex}
+\end{center}
+
+La figure suivante présente donc la représentation graphique de cette solution 
+pour $\tau=\SI{1}{\second}$.
 
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
@@ -220,5 +277,4 @@ l'impulsion de Dirac.
     \input{tikz/decharge_condensateur_solution-chap-slci.tex}
 \end{figure}
 %-------------------------------------------------------------------------------
-
 

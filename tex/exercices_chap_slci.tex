@@ -34,9 +34,6 @@ Soit le signal d'entrée $e(t)$ définie par le graphe ci-contre.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Décomposer $e(t)$ à l'aide de fonctions échelons.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\[
-    e(t)=t^2\left(u(t)-u(t-1)\right)+(t-2)^2\left(u(t-1)-u(t-2)\right)
-\]
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
@@ -44,6 +41,7 @@ Soit le signal d'entrée $e(t)$ définie par le graphe ci-contre.
     \input{tikz/fonction_parabole-chap-slci.tex}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Donner la transformée de Laplace $E(p)$ de ce signal.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -104,7 +102,6 @@ des signaux $e_1(t)$ et $e_2(t-1)$.
 de Laplace $E(p)$.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{L'impulsion de Dirac approchée~\difficile}
@@ -141,40 +138,156 @@ $\delta_a(t)$ définie par le graphe ci-contre.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\exercice{Décharge d'un condensateur}
+\exercice{Décharge d'un condensateur~\facile}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On reprend la mise en équation de la décharge d'un condensateur 
-dans un circuit RC comme présentée dans ce chapitre. L'équation différentielle
+dans un circuit RC comme présentée dans ce chapitre 
+(c.f \cref{para-decharge}). L'équation différentielle
 de la charge $q(t)$ au borne du condensateur est donnée par :
 \[
     RC\devi{q(t)}{}+q(t)=0
 \]
 Le condensateur est initialement chargé $q(0)=q_0$. On remarquera que le 
 produit $RC$ est de dimension d'un temps. On notera cette constante $\tau=RC$.
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \tikzsetnextfilename{decharge_condensateur-chap_slci-ext}
+    \input{tikz/decharge_condensateur-chap_slci.tex}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Déterminer la transformée de Laplace $Q(p)$ de la charge au borne du 
 condensateur $q(t)$.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\[
-    \tau(pQ(p)-q_0)+Q(p)=0
-\]
-\[
-    Q(p)(\tau p+1)=q_0\tau
-\]
-\[
-    Q(p)=q_0\dfrac{\tau}{\tau p+1}
-\]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Déterminer alors la fonction $q(t)$ solution de l'équation 
 différentielle de la décharge d'un condensateur.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Système masse-ressort~\difficile}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+On reprend ici, la mise en équation du système mécanique masse-ressort 
+présentée dans ce chapitre (c.f \cref{para-masse_ressort}). L'équation 
+différentielle de la position de la masse est donnée par 
 \[
-    Q(p)=q_0\dfrac{1}{p+\dfrac{1}{\tau}}
+m\devi{x(t)}{2}+b\devi{x(t)}{}+kx(t)=f(t)
 \]
+où $m$ est la masse, $b$ le coefficient d'amortissement visqueux et $k$ la
+constante de raideur du ressort. Ce système peut être considéré comme
+un système dont l'entrée est la force $f(t)$ et la sortie est la position
+$x(t)$ de la masse.
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \tikzsetnextfilename{masse_ressort-chap_slci-ext}
+    \input{tikz/masse_ressort-chap_slci.tex}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
+On se place dans le cas de conditions initiales nulles. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Déterminer la transformée de Laplace $X(p)$ solution algébrique 
+de la transformée de Laplace de l'équation différentielle de ce système.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de l'équation différentielle nous donnes : 
 \[
-    q(t)=q_0e^{-\dfrac{t}{\tau}}
+    X(p)\left(mp^2+bp+k\right)=F(p)
+\]
+ainsi on peut écrire $X(p)$ sous la forme :
+\[
+    X(p)=\dfrac{1}{mp^2+bp+k}F(p)
 \]
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Indentifier la fonction de transfert $H(p)$ du système et 
+donner sa forme canonique}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On identifie simplement la fonction de transfert du système comme la fraction 
+rationnelle définie par le rapport $\dfrac{X(p)}{F(p)}$
+\[
+    H(p)=\dfrac{1}{mp^2+bp+k}
+\]
+
+Sous forme canonique, cette fonction de transfert s'écrit :
+\[
+    H(p)=\dfrac{1}{k\left(\dfrac{m}{k}p^2+\dfrac{b}{k}p+1\right)}
+\]
+
+
+On sollicite le système par une impulsion de Dirac. Dans les faits, on peut 
+voir cette sollicitation comme l'application d'une force $f(t)$ constante 
+d'intensité $\dfrac{1}{a}$ intense pendant un temps $a$ très court 
+(i.e $a\to0$).    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Indentifier la solution $x(t)$ pour une cette solicitation.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de cette sollicitation $F(p)$ est égale à 1 à 
+la limite $a\to0$. On obtient alors pour la transformée de Laplace de la position
+\[
+    X(p)=\dfrac{1}{mp^2+bp+k}
+\]
+ou encore sous la forme
+\[
+    X(p)=\dfrac{1}{k}\dfrac{\dfrac{k}{m}}{\left(p^2+\dfrac{b}{m}p+\dfrac{k}{m}\right)}
+\]
+Pour obtenir $x(t)$, la position dans le domaine temporelle, il faut 
+appliquer la transformée de Laplace inverse. On identifie pour $X(p)$, 
+la forme de la ligne 31 de la table des transformées de Laplace 
+(c.f \cref{annexe-lap}).
+
+\[
+\laplacei{\dfrac{\omega^2}{p^2+2\xi\omega p+\omega^2}}=
+    \dfrac{\omega}{\sqrt{1-\xi^2}}
+    e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t}
+\]
+
+Identifions les paramètres, $\xi$ et $\omega$ 
+\[
+    \omega^2=\dfrac{k}{m}
+\]
+\[
+    2\xi\omega=\dfrac{b}{m}
+\]
+\[
+    \xi=\dfrac{b}{2\sqrt{mk}}
+\]
+\[
+    \xi^2=\dfrac{b^2}{4mk}
+\]
+\[
+    1-\xi^2=1-\dfrac{b^2}{4mk}
+\]
+\[
+    \sqrt{1-\xi^2}=\sqrt{1-\dfrac{b^2}{4mk}}
+\]
+\[
+    \xi\omega=\dfrac{b}{2m}
+\]
+\[
+    \sin{\omega\sqrt{1-\xi^2}t}=\sin{\sqrt{\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)t}}
+\]
+\[
+    \dfrac{\omega}{\sqrt{1-\xi^2}}=\dfrac{\sqrt{k}}{\sqrt{m-\dfrac{b^2}{4k}}}
+\]
+\[
+    \dfrac{1}{k}\dfrac{\omega}{\sqrt{1-\xi^2}}=\dfrac{1}{\sqrt{mk-\dfrac{b^2}{4}}}
+\]
+Dans les conditions pour lequelle $\xi<1$ 
+La solution est donc de la forme :
+\[
+    x(t)=\dfrac{1}{k}\dfrac{\omega}{\sqrt{1-\xi^2}}                                                                                                     e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t} 
+\]
+ou encore 
+\[
+    x(t)=\dfrac{1}{\sqrt{mk-\dfrac{b^2}{4}}}e^{-\dfrac{b}{2m}t}\sin{\sqrt{\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)t}}
+\]
 
