@@ -228,66 +228,85 @@ voir cette sollicitation comme l'application d'une force $f(t)$ constante
 d'intensité $\dfrac{1}{a}$ intense pendant un temps $a$ très court 
 (i.e $a\to0$).    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{Indentifier la solution $x(t)$ pour une cette solicitation.}
+\question{Indentifier la solution algébrique $X(p)$ pour une cette solicitation.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 La transformée de Laplace de cette sollicitation $F(p)$ est égale à 1 à 
 la limite $a\to0$. On obtient alors pour la transformée de Laplace de la position
 \[
     X(p)=\dfrac{1}{mp^2+bp+k}
 \]
-ou encore sous la forme
+ou encore en utilisant la forme canonique de la fonction de transfert :
 \[
-    X(p)=\dfrac{1}{k}\dfrac{\dfrac{k}{m}}{\left(p^2+\dfrac{b}{m}p+\dfrac{k}{m}\right)}
+    X(p)=\dfrac{1}{k\left(\dfrac{m}{k}p^2+\dfrac{b}{k}p+1\right)}
 \]
-Pour obtenir $x(t)$, la position dans le domaine temporelle, il faut 
-appliquer la transformée de Laplace inverse. On identifie pour $X(p)$, 
-la forme de la ligne 31 de la table des transformées de Laplace 
-(c.f \cref{annexe-lap}).
+
+\question{En comparant la solution algébrique précédente à la forme 
+\[
+    \dfrac{K}{\dfrac{1}{\omega^2}p^2+\dfrac{2\xi}{\omega} p+1}.
+\] 
+Identifier les paramètres $K$, $\xi$ et $\omega$ en fonction des paramètres 
+du problème.}
 
 \[
-\laplacei{\dfrac{\omega^2}{p^2+2\xi\omega p+\omega^2}}=
+    \begin{cases}
+        K=\dfrac{1}{k}\\[2em]
+        \omega^2=\dfrac{k}{m}\\[2em]
+        \dfrac{2\xi}{\omega}=\dfrac{b}{k}
+    \end{cases}\Rightarrow
+    \begin{cases}
+        K=\dfrac{1}{k}\\[2em]
+        \omega=\left(\dfrac{k}{m}\right)^{\frac{1}{2}}\\[2em]
+        \xi=\dfrac{b}{2k}\omega
+    \end{cases}
+\]
+
+
+\question{En utilisant, la transformée de Laplace inverse suivante : 
+\[
+    \laplacei{\dfrac{1}{\dfrac{1}{\omega^2}p^2+\dfrac{2\xi}{\omega} p+1}}=
     \dfrac{\omega}{\sqrt{1-\xi^2}}
     e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t}
-\]
+\quad\quad pour \xi<1 \]
+Déterminer $x(t)$ la solution temporelle de l'équation différentielle pour une telle
+sollicitation.}
 
-Identifions les paramètres, $\xi$ et $\omega$ 
-\[
-    \omega^2=\dfrac{k}{m}
-\]
-\[
-    2\xi\omega=\dfrac{b}{m}
-\]
-\[
-    \xi=\dfrac{b}{2\sqrt{mk}}
-\]
-\[
-    \xi^2=\dfrac{b^2}{4mk}
-\]
-\[
-    1-\xi^2=1-\dfrac{b^2}{4mk}
-\]
-\[
-    \sqrt{1-\xi^2}=\sqrt{1-\dfrac{b^2}{4mk}}
-\]
-\[
-    \xi\omega=\dfrac{b}{2m}
-\]
-\[
-    \sin{\omega\sqrt{1-\xi^2}t}=\sin{\sqrt{\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)t}}
-\]
-\[
-    \dfrac{\omega}{\sqrt{1-\xi^2}}=\dfrac{\sqrt{k}}{\sqrt{m-\dfrac{b^2}{4k}}}
-\]
-\[
-    \dfrac{1}{k}\dfrac{\omega}{\sqrt{1-\xi^2}}=\dfrac{1}{\sqrt{mk-\dfrac{b^2}{4}}}
-\]
-Dans les conditions pour lequelle $\xi<1$ 
+Dans les conditions pour lesquels les paramètres $m, b ,k$ donne $\xi<1$ 
 La solution est donc de la forme :
 \[
-    x(t)=\dfrac{1}{k}\dfrac{\omega}{\sqrt{1-\xi^2}}                                                                                                     e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t} 
+    x(t)=K\dfrac{\omega}{\sqrt{1-\xi^2}}                                                                                                     e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t} 
 \]
 ou encore 
 \[
-    x(t)=\dfrac{1}{\sqrt{mk-\dfrac{b^2}{4}}}e^{-\dfrac{b}{2m}t}\sin{\sqrt{\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)t}}
+    x(t)=\dfrac{1}{m\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)^{\frac{1}{2}}}e^{\frac{-b}{2m}t}\sin{\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)^{\frac{1}{2}}t}
+\]
+
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{masse_ressort_solution-chap_slci-ext}
+    \input{tikz/masse_ressort_solution-chap_slci.tex}
+\end{figure}
+%-------------------------------------------------------------------------------
+On réalise une experience avec une masse
+\[
+    m=\SI{0.5}{\kilogram}
+\]
+un ressort de constante de raideur
+\[
+    k=\SI{10}{\newton\per\meter}
+\]
+avec un amortissement visqueux 
+\[
+    b=\SI{0.894}{\kilogram\per\second}
+\]
+
+\question{Déterminer les valeurs numériques des paramètres $\xi$ et $\omega$}
+
+\[
+    \omega=\SI{4.47}{\radian\per\second}
+\]
+\[
+    \xi=0.2
 \]
 
