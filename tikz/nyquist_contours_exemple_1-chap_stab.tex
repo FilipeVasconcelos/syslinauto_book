@@ -72,8 +72,8 @@
     ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
     \addplot[dashed,col1,very thick,domain=10:20,samples=201] 
     ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
-    \draw[draw=none,fill=col4] (axis cs:0,0) circle (2pt) node[above left,col4] 
-    {\textbf{II}};
+    \draw[draw=none,fill=col4] (axis cs:0,0) circle[radius=2pt] 
+    node[above left,col4] {\textbf{II}};
     \node[right,xshift=0.5em,col1] at (axis cs:{0.9*cos(30)},{0.9*sin(30)}) 
     {\textbf{III}};
     \node[right,xshift=0.5em,col1] at (axis cs:{0.9*cos(30)},{-0.9*sin(30)}) 

@@ -73,7 +73,7 @@
     {\textbf{III}};
     \node[col1] at (axis cs:{-1.2*cos(20)},{-1.2*sin(20)}) 
     {\textbf{I}};
-    \draw[draw=none,fill=col4] (axis cs:0,0) circle (2pt) 
+    \draw[draw=none,fill=col4] (axis cs:0,0) circle[radius=2pt] 
     node[above right,col4,yshift=0.7em] {\textbf{II}};
     \def\ttt{1.0}
     \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=0.6:0.9,samples=201] 
@@ -94,7 +94,7 @@
         {\arrowreversed[line width=2pt]{latex}}},
         decoration={markings,mark=at position 0.9 with 
         {\arrowreversed[line width=2pt]{latex}}},
-        postaction={decorate}] (axis cs:0,0) circle (1.4);
+        postaction={decorate}] (axis cs:0,0) circle[radius=1.4];
     \end{scope}
     \node[left,col3] at (axis cs:{1.4*cos(120)},{1.4*sin(120)})   
     {\scriptsize $p\rightarrow0^-$};

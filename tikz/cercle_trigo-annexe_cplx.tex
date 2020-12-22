@@ -28,11 +28,11 @@
           (1.5cm,0cm)  node[above=1pt] {\scalebox{.6}{$(1,0)$}}
           (0cm,-1.5cm) node[fill=white] {\scalebox{.6}{$(0,-1)$}}
           (0cm,1.5cm)  node[fill=white] {\scalebox{.6}{$(0,1)$}};
-    \draw[thick] (0cm,0cm) circle(1cm);
+    \draw[thick] (0cm,0cm) circle[radius=1cm];
     \foreach \x in {0,30,45,60,90,120,135,150,180,210,
                      225,240,270,300,315,330,360} 
      {
-        \filldraw[black] (\x:1cm) circle(0.6pt);
+         \filldraw[black] (\x:1cm) circle[radius=0.6pt];
      }
      \draw[col4]   (-0.5cm,-0.87cm) rectangle (0.5cm,0.87cm);
      \draw[col3] (-0.71cm,-0.71cm) rectangle (0.71cm,0.71cm);
