@@ -78,7 +78,8 @@ En regroupant les termes on peut réecrire cette expression sous la forme :
 \question{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On rapelle que la transformé de Laplace de la fonction $f(t)=t^2$ 
-est $F(p)=\dfrac{2}{p^3}$. On obtient alors pour la transformée $E(p)$ de $e(t)$ :
+est $F(p)=\dfrac{2}{p^3}$. On obtient alors pour la transformée 
+$E(p)$ de $e(t)$ :
 \[
     E(p)=\dfrac{2}{p^3}-4e^{-p}\left(\dfrac{1}{p^2}-\dfrac{1}{p}\right)
         -e^{-2p}\dfrac{2}{p^3}+4e^{-2p}\left(\dfrac{1}{p^2}-\dfrac{1}{p}\right)
@@ -261,12 +262,12 @@ la transformée inverse de $Q(p)$ est simplement donnée par
 \[
     q(t)=q_0e^{-\dfrac{t}{\tau}}
 \]
-
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{laplace_schema_decharge_condensateur-chap_slci-ext}
     \input{tikz/laplace_schema_decharge_condensateur.tex}
 \end{center}
-
+%-------------------------------------------------------------------------------
 La figure suivante présente donc la représentation graphique de cette solution 
 pour $\tau=\SI{1}{\second}$.
 
@@ -277,4 +278,167 @@ pour $\tau=\SI{1}{\second}$.
     \input{tikz/decharge_condensateur_solution-chap-slci.tex}
 \end{figure}
 %-------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Système masse-ressort}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de l'équation différentielle nous donnes : 
+\[
+    X(p)\left(mp^2+bp+k\right)=F(p)
+\]
+ainsi on peut écrire $X(p)$ sous la forme :
+\[
+    X(p)=\dfrac{1}{mp^2+bp+k}F(p)
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On identifie simplement la fonction de transfert du système comme la fraction 
+rationnelle définie par le rapport $\dfrac{X(p)}{F(p)}$
+\[
+    H(p)=\dfrac{1}{mp^2+bp+k}
+\]
+
+Sous forme canonique, cette fonction de transfert s'écrit :
+\[
+    H(p)=\dfrac{1}{k\left(\dfrac{m}{k}p^2+\dfrac{b}{k}p+1\right)}
+\]
+
+
+On sollicite le système par une impulsion de Dirac. Dans les faits, on peut 
+voir cette sollicitation comme l'application d'une force $f(t)$ constante 
+d'intensité $\dfrac{1}{a}$ intense pendant un temps $a$ très court 
+(i.e $a\to0$).    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de cette sollicitation $F(p)$ est égale à 1 à 
+la limite $a\to0$. On obtient alors pour la transformée de Laplace de la 
+position :
+\[
+    X(p)=\dfrac{1}{mp^2+bp+k}
+\]
+ou encore en utilisant la forme canonique de la fonction de transfert :
+\[
+    X(p)=\dfrac{1}{k\left(\dfrac{m}{k}p^2+\dfrac{b}{k}p+1\right)}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\[
+    \begin{cases}
+        K=\dfrac{1}{k}\\[1.5em]
+        \omega=\left(\dfrac{k}{m}\right)^{\frac{1}{2}}\\[1.5em]
+        \xi=\dfrac{b}{2k}\omega
+    \end{cases}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Dans les conditions pour lesquels les paramètres $m, b ,k$ donne $\xi<1$ 
+La solution est donc de la forme :
+\[
+    x(t)=K\dfrac{\omega}{\sqrt{1-\xi^2}}
+         e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t} 
+\]
+ou encore 
+\[
+    x(t)=\dfrac{1}{m\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)^{\frac{1}{2}}}
+         e^{\frac{-b}{2m}t}\sin{\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)^
+         {\frac{1}{2}}t}
+\]
+
+On réalise une experience avec une masse $m=\SI{0.5}{\kilogram}$, un ressort 
+de constante de raideur $k=\SI{10}{\newton\per\meter}$ et un amortissement 
+visqueux $b=\SI{0.894}{\kilogram\per\second}$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\[
+    \omega=\SI{4.47}{\radian\per\second}
+\]
+\[
+    \xi=0.2
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On constate que la masse retourne à sa position d'équilibre après 6 secondes.
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{masse_ressort_solution-chap_slci-ext}
+    \input{tikz/masse_ressort_solution-chap_slci.tex}
+\end{figure}
+%-------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Fonction de transfert}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Forme canonique d'une fonction de transfert du premier ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de l'équation différentielle nous amène à définir
+la fonction de transfert :
+\[
+    H(p)= \dfrac{S(p)}{E(p)}=\dfrac{b_0}{a_1p+a_0}
+\]
+sous forme canonique elle s'écrit :
+\[
+    H(p)=\dfrac{b_0}{a_0\left(\dfrac{a_1}{a_0}p+1\right)}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Par identification, les paramètres $K$ et $\tau$ sont données par 
+\[
+    \begin{cases}
+        K&=\dfrac{b_0}{a_0}\\[1.5em]
+     \tau&=\dfrac{a_1}{a_0}
+    \end{cases}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+L'étude dimensionnelle de l'équation différentielle nous permet d'identifier
+les relations suivantes :
+\[
+    [a_1][s(t)] T^{-1} = [a_0][s(t)] = [b_0][e(t)].
+\]
+Ainsi $\tau$ a toujours la dimension d'un temps quelque soit la dimension des 
+signaux d'entrée  $e(t)$ et de sortie $s(t)$.
+\[
+    [\tau] = \dfrac{[a_1]}{[a_0]}= T.
+\]
+La dimension du paramètre $K$ dépend elle du rapport des dimensions de ces 
+signaux. En effet,
+\[
+    [K]=\dfrac{[b_0]}{[a_0]}=\dfrac{[s(t)]}{[e(t)]}
+\]
+On peut dire que la dimension de la fonction de transfert est donnée par 
+le paramètre $K$.
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Carte des pôles d'une fonction de transfert}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 

@@ -30,7 +30,6 @@ Soit le signal d'entrée $e(t)$ définie par le graphe ci-contre.
 \exercice{Décomposition d'un signal parabolique~\moyen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Décomposer $e(t)$ à l'aide de fonctions échelons.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -51,7 +50,6 @@ Soit le signal d'entrée $e(t)$ définie par le graphe ci-contre.
 \exercice{Décompositon d'un signal et transformée de Laplace~\difficile}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 On sollicite un système linéaire continu et invariant par deux signaux $e_1(t)$ 
 et $e_2(t)$ (d'amplitude maximale et de durée unité) définits 
 par les graphes ci-contre.
@@ -68,7 +66,6 @@ unitaire (i.e $u(t)$).}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Déterminer les fonctions $E_1(p)$ et $E_2(p)$ les transformées de 
 Laplace respectives de $e_1(t)$ et $e_2(t)$.}
@@ -80,12 +77,10 @@ Laplace respectives de $e_1(t)$ et $e_2(t)$.}
     \input{tikz/fonction_e2-chap-slci.tex}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\question{Généraliser ces entrées pour une amplitude maximale $E_0$ 
 %et une durée du signal $\tau$ quelconques.} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 On sollicite maintenant le système par la fonction $e(t)$ constituée 
 des signaux $e_1(t)$ et $e_2(t-1)$. 
 
@@ -129,7 +124,7 @@ $\delta_a(t)$ définie par le graphe ci-contre.
 \question{En considérant la limite $a\rightarrow0$, montrer que la transformée
           de Laplace de $\delta_a(t)$ tend bien vers 1.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{\'Equations différentielles}
@@ -174,7 +169,6 @@ différentielle de la décharge d'un condensateur.}
 \exercice{Système masse-ressort~\difficile}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 On reprend ici, la mise en équation du système mécanique masse-ressort 
 présentée dans ce chapitre (c.f \cref{para-masse_ressort}). L'équation 
 différentielle de la position de la masse est donnée par 
@@ -198,115 +192,87 @@ On se place dans le cas de conditions initiales nulles.
 \question{Déterminer la transformée de Laplace $X(p)$ solution algébrique 
 de la transformée de Laplace de l'équation différentielle de ce système.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La transformée de Laplace de l'équation différentielle nous donnes : 
-\[
-    X(p)\left(mp^2+bp+k\right)=F(p)
-\]
-ainsi on peut écrire $X(p)$ sous la forme :
-\[
-    X(p)=\dfrac{1}{mp^2+bp+k}F(p)
-\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Indentifier la fonction de transfert $H(p)$ du système et 
 donner sa forme canonique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-On identifie simplement la fonction de transfert du système comme la fraction 
-rationnelle définie par le rapport $\dfrac{X(p)}{F(p)}$
-\[
-    H(p)=\dfrac{1}{mp^2+bp+k}
-\]
 
-Sous forme canonique, cette fonction de transfert s'écrit :
-\[
-    H(p)=\dfrac{1}{k\left(\dfrac{m}{k}p^2+\dfrac{b}{k}p+1\right)}
-\]
-
-
-On sollicite le système par une impulsion de Dirac. Dans les faits, on peut 
-voir cette sollicitation comme l'application d'une force $f(t)$ constante 
-d'intensité $\dfrac{1}{a}$ intense pendant un temps $a$ très court 
-(i.e $a\to0$).    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{Indentifier la solution algébrique $X(p)$ pour une cette solicitation.}
+\question{Indentifier la solution algébrique $X(p)$ pour une cette 
+solicitation.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-La transformée de Laplace de cette sollicitation $F(p)$ est égale à 1 à 
-la limite $a\to0$. On obtient alors pour la transformée de Laplace de la position
-\[
-    X(p)=\dfrac{1}{mp^2+bp+k}
-\]
-ou encore en utilisant la forme canonique de la fonction de transfert :
-\[
-    X(p)=\dfrac{1}{k\left(\dfrac{m}{k}p^2+\dfrac{b}{k}p+1\right)}
-\]
-
-\question{En comparant la solution algébrique précédente à la forme 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Identifier les paramètres $K$, $\xi$ et $\omega$ en fonction des 
+paramètres du problème.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+En comparant, la solution algébrique précédente à la forme 
 \[
     \dfrac{K}{\dfrac{1}{\omega^2}p^2+\dfrac{2\xi}{\omega} p+1}.
 \] 
-Identifier les paramètres $K$, $\xi$ et $\omega$ en fonction des paramètres 
-du problème.}
-
-\[
-    \begin{cases}
-        K=\dfrac{1}{k}\\[2em]
-        \omega^2=\dfrac{k}{m}\\[2em]
-        \dfrac{2\xi}{\omega}=\dfrac{b}{k}
-    \end{cases}\Rightarrow
-    \begin{cases}
-        K=\dfrac{1}{k}\\[2em]
-        \omega=\left(\dfrac{k}{m}\right)^{\frac{1}{2}}\\[2em]
-        \xi=\dfrac{b}{2k}\omega
-    \end{cases}
-\]
-
-
-\question{En utilisant, la transformée de Laplace inverse suivante : 
+\newpage
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Déterminer $x(t)$ la solution temporelle de l'équation différentielle 
+pour une telle sollicitation.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+En utilisant, la transformée de Laplace inverse suivante : 
 \[
     \laplacei{\dfrac{1}{\dfrac{1}{\omega^2}p^2+\dfrac{2\xi}{\omega} p+1}}=
     \dfrac{\omega}{\sqrt{1-\xi^2}}
     e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t}
-\quad\quad pour \xi<1 \]
-Déterminer $x(t)$ la solution temporelle de l'équation différentielle pour une telle
-sollicitation.}
-
-Dans les conditions pour lesquels les paramètres $m, b ,k$ donne $\xi<1$ 
-La solution est donc de la forme :
-\[
-    x(t)=K\dfrac{\omega}{\sqrt{1-\xi^2}}                                                                                                     e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t} 
+\quad\quad \text{pour}\quad\xi<1 
 \]
-ou encore 
-\[
-    x(t)=\dfrac{1}{m\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)^{\frac{1}{2}}}e^{\frac{-b}{2m}t}\sin{\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)^{\frac{1}{2}}t}
-\]
-
-%-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{masse_ressort_solution-chap_slci-ext}
-    \input{tikz/masse_ressort_solution-chap_slci.tex}
-\end{figure}
-%-------------------------------------------------------------------------------
-On réalise une experience avec une masse
-\[
-    m=\SI{0.5}{\kilogram}
-\]
-un ressort de constante de raideur
-\[
-    k=\SI{10}{\newton\per\meter}
-\]
-avec un amortissement visqueux 
-\[
-    b=\SI{0.894}{\kilogram\per\second}
-\]
-
+$\,$\newline
+On réalise une experience avec une masse $m=\SI{0.5}{\kilogram}$, 
+un ressort de constante de raideur $k=\SI{10}{\newton\per\meter}$ et 
+un amortissement visqueux $b=\SI{0.894}{\kilogram\per\second}$. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Déterminer les valeurs numériques des paramètres $\xi$ et $\omega$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Tracer la réponse $x(t)$ et déterminer le temps pour que la masse 
+retourne à son position d'équilibre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Fonction de transfert}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Forme canonique d'une fonction de transfert du premier ordre~\facile}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Soit un système régit par l'équation différentielle suivante 
 \[
-    \omega=\SI{4.47}{\radian\per\second}
+    a_1\devi{s(t)}{} + a_0 s(t) = b_0 e(t)
 \]
-\[
-    \xi=0.2
-\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Déterminer la forme canonique de fonction de transfert 
+$H(p)$ associée à cette équation différentielle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Déterminer les paramètres $K$ et $\tau$ en fonction des coefficients
+$a_i$ et $b_i$ de tels sorte que $H(p)$ s'écrivent sous la forme}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Déterminer les dimensions de ces paramètres quelques soient celles 
+des signaux d'entrée $e(t)$ et de sortie $s(t)$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Carte des pôles d'une fonction de transfert}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

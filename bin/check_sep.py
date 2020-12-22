@@ -12,21 +12,21 @@ def check(line,context):
         return context+"{" in line or context+"[" in line
     return context in line
 # =============================================================================
-def check_start(line):
-    return "{" in line
+def check_start(line,sep):
+    return sep[2] in line
 # =============================================================================
 def check_finish(line,sep):
     return sep[2] in line
 # =============================================================================
-def return_start(kline,lines):
+def return_start(kline,lines,sep):
     k=0
-    while not check_start(lines[kline+k]) :
+    while not check_start(lines[kline+k],sep) :
         k+=1
     return k+kline
 # =============================================================================
 def return_finish(kline,lines,sep):
     k=0
-    while not check_finish(lines[kline+k],sep) :
+    while not check_finish(lines[kline+k],sep):
         k+=1
     return k+kline
 # =============================================================================
@@ -58,13 +58,13 @@ if __name__=="__main__":
     lines=f.readlines()
     f.close()
 
-    sep={"\chapter":[4,"%","}"],
-         "\section":[3,"%","}"],
-         "\subsection":[2,"%","}"],
-         "\susubsection":[1,"%","}"],
-         "\paragraph":[1,"%","}"],
-         "\exercice":[2,"%","}"],
-         "\question":[1,"%","}"],
+    sep={"\chapter":[4,"%","}","{"],
+         "\section":[3,"%","}","{"],
+         "\subsection":[2,"%","}","{"],
+         "\susubsection":[1,"%","}","{"],
+         "\paragraph":[1,"%","}","{"],
+         "\exercice":[2,"%","}","{"],
+         "\question":[1,"%","}","{"],
          "\\begin{figure}":[1,"-","\\end{figure}"],
          "\\begin{center}":[1,"-","\\end{center}"],
          "\\begin{table}":[1,"-","\\end{table}"],

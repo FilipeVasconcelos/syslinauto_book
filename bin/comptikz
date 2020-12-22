@@ -41,7 +41,7 @@ cat > standalone/${texname}.tex <<EOF
 \usetikzlibrary{babel} 
 \usetikzlibrary{decorations.text}
 \usetikzlibrary{matrix}
-\usetkzobj{all}
+%\usetkzobj{all}
 \usepackage{verbatim}
 \usepackage{poles}
 \begin{document}

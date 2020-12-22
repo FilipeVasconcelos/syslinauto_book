@@ -19,6 +19,7 @@
 \usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{amsmath,amsthm,amssymb}
 \usepackage[french]{babel}
 \addto\captionsfrench{\renewcommand{\bibname}{Références}}
 \addto\captionsfrench{\def\tablename{Tableau}}
@@ -50,7 +51,6 @@
 \usepackage[skip=0.3cm,hypcap=false]{caption} 
 \captionsetup{width=0.95\linewidth,belowskip=0pt,labelfont=bf} 
 \usepackage[french]{minitoc}
-\usepackage{amsmath,amsthm,amssymb}
 \usepackage{MnSymbol}
 \usepackage{mathrsfs}
 \usepackage{graphics}
@@ -125,7 +125,7 @@
 \usetikzlibrary{babel} 
 \usetikzlibrary{decorations.text}
 \usetikzlibrary{matrix}
-%\usetkzobj{all} 2020
+%\usetkzobj{all} %2020
 \usetikzlibrary{external}
 \tikzset{external/system call={pdflatex -shell-escape 
 -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"; 
@@ -341,7 +341,7 @@ pdf2eps 1 "\image"
 % includeonly individuel
 % ------------------------------------------------------------------------------
 %\includeonly{tex/avantpropos}
-\includeonly{tex/chap_slci,tex/annexe_laplace}            % Système linéaire
+%\includeonly{tex/chap_slci}            % Système linéaire
 %\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
 %\includeonly{tex/chap_model}           % Modèles Usuels    
 %\includeonly{tex/chap_repfreq}         % Réponse harmonique
@@ -407,6 +407,7 @@ pdf2eps 1 "\image"
 %\premierS
 %\secondS
 %\includeonly{tex/chap_asserv,tex/chap_perf}  
+%\includeonly{tex/chap_slci,tex/chap_model,tex/annexe_laplace}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % utile pour l'annnexe 5
 \newlength\myheight
@@ -456,7 +457,7 @@ pdf2eps 1 "\image"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{appendices}
-\include{tex/annexe_alphagrec}         %A Alphabet grec
+%\include{tex/annexe_alphagrec}         %A Alphabet grec
 \include{tex/annexe_usi}               %B Unités du Système International 
 %\include{tex/annexe_laplace_irl}       %C Pierre-Simon de Laplace 
 \include{tex/annexe_laplace}           %D Transformation de Laplace 
