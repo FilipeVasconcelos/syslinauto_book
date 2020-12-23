@@ -355,7 +355,7 @@ respectivement l'angle avec l'axe des réels et la distance à l'origine
 des parties réel et imaginaire de $H(\jw)$, en considérant les pulsations 
 négatives, c'est à dire entre $\omega\rightarrow-\infty$ et 
 $\omega\rightarrow+\infty$.
-%\clearpage
+\clearpage
 %\restoregeometry
 %\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1147,7 +1147,7 @@ $H(\jw)$ étant égal à une constante réel $K$, le diagramme de Nyquist ce
 limite à un point sur l'axe des réels quelque soit la valeur de $\omega$.
 Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
 %-------------------------------------------------------------------------------
-\begin{marginfigure}[-3em]
+\begin{marginfigure}
     \centering
     \tikzsetnextfilename{nyquist_gainpur-chap_repfreq-ext}
     \resizebox{\linewidth}{!}{\input{tikz/nyquist_gainpur-chap_repfreq.tex}}
@@ -1338,6 +1338,12 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     +4\xi^2\omega_0^2\omega^2}
 \end{align*}
 %-------------------------------------------------------------------------------
+Les figures~\cref{fig-nyquist_2nd_1} présentent le tracé des lieux de Nyquist 
+pour deux valeurs de $\xi$. On observe que ces lieux ont la forme de cardioïde.
+Pour des valeurs de $\xi<\dfrac{\sqrt{2}}{2}$, on observe un renflement, sur 
+la partie droite du lieu de Nyquist, dû à l'augmentation
+du module de $H(\jw)$ (i.e gain) associé au phénomène de résonance.
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{nyquist_2nd_1-chap_repfreq-ext}
@@ -1357,16 +1363,17 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
 \subsubsection{Effet d'un retard sur le diagramme de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Retard pur!effet d'un retard sur le diagramme de Nyquist}
+Nous allons ici étudier l'effet d'un retard sur le diagramme de Nyquist 
+d'un système du premier ordre.
 La fonction de transfert $H_R(\jw)$ d'un retard est donnée par la relation :
 \[
-H_R(\jw)=e^{-j\tau_1\omega}=\cos{\tau_1\omega}-j\sin{\tau_1\omega}
+H_R(\jw)=e^{-j\tau_1\omega}=\cos{\tau_1\omega}-j\sin{\tau_1\omega},
 \]
 avec $\tau_1$ le retard. 
-\'Etudions l'effet de ce retard sur le diagramme de Nyquist d'un système 
-du premier ordre $H(\jw)$. La fonction de transfert modifié est:
+La fonction de transfert modifié d'un système du premier ordre est donnée par
 \[
 H(\jw)=\dfrac{K}{1+j\tau\omega}H_R(\jw)=
-\dfrac{K}{1+j\tau\omega}\left(\cos{\tau\omega}-j\sin{\tau\omega}\right)
+\dfrac{K}{1+j\tau\omega}\left(\cos{\tau\omega}-j\sin{\tau\omega}\right).
 \]
 Les parties réels et imaginaire de la fonction de transfert sont:
 %-------------------------------------------------------------------------------
@@ -1379,6 +1386,11 @@ Les parties réels et imaginaire de la fonction de transfert sont:
     {1+\tau^2\omega^2}
 \end{align*}
 %-------------------------------------------------------------------------------
+Pour des valeurs de $\tau_1>\tau$ (c'est à dire que le temps caractéristique 
+du premier ordre est affecté par le retard), on observe que le demi-cercle 
+attendu pour le lieu de Nyquist d'un système du premier ordre devient une
+spirale qui convergent vers 0.
+%-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{nyquist_effet_retard_1-chap_repfreq-ext}
@@ -1390,18 +1402,18 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 \end{figure}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{nyquist_effet_retard_2-chap_repfreq-ext}
-    \input{tikz/nyquist_effet_retard_2-chap_repfreq.tex}
-    \caption{Effet d'un retard sur le diagramme de Nyquist d'un système du 
-             premier ordre pour différentes valeurs de retard. (bleu) 
-             $\tau_1=0.5$, (rouge) $\tau_1=1.0$ et (noir) $\tau_1=2.0$.
-             Avec $K=1$, $\tau=1$ et $\tau_1=2$. Le lieu de Nyquist est 
-             représenté par une spirale. Par souci de clarté, nous n'avons 
-             ici représenté que l'intervalle $\omega\in[0,\dfrac{10}{\tau_1}]$ 
-             \label{fig-nyquist_effet_retard_2}}
-\end{figure}
+%\begin{figure}[!h]
+%    \centering
+%    \tikzsetnextfilename{nyquist_effet_retard_2-chap_repfreq-ext}
+%    \input{tikz/nyquist_effet_retard_2-chap_repfreq.tex}
+%    \caption{Effet d'un retard sur le diagramme de Nyquist d'un système du 
+%             premier ordre pour différentes valeurs de retard. (bleu) 
+%             $\tau_1=0.5$, (rouge) $\tau_1=1.0$ et (noir) $\tau_1=2.0$.
+%             Avec $K=1$, $\tau=1$ et $\tau_1=2$. Le lieu de Nyquist est 
+%             représenté par une spirale. Par souci de clarté, nous n'avons 
+%             ici représenté que l'intervalle $\omega\in[0,\dfrac{10}{\tau_1}]$ 
+%             \label{fig-nyquist_effet_retard_2}}
+%\end{figure}
 %-------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1409,6 +1421,7 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 \subsection{Diagrammes de Black: méthodologie générale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\acpl
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1434,7 +1447,7 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section*{Exercices du chapitre}
+\section{Exercices du chapitre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1442,7 +1455,7 @@ Les parties réels et imaginaire de la fonction de transfert sont:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section*{Corrigé des exercices}
+\section{Corrigé des exercices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

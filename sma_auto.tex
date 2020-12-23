@@ -19,7 +19,7 @@
 \usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage{amsmath,amsthm,amssymb}
+\usepackage{amsmath,amssymb}
 \usepackage[french]{babel}
 \addto\captionsfrench{\renewcommand{\bibname}{Références}}
 \addto\captionsfrench{\def\tablename{Tableau}}
@@ -51,7 +51,8 @@
 \usepackage[skip=0.3cm,hypcap=false]{caption} 
 \captionsetup{width=0.95\linewidth,belowskip=0pt,labelfont=bf} 
 \usepackage[french]{minitoc}
-\usepackage{MnSymbol}
+\usepackage{bbding}
+%\usepackage{MnSymbol}
 \usepackage{mathrsfs}
 \usepackage{graphics}
 \usepackage{subcaption}
@@ -457,7 +458,7 @@ pdf2eps 1 "\image"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{appendices}
-%\include{tex/annexe_alphagrec}         %A Alphabet grec
+\include{tex/annexe_alphagrec}         %A Alphabet grec
 \include{tex/annexe_usi}               %B Unités du Système International 
 %\include{tex/annexe_laplace_irl}       %C Pierre-Simon de Laplace 
 \include{tex/annexe_laplace}           %D Transformation de Laplace 
