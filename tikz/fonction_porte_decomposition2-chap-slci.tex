@@ -1,8 +1,8 @@
 \begin{tikzpicture}
    \begin{axis}[
-        height=4cm,
-        width=5cm,
-        axis x line=center,
+   height=4cm,
+   width=5cm,
+      axis x line=center,
         axis y line=center,
         xmin=-1,
         xmax=5,
@@ -17,9 +17,11 @@
         y tick label style={anchor=east},
         xticklabels={$a$},
         xtick={2},
-        x tick label style={anchor=north},
+        x tick label style={below left},
         ]
-        \addplot [very thick,col1,const plot]  
-        coordinates { (-1,0.01) (0,0.01) (0,1) (2,1)  (2,0.01) (5,0.01) };
+        \addplot [very thick,color=col4,const plot]   
+        coordinates { (-1, 0.01) (0, 0.01) (0 ,1)  (5,1) };
+        \addplot [very thick,color=col3,const plot] 
+        coordinates { (-1,-0.01) (0,-0.01) (2,-1) (5,-1) };
         \end{axis}
 \end{tikzpicture}

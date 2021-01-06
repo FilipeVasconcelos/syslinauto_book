@@ -212,8 +212,8 @@ En comparant, la solution algébrique précédente à la forme
     \dfrac{K}{\dfrac{1}{\omega^2}p^2+\dfrac{2\xi}{\omega} p+1}.
 \] 
 \newpage
-\restoregeometry
-\captionsetup{width=0.9\linewidth}
+%\restoregeometry
+%\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Déterminer $x(t)$ la solution temporelle de l'équation différentielle 
 pour une telle sollicitation.}
@@ -272,7 +272,58 @@ des signaux d'entrée $e(t)$ et de sortie $s(t)$}
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\exercice{Carte des pôles d'une fonction de transfert}
+\exercice{Carte des pôles d'une fonction de transfert~\moyen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit la carte des pôles et zéros ci-contre 
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \tikzsetnextfilename{carte-exo-chap_slci-ext}
+\begin{tikzpicture}
+    \begin{axis}
+    [   scaled y ticks = false,
+        axis line style = thick,
+        axis x line=center,
+        axis y line=center,
+        width=\linewidth,
+        height=6cm,
+        xmin=-6,
+        xmax=1,
+        ymin=-2.5,
+        ymax=2.5,
+        xlabel={$\boldsymbol{\Re{p}}$},
+        ylabel={$\boldsymbol{\Im{p}}$},
+        xlabel style={below right},
+        ylabel style={above right},
+        xticklabels={-5,-3,-1},
+        xtick={-5,-3,-1},
+        yticklabels={-2,-1,0,1,2},
+        ytick={-2,-1,0,1,2},
+        y tick label style={anchor=west,xshift=0.5em}
+    ]
+    \addplot[mark=o,utb,only marks,mark size=5pt] coordinates{(-5,1) (-5,-1)};
+    \addplot[mark=x,utb,only marks,mark size=5pt] coordinates{(-1,2) (-1,-2)};
+    \addplot[mark=x,utb,mark size=5pt] coordinates{ (-3,0) };
+    \end{axis}
+\end{tikzpicture}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Donner les zéros et les pôles de la fonction de transfert.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\'Ecrire la fonction de transfert $H(p)$ sachant que le gain de 
+sa forme factorisée vaut 3.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Déterminer la forme canonique de $H(p)$ et déduire le gain statique, 
+la classe et l'ordre de ce système.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 

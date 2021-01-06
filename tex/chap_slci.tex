@@ -22,8 +22,8 @@
 Dans ce chapitre, nous présentons les outils mathématiques 
 et notions fondamentales pour la \textbf{modélisation} de l'automatique.
 Dans un premier temps, nous donnerons une définition de chacuns 
-des termes qui compose la notion centrale de \gls{slci} ainsi que quelques
-exemples classiques de système électronique ou mécanique.
+des termes qui compose la notion centrale de \textbf{\gls{slci}} 
+ainsi que quelques exemples classiques de système électronique et mécanique.
 Nous aborderons les différents signaux usuels rencontrés
 en automatique\footnote{et en traitement du signal de façon générale.}.
 Ce chapitre nous permettra d'introduire la transformée de Laplace qui 
@@ -62,7 +62,13 @@ les systèmes dynamiques linéaires.
 La notion de \textbf{système} est centrale dans le monde de l'ingénierie.
 Il existe de nombreuses définitions selon le domaine 
 d'application auquel il est associé. Dans le cadre de ce cours, nous nous 
-reposerons sur la systémique
+reposerons sur la systémique \footnote{Avec la cybernétique, la systémique est 
+un courant de pensée pluridisciplinaire apparue progressivement au milieu du 
+\textsc{\romannumeral 20}\textsuperscript{e}~siècle, sous l'impulsion des 
+travaux précurseurs de Claude Shannon\index{Shannon, Claude}, 
+Warren McCulloch\index{McCulloch, Warren}, 
+Norbert Wiener\index{Wiener, Norbert} 
+ou encore Marvin Minsky\index{Minsky, Marvin}.} 
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
@@ -88,17 +94,10 @@ reposerons sur la systémique
               Auteur de l'expression \og intelligence artificielle\fg}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
-\footnote{Avec la cybernétique, la systémique est 
-un courant de pensée pluridisciplinaire apparue progressivement au milieu du 
-\textsc{\romannumeral 20}\textsuperscript{e}~siècle, sous l'impulsion des 
-travaux précurseurs de Claude Shannon\index{Shannon, Claude}, 
-Warren McCulloch\index{McCulloch, Warren}, 
-Norbert Wiener\index{Wiener, Norbert} 
-ou encore Marvin Minsky\index{Minsky, Marvin}.} 
 qui nous donne une définition à la fois \textbf{structurelle} et 
 \textbf{fonctionnelle} de la notion de système.
 Au niveau structurel, \textbf{un système est un ensemble 
-d'éléments constitutifs ayant des relations entre eux et 
+d'éléments constitutifs ayant des relations entre eux et présentant  
 une frontière avec son environnement}. Cette définition est parfaitement
 représenté par le schéma de la~\cref{fig-systeme}.
 Au niveau fonctionnel, \textbf{un système modifie des flux dynamiques 
@@ -274,7 +273,7 @@ d'entrée et $a_i,b_i\in\mathbb{R}$ sont des coefficients constants.
 Le degré de dérivation de la sortie $n$ le plus grand est appelé \textbf{ordre}.
 On parlera alors de \textbf{l'ordre du système} $n$. Le paramètre $c$ qui 
 correspond au degré de dérivation le plus petit de la sortie est appelé la
-classe du système.
+\textbf{classe du système}.
 Pour un problème donné, ces équations différentielles proviennent 
 directement de la modélisation de la physique (qu'il soit mécanique, 
 électronique, optique \ldots).
@@ -289,7 +288,7 @@ permettront d'écrire de telles équations.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemples}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Pour un système d'ordre $n=2$, de classe 0 et $m=0$, 
+Pour un système d'ordre $n=2$, de classe 0 et avec $m=0$, 
 son équation différentielle sera alors de la forme :
 \[
     a_2\devi{s(t)}{2}+a_1\devi{s(t)}{}+a_0 s(t)=b_0e(t)
@@ -308,11 +307,11 @@ $c=1$ et avec $m=1$, l'équation différentielle sera de la forme :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Décharge d'un condensateur\label{para-decharge}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Considérons un condensateur de capacité électrique $C$ 
-initialement chargé en circuit ouvert.
-À la fermeture de l'interrupteur, en $t=0$, 
-un courant $i(t)$ parcourt le circuit.
-On observe alors la décharge du condensateur à travers une resistance $R$. 
+Considérons le circuit ouvert ci-contre, initialement chargé, constitué 
+d'un condensateur de capacité électrique $C$ et d'une résistance de valeur $R$. 
+À la fermeture de l'interrupteur, à $t=0$, un courant $i(t)$ parcourt 
+le circuit. On observe alors la décharge du condensateur à travers 
+une resistance $R$. 
 
 On souhaite suivre la quantité de charge $q(t)$ aux bornes du condensateur au 
 cours du temps.
@@ -336,9 +335,10 @@ Comme précédemment, on identifie formellemet cette équation différentielle
 $n=$1, $m=0$, $a_1=R$, $a_0=\dfrac{1}{C}$.
 
 Nous laissons au lecteur la résolution de cette équation différentielle 
-par une approche direct classique.
-Nous la rencontrerons à nouveau au~\cref{chap-model}, après avoir 
-présenté la méthode générale pour la résolution de ce type d'équation.
+par une approche direct classique. Sa résolution utilisant la transformée 
+de Laplace, est présenté en exercice à la fin de ce chapitre.
+%Nous la rencontrerons à nouveau au~\cref{chap-model}, après avoir 
+%présenté la méthode générale pour la résolution de ce type d'équation.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Système masse-ressort\label{para-masse_ressort}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -372,9 +372,10 @@ appliquée $f(t)$. Le système masse-ressort peut être assimilé à un~\gls{slc
 dont l'entrée $e(t)$ est la force $f(t)$ et la sortie $s(t)$ est la 
 position $x(t)$ de la masse (c.f le schéma-bloc de la \cref{fig-masse-ressort})
 
-Formellement, on identifie cette équation différentielle à la forme générale 
+On identifie simplement, cette équation différentielle à la forme générale 
 de l'\cref{eq-difflci} pour $s(t)=x(t)$, $e(t)=f(t)$, 
 $n=$2, $m=0$, $a_2=m$, $a_1=b$, $a_0=k_r$ et $b_0=$1.
+La résolution complète sera donnée en exercice à la fin de ce chapitre.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -393,7 +394,7 @@ s : \mathbb{R}&\rightarrow\mathbb{R} \\
 t&\rightarrow s(t) 
 \end{align*}    
 %-------------------------------------------------------------------------------
-Il existe cependant d'autres type de signaux qui sont très souvent confondus 
+Il existe cependant d'autres types de signaux qui sont très souvent confondus 
 à tord:
 %-------------------------------------------------------------------------------
 \begin{itemize}

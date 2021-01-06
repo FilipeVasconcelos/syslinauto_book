@@ -182,6 +182,8 @@ La transformée de Laplace $E(p)$ est simplement donnée par la somme,
     \centering
     \tikzsetnextfilename{fonction_porte_decomposition-chap-slci-ext}
     \input{tikz/fonction_porte_decomposition-chap-slci.tex}
+    \tikzsetnextfilename{fonction_porte_decomposition2-chap-slci-ext}
+    \input{tikz/fonction_porte_decomposition2-chap-slci.tex}
 \end{figure}
 %-------------------------------------------------------------------------------
 La fonction $\delta_a(t)$ est simplement donnée par 
@@ -440,5 +442,36 @@ le paramètre $K$.
 \exercice{Carte des pôles d'une fonction de transfert}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+D'après la carte des pôles et zéros, le système est composé de trois zéros
+$p_1=-3$, $p_2=-1+2j$ et $p_3=-1-2j$ et de deux zéros $z_1=-5+j$ et $z_2=-5-j$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La forme factorisée de la fonction de transfert est alors donnée par 
+\[
+    H(p)=3\dfrac{(p-z_1)(p-z_2)}{(p-p_1)(p-p_2)(p-p_3)}
+\]
+ou encore en développant les différents termes,
+\[
+    H(p)=3\dfrac{(p+5+j)(p+5-j)}{(p+3)(p+1+2j)(p+1-2j)}
+        %=3\dfrac{p^2+10p+26}{(p+3)(p^2+2p+5)}
+        =3\dfrac{p^2+10p+26}{p^3+5p^2+11p+15}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La forme canonique de $H(p)$ est donnée par 
+\[
+    H(p)=\dfrac{26}{5}\dfrac{\frac{1}{26}p^2+\frac{10}{26}p+1}
+                            {\frac{1}{15}p^3+\frac{1}{3}p^2+\frac{11}{15}p+1}
+\]
+On alors à faire à un système d'ordre 3 de classe 0 et de gain statique 
+de valeur 5.2. 
+
 
 
