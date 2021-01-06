@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbBloc[3]{k}{$K$}{E}
+    \sbRelier[$E$]{E}{k}
+    \sbComp{comp1}{k}
+    \sbRelier{k}{comp1}
+    \sbBloc{h1}{$H_1$}{comp1}
+    \sbRelier{comp1}{h1}
+    \sbCompSum{comp2}{h1}{+}{}{+}{}
+    \sbRelier{h1}{comp2}
+    \sbBlocL{h2}{$H_2$}{comp2}
+    \sbRelier{comp2}{h2}
+    \sbBlocL{h3}{$H_3$}{h2}
+    \sbSortie[5]{S1}{h3}
+    \sbRelier{h3}{S1}
+    \sbNomLien[0.8]{S1}{$S$}
+    \sbDecaleNoeudy[4]{h3}{v}
+    \sbBlocr[3.8]{r2}{$K$}{v}
+    \sbRelieryx{h3-S1}{r2}
+    \sbRelierxy{r2}{comp1}
+    \draw[sbStyleLien](comp2|-0,1.5)--(comp2.north) node[midway,left]{$P$};
+\end{tikzpicture}
+

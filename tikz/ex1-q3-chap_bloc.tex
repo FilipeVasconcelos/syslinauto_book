@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{comp1}{E}
+    \sbRelier[$P$]{E}{comp1}
+    \sbBlocL{h2}{$H_2$}{comp1}
+    \sbRelier{comp1}{h2}
+    \sbBlocL{h3}{$H_3$}{h2}
+    \sbRelier{h2}{h3}
+    \sbSortie[5]{S1}{h3}
+    \sbRelier{h3}{S1}
+    \sbNomLien[0.8]{S1}{$S_P$}
+    \sbDecaleNoeudy[4]{h3}{v}
+    \sbBlocr[-1.6]{r2}{$K$}{v}
+    \sbBlocr{r3}{$H_1$}{r2}
+    \sbRelier{r2}{r3}
+    \sbRelieryx{h3-S1}{r2}
+    \sbRelierxy{r3}{comp1}
+\end{tikzpicture}
