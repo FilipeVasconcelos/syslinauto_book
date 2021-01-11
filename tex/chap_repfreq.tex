@@ -21,7 +21,8 @@ Dans ce chapitre, nous allons établir la forme de la réponse d'un \gls{slci}~�
 une entrée sinuso\"idale, dite \textbf{réponse harmonique} en régime permanent.
 Nous présenterons ensuite en détail les différentes représentations graphiques 
 qui constitueront l'\textbf{analyse fréquentielle} de cette réponse harmonique.
-Nous verrons en fin de chapitre une étude du transitoire dans des cas usuels.
+Nous verrons en fin de chapitre une étude analytique du transitoire 
+dans un cas usuel.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -324,7 +325,6 @@ Le diagramme de Bode de $H(\jw)$ est la somme de deux diagrammes indépendants:
     \centering
     \tikzsetnextfilename{sche_nyquist_1-chap_repfreq-ext}
     \input{tikz/sche_nyquist_1-chap_repfreq.tex}
-    \hspace{0cm}
     \tikzsetnextfilename{sche_nyquist_2-chap_repfreq-ext}
     \input{tikz/sche_nyquist_2-chap_repfreq.tex}
     \caption{(gauche) Représentation schématique d'un diagramme de Nyquist. 
@@ -355,7 +355,7 @@ respectivement l'angle avec l'axe des réels et la distance à l'origine
 des parties réel et imaginaire de $H(\jw)$, en considérant les pulsations 
 négatives, c'est à dire entre $\omega\rightarrow-\infty$ et 
 $\omega\rightarrow+\infty$.
-\clearpage
+%\clearpage
 %\restoregeometry
 %\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1421,7 +1421,23 @@ spirale qui convergent vers 0.
 \subsection{Diagrammes de Black: méthodologie générale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acpl
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Diagrammes de Black d'un intégrateur}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Diagrammes de Black d'un dérivateur}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Diagrammes de Black d'un premier ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Diagrammes de Black d'un second ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1429,14 +1445,67 @@ spirale qui convergent vers 0.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acplhp
+%\acplhp
 %c.f pdf/[AnaHSLCI][CO]Analyse_harmonique_des_SLCI.pdf
+L'objectif principale de ce chapitre était de présenter le régime permanent
+de la réponse harmonique, c'est pourquoi nous avons délibéremment occulté 
+la description du régime transitoire.
+Nous allons voir comment prendre en compte le transitoire dans une étude
+analytique dans le cas particulier d'un système du premier ordre.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Exemple d'un système du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acplhp
+Soit un système du premier ordre $H(p)=\dfrac{K}{1+\tau p}$ soumis à une entrée
+de la forme $e(t)=E_0\sin\omega t\cdot u(t)$. La sortie dans le domaine de
+Laplace s'écrit alors :
+\[
+    S(p)=\dfrac{K}{1+\tau p}\dfrac{E_0\omega}{p^2+\omega^2}
+\]
+Il est possible de décomposer en éléments simples $S(p)$ sous la forme  
+\[
+    S(p)=\dfrac{A}{1+\tau p}+\dfrac{B}{p+\jw}+\dfrac{C}{p-\jw}
+\]
+où les coefficients s'obtiennent par évaluation :
+%-------------------------------------------------------------------------------
+\begin{align*}
+    A&=(1+\tau p)S(p)\bigg|_{p=-\frac{1}{\tau}}=
+       \dfrac{KE_0\omega}{p^2+\omega^2}\bigg|_{p=-\frac{1}{\tau}}=
+       \dfrac{KE_0\tau^2\omega}{1+\tau^2\omega^2}\\
+    B&=(p-\jw)S(p)\bigg|_{p=\hphantom{-}\jw}=
+       \dfrac{E_0\omega}{p+\jw}H(p)\bigg|_{p=\hphantom{-}\jw}=
+       \hphantom{-}\dfrac{E_0}{2j}H(\jw)\\
+    C&=(p+\jw)S(p)\bigg|_{p=-\jw}=
+       \dfrac{E_0\omega}{p-\jw}H(p)\bigg|_{p=-\jw}=
+       -\dfrac{E_0}{2j}H(-\jw)
+\end{align*}
+les nombres complexes $H(\jw)$ et $H(-\jw)$ pouvant s'écrire 
+$|H(\jw)|e^{j\phi}$ et $|H(\jw)|e^{-j\phi}$, on écrit :
+\begin{align*}
+    B &= \dfrac{KE_0}{2j\sqrt{1+\tau^2\omega^2}}e^{j\phi} \\
+    C &= \dfrac{KE_0}{2j\sqrt{1+\tau^2\omega^2}}e^{-j\phi}
+\end{align*}
+La transformée inverse de $S(p)$ donne alors :
+\[
+    s(t)= KE_0\left( \dfrac{\tau\omega}{1+\tau^2\omega^2} e^{-t/\tau}
+       + \dfrac{\sin{\omega t +\phi}}{\sqrt{1+\tau^2\omega^2}}\right)
+\]
+Le second terme correspond au régime permanent de la réponse harmonique,
+le premier, composé d'une exponentielle décroissante, correspond au régime 
+transitoire. Comme attendu le régime transitoire a une durée corrélé au temps
+caractéritique du système du premier ordre $\tau$.
+
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{reponse_harmonique_transitoire_1er-chap-repfreq-ext}
+    \input{tikz/reponse_harmonique_transitoire_1er.tex}
+    \caption{}
+\end{figure}
+%-------------------------------------------------------------------------------
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Exemple d'un système du second ordre}
