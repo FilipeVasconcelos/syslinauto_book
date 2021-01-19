@@ -157,20 +157,26 @@ sollicitation en échelon $e(t)=E_0u(t)$ de transformée de Laplace
 $E(p)=\dfrac{E_0}{p}$. 
 Pour une telle entrée, l'erreur statique (c.f \cref{eq-erreurStatique}) 
 devient :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 \epsilon_s=\lim\limits_{p\to 0} \dfrac{p^\alpha}{p^\alpha+K}E_0
 \end{bequation}
+%-------------------------------------------------------------------------------
 Dans le cas d'un système de classe $\alpha=0$ en boucle ouverte :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 \epsilon_s=\lim\limits_{p\to 0} \dfrac{p^0}{p^0+K}E_0=\dfrac{E_0}{1+K}.
 \end{bequation}
+%-------------------------------------------------------------------------------
 L'erreur est finie mais les réponses indicielles des systèmes de classe 
 $\alpha=0$ en boucle ouverte ne sont pas précis.
 
 Dans les autres cas $\alpha>0$, l'erreur statique s'annule :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 \epsilon_s=\lim\limits_{p\to 0} \dfrac{p^\alpha}{p^\alpha+K}E_0=0
 \end{bequation}
+%-------------------------------------------------------------------------------
 Les réponses indicielle des systèmes de classe $\alpha>0$ sont donc précis.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Erreur statique de poursuite}
@@ -180,28 +186,35 @@ du type $e(t)=r(t)=E_0t u(t)$
 de transformée de Laplace $E(p)=\dfrac{E_0}{p^2}$
 
 Pour une telle entrée, l'erreur statique devient :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 \epsilon_s=\lim\limits_{p\to 0} \dfrac{p^\alpha}{p^\alpha+K}\dfrac{E_0}{p}
           =\dfrac{p^{\alpha-1}}{p^\alpha+K}E_0 
 \end{bequation}
-
+%-------------------------------------------------------------------------------
 Dans le cas d'un système de classe $\alpha=0$ en boucle ouverte, 
 l'erreur devient :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 \epsilon_s=\lim\limits_{p\to 0}\dfrac{p^{-1}}{p^0+K}E_0=+\infty
 \end{bequation}
+%-------------------------------------------------------------------------------
 Le système est incapable de suivre l'entrée souhaitée.
 
 Dans le cas d'un système de classe $\alpha=1$ en boucle ouverte, 
 l'erreur devient :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 \epsilon_s=\lim\limits_{p\to 0}\dfrac{p^0}{p+K}E_0=\dfrac{E_0}{K}
 \end{bequation}
+%-------------------------------------------------------------------------------
 Dans le cas d'un système de classe $\alpha>1$ en boucle ouverte, 
 l'erreur devient :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 \epsilon_s=\lim\limits_{p\to 0}\dfrac{p^{\alpha-1}}{p^\alpha+K}E_0=0
 \end{bequation}
+%-------------------------------------------------------------------------------
 Le système est donc prècis.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Erreur statique d'accélération}
@@ -211,20 +224,26 @@ parabolique $e(t)=E_0t^2 u(t)$ de transformée de Laplace
 $E(p)=\dfrac{2E_0}{p^3}$
 
 Pour une telle entrée, l'erreur statique devient :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 \epsilon_s=\lim\limits_{p\to 0}\dfrac{p^\alpha}{p^\alpha+K}\dfrac{2E_0}{p^2}
           =\dfrac{p^{\alpha-2}}{p^\alpha+K}2E_0 
 \end{bequation}
+%-------------------------------------------------------------------------------
 Dans le cas d'un système de classe $\alpha<2$ en boucle ouverte, 
 l'erreur devient :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 \epsilon_s=+\infty
 \end{bequation}
+%-------------------------------------------------------------------------------
 Pour un système de classe $\alpha=2$ en boucle ouverte, 
 l'erreur est finie :
+%-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 \epsilon_s=\dfrac{2E_0}{K}
 \end{bequation}
+%-------------------------------------------------------------------------------
 et s'annule pour $\alpha>2$
 %-------------------------------------------------------------------------------
 \begin{table}
