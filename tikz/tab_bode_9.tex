@@ -1,0 +1,22 @@
+        \begin{tikzpicture}
+            \begin{axis}[
+                    width=\linewidth,
+                    axis line style = thick,
+                    axis x line=middle,
+                    axis y line=middle,
+                    xmin=-5,xmax=20,
+                    ymin=-10,ymax=2.5,
+                    xlabel={ $\log\omega$},
+                    ylabel={ $G_{\si{\dB}}(\omega)$},
+                    xlabel style={above},
+                    ylabel style={left},
+                    xticklabels={$\dfrac{1}{\tau}$},
+                    xtick={10},
+                    x tick label style={above}, 
+                    yticklabels={},
+                    ytick={},
+                ]
+                \addplot[ultra thick,col1,domain=0:10]  {0};
+                \addplot[ultra thick,col1,domain=10:20] {-x+10};
+            \end{axis}
+        \end{tikzpicture}

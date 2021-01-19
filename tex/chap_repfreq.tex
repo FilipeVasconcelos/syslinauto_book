@@ -943,7 +943,7 @@ de résonance pour différentes valeurs du taux d'amortissement.
 \end{figure}
 %-------------------------------------------------------------------------------
 %\afterpage{\clearpage}
-%\newpage
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système d'ordre quelconque}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -957,65 +957,72 @@ d'intégrateurs, de dérivateurs, de systèmes du premier et du second ordre:
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     H(p)= K_0p^{\alpha}\prod_{i} (1+\tau_ip)^{n_i}\prod_{j} 
-         (1+2\xi_j\tau_jp+\tau_jp^2)^{n_j}
+         (1+2\xi_j\tau_jp+\tau_j^2p^2)^{n_j}
 \end{bequation}
 %-------------------------------------------------------------------------------
 où les exposants $\alpha$, $n_i$ et $n_j$ peuvent être positifs et négatifs. 
 
-Nous listons ci-dessous l'effet sur le gain et la phase d'un diagramme de 
-Bode pour chacuns de ces élements selon le signe des exposants $\alpha$, 
-$n_i$, et $n_j$.
+Nous résumons dans le tableau ci-dessous l'effet sur le gain et la phase d'un 
+diagramme de Bode pour chacuns de ces éléments selon le signe des paramètres
+$\alpha$, $n_i$, et $n_j$.
+
+{\tikzset{external/export=false}
+\input{tex/tab_bode.tex}
+}
+%Nous listons ci-dessous l'effet sur le gain et la phase d'un diagramme de 
+%Bode pour chacuns de ces élements selon le signe des exposants $\alpha$, 
+%$n_i$, et $n_j$.
 %-------------------------------------------------------------------------------
-\begin{itemize}
-    \item le terme $K_0$ (i.e gain pur) provoque:
+%\begin{itemize}
+%    \item le terme $K_0$ (i.e gain pur) provoque:
 %-------------------------------------------------------------------------------
-        \begin{itemize}
-            \item gain  : $+20\log{K_0}$
-            \item phase : rien 
-        \end{itemize}
+%        \begin{itemize}
+%            \item gain  : $+20\log{K_0}$
+%            \item phase : rien 
+%        \end{itemize}
 %-------------------------------------------------------------------------------
-    \item le terme $K_0p^{\alpha}$ (i.e intégrateur si $\alpha<0$ ou 
-          dérivateur si $\alpha>0$) provoque :
+%    \item le terme $K_0p^{\alpha}$ (i.e intégrateur si $\alpha<0$ ou 
+%          dérivateur si $\alpha>0$) provoque :
 %-------------------------------------------------------------------------------
-        \begin{itemize}
-            \item gain  : pente de 20$\alpha$ dB/décade 
-            \item phase : 90$\alpha$\si{\degree}
-        \end{itemize}
+%        \begin{itemize}
+%            \item gain  : pente de 20$\alpha$ dB/décade 
+%            \item phase : 90$\alpha$\si{\degree}
+%        \end{itemize}
 %-------------------------------------------------------------------------------
-    \item un terme $\dfrac{1}{(1+\tau_ip)}$ (i.e premier ordre au 
-          dénominateur si $n_i=-1$) provoque, en $\omega=\frac{1}{\tau_i}$
+%    \item un terme $\dfrac{1}{(1+\tau_ip)}$ (i.e premier ordre au 
+%          dénominateur si $n_i=-1$) provoque, en $\omega=\frac{1}{\tau_i}$
 %-------------------------------------------------------------------------------
-        \begin{itemize}
-            \item gain  : une rupture de pente de -20 dB/décade 
-            \item phase : un saut de -90\si{\degree}
-        \end{itemize}
+%        \begin{itemize}
+%            \item gain  : une rupture de pente de -20 dB/décade 
+%            \item phase : un saut de -90\si{\degree}
+%        \end{itemize}
 %-------------------------------------------------------------------------------
-    \item un terme $(1+\tau_ip)$ (i.e premier ordre au numérateur si $n_i=1$) 
-          provoque, en $\omega=\frac{1}{\tau_i}$
+%    \item un terme $(1+\tau_ip)$ (i.e premier ordre au numérateur si $n_i=1$) 
+%          provoque, en $\omega=\frac{1}{\tau_i}$
 %-------------------------------------------------------------------------------
-        \begin{itemize}
-            \item gain  : une rupture de pente de +20 dB/décade 
-            \item phase : un saut de +90\si{\degree}
-        \end{itemize}
+%        \begin{itemize}
+%            \item gain  : une rupture de pente de +20 dB/décade 
+%            \item phase : un saut de +90\si{\degree}
+%        \end{itemize}
 %-------------------------------------------------------------------------------
-    \item un terme $\dfrac{1}{(1+2\xi_j\tau_jp+\tau_jp^2)}$ 
-          (i.e second ordre au dénominateur si $n_j=-1$) provoque, 
-          en $\omega=\frac{1}{\tau_j}$
+%    \item un terme $\dfrac{1}{(1+2\xi_j\tau_jp+\tau_j^2p^2)}$ 
+%          (i.e second ordre au dénominateur si $n_j=-1$) provoque, 
+%          en $\omega=\frac{1}{\tau_j}$
 %-------------------------------------------------------------------------------
-        \begin{itemize}
-            \item gain  : une rupture de pente de -40 dB/décade 
-            \item phase : un saut de -180\si{\degree}
-        \end{itemize}
+%        \begin{itemize}
+%            \item gain  : une rupture de pente de -40 dB/décade 
+%            \item phase : un saut de -180\si{\degree}
+%        \end{itemize}
 %-------------------------------------------------------------------------------
-    \item un terme $(1+2\xi_j\tau_jp+\tau_jp^2)$ (i.e second ordre au 
-          numérateur si $n_j=-1$) provoque, en $\omega=\frac{1}{\tau_j}$
+%    \item un terme $(1+2\xi_j\tau_jp+\tau_j^2p^2)$ (i.e second ordre au 
+%          numérateur si $n_j=-1$) provoque, en $\omega=\frac{1}{\tau_j}$
 %-------------------------------------------------------------------------------
-        \begin{itemize}
-            \item gain  : une rupture de pente de +40 dB/décade 
-            \item phase : un saut de +180\si{\degree}
-        \end{itemize}
+%        \begin{itemize}
+%            \item gain  : une rupture de pente de +40 dB/décade 
+%            \item phase : un saut de +180\si{\degree}
+%        \end{itemize}
 %-------------------------------------------------------------------------------
-\end{itemize}
+%\end{itemize}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1481,12 +1488,15 @@ où les coefficients s'obtiennent par évaluation :
        \dfrac{E_0\omega}{p-\jw}H(p)\bigg|_{p=-\jw}=
        -\dfrac{E_0}{2j}H(-\jw)
 \end{align*}
+%-------------------------------------------------------------------------------
 les nombres complexes $H(\jw)$ et $H(-\jw)$ pouvant s'écrire 
 $|H(\jw)|e^{j\phi}$ et $|H(\jw)|e^{-j\phi}$, on écrit :
+%-------------------------------------------------------------------------------
 \begin{align*}
     B &= \dfrac{KE_0}{2j\sqrt{1+\tau^2\omega^2}}e^{j\phi} \\
     C &= \dfrac{KE_0}{2j\sqrt{1+\tau^2\omega^2}}e^{-j\phi}
 \end{align*}
+%-------------------------------------------------------------------------------
 La transformée inverse de $S(p)$ donne alors :
 \[
     s(t)= KE_0\left( \dfrac{\tau\omega}{1+\tau^2\omega^2} e^{-t/\tau}
@@ -1505,14 +1515,13 @@ caractéritique du système du premier ordre $\tau$.
     \caption{}
 \end{figure}
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Exemple d'un système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acplhp
-%\newpage
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

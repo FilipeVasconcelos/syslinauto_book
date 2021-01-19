@@ -1,0 +1,21 @@
+        \begin{tikzpicture}
+            \begin{axis}[
+                    width=\linewidth,
+                    axis line style = thick,
+                    axis x line=middle,
+                    axis y line=middle,
+                    xmin=-5,xmax=20,
+                    ymin=-2.5,ymax=10,
+                    xlabel={ $\log\omega$},
+                    ylabel={ $G_{\si{\dB}}(\omega)$},
+                    xlabel style={below},
+                    ylabel style={left},
+                    xticklabels={$\dfrac{1}{\tau}$},
+                    xtick={10},
+                    yticklabels={},
+                    ytick={},
+                ]
+                \addplot[ultra thick,col1,domain=0:10]  {0};
+                \addplot[ultra thick,col1,domain=10:20] {2*x-20};
+            \end{axis}
+        \end{tikzpicture}

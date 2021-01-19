@@ -1,0 +1,55 @@
+%\begin{table}
+%    \centering
+    \setlength{\ltmp}{0.20\textwidth}
+    \setlength{\ldtmp}{0.35\textwidth}
+    \setlength{\lctmp}{0.25\linewidth}
+    \ra{0.001}
+    \begin{tabular}{@{}P{\ltmp}P{\ldtmp}P{\ldtmp}@{}}
+        \toprule
+        Modèle & Effet sur le gain & Effet sur la phase \\ 
+        \midrule
+        Gain pur $K$ & 
+        \raisebox{-.5\height}{\resizebox{\lctmp}{!}{\input{tikz/tab_bode_1.tex}}}
+        &
+        \raisebox{-.5\height}{\resizebox{\lctmp}{!}{\input{tikz/tab_bode_2.tex}}} 
+        \\
+        \midrule
+        $\dfrac{1}{p^\alpha}$ & 
+        \raisebox{-.5\height}{\resizebox{\lctmp}{!}{\input{tikz/tab_bode_3.tex}}}
+        &
+        \raisebox{-.5\height}{\resizebox{\lctmp}{!}{\input{tikz/tab_bode_4.tex}}}
+        \\
+        \midrule
+        $p^\alpha$ & 
+        \raisebox{-.5\height}{\resizebox{\lctmp}{!}{\input{tikz/tab_bode_5.tex}}}
+        &
+        \raisebox{-.5\height}{\resizebox{\lctmp}{!}{\input{tikz/tab_bode_6.tex}}}
+        \\
+        \midrule
+        $1+\tau p$ & 
+        \raisebox{-.5\height}{\resizebox{\lctmp}{!}{\input{tikz/tab_bode_7.tex}}}
+        &
+        \raisebox{-.5\height}{\resizebox{\lctmp}{!}{\input{tikz/tab_bode_8.tex}}}
+        \\
+        \midrule
+        $\dfrac{1}{1+\tau p}$ & 
+        \raisebox{-.5\height}{\resizebox{\lctmp}{!}{\input{tikz/tab_bode_9.tex}}}
+        &
+        \raisebox{-.5\height}{\resizebox{\lctmp}{!}{\input{tikz/tab_bode_10.tex}}}
+        \\
+        \midrule
+        $1+2\xi\tau p+\tau^2 p^2$ & 
+        \raisebox{-.5\height}{\resizebox{\lctmp}{!}{\input{tikz/tab_bode_11.tex}}}
+        &
+        \raisebox{-.5\height}{\resizebox{\lctmp}{!}{\input{tikz/tab_bode_12.tex}}}
+        \\
+        \midrule
+        $\dfrac{1}{1+2\xi\tau p+\tau^2 p^2}$ & 
+        \raisebox{-.5\height}{\resizebox{\lctmp}{!}{\input{tikz/tab_bode_13.tex}}}
+        &
+        \raisebox{-.5\height}{\resizebox{\lctmp}{!}{\input{tikz/tab_bode_14.tex}}}
+        \\
+        \bottomrule
+    \end{tabular}
+%    \caption{}
+%\end{table}

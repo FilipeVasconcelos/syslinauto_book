@@ -1,0 +1,22 @@
+        \begin{tikzpicture}
+            \begin{axis}[
+                    width=\linewidth,
+                    axis line style = thick,
+                    axis x line=middle,
+                    axis y line=middle,
+                    xmin=-5,xmax=20,
+                    ymin=-45,ymax=135,
+                    xlabel={ $\log\omega$},
+                    ylabel={ $\phi(\omega)$},
+                    xlabel style={below},
+                    ylabel style={left},
+                    xticklabels={},
+                    xtick={},
+                    yticklabels={$\dfrac{\pi}{2}$},
+                    ytick={90},
+                ]
+                \addplot[ultra thick,col1,domain=0:10]  {0};
+                \addplot[ultra thick,col1,domain=10:20] {90};
+            \draw[dashed,ultra thick,col1] (axis cs:10,0) -- (axis cs:10,90);
+            \end{axis}
+        \end{tikzpicture}
