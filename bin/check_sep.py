@@ -63,7 +63,7 @@ if __name__=="__main__":
          "\subsection":[2,"%","}"],
          "\susubsection":[1,"%","}"],
          "\paragraph":[1,"%","}"],
-         "\exercice":[2,"%","}"],
+         "\exercice":[1,"%","}"],
          "\question":[1,"%","}"],
          "\\begin{figure}":[1,"-","\\end{figure}"],
          "\\begin{center}":[1,"-","\\end{center}"],
@@ -71,9 +71,6 @@ if __name__=="__main__":
          "\\begin{bequation}":[1,"-","\\end{bequation}"],
          "\\begin{itemize}":[1,"-","\\end{itemize}"],
          "\\begin{criteria}":[1,"-","\\end{criteria}"],
-         "\\begin{align}":[1,"-","\\end{align}"],
-         "\\begin{align*}":[1,"-","\\end{align*}"],
-         "\\begin{marginfigure}":[1,"-","\\end{marginfigure}"],
          "\\begin{definition}":[1,"-","\\end{definition}"]
          }
 
