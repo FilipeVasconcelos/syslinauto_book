@@ -1,32 +1,28 @@
 #!/bin/bash
-if [ ! -d extract ] && md extract
-
-declare -A data=(['chap_slci']="13-50"
-                 ['chap_bloc']="51-70"
-                 ['chap_model']="71-104"
-                 ['chap_repfreq']="105-142"
-                 ['chap_asserv']="143-156"
-                 ['chap_perf']="157-176"
-                 ['chap_stab']="177-198"
-                 ['chap_correction']="199-200"
-                 ['chap_etat']="201-202"
-                 ['annexe_alphagrec']="205-206"
-                 ['annexe_usi']="207-208"
-                 ['annexe_laplace_irl']="209-210"
-                 ['annexe_laplace']="211-214"
-                 ['annexe_cplx']="215-220"
-                 ['annexe_seriefourier']="221-222"
-                 ['annexe_equa_diff']="223-226"
-                 ['annexe_des']="227-230"
-                 ['annexe_2nd']="231-236"
-                 ['annexe_scilab']="203-228"
-                 ['annexe_log']="261-266"
-                 ['annexe_invL']="267-268"
-                 ['todo']="269-271"
-                 ['laplace_table']="213-214")
-for cle in "annexe_scilab" #${!data[@]}
+declare -A data=(['chap_slci']="13-52"
+                 ['chap_bloc']="53-72"
+                 ['chap_model']="73-100"
+                 ['chap_repfreq']="101-130"
+                 ['chap_asserv']="131-140"
+                 ['chap_perf']="141-160"
+                 ['chap_stab']="161-182"
+                 ['chap_correction']="183-184"
+                 ['chap_etat']="185-186"
+                 ['annexe_alphagrec']="189-190"
+                 ['annexe_usi']="191-192"
+                 ['annexe_laplace']="193-196"
+                 ['annexe_cplx']="197-200"
+                 ['annexe_seriefourier']="201-202"
+                 ['annexe_equa_diff']="203-206"
+                 ['annexe_des']="207-210"
+                 ['annexe_2nd']="211-214"
+                 ['annexe_scilab']="215-238"
+                 ['annexe_log']="239-244"
+                 ['annexe_invL']="245-246"
+                 ['laplace_table']="195-196")
+for cle in ${!data[@]}
 do
     echo ${cle} ${data[$cle]} 
     echo "pdftk sma_auto.pdf cat ${data[$cle]} output extract/${cle}.pdf"
     pdftk sma_auto.pdf cat ${data[$cle]} output extract/${cle}.pdf
-done 
+done
