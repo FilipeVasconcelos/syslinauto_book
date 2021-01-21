@@ -260,6 +260,7 @@ points de coordonnées $(\omega, \phi(\omega),G(\omega))$.
 \subsection{Diagramme de Bode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Diagramme! de Bode}
 Le diagramme de Bode permet de représenter le comportement fréquentielle 
 d'un système quelconque en fonction de la fréquence d'excitation en entrée. 
 Il se compose de deux graphiques :
@@ -320,6 +321,7 @@ Le diagramme de Bode de $H(\jw)$ est la somme de deux diagrammes indépendants:
 \subsection{Diagramme de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Diagramme! de Nyquist}
 %-------------------------------------------------------------------------------
 \begin{figure}[!b]
     \centering
@@ -363,6 +365,7 @@ $\omega\rightarrow+\infty$.
 \subsection{Diagramme de Black-Nichols}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Diagramme! de Black-Nichols}
 Le diagramme de Black-Nichols\footnote{Il également simplement appelé diagramme 
 de Black.} consiste à tracer le gain en décibel $G_{dB}(\omega)$ en fonction de 
 la phase, paramétré par la pulsation $\omega$. À l'instar du diagramme de 
@@ -412,45 +415,67 @@ fera l'objet d'une présentation plus détaillée.
 \subsection{Diagrammes de Bode : méthodologie générale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
+Pour chacuns des modèles usuels, à savoir : un gain pur, un intégrateur pur,
+un dérivateur pur, un retard pur, un système du premier ordre et du second 
+ordre, nous allons déterminer les diagrammes de Bode dits asymptotiques 
+et réels. Le diagramme réel est la représentation exacte des fonctions du gain
+en décibel et de la phase en fonction de la pulsation d'entrée de 
+la sollicitation. Le diagramme asymptotique permet de caractériser 
+qualitativement l'effet du modèle usuel sur le diagramme de Bode. 
+Dans la pratique, on ne s'interresse qu'aux limites aux basses et hautes 
+fréquences. Nous pourrons vérifier que cette approximation asymptotiques est une
+approximation pour la fonction du gain.
+
+Pour résumer, nous appliquerons la procédure suivante à chacun des modèles 
+usuels :
 %-------------------------------------------------------------------------------
 \begin{itemize}
-    \item Définir la fonction de transfert $H(p)$ du modèle pour $p=\jw$
-    \item \'Etablir la fonction du gain $G(\omega)$ à partir du 
-          module de $|H(\jw)|$
-    \item \'Etablir la fonction de la phase $\phi(\omega)$ à partir de 
-          l'argument principale de $|H(\jw)|$.
-          L'argument principale est défini à l'\Cref{annexe-NC}.
-    \item Si les fonctions $G(\omega)$ et $\phi(\omega)$ ne sont pas de 
+    \item[i)] Définir la fonction de transfert complexe $H(\jw)$ à partir de la 
+          fonction de transfert $H(p)$ du modèle en question pour $p=\jw$.
+    \item[ii)] \'Etablir la fonction du gain $G(\omega)$ à partir du 
+          module de $H(\jw)$.
+    \item[iii)] Déterminer le gain en décibel $G_{\si{\dB}}$ tel que 
+        $G_{\si{\dB}}=20\log{G(\omega)}$.
+    \item[iv)] \'Etablir la fonction de la phase $\phi(\omega)$ à partir de 
+        l'argument principale de $H(\jw)$.
+        \footnote{L'argument principale est l'argument d'un nombre complexe 
+        dans $[-\pi,\pi]$. On se raportera à l'\Cref{annexe-NC} pour plus 
+        de détails.}
+    \item[v)] Si les fonctions $G(\omega)$ et $\phi(\omega)$ ne sont pas de 
           simples constantes, réalisér une étude
           asymptotique pour $\omega\rightarrow 0$ et 
           $\omega\rightarrow +\infty$.
-    \item Tracer le diagramme de Bode \textbf{réel} et le diagramme 
-          de Bode \textbf{asymptotique}.
+    \item[vi)] Tracer le diagramme de Bode \textbf{réel} et le diagramme 
+          de Bode \textbf{asymptotique} sur un graphe semi-logarithmique.
 \end{itemize}
 %-------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un gain pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Gain pur!diagramme de Bode}
 La fonction de transfert d'un gain pur est de la forme $H(\jw)=K$,
 le gain est donc simplement donné par 
 \[
-G(\omega)=|H(\jw)|=K
+G(\omega)=|H(\jw)|=K.
 \] 
-d'où le gain $G_{dB}$ en décibel :
+D'où le gain $G_{dB}$ en décibel :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 G_{dB}(\omega)= 20\log{K}
-\end{bequation} ce qui correspond à une constante en gain 
+\end{bequation} 
 %-------------------------------------------------------------------------------
-(\Cref{fig-bode_gain}) et la phase s'obtient à partir de l'argument 
+ce qui correspond à une constante pour un gain statique $K$ 
+donné (\Cref{fig-bode_gain})
+En ce qui concerne la phase, elle s'obtient à partir de l'argument 
 principale du nombre complexe $H(\jw)$:
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 \phi(\omega) = 0
 \end{bequation}
 %-------------------------------------------------------------------------------
+Un gain pur n'a donc aucun effet sur le déphasage quelque soit la pulsation
+d'entrée.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -469,24 +494,28 @@ principale du nombre complexe $H(\jw)$:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un intégrateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Intégrateur pur!diagramme de Bode}
 La fonction de transfert d'un intégrateur pur est de la forme 
 $H(\jw)=\frac{K}{\jw}$, le gain est donc simplement donné par 
 \[
-G(\omega)=|H(\jw)|=\frac{K}{\omega}
+G(\omega)=|H(\jw)|=\frac{K}{\omega},
 \] 
 d'où le gain $G_{dB}$ en décibel :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 G_{dB}(\omega)= 20\log{K} - 20\log{\omega}
-\end{bequation} ce qui correspond à une pente de -20dB/décade 
+\end{bequation} 
 %-------------------------------------------------------------------------------
-(\Cref{fig-bode_int}) et la phase s'obtient à partir de l'argument principale 
+ce qui correspond à une pente de \SI{-20}{\dB\per\dec} (\Cref{fig-bode_int}).
+La phase s'obtient à partir de l'argument principale 
 du nombre complexe $H(\jw)$:
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 \phi(\omega) = -\dfrac{\pi}{2}
 \end{bequation}
 %-------------------------------------------------------------------------------
+Un intégrateur pur déphase donc la sortie de -90\degree~quelque soit la pulsation
+de l'entrée.
 %-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
@@ -505,6 +534,7 @@ du nombre complexe $H(\jw)$:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un dérivateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Dérivateur pur!diagramme de Bode}
 La fonction de transfert d'un dérivateur pur est de la forme $H(\jw)=K\jw$,
 le gain est donc simplement donné par 
 \[
@@ -516,13 +546,15 @@ d'où le gain $G_{dB}$ en décibel :
     G_{dB}(\omega)= 20\log{K} + 20\log{\omega}
 \end{bequation}
 %-------------------------------------------------------------------------------
-ce qui correspond à une pente de +20dB/décade (\Cref{fig-bode_deriv}) et
-la phase s'écrit simplement 
+ce qui correspond à une pente de \SI{+20}{\dB\per\dec} (\Cref{fig-bode_deriv}).
+La phase s'obtient simplement par l'argument principal de $H(\jw)$:
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
     \phi(\omega) = \dfrac{\pi}{2}
 \end{bequation}
 %-------------------------------------------------------------------------------
+Un dérivateur pur déphase la sortie de +90\degree~quelque soit la pulsation 
+d'entrée.
 %-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
@@ -553,12 +585,15 @@ d'où le gain $G_{dB}$ en décibel :
     G_{dB}(\omega)= \SI{0}{\decibel}
 \end{bequation}
 %-------------------------------------------------------------------------------
-et la phase s'écrit simplement
+ce qui correspond à un gain constant (\Cref{fig-bode_retard_1}).
+La phase s'écrit simplement à partir de l'argument principal de $H(\jw)$ :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
     \phi(\omega) = -\tau\omega
 \end{bequation}
 %-------------------------------------------------------------------------------
+Le déphasage d'un retard pur croit linéairement avec la pulsation pour un retard 
+de temps $\tau$ donné.
 %-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
@@ -778,6 +813,7 @@ régime apériodique.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système second d'ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Système du second ordre!diagramme de Bode}
 La fonction de transfert d'un système du second ordre (\Cref{eq-2nd_ft}) 
 est donnée par :
 %-------------------------------------------------------------------------------
@@ -865,6 +901,7 @@ prochaine partie.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Phénomène de résonance}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Phénomène de résonance}
 Le gain d'un système du second ordre présente un maximum pour certaines valeurs 
 du taux d'amortissement $\xi$. Nous allons établir en détail les différentes 
 grandeurs caractéristiques de ce phénomène de résonance. 
@@ -1042,18 +1079,19 @@ Pour cet exemple, nous identifions :
 %-------------------------------------------------------------------------------
 \begin{itemize}
     \item un gain pur $K_0=100$
-    \item un second ordre double au numérateur de temps caractéristique 
-          $\tau=1$
+    \item un second ordre (ou un premier ordre double) au numérateur de 
+          temps caractéristique $\tau=1$
     \item trois premier ordre au dénominateur de temps caractéristique 
           $\tau=\{0.01,10,100\}$
 \end{itemize}
 %-------------------------------------------------------------------------------
-Enfin, nous regroupons dans un tableau l'effet sur le gain et la phase pour 
-chaque domaines en pulsations compris entre les différentes pulsations 
-caractéristiques.
 On adopte la notation suivante : $\tau_1=100$, $\tau_2=10$, $\tau_3=1$ 
 et $\tau_4=0.01$, avec $\omega_i=1/\tau_i$, on obtient alors:
 $\omega_1=0.01$, $\omega_2=0.1$, $\omega_3=1$ et $\omega_4=100$.
+
+Nous regroupons dans le tableau ci-dessous l'effet sur le gain et sur la phase 
+pour chaque domaines de pulsations définis par les différentes pulsations 
+caractéristiques.
 %-------------------------------------------------------------------------------
 \begin{table}[!h]
     \ra{1.3}
@@ -1520,8 +1558,8 @@ caractéritique du système du premier ordre $\tau$.
 \subsection{Exemple d'un système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\acpl
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1529,7 +1567,13 @@ caractéritique du système du premier ordre $\tau$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\newpage
+\small
+\input{tex/exercices_chap_repfreq.tex}
+\setcounter{numexos}{0}
+\normalsize
+\newpage
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1537,6 +1581,11 @@ caractéritique du système du premier ordre $\tau$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\small
+\input{tex/exercices_corriges_chap_repfreq.tex}
+\normalsize
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
