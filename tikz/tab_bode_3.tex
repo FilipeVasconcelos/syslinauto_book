@@ -1,20 +1,22 @@
-        \begin{tikzpicture}
-            \begin{axis}[
-                    width=\linewidth,
-                    axis line style = thick,
-                    axis x line=middle,
-                    axis y line=middle,
-                    xmin=-5,xmax=20,
-                    ymin=-40,ymax=10,
-                    xlabel={ $\log\omega$},
-                    ylabel={ $G_{\si{\dB}}(\omega)$},
-                    xlabel style={above},
-                    ylabel style={left},
-                    xticklabels={},
-                    xtick={},
-                    yticklabels={},
-                    ytick={},
-                ]
-                \addplot[ultra thick,col4,domain=0:20] {-10-x};
-            \end{axis}
-        \end{tikzpicture}
+\begin{tikzpicture}
+    \begin{axis}
+    [
+        width=\linewidth,
+        axis line style = thick,
+        axis x line=middle,
+        axis y line=middle,
+        xmin=-5,xmax=20,
+        ymin=-40,ymax=10,
+        xlabel={ $\log\omega$},
+        ylabel={ $G_{\si{\dB}}(\omega)$},
+        xlabel style={above},
+        ylabel style={left},
+        xticklabels={},
+        xtick={},
+        yticklabels={},
+        ytick={},
+    ]
+    \addplot[ultra thick,col4,domain=0:20] {-10-x};
+    \node[col4] at (axis cs:10,-7.5) {\footnotesize$-20\alpha$\si{\dB/dec}};
+    \end{axis}
+\end{tikzpicture}

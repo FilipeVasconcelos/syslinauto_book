@@ -12,33 +12,133 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Définition de la stabilité et mise en évidence de 
-l'instabilité de l'asservissement}
+\section{Contexte et définition de la stabilité} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Critère fondamentale de stabilité}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Dans ce chapitre nous allons discuter en détail de la stabilité des systèmes
+linéaires asservis. Il faut dors et déjà noter que ce sont les états 
+d'équilibres\footnote{(ou point fixes). Un état d'équilibre est une constante
+solution de l'équation différentielle du système. En générale, 0 est toujours
+une solution de l'équation différentielle et donc considéré comme l'état 
+d'équilibre du système} qui sont stables ou instables et non les systèmes eux 
+mêmes. Cet \og abus de langage\fg (largement utilisé) provient du fait que 
+\emph{a priori} on considère  toujours les systèmes dans leur état d'équilibre 
+au moment de l'origine des temps (i.e le temps initiale de la sollicitation). 
+Une façon imagé de se représenter ces états d'équilibres et d'imaginer le 
+mouvement d'une bille sur la surface d'un fonction à une dimension d'énergie 
+potentielle, à l'image d'une bille se déplaçant sur un relief accidentés 
+composé de collines, vallées et puits de potentiel (c.f \Cref{fig-stab}). 
+L'état d'équilibre est ici alors une position d'équilibre.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{stable_1-chap_stab-ext}
     \input{tikz/stable_1-chap_stab.tex}
-    \caption{Représentation schématique de la stabilité}
+    \caption{Représentation schématique de la stabilité d'un équilibre
+             \label{fig-stab}}
 \end{figure}
 %-------------------------------------------------------------------------------
+
+La manière la plus simple de caractériser un équilibre est d'envisager son 
+comportement lorsque si l'on modifie légérement sa position par rapport 
+à sa position d'équilibre. Dans le cas d'un équilibre stable 
+(c.f \Cref{fig-stab} (a)), la bille va naturellement reprendre sa position 
+d'équilibre (à noter que dans l'image du puit de potentiel, il est parfaitement 
+possible d'envisager une oscillation de la position avant le retour à la 
+position d'équilibre). Dans le cas d'un équilibre instable, 
+(c.f \Cref{fig-stab} (b)), si on s'écarte (même très faiblement) de la position
+d'équilibre, la bille va continuer à s'en écarter indéfiniment. D'autres
+scénarios sont possibles mais vont dépendre de la façon dont le système est
+déséquilibrée (c.f \Cref{fig-stab} (c)), on parle alors de stabilité 
+conditionnelle.
+
+Dans le cas des \gls{slci}, il est possible d'étudier ce comportement
+en étudiant la réponse impulsionnelle (c'est à dire la réponse à une impulsion 
+de Dirac). Finalement, on définit la stabilité d'un système de la façon 
+suivante :
+%-------------------------------------------------------------------------------
+\begin{definition}{Stabilité d'un système (1)}
+\textbf{Un système est dit stable lorsque écarté de son état d'équilibre, il 
+tend à y revenir}
+\end{definition}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mise en évidence de l'instabilité de l'asservissement}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Instabilité des systèmes asservis! phénomène de pompage}
+\index{Phénomène de pompage}
+Nous avons vu au~\cref{chap-asservis} que l'asservissement permettait de
+rendre stable un système intrinsèquement instable. C'est le cas notamment d'un 
+intégrateur pur qui lorsque placé dans une boucle de contre-réaction devient
+un système du premier ordre.
+Cependant, l'asservissement peut également rendre un système instable par
+bouclage, on parle alors de \textbf{phénomène de pompage}.
+Pour illustrer ce phénomène\cite{genouel}, considérons un système de fonction 
+de transfert d'un retard pur $H(p)=Ke^{-p\frac{\tau}{2}}$ qui entraîne 
+un déphasage de $\tau/2$ et de gain $K$. Si on sollicite ce système par un 
+signal $e(t)$ rectangulaire de période $\tau$ et d'amplitude $E_0$, la sortie 
+est de même nature et est donc simplement amplifiée de $K$ et déphasée 
+de $\tau/2$, comme représentée ci-dessous.
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{instabilite_pompage-non_boucle-chap_stab_ext}
+    \input{tikz/instabilite_pompage-non_boucle-chap-stab.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+Si on place maintenant ce système dans une boucle de contre-réaction 
+unitaire le système est alors soumis à la différence entre les signaux 
+d'entrée et de sortie $\epsilon(t)=e(t)-s(t)$. 
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{instabilite_pompage-chap_stab_ext}
+    \input{tikz/instabilite_pompage-chap-stab.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+Nous allons établir la relation 
+entre les valeurs des signaux par demi-période $\tau/2$. 
+\[
+    \epsilon_i=e_i-s_i
+\]
+où $\epsilon_i$, $e_i$ et $s_i$ sont respectivement les valeurs des signaux 
+$\epsilon(t)$, $e(t)$ et $s(t)$ pour la demi-période $i\in[1,+\infty]$
+Dans cette notation, la sortie du système bouclé est donnée par : 
+\[
+    s_{i+1}=K\epsilon_i
+\]
+Pour la première demi-période, la sollicitation est positive $e_1=E_0$, 
+le système étant causal ($\epsilon_0=0$), on a $s_1=0$ et donc $\epsilon_1=E_0$.
+Pour la seconde demi-période, la sollication est maintenant négative $e_2=-E_0$,
+la sortie est maintenant donnée par $s_2=KE_0$. De la même manière pour 
+la troisième demi-période, on obtient $s_3=K\epsilon_2=K(e_2-s_2)=-E_0(K+K^2)$. 
+On obtient la relation suivante donnant la sortie en fonction de la 
+demi-période pour $i>1$:
+\[
+    s_i=(-1)^{i}KE_0\sum\limits_{j=0}^{i-1} K^j
+\]
+La suite géométrique présente dans cette expression diverge puisque $K>1$.
+
+\textbf{Il est donc clair que l'asservissement par bouclage peut également 
+provoquer l'instabilité de la réponse. Il est donc essentiel d'étudier 
+cette propriété dans le cas des systèmes asservis.}
+
+Pour celà, nous allons introduire différents critères permettant
+de vérifier si un asservis est stable ou non. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Critère fondamentale de stabilité d'un système asservis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textbf{Un système est dit stable si à une entrée bornée le système produit 
 une sortie bornée}\footnote{Chez nos collègues anglo-saxons, on rencontre le 
 concept de BIBO (\og bounded input bounded output\fg)}
 
-\textbf{Un système est dit stable lorsque écarté de sa position d'équilibre, il 
-tend à y revenir}
 
 Rappel sur les réponses temporelles du premier ordre et du second ordre \ldots
 \acpl

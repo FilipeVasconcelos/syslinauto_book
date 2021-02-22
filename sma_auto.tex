@@ -72,7 +72,14 @@
 \usepackage{calc}                
 \usepackage{imakeidx}
 \makeindex[columnsep=20pt,columnseprule]
-\usepackage[colorlinks=false,linktocpage]{hyperref}  
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=col1,
+    filecolor=magenta,      
+    urlcolor=col1,
+    bookmarks=true,
+}
 \usepackage{url} 
 \usepackage[hyphenbreaks]{breakurl} 
 \usepackage[acronym,symbols,nogroupskip,nonumberlist]{glossaries-extra}
