@@ -1,0 +1,151 @@
+\pgfmathdeclarefunction{func}{1}{%
+    \pgfmathparse{%
+    1-((1./sqrt(1-#1*#1))*exp(-#1*x)*
+    sin(deg(x)*sqrt(1-#1*#1)+atan(sqrt(1-#1*#1)/#1)))
+    }%
+}
+\begin{tikzpicture}
+    \begin{scope}[yshift=4.5cm]
+        \begin{axis}
+        [
+            xtick=\empty,
+            height=3.7cm,
+            width=5.5cm,
+            xmin=-1,xmax=5,
+            ymin=-0.5,ymax=1.25,
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below},
+            ylabel style={above left},
+            xlabel=$t$,
+            ylabel={\textcolor{col1}{$e(t)$}},
+            tick label style={color=col1,font=\scriptsize},
+            yticklabels={$E_0$},
+            ytick={1},
+            clip=false
+        ]
+            \addplot+[col1,thick,mark=none,const plot]
+            coordinates
+            {(-1,0) (0,0) (0,1) (1,1) (5,1)};
+        \end{axis}
+    \end{scope}
+    \begin{scope}[yshift=1.5cm]
+        \begin{axis}
+        [
+            xtick=\empty,
+            height=3.7cm,
+            width=5.5cm,
+            xmin=-1,xmax=5,
+            ymin=-0.5,ymax=1.25,
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below},
+            ylabel style={above left},
+            xlabel=$t$,
+            ylabel={\textcolor{col1}{$e(t)$}},
+            tick label style={color=col1,font=\scriptsize},
+            yticklabels={$E_0$},
+            ytick={1},
+            clip=false
+        ]
+            \addplot+[col1,thick,mark=none,const plot]
+            coordinates
+            {(-1,0) (0,0) (0,1) (1,0) (5,0)};
+        \end{axis}
+    \end{scope}
+    \begin{scope}[yshift=-1.5cm]
+        \begin{axis}
+        [
+            xtick=\empty,
+            height=3.7cm,
+            width=5.5cm,
+            xmin=-4,xmax=20,
+            ymin=-1.25,ymax=1.25,
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below},
+            ylabel style={above left},
+            xlabel=$t$,
+            ylabel={\textcolor{col1}{$e(t)$}},
+            tick label style={color=col1,font=\scriptsize},
+            yticklabels={$E_0$},
+            ytick={1},
+        ]
+            \addplot[col1,thick,samples=100,domain=-4:0] {0};
+            \addplot[col1,thick,samples=100,domain=0:20] {sin(deg(x))};
+        \end{axis}
+    \end{scope}
+    \begin{scope}[xshift=4.75cm,yshift=-0.5cm]
+        \bs[\textcolor{col1}{$E(p)$}][$H_1(p)$][][\textcolor{col4}{$S(p)$}]
+    \end{scope}
+    \begin{scope}[xshift=4.75cm,yshift=2cm]
+        \bs[\textcolor{col1}{$E(p)$}][$H_2(p)$][][\textcolor{col4}{$S(p)$}]
+    \end{scope}
+    \begin{scope}[xshift=4.75cm,yshift=5cm]
+        \bs[\textcolor{col1}{$E(p)$}][$H_3(p)$][][\textcolor{col4}{$S(p)$}]
+    \end{scope}
+    \begin{scope}[xshift=10cm,yshift=4.5cm]
+        \begin{axis}
+        [
+            xtick=\empty,
+            height=3.7cm,
+            width=5.5cm,
+            xmin=-1,xmax=15,
+            ymin=-0.5,ymax=1.75,
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below},
+            ylabel style={above left},
+            xlabel=$t$,
+            ylabel={\textcolor{col4}{$s(t)$}},
+            tick label style={color=col4,font=\scriptsize},
+            yticklabels={$KE_0$},
+            ytick={1},
+        ]
+            \addplot[col4,thick,samples=100,mark=none,domain=0:15] {func(0.25)};
+        \end{axis}
+    \end{scope}
+    \begin{scope}[xshift=10cm,yshift=1.5cm]
+        \begin{axis}
+        [
+            xtick=\empty,
+            height=3.7cm,
+            width=5.5cm,
+            xmin=-0.3,xmax=4,
+            ymin=-0.5,ymax=1.25,
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below},
+            ylabel style={above left},
+            xlabel=$t$,
+            ylabel={\textcolor{col4}{$s(t)$}},
+            tick label style={color=col4,font=\scriptsize},
+            yticklabels={$KE_0$},
+            ytick={1},
+        ]
+            \addplot[col4,thick,samples=100,mark=none,domain=0:1] {1-exp(-x/0.25)};
+            \addplot[col4,thick,samples=100,mark=none,domain=1:5] {(-exp(-x/0.25)+exp(-(x-1)/0.25)};
+        \end{axis}
+    \end{scope}
+    \begin{scope}[xshift=10cm,yshift=-1.5cm]
+        \begin{axis}
+        [
+            xtick=\empty,
+            height=3.7cm,
+            width=5.5cm,
+            xmin=-1.33,xmax=20,
+            ymin=-1.25,ymax=1.25,
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below},
+            ylabel style={above left},
+            xlabel=$t$,
+            ylabel={\textcolor{col4}{$s(t)$}},
+            tick label style={color=col4,font=\scriptsize},
+            yticklabels={$KE_0$},
+            ytick={1},
+        ]
+            \addplot[col4,thick,samples=100,mark=none,domain=0:20] {0.8*sin(deg(x)-90)};
+        \end{axis}
+    \end{scope}
+\end{tikzpicture}

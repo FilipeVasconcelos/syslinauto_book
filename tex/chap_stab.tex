@@ -16,20 +16,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Dans ce chapitre nous allons discuter en détail de la stabilité des systèmes
+Dans ce chapitre nous allons étudier en détail la stabilité des systèmes
 linéaires asservis. Il faut dors et déjà noter que ce sont les états 
 d'équilibres\footnote{(ou point fixes). Un état d'équilibre est une constante
 solution de l'équation différentielle du système. En générale, 0 est toujours
 une solution de l'équation différentielle et donc considéré comme l'état 
 d'équilibre du système} qui sont stables ou instables et non les systèmes eux 
 mêmes. Cet \og abus de langage\fg (largement utilisé) provient du fait que 
-\emph{a priori} on considère  toujours les systèmes dans leur état d'équilibre 
-au moment de l'origine des temps (i.e le temps initiale de la sollicitation). 
-Une façon imagé de se représenter ces états d'équilibres et d'imaginer le 
-mouvement d'une bille sur la surface d'un fonction à une dimension d'énergie 
-potentielle, à l'image d'une bille se déplaçant sur un relief accidentés 
-composé de collines, vallées et puits de potentiel (c.f \Cref{fig-stab}). 
-L'état d'équilibre est ici alors une position d'équilibre.
+on considère \emph{a priori} les systèmes dans leur état d'équilibre 
+au moment de l'instant initial de la sollicitation. 
+Une façon de se représenter ces états d'équilibres est d'imaginer le 
+mouvement d'une bille à la surface d'une fonction d'energie potentielle à une 
+dimension. 
+On peut facilement généraliser à plusieurs dimensions, en considérant le 
+déplacement de la bille sur un relief accidenté et composé de collines, 
+vallées ou puits à l'image d'un paysage d'énergie potentielle 
+(c.f \Cref{fig-stab}). L'état d'équilibre de la bille est donc est ici 
+une position d'équilibre.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -40,33 +43,52 @@ L'état d'équilibre est ici alors une position d'équilibre.
 \end{figure}
 %-------------------------------------------------------------------------------
 
-La manière la plus simple de caractériser un équilibre est d'envisager son 
-comportement lorsque si l'on modifie légérement sa position par rapport 
-à sa position d'équilibre. Dans le cas d'un équilibre stable 
+La manière la plus simple de caractériser la stabilité de ces positions 
+d'équilibres c'est de s'en écarter. 
+Dans le cas d'un équilibre stable 
 (c.f \Cref{fig-stab} (a)), la bille va naturellement reprendre sa position 
-d'équilibre (à noter que dans l'image du puit de potentiel, il est parfaitement 
-possible d'envisager une oscillation de la position avant le retour à la 
-position d'équilibre). Dans le cas d'un équilibre instable, 
-(c.f \Cref{fig-stab} (b)), si on s'écarte (même très faiblement) de la position
-d'équilibre, la bille va continuer à s'en écarter indéfiniment. D'autres
-scénarios sont possibles mais vont dépendre de la façon dont le système est
-déséquilibrée (c.f \Cref{fig-stab} (c)), on parle alors de stabilité 
-conditionnelle.
+d'équilibre (avec ou sans oscillations autour de la position d'équilibre). 
+Dans le cas d'un équilibre instable, 
+(c.f \Cref{fig-stab} (b)), la bille va continuer à s'en écarter indéfiniment. 
+D'autres scénarios sont possibles mais vont dépendre de la façon dont le 
+système est déséquilibré et de la forme de la surface d'énergie potentielle 
+(c.f \Cref{fig-stab} (c)). On parle alors de stabilité conditionnelle.
 
-Dans le cas des \gls{slci}, il est possible d'étudier ce comportement
-en étudiant la réponse impulsionnelle (c'est à dire la réponse à une impulsion 
-de Dirac). Finalement, on définit la stabilité d'un système de la façon 
+Dans le cas des \gls{slci}, il est possible d'étudier la stabilité du système 
+en étudiant sa réponse impulsionnelle (l'impulsion de Dirac permet d'écarter 
+le système de son état d'équilibre dans lequel il se trouvait). 
+Finalement, on définit la stabilité d'un système de la façon 
 suivante :
 %-------------------------------------------------------------------------------
-\begin{definition}{Stabilité d'un système (1)}
-\textbf{Un système est dit stable lorsque écarté de son état d'équilibre, il 
-tend à y revenir}
+\begin{definition}{Définition : Stabilité d'un système (1)}
+Un système est dit stable lorsque écarté de son état d'équilibre, il 
+tend à y revenir
 \end{definition}
 %-------------------------------------------------------------------------------
+Il existe une autre définition de la stabilité qui s'avère équivalente 
+dans le cas des systèmes linéaires.
+%-------------------------------------------------------------------------------
+\begin{definition}{Définition : Stabilité d'un système (2)}
+\textbf{Un système est dit stable si à une entrée bornée le système produit 
+une sortie bornée}
+\end{definition}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{stabilite-bibo-chap_stab_ext}
+    \input{tikz/stabilite-bibo-chap_stab.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+
+
+\footnote{Chez nos collègues anglo-saxons, on rencontre le 
+concept de BIBO (\og bounded input bounded output\fg)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Mise en évidence de l'instabilité de l'asservissement}
+\section[Instabilité de l'asservissement]
+{Mise en évidence de l'instabilité de l'asservissement}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -135,9 +157,6 @@ de vérifier si un asservis est stable ou non.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{Un système est dit stable si à une entrée bornée le système produit 
-une sortie bornée}\footnote{Chez nos collègues anglo-saxons, on rencontre le 
-concept de BIBO (\og bounded input bounded output\fg)}
 
 
 Rappel sur les réponses temporelles du premier ordre et du second ordre \ldots
