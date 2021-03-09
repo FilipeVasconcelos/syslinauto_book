@@ -31,7 +31,7 @@ dimension.
 On peut facilement généraliser à plusieurs dimensions, en considérant le 
 déplacement de la bille sur un relief accidenté et composé de collines, 
 vallées ou puits à l'image d'un paysage d'énergie potentielle 
-(c.f \Cref{fig-stab}). L'état d'équilibre de la bille est donc est ici 
+(c.f \Cref{fig-stab}). L'état d'équilibre de la bille est donc ici 
 une position d'équilibre.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
@@ -73,17 +73,23 @@ dans le cas des systèmes linéaires.
 une sortie bornée}
 \end{definition}
 %-------------------------------------------------------------------------------
-
+En anglais, on rencontre l'acronyme \gls{bibo}
+pour désigner cette notion.
+Ci-dessous nous avons représenté les réponses de \gls{slci} à différentes
+sollicitations bornées. D'après la définition précédente, il est aisé
+de caractériser la stabilité de ces systèmes en observant la forme de la 
+réponse.
 %-------------------------------------------------------------------------------
-\begin{center}
+\begin{figure}[!t]
+    \centering
     \tikzsetnextfilename{stabilite-bibo-chap_stab_ext}
     \input{tikz/stabilite-bibo-chap_stab.tex}
-\end{center}
+    \caption{Exemples de systèmes (vert) stables et (rouge) instables. Les 
+    systèmes stables présentent une réponse bornée à une sollicitation elle-même
+    bornée.}
+\end{figure}
 %-------------------------------------------------------------------------------
-
-
-\footnote{Chez nos collègues anglo-saxons, on rencontre le 
-concept de BIBO (\og bounded input bounded output\fg)}
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -142,37 +148,61 @@ demi-période pour $i>1$:
 \[
     s_i=(-1)^{i}KE_0\sum\limits_{j=0}^{i-1} K^j
 \]
-La suite géométrique présente dans cette expression diverge puisque $K>1$.
+La suite géométrique présente dans cette expression diverge pour $K>1$.
 
-\textbf{Il est donc clair que l'asservissement par bouclage peut également 
-provoquer l'instabilité de la réponse. Il est donc essentiel d'étudier 
+\textbf{Il est donc clair que l'instabilité est une conséquence de 
+l'asservissement par bouclage. Il est donc essentiel d'étudier 
 cette propriété dans le cas des systèmes asservis.}
-
-Pour celà, nous allons introduire différents critères permettant
-de vérifier si un asservis est stable ou non. 
+Il faut cependant noter l'influence indispensable du :
+\begin{itemize}
+    \item gain statique en boucle ouverte $K>1$
+    \item et du retard d'une demi-période (en opposition de phase); 
+\end{itemize}
+dans cet exemple. Comme attendu, les propriétés de la boucle ouverte
+influencent directement la stabilité de la boucle fermée.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Critère fondamentale de stabilité d'un système asservis}
+\section[Condition fondamentale de stabilité]
+{Condition fondamentale de stabilité d'un système asservis}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-Rappel sur les réponses temporelles du premier ordre et du second ordre \ldots
-\acpl
-%-------------------------------------------------------------------------------
-\begin{criteria}{Condition fondamentale de stabilité}
-    \textbf{Un système est stable si sa fonction de transfert ne possède aucun 
-            pôles à partie réelle positive.}
-\end{criteria}
-%-------------------------------------------------------------------------------
+Pour caractériser la stabilité des \gls{slci}, il est possible de déterminer
+une condition sur les p ôles (racines du dénominateur de la fonction de 
+transfert). Pour montrer cela, nous allons étudier la réponse impulsionnelle 
+d'une fonction de transfert présentant des pôles de différentes natures et oberver
+la condition sur ses pôles pour que le système soit stable selon les définitions
+précédentes. 
+Soit une fonction de transfert $H(p)$ présentant quatre pôles :
+\begin{itemize}
+    \item un pôle réel simple $p_1$,
+    \item un pôle réel double $p_2$,
+    \item deux pôles complexes conjugués $p_{3,4}=\alpha\pm\jw$
+\end{itemize}
+tel que :
+\[
+    H(p)=\dfrac{N(p)}{(p-p_1)(p-p_2)^2(p-p_3)(p-p_4)}.
+\]
+En notant que $(p-p_3)(p-p_4)=(p-\alpha)^2+\omega^2$, 
+la décomposition en élément simple de la réponse impulsionnelle $S(p)$ 
+dans le domaine de Laplace devient :
+\[
+    S(p)=\dfrac{A}{p-p_1}+\dfrac{B}{p-p_2}+\dfrac{C}{(p-p_2)^2}+\dfrac{Dp+E}{(p-\alpha)^2+\omega^2}
+\]
+La transformée inverse de cette expression est de la forme:
+\[
+    s(t)=\left(Ae^{p_1t}+=Be^{p_2t}+Cte^{p_2t}+De^{\alpha t}\cos{\omega t}+\dfrac{\alpha D+E}{\alpha}e^{\alpha t}\sin{\omega t}\right)u(t)
+\]
+Il apparaît clair que les pôles doivent être à parties réelles strictement 
+négatives pour que les exponentielles présentent dans la réponse temporelle
+tendent vers 0 pour $t\to0$.
 %-------------------------------------------------------------------------------
 \clearpage
 \thispagestyle{empty}
 \begin{landscape}
 \centering
-\captionsetup{width=1.15\linewidth}
+\captionsetup{width=1.10\linewidth}
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -185,39 +215,67 @@ Rappel sur les réponses temporelles du premier ordre et du second ordre \ldots
              (Gris) Deux pôles complexes conjugués à partie réelle nulle.
              (Noir) Pôle nul.
              (Bleu) Deux pôles complexes conjugués à partie réelle positive.
-             (Orange) Pôle à partie réel positive.}
+             (Orange) Pôle à partie réel positive.\label{fig-stab_imp_all}}
 \end{figure}
 %-------------------------------------------------------------------------------
 \end{landscape}
-\clearpage
+\newpage
 \pagestyle{fancy}
 \captionsetup{width=\linewidth}
+La~\cref{fig-stab_imp_all} présente schématiquement les reponses impulsionnelles 
+des systèmes selon la nature des pôles de la fonction de transfert du système 
+dont étudie la stabilité. Pour des pôles à parties réelles négatives, les 
+réponses tendent toutes vers 0, mais à des vitesses différentes. Plus le pôle
+est éloigné de l'axe des imaginaires (plus la valeurs absolu de la partie 
+réelle est importante) plus rapide sera la convergence vers 0. Les pôles
+plus proche de l'axe des imaginaires sont qualifiés de \textbf{pôles dominants}
+(c.f \cref{sec-rapidite}).
+%-------------------------------------------------------------------------------
+\begin{criteria}{Condition fondamentale de stabilité}
+    \textbf{Un système est stable si sa fonction de transfert ne possède aucun 
+            pôles à partie réelle positive.}
+\end{criteria}
+%-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Notion de pôles dominants}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Système asservi}
+%\paragraph{Système asservi}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
-\begin{center}
-    \tikzsetnextfilename{asser-chap_stab-ext}
-    \input{tikz/asser-chap_stab.tex}
-\end{center}
+%\begin{center}
+%    \tikzsetnextfilename{asser-chap_stab-ext}
+%    \input{tikz/asser-chap_stab.tex}
+%\end{center}
 %-------------------------------------------------------------------------------
-\[
-H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{a_mp^m+a_{m-1}p^{m-1}+\ldots+a_1p+a_0}
-                                   {b_np^n+b_{n-1}p^{n-1}+\ldots+b_1p+b_0}
-\]
+%\[
+%H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{a_mp^m+a_{m-1}p^{m-1}+\ldots+a_1p+a_0}
+%                                   {b_np^n+b_{n-1}p^{n-1}+\ldots+b_1p+b_0}
+%\]
+L'extrapolation de cette condition fondamentale de stabilité des systèmes 
+linéaires au systèmes asservis est triviale. En effet, dans le cas d'un 
+système asservis c'est la fonction de transfert en boucle ouverte qui 
+caractérise le système. Il suffit alors d'adapter la condition précédente à la
+fonction de transfert en boucle fermée.
 %-------------------------------------------------------------------------------
 \begin{criteria}{Condition de stabilité d'un système asservi (1)}
-    \textbf{Un système asservi est stable si sa fonction de transfert en 
-            boucle fermée ne possède aucun pôles à partie réelle positive.}
+         \textbf{Un système asservi est stable si sa fonction de transfert en 
+                 boucle fermée ne possède aucun pôles à partie réelle positive.}
 \end{criteria}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Inconvénients de la condition fondamentale}
+%\paragraph{Inconvénients de la condition fondamentale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+L'inconvénient de cette condition est qu'elle nécessite de déterminer les
+pôles de la fonction de transfert en boucle fermée par le calcul. Il existe
+deux familles de critères de stabilité qui permettent de s'affranchir de 
+ces calculs:
+\begin{itemize}
+    \item Les critères algébriques : qui permettent de vérifier la condition 
+        fondamentale de stabilité en étudiant directement le polynôme 
+        caractéristique de la \gls{ftbf}.
+    \item Les critères graphiques : qui permettent de vérifier la condition
+        fondamentale de stabilité du système asservi en étudiant graphiquement
+        la \gls{ftbo}.
+\end{itemize}
 \newpage
 \newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 \captionsetup{width=0.9\linewidth}
@@ -956,7 +1014,33 @@ sur le sujet.}.
 Nous suivrons la présentation \og graphique\fg~ de ce théorème 
 et du critère de Nyquist donné par~\cite{reg}. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Principe de l'argument de Cauchy}
+\subsection[Image d'un contour d'une fonction de transfert dans $\mathcal{C}$]
+{Image d'un contour d'une fonction de transfert dans le plan complexe}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour présenter le principe de l'argument de Cauchy, il nous faut déterminer
+l'image d'une contour par une fonction de transfert. La~\cref{fig-contour_cauchy} 
+présente un exemple de contour  $\mathcal{C}$ parcourant le plan complexe de
+la variable $p$ dans le sens des aiguilles d'une montre. On se donne une fonction
+de transfert ne possédant aucun pôles et zéros sur $\mathcal{C}$, mais ils
+peuvent être contenus dans celui-ci. On appelle $\Gamma$ l'image de 
+$\mathcal{C}$ par $F(p)$. \textbf{Le principe de Cauchy nous permet de quantifier le 
+nombre de pôles et zéros contenus dans le contour en étudiant l'image de la 
+fonction de transfert par ce contour.}
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{nyquist_cauchy-chap_stab-ext}
+    \input{tikz/nyquist_cauchy-chap_stab.tex}
+    \caption{Représentation de la transformation (à gauche) d'un contour $\mathcal{C}$ 
+             (à droite) en son image par une fonction analytique $F(p)$. La carte 
+             des pôles et zéros est également représentée sur le plan complexe de gauche.
+    \label{fig-contour_cauchy}}
+\end{figure}
+%-------------------------------------------------------------------------------
+L'\cref{annexe-cauchy} présente un 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Principe de l'argument de Cauchy}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit un contour $\mathcal{C}$ parcourant le plan complexe de 
 la variable $p$ dans le sens des aiguilles d'une montre et $F(p)$ une fonction 
@@ -976,26 +1060,12 @@ courbe $F(\mathcal{C})$ image $F(p)$ de $\mathcal{C}$.
         N=Z-P
     \]
 \end{theorem}
-
 On se rapportera à la~\cref{fig-contour_cauchy} pour un exemple d'application 
 de ce principe. Dans cet exemple la fonction analytique $F(p)$ possède 2 pôles 
 et 3 zéros. Le contour entoure $Z=3$ zéros et $P=1$ pôle.
 Le contour $\Gamma=F(\mathcal{C})$ fait alors $N=Z-P=2$ tours autour 
 de l'origine dans le sens trigonométrique ($N>0$). Remarquons que les tours 
 sont comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours}).
-%-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{nyquist_cauchy-chap_stab-ext}
-    \input{tikz/nyquist_cauchy-chap_stab.tex}
-    \caption{Représentation de la transformation d'un contour $\mathcal{C}$ 
-             en son image par une fonction analytique $F(p)$. Dans cet exemple,
-             on observe (droite) que $\mathcal{C}$ entoure $Z=3$ zéros et 
-             $P=1$ pôle (gauche) l'image fait alors $N=3-1=2$ tours autour de 
-             l'origine.
-    \label{fig-contour_cauchy}}
-\end{figure}
-%-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -1020,7 +1090,7 @@ sont comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours})
 %-------------------------------------------------------------------------------
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Contours de Nyquist et de Bromwich}
+\subsection{Contours de Nyquist et de Bromwich}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour pouvoir appliquer le critère de Nyquist par l'intermédiaire du principe 
 de l'argument de Cauchy, il nous faut définir le contour orienté dans le plan 
@@ -1041,7 +1111,6 @@ imaginaires, d'un demi cercle de rayon infini centré sur l'origine et dans le
 cas où $p=0$ est un pôle ou un zéro de la fonction de transfert en boucle 
 ouverte, le contour est également composé d'un cercle de rayon 
 $r\rightarrow0$ centré sur les pôles nuls.
-
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering

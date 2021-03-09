@@ -24,7 +24,7 @@
         \end{axis}
     \end{scope}
     \begin{scope}[xshift=4.75cm,yshift=1cm]
-        \bs[\textcolor{col1}{$E(p)$}][$H(p)$][][\textcolor{col4}{$S(p)$}]
+        \bs[\textcolor{col1}{$E(p)$}][$H(p)$][][\textcolor{col3}{$S(p)$}]
     \end{scope}
     \begin{scope}[xshift=10cm]
         \begin{axis}
@@ -39,15 +39,15 @@
             xlabel style={below},
             ylabel style={above left},
             xlabel=$t$,
-            ylabel={\textcolor{col4}{$s(t)$}},
-            tick label style={color=col4,font=\scriptsize},
+            ylabel={\textcolor{col3}{$s(t)$}},
+            tick label style={color=col3,font=\scriptsize},
             yticklabels={$KE_0$},
             ytick={1.5},
             xticklabels={$\dfrac{\tau}{2}$},
             xtick={1},
             clip=false
         ]
-            \addplot+[col4,thick,mark=none,const plot]
+            \addplot+[col3,thick,mark=none,const plot]
             coordinates
             {(-1,0) (1,0) (1,1.5) (2,-1.5) (3,1.5) 
              (4,-1.5) (5,1.5) (6,-1.5) (7,-1.5)};

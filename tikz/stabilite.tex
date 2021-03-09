@@ -8,21 +8,22 @@
     \begin{axis}[ticks=none,
         width=1.6\textheight,
         height=\textwidth,
+        %width=\linewidth,
         axis x line=center,
         axis y line=center,
         xmin=-12.5,
-        xmax=12.5,
+        xmax=14,
         ymin=-5,
         ymax=5,
         xlabel={\LARGE $\Re{p}$},
         ylabel={\LARGE $\Im{p}$},
-        xlabel style={right},
-        ylabel style={above}]
+        xlabel style={below,xshift=-2em},
+        ylabel style={left,yshift=-2em}]
     % two rectangles (stable/instable)
     \draw[colstab,fcolstab]   (axis cs:-12.5,-5) rectangle (axis cs:0,5);
-    \draw[colinstab,fcolinstab] (axis cs:0,-5) rectangle (axis cs:12.5,5);
+    \draw[colinstab,fcolinstab] (axis cs:0,-5) rectangle (axis cs:14,5);
 
-    \draw[ultra thick,-latex] (axis cs:-12.5,0) -- (axis cs:12.5,0);
+    \draw[ultra thick,-latex] (axis cs:-12.5,0) -- (axis cs:14,0);
     \draw[ultra thick,-latex] (axis cs:0,-5) -- (axis cs:0,5);
 
     \coordinate (pt01) at (axis cs:-6.5,4.5);
@@ -75,7 +76,6 @@
         ylabel style={right}
         }
     }
-
     % pt1
     \node[anchor=south west] at (pt1) 
     {

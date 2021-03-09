@@ -26,7 +26,7 @@
     \begin{scope}[scale=0.6, every node/.append style={transform shape},
                   xshift=7.5cm,yshift=2cm]
         \bruni[\textcolor{col1}{$E(p)$}]
-              [\textcolor{col3}{$\epsilon(p)$}]
+              [\textcolor{col5}{$\epsilon(p)$}]
               [$H(p)$]
               []
               [\textcolor{col4}{$S(p)$}]
@@ -71,14 +71,14 @@
             xlabel style={below},
             ylabel style={above left},
             xlabel=$t$,
-            ylabel={\textcolor{col3}{$\epsilon(t)$}},
-            tick label style={color=col3,font=\scriptsize},
+            ylabel={\textcolor{col5}{$\epsilon(t)$}},
+            tick label style={color=col5,font=\scriptsize},
             yticklabels={$\epsilon_1$,$\epsilon_2$,$\epsilon_3$,
                          $\epsilon_4$,$\epsilon_5$},
             ytick={1,-2.5,4.75,-8.125,13.1875,-20.78125},
             clip=false
         ]
-            \addplot+[col3,thick,mark=none,const plot]
+            \addplot+[col5,thick,mark=none,const plot]
             coordinates
             {(-1,0) (0,1.0) (1,-2.5) (2,4.75) (3,-8.125) 
              (4,13.1875) (5,-20.78125)  (6,-20.78125) };
