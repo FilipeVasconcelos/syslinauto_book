@@ -72,6 +72,7 @@ if __name__=="__main__":
          "\\begin{itemize}":[1,"-","\\end{itemize}"],
          "\\begin{criteria}":[1,"-","\\end{criteria}"],
          "\\begin{definition}":[1,"-","\\end{definition}"]
+         "\\begin{tcolorbox}":[1,"-","\\end{tcolorbox}"]
          }
 
     for checking,data in sep.items() :
