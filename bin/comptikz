@@ -79,3 +79,5 @@ fi
     dvips -o standalone/${texname}.ps standalone/${texname}.dvi #&> /dev/null
     ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None standalone/${texname}.ps standalone/${texname}.pdf #&> /dev/null 
 done
+mupdf standalone/${texname}.pdf
+

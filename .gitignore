@@ -49,3 +49,5 @@ beamer/c14
 svg/*.svg
 standalone/
 _minted*
+*.ipynb_checkpoints/
+*__pycache__/
