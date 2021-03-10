@@ -51,3 +51,4 @@ standalone/
 _minted*
 *.ipynb_checkpoints/
 *__pycache__/
+notebook/fig/*.png

@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+DPI=200
 
 def add_arrow(line, size=16, color=None,middle=False,pcts=[0.01]):
     """
@@ -42,7 +43,7 @@ def plot_contour(C,**kwargs):
     """
     xlim=kwargs.get('xlim', (-5,5))
     ylim=kwargs.get('ylim', (-5,5))
-    fig = plt.figure(figsize=(6,4),dpi=100)
+    fig = plt.figure(figsize=(4,3),dpi=200)
     ax = fig.add_subplot(1, 1, 1)
     ax.set(xlim=xlim, ylim=ylim)
     ax.title.set_text(r'contour $\mathcal{C}$')

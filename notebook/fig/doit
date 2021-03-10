@@ -1,0 +1,7 @@
+#!/bin/bash
+for file in *.png
+do
+    fname=${file%.png}
+    echo ${fname}
+    convert ${fname}.png -resize 1024x1024 -density 600 -units pixelsperinch -flatten  -depth 100 -quality 100 ${fname}.eps
+done
