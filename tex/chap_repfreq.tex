@@ -95,7 +95,7 @@ En écrivant le nombre complexe $H(\jw)$ sous sa forme exponentielle
 %-------------------------------------------------------------------------------
 où $|H(\jw)|$ et $\phi$ sont respectivement le module et l'argument du nombre
 complexe $H(\jw)$ 
-et où l'on montre de plus que $H(-\jw)$ est égale à son conjugué (i.e 
+et où l'on montre de plus que $H(-\jw)$ est égale à son conjugué (c.-à-d. 
 $H(-\jw)=\overline{H(\jw)}$).
 %
 %
@@ -706,7 +706,7 @@ réels et les courbes asymptotiques.
 \tikzsetnextfilename{bode_1er_6-chap_repfreq-ext}
 \input{tikz/bode_1er_6-chap_repfreq.tex}
 \caption{Diagramme de Bode d'un système du premier ordre 
-         (\Cref{eq-1er_ftjw}) (i.e $K=1$, $\tau=1$ et $\omega_c=1$) avec 
+         (\Cref{eq-1er_ftjw}) (c.-à-d. $K=1$, $\tau=1$ et $\omega_c=1$) avec 
          (bleu) le diagramme réel et (rouge) le diagramme asymptotique. On 
          vérifie que les valeurs asymptotiques sont de bonnes approximations 
          à basse et haute fréquence. Il est également possible de lire un 
@@ -1011,14 +1011,14 @@ $\alpha$, $n_i$, et $n_j$.
 %$n_i$, et $n_j$.
 %-------------------------------------------------------------------------------
 %\begin{itemize}
-%    \item le terme $K_0$ (i.e gain pur) provoque:
+%    \item le terme $K_0$ (c.-à-d. gain pur) provoque:
 %-------------------------------------------------------------------------------
 %        \begin{itemize}
 %            \item gain  : $+20\log{K_0}$
 %            \item phase : rien 
 %        \end{itemize}
 %-------------------------------------------------------------------------------
-%    \item le terme $K_0p^{\alpha}$ (i.e intégrateur si $\alpha<0$ ou 
+%    \item le terme $K_0p^{\alpha}$ (c.-à-d. intégrateur si $\alpha<0$ ou 
 %          dérivateur si $\alpha>0$) provoque :
 %-------------------------------------------------------------------------------
 %        \begin{itemize}
@@ -1026,7 +1026,7 @@ $\alpha$, $n_i$, et $n_j$.
 %            \item phase : 90$\alpha$\si{\degree}
 %        \end{itemize}
 %-------------------------------------------------------------------------------
-%    \item un terme $\dfrac{1}{(1+\tau_ip)}$ (i.e premier ordre au 
+%    \item un terme $\dfrac{1}{(1+\tau_ip)}$ (c.-à-d. premier ordre au 
 %          dénominateur si $n_i=-1$) provoque, en $\omega=\frac{1}{\tau_i}$
 %-------------------------------------------------------------------------------
 %        \begin{itemize}
@@ -1034,7 +1034,7 @@ $\alpha$, $n_i$, et $n_j$.
 %            \item phase : un saut de -90\si{\degree}
 %        \end{itemize}
 %-------------------------------------------------------------------------------
-%    \item un terme $(1+\tau_ip)$ (i.e premier ordre au numérateur si $n_i=1$) 
+%    \item un terme $(1+\tau_ip)$ (c.-à-d. premier ordre au numérateur si $n_i=1$) 
 %          provoque, en $\omega=\frac{1}{\tau_i}$
 %-------------------------------------------------------------------------------
 %        \begin{itemize}
@@ -1043,7 +1043,7 @@ $\alpha$, $n_i$, et $n_j$.
 %        \end{itemize}
 %-------------------------------------------------------------------------------
 %    \item un terme $\dfrac{1}{(1+2\xi_j\tau_jp+\tau_j^2p^2)}$ 
-%          (i.e second ordre au dénominateur si $n_j=-1$) provoque, 
+%          (c.-à-d. second ordre au dénominateur si $n_j=-1$) provoque, 
 %          en $\omega=\frac{1}{\tau_j}$
 %-------------------------------------------------------------------------------
 %        \begin{itemize}
@@ -1051,7 +1051,7 @@ $\alpha$, $n_i$, et $n_j$.
 %            \item phase : un saut de -180\si{\degree}
 %        \end{itemize}
 %-------------------------------------------------------------------------------
-%    \item un terme $(1+2\xi_j\tau_jp+\tau_j^2p^2)$ (i.e second ordre au 
+%    \item un terme $(1+2\xi_j\tau_jp+\tau_j^2p^2)$ (c.-à-d. second ordre au 
 %          numérateur si $n_j=-1$) provoque, en $\omega=\frac{1}{\tau_j}$
 %-------------------------------------------------------------------------------
 %        \begin{itemize}
@@ -1172,7 +1172,8 @@ Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
     \input{tikz/nyquist_contour-chap_repfreq.tex}
     \caption{Contour de Nyquist: le lieu de Nyquist complet est 
              la courbe paramétrée des parties réelle et imaginaire 
-             de $H(p)$ lorsque $p$ parcours ce contour.}
+             de $H(p)$ lorsque $p$ parcours ce contour.
+             \label{fig-contour_Nyquist}}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
 Dans chacuns des modèles, nous reproduirons le lieu de Nyquist 
@@ -1180,9 +1181,10 @@ complet avec le domaine des pulsations négatives. Dans la pratique, il suffit
 de tracer le symétrique par rapport à 
 l'axe des réels et d'inverser le sens de la flêche pour obtenir le sens de la 
 pulsation de $-\infty\to 0$. 
-En toute rigueur le lieu de Nyquist est l'image du contour de Nyquist de la 
-fraction rationnelle $H(p)$, nous aurons l'occasion de revoir ce contour
-au~\cref{chap-stab}.    
+En toute rigueur, le lieu de Nyquist complet est l'image du contour de Nyquist
+(c.f \cref{fig-contour_Nyquist}), de la fraction rationnelle $H(p)$. 
+Le lieu de Nyquist complet nous sera utile lorsque nous étudierons la stabilité
+des systèmes asservis au~\cref{chap-stab}.    
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un gain pur}
@@ -1387,7 +1389,7 @@ Les figures~\cref{fig-nyquist_2nd_1} présentent le tracé des lieux de Nyquist
 pour deux valeurs de $\xi$. On observe que ces lieux ont la forme de cardioïde.
 Pour des valeurs de $\xi<\dfrac{\sqrt{2}}{2}$, on observe un renflement, sur 
 la partie droite du lieu de Nyquist, dû à l'augmentation
-du module de $H(\jw)$ (i.e gain) associé au phénomène de résonance.
+du module $|H(\jw)|$ (c.-à-d. du gain) associée au phénomène de résonance.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
