@@ -71,6 +71,7 @@ if __name__=="__main__":
          "\\begin{bequation}":[1,"-","\\end{bequation}"],
          "\\begin{itemize}":[1,"-","\\end{itemize}"],
          "\\begin{criteria}":[1,"-","\\end{criteria}"],
+         "\\begin{theorem}":[1,"-","\\end{theorem}"],
          "\\begin{definition}":[1,"-","\\end{definition}"]
          "\\begin{tcolorbox}":[1,"-","\\end{tcolorbox}"]
          }
