@@ -1,19 +1,21 @@
 \begin{tikzpicture}
+    \def\rr{1.6}
+    \pgfmathsetmacro\ymax{\rr+0.2}
 \begin{axis}[
     name=aaa1,
     ticks=none,
     axis line style = thick,
     axis lines = center,
     height=6cm,
-    width=6cm,
+    width=4cm,
     xlabel=$\Re{p}$,
     ylabel=$\Im{p}$,
     xlabel style={below},
     ylabel style={left,yshift=0.5em},
-    ymin=-1.6,
-    ymax=1.6,
+    ymin=-\ymax,
+    ymax=\ymax,
     xmin=-0.8,
-    xmax=2.4,
+    xmax=1.2,
     clip=false]
     \draw[dashed,col1,very thick,-{Latex[length=2.5mm]}] 
     (axis cs:0,-1.4) -- (axis cs:0,-0.7) node[left] {\textbf{III}};
@@ -28,28 +30,30 @@
     ({0.15*cos(x)},{0.15*sin(x)});
     \draw[col1,thick,-{Latex[length=2.5mm]}]  
     (axis cs:0,0.15) -- (axis cs:0,0.7) node[left] {\textbf{I}} ;
-    \draw[col1,thick]        (axis cs:0,0.65) -- (axis cs:0,1.4) ;
+    \draw[col1,thick]        (axis cs:0,0.65) -- (axis cs:0,\rr) ;
     \addplot[col4,very thick,-{Latex[length=2.5mm]},domain=90:60,samples=50] 
-    ({1.4*cos(x)},{1.4*sin(x)});
+    ({\rr*cos(x)},{\rr*sin(x)});
     \addplot[col4,very thick,-{Latex[length=2.5mm]},domain=62:-60,samples=50] 
-    ({1.4*cos(x)},{1.4*sin(x)});
+    ({\rr*cos(x)},{\rr*sin(x)});
     \addplot[col4,very thick,domain=-58:-90,samples=10] 
-    ({1.4*cos(x)},{1.4*sin(x)});
+    ({\rr*cos(x)},{\rr*sin(x)});
     \node[right,xshift=0.5em,col4] at 
-    (axis cs:{1.4*cos(50)},{1.4*sin(50)}) {\textbf{II}};
+    (axis cs:{\rr*cos(50)},{\rr*sin(50)}) {\textbf{II}};
     \node[right,col3] at 
     (axis cs:{0.20*cos(60)},{0.20*sin(60)}) {\textbf{IV}};
     \node[left,col3] at (axis cs:{-0.15*cos(90)},{0.15*sin(90)}) 
     {\scriptsize $p\rightarrow0^+$};
     \node[left,col3] at (axis cs:{-0.15*cos(-90)},{0.15*sin(-90)}) 
     {\scriptsize $p\rightarrow0^-$};
-    \node[left,col4] at (axis cs:{1.4*cos(90)},{1.4*sin(90)}) 
+    \node[left,col4] at (axis cs:{\rr*cos(90)},{\rr*sin(90)}) 
     {\scriptsize $p\rightarrow+j\infty$};
-    \node[left,col4] at (axis cs:{1.4*cos(-90)},{1.4*sin(-90)}) 
+    \node[left,col4] at (axis cs:{\rr*cos(-90)},{\rr*sin(-90)}) 
     {\scriptsize $p\rightarrow-j\infty$};
 \end{axis}
-    \draw[dblarw={black}{3pt}{3pt}] (5.5,2.18) -- node[midway,above] 
-    {$H_2(p)$} (7.5,2.18) ;
+    \draw[dblarw={black}{3pt}{3pt}] (3.5,2.18) -- node[midway,above] 
+    {$H_2(p)$} (5.5,2.18) ;
+    \def\rr{1.7}
+    \pgfmathsetmacro\ymax{\rr+0.3}
 \begin{axis}[
     name=aaa2,
     at={(aaa1.south east)},xshift=24ex,
@@ -57,18 +61,18 @@
     axis line style = thick,
     axis lines = center,
     height=6cm,
-    width=6cm,
+    width=4cm,
     xlabel=$\Re{H_2(p)}$,
     ylabel=$\Im{H_2(p)}$,
-    xlabel style={below},
+    xlabel style={below,yshift=-0.75em,xshift=-1em},
     ylabel style={left,yshift=0.5em},
-    ymin=-1.6,
-    ymax=1.6,
+    ymin=-\ymax,
+    ymax=\ymax,
     xmin=-0.8,
-    xmax=2.4,
+    xmax=1.2,
     clip=false]
     \node[right,xshift=0.5em,col3] at 
-    (axis cs:{1.3*cos(35)},{1.3*sin(35)}) {\textbf{IV}};
+    (axis cs:{1.6*cos(35)},{1.6*sin(35)}) {\textbf{IV}};
     \node[col1] at (axis cs:{-1.2*cos(20)},{1.2*sin(20)}) 
     {\textbf{III}};
     \node[col1] at (axis cs:{-1.2*cos(20)},{-1.2*sin(20)}) 
@@ -76,17 +80,17 @@
     \draw[draw=none,fill=col4] (axis cs:0,0) circle[radius=2pt] 
     node[above right,col4,yshift=0.7em] {\textbf{II}};
     \def\ttt{1.0}
-    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=0.6:0.9,samples=201] 
+    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=0.5:0.9,samples=201] 
     ({-1/(1+\ttt*x*x)},{-1/(x*(1+\ttt*x*x))});
     \addplot[col1,very thick,domain=0.8:10,samples=201] 
     ({-1/(1+\ttt*x*x)},{-1/(x*(1+\ttt*x*x))});
-    \addplot[dashed,col1,very thick,domain=0.6:0.9,samples=201] 
+    \addplot[dashed,col1,very thick,domain=0.5:0.9,samples=201] 
     ({-1/(1+\ttt*x*x)},{1/(x*(1+\ttt*x*x))});
     \addplot[dashed,col1,very thick,domain=0.8:10,samples=201,
     {Latex[length=2.5mm]}-] 
     ({-1/(1+\ttt*x*x)},{1/(x*(1+\ttt*x*x))});
     \begin{scope}
-        \clip (axis cs:-0.7,-1.7) rectangle (1.4,1.7);
+        \clip (axis cs:-0.75,-\ymax) rectangle (2,\ymax);
         \draw[col3,very thick,
         decoration={markings,mark=at position 0.2 with 
         {\arrowreversed[line width=2pt]{latex}}},
@@ -94,11 +98,11 @@
         {\arrowreversed[line width=2pt]{latex}}},
         decoration={markings,mark=at position 0.9 with 
         {\arrowreversed[line width=2pt]{latex}}},
-        postaction={decorate}] (axis cs:0,0) circle[radius=1.4];
+        postaction={decorate}] (axis cs:0,0) circle[radius=2cm];
     \end{scope}
-    \node[left,col3] at (axis cs:{1.4*cos(120)},{1.4*sin(120)})   
+    \node[left,col3] at (axis cs:{\rr*cos(120)},{\rr*sin(120)})   
     {\scriptsize $p\rightarrow0^-$};
-    \node[left,col3] at (axis cs:{1.4*cos(-120)},{1.4*sin(-120)}) 
+    \node[left,col3] at (axis cs:{\rr*cos(-120)},{\rr*sin(-120)}) 
     {\scriptsize $p\rightarrow0^+$};
     \node[right,col4] at (axis cs:{0.15*cos(90)},{0.15*sin(90)}) 
     {\scriptsize $p\rightarrow-j\infty$};
