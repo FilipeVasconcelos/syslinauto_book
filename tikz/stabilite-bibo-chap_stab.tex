@@ -156,8 +156,10 @@
             yticklabels={$KE_0$},
             ytick={1},
         ]
-            \addplot[col3,thick,samples=100,mark=none,domain=0:1] {1-exp(-x/0.25)};
-            \addplot[col3,thick,samples=100,mark=none,domain=1:5] {(-exp(-x/0.25)+exp(-(x-1)/0.25)};
+        \addplot[col3,thick,samples=100,mark=none,domain=0:1] 
+        {1-exp(-x/0.25)};
+        \addplot[col3,thick,samples=100,mark=none,domain=1:5] 
+        {(-exp(-x/0.25)+exp(-(x-1)/0.25)};
         \end{axis}
     \end{scope}
     \begin{scope}[xshift=10cm,yshift=-1.5cm]
@@ -178,7 +180,8 @@
             yticklabels={$KE_0$},
             ytick={1},
         ]
-            \addplot[col3,thick,samples=100,mark=none,domain=0:20] {0.8*sin(deg(x)-90)};
+        \addplot[col3,thick,samples=100,mark=none,domain=0:20] 
+        {0.8*sin(deg(x)-90)};
         \end{axis}
     \end{scope}
     \begin{scope}[xshift=10cm,yshift=-4.5cm]
@@ -200,7 +203,8 @@
             ytick={1},
             clip=false
         ]
-            \addplot[col4,thick,samples=256,mark=none,domain=0:40] {func2(0.1)};
+        \addplot[col4,thick,samples=256,mark=none,domain=0:40] 
+        {func2(0.1)};
         \end{axis}
     \end{scope}
 \end{tikzpicture}

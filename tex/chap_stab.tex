@@ -154,10 +154,12 @@ La suite géométrique présente dans cette expression diverge pour $K>1$.
 l'asservissement par bouclage. Il est donc essentiel d'étudier 
 cette propriété dans le cas des systèmes asservis.}
 Il faut cependant noter l'influence indispensable du :
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item gain statique en boucle ouverte $K>1$
     \item et du retard d'une demi-période (en opposition de phase); 
 \end{itemize}
+%-------------------------------------------------------------------------------
 dans cet exemple. Comme attendu, les propriétés de la boucle ouverte
 influencent directement la stabilité de la boucle fermée.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -171,15 +173,17 @@ influencent directement la stabilité de la boucle fermée.
 Pour caractériser la stabilité des \gls{slci}, il est possible de déterminer
 une condition sur les p ôles (racines du dénominateur de la fonction de 
 transfert). Pour montrer cela, nous allons étudier la réponse impulsionnelle 
-d'une fonction de transfert présentant des pôles de différentes natures et oberver
-la condition sur ses pôles pour que le système soit stable selon les définitions
-précédentes. 
+d'une fonction de transfert présentant des pôles de différentes natures et 
+oberver la condition sur ses pôles pour que le système soit stable selon les 
+définitions précédentes. 
 Soit une fonction de transfert $H(p)$ présentant quatre pôles :
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item un pôle réel simple $p_1$,
     \item un pôle réel double $p_2$,
     \item deux pôles complexes conjugués $p_{3,4}=\alpha\pm\jw$
 \end{itemize}
+%-------------------------------------------------------------------------------
 tel que :
 \[
     H(p)=\dfrac{N(p)}{(p-p_1)(p-p_2)^2(p-p_3)(p-p_4)}.
@@ -188,11 +192,18 @@ En notant que $(p-p_3)(p-p_4)=(p-\alpha)^2+\omega^2$,
 la décomposition en élément simple de la réponse impulsionnelle $S(p)$ 
 dans le domaine de Laplace devient :
 \[
-    S(p)=\dfrac{A}{p-p_1}+\dfrac{B}{p-p_2}+\dfrac{C}{(p-p_2)^2}+\dfrac{Dp+E}{(p-\alpha)^2+\omega^2}
+    S(p)=\dfrac{A}{p-p_1}
+        +\dfrac{B}{p-p_2}
+        +\dfrac{C}{(p-p_2)^2}
+        +\dfrac{Dp+E}{(p-\alpha)^2+\omega^2}
 \]
 La transformée inverse de cette expression est de la forme:
 \[
-    s(t)=\left(Ae^{p_1t}+=Be^{p_2t}+Cte^{p_2t}+De^{\alpha t}\cos{\omega t}+\dfrac{\alpha D+E}{\alpha}e^{\alpha t}\sin{\omega t}\right)u(t)
+    s(t)=\left(Ae^{p_1t}
+              +Be^{p_2t}
+              +Cte^{p_2t}
+              +De^{\alpha t}\cos{\omega t}
+              +\dfrac{\alpha D+E}{\alpha}e^{\alpha t}\sin{\omega t}\right)u(t)
 \]
 Il apparaît clair que les pôles doivent être à parties réelles strictement 
 négatives pour que les exponentielles présentent dans la réponse temporelle
@@ -222,13 +233,14 @@ tendent vers 0 pour $t\to0$.
 \newpage
 \pagestyle{fancy}
 \captionsetup{width=\linewidth}
-La~\cref{fig-stab_imp_all} présente schématiquement les reponses impulsionnelles 
-des systèmes selon la nature des pôles de la fonction de transfert du système 
-dont étudie la stabilité. Pour des pôles à parties réelles négatives, les 
-réponses tendent toutes vers 0, mais à des vitesses différentes. Plus le pôle
-est éloigné de l'axe des imaginaires (plus la valeurs absolu de la partie 
-réelle est importante) plus rapide sera la convergence vers 0. Les pôles
-plus proche de l'axe des imaginaires sont qualifiés de \textbf{pôles dominants}
+La~\cref{fig-stab_imp_all} présente schématiquement les reponses 
+impulsionnelles des systèmes selon la nature des pôles de la fonction 
+de transfert du système dont on étudie la stabilité. 
+Pour des pôles à parties réelles négatives, les réponses tendent toutes vers 0, 
+mais à des vitesses différentes. Plus le pôle est éloigné de l'axe des 
+imaginaires (plus la valeurs absolu de la partie réelle est importante) 
+plus rapide sera la convergence vers 0. Les pôles plus proche de l'axe des 
+imaginaires sont qualifiés de \textbf{pôles dominants}
 (c.f \cref{sec-rapidite}).
 %-------------------------------------------------------------------------------
 \begin{criteria}{Condition fondamentale de stabilité}
@@ -268,6 +280,7 @@ L'inconvénient de cette condition est qu'elle nécessite de déterminer les
 pôles de la fonction de transfert en boucle fermée par le calcul. Il existe
 deux familles de critères de stabilité qui permettent de s'affranchir de 
 ces calculs:
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item Les critères algébriques : qui permettent de vérifier la condition 
         fondamentale de stabilité en étudiant directement le polynôme 
@@ -276,6 +289,7 @@ ces calculs:
         fondamentale de stabilité du système asservi en étudiant graphiquement
         la \gls{ftbo}.
 \end{itemize}
+%-------------------------------------------------------------------------------
 \newpage
 \newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 \captionsetup{width=0.9\linewidth}
@@ -596,7 +610,6 @@ des cas particuliers~\cite{Ostertag}.
 \subsection{Exemple d'application du critère de Routh-Hurwitz}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 La particularité du critère de Routh-Hurwitz est de permettre d'étudier les 
 conditions de stabilité d'un système en fonction des paramètres de la fonction 
 de transfert en boucle ouverte.
@@ -759,8 +772,8 @@ réinterpréter la condition stabilité d'un système asservi :
 \subsection{Mise en évidence de l'instabilité en boucle fermée}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Nous allons établir un critère de stabilité des systèmes asservis, dit du revers, 
-que nous pourrons appliquer sur la réponse harmonique de la~\gls{ftbo} 
+Nous allons établir un critère de stabilité des systèmes asservis, dit du 
+revers, que nous pourrons appliquer sur la réponse harmonique de la~\gls{ftbo} 
 (et de ses différentes représentations graphiques).
 
 Supposons le système asservi précédent décrit par la fonction de transfert 
@@ -1015,50 +1028,56 @@ Il s'appuie sur le principe de l'argument de Cauchy.
 Nous suivrons la présentation \og graphique\fg~ de ce théorème 
 et du critère de Nyquist donné par~\cite{reg,katkim}. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection[Image d'un contour d'une fonction de transfert dans $\mathcal{C}$]
-{Image d'un contour d'une fonction de transfert dans le plan complexe}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Image d'un contour par une fonction de transfert}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour présenter le principe de l'argument de Cauchy, il nous faut déterminer
-l'image d'un contour par une fonction de transfert. La~\cref{fig-contour_cauchy} 
-présente un exemple de contour  $\mathcal{C}$ parcourant le plan complexe de
-la variable $p$ dans le sens des aiguilles d'une montre. On se donne une fonction
-de transfert ne possédant aucun pôles et zéros sur $\mathcal{C}$. Ces pôles
-et zéros de la fonction de transfert peuvent être contenus dans le contour 
-d'origine. On appelle $\Gamma$ l'image de 
-$\mathcal{C}$ par $F(p)$. \textbf{Le principe de Cauchy nous permet de quantifier le 
-nombre de pôles et zéros contenus dans le contour en étudiant l'image de la 
-fonction de transfert par rapport à l'origine du plan.}.
+l'image d'un contour par une fonction de transfert. 
+La~\cref{fig-contour_cauchy} présente un exemple de contour $\mathcal{C}$ 
+parcourant le plan complexe de la variable $p$ dans le sens des aiguilles 
+d'une montre. On se donne une fonction de transfert ne possédant aucun pôles 
+et zéros sur $\mathcal{C}$. 
+Ces pôles et zéros de la fonction de transfert peuvent être contenus dans le 
+contour d'origine. On appelle $\Gamma$ l'image de $\mathcal{C}$ par $F(p)$. 
+\textbf{Le principe de Cauchy nous permet de quantifier le nombre de pôles et 
+zéros contenus dans le contour en étudiant l'image de la fonction de transfert 
+par rapport à l'origine du plan.}.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{nyquist_cauchy-chap_stab-ext}
     \input{tikz/nyquist_cauchy-chap_stab.tex}
-    \caption{Représentation de la transformation (à gauche) d'un contour $\mathcal{C}$ 
-             (à droite) en son image par une fonction analytique $F(p)$. La carte 
-             des pôles et zéros est également représentée sur le plan complexe de gauche.
+    \caption{Représentation de la transformation (à gauche) d'un contour 
+             $\mathcal{C}$ (à droite) en son image par une fonction analytique 
+             $F(p)$. La carte des pôles et zéros est également représentée 
+             sur le plan complexe de gauche.
     \label{fig-contour_cauchy}}
 \end{figure}
 %-------------------------------------------------------------------------------
 
 En prenant des exemples simples (c.f \Cref{annexe-cauchy}\footnote{Cette 
-annexe est formellement un notebook IPython. Les modules utilisés sont développés 
-en Python}), il est possible 
-de formuler quelques règles sur la nature du contour image en fonction 
-du contour d'origine:
+annexe est formellement un notebook IPython. Les modules utilisés sont 
+développés en Python}), il est possible de formuler quelques règles sur la 
+nature du contour image connaissant le contour d'origine par rapport aux
+pôles et zéros de l'application. Notamment,
+%-------------------------------------------------------------------------------
 \begin{itemize}
-    \item \textbf{Si le contour origine contient $Z$ zéros de la fonction de transfert,
-          le contour image fait $Z$ tours autour de l'origine dans le même sens 
-          que le contour origine.}
-    \item \textbf{Si le contour origine contient $P$ pôles de la fonction de transfert,
-          le contour image fait $P$ tours autour de l'origine dans le sens opposé au 
-          contour d'origine.}
+    \item \textbf{si le contour origine contient $Z$ zéros de la fonction de 
+          transfert, le contour image fait $Z$ tours autour de l'origine dans 
+          le même sens que le contour origine.}
+    \item \textbf{si le contour origine contient $P$ pôles de la fonction de 
+          transfert, le contour image fait $P$ tours autour de l'origine dans 
+          le sens opposé au contour d'origine.}
 \end{itemize}
-
+%-------------------------------------------------------------------------------
 \clearpage
 \newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 \captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Principe de l'argument de Cauchy}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit un contour $\mathcal{C}$ parcourant le plan complexe de 
 la variable $p$ dans le sens des aiguilles d'une montre et $F(p)$ une fonction 
@@ -1097,7 +1116,7 @@ Dans l'exemple de la~\cref{fig-contour_cauchy}, la fonction analytique $F(p)$
 possède 2 pôles et 3 zéros. Le contour contient $Z=3$ zéros et $P=1$ pôle.
 Le contour $\Gamma=F(\mathcal{C})$ fait alors $N=Z-P=2$ tours autour 
 de l'origine dans le sens trigonométrique ($N>0$). Remarquons que les tours 
-sont comptés positivement dans le sens trigonométrique. %(c.f~\cref{fig-ntours}).
+sont comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours}).
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
@@ -1122,13 +1141,15 @@ sont comptés positivement dans le sens trigonométrique. %(c.f~\cref{fig-ntours
 \end{marginfigure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Contours de Nyquist et de Bromwich}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour pouvoir appliquer le critère de Nyquist par l'intermédiaire du principe 
 de l'argument de Cauchy, il nous faut définir le contour orienté dans le plan 
 $p$ qui entoure la zone instable (c.a.d le demi-plan à partie réelle positive).
-Nous présentons deux types de contours: (1) le contour de Nyquist et (2) ceux de 
-Bromwich.
+Nous présentons deux types de contours: (1) le contour de Nyquist et (2) ceux 
+de Bromwich.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
@@ -1137,9 +1158,9 @@ Bromwich.
              (1875-1929), mathématicien anglais.}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
-Ces contours sont composés de tout l'axe des 
-imaginaires et d'un demi cercle de rayon infini centré sur l'origine. La
-portion sur l'axe des imaginaires correspond directement au diagramme de Nyquist
+Ces contours sont composés de tout l'axe des imaginaires et 
+d'un demi cercle de rayon infini centré sur l'origine. La portion sur l'axe 
+des imaginaires correspond directement au diagramme de Nyquist
 de la réponse harmonique d'un \gls{slci} régi par la fonction de transfert mis 
 en jeu. Dans le cas où $p=0$ est un pôle ou un zéro de cette fonction
 de transfert, le contour sera également composé d'un cercle de rayon   
@@ -1203,7 +1224,8 @@ sont représentées.
 \paragraph{Contour de Bromwich}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La~\cref{fig-contour_Bromwich_1} (b) présente un contour de Bromwich dans le 
-cas où $p=0$ est pôle de la fonction de transfert. Celui-ci est composé de 4 portions:
+cas où $p=0$ est pôle de la fonction de transfert. Celui-ci est composé de 4 
+portions:
 %-------------------------------------------------------------------------------
 %\begin{marginfigure}
 %    \centering
