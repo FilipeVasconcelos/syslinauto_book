@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from contour import rectangle,circle, add_arrow
-DPI=200
+DPI=100
 
 
 class Ftransfert():
