@@ -1,0 +1,4 @@
+#!/bin/bash
+jupyter nbconvert --TagRemovePreprocessor.enabled=True \
+                  --TagRemovePreprocessor.remove_cell_tags="['hide']" \
+                  --TemplateExporter.exclude_input=True --to pdf black_nichols.ipynb --template=fmvtemplate.tplx 
