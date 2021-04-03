@@ -34,7 +34,6 @@ def add_arrow(line, size=16, color=None,middle=False,pcts=[0.01]):
             xytext=(xdata[q2], ydata[q2]),
             xy=(xdata[q2+1], ydata[q2+1]),
             arrowprops=dict(arrowstyle="->", color=color,linewidth=2),
-            
             size=size)
 
 def plot_contour(C,**kwargs):
@@ -43,16 +42,16 @@ def plot_contour(C,**kwargs):
     """
     xlim=kwargs.get('xlim', (-5,5))
     ylim=kwargs.get('ylim', (-5,5))
-    fig = plt.figure(figsize=(4,3),dpi=DPI)
+    fig = plt.figure(figsize=(6,5),dpi=DPI)
     ax = fig.add_subplot(1, 1, 1)
     ax.set(xlim=xlim, ylim=ylim)
     ax.title.set_text(r'contour $\mathcal{C}$')
-    ax.title.set_size(18)
-    ax.xaxis.label.set_text(r'$\operatorname{Re}[p]$')
-    ax.xaxis.label.set_size(14)
-    ax.yaxis.label.set_text(r'$\operatorname{Im}[p]$')
-    ax.yaxis.label.set_size(14)
-    #plt.grid()
+    ax.title.set_size(24)
+    ax.xaxis.label.set_text(r'$\mathrm{Re}[p]$')
+    ax.xaxis.label.set_size(20)
+    ax.yaxis.label.set_text(r'$\mathrm{Im}[p]$')
+    ax.yaxis.label.set_size(20)
+    plt.grid()
 
     for path in C:
         line,=plt.plot([x[0] for x in path],[x[1] for x in path])
