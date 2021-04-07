@@ -1,0 +1,6 @@
+#!/bin/bash
+out=$1
+file=$2
+jupyter nbconvert --TagRemovePreprocessor.enabled=True \
+                  --TagRemovePreprocessor.remove_cell_tags="['hide']" \
+                  --TemplateExporter.exclude_input=True --to ${out} ${file} --template=standalone_template.tplx 

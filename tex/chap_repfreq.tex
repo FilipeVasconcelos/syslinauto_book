@@ -247,7 +247,7 @@ notamment :
 \begin{itemize}
     \item le diagramme de Bode,
     \item le diagramme de Nyquist,
-    \item et le diagramme de Black-Nichols
+    \item et le diagramme de Black
 \end{itemize}
 %-------------------------------------------------------------------------------
 Nous étudierons en détail les diagrammes des modèles usuels que nous 
@@ -1462,29 +1462,79 @@ spirale qui convergent vers 0.
 %             \label{fig-nyquist_effet_retard_2}}
 %\end{figure}
 %-------------------------------------------------------------------------------
-\newpage
+\clearpage
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Diagrammes de Black: méthodologie générale}
+\subsection{Diagrammes de Black-Nichols: méthodologie générale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
+%-------------------------------------------------------------------------------
+\begin{itemize}
+    \item Définir la fonction de transfert complexe $H(\jw)$ du modèle,
+    \item \'Etablir le gain en décibel $G_dB(\omega)$ et 
+          la phase $\phi(\omega)$ à partir 
+          respectivement du module et de l'argument du nombre complexe $H(\jw)$.
+    \item Tracer le lieu de Black, c'est à dire $G_dB(\omega)$ en ordonnées 
+          et $\phi(\omega)$ en abscisse pour différentes valeurs de $\omega$ 
+          de 0 à $+\infty$. 
+\end{itemize}
+%-------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagrammes de Black d'un intégrateur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \tikzsetnextfilename{black_integ-chap_repfreq-ext}
+    \resizebox{\linewidth}{!}{\input{tikz/black_integ-chap_repfreq.tex}}
+    \caption{Diagramme de Black d'un intégrateur pur. Le lieu de Black
+             est représenté par une droite d'abscisse -90\degree.
+             \label{fig-black_1}}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagrammes de Black d'un dérivateur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \tikzsetnextfilename{black_deriv-chap_repfreq-ext}
+    \resizebox{\linewidth}{!}{\input{tikz/black_deriv-chap_repfreq.tex}}
+    \caption{Diagramme de Black d'un dérivateur pur. Le lieu de Black
+             est représenté par une droite d'abscisse +90\degree.
+             \label{fig-black_2}}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagrammes de Black d'un premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \tikzsetnextfilename{black_1er-chap_repfreq-ext}
+    \resizebox{\linewidth}{!}{\input{tikz/black_1er-chap_repfreq.tex}}
+    \caption{Diagramme de Black d'un système du premier ordre. 
+             \label{fig-black_3}}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagrammes de Black d'un second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \tikzsetnextfilename{black_2nd-chap_repfreq-ext}
+    \resizebox{\linewidth}{!}{\input{tikz/black_2nd-chap_repfreq.tex}}
+    \caption{Diagramme de Black d'un système du second ordre. 
+             \label{fig-black_4}}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

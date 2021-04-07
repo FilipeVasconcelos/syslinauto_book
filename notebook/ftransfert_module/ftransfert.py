@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math
 from contour import add_arrow
-DPI=150
 
 TWO_PI=2*np.pi
 HALF_PI=0.5*np.pi
@@ -22,11 +21,13 @@ class Ftransfert():
     """
     Fonction de transfert :
     """
-    def __init__(self,zeros=None,poles=None,num=None,den=None,gain=1,name="F"):
+    def __init__(self,zeros=None,poles=None,num=None,den=None,gain=1,name="F",DPI=200,verbeux=1):
         self.gain=gain
         self.num=num
         self.den=den
         self.name=name
+        self.DPI=DPI
+        self.verbeux=verbeux
         if zeros: 
             self.rzeros=zeros
             self.zeros=[complex(zero[0],zero[1]) for zero in zeros]
@@ -196,13 +197,35 @@ class Ftransfert():
     def harm_response(self,w,gain):
         h,mag,phase=self.evaluate(w,gain)
         # wrapping matlab like ... il faut calculer la phase à partir de l'évaluation complète
-        if not self.phaseWrapping :
+        if self.phaseWrapping :
             phase=np.zeros(h.shape)
             k=0
             for hi in h:
                 phase[k]=self.atanN(hi.imag,hi.real)
                 k+=1
         return h.real,h.imag,mag,phase 
+    # 
+    def tabLaTeX(self,**kwargs):
+        # Recast levels to new class
+        class nf(float):
+            def __repr__(self):
+                return f'{self:.2f}'
+        wlim=kwargs.get('wlim', (1e-2,1e2))
+        n=kwargs.get('n',11)
+        # array of pulsations
+        ws=1j*np.logspace(np.log10(wlim[0]),np.log10(wlim[1]),n)
+        response=self.harm_response(ws,self.gain)
+        print("\\begin{center}")
+        print("\\begin{tabular}{ccc}")
+        print("\\hline")
+        print("$\omega$ \si{\\radian\per\second} & Gain\si{\decibel} & Phase\si{\degree}\\\\")
+        print("\\hline")
+        for w,m,p in zip(ws,response[2],response[3]):
+            print(str(nf(abs(w)))+" & "+str(nf(nat2dB(m)))+" & "+str(nf(rad2deg(p)))+"\\\\")
+        print("\\hline")
+        print("\end{tabular}")
+        print("\\end{center}")
+
     # ------------------------------------------------------------------------------
     def nyquist(self,complet=False,**kwargs):
         """
@@ -223,20 +246,21 @@ class Ftransfert():
             labels=[labels]
         if len(gains) > 2 :
             color=None
-       
-        print(60*'*')
-        if complet :
-            print("Complete Nyquist plot : "+self.name+'(p)')
-            print("Interval des pulsations logarithmiques")
-            w=-1j*np.logspace(np.log10(fmax),-np.log10(fmax),n)
-            w+=1j*np.logspace(-np.log10(fmax),np.log10(fmax),n)
-        else:
-            print("Nyquist plot : "+self.name+'(p)')
-            print("Interval des pulsations logarithmiques")
-            w=1j*np.logspace(-np.log10(fmax),np.log10(fmax),n)
-        print("Nombre de points",n,len(w))
-        print(self)
-        print(60*'*'+'\n')
+      
+        if self.verbeux > 0 :
+            print(60*'*')
+            if complet :
+                print("Complete Nyquist plot : "+self.name+'(p)')
+                print("Interval des pulsations logarithmiques")
+                w=-1j*np.logspace(np.log10(fmax),-np.log10(fmax),n)
+                w+=1j*np.logspace(-np.log10(fmax),np.log10(fmax),n)
+            else:
+                print("Nyquist plot : "+self.name+'(p)')
+                print("Interval des pulsations logarithmiques")
+                w=1j*np.logspace(-np.log10(fmax),np.log10(fmax),n)
+            print("Nombre de points",n,len(w))
+            print(self)
+            print(60*'*'+'\n')
        
         XNyq=[]
         YNyq=[]
@@ -247,7 +271,7 @@ class Ftransfert():
             YNyq.append(response[1])
         
         # matplotlib instructions
-        fig = plt.figure(figsize=(6,4.5),dpi=DPI)
+        fig = plt.figure(figsize=(6,4.5),dpi=self.DPI)
         ax = fig.add_subplot(1, 1, 1)
         ax.set(xlim=xlim, ylim=ylim)
         ax.title.set_text(r'Nyquist $'+self.name+'(p)$')
@@ -262,8 +286,10 @@ class Ftransfert():
             add_arrow(line,pcts=[0.2],middle=True)
         if labels[0]: ax.legend()
         plt.tight_layout()
+        plt.show()
+        plt.close(fig)
     # ------------------------------------------------------------------------------
-    def black(self,nichols=False,**kwargs):
+    def black(self,plot=True,nichols=False,**kwargs):
         """
         Plot Black (Nichols) chart for p= 0 -> +∞ j
         in practice from 0 -> fmax
@@ -274,11 +300,12 @@ class Ftransfert():
         n=kwargs.get('n',4096)
         labels=kwargs.get('labels',[None])
         color=kwargs.get('color','tab:blue')
-        arrow_pcts=kwargs.get('arrow_pcts','[]')
+        arrow_pcts=kwargs.get('arrow_pcts',[])
         if len(arrow_pcts)>0 : 
             middle=False
         else:
             middle=True
+            arrow_pcts=[0.5]
         gains=kwargs.get('gains',[])
         gains.insert(0,self.gain)
         if isinstance(labels,str):
@@ -301,6 +328,7 @@ class Ftransfert():
             response=self.harm_response(w,gain)
             XBlack.append(rad2deg(response[3]))
             YBlack.append(nat2dB(response[2]))
+        if not plot : return XBlack,YBlack
       
         # Black-Nichols
         if nichols :
@@ -338,7 +366,7 @@ class Ftransfert():
                     phibf[i][j]=rad2deg(np.arctan2(z.imag,z.real))
 
         # matplotlib instructions
-        fig = plt.figure(figsize=(6,4.5),dpi=DPI)
+        fig = plt.figure(figsize=(6,4.5),dpi=self.DPI)
         ax = fig.add_subplot(1, 1, 1)
         ax.set(xlim=xlim, ylim=ylim)
         ax.title.set_text(r'Black $'+self.name+'(p)$')
@@ -359,7 +387,7 @@ class Ftransfert():
             isop.levels = [nf(val) for val in isop.levels]
             fmtm = '%r dB'
             fmtp = '%r °'
-            isop_loc=[(-260,10),(-260,11),(-260,12),(-260,13),(-260,15),(-260,16),(-260,17),(-260,18),(-260,19),
+            isop_loc_all=[(-260,10),(-260,11),(-260,12),(-260,13),(-260,15),(-260,16),(-260,17),(-260,18),(-260,19),
                     (-260,21),(-260,23),(-260,25),(-260,27),(-260,30),(-260,32),
                     (-100,10),(-100,11),(-100,12),(-100,13),(-100,15),(-100,16),(-100,17),(-100,18),(-100,19),
                     (-100,21),(-100,23),(-100,25),(-100,27),(-100,28),(-100,32),
@@ -371,13 +399,21 @@ class Ftransfert():
                     (-230,-32),(-240,-32),(-250,-32),(-260,-32),
                     (-270,-32),(-280,-32),(-290,-32),(-300,-32),
                     (-310,-32),(-320,-32),(-330,-32),(-340,-32)]
-            isom_loc = [(-5,-21),(-5,-19),(-5,-17),
+            isom_loc_all = [(-5,-21),(-5,-19),(-5,-17),
                         (-5,-15),(-5,-12),(-5,-10),
                         (-5,-7),(-5,-5),(-5,-3),(-5,-1),
                         (-5,0),(-5,2),(-5,4),(-5,6),
                         (-5,8),(-5,10),(-5,12),(-5,13),(-5,15),(-5,18),
                         (-175,3),(-175,4),(-175,6),(-175,7),(-175,8),(-175,10),
                         (-175,12),(-175,14),(-175,16),(-175,19),(-175,21),(-175,23),(-175,27)]
+            isop_loc=[]
+            for p in isop_loc_all:
+                if (p[0]>xlim[0] and p[0]<xlim[1]) and (p[1]>ylim[0] and p[1]<ylim[1]):
+                       isop_loc.append(p)
+            isom_loc=[]
+            for m in isom_loc_all:
+                if (m[0]>xlim[0] and m[0]<xlim[1]) and (m[1]>ylim[0] and m[1]<ylim[1]):
+                       isom_loc.append(m)
             ax.clabel(isop, isop.levels,inline=True,inline_spacing=-3, fontsize=5,fmt=fmtp,manual=isop_loc)
             ax.clabel(isom, isom.levels,inline=True,inline_spacing=-3, fontsize=5,fmt=fmtm,manual=isom_loc)
         else:
@@ -387,6 +423,7 @@ class Ftransfert():
             add_arrow(line,pcts=arrow_pcts,middle=middle)
         if labels[0]: ax.legend()
         #plt.tight_layout()
+        return fig,line
     # ------------------------------------------------------------------------------
     def bode(self,**kwargs):
         """
@@ -402,18 +439,26 @@ class Ftransfert():
         color=kwargs.get('color','tab:blue')
         gains=kwargs.get('gains',[])
         gains.insert(0,self.gain)
+        arrow_pcts=kwargs.get('arrow_pcts',[])
+        if len(arrow_pcts)>0 : 
+            middle=False
+        else:
+            middle=True
+            arrow_pcts=[0.5]
         if isinstance(labels,str):
             labels=[labels]
         if len(gains) > 2 :
             color=None
-        
-        print(60*'*')
-        print("Bode plot : "+self.name+'(p)')
-        print("Interval des pulsations logarithmiques",fmax)
+        # array of pulsations
         w=1j*np.logspace(-np.log10(fmax),np.log10(fmax),n)
-        print("Nombre de points",n,len(w))
-        print(self)
-        print(60*'*'+'\n')
+        
+        if self.verbeux > 0 :
+            print(60*'*')
+            print("Bode plot : "+self.name+'(p)')
+            print("Interval des pulsations logarithmiques",fmax)
+            print("Nombre de points",n,len(w))
+            print(self)
+            print(60*'*'+'\n')
         
         XBode=[]  # Omega
         Y1Bode=[] # GdB(Omega)
@@ -425,36 +470,36 @@ class Ftransfert():
             Y2Bode.append(rad2deg(response[3]))
         
         # matlplotlib instruction
-        fig = plt.figure(figsize=(6,8),dpi=DPI)
+        fig = plt.figure(figsize=(6,8),dpi=self.DPI)
         # Gain chart (UP)
-        ax = fig.add_subplot(2, 1, 1)
-        ax.title.set_text(r'Bode $'+self.name+'(p)$')
-        ax.title.set_size(24)
-        ax.set(xlim=xlim, ylim=y1lim)
-        ax.xaxis.label.set_text(r'$\omega$ (rad/s$^{-1}$)')
-        ax.xaxis.label.set_size(18)
-        ax.yaxis.label.set_text(r'$G_{dB}$')
-        ax.yaxis.label.set_size(18)
-        ax.set_xscale('log')
+        ax1 = fig.add_subplot(2, 1, 1)
+        ax1.title.set_text(r'Bode $'+self.name+'(p)$')
+        ax1.title.set_size(24)
+        ax1.set(xlim=xlim, ylim=y1lim)
+        ax1.xaxis.label.set_text(r'$\omega$ (rad$\cdot$s$^{-1}$)')
+        ax1.xaxis.label.set_size(18)
+        ax1.yaxis.label.set_text(r'$G_{dB}$')
+        ax1.yaxis.label.set_size(18)
+        ax1.set_xscale('log')
         plt.grid()
         for kg in range(len(gains)):
             line,=plt.plot(XBode[kg].imag,Y1Bode[kg],color=color,label=labels[kg])
-            add_arrow(line,pcts=[0.2],middle=True)
-        
+            add_arrow(line,pcts=arrow_pcts,middle=middle)
         # Phase chart (DOWN)
-        ax = fig.add_subplot(2, 1, 2)
-        ax.set(xlim=xlim, ylim=y2lim)
-        ax.title.set_size(24)
-        ax.xaxis.label.set_text(r'$\omega$ (rad/s$^{-1}$)')
-        ax.xaxis.label.set_size(18)
-        ax.yaxis.label.set_text(r'$\phi(\omega) (°)$')
-        ax.yaxis.label.set_size(18)
-        ax.set_xscale('log')
+        ax2 = fig.add_subplot(2, 1, 2)
+        ax2.set(xlim=xlim, ylim=y2lim)
+        ax2.title.set_size(24)
+        ax2.xaxis.label.set_text(r'$\omega$ (rad$\cdot$s$^{-1}$)')
+        ax2.xaxis.label.set_size(18)
+        ax2.yaxis.label.set_text(r'$\phi(\omega) (°)$')
+        ax2.yaxis.label.set_size(18)
+        ax2.set_xscale('log')
         plt.grid()
         for kg in range(len(gains)):
             line,=plt.plot(XBode[kg].imag,Y2Bode[kg],color=color,label=labels[kg])
-            add_arrow(line,pcts=[0.2],middle=True)
+            add_arrow(line,pcts=arrow_pcts,middle=middle)
         plt.tight_layout()
+        return fig 
     
     # ------------------------------------------------------------------------------
     def cauchy(self,contour,**kwargs):
@@ -483,20 +528,17 @@ class Ftransfert():
         else:
             colorO=colors[0]
             colorI=colors[1]
-
         print(60*'*')
         print("Cauchy plot : contour "+contourLabel)
         print(self)
         print(60*'*'+'\n')
-        
         Corigin=[]
         Cimage=[]
         for path in contour:
             Corigin.append([complex(p[0],p[1]) for p in path])
             Cimage.append([self.evaluate(complex(p[0],p[1]),self.gain) for p in path])
-        
         # matlplotlib instruction
-        fig = plt.figure(figsize=(9,4.5),dpi=DPI)
+        fig = plt.figure(figsize=(9,4.5),dpi=self.DPI)
         # Origin chart (left)
         ax = fig.add_subplot(1, 2, 1)
         ax.set(xlim=xlim[0], ylim=ylim[0])

@@ -754,7 +754,7 @@ H_{BF}(p)=\dfrac{N_{BO}(p)}{D_{BO}(p)+N_{BO}(p)}
 \end{bequation}
 %-------------------------------------------------------------------------------
 
-Nous remarquons alors, à partir de cette dernière relation,
+Nous remarquons, à partir de cette dernière relation,
 que les zéros de $1+H_{BO}(p)$ sont les pôles de la fonction de 
 transfert en boucle fermée $H_{BF}(p)$ et que les pôles 
 de $1+H_{BO}(p)$ co\"incident avec 
@@ -772,9 +772,10 @@ réinterpréter la condition stabilité d'un système asservi :
 \subsection{Mise en évidence de l'instabilité en boucle fermée}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Nous allons établir un critère de stabilité des systèmes asservis, dit du 
-revers, que nous pourrons appliquer sur la réponse harmonique de la~\gls{ftbo} 
-(et de ses différentes représentations graphiques).
+Nous allons maintenant établir un critère de stabilité des 
+systèmes asservis, dit du revers, que nous pourrons appliquer directement sur la 
+réponse harmonique de la~\gls{ftbo} (et de ses différentes représentations 
+graphiques).
 
 Supposons le système asservi précédent décrit par la fonction de transfert 
 en boucle ouverte $H_{BO}(p)$. Par définition cette fonction de transfert 
@@ -854,15 +855,16 @@ Formellement, pour une pulsation $\omega_{\pi}$ telle que
 $\phi=\arg{\left(H_{BO}(j\omega_\pi)\right)}=-\pi$, 
 le système est stable en boucle fermée si $|H_{BO}(j\omega_\pi)|<1$ ou 
 $20\log{|H_{BO}(j\omega_\pi)|}<\SI{0}{\dB}$.
+
 Dans le plan complexe, un  déphasage de -$\pi$ et un gain naturel de 1 
 correspond au point de coordonnées $(-1,0)$ ce que nous avons défini comme 
 le point critique à partir de l'équation caractéristique $1+H_{BO}=0$. 
 Ce critère revient donc à étudier graphiquement le comportement 
 de la réponse harmonique de $H_{BO}(\jw)$ par rapport au point critique.
 
-Nous avons vu que la réponse harmonique peut avoir plusieurs représentations
-graphiques (c.f~\Cref{chap-repfreq}). Nous allons maintenant appliquer le 
-critère à ces différentes représentations graphiques.
+Nous allons maintenant appliquer ce 
+critère du revers aux différentes représentations graphiques de la 
+réponse harmonique du système en boucle ouverte (c.f~\Cref{chap-repfreq}).
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -873,13 +875,15 @@ critère à ces différentes représentations graphiques.
 Pour énoncer le critère du revers dans le plan de Nyquist. Il nous faut tracer
 le lieu de Nyquist de la fonction de transfert en boucle ouverte et observer 
 comment il se comporte par rapport au point critique de coordonnées $(-1,0)$ 
-dans le plan complexe de $H_{BO}(\jw)$. La~\cref{fig-nyquist_revers} présente 
+du plan complexe. 
+
+La~\cref{fig-nyquist_revers} présente 
 les lieux de Nyquist de trois systèmes: stable, instable et critique. Observons
 que dans le cas stable, le lieu de déphasage $\phi=-\pi$ (c.a.d lorsque le lieu
 coupe l'axe des réels négatifs), le module ou le gain naturel $G(\omega)$ (ou 
 encore la distance à l'origine) est inférieur à 1. Dans le cas instable ce gain 
 est supérieur à 1. Nous appelerons critique le système dont le lieu de Nyquist 
-passe par le point critique de coordonnées (-1,0).
+passe par le point critique de coordonnées $(-1,0)$.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -890,7 +894,8 @@ passe par le point critique de coordonnées (-1,0).
              stable, critique et instable. \label{fig-nyquist_revers}}
 \end{figure}
 %-------------------------------------------------------------------------------
-Nous pouvons maintenant formuler le critère du revers de Nyquist :
+
+Nous pouvons maintenant formuler le critère du revers du lieu de Nyquist :
 %-------------------------------------------------------------------------------
 \begin{criteria}{Critère du revers de Nyquist}
     Un système est stable en boucle fermée si lorsque parcourant 
@@ -906,7 +911,12 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
 \index{Critère de stabilité! du revers! dans le plan de Black}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acpl
+Dans le plan de Black (c.-à-d. le gain en ordonnée \si{\dB} et le déphasage
+en abscisse), le point critique est de coordonnées (-180\degree,\SI{0}{\dB}).
+À l'instar du cas précédent, nous allons discuter de l'allure du lieu de Black
+par rapport à ce point critique pour trois systèmes différents:
+stable, instable et critique.     
+
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering

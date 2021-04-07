@@ -1,8 +1,8 @@
 \begin{tikzpicture}
     \begin{axis}
     [
-        height=8cm,
-        width=8cm,
+        height=9cm,
+        width=9cm,
         axis lines = center,
         axis line style = thick,
         ticks=none,
@@ -49,7 +49,7 @@
     \addplot[\colrd,thick,domain=1e0:1e1,samples=100,-{Latex[length=2mm]}] 
     ({-\dpp*atan2(\da*x,(1-\db*x*x))},
      {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-    \addplot[\colrd,thick,domain=0.9e1:1e2,samples=100] 
+    \addplot[\colrd,thick,domain=0.9e1:1e3,samples=100] 
     ({-\dpp*atan2(\da*x,(1-\db*x*x))},
      {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
     \node [\colrd,right]  at (axis cs:  -140, -60.0)   {\textbf{stable}};
@@ -73,6 +73,6 @@
      {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
     \draw[draw=none,fill=black] (axis cs:-180,0) circle[radius=2pt] 
                                 node[above] {$(-180,0\mathrm{dB})$};
-    \node [\colrt,right]  at (axis cs:  -200, -140.0) {\textbf{critique}};
+    \node [\colrt,right]  at (axis cs: -200, -140.0) {\textbf{critique}};
 \end{axis}
 \end{tikzpicture}

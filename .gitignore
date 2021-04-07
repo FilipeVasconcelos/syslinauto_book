@@ -52,3 +52,4 @@ _minted*
 *.ipynb_checkpoints/
 *__pycache__/
 notebook/fig/*.png
+notebook/black_nichols/black_nichols_files/

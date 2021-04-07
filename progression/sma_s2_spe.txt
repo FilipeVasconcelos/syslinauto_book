@@ -229,13 +229,13 @@
   Cours 12  
  ------------------------------------------------------------------------------
     Chapitre : Initiation à la représentation d'état
-            - Introduction à la représentation d'état ( système dynamique )
-            - Equivalence entre :
+             - Introduction à la représentation d'état ( système dynamique )
+             - Equivalence entre :
             Fonction de transfert/Equation différentielle/réprésentation d'état
-            - Définitions : 
-                - Etat d'un système 
-                - Vecteur d'état
-                - Equation d'état
+             - Définitions : 
+                 - Etat d'un système 
+                 - Vecteur d'état
+                 - Equation d'état
  ------------------------------------------------------------------------------
   TP 18 (à écrire)
  ------------------------------------------------------------------------------
