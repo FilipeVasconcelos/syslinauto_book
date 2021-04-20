@@ -366,8 +366,9 @@ $\omega\rightarrow+\infty$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Diagramme! de Black-Nichols}
-Le diagramme de Black-Nichols\footnote{Il également simplement appelé diagramme 
-de Black.} consiste à tracer le gain en décibel $G_{dB}(\omega)$ en fonction de 
+Le diagramme de Black\footnote{Il également appelé diagramme 
+de Black-Nichols ou simplement Nichols dans le monde anglo-saxon.} 
+consiste à tracer le gain en décibel $G_{dB}(\omega)$ en fonction de 
 la phase, paramétré par la pulsation $\omega$. À l'instar du diagramme de 
 Nyquist, le diagramme de Black à l'avantage de combiner les deux graphiques 
 du diagramme de Bode. La diagramme de Black est habituellement utilisé dans 
@@ -1474,7 +1475,7 @@ Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
 %-------------------------------------------------------------------------------
 \begin{itemize}
     \item Définir la fonction de transfert complexe $H(\jw)$ du modèle,
-    \item \'Etablir le gain en décibel $G_dB(\omega)$ et 
+    \item \'Etablir le gain en décibel $G_{dB}(\omega)$ et 
           la phase $\phi(\omega)$ à partir 
           respectivement du module et de l'argument du nombre complexe $H(\jw)$.
     \item Tracer le lieu de Black, c'est à dire $G_dB(\omega)$ en ordonnées 
@@ -1484,9 +1485,13 @@ Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
 %-------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Diagrammes de Black d'un intégrateur}
+\subsubsection{Diagrammes de Black d'un intégrateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+La fonction de transfert complexe d'un intégrateur
+pur est simplement donnée par
+\[
+    H(\jw)=\dfrac{K}{\jw}
+\]
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
@@ -1497,10 +1502,25 @@ Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
              \label{fig-black_1}}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
+Le gain en décibel et la phase sont donnés par :
+\begin{align*}
+    G_{dB}(\omega)&=20\log{K}-20\log{\omega} \\
+      \phi(\omega)&=-\SI{90}{\degree}
+\end{align*}
+La~\cref{fig-black_1} ci-contre représente le diagramme de Black d'un 
+intégrateur pur. On vérifie, qu'un intégrateur présente une contribution 
+de \SI{-90}{\degree} à toutes pulsations et que le gain diminue lorque la
+pulsation augmente.
+Contrairement au diagramme de Bode, l'effet du gain n'est pas
+explicite sur le lieu de Black. Cependant pour déterminer $K$ il suffit de 
+connaitre la pulsation qui donne un gain de \SI{0}{\dB}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Diagrammes de Black d'un dérivateur}
+\subsubsection{Diagrammes de Black d'un dérivateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+La fonction de transfert complexe d'un dérivateur pur est simplement donnée par
+\[
+    H(\jw)=K\jw
+\]
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
@@ -1511,30 +1531,42 @@ Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
              \label{fig-black_2}}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
+Le gain en décibel et la phase sont donnés par :
+\begin{align*}
+    G_{dB}(\omega)&=20\log{K}+20\log{\omega} \\
+      \phi(\omega)&=\SI{90}{\degree}
+\end{align*}
+La~\cref{fig-black_2} présente le diagramme de Black d'un dérivateur pur. On 
+vérifie qu'un dérivateur présente une phase de \SI{+90}{\degree} pour toutes
+pulsations et que gain diminue avec l'augmentation de la pulsation. Le gain 
+s'annule (en \si{\dB}) pour $\omega=\dfrac{1}{K}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagrammes de Black d'un premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
-\begin{marginfigure}
+\begin{figure}[!h]
     \centering
     \tikzsetnextfilename{black_1er-chap_repfreq-ext}
-    \resizebox{\linewidth}{!}{\input{tikz/black_1er-chap_repfreq.tex}}
+    \input{tikz/black_1er-chap_repfreq.tex}
     \caption{Diagramme de Black d'un système du premier ordre. 
              \label{fig-black_3}}
-\end{marginfigure}
+\end{figure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagrammes de Black d'un second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
-\begin{marginfigure}
+\begin{figure}[!h]
     \centering
     \tikzsetnextfilename{black_2nd-chap_repfreq-ext}
-    \resizebox{\linewidth}{!}{\input{tikz/black_2nd-chap_repfreq.tex}}
+    \input{tikz/black_2nd-chap_repfreq.tex}
     \caption{Diagramme de Black d'un système du second ordre. 
              \label{fig-black_4}}
-\end{marginfigure}
+\end{figure}
 %-------------------------------------------------------------------------------
+\clearpage
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1608,10 +1640,10 @@ caractéritique du système du premier ordre $\tau$.
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Exemple d'un système du second ordre}
+%\subsection{Exemple d'un système du second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acpl
+%\acpl
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

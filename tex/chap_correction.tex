@@ -20,11 +20,30 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Structure de la correction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{La correction élabore une commande $u(t)$ à partir d'un écart 
+$\epsilon(t)$}
+
+
+\begin{center}
+    \tikzsetnextfilename{bs_correction_chap_correction-ext}
+    \input{tikz/bs_correction_chap_correction.tex}
+\end{center}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Correcteur P, I et D}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\index{Correcteur ! Proportionnel (P)}
+\index{Correcteur ! Intégral (I)}
+\index{Correcteur ! Dérivé (D)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -33,6 +52,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\index{Correcteur ! Proportionnel Intégral (PI)}
+\index{Correcteur ! Proportionnel Dérivé (PD)}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -40,7 +62,135 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Correcteur ! à avance de phase (AP)}
 
+Le correcteur à avance de phase (AP) est défini par la fonction de transfert :
+\[
+    C_{AP}(p)=\dfrac{1+\alpha\tau p}{1+\tau p} 
+\]
+avec $\alpha>1$.
+
+\begin{center}
+    \tikzsetnextfilename{bode_avancedephase_chap_correction-ext}
+    \input{tikz/bode_avancedephase_chap_correction.tex}
+\end{center}
+
+Le maximum de la phase se trouve à la moyenne géométrique du segment 
+$\left[\dfrac{1}{\alpha\tau},\dfrac{1}{\alpha}\right]$ (l'echelle étant logarithmique 
+ceux sont les rapports qui sont égaux)
+\[
+    \omega_m^2=\dfrac{1}{\alpha\tau^2}
+\]
+ou encore 
+\[
+    \omega_m=\dfrac{1}{\sqrt{\alpha}\tau}
+\]
+Pour $\alpha=5$ et $\tau=1$ on a alors $\omega_m=\SI{1}{\sqrt{5}}\sim\SI{0.44}{\radian\per\second}$.
+\[
+    \phi(\omega)=\arg{(C_{AP}(\jw))}=\arctan{\alpha\tau\omega_m}-\arctan{\tau\omega_m}
+\]
+
+\[
+    \phi_m=\phi(\omega_m)=\arctan{\alpha\tau\omega_m}-\arctan{\tau\omega_m}
+\]
+en utilisant la relation trigonométrique pour $\tan{(a-b)}$ et en posant $a=\arctan{\alpha\tau\omega_m}$ 
+et $b=\arctan{\tau\omega_m}$, on écrit:
+\[
+    \tan{\phi(\omega_m)}=\dfrac{\alpha\tau\omega_m-\tau\omega_m}{1+\alpha\tau^2\omega_m^2}
+                        =\dfrac{\alpha-1}{2\sqrt{\alpha}}
+\]
+donc on a :
+\[
+    \phi_m=\arctan{\left(\dfrac{\alpha-1}{2\sqrt{\alpha}}\right)}
+\]
+Une autre forme possible est également donnée par (en notant que $\sin\arctan{x}=\dfrac{x}{\sqrt{1+x^2}}$):
+\[
+    \phi_m=\arcsin{\left(\dfrac{\alpha-1}{\alpha+1}\right)}
+\]
+On remarquera que le maximum ne dépend pas de $\tau$.
+Pour $\alpha=5$, $\phi_m=\SI{41.8}{\degree}$.
+
+Le gain pour la pulsation $\omega_m$ est donné par:
+\[
+    C_{AP,\si{\dB}}(j\omega_m)=10\log{(1+\alpha^2\tau^2\omega_m^2)}-
+                               10\log{(1+\tau^2\omega_m^2)}
+\]
+puisque $\tau^2\omega_m^2=\dfrac{1}{\alpha}$.
+\[
+    C_{AP,\si{\dB}}(j\omega_m)=10\log{1+\alpha}-10\log{\dfrac{1+\alpha}{\alpha}}=10\log{\alpha}
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Correcteur à retard de phase}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Correcteur ! à retard de phase (RP)}
+Le correcteur à retard de phase (RP) est défini par la fonction de transfert :
+\[
+    C_{RP}(p)=\dfrac{1+\tau p}{1+\beta\tau p}
+\]
+avec $\beta>1$
+
+\begin{center}
+    \tikzsetnextfilename{bode_retarddephase_chap_correction-ext}
+    \input{tikz/bode_retarddephase_chap_correction.tex}
+\end{center}
+
+Le minimum de la phase se trouve à la moyenne géométrique du segment 
+$\left[\dfrac{1}{\beta\tau},\dfrac{1}{\tau}\right]$. Cette pulsation 
+est donnée par :
+\[
+    \omega_m=\dfrac{1}{\sqrt{\beta}\tau}
+\]
+
+Pour $\beta=5$ et $\tau=1$ on a alors $\omega_m=\SI{1}{\sqrt{5}}\sim\SI{0.44}{\radian\per\second}$.
+\[
+    \phi(\omega)=\arg{(C_{RP}(\jw))}=\arctan{\tau\omega_m}-\arctan{\beta\tau\omega_m}
+\]
+
+\[
+    \phi_m=\phi(\omega_m)=\arctan{\tau\omega_m}-\arctan{\beta\tau\omega_m}
+\]
+en utilisant la relation trigonométrique pour $\tan{(a-b)}$ et en posant $a=\arctan{\tau\omega_m}$ 
+et $b=\arctan{\beta\tau\omega_m}$, on écrit:
+\[
+    \tan{\phi(\omega_m)}=\dfrac{\tau\omega_m-\beta\tau\omega_m}{1+\beta\tau^2\omega_m^2}
+                        =\dfrac{1-\beta}{2\sqrt{\beta}}
+\]
+donc on a :
+\[
+    \phi_m=\arctan{\left(\dfrac{1-\beta}{2\sqrt{\beta}}\right)}
+\]
+On remarquera que le maximum ne dépend pas de $\tau$.
+Pour $\beta=5$, $\phi_m=\SI{-41.8}{\degree}$.
+
+Le gain pour la pulsation $\omega_m$ est donné par:
+\[
+    C_{RP,\si{\dB}}(j\omega_m)=10\log{(1+\tau^2\omega_m^2)}-
+                               10\log{(1+\beta^2\tau^2\omega_m^2)}
+\]
+puisque $\tau^2\omega_m^2=\dfrac{1}{\beta}$.
+\[
+    C_{RP,\si{\dB}}(j\omega_m)=10\log{\left(\dfrac{1+\beta}{\beta}\right)}-10\log{\left(1+\beta\right)}=-10\log{\beta}
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Correcteur à retard-avance de phase}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Correcteur ! à retard-avance de phase}
+Le correcteur à retard-avance de phase (RAP) est défini par la fonction de transfert :
+\[
+    C_{RAP}(p)=\dfrac{1+\tau_r p}{1+\beta\tau_r p}\cdot\dfrac{1+\alpha\tau_a p}{1+\tau_a p}
+\]
+avec $\alpha>1$ et $\beta>1$. On prendra $\alpha=\beta$.
+
+\begin{center}
+    \tikzsetnextfilename{bode_retardavancedephase_chap_correction-ext}
+    \input{tikz/bode_retardavancedephase_chap_correction.tex}
+\end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -48,7 +198,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\index{Correcteur ! Proportionnele Intégral Dérivé (PID)}
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
