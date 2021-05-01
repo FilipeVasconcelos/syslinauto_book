@@ -6,7 +6,8 @@
     ylabel={Gain (\si{\decibel})},
     xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5},
     ytick={-20,-18,-16,-14,-12,-10,-8,-6,-4,-2,0},
-    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
+    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
     yticklabels={-20,,-16,,-12,,-8,,-4,,0},
     xmode=log,ymode=normal,
     xmin=1e-2, xmax=1e3,
@@ -26,14 +27,18 @@
     \pgfmathsetmacro{\wm}{(1/sqrt(\bb))} 
     \pgfmathsetmacro{\gm}{10*log10(\bb)} 
     \pgfmathsetmacro{\dgm}{20*log10(\bb)} 
-    \addplot[ultra thick, col1,domain=1e-2:1e3, samples=201]   {10*log10(1+\tb*\tb*x*x)+
-                                                                10*log10(1+\aa*\aa*\ta*\ta*x*x)-        
-                                                                10*log10(1+\tb*\tb*\bb*\bb*x*x)-
-                                                                10*log10(1+\ta*\ta*x*x)};
+    \addplot[ultra thick, col1,domain=1e-2:1e3, samples=201] 
+    {10*log10(1+\tb*\tb*x*x)+
+     10*log10(1+\aa*\aa*\ta*\ta*x*x)-    
+     10*log10(1+\tb*\tb*\bb*\bb*x*x)-
+     10*log10(1+\ta*\ta*x*x)};
     \addplot[line width=2pt,col4,dashed,domain=1e-2:\ib, samples=51] {0};
-    \addplot[line width=2pt,col4,dashed,domain=\ib:\itb, samples=101] {-20*log10(\bb*\tb)-20*log10(x)};
-    \addplot[line width=2pt,col4,dashed,domain=\itb:\ia, samples=51] {-20*log10(\bb)};
-    \addplot[line width=2pt,col4,dashed,domain=\ia:\ita, samples=51] {20*log10(\ta)+20*log10(x)};
+    \addplot[line width=2pt,col4,dashed,domain=\ib:\itb, samples=101] 
+    {-20*log10(\bb*\tb)-20*log10(x)};
+    \addplot[line width=2pt,col4,dashed,domain=\itb:\ia, samples=51] 
+    {-20*log10(\bb)};
+    \addplot[line width=2pt,col4,dashed,domain=\ia:\ita, samples=51] 
+    {20*log10(\ta)+20*log10(x)};
     \addplot[line width=2pt,col4,dashed,domain=\ita:1e3, samples=51] {0};
 \end{axis}
 \end{tikzpicture}
@@ -48,7 +53,8 @@
     xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5},
     ytick={-90,-75,-60,-45,-30,-15,0,15,30,45,60,75,90},
     yticklabels={-90,,-60,,-30,,0,,30,,60,,90},
-    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
+    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
     xmode=log,ymode=normal,
     xmin=1e-2, xmax=1e3,
     ymin=-90, ymax=90,
@@ -66,15 +72,16 @@
     \pgfmathsetmacro{\ita}{(1/\ta)} 
     \pgfmathsetmacro{\wm}{(1/sqrt(\bb))} 
     \pgfmathsetmacro{\pm}{-atan((\bb-1)/(2*sqrt(\bb)))} 
-    \addplot[ultra thick,col1,domain=1e-2:1e3,samples=201] {atan2(\aa*\ta*x,1)+atan2(\tb*x,1)-atan2(\tb*\bb*x,1)-atan2(\ta*x,1)};
+    \addplot[ultra thick,col1,domain=1e-2:1e3,samples=201] 
+    {atan2(\aa*\ta*x,1)+atan2(\tb*x,1)-atan2(\tb*\bb*x,1)-atan2(\ta*x,1)};
     \addplot[line width=2pt,col4,dashed,domain=1e-2:\ib, samples=51] {0};
     \addplot[line width=2pt,col4,dashed,domain=\ib:\itb, samples=51] {-90};
     \addplot[line width=2pt,col4,dashed,domain=\itb:\ia, samples=51] {0};
     \addplot[line width=2pt,col4,dashed,domain=\ia:\ita, samples=51] {90};
     \addplot[line width=2pt,col4,dashed,domain=\ita:1e3, samples=51] {0};
     \draw[line width=2pt,col4,dashed] (axis cs:\ib,0)    -- (axis cs:\ib,-90);
-    \draw[line width=2pt,col4,dashed] (axis cs:\itb,-90)    -- (axis cs:\itb,0);
+    \draw[line width=2pt,col4,dashed] (axis cs:\itb,-90) -- (axis cs:\itb,0);
     \draw[line width=2pt,col4,dashed] (axis cs:\ia,0)    -- (axis cs:\ia,90);
-    \draw[line width=2pt,col4,dashed] (axis cs:\ita,90)    -- (axis cs:\ita,0);
+    \draw[line width=2pt,col4,dashed] (axis cs:\ita,90)  -- (axis cs:\ita,0);
 \end{axis}
 \end{tikzpicture}

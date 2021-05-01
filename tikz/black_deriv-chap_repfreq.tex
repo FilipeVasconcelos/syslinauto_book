@@ -17,7 +17,9 @@
     yticklabels={-40,-20,0,20},
     xticklabels={90,180},
     ] 
-    \addplot[col2,very thick,domain=0.02:10,samples=100]({90},{20*log10(x)});
-    \addplot[col2,very thick,domain=0.01:0.2,samples=100,-{Latex[length=3mm]}] ({90},{20*log10(x)});
+    \addplot[col2,very thick,domain=0.02:10,samples=100]
+    ({90},{20*log10(x)});
+    \addplot[col2,very thick,domain=0.01:0.2,samples=100,-{Latex[length=3mm]}] 
+    ({90},{20*log10(x)});
 \end{axis}
 \end{tikzpicture}

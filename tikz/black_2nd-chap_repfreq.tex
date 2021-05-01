@@ -21,10 +21,10 @@
     ] 
     \foreach \a in {1.0}
     {
-        \addplot[col2,very thick,domain=0.01:10,samples=500,-{Latex[length=3mm]}] 
-        ({-atan2(2*\a*x,1-x*x)},{-10*log10((1-x*x)^2+(2*\a*x)^2)});
-        \addplot[col2,very thick,domain=1:100,samples=500] 
-        ({-atan2(2*\a*x,1-x*x)},{-10*log10((1-x*x)^2+(2*\a*x)^2)});
+    \addplot[col2,very thick,domain=0.01:10,samples=500,-{Latex[length=3mm]}] 
+    ({-atan2(2*\a*x,1-x*x)},{-10*log10((1-x*x)^2+(2*\a*x)^2)});
+    \addplot[col2,very thick,domain=1:100,samples=500] 
+    ({-atan2(2*\a*x,1-x*x)},{-10*log10((1-x*x)^2+(2*\a*x)^2)});
     }
 \end{axis}
 \end{tikzpicture}

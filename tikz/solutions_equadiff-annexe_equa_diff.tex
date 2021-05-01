@@ -18,9 +18,11 @@
     \foreach\s [count=\xi] in {-2,-1.8,...,3.0}
     {
         \ifthenelse{\equal{\xi}{11}}{%
-            \addplot[signalr,ultra thick,domain=0:\t] {\s*exp(-\a*x)+(\b/\a)*(1-exp(-\a*x))};
+            \addplot[signalr,ultra thick,domain=0:\t] 
+            {\s*exp(-\a*x)+(\b/\a)*(1-exp(-\a*x))};
         }%
-        {\addplot[signalb,thin,domain=0:\t] {\s*exp(-\a*x)+(\b/\a)*(1-exp(-\a*x))};}
+        {\addplot[signalb,thin,domain=0:\t] 
+         {\s*exp(-\a*x)+(\b/\a)*(1-exp(-\a*x))};}
     }
     \end{axis}
     \node[] at (9,3) {$\dfrac{b}{a}$};

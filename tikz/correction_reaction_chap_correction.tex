@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+    \sbEntree{E1}
+    \sbComp[4.5]{comp}{E1}
+    \sbRelier[$E(p)$]{E1}{comp}
+    \sbComp[4.5]{comp2}{comp}
+    \sbRelier[$\epsilon(p)$]{comp}{comp2}
+    \sbBloc[3]{B1}{$H(p)$}{comp2}
+    \sbRelier[$U(p)$]{comp2}{B1}
+    \sbSortie[6]{S1}{B1}
+    \sbRelier{B1}{S1}
+    \sbNomLien[0.8]{S1}{$S(p)$}
+    \sbRenvoi[8]{B1-S1}{comp}{}
+    \sbDecaleNoeudy{B1}{R}
+    \sbBlocr[-1.75]{R1}{$C(p)$}{R}
+    \sbRelieryx{B1-S1}{R1}
+    \sbRelierxy{R1}{comp2}
+\end{tikzpicture}
