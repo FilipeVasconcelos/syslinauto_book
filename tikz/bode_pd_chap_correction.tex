@@ -1,0 +1,65 @@
+\begin{tikzpicture}[trim axis left]
+    \begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.25\textheight,
+    ylabel={Gain (\si{\decibel})},
+    xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5},
+    ytick={0,10,20,30,40},
+    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
+    yticklabels={0,10,20,30,40},
+    xmode=log,ymode=normal,
+    xmin=1e-2, xmax=1e2,
+    ymin=0, ymax=40,
+    grid=both,
+    major grid style={black!40},
+    clip=false,
+]
+    \pgfmathsetmacro{\td}{1.0} 
+    \pgfmathsetmacro{\wtd}{(1/\td)} 
+    \pgfmathsetmacro{\tau}{0.1} 
+    \pgfmathsetmacro{\wt}{1.0/\tau} 
+    \addplot[ultra thick, col1,domain=1e-2:1e2, samples=201]    
+            {10*log10(1+\td*\td*x*x)-10*log10(1+\tau*\tau*x*x)};
+    \addplot[ultra thick, dashed,col1,domain=1e-2:1e2, samples=201]    
+            {10*log10(1+\td*\td*x*x)};
+    %\addplot[line width=2pt,col4,dashed,domain=1e-2:\wtd, samples=51] {0};
+    %\addplot[line width=2pt,col4,dashed,domain=\wtd:1e2, samples=51] {20*log10(x)};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.25\textheight,
+    xlabel={Pulsation (\si{\radian\per\second})},
+    ylabel={Phase (\degree)},
+    xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5},
+    ytick={0,15,30,45,60,75,90},
+    yticklabels={0,,30,,60,,90},
+    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,
+                 $10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
+    xmode=log,ymode=normal,
+    xmin=1e-2, xmax=1e2,
+    ymin=0, ymax=90,
+    grid=both,
+    major grid style={black!40},
+    clip=false
+]
+    \pgfmathsetmacro{\td}{1.0} 
+    \pgfmathsetmacro{\wtd}{1.0/\td} 
+    \pgfmathsetmacro{\tau}{0.1} 
+    \pgfmathsetmacro{\wt}{1.0/\tau} 
+    \addplot[ultra thick, dashed,col1,domain=1e-2:1e2, samples=201] 
+    {atan2(\td*x,1)};
+    \addplot[ultra thick, col1,domain=1e-2:1e2, samples=201] 
+    {atan2(\td*x,1)-atan2(\tau*x,1)};
+    %\addplot[line width=2pt,col4,dashed,domain=1e-2:\wtd, samples=51] {0};
+    %\addplot[line width=2pt,col4,dashed,domain=\wtd:\wt, samples=51] {90};
+    %\addplot[line width=2pt,col4,dashed,domain=\wt:1e2, samples=51] {0};
+    %\draw[line width=2pt,col4,dashed] 
+    %     (axis cs:\wtd,0) -- (axis cs:\wtd,90);
+\end{axis}
+\end{tikzpicture}

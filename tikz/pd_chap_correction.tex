@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+    \sbEntree{E1}
+    \sbStyleBloc{col4}
+    \sbBloc[3]{B1}{$k_p$}{E1}
+    \sbRelier[$\epsilon(p)$]{E1}{B1}
+    \sbStyleBloc{col1}
+    \sbBloc[3]{B3}{$\tau_d p$}{B1}
+    \sbRelier{B1}{B3}
+    \sbCompSum[5]{C2}{B3}{+}{}{+}{ }
+    \sbRelier{B3}{C2}
+    \sbSortie[3]{S1}{C2}
+    \sbRelier[$U(p)$]{C2}{S1}
+    \sbRelier{C2}{S1}
+    \sbRenvoi[-4]{B1-B3}{C2}{}
+    \node at ($(B1)+(0.88,0.7)$) {\textcolor{col4}{P}};
+    \node at ($(B3)+(0.88,0.7)$) {\textcolor{col1}{D}};
+\end{tikzpicture}

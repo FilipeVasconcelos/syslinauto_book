@@ -26,14 +26,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textbf{La correction élabore une commande $u(t)$ à partir d'un écart 
 $\epsilon(t)$}
-
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{bs_correction_chap_correction-ext}
     \input{tikz/bs_correction_chap_correction.tex}
 \end{center}
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Correcteur série}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -88,7 +86,6 @@ $\epsilon(t)$}
 \[
     H_{BF}(p)=\dfrac{C_1(p)H(p)}{1+C_1(p)H(p)+C_2(p)H(p)}
 \]
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,35 +93,137 @@ $\epsilon(t)$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\index{Correcteur ! Proportionnel (P)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Correcteur P}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\index{Correcteur ! Intégral (I)}
+\index{Correcteur ! Proportionnel (P)}
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{p_chap_correction-ext}
+    \input{tikz/p_chap_correction.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    C_{\text{P}}(p)=k_p 
+\end{bequation}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Correcteur I}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\index{Correcteur ! Dérivé (D)}
+\index{Correcteur ! Intégral (I)}
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{i_chap_correction-ext}
+    \input{tikz/i_chap_correction.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    C_{\text{I}}(p)=\dfrac{1}{\tau_i p} 
+\end{bequation}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Correcteur D}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Correcteur PI et PD}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Correcteur ! Dérivé (D)}
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{d_chap_correction-ext}
+    \input{tikz/d_chap_correction.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    C_{\text{D}}^{\text{idéal}}(p)=\tau_d p 
+\end{bequation}
+%-------------------------------------------------------------------------------
+Le correcteur dérivé sous cette forme est purement théorique, notamment parce
+que le gain est infini lorsque la pulsation tend vers l'infini.
 
+Une solution technologique permet de réaliser une forme approché :
+\[
+    C_{\text{D}}^{\text{réel}}(p)=\dfrac{\tau_d p}{1+\tau p}
+\]
+en choissisant un temps $\tau\ll\tau_d$, cette fonction de transfert se comporte
+comme un correcteur dérivé idéal.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Correcteurs composés}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Comme leurs noms l'indique, les correcteurs composés combinent plusieurs
+des correcteurs élémentaires présentés précedemment.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Correcteur PI}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Correcteur ! Proportionnel Intégral (PI)}
+%-------------------------------------------------------------------------------
+\begin{figure}
+    \centering
+    \tikzsetnextfilename{bode_pi_chap_correction-ext}
+    \input{tikz/bode_pi_chap_correction.tex}
+    \caption{Diagramme de Bode du correcteur à avance de phase.}
+\end{figure}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{pi_chap_correction-ext}
+     \input{tikz/pi_chap_correction.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+\[
+    U(p)=k_p\left(1+\dfrac{1}{\tau_i p}\right)\epsilon(p)
+\]
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    C_{\text{PI}}=k_p\left(\dfrac{1+\tau_i p}{\tau_i p}\right)
+\end{bequation}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Correcteur PD}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Correcteur ! Proportionnel Dérivé (PD)}
-
+%-------------------------------------------------------------------------------
+\begin{figure}
+    \centering
+    \tikzsetnextfilename{bode_pd_chap_correction-ext}
+    \input{tikz/bode_pd_chap_correction.tex}
+    \caption{Diagramme de Bode du correcteur à avance de phase.}
+\end{figure}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{pd_chap_correction-ext}
+    \input{tikz/pd_chap_correction.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+\[
+    U(p)=k_p\left(1+\dfrac{1}{\tau_i p}\right)\epsilon(p)
+\]
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    C_{\text{PD}}=k_p\left(1+\tau_d p\right)
+\end{bequation}
+%-------------------------------------------------------------------------------
+À l'instar du correcteur dérivé élémentaire, la forme composée PI présente
+une forme réel:
+\[
+    C_{\text{PD}}=k_p\dfrac{1+\tau_d p}{1+\tau p}
+\]
+avec $\tau\ll\tau_d$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -132,20 +231,27 @@ $\epsilon(t)$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Correcteur à avance de phase}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Correcteur ! à avance de phase (AP)}
-
 Le correcteur à avance de phase (AP) est défini par la fonction de transfert :
-\[
-    C_{AP}(p)=\dfrac{1+\alpha\tau p}{1+\tau p} 
-\]
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    C_{\text{AP}}(p)=k_p\dfrac{1+\alpha\tau p}{1+\tau p} 
+\end{bequation}
+%-------------------------------------------------------------------------------
 avec $\alpha>1$.
 %-------------------------------------------------------------------------------
-\begin{center}
+\begin{figure}
+    \centering
     \tikzsetnextfilename{bode_avancedephase_chap_correction-ext}
     \input{tikz/bode_avancedephase_chap_correction.tex}
-\end{center}
+    \caption{Diagramme de Bode du correcteur à avance de phase.}
+\end{figure}
 %-------------------------------------------------------------------------------
-
 Le maximum de la phase se trouve à la moyenne géométrique du segment 
 $\left[\dfrac{1}{\alpha\tau},\dfrac{1}{\alpha}\right]$ (l'echelle étant 
 logarithmique ceux sont les rapports qui sont égaux)
@@ -156,10 +262,10 @@ ou encore
 \[
     \omega_m=\dfrac{1}{\sqrt{\alpha}\tau}
 \]
-Pour $\alpha=5$ et $\tau=1$ on a alors 
+Pour $k_p=1$, $\alpha=5$ et $\tau=1$ on a alors 
 $\omega_m=\SI{1}{\sqrt{5}}\sim\SI{0.44}{\radian\per\second}$.
 \[
-    \phi(\omega)=\arg{(C_{AP}(\jw))}
+    \phi(\omega)=\arg{(C_{\text{AP}}(\jw))}
                 =\arctan{\alpha\tau\omega_m}-\arctan{\tau\omega_m}
 \]
 
@@ -187,12 +293,12 @@ Pour $\alpha=5$, $\phi_m=\SI{41.8}{\degree}$.
 
 Le gain pour la pulsation $\omega_m$ est donné par:
 \[
-    C_{AP,\si{\dB}}(j\omega_m)=10\log{(1+\alpha^2\tau^2\omega_m^2)}-
+    C_{\text{AP},\si{\dB}}(j\omega_m)=10\log{(1+\alpha^2\tau^2\omega_m^2)}-
                                10\log{(1+\tau^2\omega_m^2)}
 \]
 puisque $\tau^2\omega_m^2=\dfrac{1}{\alpha}$.
 \[
-    C_{AP,\si{\dB}}(j\omega_m)=
+    C_{\text{AP},\si{\dB}}(j\omega_m)=
     10\log{1+\alpha}-10\log{\dfrac{1+\alpha}{\alpha}}=10\log{\alpha}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -202,15 +308,19 @@ puisque $\tau^2\omega_m^2=\dfrac{1}{\alpha}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Correcteur ! à retard de phase (RP)}
 Le correcteur à retard de phase (RP) est défini par la fonction de transfert :
-\[
-    C_{RP}(p)=\dfrac{1+\tau p}{1+\beta\tau p}
-\]
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    C_{\text{RP}}(p)=k_p\dfrac{1+\tau p}{1+\beta\tau p}
+\end{bequation}
+%-------------------------------------------------------------------------------
 avec $\beta>1$
 %-------------------------------------------------------------------------------
-\begin{center}
+\begin{figure}
+    \centering
     \tikzsetnextfilename{bode_retarddephase_chap_correction-ext}
     \input{tikz/bode_retarddephase_chap_correction.tex}
-\end{center}
+    \caption{Diagramme de Bode du correcteur à retard de phase}
+\end{figure}
 %-------------------------------------------------------------------------------
 Le minimum de la phase se trouve à la moyenne géométrique du segment 
 $\left[\dfrac{1}{\beta\tau},\dfrac{1}{\tau}\right]$. Cette pulsation 
@@ -218,10 +328,10 @@ est donnée par :
 \[
     \omega_m=\dfrac{1}{\sqrt{\beta}\tau}
 \]
-Pour $\beta=5$ et $\tau=1$ on a alors 
+Pour $k_p=1$, $\beta=5$ et $\tau=1$ on a alors 
 $\omega_m=\SI{1}{\sqrt{5}}\sim\SI{0.44}{\radian\per\second}$.
 \[
-    \phi(\omega)=\arg{(C_{RP}(\jw))}
+    \phi(\omega)=\arg{(C_{\text{RP}}(\jw))}
                 =\arctan{\tau\omega_m}-\arctan{\beta\tau\omega_m}
 \]
 
@@ -245,12 +355,12 @@ Pour $\beta=5$, $\phi_m=\SI{-41.8}{\degree}$.
 
 Le gain pour la pulsation $\omega_m$ est donné par:
 \[
-    C_{RP,\si{\dB}}(j\omega_m)=10\log{(1+\tau^2\omega_m^2)}-
+    C_{\text{RP},\si{\dB}}(j\omega_m)=10\log{(1+\tau^2\omega_m^2)}-
                                10\log{(1+\beta^2\tau^2\omega_m^2)}
 \]
 puisque $\tau^2\omega_m^2=\dfrac{1}{\beta}$.
 \[
-    C_{RP,\si{\dB}}(j\omega_m)=10\log{\left(\dfrac{1+\beta}{\beta}\right)}
+    C_{\text{RP},\si{\dB}}(j\omega_m)=10\log{\left(\dfrac{1+\beta}{\beta}\right)}
                               -10\log{\left(1+\beta\right)}=-10\log{\beta}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -261,16 +371,20 @@ puisque $\tau^2\omega_m^2=\dfrac{1}{\beta}$.
 \index{Correcteur ! à retard-avance de phase}
 Le correcteur à retard-avance de phase (RAP) est défini par la fonction 
 de transfert :
-\[
-    C_{RAP}(p)=\dfrac{1+\tau_r p}{1+\beta\tau_r p}\cdot
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    C_{\text{RAP}}(p)=\dfrac{1+\tau_r p}{1+\beta\tau_r p}\cdot
                \dfrac{1+\alpha\tau_a p}{1+\tau_a p}
-\]
+\end{bequation}
+%-------------------------------------------------------------------------------
 avec $\alpha>1$ et $\beta>1$. On prendra $\alpha=\beta$.
 %-------------------------------------------------------------------------------
-\begin{center}
+\begin{figure}
+    \centering
     \tikzsetnextfilename{bode_retardavancedephase_chap_correction-ext}
     \input{tikz/bode_retardavancedephase_chap_correction.tex}
-\end{center}
+    \caption{Diagramme de Bode du correcteur à retard-avance de phase}
+\end{figure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -280,18 +394,81 @@ avec $\alpha>1$ et $\beta>1$. On prendra $\alpha=\beta$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Correcteur ! Proportionnel Intégral Dérivé (PID)}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{série}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\index{Correcteur! Proportionnel Intégral Dérivé (PID)! série}
+Pour élaborer un correcteur Proportionnel Intégral Dérivé (PID), il suffit
+evidemment de construire un correcteur avec les trois correcteurs 
+élémentaires P, I et D comme brique de base. Il existe trois façon d'agencer
+ces blocs de base pour élaborer un correcteur PID:
+%-------------------------------------------------------------------------------
+\begin{itemize}
+    \item en \textbf{parallèle}
+    \item en \textbf{série}
+    \item et une combinaison des deux précédentes, dite \textbf{mixte}.
+\end{itemize}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{parallèle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Correcteur! Proportionnel Intégral Dérivé (PID)! parallèle}
+Un PID en parallèle est la structure du correcteur la plus évidente, en effet
+on combine directement la commande de
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{pid_parallele_chap_correction-ext}
+    \input{tikz/pid_parallele_chap_correction.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+La réduction de ce shéma-bloc nous donne la relation entre la commande et l'écart
+\[
+    U(p)=\left(k_p+\dfrac{1}{\tau_i p}+\tau_d p\right)\epsilon(p)
+\]
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    C_{\text{PID}}^{(1)}(p)=k_p+\dfrac{1}{\tau_i p}+\tau_d p
+\end{bequation}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{série}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Correcteur! Proportionnel Intégral Dérivé (PID)! série}
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{pid_serie_chap_correction-ext}
+    \input{tikz/pid_serie_chap_correction.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+\[
+    X(p)=k_p^{(2)}\left(1+\dfrac{1}{\tau_i^{(2)}p}\right)\epsilon(p)
+\]
+\[
+    U(p)=X(p)\left(1+\tau_d^{(2)}p\right)
+        =k_p^{(2)}\left(1+\dfrac{1}{\tau_i^{(2)}p}\right)
+                  \left(1+\tau_d^{(2)}p\right)\epsilon(p)
+\]
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    C_{\text{PID}}^{(2)}(p)=k_p^{(2)}\left(1+\dfrac{1}{\tau_i^{(2)}p}\right)
+                           \left(1+\tau_d^{(2)}p\right)
+\end{bequation}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{mixte}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Correcteur! Proportionnel Intégral Dérivé (PID)! mixte}
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{pid_mixte_chap_correction-ext}
+    \input{tikz/pid_mixte_chap_correction.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+\[
+    U(p)=k_p^{(3)}\left(1+\dfrac{1}{\tau_i^{(3)}p}
+                         +\tau_d^{(3)}p\right)\epsilon(p)
+\]
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    C_{\text{PID}}^{(3)}(p)=k_p^{(3)}\left(1+\dfrac{1}{\tau_i^{(3)}p}                                                                                                                 +\tau_d^{(3)}p\right)
+\end{bequation}
+%-------------------------------------------------------------------------------
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
