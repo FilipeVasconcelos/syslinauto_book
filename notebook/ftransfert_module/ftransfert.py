@@ -21,11 +21,12 @@ class Ftransfert():
     """
     Fonction de transfert :
     """
-    def __init__(self,zeros=None,poles=None,num=None,den=None,gain=1,name="F",DPI=200,verbeux=1):
+    def __init__(self,zeros=None,poles=None,num=None,den=None,gain=1,title='',name="F",DPI=200,verbeux=1):
         self.gain=gain
         self.num=num
         self.den=den
         self.name=name
+        self.title=title
         self.DPI=DPI
         self.verbeux=verbeux
         if zeros: 
@@ -240,12 +241,20 @@ class Ftransfert():
         n=kwargs.get('n',4086)
         labels=kwargs.get('labels',[None])
         color=kwargs.get('color','tab:blue')
+        arrow_pcts=kwargs.get('arrow_pcts',[])
+        if len(arrow_pcts)>0 : 
+            middle=False
+        else:
+            middle=True
+            arrow_pcts=[0.5]
         gains=kwargs.get('gains',[])
         gains.insert(0,self.gain)
         if isinstance(labels,str):
             labels=[labels]
         if len(gains) > 2 :
             color=None
+        if self.title=='':
+            self.title=r'Nyquist'+self.name+r'(p)'
       
         if self.verbeux > 0 :
             print(60*'*')
@@ -274,7 +283,8 @@ class Ftransfert():
         fig = plt.figure(figsize=(6,4.5),dpi=self.DPI)
         ax = fig.add_subplot(1, 1, 1)
         ax.set(xlim=xlim, ylim=ylim)
-        ax.title.set_text(r'Nyquist $'+self.name+'(p)$')
+        #ax.title.set_text(r'Nyquist $'+self.name+'(p)$')
+        ax.title.set_text(self.title)
         ax.title.set_size(24)
         ax.xaxis.label.set_text(r'$\mathrm{Re}['+self.name+'(p)]$')
         ax.xaxis.label.set_size(18)
@@ -283,7 +293,7 @@ class Ftransfert():
         plt.grid()
         for kg in range(len(gains)):
             line,=plt.plot(XNyq[kg],YNyq[kg],color=color,label=labels[kg])
-            add_arrow(line,pcts=[0.2],middle=True)
+            add_arrow(line,pcts=arrow_pcts,middle=middle)
         if labels[0]: ax.legend()
         plt.tight_layout()
         plt.show()
