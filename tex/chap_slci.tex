@@ -28,8 +28,8 @@ et mécanique.
 Nous aborderons les différents signaux usuels rencontrés
 en automatique\footnote{et en traitement du signal de façon générale.}.
 Ce chapitre nous permettra d'introduire la transformée de Laplace qui 
-est l'outils mathématique indispensable de l'automaticien.
-Celle-ci nous conduiera naturellement à la définition 
+est l'outil mathématique indispensable de l'automaticien.
+Celle-ci nous conduira naturellement à la définition 
 de la \textbf{fonction de transfert} qui caractérisera de façon univoque 
 les systèmes dynamiques linéaires.
 %-------------------------------------------------------------------------------
@@ -63,13 +63,15 @@ les systèmes dynamiques linéaires.
 La notion de \textbf{système} est centrale dans le monde de l'ingénierie.
 Il existe de nombreuses définitions selon le domaine 
 d'application auquel il est associé. Dans le cadre de ce cours, nous nous 
-reposerons sur la systémique \footnote{Avec la cybernétique, la systémique est 
+reposerons sur la systémique\footnote{Avec la cybernétique, la systémique est 
 un courant de pensée pluridisciplinaire apparue progressivement au milieu du 
 \textsc{\romannumeral 20}\textsuperscript{e}~siècle, sous l'impulsion des 
 travaux précurseurs de Claude Shannon\index{Shannon, Claude}, 
 Warren McCulloch\index{McCulloch, Warren}, 
 Norbert Wiener\index{Wiener, Norbert} 
-ou encore Marvin Minsky\index{Minsky, Marvin}.} 
+ou encore Marvin Minsky\index{Minsky, Marvin}.} qui nous donne une définition 
+à la fois \textbf{structurelle} et \textbf{fonctionnelle} de 
+la notion de système.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
@@ -95,8 +97,7 @@ ou encore Marvin Minsky\index{Minsky, Marvin}.}
               Auteur de l'expression \og intelligence artificielle\fg}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
-qui nous donne une définition à la fois \textbf{structurelle} et 
-\textbf{fonctionnelle} de la notion de système.
+
 Au niveau structurel, \textbf{un système est un ensemble 
 d'éléments constitutifs ayant des relations entre eux et présentant  
 une frontière avec son environnement}. Cette définition est parfaitement
@@ -104,7 +105,7 @@ représenté par le schéma de la~\cref{fig-systeme}.
 Au niveau fonctionnel, \textbf{un système modifie des flux dynamiques 
 de matière, d'énergie et d'informations provenant 
 de son environnement.}
-C'est essentiellement cette dernière qui nous sera la plus utile.
+C'est essentiellement cette dernière définition qui nous sera la plus utile.
 Un système sera alors considéré comme une \og boîte\fg traitant une 
 ou plusieurs entrées et élaborant une ou plusieurs sorties 
 (c.f~\Cref{fig-systeme}). On distinguera les systèmes à 
@@ -177,15 +178,15 @@ Un système est dit linéaire si il respecte les deux principes suivants:
         suivante pour un système linéaire $\Sigma$:
 %-------------------------------------------------------------------------------
         \begin{center}
-            \tikzsetnextfilename{sb_bloc_e1-chap_slci-ext}
-            \input{tikz/sb_bloc_e1-chap_slci.tex}
+            \tikzsetnextfilename{principe_superposition_1-chap_slci-ext}
+            \input{tikz/principe_superposition_1-chap_slci.tex}
         \end{center}
 %-------------------------------------------------------------------------------
         Notons que ceci reste vrai pour une combinaison linéaire des entrées :
 %-------------------------------------------------------------------------------
         \begin{center}
-            \tikzsetnextfilename{sb_bloc_e2-chap_slci-ext}
-            \input{tikz/sb_bloc_e2-chap_slci.tex}
+            \tikzsetnextfilename{principe_superposition_2-chap_slci-ext}
+            \input{tikz/principe_superposition_2-chap_slci.tex}
         \end{center}
 %-------------------------------------------------------------------------------
         avec $\alpha\ \text{et}\ \beta\in\mathbb{R}$, ou un nombre quelconques 
@@ -241,7 +242,8 @@ un système linéaire:
 %-------------------------------------------------------------------------------
 \begin{itemize}
     \item \textbf{Un système est dit stable si à une entrée bornée le système 
-          produit une sortie bornée}\footnote{Chez nos collègues anglo-saxons, 
+        produit une sortie bornée} on parle de stabilité du type \gls{ebsb}.
+          \footnote{Chez nos collègues anglo-saxons, 
           on rencontre la notion de BIBO (\og bounded input bounded output\fg)}
     \item \textbf{Un système est dit stable lorsque écarté de sa position 
            d'équilibre, il tend à y revenir}
@@ -280,17 +282,6 @@ Le degré de dérivation de la sortie $n$ le plus grand est appelé \textbf{ordr
 On parlera alors de \textbf{l'ordre du système} $n$. Le paramètre $c$ qui 
 correspond au degré de dérivation le plus petit de la sortie est appelé la
 \textbf{classe du système}.
-Pour un problème donné, ces équations différentielles proviennent 
-directement de la modélisation de la physique (qu'il soit mécanique, 
-électronique, optique \ldots).
-Par exemple, dans le cas d'un problème de mécanique, 
-c'est la relation fondamentale de la dynamique qui est 
-la source importante d'équations différentielles (appelées équations 
-du mouvement).
-En électronique, ce sont, par exemple, les lois des noeuds et mailles qui 
-permettront d'écrire de telles équations. 
-\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
-\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemples}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -299,17 +290,28 @@ son équation différentielle sera alors de la forme :
 \[
     a_2\devi{s(t)}{2}+a_1\devi{s(t)}{}+a_0 s(t)=b_0e(t)
 \]
-ou encore pour un système d'ordre $n=3$, de classe 
-$c=1$ et avec $m=1$, l'équation différentielle sera de la forme :
-\[
-    a_3\devi{s(t)}{3}+a_2\devi{s(t)}{2}+a_1\devi{s(t)}{}
-    =b_0e(t)+b_1\devi{e(t)}{}
-\]
+%ou encore pour un système d'ordre $n=3$, de classe 
+%$c=1$ et avec $m=1$, l'équation différentielle sera de la forme :
+%\[
+%    a_3\devi{s(t)}{3}+a_2\devi{s(t)}{2}+a_1\devi{s(t)}{}
+%    =b_0e(t)+b_1\devi{e(t)}{}
+%\]
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Exemples de mises en équation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour un problème donné, ces équations différentielles proviennent 
+directement de la modélisation de la physique (qu'il soit mécanique, 
+électronique, thermique \ldots).
+Par exemple, dans le cas d'un problème de mécanique, 
+c'est la relation fondamentale de la dynamique qui est 
+la source importante d'équations différentielles (appelées équations 
+du mouvement).
+En électronique, ce sont, par exemple, les lois des noeuds et mailles (ou lois de
+Kirchhoff) qui permettront d'écrire ces équations différentielles. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Décharge d'un condensateur\label{para-decharge}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -401,7 +403,7 @@ t&\rightarrow s(t)
 \end{align*}    
 %-------------------------------------------------------------------------------
 Il existe cependant d'autres types de signaux qui sont très souvent confondus 
-à tord:
+à tort:
 %-------------------------------------------------------------------------------
 \begin{itemize}
     \item un signal \emph{quantifié} est un signal continu 
@@ -480,7 +482,7 @@ s(t)=\sum_0^\infty s_0(t-nT)
 \]
 L'analyse de Fourier est un outil fondamental pour l'étude 
 de ces signaux périodiques. Elle sort cependant légérement du cadre de 
-ce cours.
+ce cours (c.f~\Cref{annexe-seriefourier}).
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Stable}
@@ -637,8 +639,7 @@ de l'échelon dont la dimension dépend de la nature du problème considéré.
 
 D'après les propriétés du signal échelon-unité et de la causalité, il 
 est possible de rendre causale une fonction quelconque en la 
-multipliant par un échélon-unité.
-%Schéma produit d'une fonction quelconque par l'échelon unité.
+multipliant par un échélon-unité (c.f \ref{subsec:decomp_usuels}).
 
 La réponse d'un système à un échelon est appelée 
 \textbf{réponse indicielle}.
@@ -832,11 +833,12 @@ d'une sinuso\"ide.
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Décomposition d'un signal en signaux usuels}
+\subsection{Décomposition d'un signal en signaux usuels
+\label{subsec:decomp_usuels}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Décomposition d'un signal}
-La fonction obtenue par le produit d'une ue fonction quelconque 
+La fonction obtenue par le produit d'une fonction quelconque 
 par la fonction échelon unitaire $u(t)$ est une fonction causale.
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -960,16 +962,16 @@ une liste exhaustive de ces propriétés.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Linéarité}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%-------------------------------------------------------------------------------
-\begin{bequation}[ams align]
-    \laplace{as_1(t)+bs_2(t)}=aS_1(p)+bS_2(p)
-\end{bequation}
-%-------------------------------------------------------------------------------
 La propriété fondamentale de la transformée de Laplace est d'être linéaire.
 Soit deux signaux $s_1(t)$, $s_2(t)$ continus et $S_1(p)$, $S_2(p)$ leurs
 transformées de Laplace respectives. La transformée de Laplace d'une 
 d'une combinaison linéaire quelconque de $s_1(t)$, $s_2(t)$ est la même 
 combinaison linéaire de $S_1(p)$ et $S_2(p)$. Autrement dit,
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    \laplace{as_1(t)+bs_2(t)}=aS_1(p)+bS_2(p)
+\end{bequation}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Retard en $t$ (temporel)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
