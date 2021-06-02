@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{comp1}{E}
+    \sbRelier[$E$]{E}{comp1}
+    \sbBloc[6]{h1}{$H_1$}{comp1} 
+    \sbRelier{comp1}{h1}
+    \sbBloc[6]{h2}{$H_2$}{h1}
+    \sbRelier{h1}{h2}
+    \sbSortie[5]{S}{h2}
+    \sbRelier{h2}{S}
+    \sbNomLien[0.8]{S}{$S$}
+    \sbDecaleNoeudy[3.5]{h1}{u1}
+    \sbBlocr[-1.5]{h3}{$H_3$}{u1}
+    \sbCompSum[-6]{comp2}{h3}{}{-}{}{+}
+    \sbRelier{h3}{comp2}
+    \sbRelierxy{comp2}{comp1}
+    \sbRelieryx{h1-h2}{h3}
+    \sbDecaleNoeudy[3.5]{h3}{u2}
+    \sbBlocr[-1.5]{h4}{$H_4$}{u2}
+    \sbRelierxy{h4}{comp2}
+    \sbRelieryx{h2-S}{h4}
+\end{tikzpicture}
