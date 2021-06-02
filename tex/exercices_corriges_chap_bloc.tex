@@ -74,3 +74,402 @@ ou encore
 \[
     S(p)=\dfrac{KH_1H_2H_3}{1+KH_1H_2H_3}E(p)+\dfrac{H_2H_3}{1+KH_1H_2H_3} P(p)
 \]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Réduction de schémas fonctionnels~\difficile}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{center} 
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbComp{comp1}{E}
+        \sbRelier[$E$]{E}{comp1}
+        \sbBloc{h1}{$H_1$}{comp1}
+        \sbRelier{comp1}{h1}
+        \sbComp{comp2}{h1}
+        \sbRelier{h1}{comp2}
+        \sbBloc{h2}{$H_2$}{comp2}
+        \sbRelier{comp2}{h2}
+        \sbBloc{h3}{$H_3$}{h2}
+        \sbRelier{h2}{h3}
+        \sbBloc{h4}{$H_4$}{h3}
+        \sbRelier{h3}{h4}
+        \sbSortie[5]{S}{h4}
+        \sbRelier{h4}{S}
+        \sbNomLien[0.8]{S}{$S$}
+        \sbRenvoi[5]{h4-S}{comp1}{}
+        \sbRenvoi{h3-h4}{comp2}{}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+Réduisons d'abord la boucle de contre réaction interne :
+%-------------------------------------------------------------------------------
+\begin{center}
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbComp{comp1}{E}
+        \sbRelier[$E$]{E}{comp1}
+        \sbBloc{h1}{$H_1$}{comp1}
+        \sbRelier{comp1}{h1}
+        \sbBloc{br}{$\dfrac{H_2H_3}{1+H_2H_3}$}{h1}
+        \sbRelier{h1}{br} 
+        \sbBloc{h4}{$H_4$}{br}
+        \sbRelier{br}{h4}
+        \sbSortie[5]{S}{h4}
+        \sbRelier{h4}{S}
+        \sbNomLien[0.8]{S}{$S$}
+        \sbRenvoi[4]{h4-S}{comp1}{}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+Réduisons maintenant les blocs en série :
+%-------------------------------------------------------------------------------
+\begin{center}
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbComp{comp1}{E}
+        \sbRelier[$E$]{E}{comp1}
+        \sbBloc{br}{$\dfrac{H_1H_2H_3H_4}{1+H_2H_3}$}{comp1}
+        \sbRelier{comp1}{br} 
+        \sbSortie[5]{S}{br}
+        \sbRelier{br}{S}
+        \sbNomLien[0.8]{S}{$S$}
+        \sbRenvoi[4]{br-S}{comp1}{}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+On obtient après réduction de cette dernière boucle de contre réaction.
+%-------------------------------------------------------------------------------
+\begin{center}
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbBloc[4]{ke}{$\dfrac{H_1H_2H_3H_4}{1+H_2H_3+H_1H_2H_3H_4}$}{E}
+        \sbRelier[$E$]{E}{ke}
+        \sbSortie[4]{S}{ke}
+        \sbRelier[$S$]{ke}{S}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{center}
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbComp{comp1}{E}
+        \sbRelier[$E$]{E}{comp1}
+        \sbBloc{h1}{$H_1$}{comp1}
+        \sbRelier{comp1}{h1}
+        \sbCompSum{comp2}{h1}{-}{}{+}{} 
+        \sbRelier{h1}{comp2}
+        \sbBloc{h2}{$H_2$}{comp2}
+        \sbRelier{comp2}{h2}
+        \sbBloc{h3}{$H_3$}{h2}
+        \sbRelier{h2}{h3}
+        \sbSortie[5]{S}{h3}
+        \sbRelier{h3}{S}
+        \sbNomLien[0.8]{S}{$S$}
+        \sbDecaleNoeudy[-4]{h3}{u1}
+        \sbBlocr{h4}{$H_4$}{u1}
+        \sbRelierxy{h4}{comp2}
+        \sbRelieryx{h3-S}{h4}
+        \sbDecaleNoeudy[4]{h2}{u2}
+        \sbBlocr[3]{h5}{$H_5$}{u2}
+        \sbRelierxy{h5}{comp1}
+        \sbRelieryx{h2-h3}{h5}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+Déplaçons le point de prélèvement de la boucle de retour inférieur vers la droite  :
+%-------------------------------------------------------------------------------
+\begin{center}
+\begin{tikzpicture}                                                                        
+    \sbEntree{E}                                                                           
+    \sbComp{a}{E}                                                                          
+    \sbRelier[$E$]{E}{a}                                                                   
+    \sbBloc{b}{$H_1$}{a}                                                                
+    \sbRelier{a}{b}                                                            
+    \sbComph{d}{b}                                                                         
+    \sbRelier{b}{d}                                                                        
+    \sbBlocL{f}{$H_2H_3$}{d}                                                               
+    \sbSortie[5]{S1}{f}                                                                    
+    \sbRelier{f}{S1}                                                                       
+    \sbNomLien[0.8]{S1}{$S$}                                                               
+    \sbDecaleNoeudy[-4]{f}{u}                                                              
+    \sbDecaleNoeudy[4]{f}{v}                                                               
+    \sbBlocr[-1.5]{r1}{$H_4$}{u}                                                           
+    \sbBlocr{r2}{$\dfrac{H_5}{H_3}$}{v}                                                 
+    \sbRelieryx{f-S1}{r1}                                                                  
+    \sbRelierxy{r1}{d}                                                              
+    \sbRelieryx{f-S1}{r2}                                                                  
+    \sbRelierxy{r2}{a}                                                              
+\end{tikzpicture}                                                                          
+\end{center}                                                                               
+%-------------------------------------------------------------------------------
+L'étape précédente nous permet d'identifier une boucle de contre-réaction locale.
+Après réduction de cette boucle, le schéma-blocs dévient :
+%-------------------------------------------------------------------------------
+\begin{center}
+\begin{tikzpicture}                                                              
+    \sbEntree{E}                                                                 
+    \sbComp{a}{E}                                                                
+    \sbRelier[$E$]{E}{a}                                                         
+    \sbBloc{b}{$H_1$}{a}                                                      
+    \sbRelier[$\epsilon$]{a}{b}                                                  
+    \sbBlocL{f}{$\dfrac{H_2H_3}{1+H_2H_3H_4}$}{b}                                
+    \sbSortie[5]{S1}{f}                                                          
+    \sbRelier{f}{S1}                                                             
+    \sbNomLien[0.8]{S1}{$S$}                                                     
+    \sbDecaleNoeudy[4]{f}{v}                                                     
+    \sbBlocr{r2}{$\dfrac{H_5}{H_3}$}{v}                                       
+    \sbRelieryx{f-S1}{r2}                                                        
+    \sbRelierxy{r2}{a}                                                    
+\end{tikzpicture}                                                                
+\end{center}                                                                     
+%-------------------------------------------------------------------------------
+La réduction de cette dernière boucle de contre-réaction permet d'identifier la fonction de transfert globale :
+%-------------------------------------------------------------------------------
+\begin{center}
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbBloc[4]{ke}{$\dfrac{H_1H_2H_3}{1+H_2H_3H_4+H_1H_2H_5}$}{E}
+        \sbRelier[$E$]{E}{ke}
+        \sbSortie[4]{S}{ke}
+        \sbRelier[$S$]{ke}{S}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{center}
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbComp{comp1}{E}
+        \sbRelier[$E$]{E}{comp1}
+        \sbBloc[6]{h1}{$H_1$}{comp1} 
+        \sbRelier{comp1}{h1}
+        \sbBloc[6]{h2}{$H_2$}{h1}
+        \sbRelier{h1}{h2}
+        \sbSortie[5]{S}{h2}
+        \sbRelier{h2}{S}
+        \sbNomLien[0.8]{S}{$S$}
+        \sbDecaleNoeudy[3.5]{h1}{u1}
+        \sbBlocr[-1.5]{h3}{$H_3$}{u1}
+        \sbCompSum[-6]{comp2}{h3}{}{-}{}{+}
+        \sbRelier{h3}{comp2}
+        \sbRelierxy{comp2}{comp1}
+        \sbRelieryx{h1-h2}{h3}
+        \sbDecaleNoeudy[3.5]{h3}{u2}
+        \sbBlocr[-1.5]{h4}{$H_4$}{u2}
+        \sbRelierxy{h4}{comp2}
+        \sbRelieryx{h2-S}{h4}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+Déplaçons le point de prélèvement entre les $H_1$ et $H_2$ vers la droite:
+%-------------------------------------------------------------------------------
+\begin{center}
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbComp{comp1}{E}
+        \sbRelier[$E$]{E}{comp1}
+        \sbBloc[6]{h1}{$H_1H_2$}{comp1} 
+        \sbRelier{comp1}{h1}
+        \sbSortie[7]{S}{h1}
+        \sbRelier{h1}{S}
+        \sbNomLien[0.8]{S}{$S$}
+        \sbDecaleNoeudy[3.5]{h1}{u1}
+        \sbBlocr[-1.5]{h3}{$\dfrac{H_3}{H_2}$}{u1}
+        \sbCompSum[-6]{comp2}{h3}{}{-}{}{+}
+        \sbRelier{h3}{comp2}
+        \sbRelierxy{comp2}{comp1}
+        \sbRelieryx{h1-S}{h3}
+        \sbDecaleNoeudy[3.5]{h3}{u2}
+        \sbBlocr[-1.5]{h4}{$H_4$}{u2}
+        \sbRelierxy{h4}{comp2}
+        \sbRelieryx{h1-S}{h4}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+On reconnait deux branches en parallèle :
+%-------------------------------------------------------------------------------
+\begin{center}
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbComp{comp1}{E}
+        \sbRelier[$E$]{E}{comp1}
+        \sbBloc{h1}{$H_1H_2$}{comp1} 
+        \sbRelier{comp1}{h1}
+        \sbSortie[4]{S}{h1}
+        \sbRelier{h1}{S}
+        \sbNomLien[0.8]{S}{$S$}
+        \sbDecaleNoeudy[3.5]{h1}{u1}
+        \sbBlocr[-1.5]{h3}{$\dfrac{H_3}{H_2}-H_4$}{u1}
+        \sbRelierxy{h3}{comp1}
+        \sbRelieryx{h1-S}{h3}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+La fonction de transfert globale est donc donné par la réduction de cette dernière boucle de contre réaction.
+%-------------------------------------------------------------------------------
+\begin{center}
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbBloc[4]{ke}{$\dfrac{H_1H_2}{1+H_1H_3H_4-H_1H_2H_4}$}{E}
+        \sbRelier[$E$]{E}{ke}
+        \sbSortie[4]{S}{ke}
+        \sbRelier[$S$]{ke}{S}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{center}
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{comp1}{E}
+    \sbRelier[$E$]{E}{comp1}
+    \sbBloc{h1}{$H_1$}{comp1}
+    \sbRelier{comp1}{h1}
+    \sbComp{comp2}{h1}
+    \sbRelier{h1}{comp2}
+    \sbBlocL{h2}{$H_2$}{comp2}
+    \sbComph{comp3}{h2}
+    \sbRelier{h2}{comp3}
+    \sbBlocL{h3}{$H_3$}{comp3}
+    \sbBlocL{h4}{$H_4$}{h3}
+    \sbSortie[5]{S}{h4}
+    \sbRelier{h4}{S}
+    \sbDecaleNoeudy[-4]{h4}{u}
+    \sbBlocr{g4}{$G_4$}{u}
+    \sbRelierxy{g4}{comp3}
+    \sbRelieryx{h4-S}{g4}
+    \sbNomLien[0.8]{S}{$S$}
+    \sbDecaleNoeudy{comp3}{v}
+    \sbBlocr[2.5]{g3}{$G_3$}{v}
+    \sbRelieryx{h3-h4}{g3}
+    \sbRelierxy{g3}{comp2}
+    \sbDecaleNoeudy[9]{comp3}{w}
+    \sbBlocr[2.5]{g2}{$G_2$}{w}
+    \sbRelieryx{h3-h4}{g2}
+    \sbCompSum[-5]{h}{g2}{}{-}{}{+}
+    \sbRelier{g2}{h}
+    \sbRelierxy{h}{comp1}
+    \sbDecaleNoeudy[13]{comp3}{x}
+    \sbBlocr[2.5]{g1}{$G_1$}{x}
+    \sbRelierxy{g1}{h}
+    \sbRelieryx{h4-S}{g1}
+\end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+Déplaçons vers la droite le point de prélèvement situé entre les blocs $H_3$ et $H_4$:
+%-------------------------------------------------------------------------------
+\begin{center}
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{comp1}{E}
+    \sbRelier[$E$]{E}{comp1}
+    \sbBloc{h1}{$H_1$}{comp1}
+    \sbRelier{comp1}{h1}
+    \sbComp{comp2}{h1}
+    \sbRelier{h1}{comp2}
+    \sbBlocL{h2}{$H_2$}{comp2}
+    \sbComph{comp3}{h2}
+    \sbRelier{h2}{comp3}
+    \sbBlocL{h3}{$H_3$}{comp3}
+    \sbBlocL{h4}{$H_4$}{h3}
+    \sbSortie[5]{S}{h4}
+    \sbRelier{h4}{S}
+    \sbDecaleNoeudy[-4]{h4}{u}
+    \sbBlocr{g4}{$G_4$}{u}
+    \sbRelierxy{g4}{comp3}
+    \sbRelieryx{h4-S}{g4}
+    \sbNomLien[0.8]{S}{$S$}
+    \sbDecaleNoeudy{comp3}{v}
+    \sbBlocr[2.5]{g3}{$\dfrac{G_3}{H_4}$}{v}
+    \sbRelieryx{h4-S}{g3}
+    \sbRelierxy{g3}{comp2}
+    \sbDecaleNoeudy[9]{comp3}{w}
+    \sbBlocr[2.5]{g2}{$\dfrac{G_2}{H_4}$}{w}
+    \sbRelieryx{h4-S}{g2}
+    \sbCompSum[-5]{h}{g2}{}{-}{}{+}
+    \sbRelier{g2}{h}
+    \sbRelierxy{h}{comp1}
+    \sbDecaleNoeudy[13]{comp3}{x}
+    \sbBlocr[2.5]{g1}{$G_1$}{x}
+    \sbRelierxy{g1}{h}
+    \sbRelieryx{h4-S}{g1}
+\end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+Réduisons la boucle de contre-réaction et les blocs en parallèle.
+%-------------------------------------------------------------------------------
+\begin{center}
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{comp1}{E}
+    \sbRelier[$E$]{E}{comp1}
+    \sbBloc{h1}{$H_1$}{comp1}
+    \sbRelier{comp1}{h1}
+    \sbComp{comp2}{h1}
+    \sbRelier{h1}{comp2}
+    \sbBlocL{h2}{$H_2$}{comp2}
+    \sbBlocL{h4}{$\dfrac{H_3H_4}{1+H_3H_4G_4}$}{h2}
+    \sbSortie[5]{S}{h4}
+    \sbRelier{h4}{S}
+    \sbNomLien[0.8]{S}{$S$}
+    \sbDecaleNoeudy{h4}{v}
+    \sbBlocr[4]{g3}{$\dfrac{G_3}{H_4}$}{v}
+    \sbRelieryx{h4-S}{g3}
+    \sbRelierxy{g3}{comp2}
+    \sbDecaleNoeudy[9]{h4}{w}
+    \sbBlocr[4]{g2}{$\dfrac{G_2-G_1H_4}{H_4}$}{w}
+    \sbRelierxy{g2}{comp1}
+    \sbRelieryx{h4-S}{g2}
+\end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+Réduisons la nouvelle boucle de contre-réaction interne :
+%-------------------------------------------------------------------------------
+\begin{center}
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{comp1}{E}
+    \sbRelier[$E$]{E}{comp1}
+    \sbBloc{h1}{$H_1$}{comp1}
+    \sbRelier{comp1}{h1}
+    \sbBlocL{h4}{$\dfrac{H_2H_3H_4}{1+H_3H_4G_4+H_2H_3G_3}$}{h1}
+    \sbSortie[5]{S}{h4}
+    \sbRelier{h4}{S}
+    \sbNomLien[0.8]{S}{$S$}
+    \sbDecaleNoeudy[4]{h4}{w}
+    \sbBlocr[2.5]{g2}{$\dfrac{G_2-G_1H_4}{H_4}$}{w}
+    \sbRelierxy{g2}{comp1}
+    \sbRelieryx{h4-S}{g2}
+\end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+Cette dernière boucle peut être réduite pour obtenir la fonction de transfert globale :
+%-------------------------------------------------------------------------------
+\begin{center}
+\begin{tikzpicture}
+        \sbEntree{E}
+        \sbBloc[4]{ke}{$\dfrac{H_1H_2H_3H_4}{1+H_3H_4G_4+H_2H_3G_3+H_1H_2H_3G_2-H_1H_2H_3G_1}$}{E}
+        \sbRelier[$E$]{E}{ke}
+        \sbSortie[4]{S}{ke}
+        \sbRelier[$S$]{ke}{S}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
