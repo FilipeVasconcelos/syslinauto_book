@@ -416,7 +416,7 @@ fera l'objet d'une présentation plus détaillée.
 \subsection{Diagrammes de Bode : méthodologie générale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Pour chacuns des modèles usuels, à savoir : un gain pur, un intégrateur pur,
+Pour chacun des modèles usuels, à savoir : un gain pur, un intégrateur pur,
 un dérivateur pur, un retard pur, un système du premier ordre et du second 
 ordre, nous allons déterminer les diagrammes de Bode dits asymptotiques 
 et réels. Le diagramme réel est la représentation exacte des fonctions du gain
@@ -1001,14 +1001,14 @@ d'intégrateurs, de dérivateurs, de systèmes du premier et du second ordre:
 où les exposants $\alpha$, $n_i$ et $n_j$ peuvent être positifs et négatifs. 
 
 Nous résumons dans le tableau ci-dessous l'effet sur le gain et la phase d'un 
-diagramme de Bode pour chacuns de ces éléments selon le signe des paramètres
+diagramme de Bode pour chacun de ces éléments selon le signe des paramètres
 $\alpha$, $n_i$, et $n_j$.
 
 {\tikzset{external/export=false}
 \input{tex/tab_bode.tex}
 }
 %Nous listons ci-dessous l'effet sur le gain et la phase d'un diagramme de 
-%Bode pour chacuns de ces élements selon le signe des exposants $\alpha$, 
+%Bode pour chacun de ces élements selon le signe des exposants $\alpha$, 
 %$n_i$, et $n_j$.
 %-------------------------------------------------------------------------------
 %\begin{itemize}
@@ -1157,7 +1157,7 @@ et
 \subsection{Diagrammes de Nyquist: méthodologie générale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
+Pour chacun des modèles usuels, nous appliquerons la procédure suivante :
 %-------------------------------------------------------------------------------
 \begin{itemize}
     \item Définir la fonction de transfert complexe $H(\jw)$ du modèle,
@@ -1177,7 +1177,7 @@ Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
              \label{fig-contour_Nyquist}}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
-Dans chacuns des modèles, nous reproduirons le lieu de Nyquist 
+Dans chacun des modèles, nous reproduirons le lieu de Nyquist 
 complet avec le domaine des pulsations négatives. Dans la pratique, il suffit 
 de tracer le symétrique par rapport à 
 l'axe des réels et d'inverser le sens de la flêche pour obtenir le sens de la 
@@ -1471,7 +1471,7 @@ spirale qui convergent vers 0.
 \subsection{Diagrammes de Black-Nichols: méthodologie générale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Pour chacuns des modèles usuels, nous appliquerons la procédure suivante :
+Pour chacun des modèles usuels, nous appliquerons la procédure suivante :
 %-------------------------------------------------------------------------------
 \begin{itemize}
     \item Définir la fonction de transfert complexe $H(\jw)$ du modèle,
@@ -1561,7 +1561,16 @@ s'annule (en \si{\dB}) pour $\omega=\dfrac{1}{K}$.
     \tikzsetnextfilename{black_2nd-chap_repfreq-ext}
     \input{tikz/black_2nd-chap_repfreq.tex}
     \caption{Diagramme de Black d'un système du second ordre. 
-             \label{fig-black_4}}
+    \label{fig-black_4}}
+\end{figure}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{black_2nd_resonance-chap_repfreq-ext}
+    \input{tikz/black_2nd_resonance-chap_repfreq.tex}
+    \caption{Diagramme de Black d'un système du second ordre. 
+    \label{fig-black_5}}
 \end{figure}
 %-------------------------------------------------------------------------------
 \clearpage
