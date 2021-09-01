@@ -6,7 +6,6 @@
 \usepackage{verbatim}
 \usepackage{geometry}
 \geometry{% siehe geometry.pdf (Figure 1)
-          top=20mm,
           bottom=25mm,
           inner=25mm,
           outer=30mm,
@@ -19,10 +18,15 @@
 \author{ESME Sudria Bordeaux-Lille-Lyon-Paris}
 \begin{document}
 \maketitle
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Contenu général du cours}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Enseignement synchrone}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \noindent \textbf{12 séances de Cours :}
 \begin{itemize}
@@ -35,88 +39,80 @@
 $\,$\newline
 \noindent \textbf{12 séances de TD :}
 \begin{itemize}
-    \item TD 13 -- 
-    \item TD 14 -- 
-    \item TD 15 -- 
-    \item TD 16 -- 
-    \item TD 17 -- 
-    \item TD 18 -- 
-    \item TD 19 -- 
-    \item TD 20 -- 
-    \item TD 21 -- 
-    \item TD 22 -- 
-    \item TD 23 -- 
-    \item TD 24 -- 
+    \item TD 13 -- Asservissement - Régulation 
+    \item TD 14 -- Découverte du module Xcos - Asservissement d'un système du premier ordre 
+    \item TD 15 -- Performances - Précision 
+    \item TD 16 -- Performances - Rapidité
+    \item TD 17 -- Stabilité des systèmes asservis - Critère de Routh
+    \item TD 18 -- Stabilité des systèmes asservis - Critère du revers 
+    \item TD 19 -- Stabilité des systèmes asservis - Critère de Nyquist 
+    \item TD 20 -- Correction des systèmes asservis - Réglage des performances 
+    \item TD 21 -- Correction des systèmes asservis - Correcteur à avance et retard de phase
+    \item TD 22 -- Correction des systèmes asservis - \'Etude et conception d'un correcteurs AP, PI et PID 
+    \item TD 23 -- Etude complète d'un système asservi
+    \item TD 24 -- Initiation à la représentation d'état
 \end{itemize}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Enseignement asynchrone}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Deux devoirs (rapport TP) seront à rendre sur la plateforme Moodle pendant le semestre :
 \begin{itemize}
-    \item TP 1 --
-    \item TP 2 -- 
+    \item TP 3 --
+    \item TP 4 -- 
 \end{itemize}
 
 Vous trouverez plus de détails sur les consignes dans la section concernée. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Objectifs du cours}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+À l'issue de ce cours les étudiants pourront appliquer les outils de modélisation 
+des systèmes linéaires continus et invariants à 
+l'étude des performances de l'asservissement (en précision, en rapidité, en stabilité).
+Ils pourront également déterminer la correction à apporter dans le cas où celle-ci s'impose.
 
-À  l'issue  de  ce  cours  les  élèves  pourront  formaliser,  d'un  point  de  vue  mathématique,  
-la dynamique d'un système complexe linéaire, continu et invariant. Cette formalisation se décline selon 
-les points suivants :  
-
-\begin{itemize}
-    \item \'Ecriture  de  la  dynamique  de  chaque  sous-système  dans  le  formalisme  du  
-          problème différentiel de Cauchy (système d'équations différentielles et conditions limites).
-    \item Réduction du problème différentiel en termes de fonction de transfert : relation entrée/sortie 
-          dans le domaine de Laplace.
-    \item Assemblage des fonctions de transfert grâce à l'algèbre des schémas à bloc. 
-    \item Détermination de la sortie du système, assemblé dans le domaine temporel, en fonction 
-          de l'entrée (réponse dans le domaine de Laplace).
-    \item Transformation de la solution dans le domaine temporel (réponse temporelle).
-    \item Modélisation des systèmes modèles du 1er et second ordre 
-    \item Représentation de la réponse fréquentielle des systèmes modèles
-    \item Modélisation numérique de la réponse temporelle des systèmes modèles (SCILAB)
-\end{itemize}
-
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Programme détaillé}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{enumerate}
-    \item \textbf{Introduction à l'automatique}
+    \item \textbf{Asservissement des systèmes linéaires}
         \begin{itemize}
-            \item Définition d'un système
-            \item Définition des différents types de signaux usuels
-            \item Caractérisation d'un signal temporel (valeur finale, temps de réponse).
-            \item Décomposition de signaux en signaux élémentaires 
+            \item Caractérisation de la régulation et de l'asservissement 
+                  (boucle ouverte, boucle fermée, perturbations)
+            \item Schémas fonctionnels associés aux systèmes asservis
+            \item Fonctions de transferts associées aux systèmes asservis
         \end{itemize}
-    \item \textbf{Systèmes linéaires continus et invariants (SLCI)}
+    \item \textbf{Performances des systèmes asservis}
         \begin{itemize}
-            \item Différentes propriétés des systèmes. (Linéaire, continu, invariant et causal)
-            \item Equations différentielles à coefficients constants.
-            \item Résolution classique d'une équation diff.
-            \item Définition et propriétés de la Transformée de Laplace
-            \item Transformée des signaux usuels
-            \item Résolution d'une équation différentielle par la transformée de Laplace.
-            \item Définition et propriétés de la fonction de transfert.
-            \item Représentation de la fonction de transfert (algébrique/graphique)
+            \item Précision
+            \item Rejet de perturbation
+            \item Rapidité
+            \item Pôles dominants
         \end{itemize}
-    \item \textbf{Schémas fonctionnels (schéma bloc)}
+    \item \textbf{Stabilité des systèmes asservis}
         \begin{itemize} 
-            \item Eléments de base d'un schéma bloc (bloc, flèche, comparateur, point de jonction)
-            \item Transformation des schémas blocs (Réduction, Manipulation)
+            \item Critère algébrique de Routh-Hurtwitz
+            \item Critère graphique du revers
+            \item Critère de Nyquist
         \end{itemize}
-    \item \textbf{Modélisation des SLCI}
+    \item \textbf{Correction des systèmes asservis}
         \begin{itemize}
-            \item Système du premier ordre
-            \item Système du deuxième ordre
+            \item Nécessité de la correction
+            \item Différents types de correcteurs (P, I, AP, RP, RAP, PI, PD, PID)
         \end{itemize}
-    \item \textbf{Analyse fréquentielle et représentation graphique de la réponse harmonique.}
+    \item \textbf{Initiation à la représentation d'état}
         \begin{itemize}
-            \item Définition de la réponse harmonique
-            \item Représentation graphique
-            \item Diagramme de Bode
-            \item Diagramme de Nyquist
-            \item Diagramme de Black-Nichols
+            \item Introduction à la représentation d'état 
+                  (Etat d'un système, vecteur d'état et équation d'état)
+            \item Equivalence entre la représentation d'état et la représentation fréquentielle (Fonction de transfert) 
         \end{itemize}
 \end{enumerate}
 
