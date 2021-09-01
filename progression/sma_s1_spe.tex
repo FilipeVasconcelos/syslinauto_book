@@ -2,7 +2,462 @@
 \usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage[french]{babel}
 \usepackage{verbatim}
+\usepackage{geometry}
+\geometry{% siehe geometry.pdf (Figure 1)
+          top=20mm,
+          bottom=25mm,
+          inner=25mm,
+          outer=30mm,
+          showframe=false, % For debugging: try true and see the layout frames
+         }
+
+\title{Systèmes Mécaniques et Automatiques 3}
+\date{Septembre 2021}
+\author{ESME Sudria Bordeaux-Lille-Lyon-Paris}
 \begin{document}
-\input{sma_s1_spe.txt}
+\maketitle
+
+\section*{Contenu général du cours}
+
+\subsection*{Enseignement synchrone}
+
+\noindent \textbf{12 séances de Cours :}
+\begin{itemize}
+    \item Introduction                                   \hfill (1 sem.)
+    \item Systèmes Linéaires Continus et Invariants      \hfill (3 sem.)
+    \item Schéma-fonctionnel                             \hfill (1 sem.)
+    \item Modélisation des SLCI (réponses temporelles)   \hfill (3 sem.)
+    \item Réponses harmoniques                           \hfill (4 sem.)
+\end{itemize}
+$\,$\newline
+\noindent \textbf{12 séances de TD :}
+\begin{itemize}
+    \item TD 1  -- Signaux usuels en sollicitation - Caractérisation d'un signal temporel
+    \item TD 2  -- Résolution d'équations différentielles - Régime libre, forcée, transitoire et permanent.
+    \item TD 3  -- Outils mathématiques pour l'automatique - Transformée de Laplace
+    \item TD 4  -- Fonction de Transfert
+    \item TD 5  -- Schémas fonctionnels - Algèbre de blocs
+    \item TD 6  -- Modélisation des systèmes linéaires - Réponses temporelles
+    \item TD 7  -- Initiation à SCILAB    
+    \item TD 8  -- Analyse fréquentielle et représentation graphique de la réponse harmonique.
+    \item TD 9  -- Réponse harmonique - Diagramme de Bode
+    \item TD 10 -- Diagramme de Bode - Phénomène de résonance
+    \item TD 11 -- Diagramme de Nyquist
+    \item TD 12 -- 
+\end{itemize}
+
+
+\subsection*{Enseignement asynchrone}
+
+Trois devoirs (rapport TP) seront à rendre sur la plateforme Moodle pendant le semestre :
+\begin{itemize}
+    \item TP 1 --
+    \item TP 2 -- 
+    \item TP 3 -- 
+\end{itemize}
+
+Vous trouverez 
+
+
+\section*{Objectifs du cours}
+
+À  l'issue  de  ce  cours  les  élèves  pourront  formaliser,  d'un  point  de  vue  mathématique,  
+la dynamique d'un système complexe linéaire, continu et invariant. Cette formalisation se décline selon 
+les points suivants :  
+
+\begin{itemize}
+    \item \'Ecriture  de  la  dynamique  de  chaque  sous-système  dans  le  formalisme  du  
+          problème différentiel de Cauchy (système d'équations différentielles et conditions limites).
+    \item Réduction du problème différentiel en termes de fonction de transfert : relation entrée/sortie 
+          dans le domaine de Laplace.
+    \item Assemblage des fonctions de transfert grâce à l'algèbre des schémas à bloc. 
+    \item Détermination de la sortie du système, assemblé dans le domaine temporel, en fonction 
+          de l'entrée (réponse dans le domaine de Laplace).
+    \item Transformation de la solution dans le domaine temporel (réponse temporelle).
+    \item Modélisation des systèmes modèles du 1er et second ordre 
+    \item Représentation de la réponse fréquentielle des systèmes modèles
+    \item Modélisation numérique de la réponse temporelle des systèmes modèles (SCILAB)
+\end{itemize}
+
+\section*{Programme détaillé}
+\begin{enumerate}
+    \item \textbf{Introduction à l'automatique}
+        \begin{itemize}
+            \item Définition d'un système
+            \item Définition des différents types de signaux usuels
+            \item Caractérisation d'un signal temporel (valeur finale, temps de réponse).
+            \item Décomposition de signaux en signaux élémentaires 
+        \end{itemize}
+    \item \textbf{Systèmes linéaires continus et invariants (SLCI)}
+        \begin{itemize}
+            \item Différentes propriétés des systèmes. (Linéaire, continu, invariant et causal)
+            \item Equations différentielles à coefficients constants.
+            \item Résolution classique d'une équation diff.
+            \item Définition et propriétés de la Transformée de Laplace
+            \item Transformée des signaux usuels
+            \item Résolution d'une équation différentielle par la transformée de Laplace.
+            \item Définition et propriétés de la fonction de transfert.
+            \item Représentation de la fonction de transfert (algébrique/graphique)
+        \end{itemize}
+    \item \textbf{Schémas fonctionnels (schéma bloc)}
+        \begin{itemize} 
+            \item Eléments de base d'un schéma bloc (bloc, flèche, comparateur, point de jonction)
+            \item Transformation des schémas blocs (Réduction, Manipulation)
+        \end{itemize}
+    \item \textbf{Modélisation des SLCI}
+        \begin{itemize}
+            \item Système du premier ordre
+            \item Système du deuxième ordre
+        \end{itemize}
+    \item \textbf{Analyse fréquentielle et représentation graphique de la réponse harmonique.}
+        \begin{itemize}
+            \item Définition de la réponse harmonique
+            \item Représentation graphique
+            \item Diagramme de Bode
+            \item Diagramme de Nyquist
+            \item Diagramme de Black-Nichols
+        \end{itemize}
+\end{enumerate}
+
+% ===============================================================================
+%  Progression du cours de SMA (IngeSpe) 
+% ===============================================================================
+%  Résumé du premier semestre :
+%    12 séances de Cours :
+%        - Introduction                                   (1 semaine )
+%        - Systèmes Linéaires Continus et Invariants      (3 semaines)
+%        - Schéma-fonctionnel                             (1 semaine )
+%        - Modélisation des SLCI ( réponses temporelles ) (3 semaines)
+%        - Réponses harmoniques                           (4 semaines) 
+%    12 séances de TD/TP
+%             
+% ===============================================================================
+%  Semaine 1 
+% ===============================================================================
+% -------------------------------------------------------------------------------
+%  Cours 1  
+% -------------------------------------------------------------------------------
+%  Chapitre Avant-propos et 1 : Introduction à l'automatique.     
+%            - Modalité de validation du module.
+%            - Petit historique (Clepsydre, Machine de Watt)  
+%            - Un exemple de la vie courante (temperature d'une douche :
+%              régulation de la température pour introduire: 
+%                - un bouton (une seule sortie)
+%                - deux robinets (humain/manuel) 
+%                - la régulation (thermostat/automatique)
+%                - les performances. 
+%            - Schéma bloc simple (entrée/système/sortie)
+%            - Objectifs de l'année : 
+%                - Modélisation    |
+%                - Analyse         |  des systèmes dynamiques 
+%                - Contrôle        | 
+%            - Définition simple d'un système (dynamique) :
+%                - frontiere (définition structurelle)
+%                - modifie les flux de MEI (définition fonctionnelle)
+%            - Définition signaux (Les systèmes seront traités au prochain cours)
+%            - Différents types de signaux :
+%                - Impulsion de Dirac
+%                - Échelon
+%                - Rampe
+%                - Exponentielle décroissante
+%                - Periodique (ex. Sinusoide )
+%                - Pseudo-périodique (ex. Sinusoide amortie)
+%            - Discuter des caractéristiques d'un signal 
+%              (valeure finale, temps de réponse à 5\%, dépassement, 
+%              oscillation, temps de montée ) qui seront traités dans 
+%              le premier TD )
+% -------------------------------------------------------------------------------
+%  TD 1 
+% -------------------------------------------------------------------------------
+%            - Décomposition de signaux en signaux élémentaires 
+%            - Détermination graphique de la valeure finale du temps de 
+%              réponse à 5\%, du temps de montée, du dépassement.
+% ===============================================================================
+%  Semaine 2 
+% ===============================================================================
+% -------------------------------------------------------------------------------
+%  Cours 2  
+% -------------------------------------------------------------------------------
+%  Chapitre 1 : Systèmes linéaires continus et invariants
+%
+%            - Différentes propriétés systèmes : 
+%                - linéaire
+%                - continue
+%                - invariant
+%                - causal   
+%            - SLCI 
+%            - Equations différentielles à coefficient constants
+%            - Résolution classique  ( pour sentir la solution )
+%            - Discuter un exemple du premier ordre :
+%                - chute libre
+%                - décharge d'un condensateur
+% -------------------------------------------------------------------------------
+%  TD 2  
+% -------------------------------------------------------------------------------
+%            - Résolution classique d'équations différentielles
+%              à coefficient constants :
+%                - 1er ordre / 2nd ordre 
+%                    - sans second membre
+%                    - avec second membre
+% ===============================================================================
+%  Semaine 3
+% ===============================================================================
+% -------------------------------------------------------------------------------
+%  Cours 3 
+% -------------------------------------------------------------------------------
+%  Chapitre 1 : Systèmes linéaires continus et invariants
+%
+%            - Présentation de la méthodologie de résolution des équations 
+%              différentielles. Introduction de la transformée de Laplace schématique (domaine temporelle/de Laplace).
+%            - Transformée de Laplace.
+%                - Définition
+%            - Propriétés de la transformée de Laplace : 
+%                - Linéarité 
+%                - retard en t
+%                - retard en p
+%                - dérivation (exemple d'une petite équa. diff. au passage)
+%                - intégration 
+%                - Théorème de la valeur initiale
+%                - Théorème de la valeur finale
+%            - Transformée des signaux usuels :
+%                - Dirac
+%                - Echelon 
+%                - Rampe 
+%                - exponentielle décroissante 
+%                - Cosinus/Sinus
+%            - Distribution des tables de transformées        
+%            - Résolution d'une équation différentielle
+% -------------------------------------------------------------------------------
+%  TD 3
+% -------------------------------------------------------------------------------
+%            - Transformée de Laplace :
+%                - Résolution d'équations différentielles
+%                - Valeure initiale/Finale
+%                - Transformée de Laplace d'une fonction périodique  
+% ===============================================================================
+%  Semaine 4 
+% ===============================================================================
+% -------------------------------------------------------------------------------
+%  Cours 4  
+% -------------------------------------------------------------------------------
+%  Chapitre 1 : Systèmes linéaires continus et invariants
+%
+%            - Fonctions de transfert :
+%                - Définition
+%                - Remarque par rapport au lien entre la FT et la réponse
+%                  impulsionnelle
+%                - Fraction rationnelle
+%                - Pôles / Zéros ( + petit exemple)
+%                - Représentation en bloc de la fonction de transfert 
+%                  (la semaine prochaine nous présenterons l'algèbre de bloc)
+%            - Représentation de la fonction de transfert algébrique/graphique :
+%                - Forme canonique  ( + exemple )
+%                - Forme factorisée ( + exemple )
+%                - Carte des pôles et zéros d'une fonction de transfert. 
+% -------------------------------------------------------------------------------
+%  TD 4 
+% -------------------------------------------------------------------------------
+%            - Exercices sur les fonctions de transfert :
+%                - Détermination d'une fonction de transfert simple
+%                - Cartes des pôles
+%                - Système du second ordre
+%                - Fonction de transfert d'un système masse-ressort/Dipôle électrique
+% ===============================================================================
+%  Semaine 5 
+% ===============================================================================
+% -------------------------------------------------------------------------------
+%  Cours 5 
+% -------------------------------------------------------------------------------
+%  Chapitre 2 : Schémas fonctionnels et graphe de fluence
+%
+%            - Eléments de base des schémas fonctionnels 
+%                - Bloc
+%                - Flèche
+%                - Comparateur/Sommateur
+%                - Point de jonction/prélèvement
+%            - Transformation des schémas fonctionnels
+%                - Réduction : 
+%                    - en série
+%                    - en parallèle
+%                    - boucle de contre réaction unitaire
+%                    - boucle de contre réaction
+%                - Manipulation :
+%                    - Déplacement d'un comparateur vers la gauche 
+%                    - Déplacement d'un point de prélèvement vers la droite
+%            - Cas des entrées multiples
+%                - Entrée/Perturbation
+%                - Principe de superposition
+%            - Méthodologie générale pour la réduction de schéma-bloc de grande 
+%              taille  
+%            - Mentionner les graphes de fluence du poly (hors programme).
+% -------------------------------------------------------------------------------
+%  TD 5 
+% -------------------------------------------------------------------------------
+%            - Réduction de schéma bloc 
+%            - Schéma-fonctionnels MCC  
+% ===============================================================================
+%  Semaine 6 
+% ===============================================================================
+% -------------------------------------------------------------------------------
+%  Cours 6  
+% -------------------------------------------------------------------------------
+%  Chapitre 3 : Modélisation des SLCI et leurs réponses temporelles
+%            - Système du premier ordre :
+%                - Définition :
+%                    - équation différentielle canonique
+%                    - définition des paramètres (K,tau)
+%                - Fonction de transfert 
+%                - Pôle de la fonction de transfert 
+%                - Réponses temporelles :
+%                    - réponse impulsionnelle (pente à l'origine)
+%                    - réponse indicielle (pente à l'origine, t5%, valeur finale)
+%                    - réponse à une rampe
+%                - Résumé des caractéristiques d'un système du premier ordre :
+%                    - réponse à 5%
+%                    - pente à l'origine 
+%                - Exemple de système du 1er ordre :
+%                    -  Circuit RC
+% -------------------------------------------------------------------------------
+%  TP 1
+% -------------------------------------------------------------------------------
+%            - Découverte de Scilab
+%            - Modélisation d'un système du premier ordre  
+%            - Proposer un exercice noté.
+% ===============================================================================
+%  Semaine 7 
+% ===============================================================================
+% -------------------------------------------------------------------------------
+%  Cours 7  
+% -------------------------------------------------------------------------------
+%  Chapitre 3 : Modélisation des SLCI et leurs réponses temporelles
+%
+%            - Système du second ordre (partie 1):
+%                - Définition 
+%                - Fonction de transfert 
+%                - Pôle de la fonction de transfert 
+%                - Réponses temporelles :
+%                    - impulsionnelle
+%                    - indicielle 
+% -------------------------------------------------------------------------------
+%  TP 2 
+% -------------------------------------------------------------------------------
+%            - Modélisation d'un système du second ordre   
+% ===============================================================================
+%  Semaine 8 Semaine du DS
+% ===============================================================================
+% -------------------------------------------------------------------------------
+%  Cours 8  
+% -------------------------------------------------------------------------------
+%  Chapitre 3 : Modélisation des SLCI et leurs réponses temporelles
+% -------------------------------------------------------------------------------
+%            - Système du second ordre (partie 2):
+%            c.f Whiteboard cours 8
+%
+% -------------------------------------------------------------------------------
+%  TD 6 
+% -------------------------------------------------------------------------------
+%            - Modélisation d'un système du second ordre 
+%            - Lecture des abaques
+% 
+% ===============================================================================
+%  Semaine 9  
+% ===============================================================================
+% -------------------------------------------------------------------------------
+%  Cours 9  
+% -------------------------------------------------------------------------------
+%  Chapitre 4 : Analyse fréquentielle et représentation graphique 
+%               de la réponse harmonique.
+%            - Définition de la réponse harmonique / exemple de 
+%              réponse harmonique
+%            - Représentation graphique de la réponse harmonique 
+%              (schématiquement) :
+%                - Diagramme de Bode
+%                - Diagramme de Black-Nichols
+%                - Diagramme de Nyquist  
+% -------------------------------------------------------------------------------
+%  TD 6 
+% -------------------------------------------------------------------------------
+%            - Réponse harmonique dans le domaine temporelle 
+%            - Lecture et tracé d'échelle logarithmique
+%            - Diagramme de Bode d'une FT 1/1+p
+% ===============================================================================
+%  Semaine 10 
+% ===============================================================================
+% -------------------------------------------------------------------------------
+%  Cours 10
+% -------------------------------------------------------------------------------
+%  Chapitre : Analyse fréquentielle et représentation graphique 
+%             de la réponse harmonique.
+%            - Méthodologie générale pour tracer un diagramme de Bode
+%            - Diagramme de Bode des modèles usuels :
+%                - gain pur
+%                - intégrateur pur
+%                - dérivateur pur 
+%                - retard pur
+%                - 1er ordre
+%                - 2 systèmes du premier ordre
+% -------------------------------------------------------------------------------
+%  TD 7 
+% -------------------------------------------------------------------------------
+%            - 
+% ===============================================================================
+%  Semaine 11 
+% ===============================================================================
+% -------------------------------------------------------------------------------
+%  Cours 11
+% -------------------------------------------------------------------------------
+%  Chapitre : Analyse fréquentielle et représentation graphique 
+%             de la réponse harmonique.
+%            - Diagramme de Bode des modèles usuels (suites) :
+%                - 2nd ordre / phénomène de résonance 
+%                - système d'ordre quelconques à traiter en TD
+% -------------------------------------------------------------------------------
+%  TD 8
+% -------------------------------------------------------------------------------
+% ===============================================================================
+%  Semaine 12 QCM3
+% ===============================================================================
+% -------------------------------------------------------------------------------
+%  Cours 12
+% -------------------------------------------------------------------------------
+%  Chapitre : Analyse fréquentielle et représentation graphique 
+%             de la réponse harmonique.
+%            - Diagramme de Black-Nichols des modèles usuels :
+%                - 1er ordre
+%                - 2nd ordre
+%            - Diagramme de Nyquist des modèles usuels :
+%                - 1er ordre
+%                - 2nd ordre
+% -------------------------------------------------------------------------------
+%  TP 3 
+% -------------------------------------------------------------------------------
+%            - Un TP pour tracer les réponses harmoniques Bode/Nyquist
+%            - Scilab / Python  
+% ===============================================================================
+%  Semaine 13 
+% ===============================================================================
+% -------------------------------------------------------------------------------
+%  Cours 13
+% -------------------------------------------------------------------------------
+%    Résumé du semestre
+% -------------------------------------------------------------------------------
+%  TD 9
+% -------------------------------------------------------------------------------
+%            Diagramme de Nyquist 
+%            - /home/filipe/enseignement/auto/2018_2019_SPE/td/td_6
+%            - Exercices de révisions pour l'examen
+% ===============================================================================
+% -------------------------------------------------------------------------------
+%  DS 
+% -------------------------------------------------------------------------------
+%            - Le DS pourra être composé de plusieurs exercices :
+%                - Décomposition d'un signal en signaux usuels + Transformée de Laplace.
+%                - Détermination d'une fonction de transfert à partir
+%                  de différentes équations différentielles.
+%                - Réduction d'un schéma-bloc.
+%                - Tracer des réponses temporelles du premier ordre.
+%                - Détermination des caractéristiques d'une réponse 
+%                  du second ordre.
 \end{document}
