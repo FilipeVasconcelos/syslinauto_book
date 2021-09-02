@@ -11,7 +11,7 @@ declare -A data=(['chap_slci']="13-41"
                  ['chap_repfreq']="107-140"
                  ['exo-chap_repfreq']="141-141"
                  ['exoCorr-chap_repfreq']="142-143"
-                 ['chap_asserv']="143-153"
+                 ['chap_asserv']="145-153"
                  ['exo-chap_asserv']="154-155"
                  ['exoCorr-chap_asserv']="156-157"
                  ['chap_perf']="159-176"
@@ -39,7 +39,8 @@ declare -A data=(['chap_slci']="13-41"
                  ['annexe_log']="279-284"
                  ['annexe_invL']="285-286"
                  ['annexe_black']="287-294"
-                 ['annexe_cauchy']="295-306")
+                 ['annexe_cauchy']="295-306"
+                 ['laplace_table']="233-234")
 for cle in ${!data[@]}
 do
     echo ${cle} ${data[$cle]} 
