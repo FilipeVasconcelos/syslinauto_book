@@ -1483,7 +1483,6 @@ Pour chacun des modèles usuels, nous appliquerons la procédure suivante :
           de 0 à $+\infty$. 
 \end{itemize}
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagrammes de Black d'un intégrateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1540,21 +1539,46 @@ La~\cref{fig-black_2} présente le diagramme de Black d'un dérivateur pur. On
 vérifie qu'un dérivateur présente une phase de \SI{+90}{\degree} pour toutes
 pulsations et que gain diminue avec l'augmentation de la pulsation. Le gain 
 s'annule (en \si{\dB}) pour $\omega=\dfrac{1}{K}$.
+\newpage
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagrammes de Black d'un premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La fonction de transfert complexe d'un premier ordre est simplement donnée par :
+\[
+    H(\jw)=\dfrac{K}{1+\jtw}
+\]
+Le gain en décibel et la phase sont donnés par :
+\begin{align*}
+    G_{dB}(\omega)&=20\log{K}-10\log{\left(1+\ttww\right)} \\
+      \phi(\omega)&=-\arctan{(\tw)}
+\end{align*}
+La~\cref{fig-black_3} présente le diagramme de Black d'un premier ordre.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{black_1er-chap_repfreq-ext}
     \input{tikz/black_1er-chap_repfreq.tex}
     \caption{Diagramme de Black d'un système du premier ordre. 
-             \label{fig-black_3}}
+    \label{fig-black_3}}
 \end{figure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagrammes de Black d'un second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La fonction de transfert complexe d'un second ordre est simplement donnée par :
+\[
+    H(\jw)=\dfrac{K\omega_0^2}{(\omega_0^2-\omega^2)+j2\xi\omega_0\omega}
+\]
+Le gain en décibel et la phase sont donnés par :
+\begin{align*}
+    G_{dB}(\omega)&=20\log{K\omega_0^2}-10
+                    \log{\left((\omega_0^2-\omega^2)^2+
+                               (2\xi\omega_0\omega)^2\right)} \\
+      \phi(\omega)&=-\arctan{\left(\dfrac{2\xi\omega_0\omega}{\omega_0^2-\omega^2}\right)}
+\end{align*}
+La~\cref{fig-black_4} présente le diagramme de Black d'un second ordre.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -1590,7 +1614,6 @@ de la réponse harmonique, c'est pourquoi nous avons délibéremment occulté
 la description du régime transitoire.
 Nous allons voir comment prendre en compte le transitoire dans une étude
 analytique dans le cas particulier d'un système du premier ordre.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Exemple d'un système du premier ordre}

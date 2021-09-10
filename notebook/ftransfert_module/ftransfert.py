@@ -1,5 +1,8 @@
 import sys
 import matplotlib as mpl
+from matplotlib import rcParams
+#mpl.rcParams['font.family'] = ['sans-serif']
+#mpl.rcParams['font.serif'] = ['Times New Roman']
 import matplotlib.pyplot as plt
 import numpy as np
 import math
@@ -483,7 +486,8 @@ class Ftransfert():
         fig = plt.figure(figsize=(6,8),dpi=self.DPI)
         # Gain chart (UP)
         ax1 = fig.add_subplot(2, 1, 1)
-        ax1.title.set_text(r'Bode $'+self.name+'(p)$')
+        ax1.set_title(self.name,loc='left',size=24)
+        #ax1.title.set_text(self.name)
         ax1.title.set_size(24)
         ax1.set(xlim=xlim, ylim=y1lim)
         ax1.xaxis.label.set_text(r'$\omega$ (rad$\cdot$s$^{-1}$)')
@@ -498,7 +502,7 @@ class Ftransfert():
         # Phase chart (DOWN)
         ax2 = fig.add_subplot(2, 1, 2)
         ax2.set(xlim=xlim, ylim=y2lim)
-        ax2.title.set_size(24)
+        #ax2.title.set_size(24)
         ax2.xaxis.label.set_text(r'$\omega$ (rad$\cdot$s$^{-1}$)')
         ax2.xaxis.label.set_size(18)
         ax2.yaxis.label.set_text(r'$\phi(\omega) (°)$')
