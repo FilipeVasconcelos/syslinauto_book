@@ -188,54 +188,56 @@ On obtient après réduction de cette dernière boucle de contre réaction.
     \end{tikzpicture}
 \end{center}
 %-------------------------------------------------------------------------------
-Déplaçons le point de prélèvement de la boucle de retour inférieur vers la droite  :
+Déplaçons le point de prélèvement de la boucle de retour inférieur vers 
+la droite  :
 %-------------------------------------------------------------------------------
 \begin{center}
-\begin{tikzpicture}                                                                        
-    \sbEntree{E}                                                                           
-    \sbComp{a}{E}                                                                          
-    \sbRelier[$E$]{E}{a}                                                                   
-    \sbBloc{b}{$H_1$}{a}                                                                
-    \sbRelier{a}{b}                                                            
-    \sbComph{d}{b}                                                                         
-    \sbRelier{b}{d}                                                                        
-    \sbBlocL{f}{$H_2H_3$}{d}                                                               
-    \sbSortie[5]{S1}{f}                                                                    
-    \sbRelier{f}{S1}                                                                       
-    \sbNomLien[0.8]{S1}{$S$}                                                               
-    \sbDecaleNoeudy[-4]{f}{u}                                                              
-    \sbDecaleNoeudy[4]{f}{v}                                                               
-    \sbBlocr[-1.5]{r1}{$H_4$}{u}                                                           
-    \sbBlocr{r2}{$\dfrac{H_5}{H_3}$}{v}                                                 
-    \sbRelieryx{f-S1}{r1}                                                                  
-    \sbRelierxy{r1}{d}                                                              
-    \sbRelieryx{f-S1}{r2}                                                                  
-    \sbRelierxy{r2}{a}                                                              
-\end{tikzpicture}                                                                          
-\end{center}                                                                               
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{a}{E}
+    \sbRelier[$E$]{E}{a}
+    \sbBloc{b}{$H_1$}{a}
+    \sbRelier{a}{b}
+    \sbComph{d}{b}
+    \sbRelier{b}{d}
+    \sbBlocL{f}{$H_2H_3$}{d}
+    \sbSortie[5]{S1}{f}
+    \sbRelier{f}{S1}
+    \sbNomLien[0.8]{S1}{$S$}
+    \sbDecaleNoeudy[-4]{f}{u}
+    \sbDecaleNoeudy[4]{f}{v}
+    \sbBlocr[-1.5]{r1}{$H_4$}{u}
+    \sbBlocr{r2}{$\dfrac{H_5}{H_3}$}{v}
+    \sbRelieryx{f-S1}{r1}
+    \sbRelierxy{r1}{d}
+    \sbRelieryx{f-S1}{r2}
+    \sbRelierxy{r2}{a}
+\end{tikzpicture}
+\end{center}
 %-------------------------------------------------------------------------------
-L'étape précédente nous permet d'identifier une boucle de contre-réaction locale.
-Après réduction de cette boucle, le schéma-blocs dévient :
+L'étape précédente nous permet d'identifier une boucle de contre-réaction 
+locale. Après réduction de cette boucle, le schéma-blocs dévient :
 %-------------------------------------------------------------------------------
 \begin{center}
-\begin{tikzpicture}                                                              
-    \sbEntree{E}                                                                 
-    \sbComp{a}{E}                                                                
-    \sbRelier[$E$]{E}{a}                                                         
-    \sbBloc{b}{$H_1$}{a}                                                      
-    \sbRelier[$\epsilon$]{a}{b}                                                  
-    \sbBlocL{f}{$\dfrac{H_2H_3}{1+H_2H_3H_4}$}{b}                                
-    \sbSortie[5]{S1}{f}                                                          
-    \sbRelier{f}{S1}                                                             
-    \sbNomLien[0.8]{S1}{$S$}                                                     
-    \sbDecaleNoeudy[4]{f}{v}                                                     
-    \sbBlocr{r2}{$\dfrac{H_5}{H_3}$}{v}                                       
-    \sbRelieryx{f-S1}{r2}                                                        
-    \sbRelierxy{r2}{a}                                                    
-\end{tikzpicture}                                                                
-\end{center}                                                                     
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{a}{E}
+    \sbRelier[$E$]{E}{a}
+    \sbBloc{b}{$H_1$}{a}
+    \sbRelier[$\epsilon$]{a}{b}
+    \sbBlocL{f}{$\dfrac{H_2H_3}{1+H_2H_3H_4}$}{b}
+    \sbSortie[5]{S1}{f}
+    \sbRelier{f}{S1}
+    \sbNomLien[0.8]{S1}{$S$}
+    \sbDecaleNoeudy[4]{f}{v}
+    \sbBlocr{r2}{$\dfrac{H_5}{H_3}$}{v}
+    \sbRelieryx{f-S1}{r2}
+    \sbRelierxy{r2}{a}
+\end{tikzpicture}
+\end{center}
 %-------------------------------------------------------------------------------
-La réduction de cette dernière boucle de contre-réaction permet d'identifier la fonction de transfert globale :
+La réduction de cette dernière boucle de contre-réaction permet d'identifier 
+la fonction de transfert globale :
 %-------------------------------------------------------------------------------
 \begin{center}
     \begin{tikzpicture}
@@ -320,7 +322,8 @@ On reconnait deux branches en parallèle :
     \end{tikzpicture}
 \end{center}
 %-------------------------------------------------------------------------------
-La fonction de transfert globale est donc donné par la réduction de cette dernière boucle de contre réaction.
+La fonction de transfert globale est donc donné par la réduction de cette 
+dernière boucle de contre réaction.
 %-------------------------------------------------------------------------------
 \begin{center}
     \begin{tikzpicture}
@@ -374,7 +377,8 @@ La fonction de transfert globale est donc donné par la réduction de cette dern
 \end{tikzpicture}
 \end{center}
 %-------------------------------------------------------------------------------
-Déplaçons vers la droite le point de prélèvement situé entre les blocs $H_3$ et $H_4$:
+Déplaçons vers la droite le point de prélèvement situé entre les 
+blocs $H_3$ et $H_4$:
 %-------------------------------------------------------------------------------
 \begin{center}
 \begin{tikzpicture}
@@ -461,12 +465,16 @@ Réduisons la nouvelle boucle de contre-réaction interne :
 \end{tikzpicture}
 \end{center}
 %-------------------------------------------------------------------------------
-Cette dernière boucle peut être réduite pour obtenir la fonction de transfert globale :
+Cette dernière boucle peut être réduite pour obtenir la fonction de 
+transfert globale :
 %-------------------------------------------------------------------------------
 \begin{center}
 \begin{tikzpicture}
         \sbEntree{E}
-        \sbBloc[4]{ke}{$\dfrac{H_1H_2H_3H_4}{1+H_3H_4G_4+H_2H_3G_3+H_1H_2H_3G_2-H_1H_2H_3G_1}$}{E}
+        \sbBloc[4]{ke}{
+            $\dfrac{H_1H_2H_3H_4}
+                   {1+H_3H_4G_4+H_2H_3G_3+H_1H_2H_3G_2-H_1H_2H_3G_1}$}
+                   {E}
         \sbRelier[$E$]{E}{ke}
         \sbSortie[4]{S}{ke}
         \sbRelier[$S$]{ke}{S}

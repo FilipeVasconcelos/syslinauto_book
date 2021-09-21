@@ -372,8 +372,9 @@ Le gain pour la pulsation $\omega_m$ est donné par:
 \]
 puisque $\tau^2\omega_m^2=\dfrac{1}{\beta}$.
 \[
-    C_{\text{RP},\si{\dB}}(j\omega_m)=10\log{\left(\dfrac{1+\beta}{\beta}\right)}
-                              -10\log{\left(1+\beta\right)}=-10\log{\beta}
+    C_{\text{RP},\si{\dB}}(j\omega_m)
+    =10\log{\left(\dfrac{1+\beta}{\beta}\right)}
+    -10\log{\left(1+\beta\right)}=-10\log{\beta}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -432,7 +433,8 @@ on combine directement la commande de
     \input{tikz/pid_parallele_chap_correction.tex}
 \end{center}
 %-------------------------------------------------------------------------------
-La réduction de ce shéma-bloc nous donne la relation entre la commande et l'écart
+La réduction de ce shéma-bloc nous donne la relation entre la commande et 
+l'écart
 \[
     U(p)=\left(k_p+\dfrac{1}{\tau_i p}+\tau_d p\right)\epsilon(p)
 \]
@@ -481,7 +483,8 @@ La réduction de ce shéma-bloc nous donne la relation entre la commande et l'é
 \]
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-    C_{\text{PID}}^{(3)}(p)=k_p^{(3)}\left(1+\dfrac{1}{\tau_i^{(3)}p}                                                                                                                 +\tau_d^{(3)}p\right)
+    C_{\text{PID}}^{(3)}(p)=k_p^{(3)}\left(1+\dfrac{1}{\tau_i^{(3)}p}
+                                            +\tau_d^{(3)}p\right)
 \end{bequation}
 %-------------------------------------------------------------------------------
 \clearpage
