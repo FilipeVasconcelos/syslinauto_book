@@ -257,3 +257,42 @@ La résolution de cette expression en $\omega$ donne
 \[
     \omega_{0\si{\dB}}\sim301.307 
 \]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Diagrammes de Nyquist}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La fonction de transfert complexe de $H(p)$ s'écrit :
+\[
+    H(\jw)=\dfrac{1}{\jw(\jw+1)}
+\]
+s'écrit, en identifiant explicitement la partie réelle et imaginaire, sous la 
+forme :
+\[
+    H(\jw)=-\dfrac{1}{1+\omega^2}-j\dfrac{\frac{1}{\omega}}{1+\omega^2}
+\]
+Le diagramme de Nyquist consiste simplement a tracé la partie réelle et imaginaire
+pour différente valeur de la pulsation de la sollicitation.
+%-------------------------------------------------------------------------------
+\begin{figure}[!t]
+    \centering
+    \tikzsetnextfilename{ex2_1-chap_repfreq-ext}
+    \input{tikz/ex2_1-chap_repfreq.tex}
+\end{figure}
+%-------------------------------------------------------------------------------
+On remarque pour $\omega\rightarrow0^\pm$ la partie réelle tend vers -1 et la 
+partie imaginaire vers $\mp\infty$ (selon le signe d'approche de 0).
+Pour compléter la description, déterminons le gain $G(\omega)$ et le déphasage 
+$\phi(\omega)$ de ce système:
+\[
+    G(\omega)=\dfrac{1}{\omega\sqrt{1+\omega^2}}
+\]
+\[
+    \phi(\omega)=-\arctan{\left(-\dfrac{1}{\omega}\right)}-\pi
+\]
+Le déphasage permet de déterminer l'allure du diagramme de Nyquist lorsque $\omega$ 
+approche zéro ou l'infini. 
+
