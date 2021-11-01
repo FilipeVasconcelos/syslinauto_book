@@ -1,0 +1,39 @@
+%  (a) -- (ra) -- R1 -- (ca) -- (b) 
+%   |                    |      (rb)
+%   |                    C       R2
+%   |                    |       |
+%  (d) ---------------- (cb) -- (c)
+\begin{tikzpicture}
+    \coordinate (a) at (0,0);
+    \coordinate (b) at (6,0);
+    \coordinate (c) at (6,-2.2);
+    \coordinate (d) at (0,-2.2);
+    \coordinate (ra) at (2,0);
+    \coordinate (rb) at (6,-1.2);
+    \coordinate (ca) at (4,0);
+    \coordinate (cb) at (4,-2.2);
+    \node[thick,rectangle,
+          draw,
+          minimum width=1cm,
+          minimum height=0.5cm] (R1) at (ra) {};
+    \node[] (nR1) at (R1) {$R_1$};
+    \node[thick,rectangle,
+          draw,
+          minimum width=1cm,
+          minimum height=0.5cm,rotate=90]   (R2) at (rb) {};
+    \node[] (nR2) at (R2) {$R_2$};
+    \draw[thick] (d) circle(1.5pt);
+    \draw[thick] (a) circle(1.5pt);
+    \draw[thick] (a) -- (R1);
+    \draw[thick] (R1) -- (b);
+    \draw[thick] (b) -- (R2);
+    \draw[thick] (c) -- (R2);
+    \draw[thick] (d) -- (c);
+    \draw[thick] (ca) -- ++ ($(0,-0.9)$) -- node[left,xshift=-1em] {$C$} ++($(-0.5,0)$) -- ++ ($(1,0)$) ;
+    \draw[thick] (cb) -- ++ ($(0,0.9)$) -- ++ ($(-0.5,0)$) -- ++ ($(1,0)$) ;
+    \draw[dblarw={black}{1.5pt}{1pt}] ($(d)+(0,0.1)$) -- node[left] {$v_1$} ($(a)+(0,-0.1)$);
+    \draw[dblarw={black}{1.5pt}{1pt}] ($(c)+(0.5,0.1)$) -- node[right] {$v_2$}($(b)+(0.5,-0.1)$);
+    \draw[dblarw={black}{1.5pt}{1pt}] ($(a)+(0.1,0)$) --node[above] {$i_1$} ++ ($(0.5,0)$);
+    \draw[dblarw={black}{1.5pt}{1pt}] ($(ca)+(0,-0.1)$) --node[left] {$i_2$} ++ ($(0,-0.5)$);
+    \draw[dblarw={black}{1.5pt}{1pt}] ($(b)+(0,-0.1)$) --node[left] {$i_3$} ++ ($(0,-0.5)$);
+\end{tikzpicture}

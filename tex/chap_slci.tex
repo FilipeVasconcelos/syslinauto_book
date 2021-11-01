@@ -37,7 +37,7 @@ les systèmes dynamiques linéaires.
     \centering
     \tikzsetnextfilename{systeme-chap_slci-ext}
     \input{tikz/systeme-chap_slci.tex}
-    \caption{Représentation d'un système en intéraction avec son environnement. 
+    \caption{Représentation d'un système en interaction avec son environnement. 
              Par définition, un système possède une ou plusieurs entrée/sortie 
              bien définis de flux de~\gls{mei}. Généralement, des 
              perturbations de l'environnement et des mesures de son état 
@@ -384,6 +384,7 @@ On identifie simplement, cette équation différentielle à la forme générale
 de l'\cref{eq-difflci} pour $s(t)=x(t)$, $e(t)=f(t)$, 
 $n=$2, $m=0$, $a_2=m$, $a_1=b$, $a_0=k_r$ et $b_0=$1.
 La résolution complète sera donnée en exercice à la fin de ce chapitre.
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -542,13 +543,13 @@ $\delta(t)$ est une \og fonction\fg
 nos collègues mathématiciens. En effet, ce signal est un exemple classique de 
 la théorie des distributions qui étend la notion de fonction.} telle que
 %-------------------------------------------------------------------------------
-\begin{marginfigure}[0.5em]
-    \centering
+\begin{marginfigure}
+    %\centering
     \includegraphics[width=0.9\linewidth]{PaulDirac.eps} 
-    \caption*{\index{Dirac, Paul}\textbf{Paul Dirac}, (1902-1984) 
+    \caption{\index{Dirac, Paul}\textbf{Paul Dirac}, (1902-1984) 
               mathématicien et physicien britannique. Auteur de 
               contributions majeures en mécanique quantique. 
-              \href{https://www.youtube.com/watch?v=Et8-gg6XNDY}{Lien Youtube}
+              \href{https://www.youtube.com/watch?v=H7mOU1Xu-yA}{Lien Youtube}
               } 
 \end{marginfigure}
 %-------------------------------------------------------------------------------
@@ -698,7 +699,7 @@ et $\phi$ sa phase (\si{\radian}).
 %en \si{\hertz}, elle même liée à la période $T=\dfrac{1}{f}$ en 
 %\si{\second}.
 %-------------------------------------------------------------------------------
-\begin{marginfigure}[-4em]
+\begin{marginfigure}
     \centering
     \tikzsetnextfilename{sinusoide-chap_slci-ext}
     \resizebox{\linewidth}{!}{\input{tikz/sinusoide-chap_slci.tex}}
@@ -735,7 +736,7 @@ avec $a$, l'inverse d'un temps, est caractéristique d'un amortissement.
 Cette fonction tend vers 0 pour tout $a>0$ lorsque $t\rightarrow\infty$ et 
 diverge pour $a<0$.
 %-------------------------------------------------------------------------------
-\begin{marginfigure}[-9em]
+\begin{marginfigure}
     \captionsetup{width=0.95\linewidth,belowskip=0pt,labelfont=bf} 
     \centering
     \tikzsetnextfilename{exp_dec-chap_slci-ext}
@@ -756,7 +757,7 @@ où $a>0$ est l'inverse d'un temps caractéristique de l'amortissement.
 Cette fonction est donc le produit d'une exponentielle décroissante et 
 d'une sinuso\"ide.
 %-------------------------------------------------------------------------------
-\begin{marginfigure}[-8em]
+\begin{marginfigure}
     \centering
     \tikzsetnextfilename{sinusoide_amortie-chap_slci-ext}
     \resizebox{\linewidth}{!}{\input{tikz/sinusoide_amortie-chap_slci.tex}}

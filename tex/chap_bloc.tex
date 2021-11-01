@@ -34,8 +34,7 @@ sont moins utilisés pour l'étude des \gls{slci}, et peuvent donc être néglig
 dans une première lecture, l'algèbre qui lui est associée s'avère cependant 
 bien plus éfficace et pourra être utilisée dans d'autres 
 applications (ex : éléctronique, réseaux de neurones).
-
-
+%\newpage % tmp
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -59,7 +58,7 @@ de prélèvement}
 \paragraph{Flèche}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Les flèches donnent la direction de l'information (c.-à-d. du signal) au sein 
-du schéma-blocs. Elles peuvent être ornées de la grandeur mathématique qui 
+du schéma-bloc. Elles peuvent être ornées de la grandeur mathématique qui 
 leurs sont associées. 
 Celles-ci peuvent être des grandeurs temporelles ou dans le domaine de Laplace. 
 %-------------------------------------------------------------------------------
@@ -363,11 +362,11 @@ de prélèvement. Ansi les deux schémas-blocs ci-dessous sont équivalents:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dans le cas d'un système possédant plusieurs entrées, il est possible 
-de simplifier le problème en appliqant le principe de superposition. La réponse 
+de simplifier le problème en appliquant le principe de superposition. La réponse 
 totale devient alors la somme des réponses individuelles de chaque entrée 
 lorsque toutes les autres sont considérées comme nulles.
 
-Considérons le schéma-blocs suivant :
+Considérons le schéma-bloc suivant :
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{reduc_mult1-chap_bloc-ext}
@@ -411,6 +410,7 @@ Si $E$ est une entrée de consigne et $P$ une perturbation, $H_E$ et $H_P$
 sont respectivement appelées \textbf{fonction de transfert d'asservissement} 
 et \textbf{fonction de transfert de régulation}.
 Remarquons que le dénominateur de ces fonctions de transferts sont identiques.
+%\newpage %tmp
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -466,7 +466,7 @@ la droite  :
 \end{center}
 %-------------------------------------------------------------------------------
 L'étape précédente nous permet d'identifier une boucle de contre-réaction 
-locale ($B_1$). Après réduction de cette boucle, le schéma-blocs dévient : 
+locale ($B_1$). Après réduction de cette boucle, le schéma-bloc dévient : 
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{exemple_4-chap_bloc-ext}
@@ -543,7 +543,7 @@ de transfert globale pour les deux entrées est:
        \dfrac{H_2H_3H_4}{1+R_1H_3H_4+R_2R_3H_1H_2H_3} P 
 \end{align*}
 %-------------------------------------------------------------------------------
-%\clearpage
+%\clearpage %tmp
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
