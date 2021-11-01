@@ -846,7 +846,7 @@ Nous pouvons donc énoncer le critère de stabilité dit du revers :
 %-------------------------------------------------------------------------------
 \begin{criteria}{Critère de stabilité du revers}
     Un système est stable en boucle fermée si lorque le 
-    déphasage en boucle ouverte est de -180\degree~le module $|H_{BO}(\jw)|$ 
+    déphasage en boucle ouverte est de -180\degreeSI~le module $|H_{BO}(\jw)|$ 
     est strictement inférieur à 1.
 \end{criteria}
 %-------------------------------------------------------------------------------
@@ -911,7 +911,7 @@ Nous pouvons maintenant formuler le critère du revers du lieu de Nyquist :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dans le plan de Black (c.-à-d. le gain en ordonnée \si{\dB} et le déphasage
-en abscisse), le point critique est de coordonnées (-180\degree,\SI{0}{\dB}).
+en abscisse), le point critique est de coordonnées (-180\degreeSI,\SI{0}{\dB}).
 À l'instar du cas précédent, nous allons discuter de l'allure du lieu de Black
 par rapport à ce point critique pour trois systèmes différents:
 stable, instable et critique.     
@@ -952,15 +952,15 @@ pour respecter le critère du revers dans le plan de Bode
     Un système est stable en boucle fermée si, pour la pulsation 
     $\omega_{1}$ telle que le module de la fonction de transfert en boucle 
     ouverte est égal à 1 (c.a.d $H_{BO}(\omega_{1})=1$ ou $\SI{0}{\dB}$), 
-    le déphasage $\phi(\omega_1)$ est supérieur à -180\degree
+    le déphasage $\phi(\omega_1)$ est supérieur à -180\degreeSI
 \end{criteria}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{criteria}{Critère du revers de Bode (2)}
     Un système est stable en boucle fermée si, pour la pulsation 
     $\omega_{c}$ (pulsation critique) telle que l'argument de la fonction de 
-    transfert en boucle ouverte (déphasage) est égale à -180\degree 
-    (c.a.d $\phi(\omega_c)=-180\degree$), le gain $G_{dB}(\omega_c)$ est 
+    transfert en boucle ouverte (déphasage) est égale à -180\degreeSI 
+    (c.a.d $\phi(\omega_c)=-180\degreeSI$), le gain $G_{dB}(\omega_c)$ est 
     négatif.
 \end{criteria}
 %-------------------------------------------------------------------------------
@@ -1007,12 +1007,12 @@ coupure pour laquelle le gain naturel $G(\omega_{c0})=|H_{BO}(j\omega_{c0})|=1$
 \begin{definition}{Marge de gain}
 La marge de gain $M_G$ est définir par $M_G=-20\log{|H(j\omega_\pi)|}$ où 
 $\omega_{\pi}$ est la pulsation pour laquelle le déphasage vaut 
-\SI{-180}{\degree} $\phi(\omega_\pi)=\arg{(H_{BO}(j\omega_{c0}))}=-\pi$
+-180\degreeSI $\phi(\omega_\pi)=\arg{(H_{BO}(j\omega_{c0}))}=-\pi$
 ou autrement l'argument du point critique dans le plan complexe.
 \end{definition}
 %-------------------------------------------------------------------------------
 Ces marges de stabilités sont en générales imposées par le cahier des charges.
-En générales es valeurs pour $M_{\phi}$ de 45 à 60\degree et
+En générales es valeurs pour $M_{\phi}$ de 45 à 60\degreeSI et
 pour $M_G$ de 6 à 15~\si{\dB} sont considérées comme satisfaisantes.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]

@@ -181,7 +181,7 @@ particulières de $\omega$
         \midrule
         $G(\omega)$         & 0.99       & 0.70       & 0.1                  \\
         \midrule
-        $\phi(\omega)$      &-5.7\degree &-45\degree  &-84.3\degree          \\
+        $\phi(\omega)$      &-5.7\degreeSI &-45\degreeSI  &-84.3\degreeSI          \\
         \bottomrule
     \end{tabular}
 \caption{Quelques valeurs particulières du gain et de la phase de la 
@@ -518,7 +518,7 @@ du nombre complexe $H(\jw)$:
 \phi(\omega) = -\dfrac{\pi}{2}
 \end{bequation}
 %-------------------------------------------------------------------------------
-Un intégrateur pur déphase donc la sortie de -90\degree~quelque soit la 
+Un intégrateur pur déphase donc la sortie de -90\degreeSI~quelque soit la 
 pulsation de l'entrée.
 %-------------------------------------------------------------------------------
 \begin{figure}[!htb]
@@ -557,7 +557,7 @@ La phase s'obtient simplement par l'argument principal de $H(\jw)$:
     \phi(\omega) = \dfrac{\pi}{2}
 \end{bequation}
 %-------------------------------------------------------------------------------
-Un dérivateur pur déphase la sortie de +90\degree~quelque soit la pulsation 
+Un dérivateur pur déphase la sortie de +90\degreeSI~quelque soit la pulsation 
 d'entrée.
 %-------------------------------------------------------------------------------
 \begin{figure}[!htb]
@@ -658,7 +658,7 @@ encore $\omega\ll\omega_0$, le gain et la phase se comporte comme,
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
     G_{dB}(\omega)&\sim20\log{K} \\
-    \phi(\omega)&\sim0\si{\degree}.
+    \phi(\omega)&\sim0\degreeSI.
 \end{bequation} 
 %-------------------------------------------------------------------------------
 \`A haute fréquence, c'est à dire lorsque $\tau\omega\gg1$ ou 
@@ -714,7 +714,7 @@ réels et les courbes asymptotiques.
          (bleu) le diagramme réel et (rouge) le diagramme asymptotique. On 
          vérifie que les valeurs asymptotiques sont de bonnes approximations 
          à basse et haute fréquence. Il est également possible de lire un 
-         gain de \SI{-3}{\dB} et une phase de -45\si{\degree} à la fréquence 
+         gain de \SI{-3}{\dB} et une phase de -45\degreeSI à la fréquence 
          de coupure.\label{fig-bode_1er_3}}
 \end{figure}
 %-------------------------------------------------------------------------------
@@ -765,7 +765,7 @@ $\omega\gg\omega_{c2}$
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
     G_{dB}(\omega)&\sim20\log{K_1K_2}\\
-      \phi(\omega)&\sim0\si{\degree}
+      \phi(\omega)&\sim0\degreeSI
 \end{bequation}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -775,7 +775,7 @@ $\omega\gg\omega_{c2}$
 \begin{bequation}[ams align*]
     G_{dB}(\omega)&\sim20\log{K_1K_2}-20\log{\dfrac{\omega}
                                         {\omega_{c1}\omega_{c2}}}\\
-    \phi(\omega)&\sim-90\si{\degree}
+    \phi(\omega)&\sim-90\degreeSI
 \end{bequation}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -785,7 +785,7 @@ $\omega\gg\omega_{c2}$
 \begin{bequation}[ams align*]
     G_{dB}(\omega)&\sim20\log{K_1K_2}-40\log{\dfrac{\omega}
                                         {\omega_{c1}\omega_{c2}}}\\
-    \phi(\omega)&\sim-180\si{\degree}
+    \phi(\omega)&\sim-180\degreeSI
 \end{bequation}
 %-------------------------------------------------------------------------------
 La~\cref{fig-bode_1er_serie} présente le diagramme de Bode réel et 
@@ -860,7 +860,7 @@ du gain et de la phase.
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
     G_{dB}(\omega)&\sim20\log{K}\\
-    \phi(\omega)&\sim0\si{\degree}
+    \phi(\omega)&\sim0\degreeSI
 \end{bequation}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -869,7 +869,7 @@ du gain et de la phase.
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align*]
 G_{dB}(\omega)&\sim20\log{K\omega^2_0}-40\log\omega\\
-    \phi(\omega)&\sim-180\si{\degree}
+    \phi(\omega)&\sim-180\degreeSI
 \end{bequation}
 %-------------------------------------------------------------------------------
 La~\cref{fig-bode_2nd_1} présente le diagramme de Bode associé à ces deux 
@@ -1027,7 +1027,7 @@ $\alpha$, $n_i$, et $n_j$.
 %-------------------------------------------------------------------------------
 %        \begin{itemize}
 %            \item gain  : pente de 20$\alpha$ dB/décade 
-%            \item phase : 90$\alpha$\si{\degree}
+%            \item phase : 90$\alpha$\degreeSI
 %        \end{itemize}
 %-------------------------------------------------------------------------------
 %    \item un terme $\dfrac{1}{(1+\tau_ip)}$ (c.-à-d. premier ordre au 
@@ -1035,7 +1035,7 @@ $\alpha$, $n_i$, et $n_j$.
 %-------------------------------------------------------------------------------
 %        \begin{itemize}
 %            \item gain  : une rupture de pente de -20 dB/décade 
-%            \item phase : un saut de -90\si{\degree}
+%            \item phase : un saut de -90\degreeSI
 %        \end{itemize}
 %-------------------------------------------------------------------------------
 %\item un terme $(1+\tau_ip)$ (c.-à-d. premier ordre au numérateur si $n_i=1$)
@@ -1043,7 +1043,7 @@ $\alpha$, $n_i$, et $n_j$.
 %-------------------------------------------------------------------------------
 %        \begin{itemize}
 %            \item gain  : une rupture de pente de +20 dB/décade 
-%            \item phase : un saut de +90\si{\degree}
+%            \item phase : un saut de +90\degreeSI
 %        \end{itemize}
 %-------------------------------------------------------------------------------
 %    \item un terme $\dfrac{1}{(1+2\xi_j\tau_jp+\tau_j^2p^2)}$ 
@@ -1052,7 +1052,7 @@ $\alpha$, $n_i$, et $n_j$.
 %-------------------------------------------------------------------------------
 %        \begin{itemize}
 %            \item gain  : une rupture de pente de -40 dB/décade 
-%            \item phase : un saut de -180\si{\degree}
+%            \item phase : un saut de -180\degreeSI
 %        \end{itemize}
 %-------------------------------------------------------------------------------
 %    \item un terme $(1+2\xi_j\tau_jp+\tau_j^2p^2)$ (c.-à-d. second ordre au 
@@ -1060,7 +1060,7 @@ $\alpha$, $n_i$, et $n_j$.
 %-------------------------------------------------------------------------------
 %        \begin{itemize}
 %            \item gain  : une rupture de pente de +40 dB/décade 
-%            \item phase : un saut de +180\si{\degree}
+%            \item phase : un saut de +180\degreeSI
 %        \end{itemize}
 %-------------------------------------------------------------------------------
 %\end{itemize}
@@ -1109,16 +1109,16 @@ caractéristiques.
     & $\omega_3<\omega<\omega_4$ 
     & $\omega\gg\omega_4$ \\[0em]
     \midrule
-    $G_{dB}(\omega)$ (pente) & 0(40dB)       &-20dB/décade    & -20dB/décade 
-                             & +40dB/décade & -20dB/décade \\[0em]
-        $\phi(\omega)$       & 0\si{\degree} &-90\si{\degree} & -90\si{\degree} 
-                             & +180\degree  & -90\degree   \\[0em]
+    $G_{dB}(\omega)$ (pente) & 0(40dB)       &-20dB/décade    & -20dB/décade
+                             & +40dB/décade  & -20dB/décade \\[0em]
+        $\phi(\omega)$       & 0\degreeSI    &-90\degreeSI    & -90\degreeSI
+                             & +180\degreeSI & -90\degreeSI   \\[0em]
     \midrule
-    $G_{dB}(\omega)$ total   & 0(40dB)       &-20dB/décade    & -40dB/décade    
-                             & 0(-20dB)     & -20dB/décade \\[0em]
+    $G_{dB}(\omega)$ total   & 0(40dB)       &-20dB/décade    & -40dB/décade
+                             & 0(-20dB)      & -20dB/décade \\[0em]
     \midrule
-    $\phi(\omega)$   total   & 0\degree      &-90\degree      & -180\degree     
-                             & 0            & -90\degree   \\[0em]
+    $\phi(\omega)$   total   & 0\degreeSI    &-90\degreeSI    & -180\degreeSI
+                             & 0\degreeSI    &-90\degreeSI   \\[0em]
     \bottomrule
     \end{tabular}}
 \end{table}
@@ -1508,7 +1508,7 @@ pur est simplement donnée par
     \tikzsetnextfilename{black_integ-chap_repfreq-ext}
     \resizebox{\linewidth}{!}{\input{tikz/black_integ-chap_repfreq.tex}}
     \caption{Diagramme de Black d'un intégrateur pur. Le lieu de Black
-             est représenté par une droite d'abscisse -90\degree.
+             est représenté par une droite d'abscisse -90\degreeSI.
              \label{fig-black_1}}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
@@ -1537,7 +1537,7 @@ La fonction de transfert complexe d'un dérivateur pur est simplement donnée pa
     \tikzsetnextfilename{black_deriv-chap_repfreq-ext}
     \resizebox{\linewidth}{!}{\input{tikz/black_deriv-chap_repfreq.tex}}
     \caption{Diagramme de Black d'un dérivateur pur. Le lieu de Black
-             est représenté par une droite d'abscisse +90\degree.
+             est représenté par une droite d'abscisse +90\degreeSI.
              \label{fig-black_2}}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
@@ -1587,7 +1587,8 @@ Le gain en décibel et la phase sont donnés par :
     G_{dB}(\omega)&=20\log{K\omega_0^2}-10
                     \log{\left((\omega_0^2-\omega^2)^2+
                                (2\xi\omega_0\omega)^2\right)} \\
-      \phi(\omega)&=-\arctan{\left(\dfrac{2\xi\omega_0\omega}{\omega_0^2-\omega^2}\right)}
+      \phi(\omega)&=-\arctan{\left(\dfrac{2\xi\omega_0\omega}
+                                         {\omega_0^2-\omega^2}\right)}
 \end{align*}
 La~\cref{fig-black_4} présente le diagramme de Black d'un second ordre.
 %-------------------------------------------------------------------------------
