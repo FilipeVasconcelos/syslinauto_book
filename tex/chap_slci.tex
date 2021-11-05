@@ -1348,7 +1348,7 @@ Soit l'équation différentielle suivante :
 \end{align}
 %-------------------------------------------------------------------------------
 où $e(t)$ et $s(t)$ sont respectivement les fonctions temporelles de l'entrée 
-et de la sortie du système régit par cette équation différentielle. 
+et de la sortie du système régi par cette équation différentielle. 
 Nous considérons la réponse à un échelon-unité (c.-à-d. $e(t)=u(t)$ ) 
 avec pour conditions initiales :
 %-------------------------------------------------------------------------------
@@ -1501,6 +1501,7 @@ Comme attendu, les deux méthodes donnent le même résultat, cependant
 la transformée de Laplace permet de définir dans le domaine de Laplace, une 
 relation direct entre l'entrée et la sortie d'un système. C'est la fonction 
 de transfert qui réalise ce lien.
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1539,6 +1540,9 @@ par le schéma-bloc suivant :
     \input{tikz/sb_bloc_FT-chap_slci.tex}
 \end{center}
 %-------------------------------------------------------------------------------
+%Cette relation entre la sortie et l'entrée du système dans le domaine de Laplace 
+%provient directement de la relation temporelle associée à l'équation 
+%différentielle du phénomène physique mis en jeu.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Lien entre fonction de transfert et réponse impulsionnelle}
@@ -1607,7 +1611,6 @@ Ces polynômes possèdent des racines dans $\mathbb{C}$. Les
 \textbf{racines de $N(p)$ sont dits les zéros de $H(p)$} et 
 les \textbf{racines de $D(p)$ sont dits les pôles de $H(p)$}.
 Il en vient qu'une fonction de transfert possède $m$ zéros et $n$ pôles.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1633,10 +1636,8 @@ La fonction de transfert associée à cette équation différentielle est donc
 \]
 Il est aisé de constater que la fonction de transfert est d'ordre deux 
 et ne possède pas de zéro.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Forme canonique de la fonction de transfert}
+\subsubsection{Forme canonique de la fonction de transfert}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Fonction de Transfert! forme canonique}
 Développons les sommes de l'\cref{eq-ftgen},
@@ -1714,7 +1715,7 @@ par leurs valeurs numériques plutôt que par leurs fractions. } donnée par
 %-------------------------------------------------------------------------------
 où le gain statique $K=$1.25.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Forme factorisée de la fonction de transfert}
+\subsubsection{Forme factorisée de la fonction de transfert}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Fonction de Transfert! forme factorisée}
 Soient les pôles $p_i$ avec $i\in[1,n]$ et les zéros $z_j$ 
@@ -1755,7 +1756,7 @@ La fonction de transfert possède un zéro ($z_1=-2$) et deux pôles
 \newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 \captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Carte des pôles et zéros d'une fonction de transfert}
+\subsubsection{Carte des pôles et zéros d'une fonction de transfert}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Fonction de Transfert!carte des pôles et zéros}
 Il est également possible de représenter une fonction de transfert 
