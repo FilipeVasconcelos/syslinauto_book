@@ -12,39 +12,207 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Contexte et critère de stabilité fondamentale}
+\section{Contexte et définition de la stabilité} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Dans ce chapitre nous allons étudier en détail la stabilité des systèmes
+linéaires asservis. Il faut dors et déjà noter que ce sont les états 
+d'équilibres\footnote{(ou point fixes). Un état d'équilibre est une constante
+solution de l'équation différentielle du système. En générale, 0 est toujours
+une solution de l'équation différentielle et donc considéré comme l'état 
+d'équilibre du système} qui sont stables ou instables et non les systèmes eux 
+mêmes. Cet \og abus de langage\fg (largement utilisé) provient du fait que 
+on considère \emph{a priori} les systèmes dans leur état d'équilibre 
+au moment de l'instant initial de la sollicitation. 
+Une façon de se représenter ces états d'équilibres est d'imaginer le 
+mouvement d'une bille à la surface d'une fonction d'energie potentielle à une 
+dimension. 
+On peut facilement généraliser à plusieurs dimensions, en considérant le 
+déplacement de la bille sur un relief accidenté et composé de collines, 
+vallées ou puits à l'image d'un paysage d'énergie potentielle 
+(c.f \Cref{fig-stab}). L'état d'équilibre de la bille est donc ici 
+une position d'équilibre.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{stable_1-chap_stab-ext}
     \input{tikz/stable_1-chap_stab.tex}
-    \caption{Représentation schématique de la stabilité}
+    \caption{Représentation schématique de la stabilité d'un équilibre
+             \label{fig-stab}}
 \end{figure}
 %-------------------------------------------------------------------------------
+
+La manière la plus simple de caractériser la stabilité de ces positions 
+d'équilibres c'est de s'en écarter. 
+Dans le cas d'un équilibre stable 
+(c.f \Cref{fig-stab} (a)), la bille va naturellement reprendre sa position 
+d'équilibre (avec ou sans oscillations autour de la position d'équilibre). 
+Dans le cas d'un équilibre instable, 
+(c.f \Cref{fig-stab} (b)), la bille va continuer à s'en écarter indéfiniment. 
+D'autres scénarios sont possibles mais vont dépendre de la façon dont le 
+système est déséquilibré et de la forme de la surface d'énergie potentielle 
+(c.f \Cref{fig-stab} (c)). On parle alors de stabilité conditionnelle.
+
+Dans le cas des \gls{slci}, il est possible d'étudier la stabilité du système 
+en étudiant sa réponse impulsionnelle (l'impulsion de Dirac permet d'écarter 
+le système de son état d'équilibre dans lequel il se trouvait). 
+Finalement, on définit la stabilité d'un système de la façon 
+suivante :
+%-------------------------------------------------------------------------------
+\begin{definition}{Définition : Stabilité d'un système (1)}
+Un système est dit stable lorsque écarté de son état d'équilibre, il 
+tend à y revenir
+\end{definition}
+%-------------------------------------------------------------------------------
+Il existe une autre définition de la stabilité qui s'avère équivalente 
+dans le cas des systèmes linéaires.
+%-------------------------------------------------------------------------------
+\begin{definition}{Définition : Stabilité d'un système (2)}
 \textbf{Un système est dit stable si à une entrée bornée le système produit 
-une sortie bornée}\footnote{Chez nos collègues anglo-saxons, on rencontre le 
-concept de BIBO (\og bounded input bounded output\fg)}
-
-\textbf{Un système est dit stable lorsque écarté de sa position d'équilibre, il 
-tend à y revenir}
-
-Rappel sur les réponses temporelles du premier ordre et du second ordre \ldots
-\acpl
+une sortie bornée. On parle alors de stabilité \gls{ebsb}.}
+\end{definition}
 %-------------------------------------------------------------------------------
-\begin{criteria}{Condition fondamentale de stabilité}
-    \textbf{Un système est stable si sa fonction de transfert ne possède aucun 
-            pôles à partie réelle positive.}
-\end{criteria}
+En anglais, on rencontre l'acronyme \gls{bibo} pour désigner cette notion.
+Ci-dessous nous avons représenté les réponses de \gls{slci} à différentes
+sollicitations bornées. D'après la définition précédente, il est aisé
+de caractériser la stabilité de ces systèmes en observant la forme de la 
+réponse.
 %-------------------------------------------------------------------------------
+\begin{figure}[!t]
+    \centering
+    \tikzsetnextfilename{stabilite-bibo-chap_stab_ext}
+    \input{tikz/stabilite-bibo-chap_stab.tex}
+    \caption{Exemples de systèmes (vert) stables et (rouge) instables. Les 
+    systèmes stables présentent une réponse bornée à une sollicitation elle-même
+    bornée.}
+\end{figure}
+%-------------------------------------------------------------------------------
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Instabilité de l'asservissement]
+{Mise en évidence de l'instabilité de l'asservissement}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Instabilité des systèmes asservis! phénomène de pompage}
+\index{Phénomène de pompage}
+Nous avons vu au~\cref{chap-asservis} que l'asservissement permettait de
+rendre stable un système intrinsèquement instable. C'est le cas notamment d'un 
+intégrateur pur qui lorsque placé dans une boucle de contre-réaction devient
+un système du premier ordre.
+Cependant, l'asservissement peut également rendre un système instable par
+bouclage, on parle alors de \textbf{phénomène de pompage}.
+Pour illustrer ce phénomène\cite{genouel}, considérons un système de fonction 
+de transfert d'un retard pur $H(p)=Ke^{-p\frac{\tau}{2}}$ qui entraîne 
+un déphasage de $\tau/2$ et de gain $K$. Si on sollicite ce système par un 
+signal $e(t)$ rectangulaire de période $\tau$ et d'amplitude $E_0$, la sortie 
+est de même nature et est donc simplement amplifiée de $K$ et déphasée 
+de $\tau/2$, comme représentée ci-dessous.
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{instabilite_pompage-non_boucle-chap_stab_ext}
+    \input{tikz/instabilite_pompage-non_boucle-chap-stab.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+Si on place maintenant ce système dans une boucle de contre-réaction 
+unitaire le système est alors soumis à la différence entre les signaux 
+d'entrée et de sortie $\epsilon(t)=e(t)-s(t)$. 
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{instabilite_pompage-chap_stab_ext}
+    \input{tikz/instabilite_pompage-chap-stab.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+Nous allons établir la relation 
+entre les valeurs des signaux par demi-période $\tau/2$. 
+\[
+    \epsilon_i=e_i-s_i
+\]
+où $\epsilon_i$, $e_i$ et $s_i$ sont respectivement les valeurs des signaux 
+$\epsilon(t)$, $e(t)$ et $s(t)$ pour la demi-période $i\in[1,+\infty]$
+Dans cette notation, la sortie du système bouclé est donnée par : 
+\[
+    s_{i+1}=K\epsilon_i
+\]
+Pour la première demi-période, la sollicitation est positive $e_1=E_0$, 
+le système étant causal ($\epsilon_0=0$), on a $s_1=0$ et donc $\epsilon_1=E_0$.
+Pour la seconde demi-période, la sollication est maintenant négative $e_2=-E_0$,
+la sortie est maintenant donnée par $s_2=KE_0$. De la même manière pour 
+la troisième demi-période, on obtient $s_3=K\epsilon_2=K(e_2-s_2)=-E_0(K+K^2)$. 
+On obtient la relation suivante donnant la sortie en fonction de la 
+demi-période pour $i>1$:
+\[
+    s_i=(-1)^{i}KE_0\sum\limits_{j=0}^{i-1} K^j
+\]
+La suite géométrique présente dans cette expression diverge pour $K>1$.
+
+\textbf{Il est donc clair que l'instabilité est une conséquence de 
+l'asservissement par bouclage. Il est donc essentiel d'étudier 
+cette propriété dans le cas des systèmes asservis.}
+Il faut cependant noter l'influence indispensable du :
+%-------------------------------------------------------------------------------
+\begin{itemize}
+    \item gain statique en boucle ouverte $K>1$
+    \item et du retard d'une demi-période (en opposition de phase); 
+\end{itemize}
+%-------------------------------------------------------------------------------
+dans cet exemple. Comme attendu, les propriétés de la boucle ouverte
+influencent directement la stabilité de la boucle fermée.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Condition fondamentale de stabilité]
+{Condition fondamentale de stabilité d'un système asservis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour caractériser la stabilité des \gls{slci}, il est possible de déterminer
+une condition sur les p ôles (racines du dénominateur de la fonction de 
+transfert). Pour montrer cela, nous allons étudier la réponse impulsionnelle 
+d'une fonction de transfert présentant des pôles de différentes natures et 
+oberver la condition sur ses pôles pour que le système soit stable selon les 
+définitions précédentes. 
+Soit une fonction de transfert $H(p)$ présentant quatre pôles :
+%-------------------------------------------------------------------------------
+\begin{itemize}
+    \item un pôle réel simple $p_1$,
+    \item un pôle réel double $p_2$,
+    \item deux pôles complexes conjugués $p_{3,4}=\alpha\pm\jw$
+\end{itemize}
+%-------------------------------------------------------------------------------
+tel que :
+\[
+    H(p)=\dfrac{N(p)}{(p-p_1)(p-p_2)^2(p-p_3)(p-p_4)}.
+\]
+En notant que $(p-p_3)(p-p_4)=(p-\alpha)^2+\omega^2$, 
+la décomposition en élément simple de la réponse impulsionnelle $S(p)$ 
+dans le domaine de Laplace devient :
+\[
+    S(p)=\dfrac{A}{p-p_1}
+        +\dfrac{B}{p-p_2}
+        +\dfrac{C}{(p-p_2)^2}
+        +\dfrac{Dp+E}{(p-\alpha)^2+\omega^2}
+\]
+La transformée inverse de cette expression est de la forme:
+\[
+    s(t)=\left(Ae^{p_1t}
+              +Be^{p_2t}
+              +Cte^{p_2t}
+              +De^{\alpha t}\cos{\omega t}
+              +\dfrac{\alpha D+E}{\alpha}e^{\alpha t}\sin{\omega t}\right)u(t)
+\]
+Il apparaît clair que les pôles doivent être à parties réelles strictement 
+négatives pour que les exponentielles présentent dans la réponse temporelle
+tendent vers 0 pour $t\to0$.
 %-------------------------------------------------------------------------------
 \clearpage
 \thispagestyle{empty}
 \begin{landscape}
 \centering
-\captionsetup{width=1.15\linewidth}
+\captionsetup{width=1.10\linewidth}
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -57,39 +225,70 @@ Rappel sur les réponses temporelles du premier ordre et du second ordre \ldots
              (Gris) Deux pôles complexes conjugués à partie réelle nulle.
              (Noir) Pôle nul.
              (Bleu) Deux pôles complexes conjugués à partie réelle positive.
-             (Orange) Pôle à partie réel positive.}
+             (Orange) Pôle à partie réel positive.\label{fig-stab_imp_all}}
 \end{figure}
 %-------------------------------------------------------------------------------
 \end{landscape}
-\clearpage
+\newpage
 \pagestyle{fancy}
 \captionsetup{width=\linewidth}
+La~\cref{fig-stab_imp_all} présente schématiquement les reponses 
+impulsionnelles des systèmes selon la nature des pôles de la fonction 
+de transfert du système dont on étudie la stabilité. 
+Pour des pôles à parties réelles négatives, les réponses tendent toutes vers 0, 
+mais à des vitesses différentes. Plus le pôle est éloigné de l'axe des 
+imaginaires (plus la valeurs absolu de la partie réelle est importante) 
+plus rapide sera la convergence vers 0. Les pôles plus proche de l'axe des 
+imaginaires sont qualifiés de \textbf{pôles dominants}
+(c.f \cref{sec-rapidite}).
+%-------------------------------------------------------------------------------
+\begin{criteria}{Condition fondamentale de stabilité}
+    Un système est stable si sa fonction de transfert ne possède aucun 
+    pôles à partie réelle positive.
+\end{criteria}
+%-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Notion de pôles dominants}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Système asservi}
+%\paragraph{Système asservi}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
-\begin{center}
-    \tikzsetnextfilename{asser-chap_stab-ext}
-    \input{tikz/asser-chap_stab.tex}
-\end{center}
+%\begin{center}
+%    \tikzsetnextfilename{asser-chap_stab-ext}
+%    \input{tikz/asser-chap_stab.tex}
+%\end{center}
 %-------------------------------------------------------------------------------
-\[
-H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{a_mp^m+a_{m-1}p^{m-1}+\ldots+a_1p+a_0}
-                                   {b_np^n+b_{n-1}p^{n-1}+\ldots+b_1p+b_0}
-\]
+%\[
+%H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{a_mp^m+a_{m-1}p^{m-1}+\ldots+a_1p+a_0}
+%                                   {b_np^n+b_{n-1}p^{n-1}+\ldots+b_1p+b_0}
+%\]
+L'extrapolation de cette condition fondamentale de stabilité des systèmes 
+linéaires au systèmes asservis est triviale. En effet, dans le cas d'un 
+système asservis c'est la fonction de transfert en boucle ouverte qui 
+caractérise le système. Il suffit alors d'adapter la condition précédente à la
+fonction de transfert en boucle fermée.
 %-------------------------------------------------------------------------------
 \begin{criteria}{Condition de stabilité d'un système asservi (1)}
-    \textbf{Un système asservi est stable si sa fonction de transfert en 
-            boucle fermée ne possède aucun pôles à partie réelle positive.}
+         Un système asservi est stable si sa fonction de transfert en 
+         boucle fermée ne possède aucun pôles à partie réelle positive.
 \end{criteria}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Inconvénients de la condition fondamentale}
+%\paragraph{Inconvénients de la condition fondamentale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+L'inconvénient de cette condition est qu'elle nécessite de déterminer les
+pôles de la fonction de transfert en boucle fermée par le calcul. Il existe
+deux familles de critères de stabilité qui permettent de s'affranchir de 
+ces calculs:
+%-------------------------------------------------------------------------------
+\begin{itemize}
+    \item Les critères algébriques : qui permettent de vérifier la condition 
+        fondamentale de stabilité en étudiant directement le polynôme 
+        caractéristique de la \gls{ftbf}.
+    \item Les critères graphiques : qui permettent de vérifier la condition
+        fondamentale de stabilité du système asservi en étudiant graphiquement
+        la \gls{ftbo}.
+\end{itemize}
+%-------------------------------------------------------------------------------
 \newpage
 \newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 \captionsetup{width=0.9\linewidth}
@@ -97,7 +296,7 @@ H_{BF}(p)=\dfrac{N(p)}{D(p)}=\dfrac{a_mp^m+a_{m-1}p^{m-1}+\ldots+a_1p+a_0}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Critère algébrique de Routh-Hurwitz
-\index{Critère de stabilité!Critère de Routh-Hurwitz}}
+\index{Critère de stabilité! de Routh-Hurwitz}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -107,10 +306,10 @@ dirctement sur la fonction de transfert en boucle fermée du système asservi.
 Pour appliquer le critère fondamentale de stabilité à cette fonction de 
 transfert, il nous faut étudier \textbf{le polynôme caractéristique}:
 %-------------------------------------------------------------------------------
-\begin{align}
+\begin{bequation}[ams align]
     D(p)&=0 \nonumber\\
     b_np^n+b_{n-1}p^{n-1}+\ldots+b_1p+b_0 &= 0
-\end{align}
+\end{bequation}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
@@ -143,9 +342,9 @@ systèmes linéaires asservis, la première condition s'énonce
 de la façon suivante :
 %-------------------------------------------------------------------------------
 \begin{criteria}{Condition nécessaire de Routh-Hurwitz }
-    \textbf{Un système asservi d'ordre $n$ est stable en boucle fermée 
+    Un système asservi d'ordre $n$ est stable en boucle fermée 
     si tous les coefficients ($b_i\forall i\neq n$) de son équation 
-    caractéristique sont de même signe que $b_n$.}
+    caractéristique sont de même signe que $b_n$.
 \end{criteria}
 %-------------------------------------------------------------------------------
 \textbf{Cette condition nécessaire s'avère suffisante si le système est du 
@@ -203,7 +402,7 @@ des coefficients de $D(p)$.
     b_{n-1}   & b_{n-3}    & b_{n-5}    & \cdots & b_1        & 0    \\
     \hline
     \vdots    & \vdots     & \vdots     & \vdots & \vdots     & \vdots  \\
-    \end{vmatrix}
+\end{vmatrix}
 \]
 si $n$ est impaire la dernière colonne de la seconde ligne est non-nulle:
 \[
@@ -219,7 +418,7 @@ si $n$ est impaire la dernière colonne de la seconde ligne est non-nulle:
     b_{n-1}   & b_{n-3}    & b_{n-5}    & \cdots & b_2            & b_0    \\
     \hline
     \vdots    & \vdots     & \vdots     & \vdots & \vdots         & \vdots \\
-    \end{vmatrix}
+\end{vmatrix}
 \]
 
 Les éléments de la troisième ligne sont construits à partir du 
@@ -292,7 +491,7 @@ On construit de la même manière la quatrième ligne :
                                 & \cdots & \cdots         & \cdots      \\
     A_{41}   & A_{42}     & A_{43}    & \cdots & \cdots   & \cdots      \\
     \vdots   & \vdots     & \vdots    & \vdots & \vdots   & \vdots      \\
-    \end{vmatrix}
+\end{vmatrix}
 \Rightarrow
 A_{41}=-\dfrac{1}{A_{31}}
 \begin{vmatrix} 
@@ -318,7 +517,7 @@ A_{21} & A_{22} \\ A_{31} & A_{22}
     & \cdots & \cdots         & \cdots      \\
     A_{41}      & A_{42}     & A_{43}    & \cdots & \cdots    & \cdots   \\
     \vdots    & \vdots     & \vdots     & \vdots & \vdots     & \vdots   \\
-    \end{vmatrix}
+\end{vmatrix}
     \Rightarrow
     A_{42}=-\dfrac{1}{A_{31}}
     \begin{vmatrix} 
@@ -361,10 +560,10 @@ Le critère s'applique sur la première colonne ainsi construit dite
 \colrow[col3,opacity=.2]{n1}{n2}
 %-------------------------------------------------------------------------------
 \begin{criteria}{Critère de Routh-Hurtwitz}
-    \textbf{Un système asservi est stable en boucle fermée
-            si tous les termes de la colonne des pivots 
-            du tableau de Routh du polynôme caractéristique 
-            de la fonction de transfert en boucle fermée sont de même signes.}
+    Un système asservi est stable en boucle fermée
+    si tous les termes de la colonne des pivots 
+    du tableau de Routh du polynôme caractéristique 
+    de la fonction de transfert en boucle fermée sont de même signes.
 \end{criteria}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -410,7 +609,6 @@ des cas particuliers~\cite{Ostertag}.
 \subsection{Exemple d'application du critère de Routh-Hurwitz}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 La particularité du critère de Routh-Hurwitz est de permettre d'étudier les 
 conditions de stabilité d'un système en fonction des paramètres de la fonction 
 de transfert en boucle ouverte.
@@ -493,18 +691,25 @@ système soit stable en boucle fermée est donc :
 \[
     0<K<3
 \]
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Critère graphique du revers
-\index{Critère de stabilité!Critère du revers}}
+\section{Critère de stabilité du revers\index{Critère de stabilité! du revers}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Le critère de Routh s'applique sur la fonction de transfert en boucle fermée. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Critère de stabilité à partir de la boucle ouverte}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Le critère de Routh s'applique sur la fonction de transfert en boucle fermée.
 Les critères graphiques que nous allons maintenant établir 
 permettent d'étudier la stabilité du système en boucle fermée en considérant 
-le système en boucle ouverte.
+le système en boucle ouverte. Cependant, \textbf{le but est toujours de verifier
+indirectement la condition fondamentale de stabilité des systèmes asservis}
+(c.-à-d. sur la nature des pôles de la fonction de transfert en boucle fermée).
 
 Pour celà considèrons la boucle de contre réaction unitaire 
 pour l'asservissement d'un système de fonction de transfert $H(p)$, telle que :
@@ -514,7 +719,7 @@ pour l'asservissement d'un système de fonction de transfert $H(p)$, telle que :
     \input{tikz/sb_revers-chap_stab.tex}
 \end{center}
 %-------------------------------------------------------------------------------
-la fonction de transfert en boucle ouverte $H_{BO}(p)$ est simplement donné 
+La fonction de transfert en boucle ouverte $H_{BO}(p)$ est simplement donné 
 par $H(p)$, et comme nous l'avons déjà rencontré à plusieurs occasions, la 
 fonction de transfert en boucle fermée $H_{BF}(p)$ est égale à 
 \[
@@ -525,41 +730,51 @@ fonction de transfert en boucle fermée $H_{BF}(p)$ est égale à
 \[
     D(p)=0\Leftrightarrow1+H_{BO}(p)=0\Leftrightarrow H_{BO}(p)=-1
 \]
-Il est alors possible d'étudier la fonction de transfert en boucle ouverte par 
-rapport à -1 plutôt que par rapport à l'origine. 
-%Ce \textbf{point critique}\index{Point critique} du 
-%plan complexe $(-1,0)$ de $H_{BO}(p)$.
+Il est alors possible d'étudier la fonction de transfert en boucle ouverte 
+par  rapport à $-1$ plutôt que par rapport à l'origine. 
+Ce point de coordonnées $(-1,0)$ dans le plan complexe est appelé le 
+\textbf{point critique}\index{Point critique} de $H_{BO}(p)$.
 
 Pour montrer quelques propriétés de $1+H_{BO}(p)$, nous allons réecrire
-ces fonctions de transferts en fonction des polynomes du numérateur et
+ces fonctions de transferts en fonction des polynômes du numérateur et
 du dénominateur de la boucle ouverte.
 En effet, la fonction de transfert en boucle ouverte
 est en générale une fraction rationnelle de la forme:
 %-------------------------------------------------------------------------------
-\begin{align*}
-H_{BO}(p)=\dfrac{N_{BO}(p)}{D_{BO}(p)} \\
-1+H_{BO}(p)=\dfrac{N_{BO}(p)+D_{BO}(p)}{D_{BO}(p)}
-\end{align*}
+\begin{bequation}[ams align]
+      H_{BO}(p)&=\dfrac{N_{BO}(p)}{D_{BO}(p)} \\
+    1+H_{BO}(p)&=\dfrac{D_{BO}(p)+N_{BO}(p)}{D_{BO}(p)}
+\end{bequation}
 %-------------------------------------------------------------------------------
 on a alors pour la fonction de transfert en boucle fermée, 
-\[
-H_{BF}(p)=\dfrac{\dfrac{N_{BO}(p)}{D_{BO}(p)}}{1+\dfrac{N_{BO}(p)}{D_{BO}(p)}}
-         =\dfrac{N_{BO}(p)}{D_{BO}(p)+N_{BO}(p)}
-\]
-Nous remarquons alors que les zéros de $1+H_{BO}(p)$ 
-sont les pôles de la fonction de transfert en boucle fermée 
-$H_{BF}(p)$ et que les pôles de $1+H_{BO}(p)$ co\"incident avec 
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+H_{BF}(p)=\dfrac{N_{BO}(p)}{D_{BO}(p)+N_{BO}(p)}
+\end{bequation}
+%-------------------------------------------------------------------------------
+
+Nous remarquons, à partir de cette dernière relation,
+que les zéros de $1+H_{BO}(p)$ sont les pôles de la fonction de 
+transfert en boucle fermée $H_{BF}(p)$ et que les pôles 
+de $1+H_{BO}(p)$ co\"incident avec 
 les pôles de $H_{BO}(p)$. Il est donc possible de 
 réinterpréter la condition stabilité d'un système asservi :
 %-------------------------------------------------------------------------------
 \begin{criteria}{Condition de stabilité d'un système asservi (2)}
-    \textbf{Un système asservi est stable en boucle fermée si sa fonction 
+    Un système asservi est stable en boucle fermée si sa fonction 
     de transfert en boucle ouverte ne possède aucun \emph{zéros} à partie 
-    réelle positive.}
+    réelle positive.
 \end{criteria}
 %-------------------------------------------------------------------------------
-Nous allons établir un critère que nous pourrons appliquer sur la réponse 
-harmonique et ses différentes représentations graphiques.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Mise en évidence de l'instabilité en boucle fermée}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Nous allons maintenant établir un critère de stabilité des 
+systèmes asservis, dit du revers, que nous pourrons appliquer directement 
+sur la réponse harmonique de la~\gls{ftbo} (et de ses différentes 
+représentations graphiques).
 
 Supposons le système asservi précédent décrit par la fonction de transfert 
 en boucle ouverte $H_{BO}(p)$. Par définition cette fonction de transfert 
@@ -570,24 +785,24 @@ souhaite minimiser.
 \]
 Considérons une entrée $e(t)$ sinuso\"idale de la forme :
 \[
-    e(t)=E_0\sin{\omega t}
+    e(t)=E_0\sin{\omega t}.
 \]
-au premier instant, on a alors 
+\'Etant donné qu'au premier instant, on a $e(t)=\epsilon(t)$,
+%\[
+%    \epsilon(t)=E_0\sin{\omega t}
+%\]
+en régime permanent la sortie est de la forme (c.f~\Cref{chap-repfreq}) :
 \[
-    \epsilon(t)=E_0\sin{\omega t}
+    s(t)=E_0|H_{BO}(\jw)|\sin{(\omega t+\phi)}.
 \]
-en régime permanent la sortie est alors de la forme (c.f~\cref{chap-repfreq}) :
-\[
-    s(t)=E_0|H_{BO}(\jw)|\sin{(\omega t+\phi)}
-\]
-l'écart $\epsilon(t)=e(t)-s(t)$ est maximum pour une sortie en opposition 
+L'écart $\epsilon(t)=e(t)-s(t)$ est maximum pour une sortie en opposition 
 de phase. Il existe donc une pulsation $\omega_\pi$ pour laquelle:
 %-------------------------------------------------------------------------------
 \begin{align*}
     \phi=\arg{H_{BO}(j\omega_\pi)}=-\pi
 \end{align*}
 %-------------------------------------------------------------------------------
-En Pour cette pulsation et ce déphasage: 
+Pour cette pulsation ($\omega_\pi$) et ce déphasage (-$\pi$)
 \[
     S(p)=-\big|H_{BO}(j\omega_\pi)\big|\epsilon(p)
 \]
@@ -595,6 +810,8 @@ en posant $K=|H_{BO}(j\omega_\pi)|$, on identifie la \gls{ftbo} a :
 \[
     H_{BO}(p)=-K
 \]
+puisque la fonction de transfert est sur l'axe des réels négatifs pour 
+cette pulsation.
 L'écart dans le domaine de Laplace devient:
 %-------------------------------------------------------------------------------
 \begin{align*}
@@ -628,43 +845,44 @@ pour $\big|H_{BO}(\jw)\big|<1$.}
 Nous pouvons donc énoncer le critère de stabilité dit du revers :
 %-------------------------------------------------------------------------------
 \begin{criteria}{Critère de stabilité du revers}
-    \textbf{Un système est stable en boucle fermée si lorque le 
-    déphasage en boucle ouverte est de -180\degree~le module $|H_{BO}(\jw)|$ 
-    est strictement inférieur à 1.}
-    Formellement, pour une pulsation $\omega_{\pi}$ telle que 
-    $\phi=\arg{\left(H_{BO}(j\omega_\pi)\right)}=-\pi$, 
-    le système est stable en boucle fermée si $|H_{BO}(j\omega_\pi)|<1$ ou 
-    $20\log{|H_{BO}(j\omega_\pi)|}<\SI{0}{\dB}$.
+    Un système est stable en boucle fermée si lorque le 
+    déphasage en boucle ouverte est de -180\degreeSI~le module $|H_{BO}(\jw)|$ 
+    est strictement inférieur à 1.
 \end{criteria}
 %-------------------------------------------------------------------------------
+Formellement, pour une pulsation $\omega_{\pi}$ telle que 
+$\phi=\arg{\left(H_{BO}(j\omega_\pi)\right)}=-\pi$, 
+le système est stable en boucle fermée si $|H_{BO}(j\omega_\pi)|<1$ ou 
+$20\log{|H_{BO}(j\omega_\pi)|}<\SI{0}{\dB}$.
+
 Dans le plan complexe, un  déphasage de -$\pi$ et un gain naturel de 1 
 correspond au point de coordonnées $(-1,0)$ ce que nous avons défini comme 
 le point critique à partir de l'équation caractéristique $1+H_{BO}=0$. 
 Ce critère revient donc à étudier graphiquement le comportement 
 de la réponse harmonique de $H_{BO}(\jw)$ par rapport au point critique.
 
-Nous avons vu que la réponse harmonique peut avoir plusieurs représentations
-graphiques (c.f~\Cref{chap-repfreq}). Nous allons maintenant appliquer le 
-critère à ces différentes représentations graphiques.
-
+Nous allons maintenant appliquer ce 
+critère du revers aux différentes représentations graphiques de la 
+réponse harmonique du système en boucle ouverte (c.f~\Cref{chap-repfreq}).
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Critère du revers dans le plan de Nyquist
-\index{Critère de stabilité!Critère du revers! dans le plan de Nyquist}}
+\index{Critère de stabilité! du revers! dans le plan de Nyquist}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Pour énoncer le critère du revers dans le plan de Nyquist. Il nous faut tracer
 le lieu de Nyquist de la fonction de transfert en boucle ouverte et observer 
-comment il se comporte par rapport au point critique de coordonnées (-1,0) 
-dans le plan complexe de $H_{BO}(\jw)$. La~\cref{fig-nyquist_revers} présente 
+comment il se comporte par rapport au point critique de coordonnées $(-1,0)$ 
+du plan complexe. 
+
+La~\cref{fig-nyquist_revers} présente 
 les lieux de Nyquist de trois systèmes: stable, instable et critique. Observons
 que dans le cas stable, le lieu de déphasage $\phi=-\pi$ (c.a.d lorsque le lieu
 coupe l'axe des réels négatifs), le module ou le gain naturel $G(\omega)$ (ou 
 encore la distance à l'origine) est inférieur à 1. Dans le cas instable ce gain 
 est supérieur à 1. Nous appelerons critique le système dont le lieu de Nyquist 
-passe par le point critique de coordonnées (-1,0).
+passe par le point critique de coordonnées $(-1,0)$.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -675,23 +893,29 @@ passe par le point critique de coordonnées (-1,0).
              stable, critique et instable. \label{fig-nyquist_revers}}
 \end{figure}
 %-------------------------------------------------------------------------------
-Nous pouvons maintenant formuler le critère du revers de Nyquist :
+
+Nous pouvons maintenant formuler le critère du revers du lieu de Nyquist :
 %-------------------------------------------------------------------------------
 \begin{criteria}{Critère du revers de Nyquist}
-\textbf{Un système est stable en boucle fermée si lorsque parcourant 
-        le lieu de Nyquist de la boucle ouverte dans le sens des 
-        pulsations croissantes, on laisse le point critique sur la 
-        \emph{gauche}.}
+    Un système est stable en boucle fermée si lorsque parcourant 
+    le lieu de Nyquist de la boucle ouverte dans le sens des 
+    pulsations croissantes, on laisse le point critique sur la 
+    \emph{gauche}.
 \end{criteria}
 %-------------------------------------------------------------------------------
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Critère du revers dans le plan de Black
-\index{Critère de stabilité!Critère du revers! dans le plan de Black}}
+\index{Critère de stabilité! du revers! dans le plan de Black}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acpl
+Dans le plan de Black (c.-à-d. le gain en ordonnée \si{\dB} et le déphasage
+en abscisse), le point critique est de coordonnées (-180\degreeSI,\SI{0}{\dB}).
+À l'instar du cas précédent, nous allons discuter de l'allure du lieu de Black
+par rapport à ce point critique pour trois systèmes différents:
+stable, instable et critique.     
+
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -705,17 +929,17 @@ Nous pouvons maintenant formuler le critère du revers de Nyquist :
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{criteria}{Critère du revers de Black}
-\textbf{Un système est stable en boucle fermée si lorsque parcourant 
-        le lieu de Black de la boucle ouverte dans le sens des 
-        pulsations croissantes, on laisse le point critique sur 
-        la \emph{droite}.}
+    Un système est stable en boucle fermée si lorsque parcourant 
+    le lieu de Black de la boucle ouverte dans le sens des 
+    pulsations croissantes, on laisse le point critique sur 
+    la \emph{droite}.
 \end{criteria}
 %-------------------------------------------------------------------------------
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Critère du revers dans le plan de Bode
-\index{Critère de stabilité!Critère du revers! dans le plan de Bode}}
+\index{Critère de stabilité! du revers! dans le plan de Bode}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Il est possible d'appliquer le critère du revers au lieu de transfert de Bode
@@ -725,19 +949,19 @@ graphes en gain et en déphasage. De ce fait il faut vérifier deux conditions
 pour respecter le critère du revers dans le plan de Bode 
 %-------------------------------------------------------------------------------
 \begin{criteria}{Critère du revers de Bode (1)}
-\textbf{Un système est stable en boucle fermée si, pour la pulsation 
-        $\omega_{1}$ telle que le module de la fonction de transfert en boucle 
-        ouverte est égal à 1 (c.a.d $H_{BO}(\omega_{1})=1$ ou $\SI{0}{\dB}$), 
-        le déphasage $\phi(\omega_1)$ est supérieur à -180\degree}
+    Un système est stable en boucle fermée si, pour la pulsation 
+    $\omega_{1}$ telle que le module de la fonction de transfert en boucle 
+    ouverte est égal à 1 (c.a.d $H_{BO}(\omega_{1})=1$ ou $\SI{0}{\dB}$), 
+    le déphasage $\phi(\omega_1)$ est supérieur à -180\degreeSI
 \end{criteria}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{criteria}{Critère du revers de Bode (2)}
-    \textbf{Un système est stable en boucle fermée si, pour la pulsation 
+    Un système est stable en boucle fermée si, pour la pulsation 
     $\omega_{c}$ (pulsation critique) telle que l'argument de la fonction de 
-    transfert en boucle ouverte (déphasage) est égale à -180\degree 
-    (c.a.d $\phi(\omega_c)=-180\degree$), le gain $G_{dB}(\omega_c)$ est 
-    négatif.}
+    transfert en boucle ouverte (déphasage) est égale à -180\degreeSI 
+    (c.a.d $\phi(\omega_c)=-180\degreeSI$), le gain $G_{dB}(\omega_c)$ est 
+    négatif.
 \end{criteria}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
@@ -783,12 +1007,12 @@ coupure pour laquelle le gain naturel $G(\omega_{c0})=|H_{BO}(j\omega_{c0})|=1$
 \begin{definition}{Marge de gain}
 La marge de gain $M_G$ est définir par $M_G=-20\log{|H(j\omega_\pi)|}$ où 
 $\omega_{\pi}$ est la pulsation pour laquelle le déphasage vaut 
-\SI{-180}{\degree} $\phi(\omega_\pi)=\arg{(H_{BO}(j\omega_{c0}))}=-\pi$
+-180\degreeSI $\phi(\omega_\pi)=\arg{(H_{BO}(j\omega_{c0}))}=-\pi$
 ou autrement l'argument du point critique dans le plan complexe.
 \end{definition}
 %-------------------------------------------------------------------------------
 Ces marges de stabilités sont en générales imposées par le cahier des charges.
-En générales es valeurs pour $M_{\phi}$ de 45 à 60\degree et
+En générales es valeurs pour $M_{\phi}$ de 45 à 60\degreeSI et
 pour $M_G$ de 6 à 15~\si{\dB} sont considérées comme satisfaisantes.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
@@ -800,23 +1024,76 @@ pour $M_G$ de 6 à 15~\si{\dB} sont considérées comme satisfaisantes.
              stable, critique et instable. \label{fig-nyquist_revers}}
 \end{figure}
 %-------------------------------------------------------------------------------
-\newpage
-\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
-\captionsetup{width=0.9\linewidth}
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Critère de Nyquist\index{Critère de stabilité!Critère de Nyquist}}
+\section{Critère de Nyquist\index{Critère de stabilité!de Nyquist}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le critère de Nyquist généralise le critère du revers.
-Il s'appuie sur le principe de l'argument de Cauchy
-\footnote{Nous ne donnerons qu'une présentation élémentaire et sans 
-démonstration de ce théorème. Un cours d'analyse complexe permettra de 
-compléter cette présentation. On trouvera dans \cite{laas_pc7bis,reg}, 
-une introduction plus détaillée ainsi qu'une bibliographie très fournie 
-sur le sujet.}.
+Il s'appuie sur le principe de l'argument de Cauchy.
+Nous suivrons la présentation \og graphique\fg~ de ce théorème 
+et du critère de Nyquist donné par~\cite{reg,katkim}. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Image d'un contour par une fonction de transfert}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour présenter le principe de l'argument de Cauchy, il nous faut déterminer
+l'image d'un contour par une fonction de transfert. 
+La~\cref{fig-contour_cauchy} présente un exemple de contour $\mathcal{C}$ 
+parcourant le plan complexe de la variable $p$ dans le sens des aiguilles 
+d'une montre. On se donne une fonction de transfert ne possédant aucun pôles 
+et zéros sur $\mathcal{C}$. 
+Ces pôles et zéros de la fonction de transfert peuvent être contenus dans le 
+contour d'origine. On appelle $\Gamma$ l'image de $\mathcal{C}$ par $F(p)$. 
+\textbf{Le principe de Cauchy nous permet de quantifier le nombre de pôles et 
+zéros contenus dans le contour en étudiant l'image de la fonction de transfert 
+par rapport à l'origine du plan.}.
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{nyquist_cauchy-chap_stab-ext}
+    \input{tikz/nyquist_cauchy-chap_stab.tex}
+    \caption{Représentation de la transformation (à gauche) d'un contour 
+             $\mathcal{C}$ (à droite) en son image par une fonction analytique 
+             $F(p)$. La carte des pôles et zéros est également représentée 
+             sur le plan complexe de gauche.
+    \label{fig-contour_cauchy}}
+\end{figure}
+%-------------------------------------------------------------------------------
+
+En prenant des exemples simples (c.f \Cref{annexe-cauchy}\footnote{Cette 
+annexe est formellement un notebook IPython. Les modules utilisés sont 
+développés en Python}), il est possible de formuler quelques règles sur la 
+nature du contour image connaissant le contour d'origine par rapport aux
+pôles et zéros de l'application. Notamment,
+%-------------------------------------------------------------------------------
+\begin{itemize}
+    \item \textbf{si le contour origine contient $Z$ zéros de la fonction de 
+          transfert, le contour image fait $Z$ tours autour de l'origine dans 
+          le même sens que le contour origine.}
+    \item \textbf{si le contour origine contient $P$ pôles de la fonction de 
+          transfert, le contour image fait $P$ tours autour de l'origine dans 
+          le sens opposé au contour d'origine.}
+\end{itemize}
+%-------------------------------------------------------------------------------
+\clearpage
+\newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\captionsetup{width=0.9\linewidth}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Principe de l'argument de Cauchy}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit un contour $\mathcal{C}$ parcourant le plan complexe de 
+la variable $p$ dans le sens des aiguilles d'une montre et $F(p)$ une fonction 
+rationnelle ne possédant ni pôles ni zéros sur $\mathcal{C}$. Le théorème du 
+principe de l'argument de Cauchy permet de relier, le nombre de pôles $P$ et 
+de zéros $Z$ contenus par le contour $\mathcal{C}$ au comportement de la 
+courbe $F(\mathcal{C})$ image $F(p)$ de $\mathcal{C}$.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
@@ -825,18 +1102,7 @@ sur le sujet.}.
               (1789-1857), mathématicien français (X1807)}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
-Nous suivrons la présentation \og graphique\fg~ de ce théorème 
-et du critère de Nyquist donné par~\cite{reg}. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Principe de l'argument de Cauchy}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Soit un contour $\mathcal{C}$ parcourant le plan complexe de 
-la variable $p$ dans le sens des aiguilles d'une montre et $F(p)$ une fonction 
-rationnelle ne possédant ni pôle ni zéro sur $\mathcal{C}$. Le théorème du 
-principe de l'argument de Cauchy permet de relier, le nombre de pôles $P$ et 
-de zéros $Z$ entourées par le contour $\mathcal{C}$ au comportement de la 
-courbe $F(\mathcal{C})$ image $F(p)$ de $\mathcal{C}$.
-
+%-------------------------------------------------------------------------------
 \begin{theorem}{\'Enoncé du principe de l'argument de Cauchy
     \index{Principe de l'argument de Cauchy}} 
     Si un contour $\mathcal{C}$ contient $Z$ zéros et $P$ pôles d'une fonction 
@@ -848,57 +1114,41 @@ courbe $F(\mathcal{C})$ image $F(p)$ de $\mathcal{C}$.
         N=Z-P
     \]
 \end{theorem}
+%-------------------------------------------------------------------------------
+On se rapportera à nouveau à l'\Cref{annexe-cauchy} pour une demonstration 
+graphique de ce théorème\footnote{Un cours d'analyse complexe permettra de 
+compléter cette présentation. On trouvera dans \cite{laas_pc7bis,reg}, 
+une introduction plus détaillée ainsi qu'une bibliographie très fournie 
+sur le sujet.}.
 
-On se rapportera à la~\cref{fig-contour_cauchy} pour un exemple d'application 
-de ce principe. Dans cet exemple la fonction analytique $F(p)$ possède 2 pôles 
-et 3 zéros. Le contour entoure $Z=3$ zéros et $P=1$ pôle.
+Dans l'exemple de la~\cref{fig-contour_cauchy}, la fonction analytique $F(p)$ 
+possède 2 pôles et 3 zéros. Le contour contient $Z=3$ zéros et $P=1$ pôle.
 Le contour $\Gamma=F(\mathcal{C})$ fait alors $N=Z-P=2$ tours autour 
 de l'origine dans le sens trigonométrique ($N>0$). Remarquons que les tours 
 sont comptés positivement dans le sens trigonométrique (c.f~\cref{fig-ntours}).
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{nyquist_cauchy-chap_stab-ext}
-    \input{tikz/nyquist_cauchy-chap_stab.tex}
-    \caption{Représentation de la transformation d'un contour $\mathcal{C}$ 
-             en son image par une fonction analytique $F(p)$. Dans cet exemple,
-             on observe (droite) que $\mathcal{C}$ entoure $Z=3$ zéros et 
-             $P=1$ pôle (gauche) l'image fait alors $N=3-1=2$ tours autour de 
-             l'origine.
-    \label{fig-contour_cauchy}}
-\end{figure}
-%-------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------
-\begin{figure}[!h]
+\begin{marginfigure}
     \centering
     \tikzsetnextfilename{nyquist_ntours_1-chap_stab-ext}
     \input{tikz/nyquist_ntours_1-chap_stab.tex}
-    \tikzsetnextfilename{nyquist_ntours_2-chap_stab-ext}
-    \input{tikz/nyquist_ntours_2-chap_stab.tex}
-    \tikzsetnextfilename{nyquist_ntours_3-chap_stab-ext}
-    \input{tikz/nyquist_ntours_3-chap_stab.tex}
-
-    \tikzsetnextfilename{nyquist_ntours_4-chap_stab-ext}
-    \input{tikz/nyquist_ntours_4-chap_stab.tex}
     \tikzsetnextfilename{nyquist_ntours_5-chap_stab-ext}
     \input{tikz/nyquist_ntours_5-chap_stab.tex}
-    \tikzsetnextfilename{nyquist_ntours_6-chap_stab-ext}
-    \input{tikz/nyquist_ntours_6-chap_stab.tex}
-    \caption{Représentation schématique du nombre de tours autour de 
+    \caption{Représentation schématique du nombre de tours $N$ autour de 
              l'origine de l'image d'une fraction rationnelle d'un contour 
              fermé. Le sens positif est celui du sens trigonométrique.
              \label{fig-ntours}}
-\end{figure}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
-\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Contours de Nyquist et de Bromwich}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Contours de Nyquist et de Bromwich}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour pouvoir appliquer le critère de Nyquist par l'intermédiaire du principe 
 de l'argument de Cauchy, il nous faut définir le contour orienté dans le plan 
 $p$ qui entoure la zone instable (c.a.d le demi-plan à partie réelle positive).
-Nous présentons deux types de contours le contour de Nyquist et ceux de 
-Bromwich.
+Nous présentons deux types de contours: (1) le contour de Nyquist et (2) ceux 
+de Bromwich.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
@@ -907,33 +1157,21 @@ Bromwich.
              (1875-1929), mathématicien anglais.}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
-La~\cref{fig-contours} présente les contours classiques pour l'application 
-du critère de Nyquist. Ces contours sont composés de tout l'axe des 
-imaginaires, d'un demi cercle de rayon infini centré sur l'origine et dans le
-cas où $p=0$ est un pôle ou un zéro de la fonction de transfert en boucle 
-ouverte, le contour est également composé d'un cercle de rayon 
-$r\rightarrow0$ centré sur les pôles nuls.
-
-%-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{nyquist_contour-chap_stab-ext}
-    \input{tikz/nyquist_contour-chap_stab.tex}
-    \tikzsetnextfilename{bromwich_contour1-chap_stab-ext}
-    \input{tikz/bromwich_contour1-chap_stab.tex}
-    \tikzsetnextfilename{bromwich_contour2-chap_stab-ext}
-    \input{tikz/bromwich_contour2-chap_stab.tex}
-    \caption{(a) Contour de Nyquist :  $H_{BO}$ ne possède aucun pôle ou zéro 
-             et contours de Bromwich: (b) 0 est un pôle\\ ou zéro de $H_{BO}$
-             (c) 0, $p_1$ et $p_2$ sont des pôles\\ ou zéros de $H_{BO}$.
-             \label{fig-contours}} 
-\end{figure}
-%-------------------------------------------------------------------------------
+Ces contours sont composés de tout l'axe des imaginaires et 
+d'un demi cercle de rayon infini centré sur l'origine. La portion sur l'axe 
+des imaginaires correspond directement au diagramme de Nyquist
+de la réponse harmonique d'un \gls{slci} régi par la fonction de transfert mis 
+en jeu. Dans le cas où $p=0$ est un pôle ou un zéro de cette fonction
+de transfert, le contour sera également composé d'un cercle de rayon   
+$r\rightarrow0$ centré sur les pôles nuls. Cette limite assure que le contour
+ne passe pas par des pôles et zéros de la fonction de transfert mais que tous
+le plan complexe soit bien pris en compte.
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Contour de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La~\cref{fig-contours} (a) présente le contour de Nyquist. Celui-ci est 
-composé de 3 portions:
+La~\cref{fig-contour_Nyquist2} (a) présente le contour de Nyquist. Celui-ci est 
+composé de trois portions:
 %-------------------------------------------------------------------------------
 \begin{itemize}
     \item \textbf{I} : l'axe des imaginaires positifs pour laquelle $p=\jw$ 
@@ -945,84 +1183,128 @@ composé de 3 portions:
           avec $\omega\in]-\infty,0]$, symétrique de \textbf{I}
 \end{itemize}
 %-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \tikzsetnextfilename{nyquist_contour-chap_stab-ext}
+    \input{tikz/nyquist_contour-chap_stab.tex}
+    \caption{Contour de Nyquist où $H_{BO}$ ne possède aucun pôle ou zéro nul.
+    \label{fig-contour_Nyquist2}}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 %La courbe image d'une fonction de transfert $H_{BO}(p)$
 %en boucle ouverte de ces deux portions. 
-L'image de la portion \textbf{I} est donné par 
-$H_{BO}(\boldsymbol{\mathrm{I}})=H_{BO}(\jw)$, ce qui correspond au lieu de 
-Nyquist pour $\omega\in[0,\infty[$. L'image de la portion \textbf{II} est 
-l'origine du plan en 0. L'image de la portion \textbf{III} peut être 
+L'image de la portion \textbf{I} sera donnée par $H_{BO}(\jw)$, ce qui 
+correspond au lieu de Nyquist pour $\omega\in[0,\infty[$. L'image de la 
+portion \textbf{II} est l'origine du plan complexe dans le cas où la fraction
+rationnelle présente un degré au dénominateur supérieur à celui du 
+numérateur\footnote{C'est très souvent le cas dans l'étude des systèmes 
+linéaires}. 
+L'image de la portion \textbf{III} peut être 
 déterminé à partir de l'image de la portion \textbf{I} par symétrie par 
-rapport à l'axe des réels\footnote{On notera en effet que 
-$H_{BO}(-\jw)=\Re{H_{BO}(\jw)}-\Im{H_{BO}(\jw)}$}.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemple}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Déterminons l'image par le contour de Bromwich de la fonction de transfert 
-suivante : $H_1(p)=\dfrac{1}{1+p}$
-%-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{nyquist_contours_exemple_1-chap_stab-ext}
-    \input{tikz/nyquist_contours_exemple_1-chap_stab.tex}
-    \caption{Exemple de représentation d'un lieu complet de Nyquist d'une 
-             fonction de transfert $H_1(p)$ par l'image du contour de 
-             Nyquist. \label{fig-nyquist_complet_contour}}
-\end{figure}
-%-------------------------------------------------------------------------------
+rapport à l'axe des réels\footnote{C'est la conséquence géométrique du fait que
+$\overline{H_{BO}(\jw)}=H_{BO}(-\jw)=\Re{H_{BO}(\jw)}-\Im{H_{BO}(\jw)}$. 
+Nous avons déjà rencontré cette propriété pour déterminer la réponse harmonique
+d'un système linéaire.}.
+\textbf{En conclusion, l'image par le contour de Nyquist d'une fonction de 
+transfert est donnée par le lieu de Nyquist complet de sa réponse harmonique.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Contour de Bromwich}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La~\cref{fig-contours} (b) présente un contour de Bromwich dans le cas $p=0$ 
-est pôle de la fonction de transfert. Celui-ci est composé de 4 portions:
+La~\cref{fig-contour_Bromwich_1} (b) présente un contour de Bromwich dans le 
+cas où $p=0$ est pôle de la fonction de transfert. Celui-ci est composé de 
+quatre portions, les trois premières correspondent à celles déjà 
+rencontrée précédemment dans le cas du contour de Nyquist, et :
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \tikzsetnextfilename{bromwich_contour1-chap_stab-ext}
+    \input{tikz/bromwich_contour1-chap_stab.tex}
+    \caption{Contour de Bromwich où 0 est un pôle ou zéro 
+             de $H_{BO}$.\label{fig-contour_Bromwich_1}} 
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{itemize}
-    \item \textbf{I} : l'axe des imaginaires positifs pour laquelle 
-          $p=\jw$ avec $\omega\in[0,\infty[$,
-    \item \textbf{II}: un demi cercle de rayon $R$ entourant tout le demi-plan 
-          complexe de partie réelle positive 
-          et pour lequel $p=Re^{j\theta}$ avec $R\rightarrow\infty$ et 
-          $\theta\in[0,\pi/2]$,
-    \item \textbf{III}: l'axe des imaginaires négatifs  pour laquelle $p=-\jw$ 
-          avec $\omega\in]-\infty,0]$, symétrique de \textbf{I}
+    %\item \textbf{I} : l'axe des imaginaires positifs pour laquelle 
+    %      $p=\jw$ avec $\omega\in[0,\infty[$,
+    %\item \textbf{II}: un demi cercle de rayon $R$ entourant tout le demi-plan 
+    %      complexe de partie réelle positive 
+    %      et pour lequel $p=Re^{j\theta}$ avec $R\rightarrow\infty$ et 
+    %      $\theta\in[0,\pi/2]$,
+    %\item \textbf{III}: l'axe des imaginaires négatifs  pour laquelle $p=-\jw$ 
+    %      avec $\omega\in]-\infty,0]$, symétrique de \textbf{I}
     \item \textbf{IV}:  un demi cercle de rayon $r$ contournant l'origine 
           pour lequel $p=re^{j\theta}$ avec $r\rightarrow0$ et 
-          $\omega\in]-\infty,0]$.
+          $\theta\in]0,\pi/2]$.
 \end{itemize}
 %-------------------------------------------------------------------------------
+Dans le cas où la fonction de transfert présente également 
+des pôles et zéros imaginaires purs non nuls, on utilisera le contour 
+de Bromwich évitant ces pôles et zéros sur l'axe des imaginaires. 
+(c.f \cref{fig-contour_Bromwich_2}).
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \tikzsetnextfilename{bromwich_contour2-chap_stab-ext}
+    %\input{tikz/bromwich_contour2-chap_stab.tex}
+    \caption{Contours de Bromwich où 0, $p_1$ et $p_2$ sont des pôles
+             ou zéros de $H_{BO}$.\label{fig-contour_Bromwich_2}} 
+\end{marginfigure}
+%-------------------------------------------------------------------------------
+\clearpage
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemple}
+\paragraph{Exemple d'image par le contour de Nyquist}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La~\cref{fig-nyquist_complet_image_exemple1} présente une image du contour
+de Nyquist par la fonction de transfert du premier ordre 
+$H_1(p)=\dfrac{1}{1+p}$. L'image des différentes portions de ce contour 
+sont représentées.
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{nyquist_contour_image_exemple1-chap_stab-ext}
+    \input{tikz/nyquist_contour_image_exemple1-chap_stab.tex}
+    \caption{Exemple de représentation d'un lieu complet de Nyquist d'une 
+             fonction de transfert $H_1(p)$ par l'image du contour de 
+             Nyquist. \label{fig-nyquist_complet_image_exemple1}}
+\end{figure}
+%-------------------------------------------------------------------------------
+%\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Exemple d'image par le contour de Bromwich}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Déterminons l'image par le contour de Bromwich de la fonction de transfert 
 suivante : $H_2(p)=\dfrac{1}{p(1+p)}$
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{nyquist_contours_exemple_2-chap_stab-ext}
-    \input{tikz/nyquist_contours_exemple_2-chap_stab.tex}
+    \tikzsetnextfilename{bromwich_contour_image_exemple1-chap_stab-ext}
+    \input{tikz/bromwich_contour_image_exemple1-chap_stab.tex}
     \caption{Exemple de représentation d'un lieu complet de Nyquist 
              d'une fonction de transfert $H_2(p)$ possédant un pôle nul par 
              l'image du contour de Bromwich. 
-    \label{fig-nyquist_complet_contour} }
+    \label{fig-bromwich_complet_image_exemple1} }
 \end{figure}
 %-------------------------------------------------------------------------------
-\restoregeometry
-\captionsetup{width=0.9\linewidth}
-%\newpage
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section*{Exercices du chapitre}
+\section{Exercices du chapitre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\newpage
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section*{Corrigé des exercices}
+\section{Corrigé des exercices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

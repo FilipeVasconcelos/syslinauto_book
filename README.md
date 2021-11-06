@@ -7,4 +7,4 @@ et Automatiques (SMA) enseigné en deuxième année de l'ESME Sudria de
 Lille depuis janvier 2018.
 
 ## Auteur
-F. Vasconcelos
+Filipe Manuel De Freitas Vasconcelos

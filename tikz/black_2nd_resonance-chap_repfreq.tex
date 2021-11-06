@@ -1,0 +1,38 @@
+\begin{tikzpicture}
+\begin{axis}
+    [
+        legend style={draw=none}, 
+        legend pos=outer north east,
+        axis lines=center,
+        axis line style = thick,
+        xlabel=$\phi(\omega)$,
+        ylabel=$G_{dB}(\omega)$,
+        ymin=-80,
+        ymax=+40,
+        xmin=-270,
+        xmax=30,
+        grid=both,
+        x label style={below right},
+        y label style={right},
+        x tick label style={below},
+        y tick label style={right},
+        xtick={-180,-90},
+        ytick={-60,-40,-20,0,20},
+        yticklabels={-60,-40,-20,0,20},
+        xticklabels={-180,-90},
+    ] 
+    \foreach [count=\i from 0,evaluate=\i as \colfrac using \i*100/7]% 
+    \z in {0.02,0.1,0.2,0.3,0.4,0.5,0.6}{%
+        \edef\temu{\noexpand\addplot[col4!\colfrac!col1,domain=0.1:1,
+        samples=256,-{Latex[length=2mm]}]
+        ({-atan2(2*\z*x,1-x*x)},{-10*log10((1-x*x)^2+(2*\z*x)^2)});}
+        \temu
+        \edef\temp{\noexpand\addplot[col4!\colfrac!col1,thick,domain=0.95:3,
+        samples=256]
+        ({-atan2(2*\z*x,1-x*x)},{-10*log10((1-x*x)^2+(2*\z*x)^2)});
+        \noexpand\addplot[col4!\colfrac!col1,thick,domain=2.95:100,samples=256]
+        ({-atan2(2*\z*x,1-x*x)},{-10*log10((1-x*x)^2+(2*\z*x)^2)});}
+        \temp
+    }
+\end{axis}
+\end{tikzpicture}

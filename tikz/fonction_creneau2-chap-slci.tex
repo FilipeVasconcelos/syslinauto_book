@@ -1,0 +1,29 @@
+\begin{tikzpicture}[baseline=0]
+   \begin{axis}[
+        height=4cm,
+        width=6cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-1,
+        xmax=3,
+        ymin=-0.5,
+        ymax=1.5,
+        xlabel={$t$},
+        ylabel={$e(t)$},
+        xlabel style={below right},
+        ylabel style={left},
+        yticklabels={1},
+        ytick={1},
+        y tick label style={left},
+        xticklabels={1,2},
+        xtick={1,2},
+        x tick label style={below},
+        ]
+        \addplot [very thick,col1,domain=-1:0, samples=50]{0.01};
+        \addplot [very thick,col1,domain=0:1, samples=50]{x};
+        \addplot [very thick,col1,domain=1:2, samples=50]{2-x};
+        \addplot [very thick,col1,domain=2:2.9, samples=50]{0.01};
+        \addplot [very thick,col4,domain=-1:2.9, samples=50]{x};
+        \addplot [very thick,col3,domain=-1:2.9, samples=50]{2-x};
+        \end{axis}
+\end{tikzpicture}

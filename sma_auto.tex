@@ -19,6 +19,7 @@
 \usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{amsmath,amssymb}
 \usepackage[french]{babel}
 \addto\captionsfrench{\renewcommand{\bibname}{Références}}
 \addto\captionsfrench{\def\tablename{Tableau}}
@@ -50,7 +51,8 @@
 \usepackage[skip=0.3cm,hypcap=false]{caption} 
 \captionsetup{width=0.95\linewidth,belowskip=0pt,labelfont=bf} 
 \usepackage[french]{minitoc}
-\usepackage{amsmath,amsthm,amssymb}
+\usepackage{bbding}
+%\usepackage{MnSymbol}
 \usepackage{mathrsfs}
 \usepackage{graphics}
 \usepackage{subcaption}
@@ -69,7 +71,14 @@
 \usepackage{calc}                
 \usepackage{imakeidx}
 \makeindex[columnsep=20pt,columnseprule]
-\usepackage[colorlinks=false,linktocpage]{hyperref}  
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=col1,
+    filecolor=magenta,      
+    urlcolor=col1,
+    bookmarks=true,
+}
 \usepackage{url} 
 \usepackage[hyphenbreaks]{breakurl} 
 \usepackage[acronym,symbols,nogroupskip,nonumberlist]{glossaries-extra}
@@ -123,7 +132,7 @@
 \usetikzlibrary{babel} 
 \usetikzlibrary{decorations.text}
 \usetikzlibrary{matrix}
-%\usetkzobj{all} 2020
+%\usetkzobj{all} %2020
 \usetikzlibrary{external}
 \tikzset{external/system call={pdflatex -shell-escape 
 -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"; 
@@ -304,7 +313,7 @@ pdf2eps 1 "\image"
 \put(0,0){%
 \parbox[b][\paperheight]{\paperwidth}{%
 \begin{picture}(0,0)
-\put(50,-130){\includegraphics[width=4cm]{fig/LOGO_ESME_QUADRI.eps}}
+\put(50,-130){\includegraphics[width=3cm]{fig/ESME_LOGO_SEUL_NOIR_2021.eps}}
 \end{picture}
 \vfill
 \centering
@@ -340,9 +349,9 @@ pdf2eps 1 "\image"
 % ------------------------------------------------------------------------------
 %\includeonly{tex/avantpropos}
 %\includeonly{tex/chap_slci}            % Système linéaire
-%\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
+\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
 %\includeonly{tex/chap_model}           % Modèles Usuels    
-%\includeonly{tex/chap_repfreq,tex/chap_stab}         % Réponse harmonique
+%\includeonly{tex/chap_repfreq}         % Réponse harmonique
 %\includeonly{tex/chap_asserv}          % Asservissement 
 %\includeonly{tex/chap_perf}            % Perf. des sys asservis 
 %\includeonly{tex/chap_stab}            % Stabilité des sys. asservis 
@@ -352,12 +361,14 @@ pdf2eps 1 "\image"
 %\includeonly{tex/annexe_usi}           % Unités du Système International    
 %\includeonly{tex/annexe_laplace}       % Transformation de Laplace
 %\includeonly{tex/annexe_cplx}          % Rappel sur les nombres complexes
-%\includeonly{tex/annexe_equa_diff}     % Eq. diff. à coefficient constant
+%\includeonly{tex/chap_model,tex/annexe_equa_diff}     % Eq. diff. à coefficient constant
 %\includeonly{tex/annexe_des}           % Décomposition en éléments simples
 %\includeonly{tex/annexe_2nd}           % Système du second ordre
 %\includeonly{tex/annexe_scilab}        % Scilab
 %\includeonly{tex/annexe_log}           % Echelle log
 %\includeonly{tex/annexe_invL}          % Inverse Laplace 
+%\includeonly{tex/annexe_blackNichols}  % BlackNichols 
+%\includeonly{tex/annexe_cauchy}        % Principe de l'argument de Cauchy
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ------------------------------------------------------------------------------
 % includeonly groupé
@@ -405,6 +416,7 @@ pdf2eps 1 "\image"
 %\premierS
 %\secondS
 %\includeonly{tex/chap_asserv,tex/chap_perf}  
+%\includeonly{tex/chap_slci,tex/chap_model,tex/annexe_laplace}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % utile pour l'annnexe 5
 \newlength\myheight
@@ -412,6 +424,10 @@ pdf2eps 1 "\image"
 \settototalheight\myheight{Xygp}
 \settodepth\mydepth{Xygp}
 \setlength\fboxsep{0pt}
+
+%preambule pour les notebook
+\input{notebook/nbconvert.tex}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -454,19 +470,23 @@ pdf2eps 1 "\image"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{appendices}
-\include{tex/annexe_alphagrec}         %A Alphabet grec
+\input{tex/annexe_alphagrec}           %A Alphabet grec
 \include{tex/annexe_usi}               %B Unités du Système International 
-%\include{tex/annexe_laplace_irl}       %C Pierre-Simon de Laplace 
-\include{tex/annexe_laplace}           %D Transformation de Laplace 
-\include{tex/annexe_cplx}              %E Rappel sur les nombres complexes
-\include{tex/annexe_seriefourier}      %F Analyse de Fourier
-\include{tex/annexe_equa_diff}         %G Eq. diff. à coefficient constant
-\include{tex/annexe_des}               %H Décomposition en éléments simples
-\include{tex/annexe_2nd}               %I Système du second ordre
-\include{tex/annexe_scilab}            %J Scilab
-\include{tex/annexe_log}               %K Echelle log  
-\include{tex/annexe_invL}              %L Laplace inverse 
-%\include{tex/todo}                     %M TODO
+\include{tex/annexe_laplace_irl}       %C Pierre-Simon de Laplace 
+\include{tex/annexe_laplace}           %C Transformation de Laplace 
+\include{tex/annexe_cplx}              %D Rappel sur les nombres complexes
+\include{tex/annexe_seriefourier}      %E Analyse de Fourier
+\include{tex/annexe_equa_diff}         %F Eq. diff. à coefficient constant
+\include{tex/annexe_des}               %G Décomposition en éléments simples
+\include{tex/annexe_2nd}               %H Système du second ordre
+{\tikzset{external/export=false}
+\include{tex/annexe_scilab}            %I Scilab
+\include{tex/annexe_log}               %J Echelle log  
+}
+\include{tex/annexe_invL}              %K Laplace inverse 
+\include{tex/annexe_blackNichols}      %L Principe de l'argument Cauchy  
+\include{tex/annexe_cauchy}            %M Principe de l'argument Cauchy  
+%\include{tex/todo}                    %N TODO
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\backmatter

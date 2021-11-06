@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+   \begin{axis}[
+   height=4cm,
+   width=5cm,
+      axis x line=center,
+        axis y line=center,
+        xmin=-1,
+        xmax=5,
+        ymin=-1.5,
+        ymax=2.0,
+        xlabel={$t$},
+        ylabel={$\delta_a(t)$},
+        xlabel style={below right},
+        ylabel style={left},
+        yticklabels={\small$\dfrac{1}{a}$},
+        ytick={1},
+        y tick label style={anchor=east},
+        xticklabels={$a$},
+        xtick={2},
+        x tick label style={below left},
+        ]
+        \addplot [very thick,color=col4,const plot]   
+        coordinates { (-1, 0.01) (0, 0.01) (0 ,1)  (5,1) };
+        \addplot [very thick,color=col3,const plot] 
+        coordinates { (-1,-0.01) (0,-0.01) (2,-1) (5,-1) };
+        \end{axis}
+\end{tikzpicture}

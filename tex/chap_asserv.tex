@@ -2,7 +2,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter[Asservissements Linéaires]{Asservissements des systèmes 
+\chapter[Asservissement Linéaire]{Asservissement des systèmes 
 linéaires\label{chap-asservis}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -15,7 +15,7 @@ linéaires\label{chap-asservis}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introduction}
+\section{Asservissement et régulation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,7 +52,7 @@ La particularité de ce régulateur est d'avoir était utilisé dans l'industrie
 du 18ème siècle bien avant les premières avancées théoriques dans le domaine 
 de l'automatique. Dans le contexte des premières machines à vapeurs, 
 il était important de contrôler la vitesse angulaire des turbines à vapeur. 
-Le mécanisme de Watt permet avec un dispositif de retroaction d'agir sur la 
+Le mécanisme de Watt permet avec un dispositif de rétroaction d'agir sur la 
 valve d'arrivée de la vapeur en fonction de la vitesse de l'axe de la turbine.
 
 Jusqu'à présent nous nous sommes intéressés à l'étude de système 
@@ -102,7 +102,7 @@ d'un système linéaire :% soit en boucle ouverte soit en boucle fermée.
 %-------------------------------------------------------------------------------
     \item En \textbf{boucle fermée}: le principe consiste à récupérer 
           le signal de sortie pour ajuster le signal de commande. 
-          Pour celà, on place le système (corrigée ou non) dans une 
+          Pour cela, on place le système (corrigée ou non) dans une 
           boucle de contre-réaction (négative). 
           Les relations entre la sortie et la consigne dans une telle 
           boucle ont été largement étudiées au \cref{chap-schemabloc}.
@@ -114,7 +114,8 @@ d'un système linéaire :% soit en boucle ouverte soit en boucle fermée.
 %-------------------------------------------------------------------------------
           Le signal correspondant à la différence entre la consigne
           et la réponse globale du système en boucle fermée est
-          appelée l'\textbf{écart} $\epsilon(p)$.
+          appelée l'\textbf{écart} $\epsilon(p)$. C'est ce signal qui est
+          l'entrée du système en boucle ouverte $H(p)$.
 \end{itemize}
 %-------------------------------------------------------------------------------
 La rétroaction\footnote{\emph{feedback} (en anglais)} est devenu incontournable
@@ -122,6 +123,7 @@ dans les applications industrielles et technologiques. Par abus de langage
 c'est le système en boucle fermée que l'on nomme asservissement. Cependant, la 
 définition précédente de l'asservissement s'applique très bien dans 
 le cas de la boucle ouverte.
+%\newpage %tmp
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -175,7 +177,7 @@ présentant ces nouveaux constituants.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La prise en compte de pertubation se fait simplement en considérant un schéma
-fonctionnel à plusieurs entrée à l'instar du schéma-blocs de 
+fonctionnel à plusieurs entrées à l'instar du schéma-blocs de 
 la~\cref{fig-pert2}. En général, la perturbation se trouve en amont
 du système et le signal de perturbation $P(p)$ est simplement sommé à la 
 commande $U(p)$. On dit que l'on a à faire à une \textbf{perturbation 
@@ -346,6 +348,7 @@ H_{BF}(p)=\dfrac{H_{BO}(p)}{1+H_{BO}(p)}
 \]
 Dans le cas d'une contre réaction unitaire, la~\gls{ftbf} ne dépend 
 que de la~\gls{ftbo}.
+%\newpage %tmp
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -517,24 +520,33 @@ tous les paramètres du second ordre de la boucle fermée.
 %Le système présente des dépassement pour $\xi<1$ 
 
 
-%\newpage
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section*{Exercices du chapitre}
+\section{Exercices du chapitre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\newpage
+\small
+\input{tex/exercices_chap_asserv.tex}
+\setcounter{numexos}{0}
+\normalsize
+\newpage
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section*{Corrigé des exercices}
+\section{Corrigé des exercices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\small
+\input{tex/exercices_corriges_chap_asserv.tex}
+\normalsize
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,30 @@
+\begin{tikzpicture}
+    \begin{axis}
+    [
+        height=4cm,
+        width=9cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-1,
+        xmax=3,
+        ymin=-0.5,
+        ymax=1.5,
+        xlabel={$t$},
+        ylabel={$e(t)$},
+        xlabel style={below right},
+        ylabel style={above left},
+        yticklabels={0,1},
+        ytick={0,1},
+        y tick label style={anchor=east},
+        xticklabels={1},
+        xtick={1},
+        x tick label style={below},
+    ]
+        \addplot [signalb,domain=-1:0, samples=51]{0};
+        \addplot [signalb,domain=0:1, samples=51]{-x+1};
+        \draw[signalb] (axis cs:0,0) -- (axis cs:0,1);
+        \addplot [signalb,domain=1:2, samples=51]{x-1};
+        \addplot [signalb,domain=2:3, samples=51]{0};
+        \draw[signalb] (axis cs:2,1) -- (axis cs:2,0);
+    \end{axis}
+\end{tikzpicture}

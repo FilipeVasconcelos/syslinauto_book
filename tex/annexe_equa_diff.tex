@@ -26,6 +26,9 @@ membre) puis de chercher une solution particulière pour l'équation avec second
 membre. Nous nous limiterons à l'étude des solutions pour des seconds membres 
 correspondant aux signaux usuels présentés dans ce document 
 au~\Cref{chap-slci} (c.a.d Impulsion de Dirac, échelon-unité et rampe).
+TODO : pour l'instant seul la solution à un second membre constant est traitée 
+(envisager d'autres formes?).
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -115,6 +118,9 @@ La constante $C$ se détermine à partir de la condition initiale:
 \[
 s(t)=s_0e^{-at}+\dfrac{b}{a}\left(1-e^{-at}\right)
 \]
+Ci-dessous on trace toutes les solutions pour différentes valeurs de la 
+condition initiale. Le graphe de la solution en rouge correspond à la solution
+pour une condition initiale nulle.
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{solutions_equadiff-annexe_equa_diff-ext}
@@ -131,6 +137,62 @@ la réponse. Les deux autres correspondent au régime transitoire.
     \textcolor{orange}{transitoire} &\quad\textcolor{magenta}{permanent}
 \end{align*}
 %-------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Résolution équation différentielle du second ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    a\devi{s(t)}{2}+b\devi{s(t)}{}+cs(t)=d\cdot e(t)
+\end{bequation}
+%-------------------------------------------------------------------------------
+solution générale de la forme 
+\[
+    s(t)=s_P+s_H
+\]
+$s_P=\dfrac{d}{c}$ solution particulière et $s_H=\lambda_1 e^{r_1 t}+
+\lambda_2 e^{r_2 t}$ avec $r_1$ et $r_2$ les racines du polynôme 
+caractéristique composé des coefficients de l'équation différentielle 
+($aX^2+bX+c=0$).
+\[
+    s(t)=\dfrac{d}{c}+\lambda_1 e^{r_1 t}+\lambda_2 e^{r_2 t}
+\]
+$\lambda_1$ et $\lambda_2$ dépendent des conditions initiales. 
+Si on note $s_0=s(0)$ et $s_1=s'(0)$. On écrit :
+\[
+    \lambda_1=\dfrac{-r_2(s_0-s_P)+s_1}{r_1-r_2}
+\]
+\[
+    \lambda_2=\dfrac{r_1(s_0-s_P)-s_1}{r_1-r_2}
+\]
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{solutions_equadiff_2nd-s1-0-annexe_equa_diff-ext}
+    \input{tikz/solutions_equadiff_2nd_s1-0-annexe_equa_diff.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{solutions_equadiff_2nd-s1-10-annexe_equa_diff-ext}
+    \input{tikz/solutions_equadiff_2nd_s1-10-annexe_equa_diff.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{solutions_equadiff_2nd-s1-m10-annexe_equa_diff-ext}
+    \input{tikz/solutions_equadiff_2nd_s1-m10-annexe_equa_diff.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+
+equation homogène
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

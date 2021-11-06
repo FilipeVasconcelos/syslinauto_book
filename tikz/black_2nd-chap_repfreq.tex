@@ -1,0 +1,30 @@
+\begin{tikzpicture}
+\begin{axis}
+    [
+        axis lines=center,
+        axis line style = thick,
+        xlabel=$\phi(\omega)$,
+        ylabel=$G_{dB}(\omega)$,
+        ymin=-80,
+        ymax=+10,
+        xmin=-270,
+        xmax=30,
+        grid=both,
+        x label style={below right},
+        y label style={right},
+        x tick label style={above},
+        y tick label style={right},
+        xtick={-180,-90},
+        ytick={-60,-40,-20,0,20},
+        yticklabels={-60,-40,-20,0,20},
+        xticklabels={-180,-90},
+    ] 
+    \foreach \a in {1.0}
+    {
+    \addplot[col2,very thick,domain=0.01:10,samples=500,-{Latex[length=3mm]}] 
+    ({-atan2(2*\a*x,1-x*x)},{-10*log10((1-x*x)^2+(2*\a*x)^2)});
+    \addplot[col2,very thick,domain=1:100,samples=500] 
+    ({-atan2(2*\a*x,1-x*x)},{-10*log10((1-x*x)^2+(2*\a*x)^2)});
+    }
+\end{axis}
+\end{tikzpicture}

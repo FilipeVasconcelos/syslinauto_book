@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+\begin{axis}
+    [
+    axis lines=center,
+    axis line style = thick,
+    xlabel=$\phi(\omega)$,
+    ylabel=$G_{dB}(\omega)$,
+    ymin=-40,
+    ymax=+10,
+    xmin=-180,
+    xmax=10,
+    %grid=both,
+    x label style={below right},
+    y label style={left},
+    xtick={-180,-90},
+    ytick={-40,-20,0,20},
+    yticklabels={-40,-20,0,20},
+    xticklabels={-180,-90},
+    ] 
+    \addplot[col2,very thick,domain=1:100,samples=100]
+    ({-90},{-20*log10(x)});
+    \addplot[col2,very thick,domain=0.01:10,samples=100,-{Latex[length=3mm]}] 
+    ({-90},{-20*log10(x)});
+\end{axis}
+\end{tikzpicture}

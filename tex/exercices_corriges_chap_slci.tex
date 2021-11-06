@@ -1,5 +1,176 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Décomposition d'un signal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Le signal $e(t)$ est défini par :
+\[
+e(t)=\begin{cases}
+    0&\quad t<0 \\
+    t&\quad t\in[0,1]\\
+    2-t&\quad t\in[1,3]\\
+    t-4&\quad t\in[3,4]\\
+    0&\quad t>4
+     \end{cases}
+\]
+On peut alors décomposer $e(t)$ en somme d'échelon :
+\[
+    e(t)=t    \left(u(t)-u(t-1)  \right)+(2-t)\left(u(t-1)-u(t-3)\right)+
+         (t-4)\left(u(t-3)-u(t-4)\right) 
+\]
+En regroupant les termes, on obtient alors :
+\[
+    e(t)=tu(t)+2(1-t)u(t-1)+2(t-3)u(t-3)-(t-4)u(t-4)
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace $E(p)$ est simplement donnée par la transformée de
+chacun des termes.
+\[
+    E(p)=\dfrac{1}{p^2}+\dfrac{2e^{-p}}{p^2}\left(p-1\right)
+                       +\dfrac{2e^{-3p}}{p^2}\left(1-3p\right)
+                       -\dfrac{e^{-4p}}{p^2}\left(1-4p\right)
+\]
+ou encore
+\[
+    E(p)=\dfrac{1}{p^2}\left(1+2e^{-p}(p-1)+2e^{-3p}(1-3p)-e^{-4p}(1-4p)\right)
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Décomposition d'un signal parabolique}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Le signal est composé de deux paraboles. 
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{fonction_parabole2-chap-slci-ext}
+    \input{tikz/fonction_parabole2-chap-slci.tex}
+\end{figure}
+%-------------------------------------------------------------------------------
+\[
+e(t)=
+\begin{cases}
+    0&\quad t<0\\
+    t^2&\quad t\in[0,1]\\
+    (t-2)^2&\quad t\in[1,2]\\
+    0&\quad t>2
+\end{cases}
+\]
+\`A l'aide des fonctions échelons le signal s'écrit alors 
+\[
+    e(t)=t^2\left(u(t)-u(t-1)\right)+(t-2)^2\left(u(t-1)-u(t-2)\right).
+\]
+En regroupant les termes on peut réecrire cette expression sous la forme :
+\[
+    e(t)=t^2u(t)-4(t-1)u(t-1)-t^2u(t-2)+4(t-1)u(t-2)
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On rapelle que la transformé de Laplace de la fonction $f(t)=t^2$ 
+est $F(p)=\dfrac{2}{p^3}$. On obtient alors pour la transformée 
+$E(p)$ de $e(t)$ :
+\[
+    E(p)=\dfrac{2}{p^3}-4e^{-p}\left(\dfrac{1}{p^2}-\dfrac{1}{p}\right)
+        -e^{-2p}\dfrac{2}{p^3}+4e^{-2p}\left(\dfrac{1}{p^2}-\dfrac{1}{p}\right)
+\]
+\[
+    E(p)=\dfrac{2}{p^3}\left(1-e^{-2p}\right)
+        -4\left(\dfrac{1}{p^2}-\dfrac{1}{p}\right)\left(e^{-p}-e^{-2p}\right)
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Décompositon d'un signal et transformée de Laplace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+On sollicite un système linéaire continu et invariant par deux signaux $e_1(t)$ 
+et $e_2(t)$ (d'amplitude maximale et de durée unité) définits 
+par les graphes ci-contre.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Décomposons $e_1(t)$ et $e_2(t)$ par morceaux. On a alors :
+\[
+e_1(t)=
+\begin{cases}
+    0&\quad t<0\\
+    1-t&\quad t\in[0,1]\\
+    0&\quad t>1
+\end{cases}
+\]
+et
+\[
+e_2(t)=
+\begin{cases}
+    0&\quad t<0\\
+    t&\quad t\in[0,1]\\
+    0&\quad t>1
+\end{cases}
+\]
+On peut alors écrire ces signaux comme la somme des signaux usuels comme:
+\[
+    e_1(t)=(1-t)\left(u(t)-u(t-1)\right)=u(t)-r(t)-u(t-1)+r(t-1)
+\]
+et
+\[
+    e_2(t)=t\left(u(t)-u(t-1)\right)=r(t)-r(t-1)
+\]
+où $u(t)$ est la fonction échelon et $r(t)$ la fonction rampe.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Les transformées sont simplement données par la propriété des fonctions 
+retardés et des signaux rampes. On a notamment,
+\[
+    E_1(p)=\dfrac{(p-1)}{p^2}\left(1-e^{-p}\right)
+\]
+et
+\[
+    E_2(p)=\dfrac{1}{p^2}\left(1-e^{-p}\right)
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\question{} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Pour une amplitude maximale de $E_0$ et une durée de signal $\tau$, les
+%signaux temporels deviennent :
+%\[
+%    e_1(t)=\dfrac{E_0}{\tau}(1-t)\left(u(t)-u(t-\tau)\right)
+%\]
+%\[
+%    e_2(t)=\dfrac{E_0}{\tau}t\left(u(t)-u(t-\tau)\right)
+%\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On sollicite le système par le signal $e(t)$ défini par :
+\[
+    e(t)=e_1(t)+e_2(t-1)
+\]
+La transformée de Laplace $E(p)$ est simplement donnée par la somme,
+\[
+    E(p)=E_1(p)+e^{-p} E_2(p)
+        =\dfrac{(p-1)}{p^2}\left(1-e^{-p}\right)+
+         \dfrac{e^{-p}}{p^2}\left(1-e^{-p}\right)
+        =\dfrac{1-e^{-p}}{p^2}\left(e^{-p}+p-1\right)
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{L'impulsion de Dirac approchée}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -11,6 +182,8 @@
     \centering
     \tikzsetnextfilename{fonction_porte_decomposition-chap-slci-ext}
     \input{tikz/fonction_porte_decomposition-chap-slci.tex}
+    \tikzsetnextfilename{fonction_porte_decomposition2-chap-slci-ext}
+    \input{tikz/fonction_porte_decomposition2-chap-slci.tex}
 \end{figure}
 %-------------------------------------------------------------------------------
 La fonction $\delta_a(t)$ est simplement donnée par 
@@ -48,98 +221,257 @@ bien vérifié que $\lim_{a\to0} \delta_a(p)=\delta(t)$ où $\delta(t)$ est
 l'impulsion de Dirac.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{Soit la fonction $g_a(t)$ définie par le graphe ci-contre. 
-          Décomposer $g_a(t)$ à l'aide de fonctions échelons et/ou rampes. Donner sa 
-          transformée de Laplace.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Décharge d'un condensateur}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Dans cet exercice nous allons appliquer la méthodologie générale pour la
+résolution d'une équation différentielle à coefficients constants.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de l'équation différentielle de la décharge d'un
+condensateur est donnée par :
+\[
+    \tau(pQ(p)-q_0)+Q(p)=0
+\]
+où $q_0$ est la condition initialle de $q(t)$.
+La résolution algébrique de cette équation nous donne 
+\[
+    Q(p)(\tau p+1)=q_0\tau
+\]
+ou encore :
+\[
+    Q(p)=q_0\dfrac{\tau}{\tau p+1}
+\]
+Remarquons que cette solution ne dépend que des conditions initiales, il n'est 
+pas possible de définir une fonction de transfert dans ce cas particulier.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour déterminer la solution $q(t)$ de l'équation différentielle, il suffit de 
+déterminer la transformée inverse de $Q(p)$.
+
+La transformée inverse de la fonction $F(p)=\dfrac{1}{p+a}$ est $f(t)=e^{-a}$.
+Donc sous la forme,
+\[
+    Q(p)=q_0\dfrac{1}{p+\dfrac{1}{\tau}},
+\]
+la transformée inverse de $Q(p)$ est simplement donnée par 
+\[
+    q(t)=q_0e^{-\dfrac{t}{\tau}}
+\]
 %-------------------------------------------------------------------------------
-\begin{marginfigure}
+\begin{center}
+    \tikzsetnextfilename{laplace_schema_decharge_condensateur-chap_slci-ext}
+    \input{tikz/laplace_schema_decharge_condensateur.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+La figure suivante présente donc la représentation graphique de cette solution 
+pour $\tau=\SI{1}{\second}$.
+
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{fonction_creneau-chap-slci-ext}
-    \input{tikz/fonction_creneau_decomposition-chap-slci.tex}
-\end{marginfigure}
+    \tikzsetnextfilename{decharge_condensateur_solution-chap-slci-ext}
+    \input{tikz/decharge_condensateur_solution-chap-slci.tex}
+\end{figure}
 %-------------------------------------------------------------------------------
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Système masse-ressort}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de l'équation différentielle nous donnes : 
 \[
-    g_a(t)=\dfrac{1}{a(\tau+a)}r(t)-\dfrac{2}{a(\tau+a)}r(t-(\tau+a))+\dfrac{1}{a(\tau+a)}r(t-(\tau+2a))
+    X(p)\left(mp^2+bp+k\right)=F(p)
+\]
+ainsi on peut écrire $X(p)$ sous la forme :
+\[
+    X(p)=\dfrac{1}{mp^2+bp+k}F(p)
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On identifie simplement la fonction de transfert du système comme la fraction 
+rationnelle définie par le rapport $\dfrac{X(p)}{F(p)}$
+\[
+    H(p)=\dfrac{1}{mp^2+bp+k}
 \]
 
+Sous forme canonique, cette fonction de transfert s'écrit :
 \[
-    g_a(t)=\dfrac{t}{a(\tau+a)}u(t)
-\]
-
-\[
-    -\dfrac{t}{a(\tau+a)}-\dfrac{1}{\tau+a}-\dfrac{1}{a}=\dfrac{t}{a(\tau+a)}+f_2(t)
-\]
-
-\[
-    -\dfrac{2t-(\tau+2a)}{a(\tau+a)}=f_2(t)
-\]
-
-\[
-    g_a(t)=\dfrac{t}{a(\tau+a)}u(t)-\dfrac{2t-(\tau+2a)}{a(\tau+a)}u(t-(\tau+a))
-\]
-
-\[
-    f_3(t)=\dfrac{t-(\tau+2a)}{a(\tau+a)}
-\]
-
-\[
-    g_a(t)=\dfrac{t}{a(\tau+a)}u(t)-\dfrac{2t-(\tau+2a)}{a(\tau+a)}u(t-(\tau+a))+\dfrac{t-(\tau+2a)}{a(\tau+a)}u(t-(\tau+2a))
-\]
-
-\[
-    g_a(t)=\dfrac{1}{a(\tau+a)}\left(t-(2t-(\tau+2a))u(t-(\tau+a))+(t-(\tau+2a))u(t-(\tau+2a))\right)
-\]
-
-\footnotesize
-\[
-    \laplace{g_a(t)}=\dfrac{1}{a(\tau+a)}\left(   \dfrac{1}{p^2}-\dfrac{2e^{-(\tau+a)p}}{p^2}+\dfrac{(\tau+2a)e^{-(\tau+a)p}}{p}
-                                                + \dfrac{e^{-(\tau+2a)p}}{p^2} - \dfrac{(\tau+2a)e^{-(\tau+2a)p}}{p} \right)
-\]
-\[
-     \laplace{g_a(t)}=\dfrac{1}{a(\tau+a)}\left( \dfrac{1}{p^2}\left(1-2e^{-(\tau+a)p}+e^{-(\tau+2a)p}\right) 
-                                           + \dfrac{(\tau+2a)}{p}\left(e^{-(\tau+a)p}-e^{-(\tau+2a)p} \right) \right)
+    H(p)=\dfrac{1}{k\left(\dfrac{m}{k}p^2+\dfrac{b}{k}p+1\right)}
 \]
 
 
+On sollicite le système par une impulsion de Dirac. Dans les faits, on peut 
+voir cette sollicitation comme l'application d'une force $f(t)$ constante 
+d'intensité $\dfrac{1}{a}$ intense pendant un temps $a$ très court 
+(c.-à-d. $a\to0$).    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de cette sollicitation $F(p)$ est égale à 1 à 
+la limite $a\to0$. On obtient alors pour la transformée de Laplace de la 
+position :
 \[
-    e^{-(\tau+a)p}=e^{-\tau p}e^{-ap}=e^{-\tau p}\left(1-ap+\dfrac{(ap)^2}{2}\right)
+    X(p)=\dfrac{1}{mp^2+bp+k}
+\]
+ou encore en utilisant la forme canonique de la fonction de transfert :
+\[
+    X(p)=\dfrac{1}{k\left(\dfrac{m}{k}p^2+\dfrac{b}{k}p+1\right)}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\[
+    \begin{cases}
+        K=\dfrac{1}{k}\\[1.5em]
+        \omega=\left(\dfrac{k}{m}\right)^{\frac{1}{2}}\\[1.5em]
+        \xi=\dfrac{b}{2k}\omega
+    \end{cases}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Dans les conditions pour lesquels les paramètres $m, b ,k$ donne $\xi<1$ 
+La solution est donc de la forme :
+\[
+    x(t)=K\dfrac{\omega}{\sqrt{1-\xi^2}}
+         e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t} 
+\]
+ou encore 
+\[
+    x(t)=\dfrac{1}{m\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)^{\frac{1}{2}}}
+         e^{\frac{-b}{2m}t}\sin{\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)^
+         {\frac{1}{2}}t}
 \]
 
+On réalise une experience avec une masse $m=\SI{0.5}{\kilogram}$, un ressort 
+de constante de raideur $k=\SI{10}{\newton\per\meter}$ et un amortissement 
+visqueux $b=\SI{0.894}{\kilogram\per\second}$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \[
-    e^{-(\tau+2a)p}=e^{-\tau p}e^{-2ap}=e^{-\tau p}\left(1-2ap+2(ap)^2\right)
+    \omega=\SI{4.47}{\radian\per\second}
+\]
+\[
+    \xi=0.2
 \]
 
-\[
-    1-2e^{-(\tau+a)p}+e^{-(\tau+2a)p}=1-e^{-\tau p}\left(1-ap+\dfrac{(ap)^2}{2}\right)+e^{-\tau p}\left(1-2ap+2(ap)^2\right)
-\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On constate que la masse retourne à sa position d'équilibre après 6 secondes.
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{masse_ressort_solution-chap_slci-ext}
+    \input{tikz/masse_ressort_solution-chap_slci.tex}
+\end{figure}
+%-------------------------------------------------------------------------------
 
-\[
-    1-2e^{-(\tau+a)p}+e^{-(\tau+2a)p}=1-ape^{-\tau p}+\dfrac{3}{2}(ap)^2e^{-\tau p}
-\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Fonction de transfert}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\[
-    e^{-(\tau+a)p}=e^{-\tau p}e^{-ap}=e^{-\tau p}\left(1-ap\right)
-\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Forme canonique d'une fonction de transfert du premier ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de l'équation différentielle nous amène à définir
+la fonction de transfert :
 \[
-    e^{-(\tau+2a)p}=e^{-\tau p}e^{-ap}=e^{-\tau p}\left(1-2ap\right)
+    H(p)= \dfrac{S(p)}{E(p)}=\dfrac{b_0}{a_1p+a_0}
 \]
-
+sous forme canonique elle s'écrit :
 \[
-    e^{-(\tau+a)p}-e^{-(\tau+2a)p}=ape^{-\tau p}
+    H(p)=\dfrac{b_0}{a_0\left(\dfrac{a_1}{a_0}p+1\right)}
 \]
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Par identification, les paramètres $K$ et $\tau$ sont données par 
 \[
-    \laplace{g_a(t)}=\dfrac{1}{a(\tau+a)}\left(\right)
+    \begin{cases}
+        K&=\dfrac{b_0}{a_0}\\[1.5em]
+     \tau&=\dfrac{a_1}{a_0}
+    \end{cases}
 \]
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+L'étude dimensionnelle de l'équation différentielle nous permet d'identifier
+les relations suivantes :
 \[
-    g_a(t)=\dfrac{t}{a(\tau+a)}\left(u(t)-u(t-(\tau+a))\right) - \left(\dfrac{t-(\tau+2a)}{a(\tau+a)}\right)\left(u(t-(\tau+a))-u(t-(\tau+2a))\right)
+    [a_1][s(t)] T^{-1} = [a_0][s(t)] = [b_0][e(t)].
 \]
-
+Ainsi $\tau$ a toujours la dimension d'un temps quelque soit la dimension des 
+signaux d'entrée  $e(t)$ et de sortie $s(t)$.
 \[
-    \laplace{g_a(t)}=\dfrac{1}{a(\tau+a)p^2}\left(1-e^{-(\tau+a)p}\right) - \dfrac{1}{a(\tau+a)}\left(\dfrac{1}{p^2}-\dfrac{(\tau+2a)}{p}\right)\left(e^{-(\tau+a)p}-e^{-(\tau+2a)p}\right)
+    [\tau] = \dfrac{[a_1]}{[a_0]}= T.
 \]
+La dimension du paramètre $K$ dépend elle du rapport des dimensions de ces 
+signaux. En effet,
+\[
+    [K]=\dfrac{[b_0]}{[a_0]}=\dfrac{[s(t)]}{[e(t)]}
+\]
+On peut dire que la dimension de la fonction de transfert est donnée par 
+le paramètre $K$.
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Carte des pôles d'une fonction de transfert}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+D'après la carte des pôles et zéros, le système est composé de trois zéros
+$p_1=-3$, $p_2=-1+2j$ et $p_3=-1-2j$ et de deux zéros $z_1=-5+j$ et $z_2=-5-j$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La forme factorisée de la fonction de transfert est alors donnée par 
+\[
+    H(p)=3\dfrac{(p-z_1)(p-z_2)}{(p-p_1)(p-p_2)(p-p_3)}
+\]
+ou encore en développant les différents termes,
+\[
+    H(p)=3\dfrac{(p+5+j)(p+5-j)}{(p+3)(p+1+2j)(p+1-2j)}
+        %=3\dfrac{p^2+10p+26}{(p+3)(p^2+2p+5)}
+        =3\dfrac{p^2+10p+26}{p^3+5p^2+11p+15}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La forme canonique de $H(p)$ est donnée par 
+\[
+    H(p)=\dfrac{26}{5}\dfrac{\frac{1}{26}p^2+\frac{10}{26}p+1}
+                            {\frac{1}{15}p^3+\frac{1}{3}p^2+\frac{11}{15}p+1}
+\]
+On alors à faire à un système d'ordre 3 de classe 0 et de gain statique 
+de valeur 5.2. 
+
+
+

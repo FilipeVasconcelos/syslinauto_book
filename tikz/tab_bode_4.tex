@@ -1,0 +1,20 @@
+        \begin{tikzpicture}
+            \begin{axis}[
+                    width=\linewidth,
+                    axis line style = thick,
+                    axis x line=middle,
+                    axis y line=middle,
+                    xmin=-5,xmax=20,
+                    ymin=-180,ymax=45,
+                    xlabel={ $\log\omega$},
+                    ylabel={ $\phi(\omega)$},
+                    xlabel style={above},
+                    ylabel style={left},
+                    xticklabels={},
+                    xtick={},
+                    yticklabels={$-\alpha\dfrac{\pi}{2}$},
+                    ytick={-90},
+                ]
+                \addplot[ultra thick,col4,domain=0:20] {-90};
+            \end{axis}
+        \end{tikzpicture}

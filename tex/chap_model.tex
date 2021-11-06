@@ -32,7 +32,7 @@ Ces modèles reflètent les différentes équations différentielles et
 systèmes physiques généralement rencontrés dans la nature.
 Les deux plus importants sont les systèmes du premier et second ordre 
 qui seront pour cette raison examiner en détail. 
-Les autres systèmes (i.e gain, intégrateur, dérivateur et retard) 
+Les autres systèmes (c.-à-d. gain, intégrateur, dérivateur et retard) 
 sont des systèmes modèles théoriques qui ne présentent en générale qu'en 
 présence des systèmes du premier ou du second ordre. Nous voulons ici simplement
 établir l'effet de ces modèles théoriques sur la réponse temporelles.
@@ -65,9 +65,9 @@ de leurs réponses temporelles.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du premier ordre!définition}
-Un système du premier ordre est un système régit par une équation
+Un système du premier ordre est un système régi par une équation
 différentielle linéaire à coefficients constants du premier ordre 
-(i.e $n=1$ pour l'\cref{eq-difflci}), de la forme générale :
+(c.-à-d. $n=1$ pour l'\cref{eq-difflci}), de la forme générale :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     \tau\devi{s(t)}{}+s(t)=K e(t)\label{eq-1er}
@@ -116,11 +116,8 @@ déterminé par la résolution de l'équation :
 \begin{marginfigure}
     \centering
     \resizebox{\marginparwidth}{!}{
-    \begin{tikzpicture}
-        \carte[l][-1.75]
-        \dpole{-1.5}{0}{1}[col1]
-        \node[above,yshift=1em] at (p1) {$\tau$};
-    \end{tikzpicture}%
+    \tikzsetnextfilename{carte_1er-chap_model-ext}
+    \input{tikz/carte_1er-chap_model}
     }
     \caption*{Carte des pôles et zéros d'un système du premier ordre}
 \end{marginfigure}
@@ -212,7 +209,7 @@ au carré de la constante de temps du système $\tau$.
 
 Le~\cref{tab-1er_imp} donne quelques valeurs particulières de la réponse 
 impulsionnelle. D'après celui-ci, on constate que le temps $t_{5\%}$ de 
-réponse à 5\% est de l'ordre de 3$\tau$ (i.e $-\log{5\%}$). Le transitoire 
+réponse à 5\% est de l'ordre de 3$\tau$ (c.-à-d. $-\log{5\%}$). Le transitoire 
 est lui de l'ordre de $7\tau$ (c'est à dire le temps à partir duquel on 
 considère que le signal est nul).
 %-------------------------------------------------------------------------------
@@ -367,7 +364,7 @@ temporelle $s(t)$. On constate alors que $s'(0)=0$ quelque soit $\tau$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du second ordre!définition}
-Un système du second ordre est un système régit par une équation 
+Un système du second ordre est un système régi par une équation 
 différentielle du second ordre de forme générale :
 \[
 \devi{s(t)}{2}+2\xi\omega_0\devi{s(t)}{}+\omega^2_0s(t)=K\omega^2_0e(t)
@@ -877,7 +874,7 @@ en fonction du taux d'amortissement. Nous avons alors procéder par une
 méthode numérique, qui pourra constituer un exercice de travaux pratiques  
 sous Scilab (\Cref{annexe-scilab}). 
 La~\cref{fig-2nd_temps_reponse} présente la variation du temps de 
-réponse à 5\% réduit à la pulsation (i.e $\omega_0\cdot t_{5\%}$ ) 
+réponse à 5\% réduit à la pulsation (c.-à-d. $\omega_0\cdot t_{5\%}$ ) 
 en fonction du taux d'amortissement $\xi$. On observe un minimum du 
 temps de réponse pour $\xi\sim 0.7$
 %-------------------------------------------------------------------------------
@@ -1101,7 +1098,7 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+
     \input{tikz/2nd_ramp-chap_model.tex}
     \caption{Réponse à une rampe d'un système du second ordre en 
             (bleu) régime apériodique avec $\xi=2$, 
-            (vert) régime apériodique critique (i.e $\xi=1$) et en 
+            (vert) régime apériodique critique (c.-à-d. $\xi=1$) et en 
             (rouge) régime pseudo-périodique avec $\xi=0.1$. 
             Avec $\omega_0=1$, $K=1$ et $E_0=1$. \label{fig-2nd_ramp}}
 \end{figure}
@@ -1242,7 +1239,7 @@ s(t)=K\delta(t)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Retard pur}
-Un système régit par l'équation différentielle :
+Un système régi par l'équation différentielle :
 \[
 s(t)=e(t-\tau)
 \]
@@ -1253,7 +1250,7 @@ est dit à retard pur et sa fonction de transfert est de la forme :
 \end{bequation}
 %-------------------------------------------------------------------------------
 Les réponses temporelles sont donc de mêmes natures que 
-leurs solliciations, elles sont simplement retardés de $\tau$.
+leurs solliciations, elles sont simplement retardées de $\tau$.
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1308,7 +1305,7 @@ d'une somme de systèmes du 1er et second ordre.
 H(p)=\sum_i H_i(p)
 \]
 La réponse temporelle $s(t)$ d'un tel système sortie est alors la somme 
-des réponses de chacuns des sous systèmes $H_i(p)$
+des réponses de chacun des sous systèmes $H_i(p)$
 \[
 s(t)=\sum_i s_i(t)
 \]
@@ -1342,7 +1339,7 @@ respectivement pour paramètres ($K_1=0.25$,$\tau_1=1$),
 ($K_2=1/3$,$\tau_2=1/3$) et ($K_3=-0.25$,$\tau_3=0.2$)
 
 Pour la réponse indicielle à un échelon d'amplitude $E_0$ les 
-réponses $s_i(t)$ de chacunes de ces fonctions de transferts sont de la 
+réponses $s_i(t)$ de chacune de ces fonctions de transferts sont de la 
 forme :
 \[
 s_i(t)=K_iE_0\left(1-e^{-t/\tau_i}\right)
@@ -1355,14 +1352,14 @@ s(t)=\sum_i s_i(t) =
 \dfrac{E_0}{4}\left(1-e^{-5t}\right)
 \]
 La valeur finale est donnée par la somme algébrique des valeurs finales de 
-chacunes des fonctions de transfert.
+chacune des fonctions de transfert.
 
 Cependant, les propriétés telle que le temps de réponse, 
 les pseudo-oscillation (dans le cas de système du second ordre) 
 le dépassement ou encore la stabilité sont gouvernées 
 par la fonction de transfert de temps caractéristique le plus grand. 
 L'influence des pôles dominants seront traités lors de l'étude 
-de chacunes des performances attendues par non système asservis.
+de chacune des performances attendues par non système asservis.
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1385,23 +1382,41 @@ de chacunes des performances attendues par non système asservis.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \acplhp
-%\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Modèle de Broïda}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\acplhp 
+c.f \url{http://w3.cran.univ-lorraine.fr/perso/hugues.garnier/
+Enseignement/Auto/C-Auto-Analyse.pdf}
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section*{Exercices du chapitre}
+\section{Exercices du chapitre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\newpage
+\small
+\input{tex/exercices_chap_model.tex}
+\setcounter{numexos}{0}
+\normalsize
+\newpage
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section*{Corrigé des exercices}
+\section{Corrigé des exercices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\small
+\input{tex/exercices_corriges_chap_model.tex}
+\normalsize
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

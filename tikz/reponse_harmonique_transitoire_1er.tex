@@ -1,0 +1,33 @@
+\begin{tikzpicture}
+    \pgfmathsetmacro{\tu}{10.0}
+    \pgfmathsetmacro{\ww}{1}
+    \pgfmathsetmacro{\xmax}{35}
+    \pgfmathsetmacro{\tw}{\tu*\ww}
+    \pgfmathsetmacro{\kk}{7}
+    \pgfmathsetmacro{\ee}{1.0}
+    \pgfmathsetmacro{\uu}{1+\tw*\tw}
+    \pgfmathsetmacro{\hh}{\kk/sqrt(\uu)}
+    \pgfmathsetmacro{\ttt}{\tw*\kk*\ee/\uu}
+    \begin{axis}
+    [   ticks=none,
+        axis line style = thick,
+        height=6cm,
+        width=0.9\linewidth,
+        axis x line=center,
+        axis y line=center,
+        xmin=-2,
+        xmax=\xmax,
+        ymin=-1.5,
+        ymax=1.75,
+        xlabel={$t$},
+        ylabel={\textcolor{col4}{$s(t)$} \textcolor{col1}{$e(t)$}},
+        xlabel style={below right},
+        ylabel style={right},
+    ]
+    \addplot[signalb,domain=0:\xmax] {sin(\ww*deg(x))};
+    \addplot[signalr,domain=0:\xmax] 
+    {\ee*\hh*sin(\ww*deg(x)+atan(\tw))+\ttt*exp(-x/\tu)};
+    \draw[col2,dashed] (axis cs:0,\hh)  -- (axis cs:\xmax,\hh);
+    \draw[col2,dashed] (axis cs:0,-\hh) -- (axis cs:\xmax,-\hh);
+    \end{axis}
+\end{tikzpicture}

@@ -1,0 +1,26 @@
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=\linewidth,
+    height=0.18\textheight,
+    ylabel={Gain (dB)},
+    xlabel={Pulsation (rad/s)},
+    xtick={1e-1,1,1e1}, 
+    ytick={-4,-3,-2,-1,0,1,2}, 
+    xticklabels={$10^{-1}$,$10^{0}$,$10^{1}$},
+    yticklabels={-4,-3,-2,-1,0,1,2}, 
+    xmode=log,ymode=normal,
+    xmin=1e-1, xmax=2e0,
+    ymin=-4, ymax=1,
+    grid=both,
+    major grid style={black!40}
+]
+    \addplot[ultra thick,col1,domain=1e-3:1e3, samples=101] 
+    {-20*log10(sqrt(1+x*x))};
+    \addplot[line width=2pt,col5,dashed,domain=1e-1:1e0, samples=101] {0};
+    \addplot[line width=2pt,col5,dashed,domain=1e0:1e1, samples=101] 
+    {-20*log10(x)};
+    \draw[col3,ultra thick,-latex] (axis cs:0.1,-3) -- 
+    node[above,midway,col3] {\footnotesize bande passante} (axis cs:1,-3);
+\end{axis}
+\end{tikzpicture}

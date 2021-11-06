@@ -1,0 +1,35 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{a}{E}
+    \sbRelier[$E$]{E}{a}
+    \sbBloc{b}{$H_1$}{a}
+    \sbRelier{a}{b}
+    \sbComp{c}{b}
+    \sbRelier{b}{c}
+    \sbBlocL{d}{$H_2$}{c}
+    \sbComph{e}{d}
+    \sbRelier{d}{e}
+    \sbBlocL{f}{$H_3$}{e}
+    \sbBlocL{g}{$H_4$}{f}
+    \sbSortie[5]{S}{g}
+    \sbRelier{g}{S}
+    \sbDecaleNoeudy[-4]{g}{u}
+    \sbBlocr{g4}{$G_4$}{u}
+    \sbRelierxy{g4}{e}
+    \sbRelieryx{g-S}{g4}
+    \sbNomLien[0.8]{S}{$S$}
+    \sbDecaleNoeudy{e}{v}
+    \sbBlocr[2.5]{g3}{$G_3$}{v}
+    \sbRelieryx{f-g}{g3}
+    \sbRelierxy{g3}{c}
+    \sbDecaleNoeudy[9]{e}{w}
+    \sbBlocr[2.5]{g2}{$G_2$}{w}
+    \sbRelieryx{f-g}{g2}
+    \sbCompSum[-5]{h}{g2}{}{-}{}{+}
+    \sbRelier{g2}{h}
+    \sbRelierxy{h}{a}
+    \sbDecaleNoeudy[13]{e}{x}
+    \sbBlocr[2.5]{g1}{$G_1$}{x}
+    \sbRelierxy{g1}{h}
+    \sbRelieryx{g-S}{g1}
+\end{tikzpicture}

@@ -1,0 +1,50 @@
+\begin{tikzpicture}
+    \def\rr{1.6}
+    \pgfmathsetmacro\ymax{\rr+0.2}
+    \begin{axis}
+    [
+        ticks=none,
+        axis line style = thick,
+        axis lines = center,
+        height=6cm,
+        width=6cm,
+        xlabel=$\Re{H_1(p)}$,
+        ylabel=$\Im{H_1(p)}$,
+        xlabel style={below left,xshift=-1em},
+        ylabel style={above,yshift=0.5em,xshift=2em},
+        ymin=-0.6,
+        ymax=0.6,
+        xmin=-0.1,
+        xmax=1.1,
+        clip=false
+    ]
+    \def\ttt{1.0}
+    \addplot[col1,very thick,-{Latex[length=2.5mm]},domain=0:0.9,samples=201] 
+    ({1/(1+\ttt*x*x)},{-x/(1+\ttt*x*x)});
+    \addplot[col1,very thick,domain=0.89:10,samples=201] 
+    ({1/(1+\ttt*x*x)},{-x/(1+\ttt*x*x)});
+    \addplot[col1,very thick,domain=10:20,samples=201] 
+    ({1/(1+\ttt*x*x)},{-x/(1+\ttt*x*x)});
+    \addplot[dashed,col1,very thick,domain=0:0.9,samples=201] 
+    ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
+    \addplot[dashed,col1,very thick,domain=0.89:10,samples=201,
+    {Latex[length=2.5mm]}-] 
+    ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
+    \addplot[dashed,col1,very thick,domain=10:20,samples=201] 
+    ({1/(1+\ttt*x*x)},{x/(1+\ttt*x*x)});
+    \draw[draw=none,fill=col4] (axis cs:0,0) circle[radius=2pt] 
+    node[above left,col4] {\textbf{II}};
+    \node[right,xshift=0.5em,col1] at (axis cs:{0.9*cos(30)},{0.9*sin(30)}) 
+    {\textbf{III}};
+    \node[right,xshift=0.5em,col1] at (axis cs:{0.9*cos(30)},{-0.9*sin(30)}) 
+    {\textbf{I}};
+    \node[right,col4] at (axis cs:{0.1*cos(90)},{0.1*sin(90)}) 
+    {\scriptsize $p\rightarrow-j\infty$};
+    \node[right,col4] at (axis cs:{0.1*cos(-90)},{0.1*sin(-90)}) 
+    {\scriptsize $p\rightarrow+j\infty$};
+    \node[col1] at (axis cs:{1.15*cos(10)},{1.2*sin(10)})   
+    {\scriptsize $p\rightarrow0^-$};
+    \node[col1] at (axis cs:{1.15*cos(-10)},{1.2*sin(-10)}) 
+    {\scriptsize $p\rightarrow0^+$};
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+    \sbEntree{E1}
+    \sbStyleBloc{col3}
+    \sbBloc[6]{B1}{$\dfrac{1}{\tau_i p}$}{E1}
+    \sbRelier{E1}{B1}
+    \sbDecaleNoeudy[-4]{B1}{r1}
+    \sbStyleBloc{col4}
+    \sbBloc[-1.6]{B2}{$k_p$}{r1}
+    \sbRelieryx{E1-B1}{B2.west}
+    \sbDecaleNoeudy[4]{B1}{r2}
+    \sbStyleBloc{col1}
+    \sbBloc[-1.6]{B3}{$\tau_d p$}{r2}
+    \sbRelieryx{E1-B1}{B3.west}
+    \sbCompSum[5]{C1}{B1}{+}{+}{+}{ }
+    \sbRelier{B1}{C1}
+    \sbRelierxy{B2}{C1}
+    \sbRelierxy{B3}{C1}
+    \sbSortie[3]{S1}{C1}
+    \sbRelier[$U(p)$]{C1}{S1}
+    \node at (E1|-1.0,0.35) {$\epsilon(p)$};
+    \node at ($(B2)+(0.9,0.7)$) {\textcolor{col4}{P}};
+    \node at ($(B1)+(0.9,0.7)$) {\textcolor{col3}{I}};
+    \node at ($(B3)+(0.9,0.7)$) {\textcolor{col1}{D}};
+\end{tikzpicture}

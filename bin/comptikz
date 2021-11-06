@@ -1,6 +1,14 @@
 #!/bin/bash
 [ ! -d standalone ] && mkdir standalone
 name=$1
+land=$2
+echo ${land}
+if [ -z "$land" ]
+then
+    land=0
+else
+    land=1
+fi
 for file in $name 
 do
     basenameextension=${file##*/}
@@ -12,6 +20,7 @@ do
 cat > standalone/${texname}.tex <<EOF
 \documentclass[a4paper]{article}
 \usepackage[a4paper,headheight=16pt]{geometry}
+\usepackage{ifthen}
 \usepackage{siunitx}
 \usepackage{siunitxfmv}
 \usepackage{amsmath}
@@ -41,19 +50,35 @@ cat > standalone/${texname}.tex <<EOF
 \usetikzlibrary{babel} 
 \usetikzlibrary{decorations.text}
 \usetikzlibrary{matrix}
-\usetkzobj{all}
+%\usetkzobj{all}
 \usepackage{verbatim}
 \usepackage{poles}
-\begin{document}
 EOF
+if [ "$land" -eq 1 ]
+then
+    echo "\usepackage{lscape}" >> standalone/${texname}.tex
+    echo "\begin{document}" >> standalone/${texname}.tex
+else
+    echo "\begin{document}" >> standalone/${texname}.tex
+fi
+    if [ "$land" -eq 1 ]
+    then
+        echo "\begin{landscape}" >> standalone/${texname}.tex
+    fi
     echo "\begin{figure}[!h]" >> standalone/${texname}.tex
     echo "\centering"         >> standalone/${texname}.tex
     cat $file                 >> standalone/${texname}.tex
     echo ""                   >> standalone/${texname}.tex  
     echo "\verb?$file?"       >> standalone/${texname}.tex  
     echo "\end{figure}"       >> standalone/${texname}.tex  
+    if [ "$land" -eq 1 ]
+    then
+        echo "\end{landscape}" >> standalone/${texname}.tex
+    fi
     echo "\end{document}"     >> standalone/${texname}.tex
     latex -output-directory standalone standalone/${texname}.tex
     dvips -o standalone/${texname}.ps standalone/${texname}.dvi #&> /dev/null
     ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None standalone/${texname}.ps standalone/${texname}.pdf #&> /dev/null 
 done
+mupdf standalone/${texname}.pdf
+

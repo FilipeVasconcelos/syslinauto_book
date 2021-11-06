@@ -1,0 +1,33 @@
+\begin{tikzpicture}
+\begin{axis}
+    [
+    axis lines=center,
+    axis line style = thick,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
+    ymin=-20,
+    ymax=+20,
+    xmin=-1.25,
+    xmax=+0.2,
+    clip=false,
+    grid=both,
+    x label style={below right},
+    y label style={above left},
+    xticklabels={\empty,-1.0,-0.8,-0.6,-0.4,-0.2,\empty,\empty},
+    xtick={-1.2,-1.0,-0.8,-0.6,-0.4,-0.2,0.2},
+    ]
+    \addplot [col1,ultra thick,domain=0.05:0.1,samples=100,-{Latex[length=3mm]}]
+    ({-1/(1+x*x)},{-(1/x)/(1+x*x)}); 
+    \addplot [col1,ultra thick,domain=0.09:1.0,samples=100]
+    ({-1/(1+x*x)},{-(1/x)/(1+x*x)}); 
+    \addplot [col1,ultra thick,domain=0.9:10.0,samples=100]
+    ({-1/(1+x*x)},{-(1/x)/(1+x*x)}); 
+    \addplot [col2,ultra thick,domain=-0.1:-0.05,samples=100,-{Latex[length=3mm]}]
+    ({-1/(1+x*x)},{-(1/x)/(1+x*x)}); 
+    \addplot [col2,ultra thick,domain=-1.0:-0.09,samples=100]
+    ({-1/(1+x*x)},{-(1/x)/(1+x*x)}); 
+    \addplot [col2,ultra thick,domain=-10.0:-0.9,samples=100]
+    ({-1/(1+x*x)},{-(1/x)/(1+x*x)}); 
+
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,39 @@
+\begin{tikzpicture}
+    \pgfmathsetmacro{\t}{10}             
+    \begin{axis}
+    [   height=7.5cm,
+        width=10cm,
+        grid=both,
+        minor tick num=4,
+        xmin=0,
+        xmax=\t,
+        ymin=-4,
+        ymax=2.0,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+    ]
+    \addplot [very thick,col1,domain=-1:0, samples=101]{0};
+    \pgfmathsetmacro{\a}{1.0}             
+    \pgfmathsetmacro{\b}{3.0}
+    \pgfmathsetmacro{\c}{1.5}
+    \pgfmathsetmacro{\d}{1.0}
+    \pgfmathsetmacro{\su}{-10.0}
+    \pgfmathsetmacro{\dis}{\b*\b-4*\a*\c}
+    \pgfmathsetmacro{\ru}{(-\b-sqrt(\dis))/(2*\a)}
+    \pgfmathsetmacro{\rd}{(-\b+sqrt(\dis))/(2*\a)}
+    \pgfmathsetmacro{\dr}{\ru-\rd}
+    \foreach\sz [count=\xi] in {-2,-1.8,...,3.0}
+    {
+        \pgfmathsetmacro{\lu}{-(\rd*(\sz-\d)-\su)/\dr}
+        \pgfmathsetmacro{\ld}{ (\ru*(\sz-\d)-\su)/\dr}
+        \ifthenelse{\equal{\xi}{11}}{%
+            \addplot[signalr,ultra thick,domain=0:\t] 
+            {\d+\lu*exp(\ru*x)+\ld*exp(\rd*x)};
+        }%
+        {\addplot[signalb,thin,domain=0:\t] 
+        {\d+\lu*exp(\ru*x)+\ld*exp(\rd*x)}; 
+        }
+    }
+    \end{axis}
+    \node[] at (9,4.5) {$\dfrac{d}{c}$};
+\end{tikzpicture}

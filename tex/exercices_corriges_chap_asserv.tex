@@ -1,0 +1,105 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Régulation de la température d'une enceinte}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On considère un système de chauffage qui doit faire passer la température 
+d'une enceinte de $\theta_a$  (température ambiante) à $\theta_e$ (température 
+de l'enceinte). 
+La puissance totale $P_1$ fournie à la resistance de chauffage 
+est proportionnelle de gain $A=\SI{200}{\watt\per\volt}$ à la tension de 
+commande $u_c$. La puissance $P_2$ permettant de chauffer l'enceinte est 
+telle que 
+\[
+    P_2=MC\devi{\theta_e-\theta_a}{}
+\]
+où $M$ est la masse du matériau de l'enceinte et $C$ sa capacité calorifique.
+La puissance perdue $P_3$ par l'enceinte est telle que :
+\[
+    P_3=\dfrac{\theta_e-\theta_a}{R}
+\]
+où $R$ est la résistance thermique de l'enceinte.
+Le bilan de puissance s'exprime donc par la relation $P_2=P_1-P_3$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+En posant $P_1=Au_c$, $\Delta\theta(t)=\theta_e(t)-\theta_a(t)$ et en utilisant
+la relation $P_2=P_1-P_3$, on obtient 
+\[
+    MC\devi{\Delta\theta(t)}{}+\dfrac{1}{R}\Delta\theta(t)=Au_c(t)
+\]
+sous forme canonique on obtient :
+\[
+    MCR\devi{\Delta\theta(t)}{}+\Delta\theta(t)=ARu_c(t)
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de l'équation différentielle précédente, nous donne:
+\[
+    (MCRp+1)\Delta\theta(p)=AR U_c(p)
+\]
+On détermine la fonction de transfert en boucle ouverte $H(p)$ telle que :
+\[
+    H(p)=\dfrac{AR}{MCRp+1} U_c(p)
+\]
+On identifie donc les paramètres du premier ordre :
+\[
+    K=AR
+\]
+et
+\[
+    \tau=MCR
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Le temps de réponse à 5\% ($\sim 3\tau$) est de \SI{180}{\second}. 
+On a donc $\tau=\SI{60}{\second}$. 
+La valeur finale de la réponse indicielle d'un système du premier ordre est 
+$KE_0$ où $K$ est le gain statique et $E_0$ la valeur de l'amplitude de 
+l'échelon. Ici cette valeur finale est de \SI{60}{\celsius} (c'est à dire 
+$\SI{80}{\celsius} -\SI{20}{\celsius}$) pour un $E_0=\SI{5}{\volt}$
+Donc $K=\SI{12}{\celsius\per\volt}$
+
+On écrit $H(p)$ sous la forme numérique :
+\[
+    H(p)=\dfrac{12}{1+60p}
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\[
+    G(p)=\dfrac{H(p)}{1+B(p)H(p)}
+\]
+\[
+    G(p)=\dfrac{K}{\tau p+1+BK}=\dfrac{\dfrac{K}{1+BK}}{\dfrac{\tau}{1+BK}p+1}
+\]
+On identifie les paramètres du premier ordre de la fonction de transfert en 
+boucle fermée :
+\[
+    K_{BF}=\dfrac{K}{1+BK}=\SI{7.5}{\celsius\per\volt}
+\]
+et
+\[
+    \tau_{BF}=\dfrac{\tau}{1+BK}=\SI{37.5}{\second}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour atteindre une différence de température de \SI{60}{\celsius}, il faut une 
+tension de commande de $u_c=\dfrac{60}{7.5}=\SI{8}{\volt}$
+Le temps de réponse à 5\% est d'environ $3\tau_{BF}=\SI{112.5}{\second}$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Déterminer l'écart statique (c'est à dire $u_c(\infty)-u_r(\infty)$) 
+dans ces conditions.\textbf{(1pt)}}
+\[
+    u_c(\infty)-u_r(\infty)=\SI{8}{\volt}-0.05\SI{60}{\celsius}=\SI{5}{\volt}
+\]

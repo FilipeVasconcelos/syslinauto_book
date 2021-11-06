@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+    \begin{scope}[local bounding box=scope1]
+        \sbEntree{E1}
+        \sbBloc[3]{B1}{\Large$\Sigma$}{E1}
+        \node[] at ($(E1.west)+(-0.5,-0.9cm)$) {Si};
+        \sbRelier[$e_1(t)$]{E1}{B1}
+        \sbSortie[3]{S1}{B1}
+        \sbRelier[$s_1(t)$]{B1}{S1}
+    \end{scope}
+    \begin{scope}[local bounding box=scope2,shift={($(E1)+(0,-2cm)$)}]
+        \sbEntree{E2}
+        \sbBloc[3]{B2}{\Large$\Sigma$}{E2}
+        \sbRelier[$e_2(t)$]{E2}{B2}
+        \sbSortie[3]{S2}{B2}
+        \sbRelier[$s_2(t)$]{B2}{S2}
+    \end{scope}
+    \draw[thick,decorate,decoration={brace}] 
+    ($(scope2.south west)+(0,0)$) -- ($(scope1.north west)+(0.8,0)$) ;
+    \begin{scope}[shift={($(scope1.east)+(1.5,-0.7)$)}]
+        \sbEntree{E3}
+        \node[] at ($(E3.west)+(-0.5,0)$) {alors};
+        \sbBloc[6]{B3}{\Large$\Sigma$}{E3}
+        \sbRelier[$e_1(t)+e_2(t)$]{E3}{B3}
+        \sbSortie[6]{S3}{B3}
+        \sbRelier[$s_1(t)+s_2(t)$]{B3}{S3}
+    \end{scope}
+\end{tikzpicture}

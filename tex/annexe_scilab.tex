@@ -16,19 +16,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Scilab est un logiciel libre
-de calcul numérique fournissant un environnement de
-calcul pour des applications scientifiques. 
-Il est utilisé pour le traitement 
-du signal, l'analyse statistique, 
-le traitement d'images, les simulations de 
-dynamique des fluides, l'optimisation numérique, et la 
-modélisation et simulation de systèmes dynamiques.
+Scilab est un logiciel libre de calcul numérique fournissant un environnement de
+calcul pour des applications scientifiques. Il est utilisé pour le traitement 
+du signal, l'analyse statistique, le traitement d'images, les simulations de 
+dynamique des fluides, l'optimisation numérique, et la modélisation et 
+simulation de systèmes dynamiques.
 
-La syntaxe et les possibilités offertes par Scilab sont 
-similaires à celles de Matlab.
-
-Scilab peut exécuter des instructions en ligne de commande, ainsi que 
+La syntaxe et les possibilités offertes par Scilab sont similaires à celles 
+de Matlab. Scilab peut exécuter des instructions en ligne de commande, ainsi que
 des fichiers de commande (scripts) contenant des instructions (format texte). 
 On peut exécuter des programmes Fortran ou C à partir de Scilab.
 Scilab est complété par un environnement graphique Xcos comparable 
@@ -252,8 +247,8 @@ Pour définir un vecteur ligne :
  
     1.    2.    3.
 
--->v=1:0.5:4           // a:incr:b
- v  =                  // vecteur allant de a à b par incrément de incr
+-->v=1:0.5:4        // a:incr:b
+ v  =               // de a à b par incrément de incr
  
     1.    1.5    2.    2.5    3.    3.5    4.
 \end{Scilabcode}
@@ -503,6 +498,7 @@ donc être tracé avec la fonction \verb?plot2d?.
     \caption{Capture d'écran de la fenêtre générée par Scilab}
 \end{figure}
 %-------------------------------------------------------------------------------
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -539,7 +535,7 @@ title('fonction cosinus',"fontsize",4);
 %-------------------------------------------------------------------------------
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.8\textwidth]{fig/capture_SCILAB.eps}
+    \includegraphics[width=0.6\textwidth]{fig/capture_SCILAB.eps}
     \caption{Capture d'écran de la fenêtre graphique générée 
              par Scilab.\label{fig-capture-SCILAB}}
 \end{figure}
@@ -554,7 +550,7 @@ dans différents formats (vectorielle ou matricielle).
 Nous renvoyons au lecteur à la documentation de Scilab pour
 cet aspect. Il est également possible d'éditer une image en accédant
 au menu de la fenêtre graphique après l'avoir générée.
-\clearpage
+%\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -726,7 +722,7 @@ s2=csim(e2,t,PO)           // réponse impulsionnelle du sl PO
 \end{Scilabcode}
 %-------------------------------------------------------------------------------
 Pour toute autre fonction, on donnera le vecteur de la fonction explicitement. 
-Par exemple pour la réponse à une rampe unitaire on donnera simplement 
+Par exemple, pour la réponse à une rampe unitaire on donnera simplement 
 le vecteur \verb?t?. \`A noter que pour la réponse indicielle, nous aurions 
 pu utiliser la fonction \verb?ones? :
 %-------------------------------------------------------------------------------
@@ -816,7 +812,7 @@ plzr(H)
 %-------------------------------------------------------------------------------
 \begin{figure}[!b]
     \centering
-    \includegraphics[width=0.8\textwidth]{fig/capture_SCILAB-plzr.eps}
+    \includegraphics[width=0.6\textwidth]{fig/capture_SCILAB-plzr.eps}
     \caption{Capture d'écran de la carte des pôles générée par Scilab}
 \end{figure}
 %-------------------------------------------------------------------------------
