@@ -1,0 +1,209 @@
+\pagestyle{empty}
+\newgeometry{left=1.75cm,right=1.75cm,top=1.75cm,bottom=1.75cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Système du premier ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Définition d'un système du premier ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Système du premier ordre!définition}
+Un système du premier ordre est un système régi par une équation
+différentielle linéaire à coefficients constants du premier ordre 
+(c.-à-d. $n=1$ pour l'\cref{eq-difflci}), de la forme générale :
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    \tau\devi{s(t)}{}+s(t)=K e(t)\label{eq-1er}
+\end{bequation}
+%-------------------------------------------------------------------------------
+où \textbf{$K$ est le gain statique} et \textbf{$\tau>0$ la constante de 
+temps du système}. La condition sur le signe de $\tau$ sera 
+discutée au moment de l'établissement des réponses temporelles.
+L'analyse dimentionnelle de cette équation différentielle, nous permet 
+de confirmer que $\tau$ à la dimension d'un temps, mais surtout que 
+la dimension du gain statique est donnée par le rapport des dimensions de 
+la sortie sur l'entrée. Autrement dit, c'est un paramètre sans dimension 
+si l'entrée et la sortie sont de même nature.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Fonction de transfert d'un système du premier ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Système du premier ordre!fonction de transfert}
+La transformée de Laplace de l'\cref{eq-1er}, dans les conditions de 
+Heaviside, nous donne :
+\[
+\tau pS(p)+S(p)=KE(p)
+\]
+La fonction de transfert $H(p)$ d'un système du premier ordre est 
+donc de la forme:
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    H(p)=\dfrac{S(p)}{E(p)}=\dfrac{K}{\tau p + 1}\label{eq-ft1er}
+\end{bequation}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Pôle de la fonction de transfert du premier ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Un système du premier ordre ne possède qu'un seul pôle qui est trivialement 
+déterminé par la résolution de l'équation :
+\[
+\tau p + 1 =0
+\]
+ce pôle $p_1=-\dfrac{1}{\tau}$ est donc réel négatif pour $\tau>0$.
+La fonction de transfert d'un système du premier peut alors s'écrire 
+sous la forme factorisée suivante
+\[
+H(p)=\dfrac{K}{(p-p_1)}=\dfrac{K}{\tau\left(p+\dfrac{1}{\tau}\right)}.
+\]
+%-------------------------------------------------------------------------------
+\begin{figure}[b]
+    \centering
+    \tikzsetnextfilename{carte_1er-chap_model-ext}
+    \input{tikz/carte_1er-chap_model}
+\end{figure}
+%-------------------------------------------------------------------------------
+
+\clearpage
+\thispagestyle{empty}
+\captionsetup{width=\linewidth}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Réponse impulsionnelle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Système du premier ordre!réponse impulsionnelle}
+Nous condidérons une excitation impulsionnelle de la forme :
+\[
+e(t)=E_0\delta(t),
+\]
+où $\delta(t)$ est l'impulsion de Dirac et $E_0$ est une constante.
+
+La réponse impulsionnelle d'un système du premier ordre est, dans le 
+domaine de Laplace, de la forme :
+\[
+S(p)=H(p)E(p)=\dfrac{KE_0}{(\tau p+1)}.
+\]
+%\marginnote{$\dfrac{1}{(p+a)}\rightarrow e^{-at}$}[-2em]
+La transformée de Laplace inverse de $S(p)$ (c.f ligne 7 de la table des                                     transformées de Laplace), nous donne la forme générale de la réponse impulsionnelle 
+d'un système du premier ordre:
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    \laplacei{S(p)}=s(t)=\dfrac{KE_0}{\tau} e^{-t/\tau}\label{eq-1er_imp}.
+\end{bequation}
+%-------------------------------------------------------------------------------
+Cette réponse correspond à une simple exponentielle décroissante pour $\tau>0$.
+La~\cref{fig-1er_imp} présente la réponse impulsionnelle d'un système 
+du premier ordre pour différentes valeurs de la constante de temps $\tau$.
+On observe que pour $t\to\infty$, la valeur de $s(t)$ tend vers 0, ce qui 
+est caractéristique d'un système stable. Nous pouvons donc considérer que 
+$\tau$ est strictement positif pour une question de stabilité.  
+
+Il est également possible d'observer que la pente à l'origine dépend de la 
+constante de temps. La pente à l'origine peut être obtenue directement en 
+dérivant la réponse temporelle $s(t)$ 
+\[
+s'(0)=-\dfrac{KE_0}{\tau^2}
+\]      
+La pente à l'origine est négative et inversemment proportionnelle 
+au carré de la constante de temps du système $\tau$.
+
+Nous constatons que le temps $t_{5\%}$ de 
+réponse à 5\% est de l'ordre de 3$\tau$ (c.-à-d. $-\log{5\%}$). Le transitoire 
+est lui de l'ordre de $7\tau$ (c'est à dire le temps à partir duquel on 
+considère que le signal est nul).
+%-------------------------------------------------------------------------------
+\begin{figure}[!hb]
+    \centering
+    \tikzsetnextfilename{1er_imp1-chap_model-ext}
+    \input{tikz/1er_imp1-chap_model.tex}
+    \hfill
+    \tikzsetnextfilename{1er_imp2-chap_model-ext}
+    \input{tikz/1er_imp2-chap_model.tex}
+    \caption{Réponse impulsionnelle d'un système du premier ordre avec : 
+             $E_0=1$ et (gauche) différentes valeurs de la constante 
+             de temps $\tau$ pour $K=1$; (droite) différentes valeurs 
+             du gain $K$ pour $\tau=1$ (\Cref{eq-1er_imp}). 
+             \label{fig-1er_imp}}
+\end{figure}
+%-------------------------------------------------------------------------------
+\clearpage
+\thispagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Réponse indicielle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\index{Système du premier ordre!réponse indicielle}
+Pour déterminer la réponse indicielle, nous considérons une entrée 
+$e(t)$ en échelon telle que :
+\[
+e(t)=E_0\cdot u(t),
+\]
+où $u(t)$ est l'échelon unitaire et $E_0$ est une constante.
+
+Dans le domaine de Laplace la sortie est donc de la forme :
+\[
+S(p)=H(p)E(p)=\dfrac{KE_0}{p(1+\tau p)}=\dfrac{KE_0}{\tau p(p+\frac{1}{\tau})}
+\]
+%\marginnote{$\dfrac{a}{p(p+a)}\rightarrow 1-e^{-at}$}[-2em]
+La transformée de Laplace inverse de $S(p)$ (c.f ligne 11 de la table des                                     transformées de Laplace), nous donne la forme générale de la réponse 
+indicielle d'un système du premier ordre:
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    \laplacei{S(p)}=s(t)=KE_0\left(1-e^{-t/\tau}\right)\label{eq-1er_ind}
+\end{bequation}
+%-------------------------------------------------------------------------------
+La~\cref{fig-1er_ind} présente cette réponse indicielle pour 
+différentes valeurs de la constante de temps $\tau$.
+Pour $t\to\infty$, la valeur de $s(t)$ tend vers $KE_0$.
+%\footnote{Il est également possible 
+%de déterminer cette valeur en appliquant le théorème de la valeur finale 
+%sur la fonction dans le domaine de Laplace puisque 
+%$pS(p)$ ne possède qu'un seul pôle à partie réelle négative. 
+%Ainsi,
+%\[
+%\lim_{t\to\infty}s(t)=\lim_{p\to0}pS(p)=\lim_{p\to0}
+%\dfrac{KE_0}{\tau p+1}=KE_0
+%\]}.
+La pente à l'origine peut être obtenue directement en dérivant 
+la réponse temporelle $s(t)$
+\[
+s'(0)=\dfrac{KE_0}{\tau}
+\]
+La pente à l'origine est positive et inversemment proportionnelle 
+à la constante de temps du système.
+
+Le tableau sous la figure~\cref{fig-1er_ind} donne quelques valeurs particulières de la réponse 
+indicielle. D'après celui-ci, on constate que le temps de réponse à 
+5\% $t_{5\%}$ (temps au bout duquel la réponse indicielle atteint 95\% 
+du signal final) est donné par :
+\[
+t_{5\%}=-\tau\log{0.05}\sim3\tau.
+\]
+Le temps de montée $t_m$ (temps au bout duquel la réponse de 10\% 
+à 90\% du signal final) est donné par :
+\[
+t_m=-\tau\log{\dfrac{0.1}{0.9}}\sim2.2\tau
+\]
+%-------------------------------------------------------------------------------
+\begin{figure}[!hb]
+    \centering
+    \tikzsetnextfilename{1er_ind1-chap_model-ext}
+    \input{tikz/1er_ind1-chap_model.tex}
+    \hfill
+    \tikzsetnextfilename{1er_ind2-chap_model-ext}
+    \input{tikz/1er_ind2-chap_model.tex}
+    
+    \caption{Réponse indicielle d'un système du premier ordre avec : $E_0=1$ 
+             et (gauche) pour différentes valeurs de $\tau$ et avec $K=1$;
+	     (droite) pour différentes valeurs du gain $K$ et 
+             avec $\tau=1$.
+             \label{fig-1er_ind}}
+\end{figure}
+%-------------------------------------------------------------------------------
