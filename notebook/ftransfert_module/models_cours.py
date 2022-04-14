@@ -5,10 +5,10 @@ if __name__ == "__main__":
     from ftransfert import Ftransfert
     import sys
 
-    do_Int=False
+    do_Int=True
     do_Der=False
     do_1er=False
-    do_2nd=False
+    do_2nd=True
     if do_Int :
         gain=1
         num=lambda p : 1
