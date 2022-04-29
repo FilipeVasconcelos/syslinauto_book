@@ -92,8 +92,9 @@ domaine de Laplace, de la forme :
 S(p)=H(p)E(p)=\dfrac{KE_0}{(\tau p+1)}.
 \]
 %\marginnote{$\dfrac{1}{(p+a)}\rightarrow e^{-at}$}[-2em]
-La transformée de Laplace inverse de $S(p)$ (c.f ligne 7 de la table des                                     transformées de Laplace), nous donne la forme générale de la réponse impulsionnelle 
-d'un système du premier ordre:
+La transformée de Laplace inverse de $S(p)$ (c.f ligne 7 de la table des
+transformées de Laplace), nous donne la forme générale de la réponse 
+impulsionnelle d'un système du premier ordre:
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     \laplacei{S(p)}=s(t)=\dfrac{KE_0}{\tau} e^{-t/\tau}\label{eq-1er_imp}.
@@ -137,7 +138,9 @@ considère que le signal est nul).
 \clearpage
 \thispagestyle{empty}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Réponse indicielle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du premier ordre!réponse indicielle}
 Pour déterminer la réponse indicielle, nous considérons une entrée 
@@ -152,7 +155,8 @@ Dans le domaine de Laplace la sortie est donc de la forme :
 S(p)=H(p)E(p)=\dfrac{KE_0}{p(1+\tau p)}=\dfrac{KE_0}{\tau p(p+\frac{1}{\tau})}
 \]
 %\marginnote{$\dfrac{a}{p(p+a)}\rightarrow 1-e^{-at}$}[-2em]
-La transformée de Laplace inverse de $S(p)$ (c.f ligne 11 de la table des                                     transformées de Laplace), nous donne la forme générale de la réponse 
+La transformée de Laplace inverse de $S(p)$ (c.f ligne 11 de la table des
+transformées de Laplace), nous donne la forme générale de la réponse 
 indicielle d'un système du premier ordre:
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -179,10 +183,10 @@ s'(0)=\dfrac{KE_0}{\tau}
 La pente à l'origine est positive et inversemment proportionnelle 
 à la constante de temps du système.
 
-Le tableau sous la figure~\cref{fig-1er_ind} donne quelques valeurs particulières de la réponse 
-indicielle. D'après celui-ci, on constate que le temps de réponse à 
-5\% $t_{5\%}$ (temps au bout duquel la réponse indicielle atteint 95\% 
-du signal final) est donné par :
+Le tableau sous la figure~\cref{fig-1er_ind} donne quelques valeurs 
+particulières de la réponse indicielle. D'après celui-ci, on constate 
+que le temps de réponse à 5\% $t_{5\%}$ (temps au bout duquel la 
+réponse indicielle atteint 95\% du signal final) est donné par :
 \[
 t_{5\%}=-\tau\log{0.05}\sim3\tau.
 \]
