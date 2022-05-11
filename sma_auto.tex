@@ -343,14 +343,14 @@ pdf2eps 1 "\image"
 \ifodd\value{page}\hbox{}\newpage\fi
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\graphicspath{{./fig/}}
+\graphicspath{{./fig/}{./fig/chap_correction}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ------------------------------------------------------------------------------
 % includeonly individuel
 % ------------------------------------------------------------------------------
 %\includeonly{tex/avantpropos}
-%\includeonly{tex/chap_slci}            % Système linéaire
-\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
+\includeonly{tex/chap_slci}            % Système linéaire
+%\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
 %\includeonly{tex/chap_model_mir_1,tex/chap_model_mir_2}           % Modèles Usuels    
 %\includeonly{tex/chap_model}           % Modèles Usuels    
 %\includeonly{tex/chap_repfreq}         % Réponse harmonique
@@ -372,6 +372,7 @@ pdf2eps 1 "\image"
 %\includeonly{tex/annexe_invL}          % Inverse Laplace 
 %\includeonly{tex/annexe_blackNichols}  % BlackNichols 
 %\includeonly{tex/annexe_cauchy}        % Principe de l'argument de Cauchy
+%\includeonly{tex/annexe_evans}         % Lieu d'Evans
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ------------------------------------------------------------------------------
 % includeonly groupé
@@ -479,20 +480,21 @@ pdf2eps 1 "\image"
 \input{tex/annexe_alphagrec}           %A Alphabet grec
 \include{tex/annexe_usi}               %B Unités du Système International 
 \include{tex/annexe_laplace_irl}       %C Pierre-Simon de Laplace 
-\include{tex/annexe_laplace}           %C Transformation de Laplace 
-\include{tex/annexe_cplx}              %D Rappel sur les nombres complexes
-\include{tex/annexe_seriefourier}      %E Analyse de Fourier
-\include{tex/annexe_equa_diff}         %F Eq. diff. à coefficient constant
-\include{tex/annexe_des}               %G Décomposition en éléments simples
-\include{tex/annexe_2nd}               %H Système du second ordre
+\include{tex/annexe_laplace}           %D Transformation de Laplace 
+\include{tex/annexe_cplx}              %E Rappel sur les nombres complexes
+\include{tex/annexe_seriefourier}      %F Analyse de Fourier
+\include{tex/annexe_equa_diff}         %G Eq. diff. à coefficient constant
+\include{tex/annexe_des}               %H Décomposition en éléments simples
+\include{tex/annexe_2nd}               %I Système du second ordre
 {\tikzset{external/export=false}
-\include{tex/annexe_scilab}            %I Scilab
-\include{tex/annexe_log}               %J Echelle log  
+%\include{tex/annexe_scilab}            %J Scilab
+%\include{tex/annexe_log}               %K Echelle log  
 }
-\include{tex/annexe_invL}              %K Laplace inverse 
-\include{tex/annexe_blackNichols}      %L Principe de l'argument Cauchy  
-\include{tex/annexe_cauchy}            %M Principe de l'argument Cauchy  
-%\include{tex/todo}                    %N TODO
+\include{tex/annexe_invL}              %L Laplace inverse 
+\include{tex/annexe_blackNichols}      %M Diagramme de Black-Nichols  
+\include{tex/annexe_cauchy}            %N Principe de l'argument Cauchy  
+\include{tex/annexe_evans}             %O Lieu d'Evans
+%\include{tex/todo}                    %P TODO
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\backmatter
