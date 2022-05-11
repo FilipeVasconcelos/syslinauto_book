@@ -8,7 +8,7 @@
 \exercice{Décomposition d'un signal~\facile}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Soit le signal d'entrée $e(t)$ définie par le graphe ci-contre.
+Soit le signal d'entrée $e(t)$ défini par le graphe ci-contre.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Décomposer $e(t)$ à l'aide de fonctions échelons.}
@@ -20,7 +20,6 @@ Soit le signal d'entrée $e(t)$ définie par le graphe ci-contre.
     \input{tikz/fonction_triangle2-chap-slci.tex}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Donner la transformée de Laplace $E(p)$ de ce signal.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -30,6 +29,8 @@ Soit le signal d'entrée $e(t)$ définie par le graphe ci-contre.
 \exercice{Décomposition d'un signal parabolique~\moyen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit le signal d'entrée $e(t)$ défini par le graphe ci-contre.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Décomposer $e(t)$ à l'aide de fonctions échelons.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -40,7 +41,6 @@ Soit le signal d'entrée $e(t)$ définie par le graphe ci-contre.
     \input{tikz/fonction_parabole-chap-slci.tex}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Donner la transformée de Laplace $E(p)$ de ce signal.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -65,7 +65,6 @@ unitaire (c.-à-d. $u(t)$).}
     \input{tikz/fonction_e1-chap-slci.tex}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Déterminer les fonctions $E_1(p)$ et $E_2(p)$ les transformées de 
 Laplace respectives de $e_1(t)$ et $e_2(t)$.}
@@ -91,12 +90,11 @@ des signaux $e_1(t)$ et $e_2(t-1)$.
 %    \input{tikz/fonction_e3-chap-slci.tex}
 %\end{marginfigure}
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Déterminer à partir des résultats précédents la transformée 
 de Laplace $E(p)$.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{L'impulsion de Dirac approchée~\difficile}
@@ -115,16 +113,14 @@ $\delta_a(t)$ définie par le graphe ci-contre.
     \input{tikz/fonction_porte-chap-slci.tex}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Donner sa transformée de Laplace en fonction du paramètre $a$.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{En considérant la limite $a\rightarrow0$, montrer que la transformée
           de Laplace de $\delta_a(t)$ tend bien vers 1.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{\'Equations différentielles}
@@ -157,13 +153,11 @@ produit $RC$ est de dimension d'un temps. On notera cette constante $\tau=RC$.
 \question{Déterminer la transformée de Laplace $Q(p)$ de la charge au borne du 
 condensateur $q(t)$.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Déterminer alors la fonction $q(t)$ solution de l'équation 
 différentielle de la décharge d'un condensateur.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Système masse-ressort~\difficile}
@@ -192,17 +186,14 @@ On se place dans le cas de conditions initiales nulles.
 \question{Déterminer la transformée de Laplace $X(p)$ solution algébrique 
 de la transformée de Laplace de l'équation différentielle de ce système.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Indentifier la fonction de transfert $H(p)$ du système et 
 donner sa forme canonique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Indentifier la solution algébrique $X(p)$ pour une cette 
 solicitation.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Identifier les paramètres $K$, $\xi$ et $\omega$ en fonction des 
 paramètres du problème.}
@@ -211,13 +202,9 @@ En comparant, la solution algébrique précédente à la forme
 \[
     \dfrac{K}{\dfrac{1}{\omega^2}p^2+\dfrac{2\xi}{\omega} p+1}.
 \] 
-\newpage
+%\newpage
 %\restoregeometry
 %\captionsetup{width=0.9\linewidth}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{Déterminer $x(t)$ la solution temporelle de l'équation différentielle 
-pour une telle sollicitation.}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 En utilisant, la transformée de Laplace inverse suivante : 
 \[
     \laplacei{\dfrac{1}{\dfrac{1}{\omega^2}p^2+\dfrac{2\xi}{\omega} p+1}}=
@@ -225,6 +212,10 @@ En utilisant, la transformée de Laplace inverse suivante :
     e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t}
 \quad\quad \text{pour}\quad\xi<1 
 \]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Déterminer $x(t)$ la solution temporelle de l'équation différentielle 
+pour une telle sollicitation.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 $\,$\newline
 On réalise une experience avec une masse $m=\SI{0.5}{\kilogram}$, 
 un ressort de constante de raideur $k=\SI{10}{\newton\per\meter}$ et 
@@ -232,7 +223,6 @@ un amortissement visqueux $b=\SI{0.894}{\kilogram\per\second}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Déterminer les valeurs numériques des paramètres $\xi$ et $\omega$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Tracer la réponse $x(t)$ et déterminer le temps pour que la masse 
 retourne à son position d'équilibre}
@@ -259,23 +249,28 @@ Soit un système régi par l'équation différentielle suivante
 \question{Déterminer la forme canonique de fonction de transfert 
 $H(p)$ associée à cette équation différentielle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Déterminer les paramètres $K$ et $\tau$ en fonction des coefficients
 $a_i$ et $b_i$ de tels sorte que $H(p)$ s'écrivent sous la forme}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Déterminer les dimensions de ces paramètres quelques soient celles 
 des signaux d'entrée $e(t)$ et de sortie $s(t)$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Carte des pôles d'une fonction de transfert~\moyen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit la carte des pôles et zéros ci-contre 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Donner les zéros et les pôles de la fonction de transfert.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\'Ecrire la fonction de transfert $H(p)$ sachant que le gain de 
+sa forme factorisée vaut 3.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
@@ -309,16 +304,6 @@ Soit la carte des pôles et zéros ci-contre
 \end{tikzpicture}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{Donner les zéros et les pôles de la fonction de transfert.}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{\'Ecrire la fonction de transfert $H(p)$ sachant que le gain de 
-sa forme factorisée vaut 3.}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Déterminer la forme canonique de $H(p)$ et déduire le gain statique, 
 la classe et l'ordre de ce système.}
