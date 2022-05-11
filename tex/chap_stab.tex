@@ -16,14 +16,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Dans ce chapitre nous allons étudier en détail la stabilité des systèmes
+Dans ce chapitre, nous allons étudier en détail la stabilité des systèmes
 linéaires asservis. Il faut dors et déjà noter que ce sont les états 
-d'équilibres\footnote{(ou point fixes). Un état d'équilibre est une constante
+d'équilibres\footnote{(ou points fixes). Un état d'équilibre est une constante
 solution de l'équation différentielle du système. En générale, 0 est toujours
 une solution de l'équation différentielle et donc considéré comme l'état 
 d'équilibre du système} qui sont stables ou instables et non les systèmes eux 
 mêmes. Cet \og abus de langage\fg (largement utilisé) provient du fait que 
-on considère \emph{a priori} les systèmes dans leur état d'équilibre 
+l'on considère \emph{a priori} un système dans son état d'équilibre 
 au moment de l'instant initial de la sollicitation. 
 Une façon de se représenter ces états d'équilibres est d'imaginer le 
 mouvement d'une bille à la surface d'une fonction d'energie potentielle à une 
@@ -44,17 +44,19 @@ une position d'équilibre.
 %-------------------------------------------------------------------------------
 
 La manière la plus simple de caractériser la stabilité de ces positions 
-d'équilibres c'est de s'en écarter. 
-Dans le cas d'un équilibre stable 
-(c.f \Cref{fig-stab} (a)), la bille va naturellement reprendre sa position 
-d'équilibre (avec ou sans oscillations autour de la position d'équilibre). 
-Dans le cas d'un équilibre instable, 
-(c.f \Cref{fig-stab} (b)), la bille va continuer à s'en écarter indéfiniment. 
+d'équilibres est de s'en écarter en appliquant une impulsion brève et intense. 
+\begin{itemize}
+    \item (\Cref{fig-stab} (a)) Dans le cas d'un équilibre stable : 
+        la bille va naturellement reprendre avec ou sans oscillations 
+        autour de sa position d'équilibre. 
+    \item (\Cref{fig-stab} (b)) Dans le cas d'un équilibre instable :
+        la bille va continuer à s'en écarter indéfiniment. 
+\end{itemize}
 D'autres scénarios sont possibles mais vont dépendre de la façon dont le 
 système est déséquilibré et de la forme de la surface d'énergie potentielle 
 (c.f \Cref{fig-stab} (c)). On parle alors de stabilité conditionnelle.
 
-Dans le cas des \gls{slci}, il est possible d'étudier la stabilité du système 
+Dans le cas des \glspl{slci}, il est possible d'étudier la stabilité du système 
 en étudiant sa réponse impulsionnelle (l'impulsion de Dirac permet d'écarter 
 le système de son état d'équilibre dans lequel il se trouvait). 
 Finalement, on définit la stabilité d'un système de la façon 
@@ -105,7 +107,7 @@ intégrateur pur qui lorsque placé dans une boucle de contre-réaction devient
 un système du premier ordre.
 Cependant, l'asservissement peut également rendre un système instable par
 bouclage, on parle alors de \textbf{phénomène de pompage}.
-Pour illustrer ce phénomène\cite{genouel}, considérons un système de fonction 
+Pour illustrer ce phénomène~\cite{genouel}, considérons un système de fonction 
 de transfert d'un retard pur $H(p)=Ke^{-p\frac{\tau}{2}}$ qui entraîne 
 un déphasage de $\tau/2$ et de gain $K$. Si on sollicite ce système par un 
 signal $e(t)$ rectangulaire de période $\tau$ et d'amplitude $E_0$, la sortie 
@@ -132,7 +134,7 @@ entre les valeurs des signaux par demi-période $\tau/2$.
     \epsilon_i=e_i-s_i
 \]
 où $\epsilon_i$, $e_i$ et $s_i$ sont respectivement les valeurs des signaux 
-$\epsilon(t)$, $e(t)$ et $s(t)$ pour la demi-période $i\in[1,+\infty]$
+$\epsilon(t)$, $e(t)$ et $s(t)$ pour la demi-période $i\in[1,+\infty]$.
 Dans cette notation, la sortie du système bouclé est donnée par : 
 \[
     s_{i+1}=K\epsilon_i
@@ -159,8 +161,10 @@ Il faut cependant noter l'influence indispensable du :
     \item et du retard d'une demi-période (en opposition de phase); 
 \end{itemize}
 %-------------------------------------------------------------------------------
-dans cet exemple. Comme attendu, les propriétés de la boucle ouverte
-influencent directement la stabilité de la boucle fermée.
+dans cet exemple. Comme nous le verrons, la réponse harmonique par 
+l'intermédiaire du gain et du déphasage de la fonction de transfert 
+de la boucle ouverte jouera un rôle fondamental dans la stabilité du système
+en boucle fermée.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -170,7 +174,7 @@ influencent directement la stabilité de la boucle fermée.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour caractériser la stabilité des \gls{slci}, il est possible de déterminer
-une condition sur les p ôles (racines du dénominateur de la fonction de 
+\textbf{une condition sur les pôles} (racines du dénominateur de la fonction de 
 transfert). Pour montrer cela, nous allons étudier la réponse impulsionnelle 
 d'une fonction de transfert présentant des pôles de différentes natures et 
 oberver la condition sur ses pôles pour que le système soit stable selon les 
@@ -188,7 +192,7 @@ tel que :
     H(p)=\dfrac{N(p)}{(p-p_1)(p-p_2)^2(p-p_3)(p-p_4)}.
 \]
 En notant que $(p-p_3)(p-p_4)=(p-\alpha)^2+\omega^2$, 
-la décomposition en élément simple de la réponse impulsionnelle $S(p)$ 
+la décomposition en éléments simples de la réponse impulsionnelle $S(p)$ 
 dans le domaine de Laplace devient :
 \[
     S(p)=\dfrac{A}{p-p_1}
@@ -263,7 +267,7 @@ imaginaires sont qualifiés de \textbf{pôles dominants}
 %\]
 L'extrapolation de cette condition fondamentale de stabilité des systèmes 
 linéaires au systèmes asservis est triviale. En effet, dans le cas d'un 
-système asservis c'est la fonction de transfert en boucle ouverte qui 
+système asservis c'est la fonction de transfert en boucle fermée qui 
 caractérise le système. Il suffit alors d'adapter la condition précédente à la
 fonction de transfert en boucle fermée.
 %-------------------------------------------------------------------------------
@@ -281,13 +285,18 @@ deux familles de critères de stabilité qui permettent de s'affranchir de
 ces calculs:
 %-------------------------------------------------------------------------------
 \begin{itemize}
-    \item Les critères algébriques : qui permettent de vérifier la condition 
-        fondamentale de stabilité en étudiant directement le polynôme 
-        caractéristique de la \gls{ftbf}.
-    \item Les critères graphiques : qui permettent de vérifier la condition
-        fondamentale de stabilité du système asservi en étudiant graphiquement
-        la \gls{ftbo}.
+    \item \textbf{Les critères algébriques}, qui permettent de vérifier 
+        la condition fondamentale de stabilité en étudiant directement 
+        le polynôme caractéristique de la \gls{ftbf}.
+    \item \textbf{Les critères graphiques}, qui permettent de vérifier 
+        la condition fondamentale de stabilité du système asservi en 
+        étudiant graphiquement la réponse harmonique de la \gls{ftbo}.
 \end{itemize}
+Lorsque l'on a accès aux pôles de la fonction de transfert en boucle fermée, la
+vérification du respect de la condition fondamentale est aisée. Il est également
+possible d'étudier la stabilité du système asservis en fonction d'un paramètre 
+de la boucle ouverte (comme le gain statique). Cette méthode correspond à la 
+construction graphique des lieux d'Evans ((\cref{annexe-evans}))
 %-------------------------------------------------------------------------------
 \newpage
 \newgeometry{bottom=25mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
@@ -301,14 +310,18 @@ ces calculs:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le critère de Routh est dit algébrique car il s'établit 
-dirctement sur la fonction de transfert en boucle fermée du système asservi. 
-
+dirctement sur la fonction de transfert $H_{BF}(p)$ en boucle fermée 
+du système asservi. 
+\[
+    H(p)=\dfrac{N(p)}{D(p)}
+\]
+avec $N(p)$ et $D(p)$ deux polynômes en $p$.
 Pour appliquer le critère fondamentale de stabilité à cette fonction de 
 transfert, il nous faut étudier \textbf{le polynôme caractéristique}:
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     D(p)&=0 \nonumber\\
-    b_np^n+b_{n-1}p^{n-1}+\ldots+b_1p+b_0 &= 0
+    b_np^n+b_{n-1}p^{n-1}+\ldots+b_1p+b_0&=0
 \end{bequation}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
@@ -761,9 +774,9 @@ les pôles de $H_{BO}(p)$. Il est donc possible de
 réinterpréter la condition stabilité d'un système asservi :
 %-------------------------------------------------------------------------------
 \begin{criteria}{Condition de stabilité d'un système asservi (2)}
-    Un système asservi est stable en boucle fermée si sa fonction 
-    de transfert en boucle ouverte ne possède aucun \emph{zéros} à partie 
-    réelle positive.
+    Un système asservi est stable en boucle fermée si la fonction 
+    de transfert $1+H_{BO}(p)$ en boucle ouverte ne possède aucun 
+    \emph{zéros} à partie réelle positive.
 \end{criteria}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -903,7 +916,7 @@ Nous pouvons maintenant formuler le critère du revers du lieu de Nyquist :
     \emph{gauche}.
 \end{criteria}
 %-------------------------------------------------------------------------------
-%\newpage
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Critère du revers dans le plan de Black
@@ -915,7 +928,6 @@ en abscisse), le point critique est de coordonnées (-180\degreeSI,\SI{0}{\dB}).
 À l'instar du cas précédent, nous allons discuter de l'allure du lieu de Black
 par rapport à ce point critique pour trois systèmes différents:
 stable, instable et critique.     
-
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -1289,8 +1301,63 @@ suivante : $H_2(p)=\dfrac{1}{p(1+p)}$
     \label{fig-bromwich_complet_image_exemple1} }
 \end{figure}
 %-------------------------------------------------------------------------------
-\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\'Enoncé et application du critère de Nyquist}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+On note :
+\begin{itemize}
+    \item $Z$ est le nombre de zéros à partie réelle positive de $1+H_{BO}$.  
+    \item $N$ le nombre de tours autour du point critique \textbf{(-1,0)} que fait le diagramme de Nyquist de $H_{BO}(p)$ 
+          (équivalent au nombre de tours autour de l'origine de $1+H_{BO}(p)$)
+    \item $P$ le nombre de pôles positifs de $1+H_{BO}(p)$ (équivalent au nombre de pôles de $H_{BO}(p)$)
+\end{itemize}
+
+D'après le principe de l'argument de Cauchy, appliqué $H_{BO}(p)$ avec le contour de Nyquist
+(ou de Bromwich si nécessaire). Un système est stable en boucle fermée si $Z=P-N=0$.
+
+\begin{minipage}{0.35\textwidth}
+$$H_1(p)=\dfrac{p+3}{(p+2)(p^2+2p+25)}$$
+    \begin{align*}
+        P&=0\\
+        N&=0\\
+        Z&=0
+    \end{align*}
+
+{
+       \hfill\LARGE\textcolor{col3}{STABLE}\hfill
+}
+\end{minipage}
+\begin{minipage}{0.65\textwidth}
+\begin{center}
+\includegraphics[width=\textwidth]{fig/chap_stab_h1.eps}
+\end{center}
+\end{minipage}
+
+
+\begin{minipage}{0.35\textwidth}
+$$H_3(p)=\dfrac{500(p-2)}{(p+2)(p+7)(p+50)}$$
+    \begin{align*}
+        P&=0\\
+        N&=-1\\
+        Z&=P-N=1
+    \end{align*}
+
+{
+       \hfill\LARGE\textcolor{col4}{INSTABLE}\hfill
+}
+    
+    Le système possède un pôle instable en boucle fermée.
+\end{minipage}
+\begin{minipage}{0.65\textwidth}
+\begin{center}
+\includegraphics[width=\textwidth]{fig/chap_stab_h3.eps}
+\end{center}
+\end{minipage}
+
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1298,9 +1365,13 @@ suivante : $H_2(p)=\dfrac{1}{p(1+p)}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\small
+\input{tex/exercices_chap_stab.tex}
+\setcounter{numexos}{0}
+\normalsize
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1308,7 +1379,11 @@ suivante : $H_2(p)=\dfrac{1}{p(1+p)}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\small
+\input{tex/exercices_corriges_chap_stab.tex}
+\normalsize
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
