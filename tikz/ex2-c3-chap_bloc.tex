@@ -1,0 +1,14 @@
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbComp{comp1}{E}
+        \sbRelier[$E$]{E}{comp1}
+        \sbBloc{h1}{$H_1H_2$}{comp1} 
+        \sbRelier{comp1}{h1}
+        \sbSortie[4]{S}{h1}
+        \sbRelier{h1}{S}
+        \sbNomLien[0.8]{S}{$S$}
+        \sbDecaleNoeudy[3.5]{h1}{u1}
+        \sbBlocr[-1.5]{h3}{$\dfrac{H_3}{H_2}-H_4$}{u1}
+        \sbRelierxy{h3}{comp1}
+        \sbRelieryx{h1-S}{h3}
+    \end{tikzpicture}

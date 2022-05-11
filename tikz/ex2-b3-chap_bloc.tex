@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{a}{E}
+    \sbRelier[$E$]{E}{a}
+    \sbBloc{b}{$H_1$}{a}
+    \sbRelier[$\epsilon$]{a}{b}
+    \sbBlocL{f}{$\dfrac{H_2H_3}{1+H_2H_3H_4}$}{b}
+    \sbSortie[5]{S1}{f}
+    \sbRelier{f}{S1}
+    \sbNomLien[0.8]{S1}{$S$}
+    \sbDecaleNoeudy[4]{f}{v}
+    \sbBlocr{r2}{$\dfrac{H_5}{H_3}$}{v}
+    \sbRelieryx{f-S1}{r2}
+    \sbRelierxy{r2}{a}
+\end{tikzpicture}
