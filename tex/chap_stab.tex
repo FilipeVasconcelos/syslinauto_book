@@ -45,6 +45,7 @@ une position d'équilibre.
 
 La manière la plus simple de caractériser la stabilité de ces positions 
 d'équilibres est de s'en écarter en appliquant une impulsion brève et intense. 
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item (\Cref{fig-stab} (a)) Dans le cas d'un équilibre stable : 
         la bille va naturellement reprendre avec ou sans oscillations 
@@ -52,6 +53,7 @@ d'équilibres est de s'en écarter en appliquant une impulsion brève et intense
     \item (\Cref{fig-stab} (b)) Dans le cas d'un équilibre instable :
         la bille va continuer à s'en écarter indéfiniment. 
 \end{itemize}
+%-------------------------------------------------------------------------------
 D'autres scénarios sont possibles mais vont dépendre de la façon dont le 
 système est déséquilibré et de la forme de la surface d'énergie potentielle 
 (c.f \Cref{fig-stab} (c)). On parle alors de stabilité conditionnelle.
@@ -292,6 +294,7 @@ ces calculs:
         la condition fondamentale de stabilité du système asservi en 
         étudiant graphiquement la réponse harmonique de la \gls{ftbo}.
 \end{itemize}
+%-------------------------------------------------------------------------------
 Lorsque l'on a accès aux pôles de la fonction de transfert en boucle fermée, la
 vérification du respect de la condition fondamentale est aisée. Il est également
 possible d'étudier la stabilité du système asservis en fonction d'un paramètre 
@@ -1306,20 +1309,25 @@ suivante : $H_2(p)=\dfrac{1}{p(1+p)}$
 \subsection{\'Enoncé et application du critère de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 On note :
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item $Z$ est le nombre de zéros à partie réelle positive de $1+H_{BO}$.  
-    \item $N$ le nombre de tours autour du point critique \textbf{(-1,0)} que fait le diagramme de Nyquist de $H_{BO}(p)$ 
+    \item $N$ le nombre de tours autour du point critique \textbf{(-1,0)} que 
+          fait le diagramme de Nyquist de $H_{BO}(p)$ 
           (équivalent au nombre de tours autour de l'origine de $1+H_{BO}(p)$)
-    \item $P$ le nombre de pôles positifs de $1+H_{BO}(p)$ (équivalent au nombre de pôles de $H_{BO}(p)$)
+    \item $P$ le nombre de pôles positifs de $1+H_{BO}(p)$ (équivalent au 
+          nombre de pôles de $H_{BO}(p)$)
 \end{itemize}
-
-D'après le principe de l'argument de Cauchy, appliqué $H_{BO}(p)$ avec le contour de Nyquist
-(ou de Bromwich si nécessaire). Un système est stable en boucle fermée si $Z=P-N=0$.
+%-------------------------------------------------------------------------------
+D'après le principe de l'argument de Cauchy, appliqué $H_{BO}(p)$ avec le 
+contour de Nyquist (ou de Bromwich si nécessaire). Un système est stable en 
+boucle fermée si $Z=P-N=0$.
 
 \begin{minipage}{0.35\textwidth}
-$$H_1(p)=\dfrac{p+3}{(p+2)(p^2+2p+25)}$$
+\[
+        H_1(p)=\dfrac{p+3}{(p+2)(p^2+2p+25)}
+\]
     \begin{align*}
         P&=0\\
         N&=0\\
@@ -1331,14 +1339,17 @@ $$H_1(p)=\dfrac{p+3}{(p+2)(p^2+2p+25)}$$
 }
 \end{minipage}
 \begin{minipage}{0.65\textwidth}
+%-------------------------------------------------------------------------------
 \begin{center}
 \includegraphics[width=\textwidth]{fig/chap_stab_h1.eps}
 \end{center}
+%-------------------------------------------------------------------------------
 \end{minipage}
 
-
 \begin{minipage}{0.35\textwidth}
-$$H_3(p)=\dfrac{500(p-2)}{(p+2)(p+7)(p+50)}$$
+\[
+        H_3(p)=\dfrac{500(p-2)}{(p+2)(p+7)(p+50)}
+\]
     \begin{align*}
         P&=0\\
         N&=-1\\
@@ -1352,9 +1363,11 @@ $$H_3(p)=\dfrac{500(p-2)}{(p+2)(p+7)(p+50)}$$
     Le système possède un pôle instable en boucle fermée.
 \end{minipage}
 \begin{minipage}{0.65\textwidth}
+%-------------------------------------------------------------------------------
 \begin{center}
 \includegraphics[width=\textwidth]{fig/chap_stab_h3.eps}
 \end{center}
+%-------------------------------------------------------------------------------
 \end{minipage}
 
 \clearpage

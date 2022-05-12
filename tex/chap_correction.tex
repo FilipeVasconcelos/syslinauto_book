@@ -18,8 +18,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous avons établi et étudier en détail les différentes performances et 
 exigences que l'on peut attendre de la réponse temporelle d'un système asservis.
-Un système peut présenter des dépassements (c.f \Cref{chap-model}), être précis, 
-rapide (c.f \Cref{chap-perf}), stable (c.f \Cref{chap-stab}). Ces
+Un système peut présenter des dépassements (c.f \Cref{chap-model}), être 
+précis, rapide (c.f \Cref{chap-perf}), stable (c.f \Cref{chap-stab}). Ces
 performances dépendent de essentiellement des propriétés de la fonction de 
 transfert de la boucle fermée, elle même dépendant de la boucle ouverte. 
 %-------------------------------------------------------------------------------
@@ -427,7 +427,8 @@ on combine directement la commande de
 La réduction de ce shéma-bloc nous donne la relation entre la commande et 
 l'écart
 \[
-    U(p)=\left(k_p^{(1)}+\dfrac{1}{\tau_i^{(1)} p}+\tau_d^{(1)} p\right)\epsilon(p)
+    U(p)=\left(k_p^{(1)}+\dfrac{1}{\tau_i^{(1)} p}
+                        +\tau_d^{(1)} p\right)\epsilon(p)
 \]
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -481,7 +482,9 @@ l'écart
 Les trois structures du correcteur PID précédentes sont équivalentes, 
 les paramètres $k_p,\tau_i,\tau_d$ n'auront simplement pas les mêmes valeurs.
 Il est possible d'exprimer des relations de passage entre ces trois structures :
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{3$\Rightarrow$ 1 et 1$\Rightarrow$ 3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \[
 \begin{cases}
     k_p^{(1)}=k_p^{(3)}\\[1.0em]
@@ -494,7 +497,9 @@ Il est possible d'exprimer des relations de passage entre ces trois structures :
     \tau_d^{(3)}=\dfrac{\tau_d^{(1)}}{k_p^{(1)}}
 \end{cases}
 \]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{2$\Rightarrow$ 1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \[
 %\begin{cases}
 %    k_p^{(2)}=-k_p\\[1.0em]
@@ -502,20 +507,25 @@ Il est possible d'exprimer des relations de passage entre ces trois structures :
 %    \tau_d^{(2)}=
 %\end{cases}
 \begin{cases}
-    k_p^{(1)}=k_p^{(2)}\left(1+\dfrac{\tau_d^{(2)}}{\tau_i^{(2)}}\right)\\[1.0em]
+    k_p^{(1)}=k_p^{(2)}\left(
+              1+\dfrac{\tau_d^{(2)}}{\tau_i^{(2)}}\right)\\[1.0em]
     \tau_i^{(1)}=\dfrac{\tau_i^{(2)}}{k_p^{(2)}}\\[1.0em]
     \tau_d^{(1)}=k_p^{(2)}\tau_d^{(2)}
 \end{cases}
 \]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{2$\Rightarrow$ 3 et 3$\Rightarrow$ 2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \[
 \begin{cases}
-    k_p^{(3)}=k_p^{(2)}\left(1+\dfrac{\tau_d^{(2)}}{\tau_i^{(2)}}\right)\\[1.0em]
+    k_p^{(3)}=k_p^{(2)}\left(
+              1+\dfrac{\tau_d^{(2)}}{\tau_i^{(2)}}\right)\\[1.0em]
     \tau_i^{(3)}=\tau_i^{(2)}+\tau_d^{(2)}\\[1.0em]
     \tau_d^{(3)}=\dfrac{\tau_i^{(2)}\tau_d^{(2)}}{\tau_i^{(2)}+\tau_d^{(2)}}
 \end{cases}
 \begin{cases}
-    k_p^{(2)}=k_p^{(3)}\left(1+\dfrac{\tau_d^{(3)}}{\tau_i^{(3)}}\right)\\[1.0em]
+    k_p^{(2)}=k_p^{(3)}\left(
+              1+\dfrac{\tau_d^{(3)}}{\tau_i^{(3)}}\right)\\[1.0em]
     \tau_i^{(2)}=\tau_i^{(3)}+\tau_d^{(3)}\\[1.0em]
     \tau_d^{(2)}=\dfrac{\tau_i^{(3)}\tau_d^{(3)}}{\tau_i^{(3)}+\tau_d^{(3)}}
 \end{cases}

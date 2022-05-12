@@ -15,14 +15,14 @@ de transfert
     H(p)=\dfrac{5p+10}{p^3+3p^2+4p+2}
 \]
 et placé dans une boucle de contre-réaction avec un correcteur en série $C(p)$.
-%------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{corrbruni_chap_correction-ext}
     \input{tikz/corrbruni_chap_correction.tex}
 \end{center}
-%------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 On étudiera en détail trois correcteurs:
-%------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item Avance de phase: 
 \[
@@ -42,7 +42,7 @@ On étudiera en détail trois correcteurs:
 \]
     avec $K_p$ le gain proportionnel du correcteur PID
 \end{itemize}
-%------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 Le correcteur PID est la mise en série des deux premiers correcteurs 
 (avec des paramètres qui leurs sont propres).
 
@@ -50,7 +50,9 @@ On pourra utiliser Scilab pour les calculs et les tracés des réponses
 harmoniques et temporelles.
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Caractérisation du système non corrigée}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -58,10 +60,11 @@ harmoniques et temporelles.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{Déterminer la pulsation $\omega_{\SI{0}{\dB}}$, telle que le gain de la 
-          fonction de transfert en boucle ouverte soit égale à \SI{0}{\dB}}
-          Remarque: on pourra l'établir précisement par le calcul ou par la 
-          mesure sur le diagramme de Bode précédent.
+\question{Déterminer la pulsation $\omega_{\SI{0}{\dB}}$, telle que le gain 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          de la fonction de transfert en boucle ouverte soit égale à 
+          \SI{0}{\dB}. Remarque: on pourra l'établir précisement par le calcul
+          ou par la mesure sur le diagramme de Bode précédent.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -77,7 +80,9 @@ harmoniques et temporelles.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Régulation du correcteur à avance de phase}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On souhaite corriger le système en rapidité et en robustesse (augmenter la 
 marge de stabilité). Pour augmenter la bande passante en boucle fermée, on 
@@ -94,8 +99,8 @@ de phase $M_\phi$ de \SI{60}{\degree}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{À partir des relations suivantes, déterminer les paramètres 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 $(\alpha,\tau_d,K_d)$ du correcteur à avance de phase}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \[
     \alpha=\dfrac{1+\sin\phi_d}{1-\sin\phi_d}\quad\quad
     \tau_d=\dfrac{1}{\omega_0\sqrt\alpha}\quad\quad~
@@ -113,7 +118,9 @@ $(\alpha,\tau_d,K_d)$ du correcteur à avance de phase}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Régulation du correcteur PI}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On souhaite maintenant rendre le système précis à l'aide de l'effet integral.
 Cependant, on veut également garantir de nouveau une marge de phase $M_\phi$ de 
@@ -129,6 +136,7 @@ compris dans l'intervalle précédent.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Déterminer le gain $G_i$ et la phase $\phi_i$ devant être
           apporté pour maintenir une marge de phase de \SI{60}{\degree}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
           à cette pulsation de coupure.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -137,7 +145,7 @@ compris dans l'intervalle précédent.
           du correcteur PI suivantes:}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \[
-    \tau_i=\dfrac{1}{\omega_0\tan\phi_i}\quad\quad~
+    \tau_i=-\dfrac{1}{\omega_0\tan\phi_i}\quad\quad~
     K_i=\dfrac{G_i\tau_i\omega_0}{\sqrt{1+\tau^2_i\omega^2_0}}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -151,7 +159,9 @@ compris dans l'intervalle précédent.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Régulation du correcteur PID}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Nous allons dans un premier temps présenter la méthodologie pour déterminer les 
 paramètres du correcteur PID. La principale contrainte est de maintenir une 
@@ -159,7 +169,7 @@ marge de phase de \SI{60}{\degree} à une pulsation de coupure $\omega_0$ de
 \SI{4}{\radian\per\second}.
 
 La méthodologie est la suivante :
-%------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item Le correcteur à avance de phase amène un déphasage $\phi_d$ compris 
           en \SI{0}{\degree} et \SI{90}{\degree}. 
@@ -180,7 +190,7 @@ La méthodologie est la suivante :
           boucle ouverte corrigée soit égale \SI{0}{\dB} 
           à la pulsation de coupure $\omega_0$.
 \end{itemize}
-%------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{En utilisant cette approche, déterminer les paramètres des 
           régulateurs composant ce PID}
@@ -195,11 +205,13 @@ La méthodologie est la suivante :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Réponses temporelles en boucle fermée}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{Comparer sur une figure les diagrammes de Bode de ces boucles ouvertes 
+\question{Comparer sur une figure les diagrammes de Bode de ces boucles ouvertes
           corrigées et non corrigées}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
