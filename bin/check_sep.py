@@ -46,7 +46,7 @@ def eomacro(lines,context,sep):
         if check(line,checking) :
             f=return_finish(kline,lines,sep)
             if not check_separator(sep,kline,f,lines):
-               print("problème séparateurs ligne :",kline,checking)
+               print("problème séparateur ligne :",kline,checking)
 # =============================================================================
 if __name__=="__main__":
 
