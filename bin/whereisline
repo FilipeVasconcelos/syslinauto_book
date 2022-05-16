@@ -1,0 +1,17 @@
+#!/bin/bash
+# exemple :
+# whereisline 141 \[ tex/*
+nthline=$1
+pattern=$2
+files=$3
+echo "----------------------------------------------"
+echo "looking for pattern $pattern at line $nthline"
+echo "----------------------------------------------"
+for file in $files 
+do 
+    cat $file | head -$nthline | tail -1 |grep "$pattern" > /dev/null
+    if [ $? -eq 0 ] 
+    then 
+        echo "$file"
+    fi
+done
