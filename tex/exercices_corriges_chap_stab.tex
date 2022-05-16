@@ -2,48 +2,14 @@
 \exercice{Critère de Nyquist~\difficile}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 La FTBO présentant 2 pôles instables ($P=2$), le système sera stable 
 en boucle fermée pour $N=2$, la seule région pouvant prétendre à celà 
 est représenté en vert sur la figure ci-dessous. 
 
 %-------------------------------------------------------------------------------
 \begin{center}
-\begin{tikzpicture}
-    \node at (0,0) 
-    {\includegraphics
-    [width=0.8\textwidth]{fig/exercice_nyquist_chap_stab_ex1_enonce.eps}};
-    \node at (-2,0) {\large\textcolor{col3}{$\boldsymbol{N=2}$}};
-    \pgfmathsetmacro{\vx}{0.9563}
-    \pgfmathsetmacro{\vy}{0.2923}
-    \pgfmathsetmacro{\rr}{1.2}
-    \pgfmathsetmacro{\a}{-3.75}
-    \pgfmathsetmacro{\b}{1.0}
-    \draw[ultra thick,col3] (\a,\b) --+ (\rr*\vx,\rr*\vy);
-    \pgfmathsetmacro{\rr}{1.4}
-    \pgfmathsetmacro{\a}{-4.1}
-    \pgfmathsetmacro{\b}{0.5}
-    \draw[ultra thick,col3] (\a,\b) --+ (\rr*\vx,\rr*\vy);
-    \pgfmathsetmacro{\rr}{1.45}
-    \pgfmathsetmacro{\a}{-4.3}
-    \pgfmathsetmacro{\b}{0.0}
-    \draw[ultra thick,col3] (\a,\b) --+ (\rr*\vx,\rr*\vy);
-    \pgfmathsetmacro{\rr}{1.3}
-    \pgfmathsetmacro{\a}{-4.2}
-    \pgfmathsetmacro{\b}{-0.5}
-    \draw[ultra thick,col3] (\a,\b) --+ (\rr*\vx,\rr*\vy);
-    \pgfmathsetmacro{\rr}{1.01}
-    \pgfmathsetmacro{\a}{-3.9}
-    \pgfmathsetmacro{\b}{-1.0}
-    \draw[ultra thick,col3] (\a,\b) --+ (\rr*\vx,\rr*\vy);
-    \pgfmathsetmacro{\rr}{0.75}
-    \pgfmathsetmacro{\a}{-3.35}
-    \pgfmathsetmacro{\b}{-1.5}
-    \draw[ultra thick,col3] (\a,\b) --+ (\rr*\vx,\rr*\vy);
-\end{tikzpicture}
+    \tikzsetnextfilename{critere_nyquist-chap_stab-ext}
+    \input{tikz/critere_nyquist-chap_stab.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 
@@ -53,17 +19,8 @@ soit stable en boucle fermée.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 \begin{center}
-\begin{tikzpicture}
-    \node at (0,0) {
-    \includegraphics
-    [width=0.8\textwidth]{fig/exercice_nyquist_chap_stab_ex1_enonce.eps}};
-    \pgfmathsetmacro{\xu}{-4.32}
-    \pgfmathsetmacro{\yu}{-0.05}
-    \draw[red,fill=red] (\xu,\yu) circle (1.62pt) node[above left] {I$_1$};
-    \pgfmathsetmacro{\xd}{-2.93}
-    \pgfmathsetmacro{\yd}{-0.05}
-    \draw[red,fill=red] (\xd,\yd) circle (1.62pt) node[above right] {I$_2$};
-\end{tikzpicture}
+    \tikzsetnextfilename{critere_nyquist2-chap_stab-ext}
+    \input{tikz/critere_nyquist2-chap_stab.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 

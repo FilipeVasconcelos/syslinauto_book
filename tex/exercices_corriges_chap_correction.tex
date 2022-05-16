@@ -38,7 +38,6 @@ de \SI{-40}{\dB\per\dec}.
 %Q2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{\textbf{Déterminer la pulsation $\omega_{\SI{0}{\dB}}$, telle que le 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
           gain de la fonction de transfert en boucle ouverte soit 
           égale à \SI{0}{\dB}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,8 +95,7 @@ précédente. Le critère pourrait également être appliqué.
 %-------------------------------------------------------------------------------
 \begin{figure}
     \centering
-    \tikzsetnextfilename{
-    exercice_reponse_indicielle_non_corrige_chap_correction-ext}
+\tikzsetnextfilename{reponse_indicielle_non_corrige_chap_correction-ext}
     \input{tikz/exercice_reponse_indicielle_non_corrige_chap_correction.tex}
     \caption{Réponse indicielle du système en boucle fermée non corrigé}
 \end{figure}
@@ -137,7 +135,7 @@ encore,
     \arg{\left(C_{PI}H(j\omega_0)\right)} = \phi_d + \arg{H(j\omega_0)}
 \]
 où $\phi_d$ est le déphasage apporté par le correcteur seul.
-Pour une marge de phase souhaité de $M_\phi$. On cherche donc $\phi_d
+Pour une marge de phase souhaité de $M_\phi$. On cherche donc $\phi_d$
 \[
     \phi_d=\SI{-180}{\degreeSI}+M_\phi-\arg{H(j\omega_0)}
 \]
@@ -209,23 +207,24 @@ On vérifie bien que la marge de phase $M_\phi$ est égale à \SI{60}{\degreeSI}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On souhaite maintenant rendre le système précis à l'aide de l'effet integral.
 Cependant, on veut également garantir de nouveau une marge de phase $M_\phi$ de 
-\SI{60}{\degreeSI}. Pour maintenir le système stable, il faut donc centrer le 
-correcteur PI à une pulsation $\omega_0<\omega_{\SI{0}{\dB}}
+\SI{60}{\degree}. Pour maintenir le système stable, il faut donc centrer le 
+correcteur PI à une pulsation $\omega_0<\omega_{\SI{0}{\dB}}$
 %Q9
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{\textbf{Déterminer l'intervalle des pulsations pour laquelle 
-          la marge de stabilité $M_\phi$ de \SI{60}{\degreeSI} est accessible}}
+          la marge de stabilité $M_\phi$ de \SI{60}{\degree} 
+          est accessible}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le déphasage apporté par le correcteur PI étant compris entre 
-\SI{-90}{\degreeSI} et $\SI{0}{\degreeSI}$, le déphasage du système 
-corrigé ne peut présenter une marge de phase de $\SI{60}{\degreeSI}$ que pour 
+$\SI{-90}{\degree}$ et $\SI{0}{\degree}$, le déphasage du système 
+corrigé ne peut présenter une marge de phase de $\SI{60}{\degree}$ que pour 
 un certain intervalle de pulsations. En effet, puisque
 \[
     \arg{H(j\omega_0)}=\SI{-180}{\degreeSI}+M_\phi-\phi_i,
 \]
 où $\arg{H(j\omega_0)}$ est le déphasage de la boucle ouverte non 
 corrigé à la pulsation $\omega_0$ et $\phi_i$ le déphasage du 
-correcteur tel que $\SI{-90}{\degreeSI}<\phi_i<\SI{0}{\degreeSI}$. 
+correcteur tel que $\SI{-90}{\degreeSI}<\phi_i<\SI{0}{\degree}$. 
 L'argument $\arg{H(j\omega_0)}$ est donc contraint par les 
 bornes de $\phi_i$ :
 \[
@@ -255,13 +254,12 @@ La pulsation de coupure sera donc plus petite que la pulsation de coupure
 du système non corrigée. On s'attend donc à un système moins rapide puisque la 
 bande passante en BF devrait être également plus petite.
 
-On choisit arbitrairement une pulsation $\omega_0=\SI{1}{\radian\per\second}
+On choisit arbitrairement une pulsation $\omega_0=\SI{1}{\radian\per\second}$
 compris dans l'intervalle précédent.
 %Q10
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{\textbf{Déterminer le gain $G_i$ et la phase $\phi_i$ devant être
           apporté pour maintenir une marge de phase de \SI{60}{\degreeSI} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
           à cette pulsation de coupure.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On peut simplement lire ces quantités sur le diagramme de Bode de la boucle
@@ -273,7 +271,7 @@ ouverte non corrigée. On obtient :
     \phi_i=\arg{H(j\omega_0)}+\SI{180}{\degreeSI}-M_\phi=\SI{38.13}{\degreeSI}
 \]
 avec $\arg{H(j\omega_0)}=\SI{-81.9}{\degreeSI}$ et 
-$\phi_i=\arg{C_{PI}(j\omega_0)}
+$\phi_i=\arg{C_{PI}(j\omega_0)}$
 %-------------------------------------------------------------------------------
 \begin{figure}
     \centering

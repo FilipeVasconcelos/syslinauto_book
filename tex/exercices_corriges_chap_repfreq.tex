@@ -4,7 +4,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Tracer les diagrammes de Bode asymptotique et réel 
+pour les fonctions de transfert suivantes :}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (a)
 \[
@@ -12,76 +13,11 @@
 \]
 %-------------------------------------------------------------------------------
 \begin{center}
-\tikzsetnextfilename{exercices_bode_h1_gain-chap_repfreq-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}
-[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
-    grid=both,
-    major grid style={black!40},
-    %label style={font=\large},
-    xmode=log,ymode=normal,ylabel={Gain(\si{\decibel})},
-    xtick={1e-4,1e-3,1e-2,1e-1,1e0,1e1,1e2,1e3,1e4},
-    ytick={20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0},
-    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$},
-    ytick={20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0},
-    xmin=1e-4,xmax=1e4,
-    ymin=20.0,ymax=90.0
-]
-\addplot[ultra thick, col1,domain=1e-4:1e4, samples=201] 
-        {40+10*log10(1+100.0*x*x)-20*log10(1+0.010000000000000002*x*x)};
-\addplot[line width=2pt,col4,dashed,domain=0.0001:0.1,samples=51] 
-        {40.0+0.0*log10(x)};
-\addplot[line width=2pt,col4,dashed,domain=0.1:10.0,samples=51] 
-        {60.0+20.0*log10(x)};
-\addplot[line width=2pt,col4,dashed,domain=10.0:10000,samples=51] 
-        {100.0+-20.0*log10(x)};
-%\draw[draw=none,fill=col1] (axis cs:0.01,40.043205051941136) circle (2pt);
-%\draw[draw=none,fill=col1] (axis cs:0.1,43.00943141110256) circle (2pt);
-%\draw[draw=none,fill=col1] (axis cs:10.0,73.979834359489) circle (2pt);
-%\draw[draw=none,fill=col1] (axis cs:100.0,59.91357686728979) circle (2pt);
-\end{axis}
-\end{tikzpicture}
+    \tikzsetnextfilename{exercices_bode_h1_gain-chap_repfreq-ext}
+    \input{tikz/exercices_bode_h1_gain-chap_repfreq.tex}
 
-\tikzsetnextfilename{exercices_bode_h1_phase-chap_repfreq-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}
-    [
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
-    grid=both,
-    major grid style={black!40},
-    %label style={font=\large},
-    xmode=log,ymode=normal,xlabel={Pulsation (\si{\radian\per\second})},
-    ylabel={Phase (\degreeSI)},
-    xtick={1e-4,1e-3,1e-2,1e-1,1e0,1e1,1e2,1e3,1e4},
-    ytick={-90.0,-60.0,-30.0,0.0,30.0,60.0,90.0},
-    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$},
-    ytick={-90.0,-60.0,-30.0,0.0,30.0,60.0,90.0},
-    xmin=1e-4,xmax=1e4,
-    ymin=-90.0,ymax=90.0
-    ]
-\addplot[ultra thick, col1,domain=1e-4:1e4, samples=201] 
-        {+1*atan2(10.0*x,1)-2*atan2(0.1*x,1)};
-\addplot[line width=2pt,col4,dashed,domain=0.0001:0.1,samples=51] 
-        {0.0};
-\draw[line width=2pt,col4,dashed] (axis cs:0.1,0.0)  -- (axis cs:0.1,90.0);
-\addplot[line width=2pt,col4,dashed,domain=0.1:10.0,samples=51] 
-        {90.0};
-\draw[line width=2pt,col4,dashed] (axis cs:10.0,90.0)  -- (axis cs:10.0,-90.0);
-\addplot[line width=2pt,col4,dashed,domain=10.0:10000,samples=51] 
-        {-90.0};
-%\draw[draw=none,fill=col1] (axis cs:0.01,5.596001616670642) circle (2pt);
-%\draw[draw=none,fill=col1] (axis cs:0.1,43.85412260463303) circle (2pt);
-%\draw[draw=none,fill=col1] (axis cs:10.0,-0.572938697683469) circle (2pt);
-%\draw[draw=none,fill=col1] (axis cs:100.0,-78.63610948541523) circle (2pt);
-\end{axis}
-\end{tikzpicture}
+    \tikzsetnextfilename{exercices_bode_h1_phase-chap_repfreq-ext}
+    \input{tikz/exercices_bode_h1_phase-chap_repfreq.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 (b)
@@ -90,69 +26,10 @@
 \]
 %-------------------------------------------------------------------------------
 \begin{center}
-\tikzsetnextfilename{exercices_bode_h2_gain-chap_repfreq-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
-    ylabel={Gain (\si{\decibel})},
-    xtick={1e-2,1e-1,1,1e1,1e2},
-    xticklabels={$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$},
-    ytick={-80,-60,-40,-20,0,20,40,60,80},
-    yticklabels={-80,-60,-40,-20,0,20,40,60,80},
-    xmode=log,ymode=normal,
-    xmin=1e-2, xmax=1e2,
-    ymin=-80, ymax=80,
-    grid=both,
-    major grid style={black!40}]
-
-    \pgfmathsetmacro{\xi}{0.15}
-    \pgfmathsetmacro{\txi}{2*\xi}
-    \pgfmathsetmacro{\wz}{1}
-    \pgfmathsetmacro{\K}{1}
-\addplot[ultra thick,col1,domain=1e-2:1e2,samples=201] 
-        {20*log10(1+x^2)+20*log10(\K*\wz^2)-
-         10*log10((\wz^2-x^2)^2+(\txi*x)^2)-
-          40*log10(x)};
-\addplot[line width=2pt,col4,dashed,domain=1e-2:1e2, samples=51] {-40*log10(x)};
-    %\draw[draw=none,fill=col1] (axis cs:0.5,2.32) circle (2pt);
-    %\draw[draw=none,fill=col1] (axis cs:1,10.45)  circle (2pt);
-    %\draw[draw=none,fill=col1] (axis cs:2,-9.7)   circle (2pt);
-    %0.5 2.328441339178196 -11.309932474020213
-    %1 10.457574905606752 -90.0
-    %2 -9.712758487381052 -168.6900675259798
-\end{axis}
-\end{tikzpicture}
-
-\tikzsetnextfilename{exercices_bode_h2_phase-chap_repfreq-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
-    xlabel={Pulsation (\si{\radian\per\second})},
-    ylabel={Phase (\degreeSI)},
-    ytick={-360,-330,-300,-270,-240,-210,-180},
-    yticklabels={-360,-330,-300,-270,-240,-210,-180},
-    xtick={1e-2,1e-1,1,1e1,1e2},
-    xticklabels={$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$},
-    xmode=log,ymode=normal,
-    xmin=1e-2, xmax=1e2,
-    ymin=-300, ymax=-160,
-    grid=both,
-    major grid style={black!40}
-]
-    \pgfmathsetmacro{\xi}{0.15}
-    \pgfmathsetmacro{\txi}{2*\xi}
-    \pgfmathsetmacro{\wz}{1}
-    \addplot[ultra thick, col1,domain=1e-3:1e3, samples=201] 
-    {atan2(x,1)-atan2(\txi*x*\wz,\wz^2-x^2)-2*atan2(x,0)};
-    \addplot[line width=2pt,col4,dashed,domain=1e-2:1e0, samples=51] {-180};
-    \addplot[line width=2pt,col4,dashed,domain=1e0:1e2, samples=51] {-270};
-    \draw[line width=2pt,col4,dashed] (axis cs:1,-180)  -- (axis cs:1,-270);
-\end{axis}
-\end{tikzpicture}
+    \tikzsetnextfilename{exercices_bode_h2_gain-chap_repfreq-ext}
+    \input{tikz/exercices_bode_h2_gain-chap_repfreq}
+    \tikzsetnextfilename{exercices_bode_h2_phase-chap_repfreq-ext}
+    \input{tikz/exercices_bode_h2_phase-chap_repfreq}
 \end{center}
 %-------------------------------------------------------------------------------
 
@@ -162,85 +39,17 @@ H_3(p)=\dfrac{100}{(1+0.1p)(1+0.01p)(1+0.001p)}
 \]
 %-------------------------------------------------------------------------------
 \begin{center}
-\tikzsetnextfilename{exercices_bode_h3_gain-chap_repfreq-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}
-[
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.25\textheight,
-    grid=both,
-    major grid style={black!40},
-    %label style={font=\large},
-    xmode=log,ymode=normal,ylabel={Gain(\si{\decibel})},
-    xtick={1e-1,1e0,1e1,1e2,1e3,1e4,1e5},
-    xticklabels={$10^{-1}$,$10^{0}$,$10^{1}$,
-                 $10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
-    ytick={-160,-140,-120,-100,-80,-60,-40,-20,0,20,40,60},
-    yticklabels={-160,-140,-120,-100,-80,-60,-40,-20,0,20,40,60},
-    xmin=1e-1,xmax=1e5,
-    ymin=-120,ymax=60
-]
-\addplot[ultra thick, col1,domain=1e-1:1e5, samples=201] 
-        {40
-        -10*log10(1+0.01*x*x)
-        -10*log10(1+0.0001*x*x)
-        -10*log10(1+0.000001*x*x)};
-\addplot[line width=2pt,col4,dashed,domain=1e-1:1e1,samples=51] 
-        {40};
-\addplot[line width=2pt,col4,dashed,domain=1e1:1e2,samples=51] 
-        {60-20.0*log10(x)};
-\addplot[line width=2pt,col4,dashed,domain=1e2:1e3,samples=51] 
-        {100.0-40.0*log10(x)};
-\addplot[line width=2pt,col4,dashed,domain=1e3:1e5,samples=51] 
-        {160-60.0*log10(x)};
-%\draw[draw=none,fill=col1] (axis cs:0.01,40.043205051941136) circle (2pt);
-%\draw[draw=none,fill=col1] (axis cs:0.1,43.00943141110256) circle (2pt);
-%\draw[draw=none,fill=col1] (axis cs:10.0,73.979834359489) circle (2pt);
-%\draw[draw=none,fill=col1] (axis cs:100.0,59.91357686728979) circle (2pt);
-%\draw[line width=2pt,col4,dashed] (axis cs:1e1,0)  -- (axis cs:1e1,-90.0);
-%\draw[line width=2pt,col4,dashed] (axis cs:1e2,-90)  -- (axis cs:1e2,-180.0);
-%\draw[line width=2pt,col4,dashed] (axis cs:1e3,-180)  -- (axis cs:1e3,-270.0);
-\end{axis}
-\end{tikzpicture}
-
-\tikzsetnextfilename{exercices_bode_h3_phase-chap_repfreq-ext}
-\begin{tikzpicture}[trim axis left]
-\begin{axis}
-    [
-    ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.25\textheight,
-    grid=both,
-    major grid style={black!40},
-    %label style={font=\large},
-    xmode=log,ymode=normal,xlabel={Pulsation (\si{\radian\per\second})},
-    ylabel={Phase (\degreeSI)},
-    xtick={1e-1,1e0,1e1,1e2,1e3,1e4,1e5},
-    xticklabels={$10^{-1}$,$10^{0}$,$10^{1}$,
-                 $10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
-    ytick={-270,-225,-180,-135,-90,-45,0},
-    yticklabels={-270,-225,-180,-135,-90,-45,0},
-    xmin=1e-1,xmax=1e5,
-    ymin=-270.0,ymax=0.0
-    ]
-\addplot[ultra thick, col1,domain=1e-1:1e5, samples=201] 
-        {-1*atan2(0.1*x,1)-atan2(0.01*x,1)-atan2(0.001*x,1)};
-\addplot[line width=2pt,col4,dashed,domain=1e-2:1e1,samples=51] 
-        {0.0};
-\addplot[line width=2pt,col4,dashed,domain=1e1:1e2,samples=51] {-90.0};
-\addplot[line width=2pt,col4,dashed,domain=1e2:1e3,samples=51] {-180.0};
-\addplot[line width=2pt,col4,dashed,domain=1e3:1e6,samples=51] {-270.0};
-\draw[line width=2pt,col4,dashed] (axis cs:1e1,0)  -- (axis cs:1e1,-90.0);
-\draw[line width=2pt,col4,dashed] (axis cs:1e2,-90)  -- (axis cs:1e2,-180.0);
-\draw[line width=2pt,col4,dashed] (axis cs:1e3,-180)  -- (axis cs:1e3,-270.0);
-\end{axis}
-\end{tikzpicture}
+    \tikzsetnextfilename{exercices_bode_h3_gain-chap_repfreq-ext}
+    \input{tikz/exercices_bode_h3_gain-chap_repfreq}
+    \tikzsetnextfilename{exercices_bode_h3_phase-chap_repfreq-ext}
+    \input{tikz/exercices_bode_h3_phase-chap_repfreq}
 \end{center}
 %-------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Pour chacun des systèmes, déterminer la valeur de la 
+pulsation $\omega_{0\si{\dB}}$, c'est à dire la pulsation pour laquelle le 
+gain vaut 0~\si{\dB}.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 En lisant le diagramme de Bode 
 $\omega_{0\si{\dB}}\sim\SI{300}{\radian\per\second}$
@@ -263,7 +72,8 @@ La résolution de cette expression en $\omega$ donne
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Tracer le diagramme de Nyquist de la 
+fonction de transfert suivante:}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La fonction de transfert complexe de $H(p)$ s'écrit :
 \[
