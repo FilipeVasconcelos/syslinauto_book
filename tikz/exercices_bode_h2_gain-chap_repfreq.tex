@@ -1,0 +1,34 @@
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.22\textheight,
+    ylabel={Gain (\si{\decibel})},
+    xtick={1e-2,1e-1,1,1e1,1e2},
+    xticklabels={$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$},
+    ytick={-80,-60,-40,-20,0,20,40,60,80},
+    yticklabels={-80,-60,-40,-20,0,20,40,60,80},
+    xmode=log,ymode=normal,
+    xmin=1e-2, xmax=1e2,
+    ymin=-80, ymax=80,
+    grid=both,
+    major grid style={black!40}]
+
+    \pgfmathsetmacro{\xi}{0.15}
+    \pgfmathsetmacro{\txi}{2*\xi}
+    \pgfmathsetmacro{\wz}{1}
+    \pgfmathsetmacro{\K}{1}
+\addplot[ultra thick,col1,domain=1e-2:1e2,samples=201] 
+        {20*log10(1+x^2)+20*log10(\K*\wz^2)-
+         10*log10((\wz^2-x^2)^2+(\txi*x)^2)-
+          40*log10(x)};
+\addplot[line width=2pt,col4,dashed,domain=1e-2:1e2, samples=51] {-40*log10(x)};
+    %\draw[draw=none,fill=col1] (axis cs:0.5,2.32) circle (2pt);
+    %\draw[draw=none,fill=col1] (axis cs:1,10.45)  circle (2pt);
+    %\draw[draw=none,fill=col1] (axis cs:2,-9.7)   circle (2pt);
+    %0.5 2.328441339178196 -11.309932474020213
+    %1 10.457574905606752 -90.0
+    %2 -9.712758487381052 -168.6900675259798
+\end{axis}
+\end{tikzpicture}
+
