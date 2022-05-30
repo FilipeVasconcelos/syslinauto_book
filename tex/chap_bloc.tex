@@ -18,23 +18,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Dans ce chapitre, nous allons introduire un outil graphique pour faciliter 
+Dans ce chapitre, nous allons introduire des outils graphiques pour faciliter 
 la représentation des relations mathématiques entre les différents 
 éléments constituants un \gls{slci}. Cet outil est le 
 \textbf{schéma fonctionnel} ou également appelé \textbf{schéma-bloc}. Les 
-schémas fonctionnels nous seront très utiles pour l'étude des systèmes 
-asservis. Nous introduirons une algèbre de blocs permettant de réduire les 
-schémas-blocs qui nous permettront de s'affranchir de la manipulation
+schémas fonctionnels, dans le domaine de Laplace, nous seront très utiles pour 
+l'étude des systèmes asservis. Nous introduirons une algèbre de blocs 
+permettant de réduire les schémas-blocs et de s'affranchir de la manipulation
 d'expression mathématique de grande taille. Nous aborderons également le cas 
 des entrées multiples. 
 
-Dans une dernière partie nous introduirons 
-les graphes de fluence, comme présenté dans~\cite{Ostertag}. Ces derniers 
+Nous introduirons également les graphes de fluence, comme présenté 
+dans~\cite{Ostertag}. Ces derniers 
 sont moins utilisés pour l'étude des \gls{slci}, et peuvent donc être négligés 
 dans une première lecture, l'algèbre qui lui est associée s'avère cependant 
 bien plus éfficace et pourra être utilisée dans d'autres 
 applications (ex : éléctronique, réseaux de neurones).
-%\newpage % tmp
+
+Enfin nous présenterons, la représentation des équations différentielles
+à l'aide de schémas-bloc dans le domaine temporel. Cette approche également
+hors programme peut être utile pour mieux appréhender les résultats obtenus
+dans le domaine de Laplace.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -903,10 +907,102 @@ transmittance globale :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acplhp
-%https://mitocw.ups.edu.ec/courses/electrical-engineering-and-
-%computer-science/6-003-signals-and-systems-fall-2011/
-%lecture-videos/MIT6_003F11_lec04.pdf
+Dans cette partie, nous allons introduire une dernière façon de représenter
+les équations différentielles à l'aide de schémas-fonctionnel dans le domaine
+temporel. Nous suivrons et adapterons l'approche présentée par D. M. Freeman du 
+MIT~\cite{Freeman}.
+%https://mitocw.ups.edu.ec/courses/electrical-engineering-and-computer-science/
+%6-003-signals-and-systems-fall-2011/lecture-videos/MIT6_003F11_lec04.pdf
+L'opérateur intégral $\mathcal{I}$ appliqué à un signal 
+continu $x(t)$ permet de générer un signal $y(t)$ correspondant 
+à l'intégral en tous points de $x(t)$.
+\[
+    y(t)=\mathcal{I} x(t)=\int_{-\infty}^t x(\tau)\dd{\tau}
+\]
+sous forme d'opérateur on écrira $Y=\mathcal{I}X$ de façon équivalente.
+\begin{center}
+    \tikzsetnextfilename{sbdt_Int-chap_bloc-ext}
+    \input{tikz/sbdt_Int-chap_bloc.tex}
+\end{center}
+Nous representons le produit par un simple scalaire (c.-à-d. un gain) $s$ par 
+le triangle de la façon suivante:
+
+\begin{center}
+    \tikzsetnextfilename{sbdt_BlocT-chap_bloc-ext}
+    \input{tikz/sbdt_BlocT-chap_bloc.tex}
+\end{center}
+\[
+    y(t)=sx(t)
+\]
+
+L'équation différentielle suivante :
+\[
+    \dot{y}(t)=s\big(x(t)+y(t)\big)
+\]
+peut alors être représentée par le schéma-bloc dans le domaine temporel suivant :
+
+\begin{center}
+    \tikzsetnextfilename{sbdt_eqdiff1-chap_bloc-ext}
+    \input{tikz/sbdt_eqdiff1-chap_bloc.tex}
+\end{center}
+
+sous forme d'opérateur, on réduira ce schéma-bloc par la relation suivante :
+\[
+    Y=s\mathcal{I}\big(X+Y\big)
+\]
+Le rapport de la sortie sur l'entrée
+\[
+    \dfrac{Y}{X}=\dfrac{s\mathcal{I}}{1-s\mathcal{I}}
+\]
+L'équation différentielle (2) :
+\[
+    \dot{y}(t)=x+sy(t)
+\]
+
+\begin{center}
+    \tikzsetnextfilename{sbdt_eqdiff2-chap_bloc-ext}
+    \input{tikz/sbdt_eqdiff2-chap_bloc.tex}
+\end{center}
+
+Sous forme d'opérateur
+\[
+    Y=\mathcal{I}\big(X+sY\big)
+\]
+\[
+    \dfrac{Y}{X}=\dfrac{\mathcal{I}}{1-s\mathcal{I}}
+\]
+L'équation différentielle (3) :
+\[
+    \dot{y}(t)=\dot{x}(t)+sy(t)
+\]
+\begin{center}
+    \tikzsetnextfilename{sbdt_eqdiff3-chap_bloc-ext}
+    \input{tikz/sbdt_eqdiff3-chap_bloc.tex}
+\end{center}
+Sous forme d'opérateur
+\[
+    Y=X+s\mathcal{I}Y
+\]
+\[
+    \dfrac{Y}{X}=\dfrac{1}{1-s\mathcal{I}}
+\]
+Il est possible de développer $\dfrac{1}{1-s\mathcal{I}}$ sous forme de série entière :
+\[
+    \dfrac{1}{1-s\mathcal{I}}=\sum_{n=0}^{\infty}(s\mathcal{I})^n=(1+s\mathcal{I}+s^2\mathcal{I}^2+s^3\mathcal{I}^3\ldots)
+\]
+L'application de l'opérateur $\mathcal{I}^n$ revient à appliquer $\mathcal{I}$ $n$ fois.
+
+Prenons l'exemple de l'équation différentielle :
+\[
+    \dot{y}(t)=x+sy(t)
+\]
+en appliquant la transformée de Laplace on obtiendrait :
+\[
+    Y(p)=\dfrac{1}{p-s}X(p)
+\]
+
+Pour une entrée $x(t)=\delta(t)$, la sortie devient dans le domaine de Laplace $Y(p)=\dfrac{1}{p-s}$, par la transformée de Laplace
+inverse celà devient $y(t)=e^{-st}u(t)$.
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
