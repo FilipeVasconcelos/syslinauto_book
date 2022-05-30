@@ -8,11 +8,16 @@
           transitoire et permanent.
     - Schémas fonctionnels:
         - Schéma-bloc dans le domaine temporel
-    - Réponse harmonique (Section Black-Nichols) 
-    - Stabilité
+    - Réponse harmonique :
+        - Section Black-Nichols 
+    - Stabilité :
+    - Précision :
+        - revoir la partie précision, Shabab y voit un
+          problème dans le signe de l'erreur dû à la perturbation.
     - Correction
 # à écrire complétement :
-    - Initiation à la représentation d'état
+    - Initiation à la représentation d'état :
+        - Faire le lien avec la tachymétrie 
 # ================================================================
 # Exercices des chapitres 
 # ================================================================
@@ -28,4 +33,8 @@
          - la figure de l'exercice 1 est à retravailler 
     - Correction
     - Initiation à la représentation d'état
-
+# ================================================================
+# Annexes :
+# ================================================================
+    - Ajouter une annexe pour l'évaluation de la pulsation de 
+      coupure par des méthodes analytique, numérique et graphique.
