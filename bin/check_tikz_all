@@ -1,0 +1,18 @@
+#!/bin/bash
+GRE='\033[0;32m'
+RED='\033[0;31m'
+NOC='\033[0m'
+for file in $1/*.tex
+do
+    check1=$(bin/check_tikz ${file})
+    if [ ! -z "${check1}" ]
+    then 
+        echo -e "you should check for tikzpicture inside the code in ${RED}$file${NOC}"
+        echo    "create a specific tikz file"
+        echo "... and rerun this script to be sure"
+        bin/check_tikz $file
+        exit 1
+    fi
+done
+echo -e "${GRE}no tikzpicture found in $1/*.tex${NOC}"
+exit 0

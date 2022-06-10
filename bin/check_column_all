@@ -9,6 +9,7 @@ do
     then
         echo -e "you should check for column overflow in ${RED}$file${NOC}"
         echo "... and rerun this script to be sure"
+        echo "check lines :"
         bin/check_column $file
         exit 1
     fi

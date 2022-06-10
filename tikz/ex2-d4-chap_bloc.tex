@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbComp{comp1}{E}
+    \sbRelier[$E$]{E}{comp1}
+    \sbBloc{h1}{$H_1$}{comp1}
+    \sbRelier{comp1}{h1}
+    \sbBlocL{h4}{$\dfrac{H_2H_3H_4}{1+H_3H_4G_4+H_2H_3G_3}$}{h1}
+    \sbSortie[5]{S}{h4}
+    \sbRelier{h4}{S}
+    \sbNomLien[0.8]{S}{$S$}
+    \sbDecaleNoeudy[4]{h4}{w}
+    \sbBlocr[2.5]{g2}{$\dfrac{G_2-G_1H_4}{H_4}$}{w}
+    \sbRelierxy{g2}{comp1}
+    \sbRelieryx{h4-S}{g2}
+\end{tikzpicture}

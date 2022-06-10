@@ -114,7 +114,9 @@ H(p)=\dfrac{K\omega^2_0}{(p-p_1)(p-p_2)}
 %-------------------------------------------------------------------------------
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Réponse impulsionnelle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du second ordre!réponse impulsionnelle}
 La réponse impulsionnelle d'un système du second ordre est, dans le domaine 
@@ -124,7 +126,6 @@ S(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}
 \]
 où $E(p)=1$ dans le cas d'une impulsion de Dirac unitaire\footnote{Nous avons 
 ici posé $E_0=1$ pour alléger la notation.}.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Dans le cas $\xi>1$ (régime apériodique)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -201,7 +202,8 @@ S(p)=\dfrac{K\omega^2_0}{(p+\alpha-j\omega_d)(p+\alpha+j\omega_d)} =
      \dfrac{K\omega^2_0}{(p+\alpha)^2+\omega^2_d}=
      \dfrac{K\omega_d}{1-\xi^2}\cdot\dfrac{\omega_d}{(p+\alpha)^2+\omega^2_d}
 \]
-La transformée de Laplace inverse de $S(p)$ (c.f ligne 30 de la table des                                     transformées de Laplace), nous donne la forme générale de la réponse 
+La transformée de Laplace inverse de $S(p)$ (c.f ligne 30 de la table des 
+transformées de Laplace), nous donne la forme générale de la réponse 
 impulsionnelle d'un système du second ordre en régime pseudo-périodique :  
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -224,7 +226,9 @@ impulsionnelle d'un système du second ordre en régime pseudo-périodique :
 \newpage
 \thispagestyle{empty}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Réponse indicielle\label{subsubsec-2nd_ind}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système du second ordre!réponse indicielle}
 La réponse indicielle d'un système du second ordre est, dans le domaine 
@@ -243,7 +247,8 @@ La sortie dans le domaine de Laplace s'écrit :
 \[
 S(p)=\dfrac{K\omega^2_0}{(p-p_1)(p-p_2)}\cdot\dfrac{E_0}{p}
 \]
-La transformée de Laplace inverse de $S(p)$ (c.f ligne 19 de la table des                                     transformées de Laplace), nous donne la forme générale de la 
+La transformée de Laplace inverse de $S(p)$ (c.f ligne 19 de la table des 
+transformées de Laplace), nous donne la forme générale de la 
 réponse indicielle d'un système du second ordre en régime apériodique:
 %\[
 %s(t)=\dfrac{KE_0\omega^2_0}{p_1p_2}\left(1+\dfrac{1}{p_1-p_2}
@@ -272,8 +277,9 @@ La sortie dans le domaine de Laplace s'écrit :
 \[
 S(p)=\dfrac{K\omega^2_0}{(p-p_1)^2}\cdot\dfrac{E_0}{p}
 \]
-La transformée de Laplace inverse de $S(p)$ (c.f ligne 14 de la table des                                     transformées de Laplace) , nous donne la forme générale de la réponse indicielle 
-d'un système du second ordre en régime apériodique critique:
+La transformée de Laplace inverse de $S(p)$ (c.f ligne 14 de la table des
+transformées de Laplace) , nous donne la forme générale de la réponse 
+indicielle d'un système du second ordre en régime apériodique critique:
 \[
 s(t)=\dfrac{KE_0\omega^2_0}{p^2_1}\left(1-(1-p_1t)e^{p_1t}\right)
 \]
@@ -288,6 +294,7 @@ en posant $p_1=-\dfrac{1}{\tau}$, on obtient:
     s(t)=KE_0\left(1-e^{-\frac{t}{\tau}}-\dfrac{t}{\tau}
     e^{-\frac{t}{\tau}}\right)\label{eq-2-2_2nd} 
 \end{bequation}
+%-------------------------------------------------------------------------------
 \newpage
 \thispagestyle{empty}
 %-------------------------------------------------------------------------------
@@ -353,7 +360,7 @@ l'amplitude des oscillations augmente lorsque le taux d'amortissement diminue.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Certaines propriétés de la réponse indicielle dans le régime pseudo-périodique 
 sont fortement dépendantes du taux d'amortissement. C'est le cas du 
-dépassemement et du temps de réponse. La~\cref{fig-2nd_depassement_1} présente 
+dépassement et du temps de réponse. La~\cref{fig-2nd_depassement_1} présente 
 la réponse à un échelon unitaire pour un amortissement de $\xi=0.2$, 
 on observe que les dépassements succésifs sont de moins en moins important. 
 Pour déterminer la relation entre le dépassement et le taux d'amortissement, 

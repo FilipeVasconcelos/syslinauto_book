@@ -22,7 +22,8 @@ où $R$ est la résistance thermique de l'enceinte.
 Le bilan de puissance s'exprime donc par la relation $P_2=P_1-P_3$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Exprimer l'équation différentielle donnant la différence 
+de température $\Delta\theta=\theta_e-\theta_a$ en fonction de $u_c$}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 En posant $P_1=Au_c$, $\Delta\theta(t)=\theta_e(t)-\theta_a(t)$ et en utilisant
 la relation $P_2=P_1-P_3$, on obtient 
@@ -35,7 +36,8 @@ sous forme canonique on obtient :
 \]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer la fonction de transfert en boucle ouverte $H(p)$ 
+et montrer qu'elle peut se mettre sous la forme}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La transformée de Laplace de l'équation différentielle précédente, nous donne:
 \[
@@ -53,11 +55,10 @@ et
 \[
     \tau=MCR
 \]
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{À partir de cette mesure, déterminer les valeurs numériques 
+des paramètres de la fonction de transfert $H(p)$ $K$ et $\tau$.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Le temps de réponse à 5\% ($\sim 3\tau$) est de \SI{180}{\second}. 
 On a donc $\tau=\SI{60}{\second}$. 
 La valeur finale de la réponse indicielle d'un système du premier ordre est 
@@ -70,9 +71,9 @@ On écrit $H(p)$ sous la forme numérique :
 \[
     H(p)=\dfrac{12}{1+60p}
 \]
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer la forme canonique de la fonction de transfert en 
+boucle fermée $G(p)$ de cet asservissement.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \[
     G(p)=\dfrac{H(p)}{1+B(p)H(p)}
@@ -90,16 +91,20 @@ et
     \tau_{BF}=\dfrac{\tau}{1+BK}=\SI{37.5}{\second}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer la tension de commande $u_c$ nécessaire pour 
+avoir une température de l'enceinte $\theta_e$ de \SI{80}{\celsius} et 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+déterminer le temps de réponse à 5\% (ainsi que la nouvelle constante 
+de temps du système).}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour atteindre une différence de température de \SI{60}{\celsius}, il faut une 
 tension de commande de $u_c=\dfrac{60}{7.5}=\SI{8}{\volt}$
 Le temps de réponse à 5\% est d'environ $3\tau_{BF}=\SI{112.5}{\second}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer l'écart statique 
+(c'est à dire $u_c(\infty)-u_r(\infty)$) dans ces conditions.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{Déterminer l'écart statique (c'est à dire $u_c(\infty)-u_r(\infty)$) 
-dans ces conditions.\textbf{(1pt)}}
 \[
     u_c(\infty)-u_r(\infty)=\SI{8}{\volt}-0.05\SI{60}{\celsius}=\SI{5}{\volt}
 \]
+

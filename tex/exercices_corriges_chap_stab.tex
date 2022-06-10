@@ -1,0 +1,66 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Critère de Nyquist~\difficile}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+La FTBO présentant 2 pôles instables ($P=2$), le système sera stable 
+en boucle fermée pour $N=2$, la seule région pouvant prétendre à celà 
+est représenté en vert sur la figure ci-dessous. 
+
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{critere_nyquist-chap_stab-ext}
+    \input{tikz/critere_nyquist-chap_stab.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer alors la condition sur $K$ pour ce système 
+soit stable en boucle fermée.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{critere_nyquist2-chap_stab-ext}
+    \input{tikz/critere_nyquist2-chap_stab.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+
+Pour que le système soit stable en boucle fermée, il faut que le point 
+critique de coordonnées (-1,0) se trouve entre les deux points I$_1$ et 
+I$_2$ représentés sur la figure ci-dessus.
+La partie réel de ces deux points est directement proportionnelle au 
+gain de la boucle ouverte. Lorsque l'on augmente ou diminue le gain $K$, 
+le diagramme de Nyquist est tranformé par homothétie (même forme et 
+même orientation).
+Ainsi, 
+%-------------------------------------------------------------------------------
+\begin{align*}
+    K\Re{\mathrm{I}_1} < -1 \\
+    K\Re{\mathrm{I}_2} > -1 
+\end{align*}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{align*}
+    -\dfrac{1}{\Re{\mathrm{I}_2}}<K<-\dfrac{1}{\Re{\mathrm{I}_1}}
+\end{align*}
+%-------------------------------------------------------------------------------
+
+On mesure sur le diagramme précédent la position des points I$_1$ et I$_2$ 
+dans le cas où $K=-1$.
+\begin{align*}
+    \Re{\mathrm{I}_1}&=-8.544\\
+    \Re{\mathrm{I}_2}&=-7
+\end{align*}
+donc,
+\[
+-0.1428<K<-0.117
+\]
+
+Nous traçons ci-dessous le diagramme de Nyquist pour $K=-0.13$
+%-------------------------------------------------------------------------------
+\begin{center}
+\includegraphics[width=0.8\textwidth]
+{fig/exercice_nyquist_chap_stab_ex1_corrige.eps}
+\end{center}
+%-------------------------------------------------------------------------------
+
+

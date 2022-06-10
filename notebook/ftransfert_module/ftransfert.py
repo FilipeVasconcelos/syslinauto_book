@@ -17,14 +17,12 @@ def nat2dB(g)    : return 20*np.log10(g)  # naturel -> dB      (gain)
 def dB2nat(dB)   : return 10**(dB/20)     # dB      -> naturel (gain)
 def bo2bf(z)     : return z/(1+z)         # BO      -> BF
 
-
-
 # ------------------------------------------------------------------------------
 class Ftransfert():
     """
     Fonction de transfert :
     """
-    def __init__(self,zeros=None,poles=None,num=None,den=None,gain=1,title='',name="F",DPI=200,verbeux=1):
+    def __init__(self,zeros=None,poles=None,num=None,den=None,gain=1,title='',name="F",DPI=100,verbeux=1):
         self.gain=gain
         self.num=num
         self.den=den
@@ -583,7 +581,7 @@ class Ftransfert():
         ax.yaxis.label.set_size(18)
         plt.grid()
         for path in Cimage:
-            line,=plt.plot([x.real for x in path],[x.imag for x in path],color=colorI)
+            line,=plt.plot([x[0].real for x in path],[x[0].imag for x in path],color=colorI)
             add_arrow(line,middle=middle)
         plt.scatter(0,0,color='black',marker='+',linewidth=2,s=[64])
         plt.tight_layout()

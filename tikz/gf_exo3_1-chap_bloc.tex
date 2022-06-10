@@ -29,11 +29,17 @@
     \draw[thick] (b) -- (R2);
     \draw[thick] (c) -- (R2);
     \draw[thick] (d) -- (c);
-    \draw[thick] (ca) -- ++ ($(0,-0.9)$) -- node[left,xshift=-1em] {$C$} ++($(-0.5,0)$) -- ++ ($(1,0)$) ;
+    \draw[thick] (ca) -- ++ ($(0,-0.9)$) -- node[left,xshift=-1em] {$C$} 
+                         ++ ($(-0.5,0)$) -- ++ ($(1,0)$) ;
     \draw[thick] (cb) -- ++ ($(0,0.9)$) -- ++ ($(-0.5,0)$) -- ++ ($(1,0)$) ;
-    \draw[dblarw={black}{1.5pt}{1pt}] ($(d)+(0,0.1)$) -- node[left] {$v_1$} ($(a)+(0,-0.1)$);
-    \draw[dblarw={black}{1.5pt}{1pt}] ($(c)+(0.5,0.1)$) -- node[right] {$v_2$}($(b)+(0.5,-0.1)$);
-    \draw[dblarw={black}{1.5pt}{1pt}] ($(a)+(0.1,0)$) --node[above] {$i_1$} ++ ($(0.5,0)$);
-    \draw[dblarw={black}{1.5pt}{1pt}] ($(ca)+(0,-0.1)$) --node[left] {$i_2$} ++ ($(0,-0.5)$);
-    \draw[dblarw={black}{1.5pt}{1pt}] ($(b)+(0,-0.1)$) --node[left] {$i_3$} ++ ($(0,-0.5)$);
+    \draw[dblarw={black}{1.5pt}{1pt}] ($(d)+(0,0.1)$) -- node[left] {$v_1$} 
+                            ($(a)+(0,-0.1)$);
+    \draw[dblarw={black}{1.5pt}{1pt}] ($(c)+(0.5,0.1)$) -- node[right] {$v_2$} 
+                            ($(b)+(0.5,-0.1)$);
+    \draw[dblarw={black}{1.5pt}{1pt}] ($(a)+(0.1,0)$) --node[above] {$i_1$} 
+                         ++ ($(0.5,0)$);
+    \draw[dblarw={black}{1.5pt}{1pt}] ($(ca)+(0,-0.1)$) --node[left] {$i_2$} 
+                         ++ ($(0,-0.5)$);
+    \draw[dblarw={black}{1.5pt}{1pt}] ($(b)+(0,-0.1)$) --node[left] {$i_3$} 
+                         ++ ($(0,-0.5)$);
 \end{tikzpicture}

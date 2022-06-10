@@ -5,7 +5,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Tracer le schéma-bloc dans le cas où l'entrée $P$ 
+est nulle. On notera $S_E(p)$ la sortie de ce schéma-bloc.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le schéma-bloc dans le cas pour lequel l'entrée $P$ est nulle est donné 
 ci-dessous
@@ -17,7 +18,8 @@ ci-dessous
 %-------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer la fonction de transfert $H_E(p)$ 
+du schéma-bloc précédent.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour déterminer la fonction de transfert $H_E(p)$, il nous faut réduire le
 schéma-bloc précédent.
@@ -34,7 +36,8 @@ de transfert est donnée par
 \]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Tracer le schéma-bloc dans le cas où l'entrée $E$ est nulle. 
+On notera $S_P(p)$ la sortie de ce schéma-bloc.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le schéma-bloc dans le cas pour lequel l'entrée $E$ est nulle est donné 
 ci-dessous
@@ -46,7 +49,8 @@ ci-dessous
 %-------------------------------------------------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer la fonction de transfert $H_P(p)$ 
+du schéma-bloc précédent.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour déterminer la fonction de transfert $H_E(p)$, il nous faut réduire le
 schéma-bloc précédent.
@@ -63,7 +67,8 @@ de transfert est donnée par
 \]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer la sortie globale $S(p)=S_E(p)+S_P(p)$ 
+en fonction des entrées $E$, $P$ et des blocs du système.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La sortie globale $S(p)$ est alors donnée par la combinaison des deux réponses :
 
@@ -81,403 +86,191 @@ ou encore
 \exercice{Réduction de schémas fonctionnels~\difficile}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Donner la fonction de transfert globale des 
+schémas-blocs suivants: (a)}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 \begin{center} 
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp{comp1}{E}
-        \sbRelier[$E$]{E}{comp1}
-        \sbBloc{h1}{$H_1$}{comp1}
-        \sbRelier{comp1}{h1}
-        \sbComp{comp2}{h1}
-        \sbRelier{h1}{comp2}
-        \sbBloc{h2}{$H_2$}{comp2}
-        \sbRelier{comp2}{h2}
-        \sbBloc{h3}{$H_3$}{h2}
-        \sbRelier{h2}{h3}
-        \sbBloc{h4}{$H_4$}{h3}
-        \sbRelier{h3}{h4}
-        \sbSortie[5]{S}{h4}
-        \sbRelier{h4}{S}
-        \sbNomLien[0.8]{S}{$S$}
-        \sbRenvoi[5]{h4-S}{comp1}{}
-        \sbRenvoi{h3-h4}{comp2}{}
-    \end{tikzpicture}
+    \tikzsetnextfilename{ex2-a1-chap_bloc-ext}
+    \input{tikz/ex2-a1-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 Réduisons d'abord la boucle de contre réaction interne :
 %-------------------------------------------------------------------------------
 \begin{center}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp{comp1}{E}
-        \sbRelier[$E$]{E}{comp1}
-        \sbBloc{h1}{$H_1$}{comp1}
-        \sbRelier{comp1}{h1}
-        \sbBloc{br}{$\dfrac{H_2H_3}{1+H_2H_3}$}{h1}
-        \sbRelier{h1}{br} 
-        \sbBloc{h4}{$H_4$}{br}
-        \sbRelier{br}{h4}
-        \sbSortie[5]{S}{h4}
-        \sbRelier{h4}{S}
-        \sbNomLien[0.8]{S}{$S$}
-        \sbRenvoi[4]{h4-S}{comp1}{}
-    \end{tikzpicture}
+    \tikzsetnextfilename{ex2-a2-chap_bloc-ext}
+    \input{tikz/ex2-a2-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 Réduisons maintenant les blocs en série :
 %-------------------------------------------------------------------------------
 \begin{center}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp{comp1}{E}
-        \sbRelier[$E$]{E}{comp1}
-        \sbBloc{br}{$\dfrac{H_1H_2H_3H_4}{1+H_2H_3}$}{comp1}
-        \sbRelier{comp1}{br} 
-        \sbSortie[5]{S}{br}
-        \sbRelier{br}{S}
-        \sbNomLien[0.8]{S}{$S$}
-        \sbRenvoi[4]{br-S}{comp1}{}
-    \end{tikzpicture}
+    \tikzsetnextfilename{ex2-a3-chap_bloc-ext}
+    \input{tikz/ex2-a3-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 On obtient après réduction de cette dernière boucle de contre réaction.
 %-------------------------------------------------------------------------------
 \begin{center}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbBloc[4]{ke}{$\dfrac{H_1H_2H_3H_4}{1+H_2H_3+H_1H_2H_3H_4}$}{E}
-        \sbRelier[$E$]{E}{ke}
-        \sbSortie[4]{S}{ke}
-        \sbRelier[$S$]{ke}{S}
-    \end{tikzpicture}
+    \tikzsetnextfilename{ex2-a4-chap_bloc-ext}
+    \input{tikz/ex2-a4-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\paragraph{(b)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 \begin{center}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp{comp1}{E}
-        \sbRelier[$E$]{E}{comp1}
-        \sbBloc{h1}{$H_1$}{comp1}
-        \sbRelier{comp1}{h1}
-        \sbCompSum{comp2}{h1}{-}{}{+}{} 
-        \sbRelier{h1}{comp2}
-        \sbBloc{h2}{$H_2$}{comp2}
-        \sbRelier{comp2}{h2}
-        \sbBloc{h3}{$H_3$}{h2}
-        \sbRelier{h2}{h3}
-        \sbSortie[5]{S}{h3}
-        \sbRelier{h3}{S}
-        \sbNomLien[0.8]{S}{$S$}
-        \sbDecaleNoeudy[-4]{h3}{u1}
-        \sbBlocr{h4}{$H_4$}{u1}
-        \sbRelierxy{h4}{comp2}
-        \sbRelieryx{h3-S}{h4}
-        \sbDecaleNoeudy[4]{h2}{u2}
-        \sbBlocr[3]{h5}{$H_5$}{u2}
-        \sbRelierxy{h5}{comp1}
-        \sbRelieryx{h2-h3}{h5}
-    \end{tikzpicture}
+    \tikzsetnextfilename{ex2-b1-chap_bloc-ext}
+    \input{tikz/ex2-b1-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 Déplaçons le point de prélèvement de la boucle de retour inférieur vers 
 la droite  :
 %-------------------------------------------------------------------------------
 \begin{center}
-\begin{tikzpicture}
-    \sbEntree{E}
-    \sbComp{a}{E}
-    \sbRelier[$E$]{E}{a}
-    \sbBloc{b}{$H_1$}{a}
-    \sbRelier{a}{b}
-    \sbComph{d}{b}
-    \sbRelier{b}{d}
-    \sbBlocL{f}{$H_2H_3$}{d}
-    \sbSortie[5]{S1}{f}
-    \sbRelier{f}{S1}
-    \sbNomLien[0.8]{S1}{$S$}
-    \sbDecaleNoeudy[-4]{f}{u}
-    \sbDecaleNoeudy[4]{f}{v}
-    \sbBlocr[-1.5]{r1}{$H_4$}{u}
-    \sbBlocr{r2}{$\dfrac{H_5}{H_3}$}{v}
-    \sbRelieryx{f-S1}{r1}
-    \sbRelierxy{r1}{d}
-    \sbRelieryx{f-S1}{r2}
-    \sbRelierxy{r2}{a}
-\end{tikzpicture}
+    \tikzsetnextfilename{ex2-b2-chap_bloc-ext}
+    \input{tikz/ex2-b2-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 L'étape précédente nous permet d'identifier une boucle de contre-réaction 
 locale. Après réduction de cette boucle, le schéma-blocs dévient :
 %-------------------------------------------------------------------------------
 \begin{center}
-\begin{tikzpicture}
-    \sbEntree{E}
-    \sbComp{a}{E}
-    \sbRelier[$E$]{E}{a}
-    \sbBloc{b}{$H_1$}{a}
-    \sbRelier[$\epsilon$]{a}{b}
-    \sbBlocL{f}{$\dfrac{H_2H_3}{1+H_2H_3H_4}$}{b}
-    \sbSortie[5]{S1}{f}
-    \sbRelier{f}{S1}
-    \sbNomLien[0.8]{S1}{$S$}
-    \sbDecaleNoeudy[4]{f}{v}
-    \sbBlocr{r2}{$\dfrac{H_5}{H_3}$}{v}
-    \sbRelieryx{f-S1}{r2}
-    \sbRelierxy{r2}{a}
-\end{tikzpicture}
+    \tikzsetnextfilename{ex2-b3-chap_bloc-ext}
+    \input{tikz/ex2-b3-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 La réduction de cette dernière boucle de contre-réaction permet d'identifier 
 la fonction de transfert globale :
 %-------------------------------------------------------------------------------
 \begin{center}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbBloc[4]{ke}{$\dfrac{H_1H_2H_3}{1+H_2H_3H_4+H_1H_2H_5}$}{E}
-        \sbRelier[$E$]{E}{ke}
-        \sbSortie[4]{S}{ke}
-        \sbRelier[$S$]{ke}{S}
-    \end{tikzpicture}
+    \tikzsetnextfilename{ex2-b4-chap_bloc-ext}
+    \input{tikz/ex2-b4-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\paragraph{(c)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 \begin{center}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp{comp1}{E}
-        \sbRelier[$E$]{E}{comp1}
-        \sbBloc[6]{h1}{$H_1$}{comp1} 
-        \sbRelier{comp1}{h1}
-        \sbBloc[6]{h2}{$H_2$}{h1}
-        \sbRelier{h1}{h2}
-        \sbSortie[5]{S}{h2}
-        \sbRelier{h2}{S}
-        \sbNomLien[0.8]{S}{$S$}
-        \sbDecaleNoeudy[3.5]{h1}{u1}
-        \sbBlocr[-1.5]{h3}{$H_3$}{u1}
-        \sbCompSum[-6]{comp2}{h3}{}{-}{}{+}
-        \sbRelier{h3}{comp2}
-        \sbRelierxy{comp2}{comp1}
-        \sbRelieryx{h1-h2}{h3}
-        \sbDecaleNoeudy[3.5]{h3}{u2}
-        \sbBlocr[-1.5]{h4}{$H_4$}{u2}
-        \sbRelierxy{h4}{comp2}
-        \sbRelieryx{h2-S}{h4}
-    \end{tikzpicture}
+    \tikzsetnextfilename{ex2-c1-chap_bloc-ext}
+    \input{tikz/ex2-c1-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 Déplaçons le point de prélèvement entre les $H_1$ et $H_2$ vers la droite:
 %-------------------------------------------------------------------------------
 \begin{center}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp{comp1}{E}
-        \sbRelier[$E$]{E}{comp1}
-        \sbBloc[6]{h1}{$H_1H_2$}{comp1} 
-        \sbRelier{comp1}{h1}
-        \sbSortie[7]{S}{h1}
-        \sbRelier{h1}{S}
-        \sbNomLien[0.8]{S}{$S$}
-        \sbDecaleNoeudy[3.5]{h1}{u1}
-        \sbBlocr[-1.5]{h3}{$\dfrac{H_3}{H_2}$}{u1}
-        \sbCompSum[-6]{comp2}{h3}{}{-}{}{+}
-        \sbRelier{h3}{comp2}
-        \sbRelierxy{comp2}{comp1}
-        \sbRelieryx{h1-S}{h3}
-        \sbDecaleNoeudy[3.5]{h3}{u2}
-        \sbBlocr[-1.5]{h4}{$H_4$}{u2}
-        \sbRelierxy{h4}{comp2}
-        \sbRelieryx{h1-S}{h4}
-    \end{tikzpicture}
+    \tikzsetnextfilename{ex2-c2-chap_bloc-ext}
+    \input{tikz/ex2-c2-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 On reconnait deux branches en parallèle :
 %-------------------------------------------------------------------------------
 \begin{center}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbComp{comp1}{E}
-        \sbRelier[$E$]{E}{comp1}
-        \sbBloc{h1}{$H_1H_2$}{comp1} 
-        \sbRelier{comp1}{h1}
-        \sbSortie[4]{S}{h1}
-        \sbRelier{h1}{S}
-        \sbNomLien[0.8]{S}{$S$}
-        \sbDecaleNoeudy[3.5]{h1}{u1}
-        \sbBlocr[-1.5]{h3}{$\dfrac{H_3}{H_2}-H_4$}{u1}
-        \sbRelierxy{h3}{comp1}
-        \sbRelieryx{h1-S}{h3}
-    \end{tikzpicture}
+    \tikzsetnextfilename{ex2-c3-chap_bloc-ext}
+    \input{tikz/ex2-c3-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 La fonction de transfert globale est donc donné par la réduction de cette 
 dernière boucle de contre réaction.
 %-------------------------------------------------------------------------------
 \begin{center}
-    \begin{tikzpicture}
-        \sbEntree{E}
-        \sbBloc[4]{ke}{$\dfrac{H_1H_2}{1+H_1H_3H_4-H_1H_2H_4}$}{E}
-        \sbRelier[$E$]{E}{ke}
-        \sbSortie[4]{S}{ke}
-        \sbRelier[$S$]{ke}{S}
-    \end{tikzpicture}
+    \tikzsetnextfilename{ex2-c4-chap_bloc-ext}
+    \input{tikz/ex2-c4-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\paragraph{(d)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 \begin{center}
-\begin{tikzpicture}
-    \sbEntree{E}
-    \sbComp{comp1}{E}
-    \sbRelier[$E$]{E}{comp1}
-    \sbBloc{h1}{$H_1$}{comp1}
-    \sbRelier{comp1}{h1}
-    \sbComp{comp2}{h1}
-    \sbRelier{h1}{comp2}
-    \sbBlocL{h2}{$H_2$}{comp2}
-    \sbComph{comp3}{h2}
-    \sbRelier{h2}{comp3}
-    \sbBlocL{h3}{$H_3$}{comp3}
-    \sbBlocL{h4}{$H_4$}{h3}
-    \sbSortie[5]{S}{h4}
-    \sbRelier{h4}{S}
-    \sbDecaleNoeudy[-4]{h4}{u}
-    \sbBlocr{g4}{$G_4$}{u}
-    \sbRelierxy{g4}{comp3}
-    \sbRelieryx{h4-S}{g4}
-    \sbNomLien[0.8]{S}{$S$}
-    \sbDecaleNoeudy{comp3}{v}
-    \sbBlocr[2.5]{g3}{$G_3$}{v}
-    \sbRelieryx{h3-h4}{g3}
-    \sbRelierxy{g3}{comp2}
-    \sbDecaleNoeudy[9]{comp3}{w}
-    \sbBlocr[2.5]{g2}{$G_2$}{w}
-    \sbRelieryx{h3-h4}{g2}
-    \sbCompSum[-5]{h}{g2}{}{-}{}{+}
-    \sbRelier{g2}{h}
-    \sbRelierxy{h}{comp1}
-    \sbDecaleNoeudy[13]{comp3}{x}
-    \sbBlocr[2.5]{g1}{$G_1$}{x}
-    \sbRelierxy{g1}{h}
-    \sbRelieryx{h4-S}{g1}
-\end{tikzpicture}
+    \tikzsetnextfilename{ex2-d1-chap_bloc-ext}
+    \input{tikz/ex2-d1-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 Déplaçons vers la droite le point de prélèvement situé entre les 
 blocs $H_3$ et $H_4$:
 %-------------------------------------------------------------------------------
 \begin{center}
-\begin{tikzpicture}
-    \sbEntree{E}
-    \sbComp{comp1}{E}
-    \sbRelier[$E$]{E}{comp1}
-    \sbBloc{h1}{$H_1$}{comp1}
-    \sbRelier{comp1}{h1}
-    \sbComp{comp2}{h1}
-    \sbRelier{h1}{comp2}
-    \sbBlocL{h2}{$H_2$}{comp2}
-    \sbComph{comp3}{h2}
-    \sbRelier{h2}{comp3}
-    \sbBlocL{h3}{$H_3$}{comp3}
-    \sbBlocL{h4}{$H_4$}{h3}
-    \sbSortie[5]{S}{h4}
-    \sbRelier{h4}{S}
-    \sbDecaleNoeudy[-4]{h4}{u}
-    \sbBlocr{g4}{$G_4$}{u}
-    \sbRelierxy{g4}{comp3}
-    \sbRelieryx{h4-S}{g4}
-    \sbNomLien[0.8]{S}{$S$}
-    \sbDecaleNoeudy{comp3}{v}
-    \sbBlocr[2.5]{g3}{$\dfrac{G_3}{H_4}$}{v}
-    \sbRelieryx{h4-S}{g3}
-    \sbRelierxy{g3}{comp2}
-    \sbDecaleNoeudy[9]{comp3}{w}
-    \sbBlocr[2.5]{g2}{$\dfrac{G_2}{H_4}$}{w}
-    \sbRelieryx{h4-S}{g2}
-    \sbCompSum[-5]{h}{g2}{}{-}{}{+}
-    \sbRelier{g2}{h}
-    \sbRelierxy{h}{comp1}
-    \sbDecaleNoeudy[13]{comp3}{x}
-    \sbBlocr[2.5]{g1}{$G_1$}{x}
-    \sbRelierxy{g1}{h}
-    \sbRelieryx{h4-S}{g1}
-\end{tikzpicture}
+    \tikzsetnextfilename{ex2-d2-chap_bloc-ext}
+    \input{tikz/ex2-d2-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 Réduisons la boucle de contre-réaction et les blocs en parallèle.
 %-------------------------------------------------------------------------------
 \begin{center}
-\begin{tikzpicture}
-    \sbEntree{E}
-    \sbComp{comp1}{E}
-    \sbRelier[$E$]{E}{comp1}
-    \sbBloc{h1}{$H_1$}{comp1}
-    \sbRelier{comp1}{h1}
-    \sbComp{comp2}{h1}
-    \sbRelier{h1}{comp2}
-    \sbBlocL{h2}{$H_2$}{comp2}
-    \sbBlocL{h4}{$\dfrac{H_3H_4}{1+H_3H_4G_4}$}{h2}
-    \sbSortie[5]{S}{h4}
-    \sbRelier{h4}{S}
-    \sbNomLien[0.8]{S}{$S$}
-    \sbDecaleNoeudy{h4}{v}
-    \sbBlocr[4]{g3}{$\dfrac{G_3}{H_4}$}{v}
-    \sbRelieryx{h4-S}{g3}
-    \sbRelierxy{g3}{comp2}
-    \sbDecaleNoeudy[9]{h4}{w}
-    \sbBlocr[4]{g2}{$\dfrac{G_2-G_1H_4}{H_4}$}{w}
-    \sbRelierxy{g2}{comp1}
-    \sbRelieryx{h4-S}{g2}
-\end{tikzpicture}
+    \tikzsetnextfilename{ex2-d3-chap_bloc-ext}
+    \input{tikz/ex2-d3-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 Réduisons la nouvelle boucle de contre-réaction interne :
 %-------------------------------------------------------------------------------
 \begin{center}
-\begin{tikzpicture}
-    \sbEntree{E}
-    \sbComp{comp1}{E}
-    \sbRelier[$E$]{E}{comp1}
-    \sbBloc{h1}{$H_1$}{comp1}
-    \sbRelier{comp1}{h1}
-    \sbBlocL{h4}{$\dfrac{H_2H_3H_4}{1+H_3H_4G_4+H_2H_3G_3}$}{h1}
-    \sbSortie[5]{S}{h4}
-    \sbRelier{h4}{S}
-    \sbNomLien[0.8]{S}{$S$}
-    \sbDecaleNoeudy[4]{h4}{w}
-    \sbBlocr[2.5]{g2}{$\dfrac{G_2-G_1H_4}{H_4}$}{w}
-    \sbRelierxy{g2}{comp1}
-    \sbRelieryx{h4-S}{g2}
-\end{tikzpicture}
+    \tikzsetnextfilename{ex2-d4-chap_bloc-ext}
+    \input{tikz/ex2-d4-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 Cette dernière boucle peut être réduite pour obtenir la fonction de 
 transfert globale :
 %-------------------------------------------------------------------------------
 \begin{center}
-\begin{tikzpicture}
-        \sbEntree{E}
-        \sbBloc[4]{ke}{
-            $\dfrac{H_1H_2H_3H_4}
-                   {1+H_3H_4G_4+H_2H_3G_3+H_1H_2H_3G_2-H_1H_2H_3G_1}$}
-                   {E}
-        \sbRelier[$E$]{E}{ke}
-        \sbSortie[4]{S}{ke}
-        \sbRelier[$S$]{ke}{S}
-    \end{tikzpicture}
+    \tikzsetnextfilename{ex2-d5-chap_bloc-ext}
+    \input{tikz/ex2-d5-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Graphe de fluence~\difficile}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Donner les relations du modèle dans le domaine de Laplace}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Dans le domaine de Laplace, ces dernières deviennent :
+\begin{align*}
+    I_1(p)=\dfrac{1}{R_1}\big(V_1(p)-V_2(p)\big)\\
+    I_2(p)=I_1(p)-\dfrac{1}{R_2}V_2(p)
+\end{align*}
+Notons que la tension $V_2(p)$ est donnée par :
+\[
+    V_2(p)=\dfrac{1}{Cp}I_2(p)
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Tracer le graphe de fluence de ce modèle.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{gf_exo3_2-chap-bloc-ext}
+    \input{tikz/gf_exo3_2-chap_bloc.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{À partir de ce graphe et appliquant la règle de Mason, 
+déterminer la fonction de transfert global de ce système.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Le graphe de fluence présente deux boucles disjointes :
+%-------------------------------------------------------------------------------
+\begin{itemize}
+    \item $\{I_1\rightarrow I_2\rightarrow V_2\rightarrow I_1\}$ 
+          de gain $B_1=-\dfrac{1}{R_1Cp}$ 
+    \item $\{I_2\rightarrow V_2\}$ de gain $B_2=-\dfrac{1}{R_2Cp}$ 
+\end{itemize}
+%-------------------------------------------------------------------------------
+Le déterminant du graphe est donc donné par :
+\[
+    \Delta=1-B_1-B_2=\dfrac{R_1R_2C^2p^2+R_2Cp+R_1Cp}{R_1R_2C^2p^2}
+\]
+
+Le graphe ne présente qu'un parcours ouvert :
+\[
+    \{V_1\rightarrow I_1\rightarrow I_2\rightarrow V_2\}
+\]
+de gain $G_1=\dfrac{1}{R_1Cp}$ et de déterminant $\Delta_1=1$
+
+D'après la règle de Mason, la transmitance est alors donnée par :
+\[
+    H(p)=\dfrac{V_2(p)}{V_1(p)}=\dfrac{R_2}{R_1R_2Cp+ R_1+R_2}
+\]

@@ -1,0 +1,11 @@
+    \begin{tikzpicture}
+        \sbEntree{E}
+        \sbComp{comp1}{E}
+        \sbRelier[$E$]{E}{comp1}
+        \sbBloc{br}{$\dfrac{H_1H_2H_3H_4}{1+H_2H_3}$}{comp1}
+        \sbRelier{comp1}{br} 
+        \sbSortie[5]{S}{br}
+        \sbRelier{br}{S}
+        \sbNomLien[0.8]{S}{$S$}
+        \sbRenvoi[4]{br-S}{comp1}{}
+    \end{tikzpicture}

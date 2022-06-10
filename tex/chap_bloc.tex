@@ -2,7 +2,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter[Schéma fonctionnels]
+\chapter[Schémas fonctionnels]
         {Schémas fonctionnels et graphes de fluence
         \label{chap-schemabloc}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -362,7 +362,7 @@ de prélèvement. Ansi les deux schémas-blocs ci-dessous sont équivalents:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dans le cas d'un système possédant plusieurs entrées, il est possible 
-de simplifier le problème en appliquant le principe de superposition. La réponse 
+de simplifier le problème en appliquant le principe de superposition. La réponse
 totale devient alors la somme des réponses individuelles de chaque entrée 
 lorsque toutes les autres sont considérées comme nulles.
 
@@ -880,6 +880,22 @@ La fonction de transfert associé à ce graphe de fluence est donc:
 \[
 H=\dfrac{H_1H_2H_3H_4+R_1H_1H_4}{1-R_3-R_2H_3H_4}
 \]
+\subsubsection*{Remarque}
+La règle de Mason s'applique également dans les cas les plus simples et permet
+par exemple de retrouver la relation de Black d'une boucle de contre-réaction.
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{gf_boucle6-chap_bloc-ext}
+    \input{tikz/gf_boucle6-chap_bloc.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+Le cas ci-dessous d'une boucle de contre-réaction unitaire ne présente qu'une 
+seule boucle $B_1=-H$, le déterminant du graphe est donc donné par $\Delta=1+H$.
+Le parcours ouvert $G_1=H$ de déterminant $\Delta_1=1$ nous donne donc la 
+transmittance globale :
+\[
+    \dfrac{S}{E}=\dfrac{G_1\Delta_1}{\Delta}=\dfrac{H}{1+H}
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -891,7 +907,7 @@ H=\dfrac{H_1H_2H_3H_4+R_1H_1H_4}{1-R_3-R_2H_3H_4}
 %https://mitocw.ups.edu.ec/courses/electrical-engineering-and-
 %computer-science/6-003-signals-and-systems-fall-2011/
 %lecture-videos/MIT6_003F11_lec04.pdf
-%\newpage
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

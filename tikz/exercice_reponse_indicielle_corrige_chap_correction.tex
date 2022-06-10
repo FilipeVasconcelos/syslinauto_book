@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+    \begin{axis}
+    [
+        axis x line=center,
+        axis y line=center,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        x label style ={below},
+        y label style ={left},
+        xtick={2.5,5,7.5,10},
+        xticklabels={2.5,5,7.5},
+        ytick={0,0.25,0.5,0.75,1.0,1.25,1.5},
+        yticklabels={0,,0.5,,1.0},
+        grid=both,
+        ymin=0,ymax=1.2,
+        legend pos=south east
+    ]
+\addplot[mark=none,col4,ultra thick] table {scilab/step_response_hbf_NC.dat};
+\addplot[mark=none,col3,ultra thick] table {scilab/step_response_hbf_C_AP.dat};
+\addplot[mark=none,col5,ultra thick] table {scilab/step_response_hbf_C_PI.dat};
+\addplot[mark=none,col1,ultra thick] table {scilab/step_response_hbf_C_PID.dat};
+\legend{FTBO Non corrigé, FTBO + AP, FTBO + PI, FTBO + PID}
+    \end{axis}
+\end{tikzpicture}

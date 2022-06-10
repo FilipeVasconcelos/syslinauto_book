@@ -3,9 +3,8 @@
 \exercice{Décomposition d'un signal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Décomposer $e(t)$ à l'aide de fonctions échelons.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le signal $e(t)$ est défini par :
 \[
@@ -27,7 +26,7 @@ En regroupant les termes, on obtient alors :
     e(t)=tu(t)+2(1-t)u(t-1)+2(t-3)u(t-3)-(t-4)u(t-4)
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Donner la transformée de Laplace $E(p)$ de ce signal.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La transformée de Laplace $E(p)$ est simplement donnée par la transformée de
 chacun des termes.
@@ -40,14 +39,14 @@ ou encore
 \[
     E(p)=\dfrac{1}{p^2}\left(1+2e^{-p}(p-1)+2e^{-3p}(1-3p)-e^{-4p}(1-4p)\right)
 \]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Décomposition d'un signal parabolique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Décomposer $e(t)$ à l'aide de fonctions échelons.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le signal est composé de deux paraboles. 
 %-------------------------------------------------------------------------------
@@ -75,7 +74,7 @@ En regroupant les termes on peut réecrire cette expression sous la forme :
     e(t)=t^2u(t)-4(t-1)u(t-1)-t^2u(t-2)+4(t-1)u(t-2)
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Donner la transformée de Laplace $E(p)$ de ce signal.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On rapelle que la transformé de Laplace de la fonction $f(t)=t^2$ 
 est $F(p)=\dfrac{2}{p^3}$. On obtient alors pour la transformée 
@@ -94,13 +93,9 @@ $E(p)$ de $e(t)$ :
 \exercice{Décompositon d'un signal et transformée de Laplace}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-On sollicite un système linéaire continu et invariant par deux signaux $e_1(t)$ 
-et $e_2(t)$ (d'amplitude maximale et de durée unité) définits 
-par les graphes ci-contre.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Décomposer $e_1(t)$ et $e_2(t)$ à l'aide de la fonction 
+échelon unitaire (c.-à-d. $u(t)$).}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Décomposons $e_1(t)$ et $e_2(t)$ par morceaux. On a alors :
 \[
@@ -131,7 +126,8 @@ et
 où $u(t)$ est la fonction échelon et $r(t)$ la fonction rampe.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer les fonctions $E_1(p)$ et $E_2(p)$ les 
+transformées de Laplace respectives de $e_1(t)$ et $e_2(t)$.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Les transformées sont simplement données par la propriété des fonctions 
 retardés et des signaux rampes. On a notamment,
@@ -144,7 +140,6 @@ et
 \]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\question{} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Pour une amplitude maximale de $E_0$ et une durée de signal $\tau$, les
 %signaux temporels deviennent :
@@ -154,9 +149,9 @@ et
 %\[
 %    e_2(t)=\dfrac{E_0}{\tau}t\left(u(t)-u(t-\tau)\right)
 %\]
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer à partir des résultats précédents la transformée 
+de Laplace $E(p)$.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On sollicite le système par le signal $e(t)$ défini par :
 \[
@@ -169,13 +164,14 @@ La transformée de Laplace $E(p)$ est simplement donnée par la somme,
          \dfrac{e^{-p}}{p^2}\left(1-e^{-p}\right)
         =\dfrac{1-e^{-p}}{p^2}\left(e^{-p}+p-1\right)
 \]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{L'impulsion de Dirac approchée}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Décomposer $\delta_a(t)$ à l'aide de fonctions échelons.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
@@ -195,7 +191,8 @@ La fonction $\delta_a(t)$ est simplement donnée par
 où $u(t)$ est la fonction échelon unité.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Donner sa transformée de Laplace en fonction du 
+paramètre $a$.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On rappel la transformée de Laplace d'une fonction retardée :
 \[
@@ -208,7 +205,8 @@ La transformée de Laplace de $\delta_a(t)$ est donc donnée par :
                 = \dfrac{1}{ap}(1-e^{-ap})
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{En considérant la limite $a\rightarrow0$, montrer que la 
+transformée de Laplace de $\delta_a(t)$ tend bien vers 1.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le développement limité d'ordre 1 de $e^{x}=1+x+o\left(x\right)$ permet de
 déterminer la limite pour $a\rightarrow0$ de la transformée de Laplace de 
@@ -225,13 +223,12 @@ l'impulsion de Dirac.
 \exercice{Décharge d'un condensateur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Dans cet exercice nous allons appliquer la méthodologie générale pour la
+Dans cet exercice nous allons appliquer la méthode \fg classique\og pour la
 résolution d'une équation différentielle à coefficients constants.
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer la transformée de Laplace $Q(p)$ de la charge au 
+borne du condensateur $q(t)$.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La transformée de Laplace de l'équation différentielle de la décharge d'un
 condensateur est donnée par :
@@ -249,8 +246,10 @@ ou encore :
 \]
 Remarquons que cette solution ne dépend que des conditions initiales, il n'est 
 pas possible de définir une fonction de transfert dans ce cas particulier.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer alors la fonction $q(t)$ solution de l'équation 
+différentielle de la décharge d'un condensateur.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour déterminer la solution $q(t)$ de l'équation différentielle, il suffit de 
 déterminer la transformée inverse de $Q(p)$.
@@ -270,14 +269,15 @@ la transformée inverse de $Q(p)$ est simplement donnée par
     \input{tikz/laplace_schema_decharge_condensateur.tex}
 \end{center}
 %-------------------------------------------------------------------------------
-La figure suivante présente donc la représentation graphique de cette solution 
-pour $\tau=\SI{1}{\second}$.
-
+La~\cref{fig-decharge} suivante présente la représentation graphique de 
+cette solution pour $\tau=\SI{1}{\second}$.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{decharge_condensateur_solution-chap-slci-ext}
     \input{tikz/decharge_condensateur_solution-chap-slci.tex}
+    \caption{Charge aux bornes du condensateur en fonction du temps.
+    \label{fig-decharge}}
 \end{figure}
 %-------------------------------------------------------------------------------
 
@@ -286,11 +286,12 @@ pour $\tau=\SI{1}{\second}$.
 \exercice{Système masse-ressort}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer la transformée de Laplace $X(p)$ solution 
+algébrique de la transformée de Laplace de l'équation différentielle de 
+ce système.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La transformée de Laplace de l'équation différentielle nous donnes : 
+La transformée de Laplace de l'équation différentielle nous donne : 
 \[
     X(p)\left(mp^2+bp+k\right)=F(p)
 \]
@@ -299,7 +300,8 @@ ainsi on peut écrire $X(p)$ sous la forme :
     X(p)=\dfrac{1}{mp^2+bp+k}F(p)
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Indentifier la fonction de transfert $H(p)$ du système et 
+donner sa forme canonique}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On identifie simplement la fonction de transfert du système comme la fraction 
 rationnelle définie par le rapport $\dfrac{X(p)}{F(p)}$
@@ -311,14 +313,14 @@ Sous forme canonique, cette fonction de transfert s'écrit :
 \[
     H(p)=\dfrac{1}{k\left(\dfrac{m}{k}p^2+\dfrac{b}{k}p+1\right)}
 \]
-
-
 On sollicite le système par une impulsion de Dirac. Dans les faits, on peut 
 voir cette sollicitation comme l'application d'une force $f(t)$ constante 
 d'intensité $\dfrac{1}{a}$ intense pendant un temps $a$ très court 
 (c.-à-d. $a\to0$).    
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Indentifier la solution algébrique $X(p)$ pour une cette 
+solicitation.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La transformée de Laplace de cette sollicitation $F(p)$ est égale à 1 à 
 la limite $a\to0$. On obtient alors pour la transformée de Laplace de la 
@@ -331,7 +333,8 @@ ou encore en utilisant la forme canonique de la fonction de transfert :
     X(p)=\dfrac{1}{k\left(\dfrac{m}{k}p^2+\dfrac{b}{k}p+1\right)}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Identifier les paramètres $K$, $\xi$ et $\omega$ en 
+fonction des paramètres du problème.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \[
     \begin{cases}
@@ -341,7 +344,8 @@ ou encore en utilisant la forme canonique de la fonction de transfert :
     \end{cases}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer $x(t)$ la solution temporelle de l'équation 
+différentielle pour une telle sollicitation.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dans les conditions pour lesquels les paramètres $m, b ,k$ donne $\xi<1$ 
 La solution est donc de la forme :
@@ -359,9 +363,9 @@ ou encore
 On réalise une experience avec une masse $m=\SI{0.5}{\kilogram}$, un ressort 
 de constante de raideur $k=\SI{10}{\newton\per\meter}$ et un amortissement 
 visqueux $b=\SI{0.894}{\kilogram\per\second}$
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer les valeurs numériques des paramètres 
+$\xi$ et $\omega$}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \[
     \omega=\SI{4.47}{\radian\per\second}
@@ -369,33 +373,32 @@ visqueux $b=\SI{0.894}{\kilogram\per\second}$
 \[
     \xi=0.2
 \]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-On constate que la masse retourne à sa position d'équilibre après 6 secondes.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{masse_ressort_solution-chap_slci-ext}
     \input{tikz/masse_ressort_solution-chap_slci.tex}
+    \caption{Réponse temporelle du système masse ressort
+    \label{fig-masse_ressort_reptemp}}
 \end{figure}
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Tracer la réponse $x(t)$ et déterminer le temps pour que la 
+masse retourne à son position d'équilibre (à 5\% de son déplacement maximal)}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Fonction de transfert}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Le déplacement maximal est d'environ \SI{35}{\centi\meter}. On 
+constate~\cref{fig-masse_ressort_reptemp} que la masse retourne 
+à sa position d'équilibre (à \SI{1.75}{\centi\meter} près) après 
+approximativement \SI{4}{\second}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Forme canonique d'une fonction de transfert du premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer la forme canonique de fonction de transfert 
+$H(p)$ associée à cette équation différentielle}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La transformée de Laplace de l'équation différentielle nous amène à définir
 la fonction de transfert :
@@ -407,7 +410,8 @@ sous forme canonique elle s'écrit :
     H(p)=\dfrac{b_0}{a_0\left(\dfrac{a_1}{a_0}p+1\right)}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer les paramètres $K$ et $\tau$ en fonction des 
+coefficients $a_i$ et $b_i$ de tels sorte que $H(p)$ s'écrivent sous la forme}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Par identification, les paramètres $K$ et $\tau$ sont données par 
 \[
@@ -417,7 +421,8 @@ Par identification, les paramètres $K$ et $\tau$ sont données par
     \end{cases}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer les dimensions de ces paramètres quelques soient 
+celles des signaux d'entrée $e(t)$ et de sortie $s(t)$}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 L'étude dimensionnelle de l'équation différentielle nous permet d'identifier
 les relations suivantes :
@@ -436,21 +441,21 @@ signaux. En effet,
 \]
 On peut dire que la dimension de la fonction de transfert est donnée par 
 le paramètre $K$.
- 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Carte des pôles d'une fonction de transfert}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Donner les zéros et les pôles de la fonction de transfert.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 D'après la carte des pôles et zéros, le système est composé de trois zéros
 $p_1=-3$, $p_2=-1+2j$ et $p_3=-1-2j$ et de deux zéros $z_1=-5+j$ et $z_2=-5-j$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{\'Ecrire la fonction de transfert $H(p)$ sachant que le gain 
+de sa forme factorisée vaut 3.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La forme factorisée de la fonction de transfert est alors donnée par 
 \[
@@ -463,7 +468,8 @@ ou encore en développant les différents termes,
         =3\dfrac{p^2+10p+26}{p^3+5p^2+11p+15}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{}
+\question{\textbf{Déterminer la forme canonique de $H(p)$ et déduire le gain 
+statique, la classe et l'ordre de ce système.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La forme canonique de $H(p)$ est donnée par 
 \[
@@ -472,6 +478,11 @@ La forme canonique de $H(p)$ est donnée par
 \]
 On alors à faire à un système d'ordre 3 de classe 0 et de gain statique 
 de valeur 5.2. 
-
-
-
+Notons que dans le domaine de l'automatique les fractions sont communément
+données sous forme décimales. On écrira donc plus facilement cette fonction
+de transfert sous la forme :
+\[
+    H(p)=5.2\dfrac{0.0385p^2+0.385p+1}{0.066p^3+0.33p^2+0.733p+1}
+\]
+Aussi sous cette forme, la question de la précision des valeurs décimales 
+peut se poser. 

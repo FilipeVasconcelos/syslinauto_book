@@ -1,22 +1,51 @@
 #!/bin/bash
+Header()
+{
+    #Display Header 
+    echo "-------------------------------------------------"
+    echo "Compile standalone tikz figures and display pdf"
+    echo "-------------------------------------------------"
+}
+Usage()
+{
+    #Display usage
+    Header
+    echo "Usage : $0 <texfile> [-h|-l|-n]"
+    echo
+    echo "Options :"
+    echo "      -h          Print this usage mesage"   
+    echo "      -l          Landscape mode output"
+    echo "      -n          No display pdf file"    
+    echo
+}
+[ $# -eq 0 ] && Usage
+Header
 [ ! -d standalone ] && mkdir standalone
+# default value 
+landscape=0 # portrait by default
+display=1   # display pdf by default
+while getopts ":hnl" option; do
+   case $option in
+      h) # display Help
+         Usage
+         exit;;
+      n) # no display
+         display=0;;
+      l) # landscape mode
+         landscape=1;;
+      \?) # Invalid option
+         echo "Erreur : option non valide"
+         exit;; 
+   esac
+done
+shift $(( OPTIND - 1 ))
 name=$1
-land=$2
-echo ${land}
-if [ -z "$land" ]
-then
-    land=0
-else
-    land=1
-fi
+echo "Input file :" $name
 for file in $name 
 do
     basenameextension=${file##*/}
-    echo $basenameextension
     basename=${basenameextension%.*}
-    echo $basename
     texname=standalone_${basename}
-    echo $texname
 cat > standalone/${texname}.tex <<EOF
 \documentclass[a4paper]{article}
 \usepackage[a4paper,headheight=16pt]{geometry}
@@ -54,16 +83,13 @@ cat > standalone/${texname}.tex <<EOF
 \usepackage{verbatim}
 \usepackage{poles}
 EOF
-if [ "$land" -eq 1 ]
-then
-    echo "\usepackage{lscape}" >> standalone/${texname}.tex
-    echo "\begin{document}" >> standalone/${texname}.tex
-else
-    echo "\begin{document}" >> standalone/${texname}.tex
-fi
-    if [ "$land" -eq 1 ]
+    if [ "$landscape" -eq 1 ]
     then
+        echo "\usepackage{lscape}" >> standalone/${texname}.tex
+        echo "\begin{document}" >> standalone/${texname}.tex
         echo "\begin{landscape}" >> standalone/${texname}.tex
+    else
+        echo "\begin{document}" >> standalone/${texname}.tex
     fi
     echo "\begin{figure}[!h]" >> standalone/${texname}.tex
     echo "\centering"         >> standalone/${texname}.tex
@@ -71,14 +97,17 @@ fi
     echo ""                   >> standalone/${texname}.tex  
     echo "\verb?$file?"       >> standalone/${texname}.tex  
     echo "\end{figure}"       >> standalone/${texname}.tex  
-    if [ "$land" -eq 1 ]
+    if [ "$landscape" -eq 1 ]
     then
         echo "\end{landscape}" >> standalone/${texname}.tex
     fi
     echo "\end{document}"     >> standalone/${texname}.tex
-    latex -output-directory standalone standalone/${texname}.tex
-    dvips -o standalone/${texname}.ps standalone/${texname}.dvi #&> /dev/null
+    latex -output-directory standalone standalone/${texname}.tex &> /dev/null
+    dvips -o standalone/${texname}.ps standalone/${texname}.dvi &> /dev/null
     ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None standalone/${texname}.ps standalone/${texname}.pdf #&> /dev/null 
 done
-mupdf standalone/${texname}.pdf
+if [ "$display" -eq 1 ]
+then
+    mupdf standalone/${texname}.pdf
+fi
 

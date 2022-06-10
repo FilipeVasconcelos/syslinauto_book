@@ -1,0 +1,40 @@
+\begin{tikzpicture}[trim axis left]
+\begin{axis}
+[
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.25\textheight,
+    grid=both,
+    major grid style={black!40},
+    %label style={font=\large},
+    xmode=log,ymode=normal,ylabel={Gain(\si{\decibel})},
+    xtick={1e-1,1e0,1e1,1e2,1e3,1e4,1e5},
+    xticklabels={$10^{-1}$,$10^{0}$,$10^{1}$,
+                 $10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
+    ytick={-160,-140,-120,-100,-80,-60,-40,-20,0,20,40,60},
+    yticklabels={-160,-140,-120,-100,-80,-60,-40,-20,0,20,40,60},
+    xmin=1e-1,xmax=1e5,
+    ymin=-120,ymax=60
+]
+\addplot[ultra thick, col1,domain=1e-1:1e5, samples=201] 
+        {40
+        -10*log10(1+0.01*x*x)
+        -10*log10(1+0.0001*x*x)
+        -10*log10(1+0.000001*x*x)};
+\addplot[line width=2pt,col4,dashed,domain=1e-1:1e1,samples=51] 
+        {40};
+\addplot[line width=2pt,col4,dashed,domain=1e1:1e2,samples=51] 
+        {60-20.0*log10(x)};
+\addplot[line width=2pt,col4,dashed,domain=1e2:1e3,samples=51] 
+        {100.0-40.0*log10(x)};
+\addplot[line width=2pt,col4,dashed,domain=1e3:1e5,samples=51] 
+        {160-60.0*log10(x)};
+%\draw[draw=none,fill=col1] (axis cs:0.01,40.043205051941136) circle (2pt);
+%\draw[draw=none,fill=col1] (axis cs:0.1,43.00943141110256) circle (2pt);
+%\draw[draw=none,fill=col1] (axis cs:10.0,73.979834359489) circle (2pt);
+%\draw[draw=none,fill=col1] (axis cs:100.0,59.91357686728979) circle (2pt);
+%\draw[line width=2pt,col4,dashed] (axis cs:1e1,0)  -- (axis cs:1e1,-90.0);
+%\draw[line width=2pt,col4,dashed] (axis cs:1e2,-90)  -- (axis cs:1e2,-180.0);
+%\draw[line width=2pt,col4,dashed] (axis cs:1e3,-180)  -- (axis cs:1e3,-270.0);
+\end{axis}
+\end{tikzpicture}
