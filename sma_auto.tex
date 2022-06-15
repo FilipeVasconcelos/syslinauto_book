@@ -186,10 +186,11 @@ pdf2eps 1 "\image"
 %      ]{geometry}
 \usepackage{geometry}
 \geometry{% siehe geometry.pdf (Figure 1)
-          bottom=25mm,
-          inner=25mm,
-          outer=30mm,
-          showframe=false, % For debugging: try true and see the layout frames
+        top=25mm,
+        bottom=20mm,
+        inner=25mm,
+        outer=30mm,
+        showframe=false, % For debugging: try true and see the layout frames
          }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -239,6 +240,7 @@ pdf2eps 1 "\image"
 \usepackage{schemabloc}
 \usepackage{schemablocfmv}
 \sbStyleBloc{thick}
+\sbStyleBlocT{thick}
 \sbStyleLien{thick}
 \sbStyleSum{thick}
 \usepackage{gfluence}
@@ -297,6 +299,7 @@ pdf2eps 1 "\image"
 \tcbsetforeverylayer{shield externalize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{nccmath}
 %MINTED 
 \usepackage{morewrites}
 \usepackage{minted}
