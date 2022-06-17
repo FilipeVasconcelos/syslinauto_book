@@ -1,13 +1,13 @@
 \begin{tikzpicture}
     \sbEntree{E1}
     \sbCompSum[5.0]{comp}{E1}{}{+}{+}{}
-    \sbRelier[$x(t)$]{E1}{comp}
+    \sbRelier[$e(t)$]{E1}{comp}
     \sbBlocT[3]{T}{comp}
     \sbRelier[]{comp}{T}
     \sbInt[3]{B1}{T}
-    \sbRelier[$\dot{y}(t)$]{T}{B1}
+    \sbRelier[$\dot{s}(t)$]{T}{B1}
     \sbSortie[6]{S1}{B1}
-    \sbRelier[$y(t)$]{B1}{S1}
+    \sbRelier[$s(t)$]{B1}{S1}
     \sbRenvoi[5]{B1-S1}{comp}{}
 \end{tikzpicture}
 
