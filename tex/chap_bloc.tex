@@ -202,7 +202,7 @@ sont équivalents.
 %-------------------------------------------------------------------------------
 La démonstration est également triviale.
 \newpage
-\newgeometry{top=25mm,bottom=20mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\newgeometry{top=25mm,bottom=22mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
 \captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{La boucle de contre-réaction (positive ou négative)
@@ -900,6 +900,7 @@ transmittance globale :
 \[
     \dfrac{S}{E}=\dfrac{G_1\Delta_1}{\Delta}=\dfrac{H}{1+H}
 \]
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -908,55 +909,92 @@ transmittance globale :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dans cette partie, nous allons introduire une dernière façon de représenter
-les équations différentielles à l'aide de schémas-fonctionnel dans le domaine
-temporel. Nous suivrons et adapterons l'approche présentée par D. M. Freeman du 
-MIT~\cite{Freeman}.
+les équations différentielles linéaires à l'aide de schémas-fonctionnel.
+À la différence des représentations déjà rencontrées, celle-ci se fera dans 
+le domaine temporel. Pour celà, nous suivrons et adapterons à nos notations
+l'approche présentée par D. M. Freeman du MIT~\cite{Freeman}.
 %https://mitocw.ups.edu.ec/courses/electrical-engineering-and-computer-science/
 %6-003-signals-and-systems-fall-2011/lecture-videos/MIT6_003F11_lec04.pdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Opérateur intégral}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 L'opérateur intégral $\mathcal{I}$ appliqué à un signal 
-continu $x(t)$ permet de générer un signal $y(t)$ correspondant 
-à l'intégral en tous points de $x(t)$.
+continu $e(t)$ permet de générer un signal $s(t)$ correspondant 
+à l'intégral en tous points de $s(t)$, ou encore
 \[
-    y(t)=\mathcal{I} x(t)=\int_{-\infty}^t x(\tau)\dd{\tau}
+    s(t)=\mathcal{I} e(t)=\int_{-\infty}^t e(\tau)\dd{\tau}.
 \]
-sous forme d'opérateur on écrira $Y=\mathcal{I}X$ de façon équivalente.
+Nous représenterons cette relation par le schéma-bloc suivant :
 \begin{center}
     \tikzsetnextfilename{sbdt_Int-chap_bloc-ext}
     \input{tikz/sbdt_Int-chap_bloc.tex}
 \end{center}
-Nous representons le produit par un simple scalaire (c.-à-d. un gain) $s$ par 
-le triangle de la façon suivante:
+Pour une question de commodité, nous écrirons également la relation entre ces 
+deux signaux dans le domaine temporel par :
+\[
+    S=\mathcal{I} E
+\]
+Cependant, $S$ et $E$ restent des grandeurs temporelles, elles ne doivent pas
+être confondues avec les grandeurs dans le domaine de Laplace.
 
+Nous avons déjà rencontré cette relation entre deux signaux usuels. En effet, 
+nous avons défini que l'échelon unitaire était l'intégral de l'impulsion de 
+Dirac~\cref{eq-echelon-dirac_relation}. Cette relation peut être représentée
+par le schéma-bloc suivant:
+\begin{center}
+    \tikzsetnextfilename{sbdt_Int_Dirac-chap_bloc-ext}
+    \input{tikz/sbdt_Int_Dirac-chap_bloc.tex}
+\end{center}
+De même, le signal rampe est l'intégrale du signal échelon~\cref{eq-rampe-echelon_relation}.
+\begin{center}
+    \tikzsetnextfilename{sbdt_Int_Echelon-chap_bloc-ext}
+    \input{tikz/sbdt_Int_Echelon-chap_bloc.tex}
+\end{center}
+L'application successive de cet opérateur sur l'impulsion de Dirac donne 
+donc un signal rampe.
+\begin{center}
+    \tikzsetnextfilename{sbdt_IntInt_Dirac-chap_bloc-ext}
+    \input{tikz/sbdt_IntInt_Dirac-chap_bloc.tex}
+\end{center}
+Sous forme d'opérateur, on écrira 
+\[
+    \mathcal{I}^2\delta(t)=tu(t)
+\]
+où le signal rampe $r(t)$ prend sa forme usuelle $tu(t)$.
+
+On généralise à un nombre $n$ d'application de l'opérateur intégral à une
+impulsion de Dirac:
+\[
+    \mathcal{I}^n\delta(t)=\dfrac{t^n}{n!}u(t)
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Produit d'un signal temporel par un scalaire}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Nous representons le produit d'un signal $e(t)$ par un simple scalaire $a$
+(c.-à-d. un gain) par un triangle de la façon suivante:
 \begin{center}
     \tikzsetnextfilename{sbdt_BlocT-chap_bloc-ext}
     \input{tikz/sbdt_BlocT-chap_bloc.tex}
 \end{center}
+Ainsi, ce schéma-bloc représente la relation : 
 \[
-    y(t)=sx(t)
+    s(t)=ae(t).
 \]
-
-L'équation différentielle suivante :
-\[
-    \dot{y}(t)=s\big(x(t)+y(t)\big)
-\]
-peut alors être représentée par le schéma-bloc dans le domaine temporel suivant :
-
-\begin{center}
-    \tikzsetnextfilename{sbdt_eqdiff1-chap_bloc-ext}
-    \input{tikz/sbdt_eqdiff1-chap_bloc.tex}
-\end{center}
-
-sous forme d'opérateur, on réduira ce schéma-bloc par la relation suivante :
-\[
-    Y=s\mathcal{I}\big(X+Y\big)
-\]
-Le rapport de la sortie sur l'entrée
-\[
-    \dfrac{Y}{X}=\dfrac{s\mathcal{I}}{1-s\mathcal{I}}
-\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Représentation d'une équation différentielle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Avec les deux blocs précédents, il est maintenant possible de représenter 
+toutes les équations différentielles linéaires à coefficients constants.
+Par exemple l'équation différentielle suivante :
 L'équation différentielle (2) :
 \[
-    \dot{y}(t)=x+sy(t)
+    \dot{s}(t)=e(t)+as(t)
 \]
 
 \begin{center}
@@ -964,45 +1002,41 @@ L'équation différentielle (2) :
     \input{tikz/sbdt_eqdiff2-chap_bloc.tex}
 \end{center}
 
-Sous forme d'opérateur
+Sous forme d'opérateur, ce schéma-bloc se réduit
 \[
-    Y=\mathcal{I}\big(X+sY\big)
+    S=\mathcal{I}\big(E+aS\big)
 \]
+Le rapport de la sortie sur l'entrée est alors donnée par 
 \[
-    \dfrac{Y}{X}=\dfrac{\mathcal{I}}{1-s\mathcal{I}}
+    \dfrac{S}{E}=\dfrac{\mathcal{I}}{1-a\mathcal{I}}
 \]
-L'équation différentielle (3) :
+Il est possible de développer $\dfrac{1}{1-a\mathcal{I}}$ sous forme de série entière :
 \[
-    \dot{y}(t)=\dot{x}(t)+sy(t)
-\]
-\begin{center}
-    \tikzsetnextfilename{sbdt_eqdiff3-chap_bloc-ext}
-    \input{tikz/sbdt_eqdiff3-chap_bloc.tex}
-\end{center}
-Sous forme d'opérateur
-\[
-    Y=X+s\mathcal{I}Y
-\]
-\[
-    \dfrac{Y}{X}=\dfrac{1}{1-s\mathcal{I}}
-\]
-Il est possible de développer $\dfrac{1}{1-s\mathcal{I}}$ sous forme de série entière :
-\[
-    \dfrac{1}{1-s\mathcal{I}}=\sum_{n=0}^{\infty}(s\mathcal{I})^n=(1+s\mathcal{I}+s^2\mathcal{I}^2+s^3\mathcal{I}^3\ldots)
+    \dfrac{1}{1-a\mathcal{I}}=\sum_{n=0}^{\infty}(a\mathcal{I})^n=(1+a\mathcal{I}+a^2\mathcal{I}^2+a^3\mathcal{I}^3\ldots)
 \]
 L'application de l'opérateur $\mathcal{I}^n$ revient à appliquer $\mathcal{I}$ $n$ fois.
+Ainsi l'expression $\dfrac{S}{E}$ devient :
+\begin{align*}
+    \dfrac{S}{E}=\mathcal{I}\left(1+a\mathcal{I}+a^2\mathcal{I}^2+a^3\mathcal{I}^3\ldots\right)\\
+    \dfrac{S}{E}=\mathcal{I}+a\mathcal{I}^2+a^2\mathcal{I}^3+a^3\mathcal{I}^4\ldots
+\end{align*}
+Pour une entrée $e(t)=\delta(t)$, on peut écrire :
+\begin{align*}
+    s(t)=\left(\mathcal{I}+a\mathcal{I}^2+a^2\mathcal{I}^3+a^3\mathcal{I}^4\ldots\right)\delta(t)\\
+    s(t)=(1+at+\dfrac{(at)^2}{2}+\dfrac{(at)^3}{6}+\ldots)u(t)
+\end{align*}
 
 Prenons l'exemple de l'équation différentielle :
 \[
-    \dot{y}(t)=x+sy(t)
+    \dot{s}(t)=e(t)+as(t)
 \]
 en appliquant la transformée de Laplace on obtiendrait :
 \[
-    Y(p)=\dfrac{1}{p-s}X(p)
+    S(p)=\dfrac{1}{p-a}E(p)
 \]
 
-Pour une entrée $x(t)=\delta(t)$, la sortie devient dans le domaine de Laplace $Y(p)=\dfrac{1}{p-s}$, par la transformée de Laplace
-inverse celà devient $y(t)=e^{-st}u(t)$.
+Pour une entrée $e(t)=\delta(t)$, la sortie devient dans le domaine de Laplace $S(p)=\dfrac{1}{p-a}$, par la transformée de Laplace
+inverse celà devient $s(t)=e^{at}u(t)$.
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
