@@ -1,10 +1,20 @@
 #!/usr/bin/python3
 import sys
 import argparse
-beginendenv=["figure","center","table","bequation","itemize","criteria",
+beginendenv=["figure","align","align*","center","table","bequation","itemize","criteria",
             "theorem","definition","tcolorbox"]
 braketenv=["chapter","section","subsection","susubsection","paragraph",
          "exercice","question"]
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 # =============================================================================
 def main_parser():
     parser = argparse.ArgumentParser(description='Check separator in tex files')
@@ -78,7 +88,7 @@ def iofile(lines,context,data):
     #print(startcontext,endcontext)
     for start,end in zip(startcontext,endcontext):
         if not check_separator(data[0],data[1],start,end,lines):
-            print("problème séparateur ligne :",start,context)
+            print(bcolors.FAIL+f"problème séparateur ligne : {start} {context}"+bcolors.ENDC)
 # =============================================================================
 if __name__=="__main__":
 
@@ -99,6 +109,8 @@ if __name__=="__main__":
          "question":[1,"%"],
          "figure":[1,"-"],
          "center":[1,"-"],
+         "align":[1,"-"],
+         "align*":[1,"-"],
          "table":[1,"-"],
          "bequation":[1,"-"],
          "itemize":[1,"-"],

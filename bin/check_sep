@@ -21,4 +21,3 @@ grep -n "%%" $1 | check_nbsep "%%%"
 grep -n "%-" $1 | check_nbsep "---" 
 echo "-------------------------------------------------------------------------"
 bin/check_separator.py $1
-echo 
