@@ -45,7 +45,7 @@ les systèmes dynamiques linéaires.
 \end{figure}
 %-------------------------------------------------------------------------------
 \newpage
-\newgeometry{top=25mm,bottom=22mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\input{re/newgeometry}
 \captionsetup{width=0.9\linewidth,labelfont=bf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -296,7 +296,7 @@ son équation différentielle sera alors de la forme :
 %    a_3\devi{s(t)}{3}+a_2\devi{s(t)}{2}+a_1\devi{s(t)}{}
 %    =b_0e(t)+b_1\devi{e(t)}{}
 %\]
-\newgeometry{top=25mm,bottom=22mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\input{re/newgeometry}
 \captionsetup{width=0.9\linewidth,labelfont=bf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -517,7 +517,7 @@ sollicitation constante et une sollicitation oscillante).
 \end{figure}
 %-------------------------------------------------------------------------------
 \newpage
-\newgeometry{top=25mm,bottom=22mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\input{re/newgeometry}
 \captionsetup{width=0.9\linewidth,labelfont=bf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -542,7 +542,7 @@ nos collègues mathématiciens. En effet, ce signal est un exemple classique de
 la théorie des distributions qui étend la notion de fonction.} telle que
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
-    %\centering
+    \centering
     \includegraphics[width=0.9\linewidth]{PaulDirac.eps} 
     \caption{\index{Dirac, Paul}\textbf{Paul Dirac}, (1902-1984) 
               mathématicien et physicien britannique. Auteur de 
@@ -623,8 +623,8 @@ Ci contre, nous la représentons avec la fonction retardée $u(t-\tau)$.
     \centering
     \tikzsetnextfilename{echelon-chap_slci-ext}
     \input{tikz/echelon-chap_slci.tex}
-    \caption{Représentation graphique de (gauche) la fonction échelon-unité 
-             et (droite) la fonction échelon-unité retardée de $\tau$
+    \caption{Représentation graphique de (haut) la fonction échelon-unité 
+             et (bas) la fonction échelon-unité retardée de $\tau$
             \label{fig-echelon}}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
@@ -648,7 +648,8 @@ Remarquons que la fonction échelon-unité est l'intégrale
 de la distribution de Dirac,
 %-------------------------------------------------------------------------------
 \begin{equation}
-    u(t)=\int\limits_{-\infty}^{t} \delta(\tau)\,\,\dd{\tau}\label{eq-echelon-dirac_relation}
+    u(t)=\int\limits_{-\infty}^{t} \delta(\tau)\,\,\dd{\tau}
+    \label{eq-echelon-dirac_relation}
 \end{equation}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
@@ -656,8 +657,8 @@ de la distribution de Dirac,
     \centering
     \tikzsetnextfilename{rampe-chap_slci-ext}
     \input{tikz/rampe-chap_slci.tex}
-    \caption{Représentation graphique de (gauche) la fonction rampe-unité et 
-                                     (droite) la fonction rampe-unité retardée
+    \caption{Représentation graphique de (haut) la fonction rampe-unité et 
+                                     (bas) la fonction rampe-unité retardée
                                      de $\tau$\label{fig-rampe}}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
@@ -682,7 +683,8 @@ ou autrement dit, en utilisant la propriété de causalité de l'échelon:
 Remarquons que la fonction rampe est l'intégrale de l'échelon-unité, notamment 
 %-------------------------------------------------------------------------------
 \begin{equation}
-    r(t)=\int\limits_{-\infty}^{t} u(\tau)\,\,\dd{\tau}\label{eq-rampe-echelon_relation}
+    r(t)=\int\limits_{-\infty}^{t} u(\tau)\,\,\dd{\tau}
+    \label{eq-rampe-echelon_relation}
 \end{equation}
 %-------------------------------------------------------------------------------
 La réponse d'un système à une rampe ne possède pas de nom spécifique 
@@ -740,7 +742,7 @@ Cette fonction tend vers 0 pour tout $a>0$ lorsque $t\rightarrow\infty$ et
 diverge pour $a<0$.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
-    \captionsetup{width=0.95\linewidth,belowskip=0pt,labelfont=bf} 
+    \captionsetup{width=0.95\linewidth,belowskip=0pt} 
     \centering
     \tikzsetnextfilename{exp_dec-chap_slci-ext}
     \resizebox{\linewidth}{!}{\input{tikz/exp_dec-chap_slci.tex}}
@@ -887,7 +889,7 @@ en regroupant les termes on obtient alors:
     e(t)=tu(t)+2(1-t)u(t-1)-(2-t)u(t-2)
 \]
 \newpage
-\newgeometry{top=25mm,bottom=22mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\input{re/newgeometry}
 \captionsetup{width=0.9\linewidth,labelfont=bf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1263,7 +1265,7 @@ ou encore
 \end{bequation}
 %-------------------------------------------------------------------------------
 \newpage
-\newgeometry{top=25mm,bottom=22mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\input{re/newgeometry}
 \captionsetup{width=0.9\linewidth,labelfont=bf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1369,7 +1371,7 @@ s'affranchit de la forme particulière de l'équation différentielle
 auquelle on a à faire. Nous verrons que la transformée de Laplace devient 
 totalement indispensable pour la caractérisation d'un \gls{slci}.
 \newpage
-\newgeometry{top=25mm,bottom=22mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\input{re/newgeometry}
 \captionsetup{width=0.9\linewidth,labelfont=bf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Résolution par la méthode direct}
@@ -1750,7 +1752,7 @@ on peut réécrire $H(p)$ sous sa forme factorisée:
 \[
     H(p)=\dfrac{6}{2}\cdot\dfrac{p+2}{p^2+2p+0.75}
 \]
-\newgeometry{top=25mm,bottom=22mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\input{re/newgeometry}
 \captionsetup{width=0.9\linewidth,labelfont=bf}
 La fonction de transfert possède un zéro ($z_1=-2$) et deux pôles 
 ($p_1=-1.5$ et $p_2=-0.5$). Elle peut alors s'écrire (avec $k=3$) :

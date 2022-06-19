@@ -105,25 +105,31 @@ La tension $v_1(t)$ est imposée en entrée et on mesure la tension de sortie
 $v_2(t)$ aux bornes de la résistance $R_2$.
 En appliquant les lois de Kirchoff, on obtient les relations suivantes 
 entre les tensions et les courants:
+%-------------------------------------------------------------------------------
 \begin{align*}
     v_{R_1}(t)+v_2(t)-v_1(t)&=0\\
     i_1(t)-i_2(t)-i_3(t)&=0
 \end{align*}
+%-------------------------------------------------------------------------------
 où  $v_{R_1}(t)$ est la tension aux bornes de la résistance $R_1$.
 
 Aux bornes des dipoles, nous avons également :
+%-------------------------------------------------------------------------------
 \begin{align*}
     v_{R_1}(t)&=R_1i_1(t)\\
     v_{C}(t)&=\dfrac{1}{C}\int_0^t i_2(\tau) \dd{\tau}=v_2(t)\\
     v_2(t)&=R_2i_3(t)
 \end{align*}
+%-------------------------------------------------------------------------------
 En remplaçant celles-ci dans les relations de Kirchoff, on obtient les 
 équations régissant ce modèle électrique:
+%-------------------------------------------------------------------------------
 \begin{align*}
     i_1(t)&=\dfrac{1}{R_1}\big(v_1(t)-v_2(t)\big)\\
     i_2(t)&=i_1(t)-\dfrac{1}{R_2}v_2(t)\\
     v_2(t)&=\dfrac{1}{C}\int_0^t i_2(\tau) \dd{\tau}
 \end{align*}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Donner les relations du modèle dans le domaine de Laplace}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -154,12 +160,14 @@ intégral}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Donner le rapport de l'entrée sur la sortie}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{sbdt_eqdiff1-chap_bloc-ext}
     \input{tikz/sbdt_eqdiff1-chap_bloc.tex}
 \end{center}
-À nouveau sous forme d'opérateur, on réduira ce schéma-bloc par la relation suivante :
+%-------------------------------------------------------------------------------
+À nouveau sous forme d'opérateur, on réduira ce schéma-bloc par 
+la relation suivante :
 \[
     Y=a\mathcal{I}\big(X+Y\big)
 \]
@@ -172,10 +180,12 @@ L'équation différentielle (3) :
 \[
     \dot{s}(t)=\dot{e}(t)+as(t)
 \]
+%-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{sbdt_eqdiff3-chap_bloc-ext}
     \input{tikz/sbdt_eqdiff3-chap_bloc.tex}
 \end{center}
+%-------------------------------------------------------------------------------
 Sous forme d'opérateur
 \[
     S=E+a\mathcal{I}S
