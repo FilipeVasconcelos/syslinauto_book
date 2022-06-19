@@ -82,7 +82,7 @@ la dimension du gain statique est donnée par le rapport des dimensions de
 la sortie sur l'entrée. Autrement dit, c'est un paramètre sans dimension 
 si l'entrée et la sortie sont de même nature.
 \newpage
-\newgeometry{top=25mm,bottom=22mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\input{re/newgeometry}
 \captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -891,7 +891,7 @@ temps de réponse pour $\xi\sim 0.7$
 \end{figure}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
-\begin{figure}
+\begin{figure}[!b]
 \centering
     \tikzsetnextfilename{rapidite_tr_2ndordre-chap_model-ext}
     \input{tikz/rapidite_tr_2ndordre-chap_model.tex}
@@ -902,9 +902,11 @@ temps de réponse pour $\xi\sim 0.7$
 \end{figure}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
+\input{re/newgeometry}
 {\tikzset{external/export=false}
 \input{tex/reponses_temporelles_2nd_ordre.tex}
 }
+\restoregeometry
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Réponse à une rampe}

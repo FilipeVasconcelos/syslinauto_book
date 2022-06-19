@@ -139,7 +139,7 @@ utiliserons par la suite $G(\omega)$ pour noter plus explicitement cette
 dépendance. La phase est également une fonction de la pulsation d'excitation, 
 nous la noterons donc $\phi(\omega)$ par la suite.
 \newpage
-\newgeometry{top=25mm,bottom=20mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\input{re/newgeometry}
 \captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1153,7 +1153,7 @@ et
 \end{bequation}
 %-------------------------------------------------------------------------------
 \clearpage
-\newgeometry{top=25mm,bottom=22mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\input{re/newgeometry}
 \captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1472,7 +1472,7 @@ spirale qui convergent vers 0.
 %\end{figure}
 %-------------------------------------------------------------------------------
 \clearpage
-\newgeometry{top=25mm,bottom=20mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\input{re/newgeometry}
 \captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1513,10 +1513,12 @@ pur est simplement donnée par
 \end{marginfigure}
 %-------------------------------------------------------------------------------
 Le gain en décibel et la phase sont donnés par :
+%-------------------------------------------------------------------------------
 \begin{align*}
     G_{dB}(\omega)&=20\log{K}-20\log{\omega} \\
       \phi(\omega)&=-\SI{90}{\degree}
 \end{align*}
+%-------------------------------------------------------------------------------
 La~\cref{fig-black_1} ci-contre représente le diagramme de Black d'un 
 intégrateur pur. On vérifie, qu'un intégrateur présente une contribution 
 de \SI{-90}{\degree} à toutes pulsations et que le gain diminue lorque la
@@ -1542,10 +1544,12 @@ La fonction de transfert complexe d'un dérivateur pur est simplement donnée pa
 \end{marginfigure}
 %-------------------------------------------------------------------------------
 Le gain en décibel et la phase sont donnés par :
+%-------------------------------------------------------------------------------
 \begin{align*}
     G_{dB}(\omega)&=20\log{K}+20\log{\omega} \\
       \phi(\omega)&=\SI{90}{\degree}
 \end{align*}
+%-------------------------------------------------------------------------------
 La~\cref{fig-black_2} présente le diagramme de Black d'un dérivateur pur. On 
 vérifie qu'un dérivateur présente une phase de \SI{+90}{\degree} pour toutes
 pulsations et que gain diminue avec l'augmentation de la pulsation. Le gain 
@@ -1561,10 +1565,12 @@ La fonction de transfert complexe d'un premier ordre est simplement donnée par 
     H(\jw)=\dfrac{K}{1+\jtw}
 \]
 Le gain en décibel et la phase sont donnés par :
+%-------------------------------------------------------------------------------
 \begin{align*}
     G_{dB}(\omega)&=20\log{K}-10\log{\left(1+\ttww\right)} \\
       \phi(\omega)&=-\arctan{(\tw)}
 \end{align*}
+%-------------------------------------------------------------------------------
 La~\cref{fig-black_3} présente le diagramme de Black d'un premier ordre.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
@@ -1583,6 +1589,7 @@ La fonction de transfert complexe d'un second ordre est simplement donnée par :
     H(\jw)=\dfrac{K\omega_0^2}{(\omega_0^2-\omega^2)+j2\xi\omega_0\omega}
 \]
 Le gain en décibel et la phase sont donnés par :
+%-------------------------------------------------------------------------------
 \begin{align*}
     G_{dB}(\omega)&=20\log{K\omega_0^2}-10
                     \log{\left((\omega_0^2-\omega^2)^2+
@@ -1590,6 +1597,7 @@ Le gain en décibel et la phase sont donnés par :
       \phi(\omega)&=-\arctan{\left(\dfrac{2\xi\omega_0\omega}
                                          {\omega_0^2-\omega^2}\right)}
 \end{align*}
+%-------------------------------------------------------------------------------
 La~\cref{fig-black_4} présente le diagramme de Black d'un second ordre.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]

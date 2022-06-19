@@ -302,7 +302,7 @@ de la boucle ouverte (comme le gain statique). Cette méthode correspond à la
 construction graphique des lieux d'Evans ((\cref{annexe-evans}))
 %-------------------------------------------------------------------------------
 \newpage
-\newgeometry{top=25mm,bottom=22mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\input{re/newgeometry}
 \captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1096,7 +1096,7 @@ pôles et zéros de l'application. Notamment,
 \end{itemize}
 %-------------------------------------------------------------------------------
 \clearpage
-\newgeometry{top=25mm,bottom=22mm,outer=60mm,marginparsep=3mm,marginparwidth=50mm}
+\input{re/newgeometry}
 \captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1328,12 +1328,13 @@ boucle fermée si $Z=P-N=0$.
 \[
         H_1(p)=\dfrac{p+3}{(p+2)(p^2+2p+25)}
 \]
-    \begin{align*}
-        P&=0\\
-        N&=0\\
-        Z&=0
-    \end{align*}
-
+%-------------------------------------------------------------------------------
+\begin{align*}
+    P&=0\\
+    N&=0\\
+    Z&=0
+\end{align*}
+%-------------------------------------------------------------------------------
 {
        \hfill\LARGE\textcolor{col3}{STABLE}\hfill
 }
@@ -1349,13 +1350,14 @@ boucle fermée si $Z=P-N=0$.
 \begin{minipage}{0.35\textwidth}
 \[
         H_3(p)=\dfrac{500(p-2)}{(p+2)(p+7)(p+50)}
-\]
+\] 
+%-------------------------------------------------------------------------------
     \begin{align*}
         P&=0\\
         N&=-1\\
         Z&=P-N=1
     \end{align*}
-
+%-------------------------------------------------------------------------------
 {
        \hfill\LARGE\textcolor{col4}{INSTABLE}\hfill
 }
