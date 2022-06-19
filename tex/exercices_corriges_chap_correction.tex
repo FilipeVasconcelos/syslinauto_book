@@ -46,12 +46,14 @@ $\omega_{\SI{0}{\dB}}=\SI{2.383}{\radian\per\second}$.
 Par le calcul, on déterminer cette valeur comme la pulsation qui donne un 
 module de la fonction de transfert en boucle ouverte complexe égal à 1.
 On cherche donc $\omega$ tel que :
+%-------------------------------------------------------------------------------
 \begin{align*}
     |H(j\omega)|=1 &\iff \\
     \dfrac{|10+j5\omega|}{|(2-3\omega^2)+\jw(4-\omega^2)|}=1 &\iff \\
     \dfrac{100+25\omega^2}{\omega^6+\omega^4+4\omega^2+4}=1 &\iff \\
     \omega^6+\omega^4-21\omega^2-96=0
 \end{align*}
+%-------------------------------------------------------------------------------
 Pour résoudre cette équation, on pourrait utiliser l'instruction Scilab 
 suivante :
 %-------------------------------------------------------------------------------
@@ -167,11 +169,13 @@ On mesure $\arg{H(j\omega_0)}=\SI{-162.8}{\degreeSI}$ :
 $(\alpha,\tau_d,K_d)$ du correcteur à avance de phase}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On a alors :
+%-------------------------------------------------------------------------------
 \begin{align*}
     \alpha&=\dfrac{1+\sin\phi_d}{1-\sin\phi_d}=5.239 \\
     \tau_d&=\dfrac{1}{\omega_0\sqrt\alpha}=\SI{0.109}{\second}\\
        K_d&=\dfrac{G_d}{\sqrt\alpha}=1.298
 \end{align*}
+%-------------------------------------------------------------------------------
 %Q7
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{\textbf{Donner la forme numérique de la fonction de transfert du 
@@ -350,16 +354,20 @@ On a alors pour les paramètres des correcteurs :
 %-------------------------------------------------------------------------------
 \begin{itemize}
     \item[AP] 
+%-------------------------------------------------------------------------------
         \begin{align*}
             \alpha&=22.89\\
             \tau_d&=\SI{0.052}{\second}\\
             K_d&=0.209
         \end{align*}
+%-------------------------------------------------------------------------------
     \item[PI]
+%-------------------------------------------------------------------------------
         \begin{align*}
             \tau_i&=\SI{0.572}{\second}\\
             k_i&=0.9163
         \end{align*}
+%-------------------------------------------------------------------------------
 
 \[
     k_p=2.97
