@@ -67,6 +67,8 @@ if __name__=="__main__":
          "\question":[1,"%","}"],
          "\\begin{figure}":[1,"-","\\end{figure}"],
          "\\begin{center}":[1,"-","\\end{center}"],
+         "\\begin{align}":[1,"-","\\end{align}"],
+         "\\begin{align*}":[1,"-","\\end{align*}"],
          "\\begin{table}":[1,"-","\\end{table}"],
          "\\begin{bequation}":[1,"-","\\end{bequation}"],
          "\\begin{itemize}":[1,"-","\\end{itemize}"],
