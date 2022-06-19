@@ -1,0 +1,32 @@
+\begin{tikzpicture}
+    \begin{axis}
+    [   name=ax2,
+        axis line style = thick,
+        height=4cm,
+        width=5cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-2,
+        xmax=8,
+        ymin=-0.5,
+        ymax=2.5,
+        ytick={1},
+        yticklabels={$1$},
+        xtick=\empty,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={above left},
+    ]
+    \addplot [signalr,domain=-2:0]{0};
+    \addplot [signalb,domain=0:16]{exp(0.1*x)};
+    \addplot [signalr,domain=0:16]{1+0.1*x
+                                    +0.005*x*x
+                                    +0.000166666666*x*x*x};
+    \draw[dotted,very thick,col1] (axis cs:0,0) -- (axis cs:0,1);
+    \end{axis}
+    \node[] at (7,1) {$(\color{col4}1+at
+                                     +\dfrac{1}{2}a^2t^2
+                                     +\dfrac{1}{6}a^3t^3\color{black}
+                                     +\ldots)u(t)$};
+\end{tikzpicture}

@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+    \sbEntree{E1}
+    \sbCompSum[5.0]{comp}{E1}{}{+}{+}{}
+    \sbRelier[$e(t)$]{E1}{comp}
+    \sbInt[3]{B1}{comp}
+    \sbRelier[$\dot{s}(t)$]{comp}{B1}
+    \sbSortie[6]{S1}{B1}
+    \sbRelier[$s(t)$]{B1}{S1}
+    \sbDecaleNoeudy{B1}{R}
+    \sbBlocTr[-1.5]{R1}{$a$}{R}
+    \sbRelieryx{B1-S1}{R1}
+    \sbRelierxy[]{R1}{comp}
+    \coordinate (a) at (0.5,0);
+    \coordinate (b) at (6,0);
+    \draw[col4,line width=1.25mm,-latex] (a) -- (b);
+\end{tikzpicture}
+

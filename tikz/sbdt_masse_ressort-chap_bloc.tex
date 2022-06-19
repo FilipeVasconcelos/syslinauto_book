@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+    \sbEntree{E1}
+    \sbBlocT[3.5]{H1}{$\frac{1}{m}$}{E1}
+    \sbRelier[$f(t)$]{E1}{H1}
+    \sbCompSum[5.0]{comp}{H1}{}{+}{+}{}
+    \sbRelier{H1}{comp}
+    \sbCompSum[5.0]{comp2}{comp}{}{+}{+}{}
+    \sbRelier{comp}{comp2}
+    \sbInt[3]{B1}{comp2}
+    \sbRelier[$\ddot{x}(t)$]{comp2}{B1}
+    \sbInt[3]{B2}{B1}
+    \sbRelier[$\dot{x}(t)$]{B1}{B2}
+    \sbSortie[4]{S1}{B2}
+    \sbRelier[$x(t)$]{B2}{S1}
+    \sbDecaleNoeudy{B2}{d1}
+    \sbBlocTr[5.5]{R2}{$-\frac{b}{m}$}{d1}
+    \sbRelieryx{B1-B2}{R2}
+    \sbRelierxy[]{R2}{comp2}
+    \sbDecaleNoeudy[12]{B2}{d2}
+    \sbBlocTr[5.5]{R1}{$-\frac{k}{m}$}{d2}
+    \sbRelieryx{B2-S1}{R1}
+    \sbRelierxy[]{R1}{comp}
+\end{tikzpicture}
+
