@@ -1,35 +1,67 @@
+# -----------------------------------------------------------------------------
+# ftransfert script :
+# author : fmv
+# date : 2019-2022
+# description : 
+#    Ce script permet de définir une fonction de transfert et de 
+#    tracer différentes réponses harmoniques avec matplotlib.
+# -----------------------------------------------------------------------------
+# préambule
+# -----------------------------------------------------------------------------
 import sys
 import matplotlib as mpl
 from matplotlib import rcParams
+import matplotlib.pyplot as plt
 #mpl.rcParams['font.family'] = ['sans-serif']
 #mpl.rcParams['font.serif'] = ['Times New Roman']
-import matplotlib.pyplot as plt
+plt.rcParams.update({
+    "text.usetex": True,
+    "font.family": "sans-serif",
+    "font.sans-serif": ["Helvetica"]})
+plt.rc('text.latex', preamble=r'\usepackage{amsmath}\usepackage{gensymb}')
 import numpy as np
 import math
 from contour import add_arrow
-
-TWO_PI=2*np.pi
-HALF_PI=0.5*np.pi
-
+# -----------------------------------------------------------------------------
+# Quelques constantes
+# -----------------------------------------------------------------------------
+fmt_gain = '%r dB'
+fmt_phase = '%r °'
+TWO_PI=2*np.pi    # 2π
+HALF_PI=0.5*np.pi # π/2
+# class de format d'un float
+class nf(float):
+    def __repr__(self):
+        s = f'{self:.1f}'
+        return f'{self:.0f}' if s[-1] == '0' else s
+# -----------------------------------------------------------------------------
+# différentes fonctions de conversion
+# -----------------------------------------------------------------------------
 def rad2deg(rad) : return rad*180/np.pi   # radian  -> degrée  (phase)
 def deg2rad(deg) : return deg*np.pi/180   # degrée  -> radian  (phase)
 def nat2dB(g)    : return 20*np.log10(g)  # naturel -> dB      (gain)
 def dB2nat(dB)   : return 10**(dB/20)     # dB      -> naturel (gain)
+# -----------------------------------------------------------------------------
+# relation de Black de la boucle de contre-réaction unitaire négative (negativ feedback)
+# -----------------------------------------------------------------------------
 def bo2bf(z)     : return z/(1+z)         # BO      -> BF
 
 # ------------------------------------------------------------------------------
+# Principale classe du script
 class Ftransfert():
     """
     Fonction de transfert :
+        Une FT est définie par ces zéros et pôles (self.type='roots') ou des fonctions (lambda) pour ses 
+        polynômes au numérateur et dénominateur (self.type='function').
     """
     def __init__(self,zeros=None,poles=None,num=None,den=None,gain=1,title='',name="F",DPI=100,verbeux=1):
-        self.gain=gain
-        self.num=num
-        self.den=den
-        self.name=name
-        self.title=title
-        self.DPI=DPI
-        self.verbeux=verbeux
+        self.gain=gain       # gain statique de la FT
+        self.num=num         # polynôme au numérateur
+        self.den=den         # polynôme au dénominateur
+        self.name=name       # nom de la FT
+        self.title=title     # information supplémentaire à ajouter au titre des diagrammes
+        self.DPI=DPI         # résolution de l'image
+        self.verbeux=verbeux # verbose
         if zeros: 
             self.rzeros=zeros
             self.zeros=[complex(zero[0],zero[1]) for zero in zeros]
@@ -42,6 +74,8 @@ class Ftransfert():
         else:
             self.rpoles=[]
             self.poles=[]
+        # on vérifie si la FT est bien définie.
+        # et on selectionne le type de la FT "function" ou "roots" 
         defOK=(self.zeros!=[] or self.poles!=[]) or (self.num!=None and self.den!=None)
         if defOK:
             if self.num!=None or self.den!=None :
@@ -52,16 +86,18 @@ class Ftransfert():
                 self.type="roots"
         else:
             self.type=None
-            print('error in Transfert definition')
+            print('Erreur dans la définition de la fonction de transfert')
 
         # options for plotting phase
         self.phaseWrapping=False
         # riemann index,sign
         self.riemann=[0,-1]
 
+        # la FT présente-elle des intégrateurs ?
+        # deux tests selon le type de la 
         if self.type == "function" :
             self.integrators= self.den(0.0) == 0.0
-        else:
+        elif self.type == "roots" :
             if len(poles)>0 : self.integrators = not all(self.poles).real!=0
     
     # ------------------------------------------------------------------------------
@@ -174,7 +210,7 @@ class Ftransfert():
         evaluate the transfert function according
         to his definition.
         if function : just return the evaluation of num and den 
-        in p.
+                      in p.
         if "roots" : 
                                       (p-z1)(p-z2) ...
         return the evaluation of   K -------------------  
@@ -196,6 +232,9 @@ class Ftransfert():
             zz*=gain
             return zz,abs(zz),phase
     # ------------------------------------------------------------------------------
+    # retourne les parties réelles, imaginaires, le module et la phase de la 
+    # fonction de transfert complexe évaluée en w.
+    # Un gain est donné en argument
     def harm_response(self,w,gain):
         h,mag,phase=self.evaluate(w,gain)
         # wrapping matlab like ... il faut calculer la phase à partir de l'évaluation complète
@@ -206,16 +245,19 @@ class Ftransfert():
                 phase[k]=self.atanN(hi.imag,hi.real)
                 k+=1
         return h.real,h.imag,mag,phase 
-    # 
+    # ------------------------------------------------------------------------------
     def tabLaTeX(self,**kwargs):
         # Recast levels to new class
         class nf(float):
             def __repr__(self):
                 return f'{self:.2f}'
+        ws=kwargs.get('ws',None)
+        winput=isinstance(ws,np.ndarray)
         wlim=kwargs.get('wlim', (1e-2,1e2))
         n=kwargs.get('n',11)
         # array of pulsations
-        ws=1j*np.logspace(np.log10(wlim[0]),np.log10(wlim[1]),n)
+        if not winput :
+            ws=1j*np.logspace(np.log10(wlim[0]),np.log10(wlim[1]),n)
         response=self.harm_response(ws,self.gain)
         print("\\begin{center}")
         print("\\begin{tabular}{ccc}")
@@ -229,7 +271,7 @@ class Ftransfert():
         print("\\end{center}")
 
     # ------------------------------------------------------------------------------
-    def nyquist(self,complet=False,**kwargs):
+    def nyquist(self,complet=False,mcircles=False,ncircles=False,**kwargs):
         """
         Plot Nyquist chart for p= -∞ j -> +∞ j
         in practice from :
@@ -255,7 +297,7 @@ class Ftransfert():
         if len(gains) > 2 :
             color=None
         if self.title=='':
-            self.title=r'Nyquist'+self.name+r'(p)'
+            self.title=r'Nyquist $'+self.name+r'(p)$'
       
         if self.verbeux > 0 :
             print(60*'*')
@@ -270,6 +312,13 @@ class Ftransfert():
                 w=1j*np.logspace(-np.log10(fmax),np.log10(fmax),n)
             print("Nombre de points",n,len(w))
             print(self)
+            if ncircles and mcircles :
+                print(f"Erreur Nyquist plot: N-cercles et les M-cercles\nne peuvent pas être tracés en même temps")
+                return
+            elif mcircles :
+                print("M-cercles")
+            elif ncircles :
+                print("N-cercles")
             print(60*'*'+'\n')
        
         XNyq=[]
@@ -277,8 +326,8 @@ class Ftransfert():
         for kg,gain in enumerate(gains):
             # evaluer F(p) pour p=-infty j -> +infty j
             response=self.harm_response(w,gain)
-            XNyq.append(response[0])
-            YNyq.append(response[1])
+            XNyq.append(response[0]) # partie réelle
+            YNyq.append(response[1]) # partie imaginaire
         
         # matplotlib instructions
         fig = plt.figure(figsize=(6,4.5),dpi=self.DPI)
@@ -291,10 +340,58 @@ class Ftransfert():
         ax.xaxis.label.set_size(18)
         ax.yaxis.label.set_text(r'$\mathrm{Im}['+self.name+'(p)]$')
         ax.yaxis.label.set_size(18)
-        plt.grid()
+        # Si on ne trace pas d'abaques on trace une grille
+        if not mcircles and not ncircles : 
+            plt.grid()
+        else:
+            # calcul de certaines quantités utiles pour le tracer des abaques
+            N=512
+            def circle(x,y):
+                return 90*4*((x+0.5)**2+y**2)
+            re_bo=np.linspace(-4,4,N)
+            im_bo=np.linspace(-4,4,N)
+            gain_bf=np.zeros((N,N))
+            phase_bf=np.zeros((N,N))
+            [Re,Im]=np.meshgrid(re_bo,im_bo)
+            deg90=circle(Re,Im)
+            for i in range(N):
+                for j in range(N):
+                    bf=bo2bf(complex(re_bo[i],im_bo[j]))
+                    gain_bf[j][i]=nat2dB(np.abs(bf))
+                    phase_bf[j][i]=rad2deg(np.arcsin(bf.imag/np.abs(bf)))
+        # Tracé des M-cercles 
+        if mcircles:
+            isogain=[-11,-9,-7,-6,0.0,6,7,9,11]
+            isogain=ax.contour(re_bo,im_bo, gain_bf, levels=isogain, colors="tab:blue", linewidths=0.8, linestyles="solid")
+            isogain.levels = [nf(val) for val in isogain.levels]
+            ax.clabel(isogain,isogain.levels,inline=True, inline_spacing=5,fontsize=6,fmt=fmt_gain,colors='tab:blue')
+        # Tracé des N-cercles 
+        if ncircles :
+            isophases=[-56.3,-45,-26.5,0]
+            isophase=ax.contour(re_bo, im_bo, phase_bf,isophases,colors="tab:blue",linewidths=0.8,linestyles="solid")
+            #iso90=ax.contour(re_bo, im_bo, deg90,[90],colors="tab:blue",linewidths=0.8,linestyles="solid")
+            isophase.levels = [nf(val) for val in isophase.levels]
+            isophase_loc=[(-0.2,-0.75),(0.1,-0.75),(0.6,-0.75),(0.8,0)]
+            #iso90_loc=[(0,-0.5)]
+            ax.clabel(isophase, isophase.levels,inline=True,inline_spacing=5,fontsize=6,fmt=fmt_phase,colors='tab:blue',manual=isophase_loc)
+            #ax.clabel(isophase, isophase.levels,inline=True,inline_spacing=5,fontsize=8,fmt=fmt_phase,colors='tab:blue')
+            #ax.clabel(iso90, iso90.levels,inline=True,inline_spacing=5,fontsize=8,fmt=fmt_phase,colors='tab:blue',manual=iso90_loc)
         for kg in range(len(gains)):
-            line,=plt.plot(XNyq[kg],YNyq[kg],color=color,label=labels[kg])
+            line,=plt.plot(XNyq[kg],YNyq[kg],color=color,label=labels[kg],linewidth=2)
             add_arrow(line,pcts=arrow_pcts,middle=middle)
+        # si l'on souhaite ajouter des points particulier (pour certaine pulsation)
+        # attention la pulsation doit être complexe (i.e jw)
+        XNyq=[]
+        YNyq=[]
+        w=np.array([0.0,1.0,2,3])*1j
+        self.tabLaTeX(ws=w)
+        for kg,gain in enumerate(gains):
+            # evaluer F(p) pour p=-infty j -> +infty j
+            response=self.harm_response(w,gain)
+            XNyq.append(response[0]) # partie réelle
+            YNyq.append(response[1]) # partie imaginaire
+        for kg in range(len(gains)):
+            plt.scatter(XNyq[kg],YNyq[kg],color='tab:red',label=labels[kg],linewidth=2,marker="x",s=120)
         if labels[0]: ax.legend()
         plt.tight_layout()
         plt.show()
@@ -386,6 +483,7 @@ class Ftransfert():
         ax.xaxis.label.set_size(18)
         ax.yaxis.label.set_text(r'$G_{dB}(\omega)$')
         ax.yaxis.label.set_size(18)
+        # Tracé de l'abaque de Black-Nichols
         if nichols:
             isom=ax.contour(phi, GdB,GdBbf,levels=isomodules,linewidths=0.3,colors="tab:gray",linestyles="solid")
             isop=ax.contour(phi, GdB,phibf,levels=isophases,linewidths=0.3,colors="tab:gray",linestyles="solid")
@@ -396,8 +494,6 @@ class Ftransfert():
                     return f'{self:.0f}' if s[-1] == '0' else s
             isom.levels = [nf(val) for val in isom.levels]
             isop.levels = [nf(val) for val in isop.levels]
-            fmtm = '%r dB'
-            fmtp = '%r °'
             isop_loc_all=[(-260,10),(-260,11),(-260,12),(-260,13),(-260,15),(-260,16),(-260,17),(-260,18),(-260,19),
                     (-260,21),(-260,23),(-260,25),(-260,27),(-260,30),(-260,32),
                     (-100,10),(-100,11),(-100,12),(-100,13),(-100,15),(-100,16),(-100,17),(-100,18),(-100,19),
@@ -425,15 +521,14 @@ class Ftransfert():
             for m in isom_loc_all:
                 if (m[0]>xlim[0] and m[0]<xlim[1]) and (m[1]>ylim[0] and m[1]<ylim[1]):
                        isom_loc.append(m)
-            ax.clabel(isop, isop.levels,inline=True,inline_spacing=-3, fontsize=5,fmt=fmtp,manual=isop_loc)
-            ax.clabel(isom, isom.levels,inline=True,inline_spacing=-3, fontsize=5,fmt=fmtm,manual=isom_loc)
+            ax.clabel(isop, isop.levels,inline=True,inline_spacing=-3, fontsize=5,fmt=fmt_phase,manual=isop_loc)
+            ax.clabel(isom, isom.levels,inline=True,inline_spacing=-3, fontsize=5,fmt=fmt_gain,manual=isom_loc)
         else:
             plt.grid()
         for kg in range(len(gains)):
             line,=plt.plot(XBlack[kg],YBlack[kg],color=color,label=labels[kg])
             add_arrow(line,pcts=arrow_pcts,middle=middle)
         if labels[0]: ax.legend()
-        #plt.tight_layout()
         return fig,line
     # ------------------------------------------------------------------------------
     def bode(self,**kwargs):
@@ -484,8 +579,7 @@ class Ftransfert():
         fig = plt.figure(figsize=(6,8),dpi=self.DPI)
         # Gain chart (UP)
         ax1 = fig.add_subplot(2, 1, 1)
-        ax1.set_title(self.name,loc='left',size=24)
-        #ax1.title.set_text(self.name)
+        ax1.title.set_text(r'Bode $'+self.name+'(p)$')
         ax1.title.set_size(24)
         ax1.set(xlim=xlim, ylim=y1lim)
         ax1.xaxis.label.set_text(r'$\omega$ (rad$\cdot$s$^{-1}$)')
@@ -500,10 +594,9 @@ class Ftransfert():
         # Phase chart (DOWN)
         ax2 = fig.add_subplot(2, 1, 2)
         ax2.set(xlim=xlim, ylim=y2lim)
-        #ax2.title.set_size(24)
         ax2.xaxis.label.set_text(r'$\omega$ (rad$\cdot$s$^{-1}$)')
         ax2.xaxis.label.set_size(18)
-        ax2.yaxis.label.set_text(r'$\phi(\omega) (°)$')
+        ax2.yaxis.label.set_text(r'$\phi(\omega) (\degree)$')
         ax2.yaxis.label.set_size(18)
         ax2.set_xscale('log')
         plt.grid()

@@ -7,7 +7,249 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{notebook/black_nichols.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Contexte}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Dans le cadre d'un asservissement à retour unitaire, la fonction de transfert 
+complexe en boucle fermée $H_{BF}(\jw)$ peut être établie à partir de la 
+fonction de transfert complexe en boucle ouverte $H_{BO}(\jw)$.
+\[
+    H_{BF}(\jw)=\dfrac{H_{BO}(\jw)}{1+H_{BO}(\jw)}
+\]
+On formalise cette relation par l'application de $\mathbb{C}$ dans  $\mathbb{C}$:
+%-------------------------------------------------------------------------------
+\begin{equation*}
+    z\to\dfrac{z}{1+z}
+\end{equation*}
+%-------------------------------------------------------------------------------
+C'est cette application que nous allons étudier dans cette annexe, nous la 
+représenterons à la fois sur les diagramme de Nyquist et celui de Black.
+L'idée est de tracer sur le même diagramme les contours d'isogain et d'isophase 
+(respectivement les contours de module et d'arguments constant 
+en boucle fermée).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dans le plan complexe (\emph{Hall circles})}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Dans le diagramme de Nyquist (représentant les parties réelles et imaginaires de 
+la fonction de transfert en boucle ouverte), les contours d'isogain et 
+d'isophase de la boucle fermée sont représentés par des cercles. 
+On parle respectivement de M-cercles et de N-cercles. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{M-cercles}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On se donne une valeur $M$ représentant le gain en boucle fermée (en \si{\dB}). 
+Les contours de module constant $M$ sur le diagramme de Nyquist 
+sont donnés par :
+\[
+    M=|H_{BF}(\jw)|=\dfrac{|H_{B0}(\jw)|}{|1+H_{B0}(\jw)|}
+\]
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{notebook/fig/black_nichols_3_0.eps}
+\end{center}
+    \caption{Contours des M-cercles (isogain) dans le plan complexe.}
+\end{figure}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{N-cercles}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On se donne une valeur $N$ représentant la phase en boucle fermée 
+(en \si{\degree}). Les contours de phase constante $N$ sur le diagramme 
+de Nyquist sont donnés par :
+\[
+    N=\arg{H_{BF}(\jw)}=\arg{\dfrac{H_{B0}(\jw)}{1+H_{B0}(\jw)}}
+\]
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{notebook/fig/black_nichols_5_0.eps}
+    \end{center}
+    \caption{Contours des N-cercles (isophase) dans le plan complexe.}
+\end{figure}
+%-------------------------------------------------------------------------------
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Abaque de Black-Nichols}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+L'abaque de Black-Nichols permet de repérer par un système de doubles 
+coordonnées les valeurs des modules et de la phase de la FTBF correspondant à 
+un lieu de Black particulier de la FTBO. Les contours d'isogain sont 
+concentriques autour du point critique $(-180,\SI{0}{dB})$. Les contours 
+d'isophase sont orthogonaux aux contours d'isogain.
+On constate que le gain en boucle fermée augmente rapidement et tend vers 
+$\infty$ quand on s'approche du point critique.
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+\begin{center}
+    \includegraphics[width=\textwidth]{notebook/fig/black_nichols_8_0.eps}
+\end{center}
+    \caption{Abaque de Black-Nichols.}
+\end{figure}
+%-------------------------------------------------------------------------------
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Exemples d'application}\label{exemples-dapplication}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+L'objectif de ces exemples est de montrer l'utilité des abaques présentés 
+précedemment (M-cercles, N-cerlces et Black-Nichols). Pour celà, nous allons 
+étudier quelques systèmes simple en boucle ouverte et boucle fermée.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lecture du gain et du déphasage en boucle fermée}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit un système en boucle ouverte de fonction de transfert telle que :
+\[
+    H_{BO}(p)=\dfrac{1}{p+1}
+\]
+Placé dans une boucle de contre-réaction négative unitaire, sa FTBF est alors
+donnée par :
+\[
+    H_{BF}(p)=\dfrac{1}{p+2}
+\]
+On trace ci-dessous~\cref{fig-exemple1_bodeBlackNichols}, les diagrammes de 
+Bode de ces deux fonctions de transfert. Le premier avantage des abaques est 
+qu'un seul diagramme (Nyquist, Black) 
+permettra d'obtenir la même information contenues dans ces deux 
+diagrammes de Bode.
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+$\omega$ \si{\radian\per\second} & Gain\si{\decibel} & Phase\si{\degree}\\
+\hline
+0.00 & -6.02 & 0.00\\
+1.00 & -6.99 & -26.57\\
+2.00 & -9.03 & -45.00\\
+3.00 & -11.14 & -56.31\\
+\hline
+\end{tabular}
+\end{center}
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+\begin{center}
+    \includegraphics[width=0.45\textwidth]{notebook/fig/black_nichols_11_1.eps}
+    \includegraphics[width=0.45\textwidth]{notebook/fig/black_nichols_12_1.eps}
+\end{center}
+    \caption{Diagrammes de Bode (à gauche) en boucle ouverte et (à droite) 
+    boucle fermée.\label{fig-exemple1_bodeBlackNichols}}
+\end{figure}
+%-------------------------------------------------------------------------------
+On constate que le gain à basse fréquence du système en boucle fermée est 
+d'environ \SI{6}{\decibel} (plus exactement $-20\log{2}$ ).
+Cette information peut être obtenue simplement en considérant 
+le tracé du lieu de Black de la boucle ouverte superposé à l'abaque de 
+Black-Nichols~\cref{fig-exemple1_BlackNichols}.
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}
+        \node[] at (0,0) 
+        {\includegraphics[width=0.8\textwidth]{notebook/fig/black_nichols_13_1.eps}};
+    \end{tikzpicture}
+    \caption{Diagramme de Black du système en boucle ouverte superposé à l'abaque 
+    de Black-Nichols.\label{fig-exemple1_BlackNichols}}
+\end{figure}
+%-------------------------------------------------------------------------------
+Il est même tout à fait possible de suivre le gain et la phase du système en boucle
+fermée pour toutes les valeurs de la pulsation représentées.
+    
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{notebook/fig/black_nichols_14_1.eps}
+    \includegraphics[width=0.45\textwidth]{notebook/fig/black_nichols_15_1.eps}
+\end{figure}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{notebook/fig/black_nichols_16_2.eps}
+\end{figure}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+$\omega$ [\si{\radian\per\second}] & Gain [\si{\decibel}] & Phase [\si{\degree}]\\
+\hline
+1.00 & 6.02 & -90.00\\
+1.04 & 5.56 & -99.21\\
+1.08 & 4.88 & -107.99\\
+1.13 & 4.04 & -116.00\\
+1.18 & 3.08 & -123.09\\
+1.22 & 2.04 & -129.23\\
+1.28 & 0.97 & -134.50\\
+1.33 & -0.11 & -139.01\\
+1.38 & -1.18 & -142.86\\
+1.44 & -2.24 & -146.17\\
+1.50 & -3.27 & -149.04\\
+\hline
+\end{tabular}
+\end{center}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{notebook/fig/black_nichols_18_2.eps}
+\end{figure}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+$\omega$ \si{\radian\per\second} & Gain\si{\decibel} & Phase\si{\degree}\\
+\hline
+0.10 & -8.01 & -10.29\\
+0.16 & -8.09 & -16.27\\
+0.25 & -8.29 & -25.60\\
+0.40 & -8.76 & -39.91\\
+0.63 & -9.84 & -60.99\\
+1.00 & -12.04 & -90.00\\
+1.58 & -16.10 & -126.32\\
+2.51 & -22.73 & -165.72\\
+3.98 & -31.94 & -200.17\\
+6.31 & -42.76 & -225.05\\
+10.00 & -54.29 & -241.46\\
+\hline
+\end{tabular}
+\end{center}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{notebook/fig/black_nichols_20_2.eps}
+\end{center}
+\end{figure}
+%-------------------------------------------------------------------------------
+    
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

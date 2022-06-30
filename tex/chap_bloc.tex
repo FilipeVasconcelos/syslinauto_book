@@ -1033,10 +1033,10 @@ appliquer $\mathcal{I}$ $n$ fois.
 Ainsi l'expression $\dfrac{S}{E}$ devient :
 %-------------------------------------------------------------------------------
 \begin{align*}
-    \dfrac{S}{E}=\mathcal{I}\left(1+a\mathcal{I}
+    \dfrac{S}{E}&=\mathcal{I}\left(1+a\mathcal{I}
                                    +a^2\mathcal{I}^2
                                    +a^3\mathcal{I}^3\ldots\right)\\
-    \dfrac{S}{E}=\mathcal{I}+a\mathcal{I}^2
+    \dfrac{S}{E}&=\mathcal{I}+a\mathcal{I}^2
                             +a^2\mathcal{I}^3
                             +a^3\mathcal{I}^4\ldots
 \end{align*}
@@ -1044,21 +1044,20 @@ Ainsi l'expression $\dfrac{S}{E}$ devient :
 Pour une entrée $e(t)=\delta(t)$, on peut écrire :
 %-------------------------------------------------------------------------------
 \begin{align*}
-    s(t)=\left(\mathcal{I}+a\mathcal{I}^2
+    s(t)&=\left(\mathcal{I}+a\mathcal{I}^2
                           +a^2\mathcal{I}^3
                           +a^3\mathcal{I}^4\ldots\right)\delta(t)\\
-    s(t)=(1+at+\dfrac{(at)^2}{2}+\dfrac{(at)^3}{6}+\ldots)u(t)
+    s(t)&=(1+at+\dfrac{(at)^2}{2}+\dfrac{(at)^3}{6}+\ldots)u(t)
 \end{align*}
 %-------------------------------------------------------------------------------
 où l'on retrouve le développement en série entière de la fonction 
-exponentielle. La réponse temporelle $s(t)$ 
-\footnote{
+exponentielle. La réponse temporelle $s(t)$\footnote{
 Cette équation différentielle devient dans le domaine de Laplace 
 \[
     S(p)=\dfrac{1}{p-a}E(p)
 \]
 La transformée de Laplace inverse de la réponse impulsionnelle ($E(p)=1$) 
-devient simplement $s(t)=e^{at}u(t)$.
+est effectivement $s(t)=e^{at}u(t)$.
 }
 est donc donnée par 
 \[
@@ -1074,10 +1073,13 @@ Notons au passage que $a$ joue le rôle du pôle de la fonction de transfert.
     \centering
     \tikzsetnextfilename{sbdt_cycle1-ext}
     \input{tikz/sbdt_cycle1.tex}
+    
     \tikzsetnextfilename{sbdt_cycle2-ext}
     \input{tikz/sbdt_cycle2.tex}
+    
     \tikzsetnextfilename{sbdt_cycle3-ext}
     \input{tikz/sbdt_cycle3.tex}
+    
     \tikzsetnextfilename{sbdt_cycle4-ext}
     \input{tikz/sbdt_cycle4.tex}
     \caption{Représentation des quatre premiers termes du développement 
@@ -1089,9 +1091,18 @@ Notons au passage que $a$ joue le rôle du pôle de la fonction de transfert.
 \captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Exemple d'application à système}
+\subsection{Application au système masse-ressort}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On reprend ici, la mise en équation du système mécanique masse-ressort 
+présentée au chapitre précédent (c.f \cref{para-masse_ressort}). L'équation 
+différentielle reliant la position de la masse $x(t)$ et 
+la force appliquée $f(t)$ est donnée par 
+\[
+m\devi{x(t)}{2}+b\devi{x(t)}{}+kx(t)=f(t)
+\]
+où $m$ est la masse, $b$ le coefficient d'amortissement visqueux et $k$ la
+constante de raideur du ressort. 
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
@@ -1099,6 +1110,8 @@ Notons au passage que $a$ joue le rôle du pôle de la fonction de transfert.
     \input{tikz/masse_ressort-chap_slci.tex}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
+Cette équation différentielle peut être représenté par le schéma-bloc suivant
+dans le domaine temporel.
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{sbdt_masse_ressort-chap_bloc-ext}
@@ -1106,6 +1119,8 @@ Notons au passage que $a$ joue le rôle du pôle de la fonction de transfert.
 \end{center}
 %-------------------------------------------------------------------------------
 \clearpage
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

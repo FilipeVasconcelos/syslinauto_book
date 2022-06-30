@@ -2,7 +2,7 @@
 %                               SMA Automatique
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  auteur : Filipe Manuel Vasconcelos
-%  date   : 2017-2020
+%  date   : 2018-2022
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[%
     % nohypdvips
@@ -346,16 +346,16 @@ pdf2eps 1 "\image"
 \ifodd\value{page}\hbox{}\newpage\fi
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\graphicspath{{./fig/}{./fig/chap_correction}}
+\graphicspath{{./fig/}{./fig/people}{./fig/chap_correction}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ------------------------------------------------------------------------------
 % includeonly individuel
 % ------------------------------------------------------------------------------
 %\includeonly{tex/avantpropos}
 %\includeonly{tex/chap_slci}            % Système linéaire
-\includeonly{tex/chap_slci,tex/chap_bloc}            % Schémas fonctionnels-blocs
+%\includeonly{tex/chap_slci,tex/chap_bloc}            % Schémas fonctionnels-blocs
 %\includeonly{tex/chap_model_mir_1,tex/chap_model_mir_2}           % Modèles Usuels    
-%\includeonly{tex/chap_model}           % Modèles Usuels    
+\includeonly{tex/annexe_blackNichols,tex/chap_model}           % Modèles Usuels    
 %\includeonly{tex/chap_repfreq}         % Réponse harmonique
 %\includeonly{tex/chap_repfreq_mir}         % Réponse harmonique
 %\includeonly{tex/chap_asserv}          % Asservissement 

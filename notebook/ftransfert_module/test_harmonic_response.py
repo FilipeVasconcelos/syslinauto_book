@@ -1,22 +1,27 @@
 if __name__ == "__main__":  
     import matplotlib.pyplot as plt
+    import numpy as np
     from ftransfert import Ftransfert
     import sys
 
     #H_0
-    do_H0=False
+    do_H0=True
     do_H1=False
     do_H2=False
-    do_H3=True
+    do_H3=False
     if do_H0 :
         gain=1
         num=lambda p : 1
-        den=lambda p : (1+p+0.5*p**2+p**3)
-        H0=Ftransfert(num=num,den=den,gain=gain,name="H_0",DPI=100)
-        #H0.nyquist(complet=False,xlim=(-1.5,1.5),ylim=(-1,1),n=2048,color="tab:green")
-        H0.black(nichols=True,xlim=(-360,0),ylim=(-5,20),n=2048,color="tab:green")
-        H0.bode(y1lim=(-35,10),y2lim=(-270,0),n=2048,color="tab:green")
-        #H0.tabLaTeX(wlim=(1.0,1.5))
+        den=lambda p : 1+p
+        HBO=Ftransfert(num=num,den=den,gain=gain,name="H_{BO}",DPI=100)
+        den=lambda p : p+2
+        HBF=Ftransfert(num=num,den=den,gain=gain,name="H_{BF}",DPI=100)
+        HBO.nyquist(complet=False,mcircles=True,ncircles=False,xlim=(-0.5,1.25),ylim=(-1,1),n=1024,color="tab:green",arrow_pcts=[0.45])
+        HBO.nyquist(complet=False,mcircles=False,ncircles=True,xlim=(-0.5,1.25),ylim=(-1,0.25),n=1024,color="tab:green",arrow_pcts=[0.35])
+        #HBO.bode(y1lim=(-35,10),y2lim=(-90,0),n=1024,color="tab:green")
+        #HBF.bode(y1lim=(-35,10),y2lim=(-90,0),n=1024,color="tab:green")
+        w=np.array([0.0,1.0,2,3])*1j
+        HBF.tabLaTeX(ws=w)
         plt.show()  
     if do_H1 :
         #gain=1

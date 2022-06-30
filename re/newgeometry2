@@ -1,0 +1,4 @@
+\newgeometry{top=30mm,
+             bottom=25mm,
+             inner=25mm,
+             outer=22mm}
