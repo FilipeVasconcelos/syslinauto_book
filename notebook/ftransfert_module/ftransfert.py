@@ -381,6 +381,7 @@ class Ftransfert():
         for kg in range(len(gains)):
             line,=plt.plot(XNyq[kg],YNyq[kg],color=color,label=labels[kg],linewidth=2)
             add_arrow(line,pcts=arrow_pcts,middle=middle)
+        """    
         # si l'on souhaite ajouter des points particulier (pour certaine pulsation)
         # attention la pulsation doit être complexe (i.e jw)
         XNyq=[]
@@ -394,6 +395,7 @@ class Ftransfert():
             YNyq.append(response[1]) # partie imaginaire
         for kg in range(len(gains)):
             plt.scatter(XNyq[kg],YNyq[kg],color='tab:red',label=labels[kg],linewidth=2,marker="x",s=120)
+        """
         if labels[0]: ax.legend()
         plt.tight_layout()
         if savefig:
@@ -711,7 +713,9 @@ class Ftransfert():
         plt.scatter(0,0,color='black',marker='+',linewidth=2,s=[64])
         plt.tight_layout()
     # ------------------------------------------------------------------------------
-        
+    def step_response():
+        pass
+        return
 if __name__ == "__main__":  
     
     #H_0
