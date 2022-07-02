@@ -317,7 +317,7 @@ pdf2eps 1 "\image"
 \put(0,0){%
 \parbox[b][\paperheight]{\paperwidth}{%
 \begin{picture}(0,0)
-\put(50,-130){\includegraphics[width=3cm]{fig/ESME_LOGO_SEUL_NOIR_2021.eps}}
+\put(50,-130){\includegraphics[width=3cm]{fig/logo/ESME_LOGO_SEUL_NOIR_2021.eps}}
 \end{picture}
 \vfill
 \centering
@@ -346,7 +346,9 @@ pdf2eps 1 "\image"
 \ifodd\value{page}\hbox{}\newpage\fi
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\graphicspath{{./fig/}{./fig/people}{./fig/chap_correction}}
+\graphicspath{{./fig/}{./fig/people/}{./fig/annexe_scilab/}{./fig/chap_asserv/}
+              {./fig/chap_correction/}{./fig/chap_stab/}{./fig/logo/}
+              {./fig/annexe_blackNichols/}{./fig/annexe_cauchy/}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ------------------------------------------------------------------------------
 % includeonly individuel
@@ -355,7 +357,7 @@ pdf2eps 1 "\image"
 %\includeonly{tex/chap_slci}            % Système linéaire
 %\includeonly{tex/chap_slci,tex/chap_bloc}            % Schémas fonctionnels-blocs
 %\includeonly{tex/chap_model_mir_1,tex/chap_model_mir_2}           % Modèles Usuels    
-\includeonly{tex/annexe_blackNichols,tex/chap_model}           % Modèles Usuels    
+%\includeonly{tex/chap_model}           % Modèles Usuels    
 %\includeonly{tex/chap_repfreq}         % Réponse harmonique
 %\includeonly{tex/chap_repfreq_mir}         % Réponse harmonique
 %\includeonly{tex/chap_asserv}          % Asservissement 
@@ -374,8 +376,9 @@ pdf2eps 1 "\image"
 %\includeonly{tex/annexe_log}           % Echelle log
 %\includeonly{tex/annexe_invL}          % Inverse Laplace 
 %\includeonly{tex/annexe_blackNichols}  % BlackNichols 
-%\includeonly{tex/annexe_cauchy}        % Principe de l'argument de Cauchy
+\includeonly{tex/annexe_cauchy}        % Principe de l'argument de Cauchy
 %\includeonly{tex/annexe_evans}         % Lieu d'Evans
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ------------------------------------------------------------------------------
 % includeonly groupé
