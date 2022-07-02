@@ -17,10 +17,10 @@ La fonction de transfert en boucle ouverte non corrigée $H(p)$ est donnée par:
 \[
     H(p)=\dfrac{5p+10}{p^3+3p^2+4p+2}
 \]
-Le code Scilab ci-dessous permet de tracer le diagramme de Bode pour cette
+Le programme Scilab ci-dessous permet de tracer le diagramme de Bode pour cette
 fonction de transfert.
 %-------------------------------------------------------------------------------
-\inputminted{scilab}{scilab/code_q1_chap_correction.sce}
+\inputminted{scilab}{codes/scilab/code_q1_chap_correction.sce}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{figure}
@@ -57,7 +57,7 @@ On cherche donc $\omega$ tel que :
 Pour résoudre cette équation, on pourrait utiliser l'instruction Scilab 
 suivante :
 %-------------------------------------------------------------------------------
-\inputminted{scilab}{scilab/code_q2_1_chap_correction.sce}
+\inputminted{scilab}{codes/scilab/code_q2_1_chap_correction.sce}
 %-------------------------------------------------------------------------------
 La solution réelle et positive de cette équation est bien la pulsation obtenue
 graphiquement.
@@ -66,7 +66,7 @@ Il est possible de vérifier ceci en calculant le module et la phase de la
 fonction de transfert en boucle ouverte non corrigée à cette pulsation. 
 (En utilisant les fonctions Scilab \texttt{repfreq} et \texttt{dbphi}). 
 %-------------------------------------------------------------------------------
-\inputminted{scilab}{scilab/code_q2_2_chap_correction.sce}
+\inputminted{scilab}{codes/scilab/code_q2_2_chap_correction.sce}
 %-------------------------------------------------------------------------------
 
 %Q3
@@ -82,7 +82,7 @@ en déterminant les pôles de la fonction de transfert en boucle fermée.
     H_{BF}=\dfrac{5p+10}{p^3+3p^2+9p+12}
 \]
 %-------------------------------------------------------------------------------
-\inputminted{scilab}{scilab/code_q3_chap_correction.sce}
+\inputminted{scilab}{codes/scilab/code_q3_chap_correction.sce}
 %-------------------------------------------------------------------------------
 Les pôles sont tous à partie réelle négative ce qui confirme la conclusion 
 précédente. Le critère pourrait également être appliqué.
@@ -93,7 +93,7 @@ précédente. Le critère pourrait également être appliqué.
           certaines grandeurs caractérisant sa rapidité, son dépassement}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
-\inputminted{scilab}{scilab/code_q4_chap_correction.sce}
+\inputminted{scilab}{codes/scilab/code_q4_chap_correction.sce}
 %-------------------------------------------------------------------------------
 \begin{figure}
     \centering
@@ -189,10 +189,10 @@ C_{AP}(p)=\dfrac{1.298 + 0.743p } {1 + 0.109p}
 \question{\textbf{Tracer le diagramme de Bode de la boucle ouverte corrigée par 
           ce correcteur}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Le code Scilab ci-dessous permet de tracer le diagramme de Bode de la boucle
-ouverte corrigée par un correcteur à avance de phase.
+Les instructions Scilab ci-dessous permettent de tracer le diagramme 
+de Bode de la boucle ouverte corrigée par un correcteur à avance de phase.
 %-------------------------------------------------------------------------------
-\inputminted{scilab}{scilab/code_q8_chap_correction.sce}
+\inputminted{scilab}{codes/scilab/code_q8_chap_correction.sce}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{figure}
@@ -310,7 +310,7 @@ $\phi_i=\arg{C_{PI}(j\omega_0)}$
           par ce correcteur}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
-\inputminted{scilab}{scilab/code_q13_chap_correction.sce}
+\inputminted{scilab}{codes/scilab/code_q13_chap_correction.sce}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{figure}
@@ -393,7 +393,7 @@ On a alors pour les paramètres des correcteurs :
 \question{\textbf{Tracer le diagramme de Bode de la boucle ouverte corrigée}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
-\inputminted{scilab}{scilab/code_q16_chap_correction.sce}
+\inputminted{scilab}{codes/scilab/code_q16_chap_correction.sce}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{figure}
@@ -478,5 +478,5 @@ effets de chacuns d'entre eux:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
-\inputminted{scilab}{scilab/code_exercice_chap_correction.sce}
+\inputminted{scilab}{codes/scilab/code_exercice_chap_correction.sce}
 %-------------------------------------------------------------------------------
