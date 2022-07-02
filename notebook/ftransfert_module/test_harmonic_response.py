@@ -13,13 +13,13 @@ if __name__ == "__main__":
         gain=1
         num=lambda p : 1
         den=lambda p : 1+p
-        HBO=Ftransfert(num=num,den=den,gain=gain,name="H_{BO}",DPI=100)
+        HBO=Ftransfert(num=num,den=den,gain=gain,name="H_{BO}",DPI=200)
         den=lambda p : p+2
-        HBF=Ftransfert(num=num,den=den,gain=gain,name="H_{BF}",DPI=100)
-        HBO.nyquist(complet=False,mcircles=True,ncircles=False,xlim=(-0.5,1.25),ylim=(-1,1),n=1024,color="tab:green",arrow_pcts=[0.45])
+        HBF=Ftransfert(num=num,den=den,gain=gain,name="H_{BF}",DPI=200)
+        HBO.nyquist(complet=False,mcircles=True,ncircles=False,xlim=(-0.5,1.25),ylim=(-1,1),n=1024,color="tab:green",arrow_pcts=[0.45],savefig='nyquist_hbo_m-cercles.eps')
         HBO.nyquist(complet=False,mcircles=False,ncircles=True,xlim=(-0.5,1.25),ylim=(-1,0.25),n=1024,color="tab:green",arrow_pcts=[0.35])
-        #HBO.bode(y1lim=(-35,10),y2lim=(-90,0),n=1024,color="tab:green")
-        #HBF.bode(y1lim=(-35,10),y2lim=(-90,0),n=1024,color="tab:green")
+        HBO.bode(y1lim=(-35,10),y2lim=(-90,0),n=1024,color="tab:green")
+        HBF.bode(y1lim=(-35,10),y2lim=(-90,0),n=1024,color="tab:green")
         w=np.array([0.0,1.0,2,3])*1j
         HBF.tabLaTeX(ws=w)
         plt.show()  
