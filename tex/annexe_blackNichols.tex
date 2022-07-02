@@ -57,7 +57,7 @@ sont donnés par :
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
 \begin{center}
-    \includegraphics[width=0.8\textwidth]{notebook/fig/black_nichols_3_0.eps}
+    \includegraphics[width=0.8\textwidth]{black_nichols_3_0.eps}
 \end{center}
     \caption{Contours des M-cercles (isogain) dans le plan complexe.}
 \end{figure}
@@ -76,7 +76,7 @@ de Nyquist sont donnés par :
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \begin{center}
-        \includegraphics[width=0.8\textwidth]{notebook/fig/black_nichols_5_0.eps}
+        \includegraphics[width=0.8\textwidth]{black_nichols_5_0.eps}
     \end{center}
     \caption{Contours des N-cercles (isophase) dans le plan complexe.}
 \end{figure}
@@ -99,7 +99,7 @@ $\infty$ quand on s'approche du point critique.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
 \begin{center}
-    \includegraphics[width=\textwidth]{notebook/fig/black_nichols_8_0.eps}
+    \includegraphics[width=\textwidth]{black_nichols_8_0.eps}
 \end{center}
     \caption{Abaque de Black-Nichols.}
 \end{figure}
@@ -115,11 +115,6 @@ $\infty$ quand on s'approche du point critique.
 L'objectif de ces exemples est de montrer l'utilité des abaques présentés 
 précedemment (M-cercles, N-cerlces et Black-Nichols). Pour celà, nous allons 
 étudier quelques systèmes simple en boucle ouverte et boucle fermée.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Lecture du gain et du déphasage en boucle fermée}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit un système en boucle ouverte de fonction de transfert telle que :
 \[
     H_{BO}(p)=\dfrac{1}{p+1}
@@ -130,43 +125,56 @@ donnée par :
     H_{BF}(p)=\dfrac{1}{p+2}
 \]
 On trace ci-dessous~\cref{fig-exemple1_bodeBlackNichols}, les diagrammes de 
-Bode de ces deux fonctions de transfert. Le premier avantage des abaques est 
+Bode de ces deux fonctions de transfert. Le principal avantage des abaques est 
 qu'un seul diagramme (Nyquist, Black) 
 permettra d'obtenir la même information contenues dans ces deux 
 diagrammes de Bode.
-\begin{center}
-\begin{tabular}{ccc}
-\hline
-$\omega$ \si{\radian\per\second} & Gain\si{\decibel} & Phase\si{\degree}\\
-\hline
-0.00 & -6.02 & 0.00\\
-1.00 & -6.99 & -26.57\\
-2.00 & -9.03 & -45.00\\
-3.00 & -11.14 & -56.31\\
-\hline
-\end{tabular}
-\end{center}
+En effet il est possible de lire le gain et le déphasage en boucle fermée
+sur les diagrammes en boucle ouverte superposés aux différents abaques.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
-\begin{center}
-    \includegraphics[width=0.45\textwidth]{notebook/fig/black_nichols_11_1.eps}
-    \includegraphics[width=0.45\textwidth]{notebook/fig/black_nichols_12_1.eps}
-\end{center}
+    \centering
+    \includegraphics[width=0.45\textwidth]{bode_hbo.eps}
+    \includegraphics[width=0.45\textwidth]{bode_hbf.eps}
     \caption{Diagrammes de Bode (à gauche) en boucle ouverte et (à droite) 
     boucle fermée.\label{fig-exemple1_bodeBlackNichols}}
 \end{figure}
 %-------------------------------------------------------------------------------
-On constate que le gain à basse fréquence du système en boucle fermée est 
-d'environ \SI{6}{\decibel} (plus exactement $-20\log{2}$ ).
-Cette information peut être obtenue simplement en considérant 
-le tracé du lieu de Black de la boucle ouverte superposé à l'abaque de 
-Black-Nichols~\cref{fig-exemple1_BlackNichols}.
+Sur les diagrammes de Bode, on constate que le gain à basse fréquence du 
+système en boucle fermée est d'environ \SI{6}{\decibel} 
+(plus exactement $-20\log{2}$ ). 
+%-------------------------------------------------------------------------------
+\begin{table}
+    \centering
+    \begin{tabular}{ccc}
+    \hline
+        $\omega$ (\si{\radian\per\second}) & Gain (\si{\decibel}) & Phase (\si{\degree})\\
+    \hline
+    0.00 & -6.02 & 0.00\\
+    1.00 & -6.99 & -26.57\\
+    2.00 & -9.03 & -45.00\\
+    3.00 & -11.14 & -56.31\\
+    \hline
+    \end{tabular}
+    \caption{Valeurs du gain et du déphasage de la réponse harmonique
+            en boucle fermée pour quelques valeurs particulières de la pulsation
+            $\omega$}
+\end{table}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{nyquist_hbo_m-cercles.eps}
+    \includegraphics[width=0.45\textwidth]{nyquist_hbo_n-cercles.eps}
+    \caption{Diagramme de Nyquist de la fonction de transfert en boucle ouverte,
+    superposé (gauche) aux M-cercles (droite) aux N-cercles.}
+\end{figure}
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \begin{tikzpicture}
         \node[] at (0,0) 
-        {\includegraphics[width=0.8\textwidth]{notebook/fig/black_nichols_13_1.eps}};
+        {\includegraphics[width=0.8\textwidth]{blackNichols_hbo.eps}};
     \end{tikzpicture}
     \caption{Diagramme de Black du système en boucle ouverte superposé à l'abaque 
     de Black-Nichols.\label{fig-exemple1_BlackNichols}}
@@ -176,80 +184,77 @@ Il est même tout à fait possible de suivre le gain et la phase du système en 
 fermée pour toutes les valeurs de la pulsation représentées.
     
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.45\textwidth]{notebook/fig/black_nichols_14_1.eps}
-    \includegraphics[width=0.45\textwidth]{notebook/fig/black_nichols_15_1.eps}
-\end{figure}
+%\begin{figure}[!h]
+%    \centering
+%    \includegraphics[width=0.45\textwidth]{black_nichols_14_1.eps}
+%    \includegraphics[width=0.45\textwidth]{black_nichols_15_1.eps}
+%\end{figure}
 %-------------------------------------------------------------------------------
 
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{notebook/fig/black_nichols_16_2.eps}
-\end{figure}
+%\begin{figure}[!h]
+%    \centering
+%    \includegraphics[width=0.8\textwidth]{black_nichols_16_2.eps}
+%\end{figure}
 %-------------------------------------------------------------------------------
 
 %-------------------------------------------------------------------------------
-\begin{center}
-\begin{tabular}{ccc}
-\hline
-$\omega$ [\si{\radian\per\second}] & Gain [\si{\decibel}] & Phase [\si{\degree}]\\
-\hline
-1.00 & 6.02 & -90.00\\
-1.04 & 5.56 & -99.21\\
-1.08 & 4.88 & -107.99\\
-1.13 & 4.04 & -116.00\\
-1.18 & 3.08 & -123.09\\
-1.22 & 2.04 & -129.23\\
-1.28 & 0.97 & -134.50\\
-1.33 & -0.11 & -139.01\\
-1.38 & -1.18 & -142.86\\
-1.44 & -2.24 & -146.17\\
-1.50 & -3.27 & -149.04\\
-\hline
-\end{tabular}
-\end{center}
+%\begin{center}
+%\begin{tabular}{ccc}
+%\hline
+%$\omega$ [\si{\radian\per\second}] & Gain [\si{\decibel}] & Phase [\si{\degree}]\\
+%\hline
+%1.00 & 6.02 & -90.00\\
+%1.04 & 5.56 & -99.21\\
+%1.08 & 4.88 & -107.99\\
+%1.13 & 4.04 & -116.00\\
+%1.18 & 3.08 & -123.09\\
+%1.22 & 2.04 & -129.23\\
+%1.28 & 0.97 & -134.50\\
+%1.33 & -0.11 & -139.01\\
+%1.38 & -1.18 & -142.86\\
+%1.44 & -2.24 & -146.17\\
+%1.50 & -3.27 & -149.04\\
+%\hline
+%\end{tabular}
+%\end{center}
 %-------------------------------------------------------------------------------
 
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{notebook/fig/black_nichols_18_2.eps}
-\end{figure}
+%\begin{figure}[!h]
+%    \centering
+%    \includegraphics[width=0.8\textwidth]{black_nichols_18_2.eps}
+%\end{figure}
 %-------------------------------------------------------------------------------
 
 %-------------------------------------------------------------------------------
-\begin{center}
-\begin{tabular}{ccc}
-\hline
-$\omega$ \si{\radian\per\second} & Gain\si{\decibel} & Phase\si{\degree}\\
-\hline
-0.10 & -8.01 & -10.29\\
-0.16 & -8.09 & -16.27\\
-0.25 & -8.29 & -25.60\\
-0.40 & -8.76 & -39.91\\
-0.63 & -9.84 & -60.99\\
-1.00 & -12.04 & -90.00\\
-1.58 & -16.10 & -126.32\\
-2.51 & -22.73 & -165.72\\
-3.98 & -31.94 & -200.17\\
-6.31 & -42.76 & -225.05\\
-10.00 & -54.29 & -241.46\\
-\hline
-\end{tabular}
-\end{center}
+%\begin{center}
+%\begin{tabular}{ccc}
+%\hline
+%$\omega$ \si{\radian\per\second} & Gain\si{\decibel} & Phase\si{\degree}\\
+%\hline
+%0.10 & -8.01 & -10.29\\
+%0.16 & -8.09 & -16.27\\
+%0.25 & -8.29 & -25.60\\
+%0.40 & -8.76 & -39.91\\
+%0.63 & -9.84 & -60.99\\
+%1.00 & -12.04 & -90.00\\
+%1.58 & -16.10 & -126.32\\
+%2.51 & -22.73 & -165.72\\
+%3.98 & -31.94 & -200.17\\
+%6.31 & -42.76 & -225.05\\
+%10.00 & -54.29 & -241.46\\
+%\hline
+%\end{tabular}
+%\end{center}
 %-------------------------------------------------------------------------------
-
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
-\begin{center}
-    \includegraphics[width=0.8\textwidth]{notebook/fig/black_nichols_20_2.eps}
-\end{center}
-\end{figure}
+%\begin{figure}[!h]
+%\begin{center}
+%    \includegraphics[width=0.8\textwidth]{black_nichols_20_2.eps}
+%\end{center}
+%\end{figure}
 %-------------------------------------------------------------------------------
-    
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
