@@ -32,8 +32,8 @@ Nous introduirons également les graphes de fluence, comme présenté
 dans~\cite{Ostertag}. Ces derniers 
 sont moins utilisés pour l'étude des \gls{slci}, et peuvent donc être négligés 
 dans une première lecture, l'algèbre qui lui est associée s'avère cependant 
-bien plus éfficace et pourra être utilisée dans d'autres 
-applications (ex : éléctronique, réseaux de neurones).
+bien plus efficace et pourra être utilisée dans d'autres 
+applications (ex : électronique, réseaux de neurones).
 
 Enfin nous présenterons, la représentation des équations différentielles
 à l'aide de schémas-bloc dans le domaine temporel. Cette approche également
@@ -1006,6 +1006,7 @@ Par exemple l'équation différentielle suivante :
 \[
     \dot{s}(t)=e(t)+as(t)
 \]
+pourra se représenter par le schéma suivant : 
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{sbdt_eqdiff2-chap_bloc-ext}
@@ -1026,7 +1027,7 @@ série entière :
     \dfrac{1}{1-a\mathcal{I}}=\sum_{n=0}^{\infty}(a\mathcal{I})^n
                              =(1+a\mathcal{I}
                                 +a^2\mathcal{I}^2
-                                +a^3\mathcal{I}^3\ldots)
+                                +a^3\mathcal{I}^3+\ldots)
 \]
 L'application de l'opérateur $\mathcal{I}^n$ revient à 
 appliquer $\mathcal{I}$ $n$ fois.
@@ -1035,10 +1036,10 @@ Ainsi l'expression $\dfrac{S}{E}$ devient :
 \begin{align*}
     \dfrac{S}{E}&=\mathcal{I}\left(1+a\mathcal{I}
                                    +a^2\mathcal{I}^2
-                                   +a^3\mathcal{I}^3\ldots\right)\\
+                                   +a^3\mathcal{I}^3+\ldots\right)\\
     \dfrac{S}{E}&=\mathcal{I}+a\mathcal{I}^2
                             +a^2\mathcal{I}^3
-                            +a^3\mathcal{I}^4\ldots
+                            +a^3\mathcal{I}^4+\ldots
 \end{align*}
 %-------------------------------------------------------------------------------
 Pour une entrée $e(t)=\delta(t)$, on peut écrire :
@@ -1046,7 +1047,7 @@ Pour une entrée $e(t)=\delta(t)$, on peut écrire :
 \begin{align*}
     s(t)&=\left(\mathcal{I}+a\mathcal{I}^2
                           +a^2\mathcal{I}^3
-                          +a^3\mathcal{I}^4\ldots\right)\delta(t)\\
+                          +a^3\mathcal{I}^4+\ldots\right)\delta(t)\\
     s(t)&=(1+at+\dfrac{(at)^2}{2}+\dfrac{(at)^3}{6}+\ldots)u(t)
 \end{align*}
 %-------------------------------------------------------------------------------
@@ -1065,8 +1066,8 @@ est donc donnée par
 \]
 Chaque terme du développement peut être vu comme les différents cycles 
 pris par le signal dans la boucle de contre-réaction 
-(feedback)~\cref{fig-cycles}.
-Notons au passage que $a$ joue le rôle du pôle de la fonction de transfert. 
+(feedback) (c.f ~\cref{fig-cycles}).
+Notons au passage que $a$ joue ici le rôle du pôle de la fonction de transfert. 
 \clearpage
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
@@ -1095,8 +1096,8 @@ Notons au passage que $a$ joue le rôle du pôle de la fonction de transfert.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On reprend ici, la mise en équation du système mécanique masse-ressort 
-présentée au chapitre précédent (c.f \cref{para-masse_ressort}). L'équation 
-différentielle reliant la position de la masse $x(t)$ et 
+présentée au chapitre précédent (c.f \cref{para-masse_ressort} et figure 
+ci-contre). L'équation différentielle reliant la position de la masse $x(t)$ et 
 la force appliquée $f(t)$ est donnée par 
 \[
 m\devi{x(t)}{2}+b\devi{x(t)}{}+kx(t)=f(t)

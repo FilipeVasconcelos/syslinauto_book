@@ -1,5 +1,6 @@
 .SUFFIXES: .tex .aux .bib
-
+timelimit=60
+tlformat=$(shell date -u -d @${timelimit} +"%T")
 mainfile=sma_auto
 
 fast: dvifast 
@@ -10,7 +11,7 @@ pspdf: dvi
 	dvips -t a4 ${mainfile}.dvi
 	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${mainfile}.ps
 pdf:  
-	pdflatex -shell-escape ${mainfile}
+	pdflatex -shell-escape ${mainfile} | pv -w 40 -i 0.001 -F "run 1 : %t %p (${tlformat})" > /dev/null 
 	bibtex ${mainfile} ||true
 	makeindex ${mainfile}
 	makeglossaries ${mainfile}
@@ -28,16 +29,15 @@ svg:	dvi
 	dvisvgm ${mainfile}.dvi
 
 dvi:
-	latex -shell-escape ${mainfile}
-	bibtex ${mainfile} ||true
-	makeindex ${mainfile}
-	makeglossaries ${mainfile}
-	latex -shell-escape ${mainfile}
-	latex -shell-escape ${mainfile}
+	@timeout ${timelimit} latex -shell-escape ${mainfile} | pv -w 60 -i 0.001 -F "latex run 1 : %t %p (${tlformat})" > /dev/null || latex -shell-escape ${mainfile}
+	@bibtex ${mainfile} ||true > /dev/null
+	@makeindex ${mainfile} > /dev/null
+	@makeglossaries ${mainfile} > /dev/null
+	@latex -shell-escape ${mainfile} | pv -w 60 -i 0.001 -F "latex run 2 : %t %p (${tlformat})" > /dev/null
+	@latex -shell-escape ${mainfile} | pv -w 60 -i 0.001 -F "latex run 3 : %t %p (${tlformat})" > /dev/null
 
 dvifast:
 	latex -shell-escape ${mainfile}
-
 clean:
 	rm -f *.log *.auxlock *.ind *.ist   *.aux *.out *.bbl *.blg *.mtc* *.toc *.maf *.idx *.gls *.ilg *.glo *.glg *.acn *.acr     *.alg *.gl*-* *.slg *.slo *.sls tex/*.aux
 cleanfig: 

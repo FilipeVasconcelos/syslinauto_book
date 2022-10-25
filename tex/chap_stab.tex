@@ -780,6 +780,7 @@ réinterpréter la condition stabilité d'un système asservi :
     Un système asservi est stable en boucle fermée si la fonction 
     de transfert $1+H_{BO}(p)$ en boucle ouverte ne possède aucun 
     \emph{zéros} à partie réelle positive.
+    \label{critere2}
 \end{criteria}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1309,7 +1310,20 @@ suivante : $H_2(p)=\dfrac{1}{p(1+p)}$
 \subsection{\'Enoncé et application du critère de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-On note :
+Le critère de Nyquist consite à relier le principe de l'argument de Cauchy au 
+au second critère de stabilité des systèmes asservis\label{critere2}\.
+On rappelle en effet qu'un système est stable en boucle fermée si la fonction
+de transfert $1+H_{BO}$ ne présente pas de zéros à partie réelle positive.
+%-------------------------------------------------------------------------------
+\begin{theorem}{\'Enoncé du critère de Nyquist
+    \index{Critère de Nyquist}} 
+D'après le principe de l'argument de Cauchy, appliqué à $H_{BO}(p)$ avec le 
+contour de Nyquist (ou de Bromwich si nécessaire). Un système est stable en 
+boucle fermée si 
+\[
+    Z=N+P=0,
+\]
+avec :
 %-------------------------------------------------------------------------------
 \begin{itemize}
     \item $Z$ est le nombre de zéros à partie réelle positive de $1+H_{BO}$.  
@@ -1320,10 +1334,13 @@ On note :
           nombre de pôles de $H_{BO}(p)$)
 \end{itemize}
 %-------------------------------------------------------------------------------
-D'après le principe de l'argument de Cauchy, appliqué $H_{BO}(p)$ avec le 
-contour de Nyquist (ou de Bromwich si nécessaire). Un système est stable en 
-boucle fermée si $Z=P-N=0$.
-
+\end{theorem}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Exemple 1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{minipage}{0.35\textwidth}
 \[
         H_1(p)=\dfrac{p+3}{(p+2)(p^2+2p+25)}
@@ -1354,8 +1371,8 @@ boucle fermée si $Z=P-N=0$.
 %-------------------------------------------------------------------------------
     \begin{align*}
         P&=0\\
-        N&=-1\\
-        Z&=P-N=1
+        N&=1\\
+        Z&=P+N=1
     \end{align*}
 %-------------------------------------------------------------------------------
 {
