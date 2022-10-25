@@ -38,6 +38,7 @@
 # ================================================================
 # Annexes :
 # ================================================================
+#
     - Analyse de Fourier à faire ou à enlever
     - Compléter la décomposition en éléments simples
     - Transformer de Laplace inverse (à enlever)
