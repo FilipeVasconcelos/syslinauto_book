@@ -79,8 +79,6 @@ ou encore
 \[
     S(p)=\dfrac{KH_1H_2H_3}{1+KH_1H_2H_3}E(p)+\dfrac{H_2H_3}{1+KH_1H_2H_3} P(p)
 \]
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Réduction de schémas fonctionnels~\difficile}
@@ -276,8 +274,77 @@ D'après la règle de Mason, la transmitance est alors donnée par :
 \[
     H(p)=\dfrac{V_2(p)}{V_1(p)}=\dfrac{R_2}{R_1R_2Cp+ R_1+R_2}
 \]
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Schéma-blocs dans le domaine temporel~\moyen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Tracer le schéma-bloc dans le domaine temporel de l'équation 
+différentielle suivante:}}
+\[
+    \dot{s}(t)=a\big(e(t)+s(t)\big)
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{sbdt_eqdiff1-chap_bloc-ext}
+    \input{tikz/sbdt_eqdiff1-chap_bloc.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Réduiser le schéma-bloc sous une forme faisant apparaitre 
+l'opérateur intégral}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Sous forme d'opérateur, on réduira ce schéma-bloc par 
+la relation suivante :
+\[
+    S=a\mathcal{I}\big(E+S\big)
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Donner le rapport de l'entrée sur la sortie}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Le rapport de la sortie sur l'entrée
+\[
+    \dfrac{S}{E}=\dfrac{a\mathcal{I}}{1-a\mathcal{I}}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Schéma-blocs dans le domaine temporel (2)~\moyen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Tracer le schéma-bloc dans le domaine temporel de l'équation 
+différentielle suivante:}}
+\[
+    \dot{s}(t)=\dot{e}(t)+as(t)
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Il est plus d'intégrer l'équation différentielle avant de la réprésenter
+graphiquement. Ainsi, elle devient :
+\[
+    s(t)=e(t)+a\int_{-\infty}^t s(\tau) \dd{\tau}
+\]
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{sbdt_eqdiff3-chap_bloc-ext}
+    \input{tikz/sbdt_eqdiff3-chap_bloc.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Réduiser le schéma-bloc sous une forme faisant apparaitre 
+l'opérateur intégral}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Sous forme d'opérateur, on réduira ce schéma-bloc par 
+la relation suivante :
+\[
+    S=E+a\mathcal{I}S
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Donner le rapport de l'entrée sur la sortie}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Le rapport de la sortie sur l'entrée
+\[
+    \dfrac{S}{E}=\dfrac{1}{1-a\mathcal{I}}
+\]

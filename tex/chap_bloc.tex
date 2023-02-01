@@ -995,6 +995,10 @@ Ainsi, ce schéma-bloc représente la relation :
 \[
     s(t)=ae(t).
 \]
+ou encore
+\[
+    S=aE
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Représentation d'une équation différentielle}
@@ -1029,6 +1033,9 @@ série entière :
                                 +a^2\mathcal{I}^2
                                 +a^3\mathcal{I}^3+\ldots)
 \]
+\clearpage
+\input{re/newgeometry}
+\captionsetup{width=0.9\linewidth}
 L'application de l'opérateur $\mathcal{I}^n$ revient à 
 appliquer $\mathcal{I}$ $n$ fois.
 Ainsi l'expression $\dfrac{S}{E}$ devient :
@@ -1052,12 +1059,13 @@ Pour une entrée $e(t)=\delta(t)$, on peut écrire :
 \end{align*}
 %-------------------------------------------------------------------------------
 où l'on retrouve le développement en série entière de la fonction 
-exponentielle. La réponse temporelle $s(t)$\footnote{
-Cette équation différentielle devient dans le domaine de Laplace 
+exponentielle. La réponse temporelle $s(t)$
+\footnote{
+Cette équation différentielle devient dans le domaine de Laplace
 \[
     S(p)=\dfrac{1}{p-a}E(p)
 \]
-La transformée de Laplace inverse de la réponse impulsionnelle ($E(p)=1$) 
+La transformée de Laplace inverse de la réponse impulsionnelle ($E(p)=1$)
 est effectivement $s(t)=e^{at}u(t)$.
 }
 est donc donnée par 
@@ -1065,31 +1073,9 @@ est donc donnée par
     s(t)=e^{at}u(t).
 \]
 Chaque terme du développement peut être vu comme les différents cycles 
-pris par le signal dans la boucle de contre-réaction 
-(feedback) (c.f ~\cref{fig-cycles}).
+pris par le signal dans la boucle de contre-réaction (feedback) 
+(c.f ~\cref{fig-cycles}).
 Notons au passage que $a$ joue ici le rôle du pôle de la fonction de transfert. 
-\clearpage
-%-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{sbdt_cycle1-ext}
-    \input{tikz/sbdt_cycle1.tex}
-    
-    \tikzsetnextfilename{sbdt_cycle2-ext}
-    \input{tikz/sbdt_cycle2.tex}
-    
-    \tikzsetnextfilename{sbdt_cycle3-ext}
-    \input{tikz/sbdt_cycle3.tex}
-    
-    \tikzsetnextfilename{sbdt_cycle4-ext}
-    \input{tikz/sbdt_cycle4.tex}
-    \caption{Représentation des quatre premiers termes du développement 
-    de la réponse temporelle~\label{fig-cycles}.}
-\end{figure}
-%-------------------------------------------------------------------------------
-\clearpage
-\input{re/newgeometry}
-\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Application au système masse-ressort}
@@ -1111,6 +1097,9 @@ constante de raideur du ressort.
     \input{tikz/masse_ressort-chap_slci.tex}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
+\clearpage
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 Cette équation différentielle peut être représenté par le schéma-bloc suivant
 dans le domaine temporel.
 %-------------------------------------------------------------------------------
@@ -1119,9 +1108,29 @@ dans le domaine temporel.
     \input{tikz/sbdt_masse_ressort-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
+Nous laissons au lecteur la vérification de l'équivalence entre l'équation
+différentielle précédente et ce schéma fonctionnel.
+Cette représentation peut être plus facile à utiliser par des outils graphique
+de permettant de reproduire des schémas fonctionnels comme Xcos ou Simulink.
 \clearpage
-\restoregeometry
-\captionsetup{width=0.9\linewidth}
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{sbdt_cycle1-ext}
+    \input{tikz/sbdt_cycle1.tex}
+    
+    \tikzsetnextfilename{sbdt_cycle2-ext}
+    \input{tikz/sbdt_cycle2.tex}
+    
+    \tikzsetnextfilename{sbdt_cycle3-ext}
+    \input{tikz/sbdt_cycle3.tex}
+    
+    \tikzsetnextfilename{sbdt_cycle4-ext}
+    \input{tikz/sbdt_cycle4.tex}
+    \caption{Représentation des quatre premiers termes du développement 
+    de la réponse temporelle~\label{fig-cycles}.}
+\end{figure}
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

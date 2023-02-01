@@ -139,6 +139,7 @@ En remplaçant celles-ci dans les relations de Kirchoff, on obtient les
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{À partir de ce graphe et appliquant la règle de Mason, déterminer la
 fonction de transfert global de ce système.}
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -146,12 +147,12 @@ fonction de transfert global de ce système.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Tracer le schéma-bloc dans le domaine temporel de l'équation 
-différentielle suivante:
+différentielle suivante:}
 \[
-    \dot{y}(t)=a\big(x(t)+y(t)\big)
+    \dot{s}(t)=a\big(e(t)+s(t)\big)
 \]
-}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Réduiser le schéma-bloc sous une forme faisant apparaitre l'opérateur
@@ -160,36 +161,22 @@ intégral}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Donner le rapport de l'entrée sur la sortie}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%-------------------------------------------------------------------------------
-\begin{center}
-    \tikzsetnextfilename{sbdt_eqdiff1-chap_bloc-ext}
-    \input{tikz/sbdt_eqdiff1-chap_bloc.tex}
-\end{center}
-%-------------------------------------------------------------------------------
-À nouveau sous forme d'opérateur, on réduira ce schéma-bloc par 
-la relation suivante :
-\[
-    Y=a\mathcal{I}\big(X+Y\big)
-\]
-Le rapport de la sortie sur l'entrée
-\[
-    \dfrac{Y}{X}=\dfrac{a\mathcal{I}}{1-a\mathcal{I}}
-\]
-
-L'équation différentielle (3) :
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Schéma-blocs dans le domaine temporel~\moyen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Tracer le schéma-bloc dans le domaine temporel de l'équation 
+différentielle suivante}
 \[
     \dot{s}(t)=\dot{e}(t)+as(t)
 \]
-%-------------------------------------------------------------------------------
-\begin{center}
-    \tikzsetnextfilename{sbdt_eqdiff3-chap_bloc-ext}
-    \input{tikz/sbdt_eqdiff3-chap_bloc.tex}
-\end{center}
-%-------------------------------------------------------------------------------
-Sous forme d'opérateur
-\[
-    S=E+a\mathcal{I}S
-\]
-\[
-    \dfrac{S}{E}=\dfrac{1}{1-a\mathcal{I}}
-\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Réduiser le schéma-bloc sous une forme faisant apparaitre 
+l'opérateur intégral}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Donner le rapport de l'entrée sur la sortie}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
