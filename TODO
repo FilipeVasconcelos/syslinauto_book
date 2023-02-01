@@ -6,10 +6,6 @@
     - SLCI :
         - Ajouter un paragraphe sur la distinction entre régime
           transitoire et permanent.
-    - Schémas fonctionnels:
-        - Schéma-bloc dans le domaine temporel 
-    - Réponse harmonique :
-        - Section Black-Nichols 
     - Stabilité :
     - Précision :
         - revoir la partie précision, Shabab y voit un
@@ -21,8 +17,6 @@
 # ================================================================
 # Exercices des chapitres 
 # ================================================================      
-    - Schéma bloc dans le domaine temporel réécrire l'énoncé 
-      et le corrigé  
 # ajouter des exercices aux chapitres :
     - Modélisation des SLCI
     - Réponse harmonique
