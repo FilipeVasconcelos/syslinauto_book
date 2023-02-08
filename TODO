@@ -7,6 +7,7 @@
         - Ajouter un paragraphe sur la distinction entre régime
           transitoire et permanent.
     - Stabilité :
+        - Marges de stabilité Nyquist,Bode,Black
     - Précision :
         - revoir la partie précision, Shabab y voit un
           problème dans le signe de l'erreur dû à la perturbation.
