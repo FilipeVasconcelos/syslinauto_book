@@ -294,7 +294,7 @@ et $D_i(p)$ tels que $N_i(0)=1$ et $D_i(0)=1$.
 \end{center}
 %-------------------------------------------------------------------------------
 Pour déterminer l'écart, il nous faut déterminer la sortie globale $S(p)$ pour
-des entrées multiples (c.f~\Cref{chap-schemabloc}-\cref{sec-multE}).
+des entrées multiples (c.f~\Cref{chap-schemabloc}-\cref{sec-bloc_multE}).
 Cette sortie est sous la forme :
 \[
 S(p)=H_{P=0}E(p)+H_{E=0}P(p)
@@ -360,7 +360,6 @@ donnée par :
         \alpha_2>0 & \epsilon_P=\dfrac{P_0}{K_1}
     \end{cases}
 \]
-\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Exemple de rejet de perturbation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -563,18 +562,15 @@ le temps de réponse diminue, donc plus le système est rapide.}
 Nous pouvons relever sur ces abaques les coefficients d'amortissement donnant
 lieu au système le plus rapide selon le régime du second ordre accepté.
 \textbf{Dans le cas où les dépassements ne sont pas autorisés (c.a.d régime 
-apériodique ($\xi>1$)), le système est le plus rapide pour 
+apériodique ($\xi>1$)), le système est le plus rapide est donné pour 
 $t_{5\%}\cdot\omega_0\sim5$. Dans le cas où un dépassement relatif est 
 autorisé, le temps de réponse minimal est obtenu pour $\xi\sim 0.7$ soit
 pour $t_{5\%}\cdot\omega_0\sim3$.}
 
-Pour des valeurs de $\xi<1$, il est possible d'approchée le temps de 
+Pour des valeurs de $\xi<1$, il est possible d'approcher le temps de 
 réponse à 5\% réduit en fonction de $\xi$ par la fonction $\dfrac{3}{\xi}$,
 comme représentée en pointillé sur l'abaque de 
 la~\cref{fig-2nd_temps_reponse_1}.
-
-
-
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -586,15 +582,14 @@ la~\cref{fig-2nd_temps_reponse_1}.
              (rouge) le temps de montée $t_m$.
              Ces deux temps sont donnés en unité réduite
              par rapport la pulsation propre $\omega_0$.
-             Le minimum du temps de réponse à 5\% est atteint pour $\xi\sim0.7$ 
-             pour lequel $\omega_0\cdot t_{5\%}\sim3$.
+             %Le minimum du temps de réponse à 5\% est atteint pour $\xi\sim0.7$ 
+             %pour lequel $\omega_0\cdot t_{5\%}\sim3$.
              Le droite en pointillé représente l'équation approchée 
              $t_{5\%}\cdot\omega_0\sim\dfrac{3}{\xi}$ pour les faibles valeurs 
              de $\xi$.
              \label{fig-2nd_temps_reponse_1}}
 \end{figure}
 %-------------------------------------------------------------------------------
-\clearpage
 Il est possible de déterminer une relation analytique pour le temps
 de montée à la valeur finale $t_{M}$. Pour celà, rappelons 
 (c.f~\cref{subsubsec-2nd_ind}) 
@@ -642,14 +637,15 @@ t_{M}=t_{5\%}
 \]}
 La~\cref{fig-2nd_temps_reponse_2} présente le temps de montée à 
 la valeur finale réduit $t_M$ en fonction de $\xi$ comme donné par 
-la relation~\cref{eq-tM}. On observe\cite{granjon} que pour des valeurs 
-courantes de $\xi$, il est possible d'encadré la valeur de $t_M\omega_0$ entre
-2 et 4. Pour ces valeurs de $\xi$, on utilisera la relation approchée 
+la relation~\cref{eq-tM}. On observe~\cite{granjon2015automatique} que pour 
+des valeurs courantes de $\xi$, il est possible d'encadré la valeur de 
+$t_M\omega_0$ entre 2 et 4. Pour ces valeurs de $\xi$, on utilisera la 
+relation approchée 
 \[
     t_M\omega_0\sim3
 \]
 %-------------------------------------------------------------------------------
-\begin{figure}[!b]
+\begin{figure}[!h]
     \centering
     \tikzsetnextfilename{rapidite_tr_2ndordre_2-chap_perf-ext}
     \input{tikz/rapidite_tr_2ndordre_2-chap_perf.tex}
