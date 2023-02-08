@@ -9,7 +9,7 @@ cat > ${texname}.tex <<EOF
 \begin{document}
 EOF
 k=1
-for file in figtikz/*.eps fig/*.eps
+for file in figtikz/*.eps fig/*/*.eps
 do
     larg=`grep "%%BoundingBox:" $file | awk '{print $4-$2}'`
     larg=`echo $larg | sed -e 's/ //g'`
