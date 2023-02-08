@@ -1,0 +1,46 @@
+\begin{tikzpicture}
+    \begin{axis}
+    [
+        height=9cm,
+        width=0.5\linewidth,
+        axis lines = center,
+        axis line style = thick,
+        ticks=none,
+        enlargelimits=false,
+        xlabel=$\phi$,
+        ylabel=$G_{dB}$,
+        xlabel style={below right},
+        ylabel style={left},
+        ymin=-60,
+        ymax=30,
+        xmin=-250,
+        xmax=20,
+        clip=false,
+    ]
+    %stable
+    \def\da{0.5}
+    \def\db{0.5}
+    \def\dk{1.8}
+    \def\dpp{1.1}
+    \edef\colrd{col3}
+    \addplot[\colrd,very thick,domain=1e-2:1e0,samples=100,-{Latex[length=3mm]}]
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colrd,very thick,domain=1e-1:2.5e0,samples=100,-{Latex[length=3mm]}] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
+    \addplot[\colrd,very thick,domain=1e0:6e0,samples=100,-{Latex[length=3mm]}] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \addplot[\colrd,very thick,domain=4e0:1e1,samples=100] 
+    ({-\dpp*atan2(\da*x,(1-\db*x*x))},
+     {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
+    \draw[draw=none,fill=black] (axis cs:-180,0) circle[radius=2pt] 
+                                node[above,xshift=-35] {$(-180,0\mathrm{dB})$};
+
+    \draw[dblarw={col1}{2}{2}] (axis cs:-180,0) -- node[midway,left]
+    {$M_G$} (axis cs:-180,-30);
+    \draw[dblarw={col1}{2pt}{2pt}] (axis cs:-180,0) -- node[midway,above]
+    {$M_\phi$} (axis cs:-130,0);
+\end{axis}
+\end{tikzpicture}
