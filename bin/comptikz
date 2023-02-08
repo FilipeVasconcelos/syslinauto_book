@@ -90,6 +90,7 @@ EOF
     else
         echo "\begin{document}" >> standalone/${texname}.tex
     fi
+    echo "\thispagestyle{empty}" >> standalone/${texname}.tex
     echo "\begin{figure}[!h]" >> standalone/${texname}.tex
     echo "\centering"         >> standalone/${texname}.tex
     cat $file                 >> standalone/${texname}.tex
@@ -102,7 +103,7 @@ EOF
     fi
     echo "\end{document}"     >> standalone/${texname}.tex
     latex -output-directory standalone standalone/${texname}.tex &> /dev/null
-    dvips -o standalone/${texname}.ps standalone/${texname}.dvi &> /dev/null
+    dvips -Ppdf -o standalone/${texname}.ps standalone/${texname}.dvi &> /dev/null
     ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None standalone/${texname}.ps standalone/${texname}.pdf #&> /dev/null 
 done
 if [ "$display" -eq 1 ]
