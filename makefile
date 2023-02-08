@@ -7,9 +7,9 @@ fast: dvifast
 	dvips -t a4 ${mainfile}.dvi
 	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${mainfile}.ps
 
-pspdf: dvi 
-	dvips -t a4 ${mainfile}.dvi > /dev/null 2>&1
-	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${mainfile}.ps > /dev/null 2>&1
+pspdf: dvi2 
+	dvips -t a4 ${mainfile}.dvi
+	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${mainfile}.ps 
 pdf:  
 	pdflatex -shell-escape ${mainfile} | pv -w 40 -i 0.001 -F "run 1 : %t %p (${tlformat})" > /dev/null 
 	bibtex ${mainfile} ||true
@@ -35,6 +35,14 @@ dvi:
 	@makeglossaries -q ${mainfile} 
 	@latex -shell-escape ${mainfile} | pv -w 60 -i 0.001 -F "latex run 2 : %t %p (${tlformat})" > /dev/null  
 	@latex -shell-escape ${mainfile} | pv -w 60 -i 0.001 -F "latex run 3 : %t %p (${tlformat})" > /dev/null 
+dvi2:
+	@latex -shell-escape ${mainfile} 
+	@bibtex ${mainfile} ||true 
+	@makeindex -q ${mainfile} 
+	@makeglossaries -q ${mainfile} 
+	@latex -shell-escape ${mainfile} 
+	@latex -shell-escape ${mainfile} 
+
 
 dvifast:
 	latex -shell-escape ${mainfile}
