@@ -707,7 +707,6 @@ système soit stable en boucle fermée est donc :
 \[
     0<K<3
 \]
-\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1027,17 +1026,58 @@ $\omega_{\pi}$ est la pulsation pour laquelle le déphasage vaut
 ou autrement l'argument du point critique dans le plan complexe.
 \end{definition}
 %-------------------------------------------------------------------------------
-Ces marges de stabilités sont en générales imposées par le cahier des charges.
-En générales es valeurs pour $M_{\phi}$ de 45 à 60\degreeSI et
+Ces marges de stabilité sont en générales imposées par le cahier des charges.
+En générales des valeurs pour $M_{\phi}$ de 45 à 60\degreeSI et
 pour $M_G$ de 6 à 15~\si{\dB} sont considérées comme satisfaisantes.
+
+Il est possible de déterminer ces marges de stabilité par le calcul, mais 
+c'est la détermination graphique qui est la plus intéressante. Il est d'ailleurs
+possible de le faire à partir des trois diagrammes de la réponse harmonique. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Marges de stabilité à partir du diagramme de Nyquist}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La figure~\cref{fig-nyquist_marges} représente schématique les marges 
+de stabilité
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
     \tikzsetnextfilename{marge_stabilite_nyquist-chap_stab-ext}
     \input{tikz/marge_stabilite_nyquist-chap_stab.tex}
-    \caption{Représentation schématique de lieux de Nyquist de la fonction 
-             de transfert en boucle ouverte de trois systèmes asservis: 
-             stable, critique et instable. \label{fig-nyquist_revers}}
+    \caption{Représentation schématique des marges de stabilité du lieu de 
+             Nyquist de la fonction de transfert en boucle ouverte d'un système
+             stable. \label{fig-nyquist_marges}}
+\end{figure}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Marges de stabilité à partir du diagramme de Bode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{marge_stabilite_bode-chap_stab-ext}
+    \input{tikz/marge_stabilite_bode-chap_stab.tex}
+    \caption{Représentation schématique des marges de stabilité du lieu de 
+             Bode de la fonction de transfert en boucle ouverte d'un système
+             stable. \label{fig-bode_marges}}
+\end{figure}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Marges de stabilité à partir du diagramme de Black}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{figure}[!h]
+    \centering
+    \tikzsetnextfilename{marge_stabilite_black-chap_stab-ext}
+    \input{tikz/marge_stabilite_black-chap_stab.tex}
+    \caption{Représentation schématique des marges de stabilité du lieu de 
+             Black de la fonction de transfert en boucle ouverte d'un système
+             stable. \label{fig-black_marges}}
 \end{figure}
 %-------------------------------------------------------------------------------
 \clearpage
@@ -1311,8 +1351,8 @@ suivante : $H_2(p)=\dfrac{1}{p(1+p)}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le critère de Nyquist consite à relier le principe de l'argument de Cauchy au 
-au second critère de stabilité des systèmes asservis\label{critere2}\.
-On rappelle en effet qu'un système est stable en boucle fermée si la fonction
+second critère de stabilité des systèmes asservis\label{critere2}\.
+Nous rappellons en effet qu'un système est stable en boucle fermée si la fonction
 de transfert $1+H_{BO}$ ne présente pas de zéros à partie réelle positive.
 %-------------------------------------------------------------------------------
 \begin{theorem}{\'Enoncé du critère de Nyquist
@@ -1337,9 +1377,7 @@ avec :
 \end{theorem}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Exemple 1}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Exemple 1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{minipage}{0.35\textwidth}
 \[
@@ -1364,6 +1402,9 @@ avec :
 %-------------------------------------------------------------------------------
 \end{minipage}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Exemple 2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{minipage}{0.35\textwidth}
 \[
         H_3(p)=\dfrac{500(p-2)}{(p+2)(p+7)(p+50)}
