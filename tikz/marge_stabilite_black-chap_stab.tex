@@ -35,12 +35,12 @@
     \addplot[\colrd,very thick,domain=4e0:1e1,samples=100] 
     ({-\dpp*atan2(\da*x,(1-\db*x*x))},
      {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-    \draw[draw=none,fill=black] (axis cs:-180,0) circle[radius=2pt] 
-                                node[above,xshift=-35] {$(-180,0\mathrm{dB})$};
 
     \draw[dblarw={col1}{2}{2}] (axis cs:-180,0) -- node[midway,left]
     {$M_G$} (axis cs:-180,-30);
     \draw[dblarw={col1}{2pt}{2pt}] (axis cs:-180,0) -- node[midway,above]
     {$M_\phi$} (axis cs:-130,0);
+    \draw[draw=none,fill=black] (axis cs:-180,0) circle[radius=2pt] 
+                                node[above,xshift=-35] {$(-180,0\mathrm{dB})$};
 \end{axis}
 \end{tikzpicture}

@@ -1037,9 +1037,18 @@ possible de le faire à partir des trois diagrammes de la réponse harmonique.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Marges de stabilité à partir du diagramme de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La figure~\cref{fig-nyquist_marges} représente schématique les marges 
-de stabilité
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La~\cref{fig-nyquist_marges} représente schématiquement les marges 
+de stabilité pour le lieu de Nyquist de la fonction de transfert en boucle
+ouverte. Pour obtenir la marge de gain $M_G$, on
+détermine graphiquement le module pour la pulsation donnant une 
+partie imaginaire nulle ($\omega_\pi$) et on calcul directement la marge de gain
+en dB par la relation $M_G=-20\log{|H(j\omega_\pi)|}$.
+Pour déterminer la marge de phase graphiquement, on trace le cercle de rayon 1 
+(en module). L'intersection avec le lieu de Nyquist de la fonction de transfert 
+en boucle ouverte vous permet d'obtenir $H_{BO}(j\omega_{c0})$
+et on détermine l'angle entre l'axe des réels et le segment passant par le point
+$H_{BO}(j\omega_{c0})$ et l'origine.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -1055,6 +1064,9 @@ de stabilité
 \subsection{Marges de stabilité à partir du diagramme de Bode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La~\cref{fig-bode_marges} représente schématiquement les marges 
+de stabilité pour le lieu de Nyquist de la fonction de transfert en boucle
+ouverte. Pour obtenir la marge de gain $M_G$, on
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -1070,6 +1082,9 @@ de stabilité
 \subsection{Marges de stabilité à partir du diagramme de Black}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La~\cref{fig-black_marges} représente schématiquement les marges 
+de stabilité pour le lieu de Nyquist de la fonction de transfert en boucle
+ouverte. Pour obtenir la marge de gain $M_G$, on
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -1226,6 +1241,15 @@ le plan complexe soit bien pris en compte.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Contour de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{marginfigure}
+    \centering
+    \tikzsetnextfilename{nyquist_contour-chap_stab-ext}
+    \input{tikz/nyquist_contour-chap_stab.tex}
+    \caption{Contour de Nyquist où $H_{BO}$ ne possède aucun pôle ou zéro nul.
+    \label{fig-contour_Nyquist2}}
+\end{marginfigure}
+%-------------------------------------------------------------------------------
 La~\cref{fig-contour_Nyquist2} (a) présente le contour de Nyquist. Celui-ci est 
 composé de trois portions:
 %-------------------------------------------------------------------------------
@@ -1238,15 +1262,6 @@ composé de trois portions:
     \item \textbf{III}: l'axe des imaginaires négatifs  pour laquelle $p=-\jw$ 
           avec $\omega\in]-\infty,0]$, symétrique de \textbf{I}
 \end{itemize}
-%-------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------
-\begin{marginfigure}
-    \centering
-    \tikzsetnextfilename{nyquist_contour-chap_stab-ext}
-    \input{tikz/nyquist_contour-chap_stab.tex}
-    \caption{Contour de Nyquist où $H_{BO}$ ne possède aucun pôle ou zéro nul.
-    \label{fig-contour_Nyquist2}}
-\end{marginfigure}
 %-------------------------------------------------------------------------------
 %La courbe image d'une fonction de transfert $H_{BO}(p)$
 %en boucle ouverte de ces deux portions. 
@@ -1267,12 +1282,8 @@ transfert est donnée par le lieu de Nyquist complet de sa réponse harmonique.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Contour de Bromwich}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La~\cref{fig-contour_Bromwich_1} (b) présente un contour de Bromwich dans le 
-cas où $p=0$ est pôle de la fonction de transfert. Celui-ci est composé de 
-quatre portions, les trois premières correspondent à celles déjà 
-rencontrée précédemment dans le cas du contour de Nyquist, et :
 %-------------------------------------------------------------------------------
-\begin{marginfigure}
+\begin{marginfigure}[-2em]
     \centering
     \tikzsetnextfilename{bromwich_contour1-chap_stab-ext}
     \input{tikz/bromwich_contour1-chap_stab.tex}
@@ -1280,6 +1291,10 @@ rencontrée précédemment dans le cas du contour de Nyquist, et :
              de $H_{BO}$.\label{fig-contour_Bromwich_1}} 
 \end{marginfigure}
 %-------------------------------------------------------------------------------
+La~\cref{fig-contour_Bromwich_1} (b) présente un contour de Bromwich dans le 
+cas où $p=0$ est pôle de la fonction de transfert. Celui-ci est composé de 
+quatre portions, les trois premières correspondent à celles déjà 
+rencontrée précédemment dans le cas du contour de Nyquist, et :
 %-------------------------------------------------------------------------------
 \begin{itemize}
     %\item \textbf{I} : l'axe des imaginaires positifs pour laquelle 
@@ -1300,10 +1315,10 @@ des pôles et zéros imaginaires purs non nuls, on utilisera le contour
 de Bromwich évitant ces pôles et zéros sur l'axe des imaginaires. 
 (c.f \cref{fig-contour_Bromwich_2}).
 %-------------------------------------------------------------------------------
-\begin{marginfigure}
+\begin{marginfigure}[-2em]
     \centering
     \tikzsetnextfilename{bromwich_contour2-chap_stab-ext}
-    %\input{tikz/bromwich_contour2-chap_stab.tex}
+    \input{tikz/bromwich_contour2-chap_stab.tex}
     \caption{Contours de Bromwich où 0, $p_1$ et $p_2$ sont des pôles
              ou zéros de $H_{BO}$.\label{fig-contour_Bromwich_2}} 
 \end{marginfigure}
@@ -1401,7 +1416,6 @@ avec :
 \end{center}
 %-------------------------------------------------------------------------------
 \end{minipage}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Exemple 2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

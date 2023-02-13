@@ -13,14 +13,13 @@
         xmin=1e-2,
         xmax=1e2,
         ymin=-60,
-        ymax=80,
+        ymax=40,
         xlabel={$\log\omega$},
         xlabel style={below right},
         ylabel={$G_{dB}(\omega)$},
         ylabel style={left,rotate=-90,yshift=3.25em},
-        clip=false,
     ]
-    \def\dk{9}
+    \def\dk{3}
     \addplot[signalg,domain=1e-2:1e2] {\dk+10-20*log10(1+10*x*x)};
     \addplot [col3, mark = *]  coordinates {(3,{\dk+10-20*log10(91)})} {};
     \draw[col3,dashed] (1e-2,{\dk+10-20*log10(91)}) 
@@ -28,8 +27,8 @@
     (3.0077,{\dk+10-20*log10(1+10*3.0077*3.0077)});
     \node (pt1) at (axis cs:3.0077,80) {};
     \draw[]  (1e-2,0)  node[left] {\SI{0}{\dB}} -- (1e2,0);
-    %\node [col3,right]  at (axis cs: 1e2, -80.0) 
-    %{\textbf{stable}  };                
+    \draw[dblarw={col1}{2}{2}] (axis cs:3,-28) -- node[midway,right]
+    {$M_G$} (axis cs:3,0);
     \end{axis}
     \begin{axis}
     [
@@ -53,13 +52,15 @@
         ylabel style={left,rotate=-90,yshift=3.25em},
         clip=false,
     ]
-    \addplot[signaln,domain=1e-2:1e2] {-2.5*atan2(x,1)};
+    \addplot[signalg,domain=1e-2:1e2] {-2.5*atan2(x,1)};
     \def\ttt{0.865}
     \def\ddd{9.1}
     \addplot [col3, mark = *]  coordinates {(\ttt,{-2.5*atan2(\ttt,1)})} {};
     \draw[col3,dashed] (1e-2,{-2.5*atan2(\ttt,1)}) 
         node[left] {$\phi(\omega_{c0})$} -- (\ttt,{-2.5*atan2(\ttt,1)}) ;
     \draw[black,dashed] (1e-2,-180) node[left] {-180$\degreeSI$} -- (1e2,-180) ;
+    \draw[dblarw={col1}{2pt}{2pt}] (axis cs:\ttt,-180) --
+    node[midway,left] {$M_\phi$} (axis cs:\ttt,{-2.5*atan2(\ttt,1)});
     \end{axis}
     \draw[col3,dashed] ($(pt1)+(-1,0)$)node[above]{$\omega_{c0}$}--+(0,-6.5cm);
 \end{tikzpicture}
