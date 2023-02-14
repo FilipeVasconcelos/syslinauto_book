@@ -22,17 +22,16 @@
     \def\db{0.5}
     \def\dk{1.8}
     \def\dpp{1.1}
-    \edef\colrd{col3}
-    \addplot[\colrd,very thick,domain=1e-2:1e0,samples=100,-{Latex[length=3mm]}]
+    \addplot[col3,very thick,domain=1e-2:1e0,samples=100,-{Latex[length=3mm]}]
     ({-\dpp*atan2(\da*x,(1-\db*x*x))},
      {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
-    \addplot[\colrd,very thick,domain=1e-1:2.5e0,samples=100,-{Latex[length=3mm]}] 
+    \addplot[col3,very thick,domain=1e-1:2.5e0,samples=100,-{Latex[length=3mm]}]
     ({-\dpp*atan2(\da*x,(1-\db*x*x))},
      {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)}); 
-    \addplot[\colrd,very thick,domain=1e0:6e0,samples=100,-{Latex[length=3mm]}] 
+    \addplot[col3,very thick,domain=1e0:6e0,samples=100,-{Latex[length=3mm]}] 
     ({-\dpp*atan2(\da*x,(1-\db*x*x))},
      {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
-    \addplot[\colrd,very thick,domain=4e0:1e1,samples=100] 
+    \addplot[col3,very thick,domain=4e0:1e1,samples=100] 
     ({-\dpp*atan2(\da*x,(1-\db*x*x))},
      {-\dk*10*log10((1-\db*x*x)*(1-\db*x*x)+\da*\da*x*x)});
 
