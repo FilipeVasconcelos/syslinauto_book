@@ -312,6 +312,10 @@ class Ftransfert():
                 print("Interval des pulsations logarithmiques")
                 w=1j*np.logspace(-np.log10(fmax),np.log10(fmax),n)
             print("Nombre de points",n,len(w))
+            if middle : 
+                print("Arrows in middle")
+            else:
+                print("Arrows",arrow_pcts)
             print(self)
             if ncircles and mcircles :
                 print(f"Erreur Nyquist plot: N-cercles et les M-cercles\nne peuvent pas être tracés en même temps")
