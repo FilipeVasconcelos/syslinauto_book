@@ -48,8 +48,8 @@ d'équilibres est de s'en écarter en appliquant une impulsion brève et intense
 %-------------------------------------------------------------------------------
 \begin{itemize}
     \item (\Cref{fig-stab} (a)) Dans le cas d'un équilibre stable : 
-        la bille va naturellement reprendre avec ou sans oscillations 
-        autour de sa position d'équilibre. 
+        la bille va naturellement retrouver (avec ou sans oscillations) 
+        sa position d'équilibre. 
     \item (\Cref{fig-stab} (b)) Dans le cas d'un équilibre instable :
         la bille va continuer à s'en écarter indéfiniment. 
 \end{itemize}
@@ -89,9 +89,11 @@ réponse.
     \input{tikz/stabilite-bibo-chap_stab.tex}
     \caption{Exemples de systèmes (vert) stables et (rouge) instables. Les 
     systèmes stables présentent une réponse bornée à une sollicitation elle-même
-    bornée.}
+    bornée.\label{fig-bibo}}
 \end{figure}
 %-------------------------------------------------------------------------------
+La~\cref{fig-bibo} représente différents scénarios de réponse à des entrées 
+bornées par des systèmes stable ou instable.
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1037,7 +1039,7 @@ possible de le faire à partir des trois diagrammes de la réponse harmonique.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Marges de stabilité à partir du diagramme de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La~\cref{fig-nyquist_marges} représente schématiquement les marges 
 de stabilité pour le lieu de Nyquist de la fonction de transfert en boucle
 ouverte. Pour obtenir la marge de gain $M_G$, on
@@ -1279,11 +1281,8 @@ Nous avons déjà rencontré cette propriété pour déterminer la réponse harm
 d'un système linéaire.}.
 \textbf{En conclusion, l'image par le contour de Nyquist d'une fonction de 
 transfert est donnée par le lieu de Nyquist complet de sa réponse harmonique.}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Contour de Bromwich}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
-\begin{marginfigure}[-2em]
+\begin{marginfigure}
     \centering
     \tikzsetnextfilename{bromwich_contour1-chap_stab-ext}
     \input{tikz/bromwich_contour1-chap_stab.tex}
@@ -1291,6 +1290,9 @@ transfert est donnée par le lieu de Nyquist complet de sa réponse harmonique.}
              de $H_{BO}$.\label{fig-contour_Bromwich_1}} 
 \end{marginfigure}
 %-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Contour de Bromwich}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La~\cref{fig-contour_Bromwich_1} (b) présente un contour de Bromwich dans le 
 cas où $p=0$ est pôle de la fonction de transfert. Celui-ci est composé de 
 quatre portions, les trois premières correspondent à celles déjà 
@@ -1315,7 +1317,7 @@ des pôles et zéros imaginaires purs non nuls, on utilisera le contour
 de Bromwich évitant ces pôles et zéros sur l'axe des imaginaires. 
 (c.f \cref{fig-contour_Bromwich_2}).
 %-------------------------------------------------------------------------------
-\begin{marginfigure}[-2em]
+\begin{marginfigure}
     \centering
     \tikzsetnextfilename{bromwich_contour2-chap_stab-ext}
     \input{tikz/bromwich_contour2-chap_stab.tex}
@@ -1323,6 +1325,11 @@ de Bromwich évitant ces pôles et zéros sur l'axe des imaginaires.
              ou zéros de $H_{BO}$.\label{fig-contour_Bromwich_2}} 
 \end{marginfigure}
 %-------------------------------------------------------------------------------
+\textbf{De la même manière que précedemment, les images d'une fonction de 
+transfert par ces contours de Bromwich correspondent également au lieu de 
+Nyquist complet de la réponse harmonique.}
+Le choix du contour dépend donc de la forme de la fonction de transfert 
+étudiée. 
 \clearpage
 \restoregeometry
 \captionsetup{width=0.9\linewidth}
@@ -1331,8 +1338,9 @@ de Bromwich évitant ces pôles et zéros sur l'axe des imaginaires.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La~\cref{fig-nyquist_complet_image_exemple1} présente une image du contour
 de Nyquist par la fonction de transfert du premier ordre 
-$H_1(p)=\dfrac{1}{1+p}$. L'image des différentes portions de ce contour 
-sont représentées.
+$H_1(p)=\dfrac{1}{1+p}$. Les images des différentes portions de ce contour 
+sont représentées et correspondent bien au lieu de Nyquist complet de la 
+fonction de transfert de départ.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -1347,8 +1355,9 @@ sont représentées.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple d'image par le contour de Bromwich}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Déterminons l'image par le contour de Bromwich de la fonction de transfert 
-suivante : $H_2(p)=\dfrac{1}{p(1+p)}$
+Dans le cas où la fonction de transfert présente un pôle sur l'axe des 
+imaginaires, il faut alors utiliser le contour de Bromwich. C'est le cas
+par exemple pour la fonction de transfert suivante : $H_2(p)=\dfrac{1}{p(1+p)}$.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -1360,15 +1369,22 @@ suivante : $H_2(p)=\dfrac{1}{p(1+p)}$
     \label{fig-bromwich_complet_image_exemple1} }
 \end{figure}
 %-------------------------------------------------------------------------------
+Les portions \textbf{I},\textbf{II} et \textbf{III} correspondent bien au lieu
+de Nyquist complet de la fonction de transfert. La portion \textbf{IV} permet 
+de relier le plan des imaginaires positifs et négatifs à l'infini.
+\clearpage
+\input{re/newgeometry}
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{\'Enoncé et application du critère de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le critère de Nyquist consite à relier le principe de l'argument de Cauchy au 
-second critère de stabilité des systèmes asservis\label{critere2}\.
-Nous rappellons en effet qu'un système est stable en boucle fermée si la fonction
-de transfert $1+H_{BO}$ ne présente pas de zéros à partie réelle positive.
+second critère de stabilité des systèmes asservis\label{critere2}.
+Nous rappellons en effet qu'un système est stable en boucle fermée si la i
+fonction de transfert $1+H_{BO}$ ne présente pas de zéros à partie réelle 
+positive. Il nous est possible d'établir l'énoncé suivant :
 %-------------------------------------------------------------------------------
 \begin{theorem}{\'Enoncé du critère de Nyquist
     \index{Critère de Nyquist}} 
@@ -1383,7 +1399,8 @@ avec :
 \begin{itemize}
     \item $Z$ est le nombre de zéros à partie réelle positive de $1+H_{BO}$.  
     \item $N$ le nombre de tours autour du point critique \textbf{(-1,0)} que 
-          fait le diagramme de Nyquist de $H_{BO}(p)$ 
+          fait le diagramme de Nyquist de $H_{BO}(p)$ dans le sens 
+          trigonométrique
           (équivalent au nombre de tours autour de l'origine de $1+H_{BO}(p)$)
     \item $P$ le nombre de pôles positifs de $1+H_{BO}(p)$ (équivalent au 
           nombre de pôles de $H_{BO}(p)$)
@@ -1391,60 +1408,65 @@ avec :
 %-------------------------------------------------------------------------------
 \end{theorem}
 %-------------------------------------------------------------------------------
+Nous allons maintenant traiter quelques exemples pour montrer l'efficacité
+de cet énoncé.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Exemple 1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{minipage}{0.35\textwidth}
+Soit une fonction de transfert en boucle ouverte $H_1(p)$ telle que :
 \[
         H_1(p)=\dfrac{p+3}{(p+2)(p^2+2p+25)}
 \]
 %-------------------------------------------------------------------------------
-\begin{align*}
-    P&=0\\
-    N&=0\\
-    Z&=0
-\end{align*}
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=\textwidth]{chap_stab_h1.eps}
+    \caption{Lieu de Nyquist complet de la FTBO de $H_1(p)$\label{fig-h1}}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
-{
-       \hfill\LARGE\textcolor{col3}{STABLE}\hfill
-}
-\end{minipage}
-\begin{minipage}{0.65\textwidth}
-%-------------------------------------------------------------------------------
-\begin{center}
-\includegraphics[width=\textwidth]{chap_stab_h1.eps}
-\end{center}
-%-------------------------------------------------------------------------------
-\end{minipage}
+On cherche à déterminer si le systèmes est stable en boucle fermée par le
+critère de Nyquist. La FTBO ne présente aucun pôle à partie réelles positives
+donc $P=0$. Traçons maintenant, le lieu de Nyquist complet de la FTBO. Celui-ci
+n'entoure pas le point critique ($N=0$) (c.f \cref{fig-h1}).
+
+Nous obtenons donc, par application du critère de Nyquist :
+\[
+    Z=N+P=0
+\]
+C'est à dire que $1+H_1(p)$ n'a pas de zéro à partir réelle positive, ce
+qui permet de conclure que le système est stable en boucle fermée.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Exemple 2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{minipage}{0.35\textwidth}
+Dans l'exemple suivant la fonction de transfert en boucle ouverte est 
+maintenant donnée par :
 \[
-        H_3(p)=\dfrac{500(p-2)}{(p+2)(p+7)(p+50)}
-\] 
+        H_2(p)=\dfrac{500(p-2)}{(p+2)(p+7)(p+50)}
+\]
 %-------------------------------------------------------------------------------
-    \begin{align*}
-        P&=0\\
-        N&=1\\
-        Z&=P+N=1
-    \end{align*}
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=\textwidth]{chap_stab_h2.eps}
+    \caption{Lieu de Nyquist complet de la FTBO de $H_2(p)$\label{fig-h2}}
+\end{marginfigure}
 %-------------------------------------------------------------------------------
-{
-       \hfill\LARGE\textcolor{col4}{INSTABLE}\hfill
-}
-    
-    Le système possède un pôle instable en boucle fermée.
-\end{minipage}
-\begin{minipage}{0.65\textwidth}
-%-------------------------------------------------------------------------------
-\begin{center}
-\includegraphics[width=\textwidth]{chap_stab_h3.eps}
-\end{center}
-%-------------------------------------------------------------------------------
-\end{minipage}
+Celle-ci ne présente pas de pôles à partie réelle positive ($P=0$). Il est
+également possible d'observer que la la réponse harmonique en boucle ouverte
+entoure le point critique une fois dans le sens trigonométrique ($N=1$) 
+(c.f ~\cref{fig-h2}). 
+Par application du critère de Nyquist, on obtient donc :
+\[
+    Z=N+P=1
+\]
+Le système est donc instable en boucle fermée et présente un pôle instable.
+
+Nous laissons au lecteur la vérification par application
+des autres critères de stabilité (algébrique et graphique) vus lors de ce
+graphique.
 
 \clearpage
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
