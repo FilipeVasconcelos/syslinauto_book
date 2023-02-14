@@ -170,10 +170,8 @@ système en boucle fermée est d'environ \SI{6}{\decibel}
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \begin{tikzpicture}
-        \node[] at (0,0) 
-        {\includegraphics[width=0.8\textwidth]{blackNichols_hbo.eps}};
-    \end{tikzpicture}
+    \tikzsetnextfilename{blackNichols_hbo-annexe_blackNichols-ext}
+    \input{tikz/blackNichols-annexe_blackNichols}
     \caption{Diagramme de Black du système en boucle ouverte 
              superposé à l'abaque de Black-Nichols.
              \label{fig-exemple1_BlackNichols}}
