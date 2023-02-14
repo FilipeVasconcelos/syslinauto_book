@@ -59,7 +59,6 @@ cat > standalone/${texname}.tex <<EOF
 \usepackage{mathfmv}
 \usepackage{tikz,pgf,pgfplots}
 \pgfplotsset{compat=newest}
-\usepackage{pgf,tikz}
 \usepackage{schemabloc}
 \usepackage{schemablocfmv}
 \sbStyleBloc{thick}
@@ -81,6 +80,11 @@ cat > standalone/${texname}.tex <<EOF
 %\usetkzobj{all}
 \usepackage{verbatim}
 \usepackage{poles}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\graphicspath{{./fig/}{./fig/people/}{./fig/annexe_scilab/}{./fig/chap_asserv/}
+              {./fig/chap_correction/}{./fig/chap_stab/}{./fig/logo/}
+              {./fig/annexe_blackNichols/}{./fig/annexe_cauchy/}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 EOF
     if [ "$landscape" -eq 1 ]
     then
