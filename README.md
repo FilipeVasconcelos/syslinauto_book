@@ -2,9 +2,9 @@
 
 ## Contexte
 
-Ce document est le résultat du cours du module de Systèmes Mécaniques 
-et Automatiques (SMA) enseigné en deuxième année de l'ESME Sudria de 
-Lille depuis janvier 2018.
+Ce document est le résultat de l'enseignement dispensé de janvier 2018 
+à juin 2022 en deuxième année de l'ESME Sudria. Celui-ci était associé 
+au module de Systèmes Mécaniques et Automatiques (SMA).
 
 ## Auteur
 Filipe Manuel De Freitas Vasconcelos
