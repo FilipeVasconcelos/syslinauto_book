@@ -1,0 +1,13 @@
+num=[1 3]
+den=conv([1 2],[1 2 25])
+roots(den)
+H1=tf(num,den)
+subplot(1,3,1)
+step(H1)
+subplot(1,3,2)
+nyquist(H1)
+HBF=feedback(H1,1)
+subplot(1,3,3)
+step(HBF)
+pole(HBF) 
+pole(H1)

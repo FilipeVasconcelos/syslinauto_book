@@ -1,28 +1,69 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Stabilité d'un système du second ordre~\facile}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Un système est décrit par le schéma bloc suivant :
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{sb-ex1-chap_stab-ext}
+    \input{tikz/sb-ex1-chap_stab.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+avec :
+\[
+H(p)=\dfrac{K}{\frac{p^2}{\omega^2_0}+\frac{2\xi}{\omega_0}p+1}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\`A partir du critère de Routh, déterminer les conditions de 
+stabilité sur $K$, $\xi$ et  $\omega_0$ pour deux types de correcteurs : }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{itemize}
+    \item P (proportionnel) : $C(p)=1$
+    \item I (intégrateur) : $C(p)=\dfrac{1}{p}$
+\end{itemize}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Application du critère de Routh~\difficile}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Déterminer la stabilité des systèmes définis par les équations 
+caractéristiques suivantes par le critère de Routh :}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{itemize}
+    \item[a)] $D(p)=p^5+2p^4+3p^3+4p^2+3p+1$
+    \item[b)] $D(p)=p^4+p^3+3p^2+p+1$
+    \item[c)] $D(p)=p^5+2p^4+3p^3+6p^2+5p+3$
+    \item[d)] $D(p)=p^5+7p^4+6p^3+42p^2+8p+56$
+\end{itemize}
+%-------------------------------------------------------------------------------
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Critère de Nyquist~\difficile}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% c.f matlab script matlab/chap_stab/ex3.m 
 Un système en boucle ouverte présente deux pôles instables (à parties réelles 
 positives). On cherche à montrer que ce système peut être stable en 
 modifiant la valeur du gain $K$ en boucle ouverte. La figure ci-dessous 
 représente la réponse harmonique du système en boucle ouverte que l'on souhaite
-asservir à l'aide d'une boucle de contre-réaction pour $K=-1$.
+asservir à l'aide d'une boucle de contre-réaction pour $K=1$.
 %-------------------------------------------------------------------------------
 \begin{center}
 \includegraphics[width=0.8\textwidth]
-                {exercice_nyquist_chap_stab_ex1_enonce.eps}
+                {exercice_nyquist_chap_stab_ex3_enonce.eps}
 \end{center}
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{D'après le critère de Nyquist, déterminer les zones du plan complexe 
 qui permettraient au système d'être stable en boucle fermée.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Déterminer alors la condition sur $K$ pour ce système soit stable en 
 boucle fermée.} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-

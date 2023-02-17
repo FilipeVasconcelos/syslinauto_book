@@ -1,0 +1,13 @@
+num=500*[1 -2]
+den=conv(conv([1 2],[1 7]),[1 50])
+roots(den)
+H2=tf(num,den)
+subplot(1,3,1)
+step(H2)
+subplot(1,3,2)
+nyquist(H2)
+HBF=feedback(H2,1)
+subplot(1,3,3)
+step(HBF)
+pole(HBF) 
+pole(H2)
