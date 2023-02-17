@@ -297,7 +297,7 @@ class Ftransfert():
             labels=[labels]
         if len(gains) > 2 :
             color=None
-        if self.title=='':
+        if self.title!=None:
             self.title=r'Nyquist $'+self.name+r'(p)$'
       
         if self.verbeux > 0 :
