@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+    \sbStyleBloc{very thick}
+    \sbEntree{E}
+    \sbComp{a}{E}
+    \sbRelier[$E(p)$]{E}{a}
+    \sbBloc{b}{$C(p)$}{a}
+    \sbRelier{a}{b}
+    \sbBlocL{c}{$H(p)$}{b}
+    \sbSortie[4]{S}{c}
+    \sbRelier{c}{S}
+    \sbRenvoi{c-S}{a}{}
+    \sbNomLien[0.8]{S}{$S(p)$}
+\end{tikzpicture}
