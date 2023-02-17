@@ -7,7 +7,7 @@
         - Ajouter un paragraphe sur la distinction entre régime
           transitoire et permanent.
     - Stabilité :
-        - Marges de stabilité Nyquist,Bode,Black
+        - Marges de stabilité Nyquist,Bode,Black (presque terminé)
     - Précision :
         - revoir la partie précision, Shabab y voit un
           problème dans le signe de l'erreur dû à la perturbation.
@@ -23,6 +23,7 @@
     - Réponse harmonique
     - Asservissement
     - Performances 
+    - Stabilité
 # nettoyer l'exercice 1 du chapitre asservissement
 # ecrire le corrigé de l'exercice 1 du chapitre performances
 # exercices pour les chapitres (vides):
@@ -36,6 +37,6 @@
 #
     - Analyse de Fourier à faire ou à enlever
     - Compléter la décomposition en éléments simples
-    - Transformer de Laplace inverse (à enlever)
+    - Transformer de Laplace inverse (ou à enlever)
     - Ajouter une annexe pour l'évaluation de la pulsation de 
       coupure par des méthodes analytique, numérique et graphique.
