@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 import sys
 import argparse
-beginendenv=["figure","align","align*","center","table","bequation","itemize","criteria",
-            "theorem","definition","tcolorbox"]
+beginendenv=["figure","align","align*","center","table","bequation",
+             "itemize","criteria","theorem","definition","tcolorbox"]
 braketenv=["chapter","section","subsection","susubsection","paragraph",
          "exercice","question"]
 class bcolors:
