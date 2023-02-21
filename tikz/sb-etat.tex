@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+    \sbEntree{e}
+    \sbBloc[6]{B}{$\boldsymbol{B}$}{e}
+    \sbRelier[$e(t)$]{e}{B}
+    \sbSumb[6]{comp}{B}
+    \sbRelier{B}{comp}
+    \sbInt[4]{I}{comp}
+    \sbRelier[$\boldsymbol{\dot{x}}\boldsymbol{(t)}$]{comp}{I}
+    \sbBloc[6]{C}{$\boldsymbol{C}$}{I}
+    \sbRelier[$\boldsymbol{x(t)}$]{I}{C}
+    \sbSumb[6]{comp2}{C}
+    \sbRelier{C}{comp2}
+    \sbSortie[3]{s}{comp2}
+    \sbRelier[$s(t)$]{comp2}{s}
+    \sbDecaleNoeudy[4]{I}{R1}
+    \sbBlocr[-1.6]{A}{$\boldsymbol{A}$}{R1}
+    \sbRelieryx{I-C}{A}
+    \sbRelierxy{A}{comp}
+    \sbDecaleNoeudy[8]{I}{R2}
+    \sbBloc[-1.6]{D}{$\boldsymbol{D}$}{R2}
+    \sbRelieryx{e-B}{D}
+    \sbRelierxy{D}{comp2}
+\end{tikzpicture}
