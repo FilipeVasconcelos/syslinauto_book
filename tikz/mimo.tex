@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+    \sbEntree{E}
+    \node [above of=E, node distance=2em,coordinate, name=E1] {};
+    \node [below of=E, node distance=2em,coordinate, name=E2] {};
+    \node [draw, rectangle,
+           minimum height=6em, minimum width=6em, right of = Edroite,
+           node distance=4em,sbStyleBloc,right] (B) {\Huge$\Sigma$};
+    \node (Bdroite) at (B.east){};
+    \node (BlocdeFindroite) at (B.east){};
+    \node [right of=E1, node distance=4em,coordinate, name=EB1] {};
+    \node [right of=E2, node distance=4em,coordinate, name=EB2] {};
+    \sbRelier[$e_1(t)$]{E1}{EB1}
+    \sbRelier[$\vdots$]{E}{B}
+    \sbRelier[$e_n(t)$]{E2}{EB2}
+    \sbSortie[4]{S}{B}
+    \node [above of=S, node distance=2em,coordinate, name=S1] {};
+    \node [below of=S, node distance=2em,coordinate, name=S2] {};
+    \node [right of=E1, node distance=10em,coordinate, name=SB1] {};
+    \node [right of=E2, node distance=10em,coordinate, name=SB2] {};
+    \sbRelier[$s_1(t)$]{SB1}{S1}
+    \sbRelier[$\vdots$]{B}{S}
+    \sbRelier[$s_n(t)$]{SB2}{S2}
+\end{tikzpicture}

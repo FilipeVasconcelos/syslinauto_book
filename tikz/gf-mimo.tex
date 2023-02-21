@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+    \gfEntree[0][0][]{}{E}
+    \gfEntree[0][3][+]{$E_1$}{E1}
+    \gfEntree[0][-3][-]{$E_2$}{E2}
+    \gfSortie[4]{$S_1$}[+]{E1}{S1}
+    \gfSortie[4]{}[]{E}{S}
+    \gfSortie[4]{$S_2$}[-]{E2}{S2}
+    \gfRelier[$H_{11}$][+][1.2]{E1}{S1}
+    \gfRelier[$H_{21}$][+][1.2]{E1}{S2}
+    \gfRelier[$H_{12}$][-][1.2]{E2}{S1}
+    \gfRelier[$H_{22}$][-][1.2]{E2}{S2}
+\end{tikzpicture}
