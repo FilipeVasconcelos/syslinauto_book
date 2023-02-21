@@ -336,10 +336,10 @@ plusieurs fois rencontré dans ce document.
 
 On reprend ici, la mise en équation du système mécanique masse-ressort 
 présentée au chapitre précédent (c.f \cref{para-masse_ressort} et figure 
-ci-contre). L'équation différentielle reliant la position de la masse $x(t)$ et 
+ci-contre). L'équation différentielle reliant la position de la masse $z(t)$ et 
 la force appliquée $f(t)$ est donnée par 
 \[
-m\devi{x(t)}{2}+b\devi{x(t)}{}+kx(t)=f(t)
+m\devi{z(t)}{2}+b\devi{z(t)}{}+kz(t)=f(t)
 \]
 où $m$ est la masse, $b$ le coefficient d'amortissement visqueux et $k$ la
 constante de raideur du ressort. 
@@ -349,8 +349,10 @@ constante de raideur du ressort.
     \tikzsetnextfilename{masse_ressort-chap_slci-ext}
     \input{tikz/masse_ressort-chap_slci.tex}
 \end{marginfigure}
-
-\clearpage
+%-------------------------------------------------------------------------------
+\newpage
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -358,7 +360,13 @@ constante de raideur du ressort.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\small
+\input{tex/exercices_chap_etat.tex}
+\setcounter{numexos}{0}
+\normalsize
 \newpage
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -366,7 +374,11 @@ constante de raideur du ressort.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\small
+\input{tex/exercices_corriges_chap_etat.tex}
+\normalsize
+\restoregeometry
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

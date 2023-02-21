@@ -287,24 +287,24 @@ cette solution pour $\tau=\SI{1}{\second}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{\textbf{Déterminer la transformée de Laplace $X(p)$ solution 
+\question{\textbf{Déterminer la transformée de Laplace $Z(p)$ solution 
 algébrique de la transformée de Laplace de l'équation différentielle de 
 ce système.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La transformée de Laplace de l'équation différentielle nous donne : 
 \[
-    X(p)\left(mp^2+bp+k\right)=F(p)
+    Z(p)\left(mp^2+bp+k\right)=F(p)
 \]
 ainsi on peut écrire $X(p)$ sous la forme :
 \[
-    X(p)=\dfrac{1}{mp^2+bp+k}F(p)
+    Z(p)=\dfrac{1}{mp^2+bp+k}F(p)
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{\textbf{Indentifier la fonction de transfert $H(p)$ du système et 
 donner sa forme canonique}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On identifie simplement la fonction de transfert du système comme la fraction 
-rationnelle définie par le rapport $\dfrac{X(p)}{F(p)}$
+rationnelle définie par le rapport $\dfrac{Z(p)}{F(p)}$
 \[
     H(p)=\dfrac{1}{mp^2+bp+k}
 \]
@@ -319,18 +319,18 @@ d'intensité $\dfrac{1}{a}$ intense pendant un temps $a$ très court
 (c.-à-d. $a\to0$).    
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{\textbf{Indentifier la solution algébrique $X(p)$ pour une cette 
+\question{\textbf{Indentifier la solution algébrique $Z(p)$ pour une cette 
 solicitation.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La transformée de Laplace de cette sollicitation $F(p)$ est égale à 1 à 
 la limite $a\to0$. On obtient alors pour la transformée de Laplace de la 
 position :
 \[
-    X(p)=\dfrac{1}{mp^2+bp+k}
+    Z(p)=\dfrac{1}{mp^2+bp+k}
 \]
 ou encore en utilisant la forme canonique de la fonction de transfert :
 \[
-    X(p)=\dfrac{1}{k\left(\dfrac{m}{k}p^2+\dfrac{b}{k}p+1\right)}
+    Z(p)=\dfrac{1}{k\left(\dfrac{m}{k}p^2+\dfrac{b}{k}p+1\right)}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{\textbf{Identifier les paramètres $K$, $\xi$ et $\omega$ en 
@@ -344,18 +344,18 @@ fonction des paramètres du problème.}}
     \end{cases}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{\textbf{Déterminer $x(t)$ la solution temporelle de l'équation 
+\question{\textbf{Déterminer $z(t)$ la solution temporelle de l'équation 
 différentielle pour une telle sollicitation.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dans les conditions pour lesquels les paramètres $m, b ,k$ donne $\xi<1$ 
 La solution est donc de la forme :
 \[
-    x(t)=K\dfrac{\omega}{\sqrt{1-\xi^2}}
+    z(t)=K\dfrac{\omega}{\sqrt{1-\xi^2}}
          e^{-\xi\omega t}\sin{\omega\sqrt{1-\xi^2} t} 
 \]
 ou encore 
 \[
-    x(t)=\dfrac{1}{m\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)^{\frac{1}{2}}}
+    z(t)=\dfrac{1}{m\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)^{\frac{1}{2}}}
          e^{\frac{-b}{2m}t}\sin{\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)^
          {\frac{1}{2}}t}
 \]
@@ -383,7 +383,7 @@ $\xi$ et $\omega$}}
 \end{figure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{\textbf{Tracer la réponse $x(t)$ et déterminer le temps pour que la 
+\question{\textbf{Tracer la réponse $z(t)$ et déterminer le temps pour que la 
 masse retourne à son position d'équilibre (à 5\% de son déplacement maximal)}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le déplacement maximal est d'environ \SI{35}{\centi\meter}. On 

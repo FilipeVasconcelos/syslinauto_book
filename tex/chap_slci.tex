@@ -355,7 +355,7 @@ couplée avec un ressort de constante
 de raideur $k$ et un amortisseur de coefficient de frottement 
 visqueux $b$ (c.a.d que la force est 
 proportionnelle à la vitesse). 
-La masse est soumise à une force $\vect{f}=f(t)\xx{}$.
+La masse est soumise à une force $\vect{f}=f(t)\zz{}$.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}[-8em]
     \centering
@@ -367,9 +367,9 @@ La masse est soumise à une force $\vect{f}=f(t)\xx{}$.
 \end{marginfigure}
 %-------------------------------------------------------------------------------
 En appliquant le principe fondamentale de la dynamique en projection 
-sur la direction $x$, on obtient l'équation du mouvement suivante :
+sur le vecteur $\zz{}$, on obtient l'équation du mouvement suivante :
 \[
-m\devi{x(t)}{2}+b\devi{x(t)}{}+kx(t)=f(t)
+m\devi{z(t)}{2}+b\devi{z(t)}{}+kz(t)=f(t)
 \]
 \newpage
 \restoregeometry
@@ -378,10 +378,10 @@ La résolution de cette équation du mouvement permet de connaitre la position
 de la masse à chaque instant connaissant la force exterieur 
 appliquée $f(t)$. Le système masse-ressort peut être assimilé à un~\gls{slci} 
 dont l'entrée $e(t)$ est la force $f(t)$ et la sortie $s(t)$ est la 
-position $x(t)$ de la masse (c.f le schéma-bloc de la \cref{fig-masse-ressort})
+position $z(t)$ de la masse (c.f le schéma-bloc de la \cref{fig-masse-ressort})
 
 On identifie simplement, cette équation différentielle à la forme générale 
-de l'\cref{eq-difflci} pour $s(t)=x(t)$, $e(t)=f(t)$, 
+de l'\cref{eq-difflci} pour $s(t)=z(t)$, $e(t)=f(t)$, 
 $n=$2, $m=0$, $a_2=m$, $a_1=b$, $a_0=k_r$ et $b_0=$1.
 La résolution complète sera donnée en exercice à la fin de ce chapitre.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
