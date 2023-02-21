@@ -11,32 +11,35 @@
     - Précision :
         - revoir la partie précision, Shabab y voit un
           problème dans le signe de l'erreur dû à la perturbation.
-    - Correction
+    - Correction :
+        - Il reste beaucoup à faire
 # à écrire complétement :
     - Initiation à la représentation d'état :
         - Faire le lien avec la tachymétrie 
 # ================================================================
 # Exercices des chapitres 
 # ================================================================      
+# utiliser les exercices originaux des TD
 # ajouter des exercices aux chapitres :
     - Modélisation des SLCI
     - Réponse harmonique
     - Asservissement
     - Performances 
-    - Stabilité
+    - Correction 
 # nettoyer l'exercice 1 du chapitre asservissement
 # ecrire le corrigé de l'exercice 1 du chapitre performances
 # exercices pour les chapitres (vides):
-    - Stabilité
-         - la figure de l'exercice 1 est à retravailler 
-    - Correction
     - Initiation à la représentation d'état
 # ================================================================
 # Annexes :
 # ================================================================
-#
     - Analyse de Fourier à faire ou à enlever
     - Compléter la décomposition en éléments simples
     - Transformer de Laplace inverse (ou à enlever)
     - Ajouter une annexe pour l'évaluation de la pulsation de 
       coupure par des méthodes analytique, numérique et graphique.
+# ================================================================
+# Glossaire/Indexe :
+# ================================================================
+    - Compléter les descriptions du glossaire
+    - Ajouter de nouvelles entrées à l'index
