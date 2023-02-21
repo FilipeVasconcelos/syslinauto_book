@@ -361,7 +361,7 @@ bin/pdf2eps 1 "\image"
 %\includeonly{tex/chap_perf}            % Perf. des sys asservis 
 %\includeonly{tex/chap_stab}            % Stabilité des sys. asservis 
 %\includeonly{tex/chap_correction}      % Correction des sys. asservis 
-%\includeonly{tex/chap_etat}            % Représentation d'état 
+\includeonly{tex/chap_etat}    % Représentation d'état 
 %\includeonly{tex/annexe_alphagrec}     % Alphabet grec    
 %\includeonly{tex/annexe_usi}           % Unités du Système International    
 %\includeonly{tex/annexe_laplace}       % Transformation de Laplace
@@ -460,7 +460,7 @@ bin/pdf2eps 1 "\image"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \dominitoc
-\tableofcontents
+%\tableofcontents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\mainmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -477,7 +477,7 @@ bin/pdf2eps 1 "\image"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{appendices}
-\input{tex/annexe_alphagrec}           %A Alphabet grec
+\include{tex/annexe_alphagrec}           %A Alphabet grec
 \include{tex/annexe_usi}               %B Unités du Système International 
 %\include{tex/annexe_laplace_irl}      %C Pierre-Simon de Laplace 
 \include{tex/annexe_laplace}           %D Transformation de Laplace 
@@ -502,7 +502,7 @@ bin/pdf2eps 1 "\image"
 \clearpage
 \nocite{*}
 \bibliographystyle{plain}
-\bibliography{sma_auto.bib}
+%\bibliography{sma_auto.bib}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
@@ -513,12 +513,12 @@ bin/pdf2eps 1 "\image"
 \glsaddall
 \renewcommand{\glsnamefont}[1]{\textbf{#1}}
 \doublespacing
-\printglossary[title={Acronymes},type=\acronymtype]
+%\printglossary[title={Acronymes},type=\acronymtype]
 \singlespacing
-\setlength{\glsdescwidth}{0.8\hsize}
-\printglossary[title={Glossaire},type=main,style=superragged]
+\setlength{\glsdescwidth}{0.6\hsize}
+%\printglossary[title={Glossaire},type=main,style=superragged]
 \doublespacing
-\printunsrtglossary[type=symbols,style=long,title={Liste des Symboles}]
+%\printunsrtglossary[type=symbols,style=long,title={Liste des Symboles}]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %LAST PAGE 
