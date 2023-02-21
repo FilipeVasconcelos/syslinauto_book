@@ -123,13 +123,11 @@ K < 2\xi\omega_0
 \exercice{Application du critère de Routh}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{\textbf{Déterminer la stabilité des systèmes définits par les 
 équations caractéristiques suivantes :}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\paragraph{a) $D(p)=p^5+2p^4+3p^3+4p^2+3p+1$}
-%\subsubsection*{a)}
 \noindent~\textbf{a)}\\
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La condition nécessaire du critère de Routh est trivialement respectée.
 Construisons le tableau de Routh :
 \[
@@ -173,11 +171,7 @@ A_{51}=-\begin{vmatrix}1&\frac{5}{2}\\-1&1\end{vmatrix}=\dfrac{7}{2},
 A_{61}=-\dfrac{2}{7}\begin{vmatrix}1 & -1 \\\frac{7}{2}&0\end{vmatrix}=1,
 \]
 Le système est \textbf{instable} en boucle fermée par le critère de Routh.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\paragraph{b) $D(p)=p^4+p^3+3p^2+p+1$}
-%\subsubsection*{b)}
 \noindent~\textbf{b)}\\
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La condition nécessaire du critère de Routh est trivialement respectée.
 Construisons le tableau de Routh :
 \[
@@ -213,11 +207,7 @@ A_{41}=-\dfrac{1}{2}\begin{vmatrix}1 & 1 \\2&1\end{vmatrix}=\dfrac{1}{2},
 A_{51}=-\dfrac{1}{A_{41}}\begin{vmatrix}2 & 1 \\A_{41}&0\end{vmatrix}=1,
 \]
 Le système est \textbf{stable} en boucle fermée par le critère de Routh.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\paragraph{c) $D(p)=p^5+2p^4+3p^3+6p^2+5p+3$}
-%\subsubsection*{c)}
 \noindent~\textbf{c)}\\
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La condition nécessaire du critère de Routh est trivialement respectée.
 Construisons le tableau de Routh :
 \[
@@ -283,11 +273,7 @@ du tableau de Routh :
 Le système est \textbf{instable} en boucle fermée par le critère de Routh.
 Le nombre de changement de signe dans la colonne des pivots nous indique le 
 nombre de pôles à partie réelle positive.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\paragraph{d) $D(p)=p^5+7p^4+6p^3+42p^2+8p+56$}
-%\subsubsection*{d)}
 \noindent~\textbf{d)}\\
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La condition nécessaire du critère de Routh est trivialement respectée.
 Construisons le tableau de Routh :
 \[
@@ -435,8 +421,8 @@ Le système est \textbf{stable} en boucle fermée par le critère de Routh.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La FTBO présentant 2 pôles instables ($P=2$), le système sera stable 
-en boucle fermée pour $N=2$, il existe une seule région du lieu de Nyquist de la 
-FTBO pouvant prétendre à celà. La figure ci-dessous présente les différentes
+en boucle fermée pour $N=2$, il existe une seule région du lieu de Nyquist de 
+la FTBO pouvant prétendre à celà. La figure ci-dessous présente les différentes
 valeurs de $N$ pour l'ensemble du plan complexe.  
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
@@ -485,9 +471,11 @@ dans le cas où $K=1$.
 \end{align*}
 %-------------------------------------------------------------------------------
 donc, le système est stable en boucle fermée pour un gain $K$ tel que
+%-------------------------------------------------------------------------------
 \begin{align*}
     0.104&<K<0.147.
 \end{align*}
+%-------------------------------------------------------------------------------
 Nous laissons au lecteur la vérification de cette conclusion par d'autres 
 approches (critères algébriques ou graphiques).
 À noter que la figure précédente a été obtenu pour un gain de $K=0.14$, plaçant
