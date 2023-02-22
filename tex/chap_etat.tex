@@ -161,6 +161,9 @@ de fluence suivant :
 \end{center}
 %-------------------------------------------------------------------------------
 \clearpage
+\newcommand{\bdx}{\boldsymbol{x}}
+\newcommand{\bds}{\boldsymbol{s}}
+\newcommand{\bde}{\boldsymbol{e}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -168,13 +171,11 @@ de fluence suivant :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\bdx}{\boldsymbol{x}}
-\newcommand{\bds}{\boldsymbol{s}}
-\newcommand{\bde}{\boldsymbol{e}}
-\newcommand{\bdt}{\boldsymbol{(t)}}
-\newcommand{\bdxt}{\bdx\bdt}
-\newcommand{\bdst}{\bds\bdt}
-\newcommand{\bdet}{\bde\bdt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\'Equation d'état et équation de sortie}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 L'étude d'un système dynamique basée sur une approche fréquentielle (c.-à-d. 
 dans le domaine de Laplace) est pratique dans le cas des systèmes continus, 
 linéaires et monovariables. \textbf{La représentation d'état} des systèmes 
@@ -185,13 +186,13 @@ Nous allons cependant, nous limiter à une présentation
 liminaire de cette notion qui pourrait faire l'objet d'un ouvrage dédié
 
 La représentation d'état nécessite la description d'un état 
-$\bdxt$ à instant $t$\footnote{Nous utilisons ici la notation anglosaxonne qui
+$\bdx (t)$ à instant $t$\footnote{Nous utilisons ici la notation anglosaxonne qui
 représente les vecteurs par des symboles en caractères gras.} qui est un 
 vecteur de variables $x_i(t)$ dont le nombre $n$ de composantes dépend 
 de l'ordre du système.
 %-------------------------------------------------------------------------------
 \begin{align*}
-    \bdxt = \begin{pmatrix}
+    \bdx (t) = \begin{pmatrix}
             x_1(t)\\
             \vdots\\
              x_n(t)
@@ -204,14 +205,13 @@ nombre $n$ est fixé par le système. Ce choix correspond en toute rigueur
 fait possible de passer d'une représentation à une autre par une transformation
 linéaire analogue à un changement de base.
 
-
-Connaissant cet état $\boldsymbol{A}$ à un instant $t$, ainsi que l'entrée 
-$\bdet$, il est possible de déterminer l'état du système à un 
-instant $t+\dd{t}$ $\bdx\boldsymbol{(t+\dd{t})}$. \textbf{L'équation d'état} 
+Connaissant cet état $\boldsymbol{x}(t)$ à un instant $t$, ainsi que l'entrée 
+$\bde (t)$, il est possible de déterminer l'état $\bdx(t+\dd{t})$ du système 
+à un instant $t+\dd{t}$. \textbf{L'équation d'état} 
 qui donne l'évolution de l'état du système est de la forme générale :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-    \boldsymbol{\dot{x}}\bdt= \boldsymbol{A}\bdxt + \boldsymbol{B} \bdet
+    \boldsymbol{\dot{x}}(t)= \boldsymbol{A}\bdx (t) + \boldsymbol{B} \bde (t)
     \label{eq-etat}
 \end{bequation}
 %-------------------------------------------------------------------------------
@@ -222,13 +222,13 @@ de simples fonctions, $\boldsymbol{A}$ est une matrice que l'on nomme la
 \textbf{matrice d'évolution}, et $\boldsymbol{B}$ est le 
 \textbf{vecteur commande}.
 
-La sortie d'un système dynamique $\bdst$ est un vecteur (dans le cas général) 
-qui dépend à la fois du vecteur d'entrée $\bdet$ et du vecteur d'état $\bdxt$. 
-La relation entre ces vecteurs est donnée par \textbf{l'équation de sortie} ou
-\textbf{équation de mesure}:
+La sortie d'un système dynamique $\bds (t)$ est un vecteur (dans le cas général) 
+qui dépend à la fois du vecteur d'entrée $\bde (t)$ et du vecteur d'état 
+$\bdx (t)$. La relation entre ces vecteurs est donnée par 
+\textbf{l'équation de sortie} ou \textbf{équation de mesure}:
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-    \bdst=\boldsymbol{C} \bdxt + \boldsymbol{D} \bdet
+    \bds (t)=\boldsymbol{C} \bdx (t) + \boldsymbol{D} \bde (t)
     \label{eq-sortie}
 \end{bequation}
 %-------------------------------------------------------------------------------
@@ -238,6 +238,23 @@ Dans le cas où le système est monovariable et donc que $s(t)$ et $e(t)$ sont
 de simples fonctions, $\boldsymbol{C}$ est un vecteur l'on nomme le 
 \textbf{vecteur observation}, et $\boldsymbol{D}$ un simple scalaire 
 \textbf{d'action directe ou de transmission} de l'entrée sur la sortie.
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Intégration de l'équation d'état}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Puisque l'équation de sortie dépend de l'état du système $\bdx(t)$,
+il est nécessaire d'intégrer l'équation d'état pour déterminer l'évolution 
+du système. 
+Dans la pratique, l'état $\bdx$ à l'instant $t+\dd{t}$ est donnée par, 
+\[
+    \bdx(t+\dd{t})=
+    e^{\boldsymbol{A}\dd{t}}\bdx(t)+
+    \int_t^{t+\dd{t}}e^{\boldsymbol{A}(t+\dd{t}-\tau)}
+    \boldsymbol{B}e(\tau)\dd{\tau}
+\]
+Notons, que cette expression fait intervenir l'exponentielle d'une matrice.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Représentation en schéma bloc}
@@ -247,8 +264,8 @@ Pour un système monovariable, les équations d'état et de sortie, ne présente
 que des fonctions simples en entrée $e(t)$ et sortie $s(t)$.
 \[
 \begin{cases}
-    \boldsymbol{\dot{x}}\bdt= \boldsymbol{A}\bdxt + \boldsymbol{B} e(t)\\
-    s(t)=\boldsymbol{C} \bdxt + \boldsymbol{D} e(t)
+    \boldsymbol{\dot{x}}(t)= \boldsymbol{A}\bdx (t) + \boldsymbol{B} e(t)\\
+    s(t)=\boldsymbol{C} \bdx (t) + \boldsymbol{D} e(t)
 \end{cases}
 \]
 nous pouvons maintenant nous donner une représentation de 
@@ -281,21 +298,21 @@ Pour celà appliquons la transformée de Laplace aux équations d'état et de
 sortie (c.f~\cref{eq-etat,eq-sortie}) en utilisant l'algèbre des matrices :
 \[
     \begin{cases}
-        p\boldsymbol{X(p)}&=\boldsymbol{AX(p)}+\boldsymbol{B}E(p) \\
-        S(p) &= \boldsymbol{CX(p)}+\boldsymbol{D}E(p)
+        p\boldsymbol{X}(p)&=\boldsymbol{AX}(p)+\boldsymbol{B}E(p) \\
+        S(p) &= \boldsymbol{CX}(p)+\boldsymbol{D}E(p)
     \end{cases}
 \]
-$\boldsymbol{X(p)}$ étant un vecteur, la première relation devient 
+$\boldsymbol{X}(p)$ étant un vecteur, la première relation devient 
 \[
-    (p\boldsymbol{I}-\boldsymbol{A})\boldsymbol{X(p)}=\boldsymbol{B}E(p)
+    (p\boldsymbol{I}-\boldsymbol{A})\boldsymbol{X}(p)=\boldsymbol{B}E(p)
 \]
-où $\boldsymbol{I}$ est la matrice identité. Pour isoler $\boldsymbol{X(p)}$, 
+où $\boldsymbol{I}$ est la matrice identité. Pour isoler $\boldsymbol{X}(p)$, 
 il faut alors multiplier par l'inverse de $(p\boldsymbol{I}-\boldsymbol{A})$.
 
 \[
 \begin{cases}
-\boldsymbol{X(p)}&=(p\boldsymbol{I}-\boldsymbol{A})^{-1}\boldsymbol{B}E(p) \\
- S(p)&=\boldsymbol{CX(p)}+\boldsymbol{D}E(p)
+\boldsymbol{X}(p)&=(p\boldsymbol{I}-\boldsymbol{A})^{-1}\boldsymbol{B}E(p) \\
+ S(p)&=\boldsymbol{CX}(p)+\boldsymbol{D}E(p)
 \end{cases}
 \]
 En remplaçant cette nouvelle relation dans la seconde, on obtient 
@@ -303,8 +320,6 @@ En remplaçant cette nouvelle relation dans la seconde, on obtient
     S(p)=\left[\boldsymbol{C}(p\boldsymbol{I}-\boldsymbol{A})^{-1}
          \boldsymbol{B}+\boldsymbol{D}\right]E(p),
 \]
-\input{re/newgeometry}
-\captionsetup{width=0.9\linewidth}
 Pour laquelle, on reconnait la fonction de transfert $H(p)=\frac{S(p)}{E(p)}$ :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -323,6 +338,8 @@ les valeurs propres se trouvent être les pôles du système dynamique de l'étu
 
 Tous les résultats obtenus sur les pôles de la fonction de transfert peuvent
 être extrapolés aux valeurs propres de la matrice d'évolution $\boldsymbol{A}$.
+\input{re/newgeometry}
+\captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -333,7 +350,11 @@ Tous les résultats obtenus sur les pôles de la fonction de transfert peuvent
 Pour terminer ce chapitre, nous allons appliquer l'approche de représentation
 d'état nouvellement introduite au système masse-ressort que nous avons 
 plusieurs fois rencontré dans ce document. 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Représentation d'état du système}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On reprend ici, la mise en équation du système mécanique masse-ressort 
 présentée au chapitre précédent (c.f \cref{para-masse_ressort} et figure 
 ci-contre). L'équation différentielle reliant la position de la masse $z(t)$ et 
@@ -343,6 +364,13 @@ m\devi{z(t)}{2}+b\devi{z(t)}{}+kz(t)=f(t)
 \]
 où $m$ est la masse, $b$ le coefficient d'amortissement visqueux et $k$ la
 constante de raideur du ressort. 
+Réécrivons cette équation du mouvement sous une forme qui nous sera plus
+pratique par la suite :
+\[
+    \ddot{z}(t)=\dfrac{1}{m}f(t)-\dfrac{b}{m}\dot{z}(t)-\dfrac{k}{m}z(t)
+\]
+Nous rappelons que l'entrée du système $e(t)$ est donc donnée par la force 
+$f(t)$ appliquée à l'instant $t$. La sortie $s(t)$ est sa position $z(t)$.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
@@ -350,9 +378,152 @@ constante de raideur du ressort.
     \input{tikz/masse_ressort-chap_slci.tex}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
+L'équation différentielle régissant le mouvement de la masse est du second 
+ordre. Il nous faut donc établir un vecteur d'état de deux composantes.
+Les variables d'état pour ce problème de mécanique sont la 
+position $z(t)$ et la vitesse instantanée $\dot{z}(t)$.
+On pose donc :
+\[
+    \boldsymbol{x}(t)=
+    \begin{pmatrix} x_1(t) \\ x_2(t) \end{pmatrix}=
+    \begin{pmatrix} z(t) \\ \dot{z}(t) \end{pmatrix}
+\]
+Notons que l'ordre des composantes du vecteur d'état n'a pas d'influence sur
+les propriétés du système. Cela correspond simplement à l'échange de deux lignes
+dans le système d'équations régissant l'état du système.
+Dans ses conditions l'équation de sortie est triviale puisque la sortie est
+une des deux variables d'état :
+\[
+    z(t)=\boldsymbol{C}\begin{pmatrix} z(t)\\\dot{z}(t)\end{pmatrix} + Df(t)
+\]
+avec,
+\[
+    \boldsymbol{C}=\begin{pmatrix} 1 & 0 \end{pmatrix}\quad\quad D=0,
+\]
+on retrouve bien la relation triviale $z(t)=z(t)$.
 \newpage
 \restoregeometry
 \captionsetup{width=0.9\linewidth}
+Pour établir l'équation d'état (c.f~\cref{eq-etat}) dérivons chacunes des 
+composantes de $\boldsymbol{x}(t)$
+\[
+    \boldsymbol{\dot{x}}(t)=
+    \begin{pmatrix} \dot{x_1}(t) \\ \dot{x_2}(t) \end{pmatrix}=
+    \begin{pmatrix} \dot{z}(t) \\ \ddot{z}(t) \end{pmatrix}
+\]
+Il nous faut maintenant déterminer les composantes de $\boldsymbol{A}$ et 
+$\boldsymbol{B}$ telles :
+\[
+    \begin{pmatrix} \dot{z}(t) \\ \ddot{z}(t) \end{pmatrix}=
+    \boldsymbol{A}\begin{pmatrix} z(t) \\ \dot{z}(t) \end{pmatrix} +
+    \boldsymbol{B}f(t)
+\]
+Ce qui donne simplement en utilisant l'équation du mouvement du système 
+précédente :
+\[
+    \begin{pmatrix} \dot{z}(t) \\ \ddot{z}(t) \end{pmatrix}=
+    \begin{pmatrix} 
+        0 & 1 \\[1em]
+        -\dfrac{k}{m} & -\dfrac{b}{m}
+    \end{pmatrix} 
+    \begin{pmatrix} z(t) \\ \dot{z}(t) \end{pmatrix} +
+    \begin{pmatrix} 0 \\[1em] \dfrac{1}{m} \end{pmatrix}f(t)
+\]
+Avec,
+\[
+    \boldsymbol{A}=
+    \begin{pmatrix} 
+        0 & 1 \\[1em]
+        -\dfrac{k}{m} & -\dfrac{b}{m}
+    \end{pmatrix}\quad\quad
+    \boldsymbol{B}=
+    \begin{pmatrix} 0 \\[1em] \dfrac{1}{m} \end{pmatrix}\quad\quad
+    \boldsymbol{C}=\begin{pmatrix} 1 & 0 \end{pmatrix}\quad\quad D=0,
+\]
+nous avons toutes les grandeurs permettant de décrire la représentation d'état
+de ce système mécanique simple.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Passage de la représentation d'état à la fonction de transfert}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour établir la fonction de transfert à partir de la représentation d'état, nous
+allons appliquer la relation obtenue précedemment (c.f~\cref{eq-passageFT-RE}).
+Déterminons tout d'abord le terme $p\boldsymbol{I}-\boldsymbol{A}$ que l'on 
+notera $\boldsymbol{M}$,
+\[
+    \boldsymbol{M}=
+    p\boldsymbol{I}-\boldsymbol{A}=
+    \begin{pmatrix}
+        p&0\\
+        0&p
+    \end{pmatrix}-
+    \begin{pmatrix}
+        0 & 1 \\[1em]
+        -\dfrac{k}{m} & -\dfrac{b}{m}
+    \end{pmatrix}=
+    \begin{pmatrix}
+        p & -1 \\
+        \dfrac{k}{m} & p+\dfrac{b}{m}
+    \end{pmatrix}
+\]
+Pour déterminer, l'inverse de $\boldsymbol{M}$, on détermine la matrice
+complémentaire (la matrice transposée $\boldsymbol{M}^T$ de la matrice des 
+cofacteurs $\boldsymbol{M^*}$) ainsi que son déterminant $\Delta$.
+\[
+    \Delta=
+    \begin{vmatrix} 
+        p & -1 \\[1em]
+        \dfrac{k}{m} & p+\dfrac{b}{m}
+    \end{vmatrix}=
+    p^2+\dfrac{b}{m}p+\dfrac{k}{m}
+\]
+\[
+    \boldsymbol{M}^{-1}=\dfrac{1}{\Delta}\boldsymbol{M^*}^T=
+    \dfrac{1}{p^2+\dfrac{b}{m}p+\dfrac{k}{m}}
+    \begin{pmatrix}
+        p+\dfrac{b}{m} & -\dfrac{k}{m}\\[1em]
+        1 & p
+    \end{pmatrix}^T=
+    \dfrac{1}{p^2+\dfrac{b}{m}p+\dfrac{k}{m}}
+    \begin{pmatrix}
+        p+\dfrac{b}{m} & 1 \\[1em]
+        -\dfrac{k}{m} & p
+    \end{pmatrix}
+\]
+La fonction de transferst étant donnée par :
+\[
+    H(p)=\boldsymbol{C}\boldsymbol{M^{-1}}\boldsymbol{B}
+\]
+où $D=0$ dans~\cref{eq-passageFT-RE}.
+Déterminons d'abord $\boldsymbol{M^{-1}}\boldsymbol{B}$
+\[
+    \boldsymbol{M^{-1}}\boldsymbol{B}=
+    \dfrac{1}{\Delta}
+     \begin{pmatrix}
+        p+\dfrac{b}{m} & 1 \\[1em]
+        -\dfrac{k}{m} & p
+    \end{pmatrix}
+    \begin{pmatrix} 0 \\[1em] \dfrac{1}{m} \end{pmatrix}=
+     \dfrac{1}{\Delta}
+     \begin{pmatrix} \dfrac{1}{m} \\[1em] p \end{pmatrix}
+\]
+Nous developpons le calcul de $\boldsymbol{C}\boldsymbol{M^{-1}}\boldsymbol{B}$ 
+pour obtenir la fonction de transfert du système :
+\begin{align*}
+    H(p)&=\boldsymbol{C}\boldsymbol{M^{-1}}\boldsymbol{B} \\
+    H(p)&=\dfrac{1}{\Delta}
+    \begin{pmatrix} 1 & 0 \end{pmatrix}
+    \begin{pmatrix} \dfrac{1}{m} \\[1em] p \end{pmatrix}\\
+    H(p)&=\dfrac{1}{\Delta} \dfrac{1}{m}\\
+    H(p)&=\dfrac{1}{mp^2+bp+k}
+\end{align*}
+On vérifie que cette fonction correspond bien à celle que nous aurions obtenu
+en appliquant directement la transformée de Laplace à l'équation du mouvement
+du système.
+Bien evidemment, cette approche n'est pas idéale pour déterminer cette fonction
+de transfert. L'objectif était de vérifier que les deux approches permettent
+d'obtenir le même résultat.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
