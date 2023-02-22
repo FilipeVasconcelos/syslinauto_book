@@ -1,0 +1,117 @@
+\newcommand{\bdM}{\boldsymbol{M}}
+\newcommand{\bdI}{\boldsymbol{I}}
+\newcommand{\bdA}{\boldsymbol{A}}
+\newcommand{\bdB}{\boldsymbol{B}}
+\newcommand{\bdC}{\boldsymbol{C}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Détermination de la fonction de transfert à partir de la 
+représentation d'état~\moyen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer la fonction de transfert associée à la représentation
+d'état suivante:}
+\[
+    \boldsymbol{A}=
+    \begin{pmatrix} 
+        3 &  1\\
+        0 & -2 
+    \end{pmatrix}\quad\quad
+    \boldsymbol{B}=
+    \begin{pmatrix} 
+        0\\
+        1
+    \end{pmatrix}\quad\quad
+    \boldsymbol{C}=
+    \begin{pmatrix} 
+        1 & 1
+    \end{pmatrix}\quad\quad
+    D=0
+\]
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Déterminons d'abord $\bdM=(p\bdI-\bdA)$, $\Delta=\det{\bdM}$ et $\bdM^{-1}$
+\[
+    \bdM=
+    \begin{pmatrix} 
+        p-3 & -1\\
+        0 & p+2 
+    \end{pmatrix}
+\]
+\[
+    \Delta=
+    \begin{vmatrix} 
+        p-3 & -1\\
+        0 & p+2 
+    \end{vmatrix}=(p-3)(p+2)=p^2-p-6
+\]
+\[
+    \bdM^{-1}=
+    \dfrac{1}{\Delta}
+    \begin{pmatrix} 
+        p+2 &  1\\
+        0 & p-3 
+    \end{pmatrix}
+\]
+Nous pouvons maintenant calculer la fonction de transfert $H(p)$ associé à
+cette représentation d'état.
+\begin{align*}
+    H(p)&=\bdC\bdM^{-1}\bdB\\
+    H(p)&=\dfrac{1}{\Delta}\bdC\begin{pmatrix}1\\p-3\end{pmatrix}\\
+    H(p)&=\dfrac{1}{\Delta}(p-2)\\
+    H(p)&=\dfrac{p-2}{(p-3)(p+2)}
+\end{align*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer la fonction de transfert associée à la représentation
+d'état suivante:}
+\[
+    \boldsymbol{A}=
+    \begin{pmatrix} 
+        -2 &  0\\
+        -1 &  -1 
+    \end{pmatrix}\quad\quad
+    \boldsymbol{B}=
+    \begin{pmatrix} 
+        1\\
+        2
+    \end{pmatrix}\quad\quad
+    \boldsymbol{C}=
+    \begin{pmatrix} 
+        1 & 0
+    \end{pmatrix}\quad\quad
+    D=2
+\]
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Déterminons d'abord $\bdM=(p\bdI-\bdA)$, $\Delta=\det{\bdM}$ et $\bdM^{-1}$
+\[
+    \bdM=
+    \begin{pmatrix} 
+        p+2 & 0\\
+        1 & p+1 
+    \end{pmatrix}
+\]
+\[
+    \Delta=
+    \begin{vmatrix} 
+        p+2 & 0\\
+        1 & p+1 
+    \end{vmatrix}=(p+2)(p+1)=p^2+3p+2
+\]
+\[
+    \bdM^{-1}=
+    \dfrac{1}{\Delta}
+    \begin{pmatrix} 
+        p+1 & 0\\
+        -1 & p+2 
+    \end{pmatrix}
+\]
+Nous pouvons maintenant calculer la fonction de transfert $H(p)$ associé à
+cette représentation d'état.
+\begin{align*}
+    H(p)&=\bdC\bdM^{-1}\bdB+D\\
+    H(p)&=\dfrac{1}{\Delta}\bdC\begin{pmatrix}p+1\\2p+3\end{pmatrix}+D\\
+    H(p)&=\dfrac{1}{\Delta}(p+1)+2\\
+    H(p)&=\dfrac{(p+1)+2(p+1)(p+2)}{(p+2)(p+1)}\\
+    H(p)&=\dfrac{2p+5}{p+2}
+\end{align*}
+
