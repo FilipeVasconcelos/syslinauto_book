@@ -186,7 +186,7 @@ Nous allons cependant, nous limiter à une présentation
 liminaire de cette notion qui pourrait faire l'objet d'un ouvrage dédié
 
 La représentation d'état nécessite la description d'un état 
-$\bdx (t)$ à instant $t$\footnote{Nous utilisons ici la notation anglosaxonne qui
+$\bdx(t)$ à instant $t$\footnote{Nous utilisons ici la notation anglosaxonne qui
 représente les vecteurs par des symboles en caractères gras.} qui est un 
 vecteur de variables $x_i(t)$ dont le nombre $n$ de composantes dépend 
 de l'ordre du système.
@@ -222,7 +222,7 @@ de simples fonctions, $\boldsymbol{A}$ est une matrice que l'on nomme la
 \textbf{matrice d'évolution}, et $\boldsymbol{B}$ est le 
 \textbf{vecteur commande}.
 
-La sortie d'un système dynamique $\bds (t)$ est un vecteur (dans le cas général) 
+La sortie d'un système dynamique $\bds(t)$ est un vecteur (dans le cas général) 
 qui dépend à la fois du vecteur d'entrée $\bde (t)$ et du vecteur d'état 
 $\bdx (t)$. La relation entre ces vecteurs est donnée par 
 \textbf{l'équation de sortie} ou \textbf{équation de mesure}:
@@ -510,6 +510,7 @@ Déterminons d'abord $\boldsymbol{M^{-1}}\boldsymbol{B}$
 \]
 Nous developpons le calcul de $\boldsymbol{C}\boldsymbol{M^{-1}}\boldsymbol{B}$ 
 pour obtenir la fonction de transfert du système :
+%-------------------------------------------------------------------------------
 \begin{align*}
     H(p)&=\boldsymbol{C}\boldsymbol{M^{-1}}\boldsymbol{B} \\
     H(p)&=\dfrac{1}{\Delta}
@@ -518,12 +519,14 @@ pour obtenir la fonction de transfert du système :
     H(p)&=\dfrac{1}{\Delta} \dfrac{1}{m}\\
     H(p)&=\dfrac{1}{mp^2+bp+k}
 \end{align*}
+%-------------------------------------------------------------------------------
 On vérifie que cette fonction correspond bien à celle que nous aurions obtenu
 en appliquant directement la transformée de Laplace à l'équation du mouvement
 du système.
 Bien evidemment, cette approche n'est pas idéale pour déterminer cette fonction
 de transfert. L'objectif était de vérifier que les deux approches permettent
 d'obtenir le même résultat.
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
