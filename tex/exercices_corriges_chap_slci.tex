@@ -262,12 +262,15 @@ la transformée inverse de $Q(p)$ est simplement donnée par
 \]
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{laplace_schema_decharge_condensateur-chap_slci-ext}
-    \input{tikz/laplace_schema_decharge_condensateur.tex}
+    \tikzsetnextfilename
+    {laplace_schema_decharge_condensateur-exercices_corriges-chap_slci}
+    \input
+    {tikz/laplace_schema_decharge_condensateur-exercices_corriges-chap_slci.tex}
 \end{center}
 %-------------------------------------------------------------------------------
 La~\cref{fig-decharge} suivante présente la représentation graphique de 
 cette solution pour $\tau=\SI{1}{\second}$.
+\clearpage
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
@@ -277,7 +280,6 @@ cette solution pour $\tau=\SI{1}{\second}$.
     \label{fig-decharge}}
 \end{figure}
 %-------------------------------------------------------------------------------
-\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Système masse-ressort}
@@ -314,7 +316,6 @@ On sollicite le système par une impulsion de Dirac. Dans les faits, on peut
 voir cette sollicitation comme l'application d'une force $f(t)$ constante 
 d'intensité $\dfrac{1}{a}$ intense pendant un temps $a$ très court 
 (c.-à-d. $a\to0$).    
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{\textbf{Indentifier la solution algébrique $Z(p)$ pour une cette 
 solicitation.}}
@@ -356,7 +357,6 @@ ou encore
          e^{\frac{-b}{2m}t}\sin{\left(\dfrac{k}{m}-\dfrac{b^2}{4m^2}\right)^
          {\frac{1}{2}}t}
 \]
-
 On réalise une experience avec une masse $m=\SI{0.5}{\kilogram}$, un ressort 
 de constante de raideur $k=\SI{10}{\newton\per\meter}$ et un amortissement 
 visqueux $b=\SI{0.894}{\kilogram\per\second}$
@@ -370,24 +370,22 @@ $\xi$ et $\omega$}}
 \[
     \xi=0.2
 \]
-%-------------------------------------------------------------------------------
-\begin{figure}[!h]
-    \centering
-    \tikzsetnextfilename{masse_ressort_solution-chap_slci-ext}
-    \input{tikz/masse_ressort_solution-chap_slci.tex}
-    \caption{Réponse temporelle du système masse ressort
-    \label{fig-masse_ressort_reptemp}}
-\end{figure}
-%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{\textbf{Tracer la réponse $z(t)$ et déterminer le temps pour que la 
 masse retourne à son position d'équilibre (à 5\% de son déplacement maximal)}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le déplacement maximal est d'environ \SI{35}{\centi\meter}. On 
-constate~\cref{fig-masse_ressort_reptemp} que la masse retourne 
+constate sur la figure ci-dessous que la masse retourne 
 à sa position d'équilibre (à \SI{1.75}{\centi\meter} près) après 
 approximativement \SI{4}{\second}.
-\clearpage
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename
+    {masse_ressort_solution-exercices_corriges-chap_slci-ext}
+    \input{tikz/masse_ressort_solution-exercices_corriges-chap_slci.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+%\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Forme canonique d'une fonction de transfert du premier ordre}
@@ -438,7 +436,6 @@ signaux. En effet,
 \]
 On peut dire que la dimension de la fonction de transfert est donnée par 
 le paramètre $K$.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Carte des pôles d'une fonction de transfert}
