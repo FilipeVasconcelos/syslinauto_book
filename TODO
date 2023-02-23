@@ -22,7 +22,15 @@
 # utiliser les exercices originaux des TD
 # ajouter des exercices aux chapitres :
     - Modélisation des SLCI
+        - Un exercice graphique sur le premier ordre (TD SUP)
+        - Tracé une réponse du second ordre, lister les performances : 
+            * dépassement
+            * temps de réponse à 5\%
+            * valeur finale 
+          Déterminer la fonction de transfert à partir de ses performances 
     - Réponse harmonique
+        - Ajouter un exercice tracer de Nyquist (voir TD)
+        - Ajouter des tracer de Black
     - Asservissement
     - Performances 
     - Correction 
