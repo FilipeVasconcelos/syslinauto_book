@@ -1,0 +1,16 @@
+#!/bin/bash
+grep -h "tikz\/" tex/exercices_c* |
+sed -e "s/\\\input{//g" |
+sed -e "s/{//g" |
+sed -e "s/tikz\/\(.*\)}/\1/g" | 
+sed -e "s/ *\(.*\)/\1/g" |
+grep -v "\-exercices" > tmp
+out=$(tail -n 1 tmp)
+if [ "${out}" != "" ]
+then
+    echo ${#out}
+    grep "${out}" tex/*
+    wc tmp | awk '{print "il reste",$1,"fichiers à traiter"}'
+else
+    echo "tout semble ok"
+fi
