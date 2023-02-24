@@ -19,16 +19,44 @@
 Nous avons établi et étudié en détail les différentes performances et 
 exigences que l'on peut attendre de la réponse temporelle d'un système asservis.
 Un système peut par exemple présenter des dépassements 
-(c.f \Cref{chap-model}), être précis, rapide (c.f \Cref{chap-perf}), stable 
-(c.f \Cref{chap-stab}). Ces performances dépendent essentiellement des 
-propriétés de la fonction de transfert de la boucle fermée, 
-elles mêmes dépendant de celle de la boucle ouverte. 
+(\Cref{chap-model}), être précis, rapide (\Cref{chap-perf}), stable 
+(\Cref{chap-stab}). Lorsque une réponse temporelle présente des performances
+défaillantes par rapport à celles attendues par le cahier des charges (c.f 
+la représentation schématique de la correction de 
+la~\cref{fig-necessite_correction}), la notion de correction devient 
+nécessaire. Une bonne correction est celle qui permet de respecter toutes
+les exigences de l'ensemble des performances d'un cahier des charges donné. 
+Par exemple, la figure ci-dessous présente un système asservis 
+en boucle fermée avant et après correction. Il est clair que les performances
+de rapidité et de précision ont été largement améliorées. Il est possible de 
+constater également que le dépassement est largement réduit. Dans le cas, 
+où un dépassement serait innaceptable, il faudrait alors imaginer une 
+modification de la nature du système : un premier ordre ou un second ordre
+en régime apériodique serait alors indispensable.
+
+Le but de ce chapitre est de compiler une partie des résultats obtenue aux
+chapitres précédents et de présenter la structure fonctionnelle de la 
+correction. Nous nous intéresserons alors aux différents types de correcteurs 
+élémentaires ainsi que de leurs compositions. Nous insisterons finalement
+sur les correcteurs les plus utilisés que sont les correcteurs à avance de
+phase, à retard de phase et les correcteurs PID.
+L'exercice assez complet de ce chapitre permettra d'appliquer numériquement
+en détail les principaux résultats du chapitre. 
+\captionsetup{width=0.7\linewidth}
 %-------------------------------------------------------------------------------
-\begin{center}
+\begin{figure}[!b]
+    \centering
     \tikzsetnextfilename{necessite_correction_chap_correction-ext}
     \input{tikz/necessite_correction_chap_correction.tex}
-\end{center}
+    \caption{Représentation schématique de la correction de la réponse 
+             temporelle d'un système asservi. (en rouge) Le système non corrigé, 
+             présente un important dépassement, il est lent et peu précis. 
+             (en vert) Le système corrigé présente de meilleurs performances 
+             pour tous les critères précédents.\label{fig-necessite_correction}}
+\end{figure}
 %-------------------------------------------------------------------------------
+\captionsetup{width=0.9\linewidth}
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -36,68 +64,113 @@ elles mêmes dépendant de celle de la boucle ouverte.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{La correction élabore une commande $u(t)$ à partir d'un écart 
-$\epsilon(t)$}
+Comme nous avons pu l'observer au cours de chapitres précédents, les 
+performances d'un système asservis dépendent essentiellement de la fonction
+de transfert en boucle ouverte. Corriger un système revient à modifier 
+cette~\gls{ftbo} pour obtenir les performances souhaitées. Il existe un grand
+nombre de structure de la correction, nous souhaitons tout d'abord les 
+présenter avant de faire une étude plus détaillé de la structure la plus 
+classiquement rencontrée. 
+
+Notons tout abord que la correction ou un correcteur est une fonction 
+de transfert qui \textbf{élabore une commande $u(t)$ à partir d'un écart 
+$\epsilon(t)$}. Nous noterons un correcteur par la fonction de transfert
+$C(p)$ et sa représentation en schéma-bloc comme ci-dessous.
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{bs_correction_chap_correction-ext}
     \input{tikz/bs_correction_chap_correction.tex}
 \end{center}
 %-------------------------------------------------------------------------------
+Cependant, il existe différentes façon de placer un correcteur dans un 
+asservissement. Si il est vraie qu'un asservissement présente toujours une
+boucle de contre-réaction, \textbf{la correction peut se faire soit en série, 
+soit en réaction ou soit dans une structure mixte (appelée série-réaction)}.
+À noter, que c'est la correction en série qui est la plus fréquemment rencontrée
+et c'est celle-ci que nous étudierons en détail dans ce chapitre.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Correcteur série}
+\paragraph{Correction en série}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Dans une correction en série, le correcteur $C(p)$ est placé dans la chaîne
+directe de l'asservissement. Il élabore une commande $U(p)$ pour le système en 
+boucle ouverte non corrigée $H(p)$. Le schéma-bloc
+d'une telle correction est représentée ci-dessous:
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{correction_serie_chap_correction-ext}
     \input{tikz/correction_serie_chap_correction.tex}
 \end{center}
 %-------------------------------------------------------------------------------
+En appliquant l'algèbre de bloc, il est assez simple de déterminer la forme de
+la commande pour ce type de correction :
 \[
     U(p)=C(p)\epsilon(p)
 \]
+À partir de la fonction de transfert en boucle ouverte du système corrigé 
+$H_{BO}$, telle que :
 \[
-    H_{BO}(p)=C(p)H(p)
+    H_{BO}(p)=C(p)H(p),
 \]
+la fonction de transfert en boucle fermée est simplement donnée par :
 \[
-    H_{BF}(p)=\dfrac{C(p)H(p)}{1+C(p)H(p)}
+    H_{BF}(p)=\dfrac{C(p)H(p)}{1+C(p)H(p)}.
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Correcteur en réaction}
+\paragraph{Correction en réaction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Dans le cas d'une correction en réaction, la commande $U(p)$ est élaborée 
+à partir de l'écart $\epsilon(p)$ et de l'image de la sortie par le correcteur
+$C(p)S(p)$, cette relation s'écrit simplement : 
+\[
+    U(p)=\epsilon(p)-C(p)S(p)
+\]
+Le schéma-bloc de cette correction est donnée ci-dessous :
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{correction_reaction_chap_correction-ext}
     \input{tikz/correction_reaction_chap_correction.tex}
 \end{center}
 %-------------------------------------------------------------------------------
-\[
-    U(p)=\epsilon(p)-C(p)S(p)
-\]
+Attention, le correcteur ne se trouve pas dans la
+chaîne de retour (ce qui aurait un effet très peu différent de la 
+correction en série puisque la fonction de transfert en boucle ouverte serait
+alors la même)  
+
+En appliquant une nouvelle fois l'algèbre de bloc à cette correction, on
+obtient les relations suivantes pour les fonctions de transfert en boucle 
+ouverte et boucle fermée
 \[
     H_{BO}(p)=\dfrac{H(p)}{1+C(p)H(p)}
 \]
 \[
     H_{BF}(p)=\dfrac{H(p)}{1+H(p)+C(p)H(p)}
 \]
+Comme on peut l'observer, dans une telle correction la~\gls{ftbo} est de la
+forme d'un asservissement. On peut dire de façon imagée que l'on corrige par
+un asservissement interne.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Correcteur en série-réaction}
+\paragraph{Correction en série-réaction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Dans le cas d'une correction en série-réaction, on combine les deux structures
+précédentes (série et réaction) en une seul correction. Dans ce cas, deux
+correcteurs $C_1(p)$ et $C_2(p)$ sont nécessaires respectivement 
+en correction en série et réaction.
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{correction_serie-reaction_chap_correction-ext}
     \input{tikz/correction_serie-reaction_chap_correction.tex}
 \end{center}
 %-------------------------------------------------------------------------------
-\[
-    U(p)=C_1(p)\epsilon(p)-C_2(p)S(p)
-\]
-\[
-    H_{BO}(p)=\dfrac{C_1(p)H(p)}{1+C_2(p)H(p)}
-\]
-\[
-    H_{BF}(p)=\dfrac{C_1(p)H(p)}{1+C_1(p)H(p)+C_2(p)H(p)}
-\]
+%\[
+%    U(p)=C_1(p)\epsilon(p)-C_2(p)S(p)
+%\]
+%\[
+%    H_{BO}(p)=\dfrac{C_1(p)H(p)}{1+C_2(p)H(p)}
+%\]
+%\[
+%    H_{BF}(p)=\dfrac{C_1(p)H(p)}{1+C_1(p)H(p)+C_2(p)H(p)}
+%\]
+Nous envisagerons que la correction en série par la suite.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
