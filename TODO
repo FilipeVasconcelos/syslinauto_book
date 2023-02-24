@@ -13,9 +13,8 @@
           problème dans le signe de l'erreur dû à la perturbation.
     - Correction :
         - Il reste beaucoup à faire
-# à écrire complétement :
     - Initiation à la représentation d'état :
-        - Faire le lien avec la tachymétrie 
+        - à relire 
 # ================================================================
 # Exercices des chapitres 
 # ================================================================      
@@ -32,10 +31,10 @@
         - Ajouter un exercice tracer de Nyquist (voir TD)
         - Ajouter des tracer de Black
     - Asservissement
+        - Nettoyer l'exercice 1 du chapitre asservissement
     - Performances 
+        - Ecrire le corrigé de l'exercice 1 du chapitre performances
     - Correction 
-# nettoyer l'exercice 1 du chapitre asservissement
-# ecrire le corrigé de l'exercice 1 du chapitre performances
 # exercices pour les chapitres (vides):
     - Initiation à la représentation d'état
 # ================================================================
@@ -43,7 +42,7 @@
 # ================================================================
     - Analyse de Fourier à faire ou à enlever
     - Compléter la décomposition en éléments simples
-    - Transformer de Laplace inverse (ou à enlever)
+    - Transformer de Laplace inverse (trouver le code ou à enlever)
     - Ajouter une annexe pour l'évaluation de la pulsation de 
       coupure par des méthodes analytique, numérique et graphique.
 # ================================================================
