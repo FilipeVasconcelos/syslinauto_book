@@ -353,7 +353,7 @@ bin/pdf2eps 1 "\image"
 % includeonly individuel
 % ------------------------------------------------------------------------------
 %\includeonly{tex/avantpropos}
-\includeonly{tex/chap_slci}            % Système linéaire
+%\includeonly{tex/chap_slci}            % Système linéaire
 %\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
 %\includeonly{tex/chap_model}           % Modèles Usuels    
 %\includeonly{tex/chap_repfreq}         % Réponse harmonique
@@ -485,10 +485,10 @@ bin/pdf2eps 1 "\image"
 \include{tex/annexe_equa_diff}         %G Eq. diff. à coefficient constant
 \include{tex/annexe_des}               %H Décomposition en éléments simples
 \include{tex/annexe_2nd}               %I Système du second ordre
-%{\tikzset{external/export=false}
-%\include{tex/annexe_scilab}            %J Scilab
-%\include{tex/annexe_log}               %K Echelle log  
-%}
+{\tikzset{external/export=false}
+\include{tex/annexe_scilab}            %J Scilab
+\include{tex/annexe_log}               %K Echelle log  
+}
 \include{tex/annexe_invL}              %L Laplace inverse 
 \include{tex/annexe_blackNichols}      %M Diagramme de Black-Nichols  
 \include{tex/annexe_cauchy}            %N Principe de l'argument Cauchy  
