@@ -209,7 +209,6 @@ bin/pdf2eps 1 "\image"
 \renewcommand{\headrule}{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \let\origprintindex\printindex
@@ -277,17 +276,16 @@ bin/pdf2eps 1 "\image"
 \parindent0pt
 %lignes dans TOC et minitoc
 \makeatletter
-\renewcommand*\l@subsection{\@dottedtocline{2}{3.8em}{3.5em}}% Used to be {3.8em}{3.2em}
+% Used to be {3.8em}{3.2em}
+\renewcommand*\l@subsection{\@dottedtocline{2}{3.8em}{3.5em}}
 \makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % footnote and hyperref
 \let\oldFootnote\footnote
 \newcommand\nextToken\relax
-
 \renewcommand\footnote[1]{%
     \oldFootnote{#1}\futurelet\nextToken\isFootnote}
-
 \newcommand\isFootnote{%
     \ifx\footnote\nextToken\textsuperscript{,}\fi}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -355,13 +353,13 @@ bin/pdf2eps 1 "\image"
 %\includeonly{tex/avantpropos}
 %\includeonly{tex/chap_slci}            % Système linéaire
 %\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
-%\includeonly{tex/chap_model}           % Modèles Usuels    
+\includeonly{tex/chap_model}           % Modèles Usuels    
 %\includeonly{tex/chap_repfreq}         % Réponse harmonique
 %\includeonly{tex/chap_asserv}          % Asservissement 
 %\includeonly{tex/chap_perf}            % Perf. des sys asservis 
 %\includeonly{tex/chap_stab}            % Stabilité des sys. asservis 
 %\includeonly{tex/chap_correction}      % Correction des sys. asservis 
-%\includeonly{tex/chap_etat}    % Représentation d'état 
+%\includeonly{tex/chap_etat}            % Représentation d'état 
 %\includeonly{tex/annexe_alphagrec}     % Alphabet grec    
 %\includeonly{tex/annexe_usi}           % Unités du Système International    
 %\includeonly{tex/annexe_laplace}       % Transformation de Laplace
@@ -375,7 +373,6 @@ bin/pdf2eps 1 "\image"
 %\includeonly{tex/annexe_blackNichols}  % BlackNichols 
 %\includeonly{tex/annexe_cauchy}        % Principe de l'argument de Cauchy
 %\includeonly{tex/annexe_evans}         % Lieu d'Evans
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ------------------------------------------------------------------------------
 % includeonly groupé
@@ -431,7 +428,6 @@ bin/pdf2eps 1 "\image"
 \settototalheight\myheight{Xygp}
 \settodepth\mydepth{Xygp}
 \setlength\fboxsep{0pt}
-
 %preambule pour les notebook
 \input{notebook/nbconvert.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

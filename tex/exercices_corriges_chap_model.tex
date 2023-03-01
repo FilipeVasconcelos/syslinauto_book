@@ -20,7 +20,6 @@
     \item Dépassement relatif en \% : $D_1\sim\dfrac{1.96-1.5}{1.5}\sim30\%$ 
 \end{itemize}
 %-------------------------------------------------------------------------------
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{\textbf{En déduire l'amortissement $\xi$, la pulsation propre 
 $\omega_0$ et écrire la fonction de transfert.}}
@@ -44,16 +43,185 @@ Les pôles sont complexes conjugués et sont donnés par :
 \[
 p_{1,2}=-\xi\omega_0\pm j\omega_0\sqrt{1-\xi^2}
 \]
-
 $p_1=-0.35+0.93j$ et $p_2=-0.35-0.93j$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Réponse temporelle d'un système du second ordre~\moyen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer les paramètres du second ordre ($K,\omega_0, \xi$) 
+de cette équation différentielle.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La forme canonique d'un système du second ordre est donnée par :
+\[
+\devi{s(t)}{2}+2\xi\omega_0\devi{s(t)}{}+\omega_0^2s(t)=K\omega_0^2e(t)
+\]
+On détermine alors que :
+\[
+\begin{cases}
+    K\omega_0^2=1\\[1em]
+    2\xi\omega_0=3\\[1em]
+    \omega_0^2=2
+\end{cases}\Rightarrow
+\begin{cases}
+    K=\dfrac{1}{2}\\[1em]
+    \xi=\dfrac{3}{2\sqrt{2}}\\[1em]
+    \omega_0=\sqrt{2}
+\end{cases}
+\]
+Puisque $\xi>1$, le système est en régime apériodique.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer la fonction de transfert de ce système.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de l'équation différentielle nous donne 
+pour des conditions d'Heaviside :
+\[
+    p^2S(p)+3pS(p)+2S(p)=E(p)
+\]
+La fonction de transfert que l'on note $H(p)$ est alors donnée par :
+\[
+H(p)=\dfrac{S(p)}{E(p)}=\dfrac{1}{p^2+3p+2}
+\]
+Les pôles de la fonction de transfert sont -2 et -1. On peut alors 
+écrire $H(p)$ sous la forme :
+\[
+H(p)=\dfrac{1}{(p+1)(p+2)}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer la réponse indicielle de ce système pour une 
+entrée $e(t)=1$ et tracer son allure.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La réponse indicielle dans le domaine de Laplace est donnée par une 
+entrée $E(p)=\dfrac{1}{p}$, soit :
+\[
+S(p)=\dfrac{1}{p(p+1)(p+2)}
+\]
+La transformée inverse (c.f ligne 14 de la table) donne :
+\[
+s(t)=\dfrac{1}{2}(1-2e^{-t}+e^{-2t})
+\]
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{2nd_ordre-exercices_corriges-chap_model-ext}
+    \input{tikz/2nd_ordre-exercices_corriges-chap_model.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+On utilisera les caractéristiques des réponses indicielles du second ordre: 
+%-------------------------------------------------------------------------------
+\begin{itemize}
+    \item pente à l'origine nulle
+    \item valeure finale donnée par le théorème de la valeure finale.
+\end{itemize}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Modélisation de la chute libre~\moyen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Tracer un schéma représentant le bilan des forces mis en jeu. 
+On orientera l'axe de déplacement du haut vers le bas.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{chute_libre-exercices_corriges-chap_model-ext}
+    \input{tikz/chute_libre-exercices_corriges-chap_model.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer quel système SLCI pourrait être envisagé. 
+Quel serait l'entrée et la sortie ?}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Projetons sur $x$ le bilan des forces. Nous obtenons l'équation différentielle 
+suivante :
+\[
+mg-kv=m\devi{v}{}
+\]
+ou encore
+\[
+\dfrac{m}{k}\devi{v}{}+v=\dfrac{m}{k}g
+\]
+Il est possible de voir se problème comme un système représenté 
+par le bloc suivant :
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{sb_chute_libre-exercices_corriges-chap_model-ext}
+    \input{tikz/sb_chute_libre-exercices_corriges-chap_model.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+C'est à dire que l'entrée correspond à la constante gravitationnelle auquel 
+on multiplie la fonction échelon. L'expérience commence quand
+\og on prend en compte la gravité\fg.
+La sortie est la vitesse que l'on cherche à déterminer.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer l'équation différentielle régissant le système. 
+Quels sont son ordre et sa classe ? Quels sont les paramètres de sa forme 
+canonique?}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\[
+\dfrac{m}{k}\devi{v}{}+v=\dfrac{m}{k}g
+\]
+Le système est d'ordre 1 et de classe 0. Les paramètres de la forme canonique 
+sont $K=\dfrac{m}{k}$ et $\tau=\dfrac{m}{k}$. Notons qu'il n'y a pas toujours 
+égalité de ces deux paramètres.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer la forme de la sortie à partir de la réponse 
+temporelle de la forme canonique de ce système. Tracer sa solution.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La solution est simplement donnée par la réponse indicielle d'un système du 
+premier ordre que nous avons déterminé dans ce chapitre (c.f \cref{eq-1er_ind}),
+pour laquelle, $K=\dfrac{m}{k}$, $\tau=\dfrac{m}{k}$ et $E_0=g$.
 
+Soit alors, en prenant $v(0)=0$ :
+\[
+v(t)=\dfrac{mg}{k}\left(1-e^{-\dfrac{kt}{m}}\right).
+\]
+La vitesse maximale (c'est à dire la valeur finale de la réponse du SLCI) 
+est donc $\dfrac{mg}{k}$ ($KE_0$).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\exercice{Détermination de la fonction de transfert~\facile}
+\exercice{\'Etude des systèmes du 1er ordre~\facile}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-On souhaite déterminer les fonctions de transfert donnant lieu à réponse 
-indicielle ayant certaines caractéristiques.
-\acpl
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Carte des pôles et zéros. Réponse indicielle.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{itemize}
+    \item[(a)] placer son pôle dans la carte des pôles.
+    \item[(b)] donner l'allure de la réponse indicielle et estimer le temps
+               de réponse à 5\%.
+\end{itemize}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{carte_poles-exercices_corriges-chap_model-ext}
+    \input{tikz/carte_poles-exercices_corriges-chap_model.tex}
+    \tikzsetnextfilename{1er_ordre-exercices_corriges-chap_model-ext}
+    \input{tikz/1er_ordre-exercices_corriges-chap_model.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+On trace la réponse indicielle pour des valeurs de $K=1$ et $T=1$.
+Le temps de réponse à 5\% de chacun des systèmes est :
+%-------------------------------------------------------------------------------
+\begin{itemize}
+    \item $S_1$: $t_{5\%}=3T$
+    \item $S_2$: $t_{5\%}=6T$
+    \item $S_3$: $t_{5\%}=3T$
+    \item $S_4$: $t_{5\%}=\frac{3}{2}T$
+\end{itemize}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Comparer les quatres systèmes en termes de rapidité}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Le système 4 est bien le plus rapide.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\exercice{Détermination de la fonction de transfert~\facile}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%On souhaite déterminer les fonctions de transfert donnant lieu à réponse 
+%indicielle ayant certaines caractéristiques.
+%\acpl
