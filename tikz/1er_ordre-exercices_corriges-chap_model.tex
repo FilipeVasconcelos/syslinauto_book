@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+    \begin{axis}[
+        width=8cm,
+        height=6cm,
+        legend style={draw=none},
+        legend pos=outer north east,
+        axis line style = thick,
+        xmin=0,
+        xmax=8,
+        ymin=0,
+        ymax=2.1,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        label style={font=\Large},
+        minor y tick num=4,
+        minor x tick num=1,
+        grid=both,
+        grid style={line width=.2pt, draw=gray!80},
+        major grid style={line width=.2pt,draw=gray!80},
+    ]
+        \addplot[thick,color=col1,domain=0:8,samples=201]{(1-exp(-x))};
+        \addplot[thick,color=col2,domain=0:8,samples=201]{(1-exp(-0.5*x))};
+        \addplot[thick,color=col3,domain=0:8,samples=201]{2*(1-exp(-x))};
+        \addplot[thick,color=col4,domain=0:8,samples=201]{(1-exp(-2*x))};
+        \legend{$S_1$,$S_2$,$S_3$,$S_4$}
+\end{axis}
+\end{tikzpicture}
