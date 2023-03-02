@@ -1,71 +1,438 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\exercice{Diagrammes de Bode~\difficile}
+\exercice{Représentation graphique d'un signal harmonique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{\textbf{Tracer les diagrammes de Bode asymptotique et réel 
-pour les fonctions de transfert suivantes :}}
+\question{\textbf{Déterminer le gain naturel $G(\omega)=|H(\jw)|$ et la 
+phase $\phi(\omega)$ à partir de la fonction de transfert.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-(a)
+Le gain naturel et la phase de la réponse harmonique sont déterminés 
+repectivement par le module et l'argument du nombre complexe $H(\jw)$, ici 
+tel que :
 \[
-    H_1(p)=\dfrac{100(10p+1)}{(0.1p+1)^2}
+H(\jw)=\dfrac{1}{1+2\jw}
 \]
+On obtient alors pour le gain :
+\[
+G(\omega)=|H(\jw)|=\dfrac{1}{\sqrt{1+4\omega^2}}
+\]
+et pour la phase :
+\[
+\phi(\omega)=\arctan{2\omega}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Tracer graphiquement la sollicitation $e(t)$ pour $E_0=1$,
+$\omega=\SI{1}{\radian\per\second}$ et  $\omega=\SI{2}{\radian\per\second}$}.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{bode_h1_gain-exercices_corriges-chap_repfreq-ext}
-    \input{tikz/bode_h1_gain-exercices_corriges-chap_repfreq.tex}
-
-    \tikzsetnextfilename{bode_h1_phase-exercices_corriges-chap_repfreq-ext}
-    \input{tikz/bode_h1_phase-exercices_corriges-chap_repfreq.tex}
+    \tikzsetnextfilename
+    {sollicitation_harmonique-exercices_corriges-chap_repfreq-ext}
+    \input{tikz/sollicitation_harmonique-exercices_corriges-chap_repfreq.tex}
 \end{center}
 %-------------------------------------------------------------------------------
-(b)
-\[ 
-    H_2(p)=\dfrac{(p+1)}{p^2(1+0.3p+p^2)} 
-\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer numériquement le gain et le déphasage 
+pour  $\omega=\SI{0.1}{\radian\per\second}$, $\omega=\SI{1}{\radian\per\second}$
+et $\omega=\SI{2}{\radian\per\second}$.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{bode_h2_gain-exercices_corriges-chap_repfreq-ext}
-    \input{tikz/bode_h2_gain-exercices_corriges-chap_repfreq.tex}
-    \tikzsetnextfilename{bode_h2_phase-exercices_corriges-chap_repfreq-ext}
-    \input{tikz/bode_h2_phase-exercices_corriges-chap_repfreq.tex}
+\begin{tabular}{P{3cm}P{3cm}P{3cm}}
+    \hline
+    $\omega$ (\si{\radian\per\second}) & 
+    $G(\omega)$                        & 
+    $\phi(\omega)$ (\degreeSI)\tabularnewline
+    \hline
+    0.1 & 0.98 & -11.3 \tabularnewline
+    1.0 & 0.45 & -63   \tabularnewline
+    2.0 & 0.24 & -75   \tabularnewline
+    \hline
+\end{tabular}
 \end{center}
 %-------------------------------------------------------------------------------
-
-(c)
-\[
-H_3(p)=\dfrac{100}{(1+0.1p)(1+0.01p)(1+0.001p)}
-\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Tracer graphiquement la réponse harmonique avec la 
+sollicitation pour $\omega=\SI{0.1}{\radian\per\second}$, 
+$\omega=\SI{1}{\radian\per\second}$ et $\omega=\SI{2}{\radian\per\second}$. 
+On choisira judicieusement l'échelle temporelle pour représenter une periode 
+complète.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{bode_h3_gain-exercices_corriges-chap_repfreq-ext}
-    \input{tikz/bode_h3_gain-exercices_corriges-chap_repfreq.tex}
-    \tikzsetnextfilename{bode_h3_phase-exercices_corriges-chap_repfreq-ext}
-    \input{tikz/bode_h3_phase-exercices_corriges-chap_repfreq.tex}
+    \tikzsetnextfilename
+    {reponse1_harmonique-exercices_corriges-chap_repfreq-ext}
+    \input{tikz/reponse1_harmonique-exercices_corriges-chap_repfreq.tex}
 \end{center}
 %-------------------------------------------------------------------------------
-
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename
+    {reponse2_harmonique-exercices_corriges-chap_repfreq-ext}
+    \input{tikz/reponse2_harmonique-exercices_corriges-chap_repfreq.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename
+    {reponse3_harmonique-exercices_corriges-chap_repfreq-ext}
+    \input{tikz/reponse3_harmonique-exercices_corriges-chap_repfreq.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{\textbf{Pour chacun des systèmes, déterminer la valeur de la 
-pulsation $\omega_{0\si{\dB}}$, c'est à dire la pulsation pour laquelle le 
-gain vaut 0~\si{\dB}.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-En lisant le diagramme de Bode 
-$\omega_{0\si{\dB}}\sim\SI{300}{\radian\per\second}$
+\exercice{Diagramme de Bode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Tracer les diagrammes asymptotiques et réels de Bode des systèmes 
+définis par les fonctions de transfert suivantes :}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% QUESTION 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+\[
+\boldsymbol{H(p) = \dfrac{1}{10p+1}}
+\]
+\paragraph{Recherche des asymptotes}
+\begin{itemize}
+    \item $\textrm{gain statique :} K=1      \rightarrow 
+           \textrm{toute fréquence}             \rightarrow 
+           \textrm{0 dB à basse fréquence}      \rightarrow 
+           \textrm{pas d'effet sur la phase}$
+    \item $\textrm{1er ordre : }\tau_1=10        \rightarrow 
+           \omega_1=0.1                         \rightarrow 
+           \textrm{pente du gain : }
+           \SI[per-mode=symbol]{-20}{\dB\per\dec} \rightarrow 
+        \phi\mathrel{+}=-90\si{\degree}$ 
+\end{itemize}
 
-Par le calcul on cherche $\omega$ tel que 
+\begin{center}
+    \tikzsetnextfilename{gainQ1-exercices_corriges-chap_repfreq-ext}
+    \input{tikz/gainQ1-exercices_corriges-chap_repfreq.tex}
+
+    \tikzsetnextfilename{phaseQ1-exercices_corriges-chap_repfreq-ext}
+    \input{tikz/phaseQ1-exercices_corriges-chap_repfreq.tex}
+\end{center}
+
+\paragraph{Fonctions réelles du gain et du déphasage}
 \[
-\left|(1+0.1\jw)(1+0.01\jw)(1+0.001\jw)\right|=100
+G(\omega)=|H(\jw)|=\dfrac{1}{\sqrt{1+\tau_1^2\omega^2}}
 \]
-soit encore
 \[
-    (1+10^{-2}\omega)(1+10^{-4}\omega)(1+10^{-6}\omega)=10^4    
+G_{dB}(\omega)=-10\log{(1+\tau_1^2\omega^2)}
 \]
-La résolution de cette expression en $\omega$ donne
 \[
-    \omega_{0\si{\dB}}\sim301.307 
+\phi(\omega)=\arg{H(\jw)}=-\arctan{\tau_1\omega}
 \]
+
+\paragraph{Quelques valeurs particulières (calculées) :}
+\begin{center}
+\begin{tabular}{P{3.5cm}P{2cm}P{2cm}P{2cm}}
+\hline
+\hline
+Pulsation (\si{\radian\per\second}) & $10^{-2}$ & $\omega_1=0.1$ & 1 \\[1em]
+Gain (\si{\decibel})                &     0     &     -3     &   -20 \\[1em]
+Déphasage (\si{\degree})            &    -6     &     -45    &   -84 \\[1em]
+\hline
+\hline
+\end{tabular}
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% QUESTION 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\question{}
+\[
+\boldsymbol{H(p) = \dfrac{100}{(10p+1)(100p+1)}}
+\]
+\paragraph{Recherche des asymptotes}
+\begin{itemize}
+\item $\textrm{gain statique : } K=100      \rightarrow 
+     \textrm{toute fréquence}           \rightarrow 
+     \textrm{40 dB à basse fréquence}   \rightarrow 
+     \textrm{pas d'effet sur la phase}$
+\item $\textrm{1er ordre : }\tau_1=100     \rightarrow 
+     \omega_1=10^{-2}                   \rightarrow 
+     \textrm{pente du gain : } 
+     \SI[per-mode=symbol]{-20}{\dB\per\dec}  \rightarrow 
+     \phi\mathrel{+}=-90\si{\degree}$ 
+\item $ \textrm{1er ordre : }\tau_2=10     \rightarrow 
+     \omega_2=10^{-1}                   \rightarrow 
+     \textrm{pente du gain : } 
+     \SI[per-mode=symbol]{-20}{\dB\per\dec} \rightarrow 
+     \phi\mathrel{+}=-90\si{\degree}$ 
+\end{itemize}
+\begin{center}
+    \tikzsetnextfilename{gainQ2-exercices_corriges-chap_repfreq-ext}
+    \input{tikz/gainQ2-exercices_corriges-chap_repfreq.tex}
+
+    \tikzsetnextfilename{phaseQ2-exercices_corriges-chap_repfreq-ext}
+    \input{tikz/phaseQ2-exercices_corriges-chap_repfreq.tex}
+\end{center}
+\paragraph{Fonctions réelles du gain et du déphasage}
+\[
+G(\omega)=|H(\jw)|=
+\dfrac{100}{\sqrt{1+\tau_2^2\omega^2}\sqrt{1+\tau_1^2\omega^2}}
+\]
+\[
+G_{dB}(\omega)=40-10\log{(1+\tau_2^2\omega^2)}-10\log{(1+\tau_1^2\omega^2)}
+\]
+\[
+\phi(\omega)=\arg{H(\jw)}=-\arctan{\tau_1\omega}-\arctan{\tau_2\omega}
+\]
+\paragraph{Quelques valeurs particulières (calculées) :}
+\begin{center}
+\begin{tabular}{P{3.5cm}P{2cm}P{2cm}P{2cm}P{2cm}}
+\hline
+\hline
+Pulsation (\si{\radian\per\second}) 
+& $10^{-3}$ & $\omega_1=10^{-2}$ & $\omega_2=10^{-1}$ &     1  \\[1em]
+Gain (\si{\decibel})       
+&   40      &    37              &    17              &   -20  \\[1em]
+Déphasage (\si{\degree})   
+&  -6       &   -51              &  -129              &  -174  \\[1em]
+\hline
+\hline
+\end{tabular}
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% QUESTION 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\question{}
+\[
+\boldsymbol{H(p) = \dfrac{100(p+1)^2}{(100p+1)(10p+1)(0.01p+1)}}
+\]
+\paragraph{Recherche des asymptotes}
+\begin{itemize}
+\item $\textrm{gain statique : } K=100      \rightarrow 
+      \textrm{toute fréquence}           \rightarrow 
+      \textrm{40 dB à basse fréquence}   \rightarrow 
+      \textrm{pas d'effet sur la phase}$
+\item $\textrm{1er ordre : }\tau_1=100     \rightarrow 
+      \omega_1=10^{-2}                   \rightarrow 
+      \textrm{pente du gain : } 
+      \SI[per-mode=symbol]{-20}{\dB\per\dec} \rightarrow 
+      \phi\mathrel{+}=-90\si{\degree}$ 
+\item $ \textrm{1er ordre : }\tau_2=10     \rightarrow 
+      \omega_2=10^{-1}                   \rightarrow 
+      \textrm{pente du gain : } 
+      \SI[per-mode=symbol]{-20}{\dB\per\dec} \rightarrow 
+      \phi\mathrel{+}=-90\si{\degree}$ 
+\item $ \textrm{2nd ordre : }\tau_3=1   \rightarrow 
+      \omega_3=1                         \rightarrow 
+      \textrm{pente du gain : } 
+      $+$\SI[per-mode=symbol]{40}{\dB\per\dec}  \rightarrow 
+      \phi\mathrel{+}=+180\si{\degree}$ 
+\item $ \textrm{1er ordre : }\tau_4=0.01     \rightarrow 
+      \omega_4=10^{2}                   \rightarrow 
+      \textrm{pente du gain : } 
+      \SI[per-mode=symbol]{-20}{\dB\per\dec} \rightarrow 
+      \phi\mathrel{+}=-90\si{\degree}$ 
+\end{itemize}
+\begin{center}
+    \tikzsetnextfilename{gainQ3-exercices_corriges-chap_repfreq-ext}
+    \input{tikz/gainQ3-exercices_corriges-chap_repfreq.tex}
+
+    \tikzsetnextfilename{phaseQ3-exercices_corriges-chap_repfreq-ext}
+    \input{tikz/phaseQ3-exercices_corriges-chap_repfreq.tex}
+\end{center}
+\paragraph{Fonctions réelles du gain et du déphasage}$\,$\newline
+\[
+G(\omega)=|H(\jw)|=
+\dfrac{100(1+\tau_3^2\omega^2)}
+{\sqrt{1+\tau_1^2\omega^2}\sqrt{1+\tau_2^2\omega^2}\sqrt{1+\tau_4^2\omega^2}}
+\]
+\[
+G_{dB}(\omega)=40+
+               20\log{(1+\tau_3^2\omega^2)}
+              -10\log{(1+\tau_1^2\omega^2)}
+              -10\log{(1+\tau_2^2\omega^2)}
+              -10\log{(1+\tau_4^2\omega^2)}
+\]
+\[
+\phi(\omega)=\arg{H(\jw)}=
+             2\arctan{\tau_3\omega}
+             -\arctan{\tau_1\omega}
+             -\arctan{\tau_2\omega}
+             -\arctan{\tau_4\omega}
+\]
+\paragraph{Quelques valeurs particulières (calculées) :}
+\begin{center}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{P{3cm}P{2cm}P{2cm}P{2cm}P{2cm}P{2cm}P{2cm}P{2cm}}
+\hline
+\hline
+Pulsation (\si{\radian\per\second}) & 
+$10^{-3}$ & $\omega_1=10^{-2}$ & $\omega_2=10^{-1}$ & 
+$\omega_3=1$  & 10 & $\omega_4=10^{2}$ & $10^{3}$ \\[1em]
+Gain (\si{\decibel})         &  40 &  37 &   17 & -14 & -20 & -23 & -40 \\[1em]
+Déphasage (\si{\degree}) &  -6 & -50 & -118 & -84 & -16 & -46 & -84 \\[1em]
+\hline
+\hline
+\end{tabular}%
+}
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% QUESTION 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\question{}
+\[
+\boldsymbol{H(p) = \dfrac{(10p+1)(0.1p+1)}{p(0.001p+1)^2}}
+\]
+\paragraph{Recherche des asymptotes}
+\begin{itemize}
+\item $\textrm{intégrateur } \frac{K}{p}     \rightarrow 
+      \textrm{toute fréquence}               \rightarrow 
+      \textrm{pente -20dB/dec}               \rightarrow 
+      \phi\mathrel{+}=-90\si{\degree}$
+\item $\textrm{1er ordre : }\tau_1=10          \rightarrow 
+      \omega_1=10^{-1}                       \rightarrow 
+      \textrm{pente du gain : } 
+      $+$\SI[per-mode=symbol]{20}{\dB\per\dec}    \rightarrow 
+      \phi\mathrel{+}=+90\si{\degree}$ 
+\item $ \textrm{1er ordre : }\tau_2=0.1        \rightarrow 
+      \omega_2=10                            \rightarrow 
+      \textrm{pente du gain : } 
+      $+$\SI[per-mode=symbol]{20}{\dB\per\dec}     \rightarrow 
+      \phi\mathrel{+}=+90\si{\degree}$ 
+\item $ \textrm{2nd ordre : }\tau_3=10^{-3} \rightarrow 
+      \omega_3=10^3                          \rightarrow 
+      \textrm{pente du gain : } 
+      \SI[per-mode=symbol]{-40}{\dB\per\dec}     \rightarrow 
+      \phi\mathrel{+}=-180\si{\degree}$ 
+\end{itemize}
+\begin{center}
+    \tikzsetnextfilename{gainQ4-exercices_corriges-chap_repfreq-ext}
+    \input{tikz/gainQ4-exercices_corriges-chap_repfreq.tex}
+
+    \tikzsetnextfilename{phaseQ4-exercices_corriges-chap_repfreq-ext}
+    \input{tikz/phaseQ4-exercices_corriges-chap_repfreq.tex}
+\end{center}
+
+\paragraph{Fonctions réelles du gain et du déphasage}$\,$\newline
+\[
+G(\omega)=|H(\jw)|=
+\dfrac{\sqrt{1+\tau_1^2\omega^2}\sqrt{1+\tau_2^2\omega^2}}
+      {\omega(1+\tau_3^2\omega^2)}
+\]
+\[
+G_{dB}(\omega)=10\log{(1+\tau_1^2\omega^2)}
+              +10\log{(1+\tau_2^2\omega^2)}
+              -20\log{\omega}
+              -20\log{(1+\tau_3^2\omega^2)}
+\]
+\[
+\phi(\omega)=\arg{H(\jw)}=-\frac{\pi}{2}+\arctan{\tau_1\omega}
+                                        +\arctan{\tau_2\omega}
+                                       -2\arctan{\tau_3\omega}
+\]
+\paragraph{Quelques valeurs particulières (calculées) :}
+\begin{center}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{P{3.5cm}P{2cm}P{2cm}P{2cm}P{2cm}P{2cm}P{2cm}P{2cm}}
+\hline
+\hline
+Pulsation (\si{\radian\per\second}) & $10^{-2}$ 
+                                    & $\omega_1=10^{-1}$ 
+                                    & 1 & $\omega_1=10$ 
+                                    & $10^{2}$ 
+                                    & $\omega_3=10^{3}$ 
+                                    & $10^{4}$  \\[1em]
+Gain (\si{\decibel})                &    40 
+                                    &    23 
+                                    &    20
+                                    &    23 
+                                    &    40 
+                                    &    54 
+                                    &    40 \\[1em]
+Déphasage (\si{\degree})            &   -84 
+                                    &   -44 
+                                    &    0 
+                                    &    43 
+                                    &    73 
+                                    &    1  
+                                    &   -79 \\[1em]
+\hline
+\hline
+\end{tabular}%
+}
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% QUESTION 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\question{}
+\[
+\boldsymbol{H(p) = \dfrac{10(10p+1)}{(p+1)(100p+1)}}
+\]
+\paragraph{Recherche des asymptotes}
+\begin{itemize}
+\item $K=10                                    \rightarrow 
+      \textrm{toute fréquence}                 \rightarrow 
+      \textrm{20 dB à basse fréquence}         \rightarrow 
+      \textrm{pas d'effet sur la phase}$
+\item $\textrm{1er ordre : }\tau_1=100         \rightarrow 
+      \omega_1=10^{-2}                         \rightarrow 
+      \textrm{pente du gain : } 
+      \SI[per-mode=symbol]{-20}{\dB\per\dec}   \rightarrow 
+      \phi\mathrel{+}=-90\si{\degree}$ 
+\item $\textrm{1er ordre : }\tau_2=10          \rightarrow 
+      \omega_2=10^{-1}                         \rightarrow 
+      \textrm{pente du gain : } 
+      $+$\SI[per-mode=symbol]{20}{\dB\per\dec} \rightarrow 
+      \phi\mathrel{+}=+90\si{\degree}$ 
+\item $\textrm{1er ordre : }\tau_3=1           \rightarrow 
+      \omega_3=1                               \rightarrow 
+      \textrm{pente du gain : } 
+      \SI[per-mode=symbol]{-20}{\dB\per\dec}   \rightarrow 
+      \phi\mathrel{+}=-90\si{\degree}$ 
+\end{itemize}
+\begin{center}
+    \tikzsetnextfilename{gainQ5-exercices_corriges-chap_repfreq-ext}
+    \input{tikz/gainQ5-exercices_corriges-chap_repfreq.tex}
+    
+    \tikzsetnextfilename{phaseQ5-exercices_corriges-chap_repfreq-ext}
+    \input{tikz/phaseQ5-exercices_corriges-chap_repfreq.tex}
+\end{center}
+\paragraph{Fonctions réelles du gain et du déphasage}
+\[
+G(\omega)
+=|H(\jw)|=\dfrac{10\sqrt{1+\tau_2^2\omega^2}}
+                {\sqrt{1+\tau_3^2\omega^2}\sqrt{1+\tau_1^2\omega^2}}
+\]
+\[
+G_{dB}(\omega)=20+10\log{(1+\tau_2^2\omega^2)}
+                 -10\log{(1+\tau_3^2\omega^2)}
+                 -10\log{(1+\tau_1^2\omega^2)}
+\]
+\[
+\phi(\omega)=\arg{H(\jw)}=\arctan{\tau_2\omega}
+                         -\arctan{\tau_3\omega}
+                         -\arctan{\tau_1\omega}
+\]
+\paragraph{Quelques valeurs particulières (calculées) :}
+\begin{center}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{P{3cm}P{2cm}P{2cm}P{2cm}P{2cm}P{2cm}}
+\hline
+\hline
+Pulsation (\si{\radian\per\second}) 
+& $10^{-3}$ & 
+$\omega_1=10^{-2}$ & 
+$\omega_2=10^{-1}$ & 
+$\omega_3=1$ & 10 \\[1em]
+Gain (\si{\decibel})       & 20 &  17 &   3 &  -3 & -20 \\[1em]
+Déphasage (\si{\degree})   & -5 & -40 & -45 & -50 & -85 \\[1em]
+\hline
+\hline
+\end{tabular}%
+}
+\end{center}
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Diagrammes de Nyquist~\difficile}
@@ -105,4 +472,3 @@ $\phi(\omega)$ de ce système:
 \]
 Le déphasage permet de déterminer l'allure du diagramme de Nyquist 
 lorsque $\omega$ approche zéro ou l'infini. 
-
