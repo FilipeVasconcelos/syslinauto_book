@@ -1,0 +1,49 @@
+\tikzstyle{dr}=[signalr,dashed,line width=2pt]
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.24\textheight,
+    xlabel={Pulsation (\si{\radian\per\second})},
+    ylabel={Phase (\si{degree})},
+    xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5},
+    ytick={-180,-150,-120,-90,-60,-30,0},
+    yticklabels={-180,-150,-120,-90,-60,-30,0},
+    xticklabels={$10^{-4}$,
+                 $10^{-3}$,
+                 $10^{-2}$,
+                 $10^{-1}$,
+                 $10^{0}$,
+                 $10^{1}$,
+                 $10^{2}$,
+                 $10^{3}$,
+                 $10^{4}$,
+                 $10^{5}$},
+    xmode=log,ymode=normal,
+    xmin=1e-4, xmax=1e5,
+    ymin=-180, ymax=0,
+    grid=both,
+    major grid style={black!40}
+]
+    \addplot[signalb,domain=1e-4:1e5] {2*atan2(x,1)
+                                        -atan2(100*x,1)
+                                        -atan2(10*x,1)
+                                        -atan2(0.01*x,1)};
+    \addplot[dr,domain=1e-4:1e-2] {0};
+    \addplot[dr,domain=1e-2:1e-1] {-90};
+    \addplot[dr,domain=1e-1:1e0 ] {-180};
+    \addplot[dr,domain=1e0:1e2] {0};
+    \addplot[dr,domain=1e2:1e5] {-90};
+    \draw[dr] (axis cs:0.01,0)  -- (axis cs:0.01,-90);
+    \draw[dr] (axis cs:0.1,-90) -- (axis cs:0.1,-180);
+    \draw[dr] (axis cs:1,-180)  -- (axis cs:1,0);
+    \draw[dr] (axis cs:100,0)   -- (axis cs:100,-90);
+    \draw[draw=none,fill=col1] (axis cs:0.001,-6.1695) circle[radius=2pt];
+    \draw[draw=none,fill=col1] (axis cs:0.01,-49.5704) circle[radius=2pt];
+    \draw[draw=none,fill=col1] (axis cs:0.1,-117.9255) circle[radius=2pt];
+    \draw[draw=none,fill=col1] (axis cs:1,-84.2894) circle[radius=2pt];
+    \draw[draw=none,fill=col1] (axis cs:10,-16.5015) circle[radius=2pt];
+    \draw[draw=none,fill=col1] (axis cs:100,-46.0829) circle[radius=2pt];
+    \draw[draw=none,fill=col1] (axis cs:1000,-84.3977) circle[radius=2pt];
+\end{axis}
+\end{tikzpicture}

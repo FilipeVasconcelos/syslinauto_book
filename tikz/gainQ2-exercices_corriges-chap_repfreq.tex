@@ -1,0 +1,36 @@
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.24\textheight,
+    ylabel={Gain (\si{\decibel})},
+    xtick={1e-5,1e-4,1e-3,1e-2,1e-1,1e0,1e1,1e2,1e3,1e4},
+    ytick={-80,-60,-40,-20,0,20,40,60},
+    xticklabels={$10^{-5}$,
+                 $10^{-4}$,
+                 $10^{-3}$,
+                 $10^{-2}$,
+                 $10^{-1}$,
+                 $10^{0}$,
+                 $10^{1}$,
+                 $10^{2}$,
+                 $10^{3}$,
+                 $10^{4}$},
+    yticklabels={-80,-60,-40,-20,0,20,40,60},
+    xmode=log,ymode=normal,
+    xmin=1e-4, xmax=1e1,
+    ymin=-60, ymax=60,
+    grid=both,
+    major grid style={black!40}
+]
+   \addplot[signalb,domain=1e-5:1e4] 
+   {40-10*log10(1+100*x*x)-10*log10(1+10000*x*x)};
+   \addplot[signalr,line width=2pt,dashed,domain=1e-5:1e-2] {40};
+   \addplot[signalr,line width=2pt,dashed,domain=1e-2:1e-1] {-20*log10(x)};
+   \addplot[signalr,line width=2pt,dashed,domain=1e-1:1e4 ] {-20-40*log10(x)};
+   \draw[draw=none,fill=col1] (axis cs:0.001,39.95) circle[radius=2pt];
+    \draw[draw=none,fill=col1] (axis cs:0.01,36.95) circle[radius=2pt];
+    \draw[draw=none,fill=col1] (axis cs:0.1,16.95) circle[radius=2pt];
+    \draw[draw=none,fill=col1] (axis cs:1,-20.04) circle[radius=2pt];
+\end{axis}
+\end{tikzpicture}
