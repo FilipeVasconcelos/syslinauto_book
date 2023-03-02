@@ -1,0 +1,26 @@
+\newcommand{\rps}{\radian\per\second}
+\begin{tikzpicture}
+    \begin{axis}[
+        axis line style = thick,
+        height=8cm,
+        width=12cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=0,
+        xmax=12,
+        ymin=-1.25,
+        ymax=1.25,
+        xlabel={$t$},
+        ylabel={$e(t)$},
+        xlabel style={below right},
+        ylabel style={left},
+        grid=both,
+        minor tick num=4,
+        clip=false,
+        ]
+    \addplot[signalb,domain=0:12]{sin(deg(x))};
+    \addplot[signalr,domain=0:12]{sin(2*deg(x))};
+    \node[left,color=col1] at (axis cs:16,1.0)  {\large $\omega=\SI{1}{\rps}$};
+    \node[left,color=col4] at (axis cs:16,0.75) {\large $\omega=\SI{2}{\rps}$};
+    \end{axis}
+\end{tikzpicture}

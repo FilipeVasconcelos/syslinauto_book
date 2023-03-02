@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+    \begin{axis}[
+        axis line style = thick,
+        height=8cm,
+        width=12cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=0,
+        xmax=6,
+        ymin=-1.25,
+        ymax=1.25,
+        xlabel={$t$},
+        ylabel={$e(t)$},
+        xlabel style={below right},
+        ylabel style={left},
+        grid=both,
+        minor tick num=4,
+        ]
+        \addplot[signalb,domain=0:6]{sin(2*deg(x))};
+        \addplot[signalr,domain=0:6]{0.24*sin(2*deg(x)-75)};
+    \end{axis}
+\end{tikzpicture}
