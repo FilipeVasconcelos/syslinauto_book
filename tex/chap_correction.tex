@@ -398,6 +398,115 @@ puisque $\tau^2\omega_m^2=\dfrac{1}{\alpha}$.
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Exemple d'application du correcteur à avance de phase}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\emph{Remarque : Dans cet exercice, on utilisera SCILAB pour tracer les 
+réponses harmoniques et temporelles des fonctions de transfert en 
+boucle ouverte et/ou boucle fermée lorsque celles-ci sont nécessaires.}
+
+On se donne un procédé de fonction de transfert $H(p)$ telle que
+\[
+    H(p)=\dfrac{1}{p(p+0.2)}
+\]
+dans une boucle de contre-réaction unitaire.
+
+On souhaite corrigé ce système pour qu'il présente une marge de stabilité de
+\SI{55}{\degree}, un temps de réponse à 5\% de moins de \SI{5}{\second} et 
+un premier dépassement inférieur à 20\% pour la réponse indicielle.
+%alpha=6 \tau=0.4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\question{\textbf{Que peut-on dire de la précision, la rapidité, le dépassement 
+%et la stabilité du système en boucle fermée sans correction.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+\begin{itemize}
+    \item Le système est précis en boucle fermée puisqu'il présente 
+          un intégrateur.
+    \item Si on calcule la fonction de transfert en boucle fermée, on conclue 
+          qu'il est également stable en boucle fermée, tous les coefficients
+          du polynôme caractéristique étant de même signes.
+          \[
+            H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=\dfrac{1}{p^2+0.2p+1}
+          \]
+    \item Pour le dépassement et la rapidité, nous les mesurererons 
+          directement sur la réponse indicielle.
+\end{itemize}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{reponse_indicielle_exempleAP_NC-chap_correction-ext}
+    \input{tikz/reponse_indicielle_exempleAP_NC-chap_correction.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+Le dépassement est de plus de 70\% et le temps de réponse à 5\% est au dessus 
+de \SI{25}{\second}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\question{\textbf{Déterminer la marge de phase avant correction}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour déterminer la marge de phase avant correction on peut tracer le diagramme
+de Bode de la boucle ouverte non corrigée.
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{bode_BONC_exempleAP-chap_correction-ext}
+    \input{tikz/bode_BONC_exempleAP-chap_correction.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+On utilise maintenant un correcteur à avance de phase.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\question{\textbf{Déterminer les paramètres $\alpha$ et $\tau$ du correcteur 
+%tel que la marge de phase finale soit de l'ordre de \SI{55}{\degree}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On cherche $\phi_m$ tel que
+\[
+    M_\phi+\phi_m=\SI{55}{\degree}
+\]
+où $\phi_m$ est la phase maximale apportée par le correcteur à avance de phase
+tel que:
+$\phi_m=\arcsin{\left(\dfrac{\alpha-1}{\alpha+1}\right)}$
+Donc on cherche $\alpha$ tel que $\phi_m=\SI{43.7}{\degree}$
+\[
+    \alpha=\dfrac{1+\sin\phi_m}{1-\sin\phi_m}=5.47
+\]
+On souhaite ajouter cette phase à la pulsation $\omega_{\SI{0}{\dB}}$, il faut 
+donc que $\tau$ (le paramètre du correcteur) soit définit tel que
+\[
+    \omega_m=\omega_{\SI{0}{\dB}}
+\]
+ou encore
+\[
+    \dfrac{1}{\sqrt{\alpha}\tau}=\omega_{\SI{0}{\dB}}
+\]
+\[
+    \tau=\dfrac{1}{\sqrt{\alpha}\omega_{\SI{0}{\dB}}}=\SI{0.43}{\second}
+\]
+Traçons le diagramme de Bode de la boucle fermée corrigée pour $K_P=1$
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{bode_BONC_BOC_exempleAP-chap_correction-ext}
+    \input{tikz/bode_BONC_BOC_exempleAP-chap_correction.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+Le diagramme ci-dessous nous permet de déterminer la valeur $K_P$ du correcteur
+pour que le gain s'annule (en décibel) à la pulsation $\omega_{\SI{0}{\dB}}$.
+
+On a alors 
+\[
+    K_P=10^{-\dfrac{7.16}{20}}=0.44
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\question{\textbf{Comparer les réponses indicielles du système corrigé et non corrigé}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On trace maintenant la réponse indicielle pour le système corrigé pour observer
+que les exigences du cahier des charges sont bien respectées.
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{reponse_indicielle_exempleAP_C_NC-chap_correction-ext}
+    \input{tikz/reponse_indicielle_exempleAP_C_NC-chap_correction.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Correcteur à retard de phase}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
