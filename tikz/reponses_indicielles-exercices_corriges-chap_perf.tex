@@ -1,0 +1,25 @@
+\begin{tikzpicture}[shift={(5,0)}]
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=south east,
+        axis line style = thick,
+        width=0.65\textwidth,
+        xmin=0,
+        xmax=0.9,
+        ymin=0,
+        ymax=12,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        label style={font=\Large},
+        legend cell align={left},
+    ]%
+    \addplot[signaln,domain=0:0.9] {5*(1-exp(-20*x))-
+                                   10*(1-exp(-10*x))
+                                  +10*(1-exp(-10*x)
+                                  -10*x*exp(-10*x))};
+    \addplot[signalr,domain=0:0.9] {10*(1-exp(-10*x))};
+    \addplot[signalo,domain=0:0.9] {10*(1-exp(-10*x)-10*x*exp(-10*x))};
+    \addplot[signalb,domain=0:0.9] {5*(1-exp(-20*x))};
+    \legend{$s(t)$,$-s_1(t)$,$s_2(t)$,$s_3(t)$}
+    \end{axis}%
+\end{tikzpicture}

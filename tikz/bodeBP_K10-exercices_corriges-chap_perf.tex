@@ -1,0 +1,28 @@
+\begin{tikzpicture}[trim axis left]
+\begin{axis}
+[
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.25\textheight,
+    grid=both,
+    major grid style={black!40},
+    xmode=log,ymode=normal,ylabel={Gain(\si{\decibel})},
+    xtick={1e-2,1e-1,1e0,1e1,1e2},
+    xticklabels={$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$},
+    ytick={-60,-50,-40,-30,-20,-10,0,10,20,30,40},
+    yticklabels={-60,,-40,,-20,,0,,20,,40},
+    xmin=1e-2,xmax=1e2,
+    ymin=-60,ymax=40,
+    clip=false
+]
+\pgfmathsetmacro{\kk}{10.0}
+\addplot[signalb,domain=1e-2:1e2] {20*log10(\kk)-10*log10((\kk-x*x)^2+x*x)};
+\addplot[signalo,domain=1e-1:1e2] {20*log10(\kk)-20*log10(x)-10*log10(1+x*x)};
+\draw[dutb] (axis cs:1e-2,-3) node[left] 
+                              {\SI{-3}{\dB} }-- (axis cs:5,-3);
+\draw[dutb] (axis cs:5,-60) node[below,xshift=1.1em,yshift=-1em] 
+                            {$\omega_{-3dB,BF}$}-- (axis cs:5,-3) ;
+\draw[duto] (axis cs:3,-60) node[below,xshift=-1em,yshift=-1em] 
+                            {$\omega_{0,BO}\sim$}-- (axis cs:3,-3) ;
+\end{axis}
+\end{tikzpicture}

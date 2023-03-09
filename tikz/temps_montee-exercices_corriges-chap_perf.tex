@@ -1,0 +1,37 @@
+\begin{tikzpicture}
+\pgfmathdeclarefunction{func2}{1}{%
+    \pgfmathparse{%
+        (3.14159265-rad(atan(sqrt(1-#1*#1)/#1)))/sqrt(1-#1*#1)
+    }%
+}
+    \begin{axis}
+    [   legend style={draw=none,font=\normalsize},
+        legend pos=outer north east,
+        axis line style = thick,
+        width=0.55\textwidth,
+        xmin=1e-1,
+        xmax=1e0,
+        ymin=1e0,
+        ymax=1e2,
+        xlabel={$\xi$},
+        ylabel={$t_{M}\cdot\omega_0$},
+        label style={font=\Large},
+        legend cell align={left},
+        xmode=log,
+        ymode=log,
+        grid=both,
+        grid style={line width=.4pt, draw=black},
+        major grid style={line width=.4pt,draw=black},
+        clip mode=individual,
+    ]%
+        \addplot[vtr,domain=0.1:1,samples=500]   {func2(x)};
+        \draw [dutb] (axis cs:1e-1,2.49) -- (axis cs:0.5,2.49);
+        \draw [dutb] (axis cs:0.5,1)   -- (axis cs:0.5,2.49);
+        \node[left,col1] at (axis cs:1e-1,2.49) {$t_{M}\cdot\omega_0\sim2.5$} ;
+        \node[below,col1] at (axis cs:0.5,1) {$\xi\sim0.5$};
+        \draw [dutr] (axis cs:1e-1,1.75) -- (axis cs:0.16,1.75);
+        \draw [dutr] (axis cs:0.16,1)   -- (axis cs:0.16,1.75);
+        \node[left,col4] at (axis cs:1e-1,1.75) {$t_{M}\cdot\omega_0\sim1.75$} ;
+        \node[below,col4] at (axis cs:0.16,1) {$\xi\sim0.16$};
+    \end{axis}
+\end{tikzpicture}

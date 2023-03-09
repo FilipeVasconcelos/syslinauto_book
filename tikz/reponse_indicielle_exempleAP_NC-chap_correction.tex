@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+    \begin{axis}
+    [
+        axis x line=center,
+        axis y line=center,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        x label style ={below},
+        y label style ={left},
+        xtick={2.5,5,7.5,10,12.5,15,17.5,20},
+        xticklabels={,5,,10,,15,,20},
+        ytick={0,0.25,0.5,0.75,1.0,1.25,1.5},
+        yticklabels={0,,0.5,,1.0,,1.5},
+        grid=both,
+        ymin=0,ymax=1.9,
+    ]
+        \addplot[mark=none,col4,ultra thick] table 
+                {scilab/step_response_hbf_NC_exemple-chap_correction.dat};
+        \addplot[col4,dashed,domain=0:25] {1.05};
+        \addplot[col4,dashed,domain=0:25] {0.95};
+    \end{axis}
+\end{tikzpicture}
