@@ -12,13 +12,190 @@ H(p)=\dfrac{K\omega_0^2}{p^2+2\xi\omega_0p+\omega_0^2}
 \question{\textbf{Déterminer la forme générale de l'erreur statique de la 
 réponse indicielle d'un système du second ordre}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{\textbf{Déterminer la forme générale de l'erreur statique de la 
 réponse indicielle de ce système placé dans une boucle de contre réaction}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{\textbf{Déterminer la forme générale de l'erreur statique de la 
 réponse à une rampe d'un système du second ordre}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Pôles dominants}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer la décomposition en éléments simples.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La décomposition en éléments simples est donnée par :
+\[
+H(p)=\dfrac{A}{(1+0.1p)}+\dfrac{B}{(1+0.1p)^2}+\dfrac{C}{(1+0.05p)}
+\]
+Il nous faut maintenant identifier les coefficients $A$,$B$ et $C$.
+Le coefficient $C$ est obtenu $H(p)$ par $(1+0.05p)$ et en évaluant $p$ en $-20$:
+
+\[
+C=(1+0.05p)H(p)\Big|_{p=-20}=5
+\]
+
+Par identification des numérateurs :
+\[
+A(1+0.1p)(1+0.05p)+B(1+0.05p)+5(1+0.1p)^2=5
+\]
+il apparait évident que le monome d'ordre 0 nous donne l'expression:
+\[
+A+B=0
+\]
+pour le l'ordre 2, nous avons :
+\[
+0.005A+0.05=0
+\]
+soit alors $A=-10$ et $B=10$
+
+La décomposition en éléments simples s'écrit donc :
+\[
+H(p)=\dfrac{-10}{(1+0.1p)}+\dfrac{10}{(1+0.1p)^2}+\dfrac{5}{(1+0.05p)}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Identifier les pôles de chacunes des contributions de 
+cette décomposition et les pôles dominants.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On pose
+\begin{align*}
+    H(p)&= {\color{col1} H_1(p)}+
+           {\color{col2} H_2(p)}+
+           {\color{col4} H_3(p)}\\
+    H(p)&= {\color{col1} \dfrac{-10}{(1+0.1p)}}+
+           {\color{col2} \dfrac{10}{(1+0.1p)^2}}+
+           {\color{col4} \dfrac{5}{(1+0.05p)}}\\
+\end{align*}
+Le premier terme est un système du premier ordre de temps de réponse à 5\% de
+$3\tau_1=\SI{0.3}{\second}$.
+Le second terme est un système du second ordre: avec $\xi=1$ et $\omega_0=10$
+de temps de réponse à 5\% de $\SI{0.5}{\second}$ (lecture sur l'abaque) 
+
+Le dernier terme est un premier ordre de temps de réponse à 5\% de 
+$3\tau_3=\SI{0.15}{\second}$.
+
+Les pôles dominants sont les pôles du premier et second termes de partie réelle -10.
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{carte-exercices_corriges-chap_perf-ext}
+    \input{tikz/carte-exercices_corriges-chap_perf.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Tracer la réponse indicielle de chacunes des 
+contributions. Conclure.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On représente ci-dessous,
+le réponse indicielle $s_i(t)$ pour chacunes des contributions
+$H_i(p)$ ainsi que la réponse totale $s(t)$
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{reponses_indicielles-exercices_corriges-chap_perf-ext}
+    \input{tikz/reponses_indicielles-exercices_corriges-chap_perf.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+On conclue bien sur la domination de la réponse $s_2(t)$ sur la réponse totale.
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Temps de montée et bande passante}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit un système en boucle ouverte de fonction de transfert en 
+boucle ouverte $H(p)$ définie  par :
+\[
+H(p)=\dfrac{K}{p(p+1)}
+\]
+On place ce simple dans une boucle de contre réaction unitaire.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Pour les valeurs de $K=0.1$, $K=1$ et $K=10$. 
+Déterminer le temps de montée du système en boucle fermée.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La fonction de transfert en boucle fermée est donnée par :
+\[
+H_{BF}(p)=\dfrac{K}{p(p+1)+K}=\dfrac{K}{p^2+p+K}
+\]
+par identification avec la fonction de transfert canonique d'un système 
+du second ordre, on détermine :
+%-------------------------------------------------------------------------------
+\begin{align*}
+K_{BF}=1\\
+\omega_{0,BF}=\sqrt{K}\\
+\xi_{BF}=\dfrac{1}{2\sqrt{K}}\\
+\end{align*}
+%-------------------------------------------------------------------------------
+Nous déterminons les temps de montée à la valeur finale à l'aide 
+de l'abaque approprié. Nous regroupons les données dans le tableau suivant :
+%-------------------------------------------------------------------------------
+\begin{table}[!hb]
+\centering
+\setlength{\ltmp}{0.15\textwidth}
+\begin{tabular}{@{}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}P{\ltmp}@{}}
+    \toprule
+    $K$ & $\xi_{BF}$ & $\omega_{0,BF}$ & $t_M\cdot\omega_{0,BF}$ 
+        & $t_M$ (\si{\second}) \\
+    \midrule
+    0.1 & $\sim$1.6  & $\sim$0.316 & -    & - \\       
+    1   & 0.5        & 1.0         & 2.5  & 2.5 \\       
+    10  & $\sim$0.16 & $\sim$3.16  & 1.75 & $\sim$0.55 \\       
+    \bottomrule
+\end{tabular}    
+\end{table}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{temps_montee-exercices_corriges-chap_perf-ext}
+    \input{tikz/temps_montee-exercices_corriges-chap_perf.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Tracer les diagrammes de Bode des système en boucle 
+ouverte et en boucle fermée pour $K=0.1$, $K=1$ et $K=10$.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Pour chacunes de ces figures déterminer la bande passante 
+à \SI{3}{\decibel} en boucle fermée ainsi que la valeur de $\omega_{0,dB}$ 
+en boucle ouverte (c'est à dire la valeur de la pulsation pour laquelle 
+le gain est nulle en boucle ouverte).}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour $K=0.1$
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{bodeBP_K0.1-exercices_corriges-chap_perf-ext}
+    \input{tikz/bodeBP_K0.1-exercices_corriges-chap_perf.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+Pour $K=1$
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{bodeBP_K1-exercices_corriges-chap_perf-ext}
+    \input{tikz/bodeBP_K1-exercices_corriges-chap_perf.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+Pour $K=10$
+%-------------------------------------------------------------------------------
+\begin{center}
+    \tikzsetnextfilename{bodeBP_K10-exercices_corriges-chap_perf-ext}
+    \input{tikz/bodeBP_K10-exercices_corriges-chap_perf.tex}
+\end{center}
+%-------------------------------------------------------------------------------
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{D'après les résultats quelle lien existe t-il entre la 
+bande passante et la rapidité. Et comment l'approximer à partir de la 
+réponse harmonique en boucle ouverte.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Il aparrait que la bande passante à \SI{3}{\decibel} est liée à la rapidité. 
+Plus cette bande passante est grande plus faible est le temps de montée (donc plus rapide).
+Il apparait également que la bande passante peut être approximée par la valeur de la pulsation
+donnant un gain de \SI{0}{\dB} en boucle ouverte. On peut alors dire :
+\[
+\omega_{-3dB,BF}\sim\omega_{0,BO}
+\]
+
+
