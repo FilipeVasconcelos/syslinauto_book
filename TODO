@@ -12,7 +12,7 @@
         - revoir la partie précision, Shabab y voit un
           problème dans le signe de l'erreur dû à la perturbation.
     - Correction :
-        - Il reste beaucoup à faire
+        - Des exemples pour les correcteurs PID 
     - Initiation à la représentation d'état :
         - à relire 
 # ================================================================
@@ -32,17 +32,18 @@
         - Ajouter des tracer de Black
     - Asservissement
         - Nettoyer l'exercice 1 du chapitre asservissement
+        - Réaliser le schéma-blocs d'asservissement pour différents systèmes.
     - Performances 
         - Ecrire le corrigé de l'exercice 1 du chapitre performances
-    - Correction 
-# exercices pour les chapitres (vides):
     - Initiation à la représentation d'état
+        - Proposer une représentation d'état de tous les exercices (systèmes)
+          étudiés dans le document
 # ================================================================
 # Annexes :
 # ================================================================
     - Analyse de Fourier à faire ou à enlever
     - Compléter la décomposition en éléments simples
-    - Transformer de Laplace inverse (trouver le code ou à enlever)
+    - Transformer de Laplace inverse (peut être à enlever)
     - Ajouter une annexe pour l'évaluation de la pulsation de 
       coupure par des méthodes analytique, numérique et graphique.
 # ================================================================
