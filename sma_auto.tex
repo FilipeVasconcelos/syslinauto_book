@@ -350,7 +350,7 @@ bin/pdf2eps 1 "\image"
 % ------------------------------------------------------------------------------
 % includeonly individuel
 % ------------------------------------------------------------------------------
-%\includeonly{tex/avantpropos}
+\includeonly{tex/avantpropos}
 %\includeonly{tex/chap_slci}            % Système linéaire
 %\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
 %\includeonly{tex/chap_model}           % Modèles Usuels    
@@ -482,8 +482,8 @@ bin/pdf2eps 1 "\image"
 \include{tex/annexe_des}               %H Décomposition en éléments simples
 \include{tex/annexe_2nd}               %I Système du second ordre
 {\tikzset{external/export=false}
-\include{tex/annexe_scilab}            %J Scilab
-\include{tex/annexe_log}               %K Echelle log  
+    \include{tex/annexe_scilab}        %J Scilab
+    \include{tex/annexe_log}           %K Echelle log  
 }
 \include{tex/annexe_invL}              %L Laplace inverse 
 \include{tex/annexe_blackNichols}      %M Diagramme de Black-Nichols  
@@ -510,9 +510,9 @@ bin/pdf2eps 1 "\image"
 \doublespacing
 \printglossary[title={Acronymes},type=\acronymtype]
 \singlespacing
+\renewcommand*{\glspostdescription}{\bigskip}
 \setlength{\glsdescwidth}{0.6\hsize}
 \printglossary[title={Glossaire},type=main,style=superragged]
-\doublespacing
 \setlength{\glsdescwidth}{0.8\hsize}
 \printunsrtglossary[type=symbols,style=long,title={Liste des Symboles}]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
