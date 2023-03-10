@@ -69,13 +69,18 @@
 \newglossaryentry{stabilite}%
 {% 
   name={Stabilité},% 
-  description={Un système est dit stable  
+  description={Deux définitions sont possibles : (1) 
+  Un système est dit stable lorsque écarté de son état d'équilibre, 
+  il tend à y revenir. Un système est dit stable si à une entrée bornée 
+  le système produit une sortie bornée. On parle alors de stabilité \gls{ebsb}.
   }
 }
 \newglossaryentry{depassement}%
 {% 
   name={Dépassement},% 
-  description={  
+  description={Le dépassement (ou plutôt le premier dépassement) 
+  est lié à valeur maximale prise par une réponse temporelle en régime
+  pseudo-périodique.  
   }
 }
 \newglossaryentry{correcteur}%
@@ -87,79 +92,99 @@
 \newglossaryentry{tempsdemontee}%
 {% 
   name={Temps de montée},% 
-  description={
+  description={Le temps de montée est la durée de l'interval de temps d'une 
+  réponse temporelle passe d'une réponse 
   }
 }
 \newglossaryentry{controle}%
 {% 
   name={Contrôle},% 
-  description={
+  description={Le contrôle permet d'englober les notions d'asservissement et
+  de régulation à l'idée de contrôle automatique des systèmes. C'est le terme
+  qui est plus largement utilisé dans la litérature moderne.  
   }
 }
 \newglossaryentry{systemelineaire}%
 {% 
   name={Système Linéaire},% 
-  description={
+  description={Un système est dit linéaire si il respecte le principe
+  de proportionnalité et le principe de superposition.
   }
 }
 \newglossaryentry{performances}%
 {% 
   name={Performances},% 
-  description={
+  description={Les performances attendues par un système asservis ou régulé 
+  sont généralement liées à sa stabilité, sa précision et sa rapidité.
   }
 }
 \newglossaryentry{pole}%
 {% 
   name={Pôle},% 
-  description={
+  description={Un pôle est formellement la racine du dénominateur d'une
+  fraction rationnelle irreductible. Dans le contexte de l'étude d'un système
+  linéaire, c'est la racine au dénominateur de
+  la fonction de transfert du système
   }
 }
 \newglossaryentry{repharmonique}%
 {% 
   name={Réponse harmonique},% 
-  description={
+  description={La réponse harmonique est la réponse d'un système à une 
+  sollicitation harmonique, ou autrement du à une sollicitation sinusoïdale.
   }
 }
 \newglossaryentry{reptemporelle}%
 {% 
   name={Réponse temporelle},% 
-  description={
+  description={La réponse temporelle correspond à la réponse d'un système 
+  dans le domaine temporel à n'importe qu'elle sollicitation.
   }
 }
 \newglossaryentry{regtransitoire}%
 {% 
   name={Régime transitoire},% 
-  description={
+  description={Le régime transitoire est la contribution de la réponse 
+  temporelle qui disparait lorsque le régime permanent persiste.
   }
 }
 \newglossaryentry{regpermanent}%
 {% 
   name={Régime permanent},% 
-  description={
+  description={Le régime permanent est la contribution de la réponse temporelle 
+  qui persiste lorsque le régime transitoire disparé.
   }
 }
 \newglossaryentry{regaperiodique}%
 {% 
   name={Régime apériodique},% 
-  description={
+  description={Le régime apériodique est le régime pour lequel la réponse 
+  temporelle d'un système linéaire ne présente pas d'oscillations. On parle
+  également de réponse fortement amortie.
   }
 }
 \newglossaryentry{regacritique}%
 {% 
   name={Régime critique},% 
-  description={
+  description={Le régime critique est le régime intermédiaire entre le régime
+      apériodique et le régime pseudo-périodique. Il correspond à un cas limite.
   }
 }
 \newglossaryentry{regpseudoperiodique}%
 {% 
   name={Régime pseudo-périodique},% 
-  description={
+  description={Le régime pseudo-périodique est le régime pour lequel la réponse
+  temporelle d'un système linéaire présente des oscillations faiblement 
+  amorties.
   }
 }
 \newglossaryentry{diagbode}%
 {% 
   name={Diagramme de Bode},% 
-  description={
+  description={C'est un diagramme pour lequel la réponse harmonique est 
+  représentée par deux graphes semi-logarithmique donnant d'une part le gain 
+  en décibel en fonction de la pulsation et d'autre part le déphasage en degré
+  en fonction de la pulsation.
   }
 }
 \newglossaryentry{diagnyquist}%
