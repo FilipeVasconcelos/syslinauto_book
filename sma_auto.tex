@@ -9,6 +9,7 @@
     paper=a4
     ,fontsize=12pt       % common are 10, 11 or 12
     ,headings=huge
+    ,titlepage=true
     %,parskip
     ,numbers=noendperiod % 2.3.1 vs 2.3.1. (no dot after the last chapter number)
     ,twoside=true
@@ -309,20 +310,6 @@ bin/pdf2eps 1 "\image"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Cover picture
-\newcommand\BackgroundPic{%
-{\tikzset{external/export=false}
-\put(0,0){%
-\parbox[b][\paperheight]{\paperwidth}{%
-\begin{picture}(0,0)
-\put(50,-130){\includegraphics[width=3cm]{fig/logo/ESME_LOGO_SEUL_NOIR_2021.eps}}
-\end{picture}
-\vfill
-\centering
-{\tikzset{external/export=false}
-\input{tikz/cover}
-}
-\vfill
-}}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %red
@@ -521,7 +508,14 @@ bin/pdf2eps 1 "\image"
 \cleartoleftpage
 $\,$
 \thispagestyle{empty}
-\pagecolor{col1!30}
+\begin{titlepage}
+    \AddToShipoutPictureBG*{%
+    \AtPageLowerLeft{%
+        \includegraphics
+        [width=\paperwidth,height=\paperheight]{fig/quatrieme_page.eps}%
+                    }%
+    }
+\end{titlepage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
