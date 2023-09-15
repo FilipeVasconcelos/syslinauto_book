@@ -225,14 +225,44 @@ second ordre~\moyen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{
-Déterminer la fonction de transfert du second ordre donnant lieu 
-à une réponse indicielle aux caractéristiques suivantes :}
+\textbf{Déterminer la fonction de transfert du second ordre donnant lieu 
+à une réponse indicielle aux caractéristiques suivantes :}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
     \item Dépassement de 10\%
     \item Temps de réponse à 5\% de \SI{8}{\milli\second}
     \item Une sortie égale à l'entrée en régime permanent 
 \end{itemize}
+Il est possible de déterminer le coefficient d'amortissement $\xi$ et la 
+pulsation propre $\omega_0$ à l'aide des abaques correspondant a
+ux~\cref{fig-2nd_depassement_2,fig-2nd_temps_reponse} vus précédement.
+
+Notamment, à partir du dépassement, on cherche l'intersection avec la courbe
+pour déterminer $\xi$. Ci-dessous, on détermine une valeur de $\xi=0.59$
+\begin{center}
+\tikzsetnextfilename{2nd_depassement-exercices_corriges-chap_model-ext}
+\input{tikz/depassement_amortissement-exercices_corriges-chap_model.tex}
+\end{center}
+Par le calcul, il est possible d'établir $\xi$ en inversant la relation
+\Cref{eq-depassement} qui devient :
+\begin{align*}
+    \xi=\sqrt{\dfrac{(\ln D)^2}{(\ln D)^2+\pi^2}}
+\end{align*}
+Ce qui nous donne une valeur théorique de \SI{0.59115} comparable à la valeur
+obtenue graphiquement.
+
+À partir de cette valeur $\xi$, nous pouvons lire une valeur du temps de réponse
+à 5\% réduit de 5.35.
+\begin{center}
+\tikzsetnextfilename{rapidite_tr_2ndordre-exercices_corriges-chap_model-ext}
+\input{tikz/rapidite_tr_2ndordre-exercices_corriges-chap_model.tex}
+\end{center}
+
+Ce qui nous donne une pulsation propre de 
+$\omega_0=\dfrac{5.35}{0.008}=\SI{668.75}{\radian\per\second}$
+
+\tikzsetnextfilename{2nd-exercices_corriges-chap_model-ext}
+\input{tikz/2nd-exercices_corriges-chap_model.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Réponse temporelle d'un système du premier ordre~\moyen}

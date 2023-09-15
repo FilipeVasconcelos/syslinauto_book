@@ -1,0 +1,35 @@
+\begin{tikzpicture}
+    \pgfplotsset{signaltmp/.style={signaln,domain=0.01:0.8277,
+                              unbounded coords=jump}
+                }
+    \pgfmathsetmacro{\pi}{3.141592653589793}     % dépassement d4 
+    \begin{axis}
+    [   xmode=log,
+        ymode=log,
+        width=0.6\textwidth,
+        axis line style = thick,
+        xmin=0.01,
+        xmax=1,
+        ymin=0.01,
+        ymax=1.0,
+        xlabel={$\xi$},
+        ylabel={$D_k$},
+        label style={font=\Large},
+        grid=both,
+        grid style={line width=.4pt, draw=black},
+        major grid style={line width=.4pt,draw=black},
+    %    legend style={draw=none,font=\normalsize},
+    %    legend pos=outer north east,
+    %    legend cell align={left},
+        label style={font=\Large},
+        clip=false
+    ] 
+    \pgfmathsetmacro{\xig}{0.59} % xi graphique
+    \addplot[signaltmp,vtcol1] {exp(-(x*\pi)/(sqrt(1-x*x)))};
+    \addplot[signaltmp,domain=0.01:\xig,very thick, dashed,vtcol4] {0.1};
+    \draw[very thick, dashed,vtcol4] (axis cs:\xig,0.01) 
+     node [below] {\footnotesize$\xi\sim\xig$} -- (axis cs:\xig,0.1);
+     \node[vtcol4,above] at (axis cs:0.015,0.1) {\footnotesize 10\%};
+    \end{axis}
+\end{tikzpicture}
+

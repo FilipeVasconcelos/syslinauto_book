@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+    \begin{axis}
+    [   
+        ymax=1.3,
+        width=0.65\textwidth,
+        axis lines=middle,
+        axis line style = {-latex,thick},
+        axis x line=center,
+        axis y line=center,
+        xlabel=$t$,
+        ylabel=$s(t)$,
+    ]
+   \addplot[signalb] table[x=t,y=response] {tikz/2nd-exercices_corriges-chap_model.dat};
+   \addplot[dashed,domain=0:0.018] {0.95};
+   \addplot[dashed,domain=0:0.018] {1.05};
+\end{axis}
+\end{tikzpicture}
