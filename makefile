@@ -9,7 +9,7 @@ fast: dvifast
 
 pspdf: dvi2 
 	dvips -t a4 ${mainfile}.dvi
-	ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${mainfile}.ps 
+	ps2pdf -dALLOWPSTRANSPARENCY -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None ${mainfile}.ps 
 pdf:  
 	pdflatex -shell-escape ${mainfile} | pv -w 40 -i 0.001 -F "run 1 : %t %p (${tlformat})" > /dev/null 
 	bibtex ${mainfile} ||true
