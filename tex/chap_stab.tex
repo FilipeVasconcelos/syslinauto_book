@@ -64,18 +64,18 @@ le système de son état d'équilibre dans lequel il se trouvait).
 Finalement, on définit la stabilité d'un système de la façon 
 suivante :
 %-------------------------------------------------------------------------------
-\begin{definition}{Définition : Stabilité d'un système (1)}
+\begin{bdefinition}{Définition : Stabilité d'un système (1)}
 Un système est dit stable lorsque écarté de son état d'équilibre, il 
 tend à y revenir
-\end{definition}
+\end{bdefinition}
 %-------------------------------------------------------------------------------
 Il existe une autre définition de la stabilité qui s'avère équivalente 
 dans le cas des systèmes linéaires.
 %-------------------------------------------------------------------------------
-\begin{definition}{Définition : Stabilité d'un système (2)}
+\begin{bdefinition}{Définition : Stabilité d'un système (2)}
 \textbf{Un système est dit stable si à une entrée bornée le système produit 
 une sortie bornée. On parle alors de stabilité \gls{ebsb}.}
-\end{definition}
+\end{bdefinition}
 %-------------------------------------------------------------------------------
 En anglais, on rencontre l'acronyme \gls{bibo} pour désigner cette notion.
 Ci-dessous nous avons représenté les réponses de \gls{slci} à différentes
@@ -1008,12 +1008,12 @@ critique, nous définissons les marges de stabilité.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
-\begin{definition}{Marge de phase}
+\begin{bdefinition}{Marge de phase}
 La marge de phase $M_{\phi}$ est définie par :
 $M_\phi=\pi+\arg{H_{BO}(j\omega_{c0})}$ où $\omega_{c0}$ est la pulsation de 
 coupure pour laquelle le gain naturel $G(\omega_{c0})=|H_{BO}(j\omega_{c0})|=1$
 ( ou encore 0~\si{\dB} ) 
-\end{definition}
+\end{bdefinition}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1021,12 +1021,12 @@ coupure pour laquelle le gain naturel $G(\omega_{c0})=|H_{BO}(j\omega_{c0})|=1$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
-\begin{definition}{Marge de gain}
+\begin{bdefinition}{Marge de gain}
 La marge de gain $M_G$ est définir par $M_G=-20\log{|H(j\omega_\pi)|}$ où 
 $\omega_{\pi}$ est la pulsation pour laquelle le déphasage vaut 
 -180\degreeSI $\phi(\omega_\pi)=\arg{(H_{BO}(j\omega_{c0}))}=-\pi$
 ou autrement l'argument du point critique dans le plan complexe.
-\end{definition}
+\end{bdefinition}
 %-------------------------------------------------------------------------------
 Ces marges de stabilité sont en générales imposées par le cahier des charges.
 En générales des valeurs pour $M_{\phi}$ de 45 à 60\degreeSI et
@@ -1176,7 +1176,7 @@ courbe $F(\mathcal{C})$ image $F(p)$ de $\mathcal{C}$.
 \end{marginfigure}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
-\begin{theorem}{\'Enoncé du principe de l'argument de Cauchy
+\begin{btheorem}{\'Enoncé du principe de l'argument de Cauchy
     \index{Principe de l'argument de Cauchy}} 
     Si un contour $\mathcal{C}$ contient $Z$ zéros et $P$ pôles d'une fonction 
     analytique $F(p)$ sans en traverser aucun, alors quand on le parcourt dans 
@@ -1186,7 +1186,7 @@ courbe $F(\mathcal{C})$ image $F(p)$ de $\mathcal{C}$.
     \[ 
         N=Z-P
     \]
-\end{theorem}
+\end{btheorem}
 %-------------------------------------------------------------------------------
 On se rapportera à nouveau à l'\Cref{annexe-cauchy} pour une demonstration 
 graphique de ce théorème\footnote{Un cours d'analyse complexe permettra de 
@@ -1386,7 +1386,7 @@ Nous rappellons en effet qu'un système est stable en boucle fermée si la i
 fonction de transfert $1+H_{BO}$ ne présente pas de zéros à partie réelle 
 positive. Il nous est possible d'établir l'énoncé suivant :
 %-------------------------------------------------------------------------------
-\begin{theorem}{\'Enoncé du critère de Nyquist
+\begin{btheorem}{\'Enoncé du critère de Nyquist
     \index{Critère de Nyquist}} 
 D'après le principe de l'argument de Cauchy, appliqué à $H_{BO}(p)$ avec le 
 contour de Nyquist (ou de Bromwich si nécessaire). Un système est stable en 
@@ -1406,7 +1406,7 @@ avec :
           nombre de pôles de $H_{BO}(p)$)
 \end{itemize}
 %-------------------------------------------------------------------------------
-\end{theorem}
+\end{btheorem}
 %-------------------------------------------------------------------------------
 Nous allons maintenant traiter quelques exemples pour montrer l'efficacité
 de cet énoncé.
