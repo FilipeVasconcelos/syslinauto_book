@@ -33,7 +33,8 @@ La décomposition en éléments simples est donnée par :
 H(p)=\dfrac{A}{(1+0.1p)}+\dfrac{B}{(1+0.1p)^2}+\dfrac{C}{(1+0.05p)}
 \]
 Il nous faut maintenant identifier les coefficients $A$,$B$ et $C$.
-Le coefficient $C$ est obtenu $H(p)$ par $(1+0.05p)$ et en évaluant $p$ en $-20$:
+Le coefficient $C$ est obtenu $H(p)$ par $(1+0.05p)$ et en évaluant $p$ en 
+$-20$:
 
 \[
 C=(1+0.05p)H(p)\Big|_{p=-20}=5
@@ -62,6 +63,7 @@ H(p)=\dfrac{-10}{(1+0.1p)}+\dfrac{10}{(1+0.1p)^2}+\dfrac{5}{(1+0.05p)}
 cette décomposition et les pôles dominants.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On pose
+%-------------------------------------------------------------------------------
 \begin{align*}
     H(p)&= {\color{col1} H_1(p)}+
            {\color{col2} H_2(p)}+
@@ -70,6 +72,7 @@ On pose
            {\color{col2} \dfrac{10}{(1+0.1p)^2}}+
            {\color{col4} \dfrac{5}{(1+0.05p)}}\\
 \end{align*}
+%-------------------------------------------------------------------------------
 Le premier terme est un système du premier ordre de temps de réponse à 5\% de
 $3\tau_1=\SI{0.3}{\second}$.
 Le second terme est un système du second ordre: avec $\xi=1$ et $\omega_0=10$
@@ -78,7 +81,8 @@ de temps de réponse à 5\% de $\SI{0.5}{\second}$ (lecture sur l'abaque)
 Le dernier terme est un premier ordre de temps de réponse à 5\% de 
 $3\tau_3=\SI{0.15}{\second}$.
 
-Les pôles dominants sont les pôles du premier et second termes de partie réelle -10.
+Les pôles dominants sont les pôles du premier et second termes de partie 
+réelle -10.
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{carte-exercices_corriges-chap_perf-ext}
@@ -100,21 +104,21 @@ $H_i(p)$ ainsi que la réponse totale $s(t)$
 %-------------------------------------------------------------------------------
 On conclue bien sur la domination de la réponse $s_2(t)$ sur la réponse totale.
 \clearpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Temps de montée et bande passante}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit un système en boucle ouverte de fonction de transfert en 
 boucle ouverte $H(p)$ définie  par :
 \[
 H(p)=\dfrac{K}{p(p+1)}
 \]
 On place ce simple dans une boucle de contre réaction unitaire.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{\textbf{Pour les valeurs de $K=0.1$, $K=1$ et $K=10$. 
 Déterminer le temps de montée du système en boucle fermée.}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La fonction de transfert en boucle fermée est donnée par :
 \[
 H_{BF}(p)=\dfrac{K}{p(p+1)+K}=\dfrac{K}{p^2+p+K}
@@ -191,9 +195,10 @@ bande passante et la rapidité. Et comment l'approximer à partir de la
 réponse harmonique en boucle ouverte.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Il aparrait que la bande passante à \SI{3}{\decibel} est liée à la rapidité. 
-Plus cette bande passante est grande plus faible est le temps de montée (donc plus rapide).
-Il apparait également que la bande passante peut être approximée par la valeur de la pulsation
-donnant un gain de \SI{0}{\dB} en boucle ouverte. On peut alors dire :
+Plus cette bande passante est grande plus faible est le temps de montée (donc 
+plus rapide). Il apparait également que la bande passante peut être approximée 
+par la valeur de la pulsation donnant un gain de \SI{0}{\dB} en boucle ouverte. 
+On peut alors dire :
 \[
 \omega_{-3dB,BF}\sim\omega_{0,BO}
 \]

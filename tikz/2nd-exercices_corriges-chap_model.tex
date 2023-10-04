@@ -10,7 +10,8 @@
         xlabel=$t$,
         ylabel=$s(t)$,
     ]
-   \addplot[signalb] table[x=t,y=response] {tikz/2nd-exercices_corriges-chap_model.dat};
+   \addplot[signalb] table[x=t,y=response] 
+   {tikz/2nd-exercices_corriges-chap_model.dat};
    \addplot[dashed,domain=0:0.018] {0.95};
    \addplot[dashed,domain=0:0.018] {1.05};
 \end{axis}
