@@ -266,15 +266,17 @@ obtenue graphiquement.
 \end{center}
 %-------------------------------------------------------------------------------
 Ce qui nous donne une pulsation propre de 
-$\omega_0=\dfrac{5.35}{0.008}=\SI{668.75}{\radian\per\second}$
+$\omega_0=\dfrac{5.35}{0.008}=\SI{668.75}{\radian\per\second}$.
 %-------------------------------------------------------------------------------
-Avec ces paramètres, il est possible de reproduire la réponse 
+Avec ces paramètres, il est possible de simuler la réponse temporelle pour 
+vérifier que les propritétés attendues sont bien présentes.
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{2nd-exercices_corriges-chap_model-ext}
     \input{tikz/2nd-exercices_corriges-chap_model.tex}
 \end{center}
 %-------------------------------------------------------------------------------
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Réponse temporelle d'un système du premier ordre~\moyen}
@@ -285,20 +287,37 @@ Un système linéaire est caractérisé par l'équation :
     0.5\devi{s(t)}{}+s(t)=15e(t)
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{Donner l'expression de la fonction de transfert du système, la classe,
-l'ordre, le gain et la constante de temps de ce système.} 
+\question{\textbf{Donner l'expression de la fonction de transfert 
+du système, la classe, l'ordre, le gain et la constante de temps 
+de ce système.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-On applique l'entrée suivante :
-%-------------------------------------------------------------------------------
-\begin{center}
-    \tikzsetnextfilename{sollicitation_1er_ordre-exercices-chap_model-ext}
-    \input{tikz/sollicitation_1er_ordre-exercices-chap_model.tex}
-\end{center}
-%-------------------------------------------------------------------------------
+La fonction de transfert est donnée par :
+\[
+    H(p)=\dfrac{15}{0.5p+1}
+\]
+Le système est donc du premier ordre, de classe 0, de gain statique $K=15$ et 
+de constante de temps $\tau=0.5$.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{Donner l'expression de $s(t)$ en fonction de $x$}
+\question{\textbf{Donner l'expression de $s(t)$ en fonction de $x$}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+L'expression de la réponse indicielle d'un système du premier ordre est donnée
+par :
+\[
+    s(t)=KE_0\left(1-e^{-t/\tau}\right)
+\]
+ici avec $K=15$,$\tau=0.5$ et $E_0=x$ :
+\[
+    s(t)=15x\left(1-e^{-2t}\right)
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Trouver $x$ pour qu'à $t=\SI{0.1}{\second}$ la réponse atteigne 
 sa valeur finale et ne la quitte pas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On cherche $x$ tel que $s(0.1)=75$, 75 étant la valeur du gain statique par $E_0$ à partir de \SI{0.1}{\second}.
+De ce fait :
+\[
+    x=\dfrac{5}{1-e^{-0.2}}\sim27.5832
+\]
+
+
