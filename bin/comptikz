@@ -109,7 +109,7 @@ EOF
     echo "\end{document}"     >> standalone/${texname}.tex
     latex -output-directory standalone standalone/${texname}.tex &> /dev/null
     dvips -Ppdf -o standalone/${texname}.ps standalone/${texname}.dvi &> /dev/null
-    ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None standalone/${texname}.ps standalone/${texname}.pdf #&> /dev/null 
+    ps2pdf -dALLOWPSTRANSPARENCY -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None standalone/${texname}.ps standalone/${texname}.pdf #&> /dev/null 
 done
 if [ "$display" -eq 1 ]
 then
