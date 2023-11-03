@@ -78,13 +78,14 @@ cat > standalone/${texname}.tex <<EOF
 \usetikzlibrary{babel} 
 \usetikzlibrary{decorations.text}
 \usetikzlibrary{matrix}
+\usetikzlibrary{intersections}
 %\usetkzobj{all}
 \usepackage{verbatim}
 \usepackage{poles}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\graphicspath{{./fig/}{./fig/people/}{./fig/annexe_scilab/}{./fig/chap_asserv/}
-              {./fig/chap_correction/}{./fig/chap_stab/}{./fig/logo/}
-              {./fig/annexe_blackNichols/}{./fig/annexe_cauchy/}}
+\graphicspath{{./fig}{./fig/people}{./fig/annexe_scilab}{./fig/chap_asserv}
+              {./fig/chap_correction}{./fig/chap_stab}{./fig/logo}
+              {./fig/annexe_blackNichols}{./fig/annexe_cauchy}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 EOF
     if [ "$landscape" -eq 1 ]
@@ -95,7 +96,7 @@ EOF
     else
         echo "\begin{document}" >> standalone/${texname}.tex
     fi
-    echo "\thispagestyle{empty}" >> standalone/${texname}.tex
+#    echo "\thispagestyle{empty}" >> standalone/${texname}.tex
     echo "\begin{figure}[!h]" >> standalone/${texname}.tex
     echo "\centering"         >> standalone/${texname}.tex
     cat $file                 >> standalone/${texname}.tex
@@ -109,7 +110,7 @@ EOF
     echo "\end{document}"     >> standalone/${texname}.tex
     latex -output-directory standalone standalone/${texname}.tex &> /dev/null
     dvips -Ppdf -o standalone/${texname}.ps standalone/${texname}.dvi &> /dev/null
-    ps2pdf -dALLOWPSTRANSPARENCY -sPAPERSIZE=a4 -dNOSAFER -dAutoRotatePages=/None standalone/${texname}.ps standalone/${texname}.pdf #&> /dev/null 
+    ps2pdf -sPAPERSIZE=a4 -dNOSAFER -dALLOWPSTRANSPARENCY -dAutoRotatePages=/None standalone/${texname}.ps standalone/${texname}.pdf #&> /dev/null 
 done
 if [ "$display" -eq 1 ]
 then
