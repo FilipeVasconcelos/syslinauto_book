@@ -1,0 +1,30 @@
+\newcommand{\LHS}[2][1.5em]{\hspace{#1}\mathllap{#2}}
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    legend style={draw=none,yshift=1em},
+    legend pos=outer north east,
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.22\textheight,
+    xlabel={Pulsation (rad/s)},
+    ylabel={Phase (degré)},
+    xtick={1e-1,1,1e1},
+    ytick={-180,-135,-90,-45,0},
+    yticklabels={-180,-135,-90,-45,0},
+    xticklabels={$10^{-1}$,$10^{0}$,$10^{1}$},
+    xmode=log,ymode=normal,
+    xmin=1e-1, xmax=1e1,
+    ymin=-180, ymax=0,
+    grid=both,
+    major grid style={black!40},
+    cycle list name=fmvcolist,
+]
+    \foreach \a in {0.02,0.1,0.2,0.3,0.4,0.5,0.6}
+    \addplot+[very thick,domain=1e-1:1e1, samples=201] {-atan2(2*\a*x,(1-x*x))};
+
+    \legend{$\LHS{\xi}=0.02$,$\LHS{\xi}=0.1$,$\LHS{\xi}=0.2$, 
+            $\LHS{\xi}=0.3$, $\LHS{\xi}=0.4$,$\LHS{\xi}=0.5$, 
+            $\LHS{\xi}=0.6$, $\LHS{\xi}=0.7$, $\LHS{\xi}=0.8$, $\LHS{\xi}=0.9$}
+\end{axis}
+\end{tikzpicture}
+

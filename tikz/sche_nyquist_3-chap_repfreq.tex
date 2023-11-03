@@ -1,0 +1,52 @@
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\begin{axis}
+    [   
+        %width=0.35\linewidth,
+        width=10cm,
+        axis lines = center,
+        ticks=none,
+        axis line style = thick,
+        enlargelimits=false,
+        xlabel=$\Re{H(\jw)}$,
+        ylabel=$\Im{H(\jw)}$,
+        xlabel style={below right},
+        ylabel style={left},
+        ymin=-7,
+        ymax=+7,
+        xmin=-7,
+        xmax=+10
+    ]     
+    \def\xu{6.65043990901}
+    \def\yu{3.24525022405}
+    \def\xd{-2.6946926406}
+    \def\yd{5.13601319826}
+    \def\wz{7.854} % w = 0
+
+
+    \addplot[postaction={decorate, decoration={markings,
+             mark=at position 0.105 with {\arrow[rotate=-180]{latex};},
+             mark=at position 0.31 with  {\arrow[rotate=-180]{latex};},
+             mark=at position 0.51 with  {\arrow[rotate=-180]{latex};},
+             mark=at position 0.71 with  {\arrow[rotate=-180]{latex};},
+             mark=at position 0.9 with   {\arrow[rotate=-180]{latex};}
+             }},thick,domain=0:\wz,samples=100]
+             ({x*sin(deg(x))},{x*cos(deg(x))});
+
+    % w -> infty
+    \coordinate (A) at (0,0);
+    \draw[fill=col5,draw=col5] (A) circle[radius=0.25em] node[below left] {$\omega\rightarrow\infty$};
+    % w = 0
+    \coordinate (B) at (\wz,0);
+    \draw[fill=col5,draw=col5] (B) circle[radius=0.25em] node[below left] {$\omega=0$};
+    % w_1
+    \coordinate (C) at (\xu,\yu);
+    \draw[fill=col4,draw=col4] (C) circle[radius=0.25em] node[above right, col4] {$\omega_1$};
+    \draw[col4,thick] (A) -- (C) node[midway,above left] {$G(\omega_1)$};
+    \markangle[col4]{B}{A}{C}{$\phi(\omega_1)$}{25}
+    % w_2
+    \coordinate (D) at (\xd,\yd);
+    \draw[fill=col1,draw=col1] (D) circle[radius=0.25em] node[above left, col1] {$\omega_2$};
+    \draw[col1,thick] (A) -- (D) node[midway,left] {$G(\omega_2)$};
+    \markangle[col1]{B}{A}{D}{$\phi(\omega_2)$}{15}
+\end{axis}
+\end{tikzpicture}%

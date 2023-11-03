@@ -1,0 +1,44 @@
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\begin{axis}
+    [   
+        width=10cm,
+        axis lines = center,
+        ticks=none,
+        axis line style = thick,
+        enlargelimits=false,
+        xlabel=$\Re{H(\jw)}$,
+        ylabel=$\Im{H(\jw)}$,
+        xlabel style={below right},
+        ylabel style={left},
+        ymin=-7,
+        ymax=+7,
+        xmin=-7,
+        xmax=+10
+    ]     
+    \def\xu{6.55043990901}
+    \def\yu{3.24525022405}
+    \def\xd{-2.6946926406}
+    \def\yd{5.13601319826}
+    \def\wz{7.854} % w = 0
+
+
+    \addplot[postaction={decorate, decoration={markings,
+             mark=at position 0.105 with {\arrow[rotate=-180]{latex};},
+             mark=at position 0.31 with  {\arrow[rotate=-180]{latex};},
+             mark=at position 0.51 with  {\arrow[rotate=-180]{latex};},
+             mark=at position 0.71 with  {\arrow[rotate=-180]{latex};},
+             mark=at position 0.9 with   {\arrow[rotate=-180]{latex};}
+             }},thick,domain=0:\wz,samples=100]
+             ({x*sin(deg(x))},{x*cos(deg(x))});
+
+    \addplot[postaction={decorate, decoration={markings,
+             mark=at position 0.105 with {\arrow[rotate=-180]{latex};},
+             mark=at position 0.31 with  {\arrow[rotate=-180]{latex};},
+             mark=at position 0.51 with  {\arrow[rotate=-180]{latex};},
+             mark=at position 0.71 with  {\arrow[rotate=-180]{latex};},
+             mark=at position 0.9 with   {\arrow[rotate=-180]{latex};}
+             }},thick,dashed,domain=0:\wz,samples=100]
+             ({x*sin(deg(x))},{-x*cos(deg(x))});
+
+\end{axis}
+\end{tikzpicture}%
