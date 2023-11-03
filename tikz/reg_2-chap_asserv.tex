@@ -17,31 +17,31 @@
 % r : noeud décalé pour le retour
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}
-    \sbEntree{E}
-    \sbBloc[3]{a}{$A_d(p)$}{E}
-    \sbRelier[$E(p)$]{E}{a}
-    \sbComp{b}{a}
-    \sbRelier{a}{b}
-    \sbBloc[3]{c}{$C(p)$}{b}
-    \sbRelier[$\epsilon(p)$]{b}{c}
-    \sbBloc[3]{d}{$A_c(p)$}{c}
-    \sbRelier{c}{d}
-    \sbBloc[3]{e}{$H(p)$}{d}
-    \sbRelier[$U(p)$]{d}{e}
-    \sbSortie[4]{S}{e}
-    \sbRelier{e}{S}
-    \sbDecaleNoeudy[5]{d}{r}
-    \sbBlocr[-1.6]{f}{$G(p)$}{r}
-    \sbRelieryx{e-S}{f}              
-    \sbRelierxy[$M(p)$]{f}{b}        % Mesure
-    \sbNomLien[0.8]{S}{$S(p)$}
-    \node[yshift=-0.8em] at (a.south) {\small Adaptateur};
-    \node[yshift=-0.8em] at (c.south) {\small Correcteur};
-    \node[yshift=-0.8em] at (d.south) {\small Actionneur};
-    \node[yshift=-0.8em] at (e.south) {\small Système};
-    \node[yshift=-0.8em] at (f.south) {\small Capteur};
-    \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
-    \node[yshift=-0.8em] at (S.south) {\small Sortie};
-    \draw[dvtb] ($(b.west)+(-0.2,-2)$) rectangle node[col1,above,yshift=3em] 
-                {\textbf{Régulateur}} ($(c.east)+(0.5,1.2)$);
+    \sbEntree{EE}
+    \sbBloc[3]{aa}{$A_d(p)$}{EE}
+    \sbRelier[$E(p)$]{EE}{aa}
+    \sbComp{bb}{aa}
+    \sbRelier{aa}{bb}
+    \sbBloc[3]{cc}{$C(p)$}{bb}
+    \sbRelier[$\epsilon(p)$]{bb}{cc}
+    \sbBloc[3]{dd}{$A_c(p)$}{cc}
+    \sbRelier{cc}{dd}
+    \sbBloc[3]{ee}{$H(p)$}{dd}
+    \sbRelier[$U(p)$]{dd}{ee}
+    \sbSortie[4]{SS}{ee}
+    \sbRelier{ee}{SS}
+    \sbDecaleNoeudy[5]{dd}{r}
+    \sbBlocr[-1.6]{ff}{$G(p)$}{r}
+    \sbRelieryx{ee-SS}{ff}              
+    \sbRelierxy[$M(p)$]{ff}{bb}        % Mesure
+    \sbNomLien[0.8]{SS}{$S(p)$}
+    \node[yshift=-0.8em] at (aa.south) {\small Adaptateur};
+    \node[yshift=-0.8em] at (cc.south) {\small Correcteur};
+    \node[yshift=-0.8em] at (dd.south) {\small Actionneur};
+    \node[yshift=-0.8em] at (ee.south) {\small Système};
+    \node[yshift=-0.8em] at (ff.south) {\small Capteur};
+    \node[yshift=-0.8em,xshift=0.5em] at (EE.south) {\small Consigne};
+    \node[yshift=-0.8em] at (SS.south) {\small Sortie};
+    \draw[dvtb] ($(bb.west)+(-0.2,-2.5)$) rectangle node[col1,above,yshift=3em] 
+                {\textbf{Régulateur}} ($(cc.east)+(0.5,1.5)$);
 \end{tikzpicture}

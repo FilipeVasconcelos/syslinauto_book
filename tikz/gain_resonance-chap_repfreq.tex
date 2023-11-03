@@ -1,8 +1,8 @@
 \begin{tikzpicture}
     \begin{axis}
     [   ticklabel style = {font=\normalsize},
-        legend style={draw=none},
-        legend pos=outer north east,
+        legend style={draw=none,font=\scriptsize},
+        legend pos=north east,
         legend cell align={left},
         ylabel={Gain (dB)},
         xlabel={Pulsation (rad/s)},
@@ -12,7 +12,7 @@
         major grid style={black!40},
         xtick distance=0.5,
         cycle list name=fmvcolist,
-        width=0.6\linewidth,
+        width=0.5\linewidth,
     ]
     \foreach \a in {0.2,0.3,0.4,0.5,0.6,0.707} 
     \addplot+[very thick,domain=0:2,samples=201] 
