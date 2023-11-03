@@ -132,6 +132,7 @@
 \usetikzlibrary{babel} 
 \usetikzlibrary{decorations.text}
 \usetikzlibrary{matrix}
+\usetikzlibrary{intersections}
 %\usetkzobj{all} %2020
 \usetikzlibrary{external}
 \tikzexternalize[prefix=./figtikz/]
@@ -329,9 +330,9 @@ bin/pdf2eps 1 "\image"
 \ifodd\value{page}\hbox{}\newpage\fi
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\graphicspath{{./fig/}{./fig/people/}{./fig/annexe_scilab/}{./fig/chap_asserv/}
-              {./fig/chap_correction/}{./fig/chap_stab/}{./fig/logo/}
-              {./fig/annexe_blackNichols/}{./fig/annexe_cauchy/}}
+\graphicspath{{./fig}{./fig/people}{./fig/annexe_scilab}{./fig/chap_asserv}
+              {./fig/chap_correction}{./fig/chap_stab/}{./fig/logo}
+              {./fig/annexe_blackNichols}{./fig/annexe_cauchy}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ------------------------------------------------------------------------------
 % includeonly individuel
