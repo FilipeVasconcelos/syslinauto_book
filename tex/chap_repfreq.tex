@@ -325,10 +325,10 @@ Le diagramme de Bode de $H(\jw)$ est la somme de deux diagrammes indépendants:
 %-------------------------------------------------------------------------------
 \begin{figure}[!b]
     \centering
-    \tikzsetnextfilename{sche_nyquist_1-chap_repfreq-ext}
-    \input{tikz/sche_nyquist_1-chap_repfreq.tex}
-    \tikzsetnextfilename{sche_nyquist_2-chap_repfreq-ext}
-    \input{tikz/sche_nyquist_2-chap_repfreq.tex}
+    \tikzsetnextfilename{sche_nyquist_3-chap_repfreq-ext}
+    \resizebox{.45\linewidth}{!}{\input{tikz/sche_nyquist_3-chap_repfreq.tex}}
+    \tikzsetnextfilename{sche_nyquist_4-chap_repfreq-ext}
+    \resizebox{.45\linewidth}{!}{\input{tikz/sche_nyquist_4-chap_repfreq.tex}}
     \caption{(gauche) Représentation schématique d'un diagramme de Nyquist. 
              Le nombre complexe $H(\jw)$ est représenté dans le plan 
              complexe pour différentes valeurs de la pulsation $\omega$ de 
@@ -633,7 +633,7 @@ Le gain en dB s'obtient alors par :
     G_{dB}(\omega)=20\log{K}-20\log{\sqrt{1+\tau^2\omega^2}}\label{eq-gain_1er}
 \end{bequation}
 %-------------------------------------------------------------------------------
-et la phase est simplement donné par la fonction tangente réciproque:
+et la phase est simplement donnée par la fonction tangente réciproque:
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     \phi(\omega)=\arg{H(\jw)}=-\arctan{(\tau\omega)}\label{eq-phase_1er} 
@@ -647,9 +647,9 @@ caractéristique $\tau$.
 Il est cependant recommandé de déterminer les asymptotes 
 de ces deux fonctions à basse et haute fréquence. 
 Pour celà, nous introduisons une \textbf{fréquence de cassure} 
-$\omega_c=\dfrac{1}{\tau}$ qui délimite ces deux domaines.
+$\omega_c=\frac{1}{\tau}$ qui délimite ces deux domaines.
 \`A cette fréquence, le gain en décibel est de $G_{dB}(\omega_c)=20\log{K}-3$ 
-et la phase $\phi(\omega)=\arctan{(1)}=\dfrac{\pi}{4}$.
+et la phase $\phi(\omega)=\arctan{(1)}=\frac{\pi}{4}$.
 Le gain de -3dB est la valeur approximative de $20\log{\sqrt{2}}$, communément
 utilisée pour définir la \textbf{fréquence de coupure}.
 
@@ -679,10 +679,10 @@ réels et les courbes asymptotiques.
 
     \tikzsetnextfilename{bode_1er_2-chap_repfreq-ext}
     \input{tikz/bode_1er_2-chap_repfreq.tex}
-    \caption{Diagramme de Bode d'un système du premier ordre 
+    \caption{\textbf{Effet du gain $K$.} Diagramme de Bode d'un système du premier ordre 
              (\Cref{eq-1er_ftjw}) avec (noir) $K=0.1$ (bleu) $K=1$ et 
-             (rouge) $K=10$. L'effet du gain $K$ est de décaler verticalement 
-             la courbe de gain.\label{fig-bode_1er_1}}
+             (rouge) $K=10$. L'effet de $K$ est de décaler verticalement 
+             le diagramme de gain.\label{fig-bode_1er_1}}
 \end{figure}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
@@ -693,10 +693,11 @@ réels et les courbes asymptotiques.
 
     \tikzsetnextfilename{bode_1er_4-chap_repfreq-ext}
     \input{tikz/bode_1er_4-chap_repfreq.tex}
-    \caption{Diagramme de Bode d'un système du premier ordre 
+    \caption{\textbf{Effet du temps caractéristique $\tau$.} 
+             Diagramme de Bode d'un système du premier ordre 
              (\Cref{eq-1er_ftjw}) avec (noir) $\tau=10$ (bleu) $\tau=1$ et 
-             (rouge) $\tau=0.1$. L'effet du temps caractéristique $\tau$ est 
-             de décaler horizontalement la courbe de phase.
+             (rouge) $\tau=0.1$. L'effet de $\tau$ est de décaler 
+             horizontalement le diagramme de phase.
              \label{fig-bode_1er_2}}
 \end{figure}
 %-------------------------------------------------------------------------------
@@ -714,7 +715,7 @@ réels et les courbes asymptotiques.
          (bleu) le diagramme réel et (rouge) le diagramme asymptotique. On 
          vérifie que les valeurs asymptotiques sont de bonnes approximations 
          à basse et haute fréquence. Il est également possible de lire un 
-         gain de \SI{-3}{\dB} et une phase de -45\degreeSI à la fréquence 
+         gain de \SI{-3}{\dB} et une phase de -45\degreeSI~à la fréquence 
          de coupure.\label{fig-bode_1er_3}}
 \end{figure}
 %-------------------------------------------------------------------------------
@@ -894,8 +895,13 @@ prochaine partie.
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
-    \tikzsetnextfilename{bode_2nd_3-chap_repfreq-ext}
-    \input{tikz/bode_2nd_3.tex}
+    %\tikzsetnextfilename{bode_2nd_3-chap_repfreq-ext}
+    %\input{tikz/bode_2nd_3-chap_repfreq.tex}
+
+    %\tikzsetnextfilename{bode_2nd_4-chap_repfreq-ext}
+    %\input{tikz/bode_2nd_4-chap_repfreq.tex}
+    \tikzsetnextfilename{bode_2nd_5-chap_repfreq-ext}
+    \input{tikz/bode_2nd_5-chap_repfreq.tex}
     \caption{Diagramme de Bode d'une fonction de transfert du second ordre 
              (\Cref{eq-2nd_ftjw}) pour différentes valeurs de $\xi$ avec 
              $K=1$ et $\omega_0=1$\label{fig-bode_2nd_2}}
@@ -966,25 +972,24 @@ D'après ces dernières expressions, on observe qu'à la limite $\xi\to0$,
 la pulsation de résonance $\omega_r$ tend vers $\omega_0$, et le gain 
 maximal tend lui vers l'infini.
 La pulsation $\omega_0$ est donc la valeur pour lequel le phénomène de 
-résonance est le plus intense.
-La~\cref{fig-gain_2nd} présente la position du gain  maximum à la pulsation 
-de résonance pour différentes valeurs du taux d'amortissement.
+résonance est le plus intense (c.f Figure \cref{fig-gain_2nd}).
+%La~\cref{fig-gain_2nd} présente la position du gain  maximum à la pulsation 
+%de résonance pour différentes valeurs du taux d'amortissement.
 %-------------------------------------------------------------------------------
-\begin{figure}[!h]
+\begin{figure}[!htb]
     \centering
     \tikzsetnextfilename{gain_resonance-chap_repfreq-ext}
-    \input{tikz/gain_resonance.tex}
-    \caption{\'Evolution du gain en décibel en fonction de la pulsation 
-             pour différentes valeurs du taux d'amortissement du régime 
-             pseudo-périodique. Le gain maximal à la pulsation de résonance 
-             $\omega_r$ est représenté par une pastille noir sur chacune des 
-             courbes pour $\xi<\sqrt{2}/2$. On remarquera l'utilisation 
-             exceptionnelle d'une échelle linéaire pour les pulsations.
+    \input{tikz/gain_resonance-chap_repfreq.tex}
+    \caption{\'Evolution du gain maximal à la pulsation de résonance
+             $\omega_r$ pour différentes valeurs 
+             du taux d'amortissement $\xi$. Notons l'utilisation 
+             d'une échelle linéaire pour les pulsations.
              \label{fig-gain_2nd}}
 \end{figure}
 %-------------------------------------------------------------------------------
 %\afterpage{\clearpage}
-\newpage
+%\newpage
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Bode d'un système d'ordre quelconque}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1006,10 +1011,20 @@ où les exposants $\alpha$, $n_i$ et $n_j$ peuvent être positifs et négatifs.
 Nous résumons dans le tableau ci-dessous l'effet sur le gain et la phase d'un 
 diagramme de Bode pour chacun de ces éléments selon le signe des paramètres
 $\alpha$, $n_i$, et $n_j$.
+\newline
+\newline
 
+\begin{center}
 {\tikzset{external/export=false}
-\input{tex/tab_bode.tex}
+\input{tex/tab_bode_1.tex}
 }
+\end{center}
+\clearpage
+\begin{center}
+{\tikzset{external/export=false}
+\input{tex/tab_bode_2.tex}
+}
+\end{center}
 %Nous listons ci-dessous l'effet sur le gain et la phase d'un diagramme de 
 %Bode pour chacun de ces élements selon le signe des exposants $\alpha$, 
 %$n_i$, et $n_j$.
@@ -1282,7 +1297,7 @@ H(\jw)=e^{-j\tau\omega}
              \label{fig-nyquist_4}}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
-Les parties réelles et imaginaires sont simplement donnés par :
+Les parties réelles et imaginaires sont simplement données par :
 %-------------------------------------------------------------------------------
 \begin{align*}
     \Re{H(\jw)}&=\hphantom{-}\cos{\tau\omega}\\
