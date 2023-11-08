@@ -330,9 +330,16 @@ bin/pdf2eps 1 "\image"
 \ifodd\value{page}\hbox{}\newpage\fi
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\graphicspath{{./fig}{./fig/people}{./fig/annexe_scilab}{./fig/chap_asserv}
-              {./fig/chap_correction}{./fig/chap_stab/}{./fig/logo}
-              {./fig/annexe_blackNichols}{./fig/annexe_cauchy}}
+\graphicspath{{./fig}
+              {./fig/people}
+              {./fig/annexe_scilab}
+              {./fig/annexe_matlab}
+              {./fig/chap_asserv}
+              {./fig/chap_correction}
+              {./fig/chap_stab/}
+              {./fig/logo}
+              {./fig/annexe_blackNichols}
+              {./fig/annexe_cauchy}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ------------------------------------------------------------------------------
 % includeonly individuel
@@ -355,6 +362,7 @@ bin/pdf2eps 1 "\image"
 %\includeonly{tex/annexe_des}           % Décomposition en éléments simples
 %\includeonly{tex/annexe_2nd}           % Système du second ordre
 %\includeonly{tex/annexe_scilab}        % Scilab
+%\includeonly{tex/annexe_matlab}         % MATLAB
 %\includeonly{tex/annexe_log}           % Echelle log
 %\includeonly{tex/annexe_invL}          % Inverse Laplace 
 %\includeonly{tex/annexe_blackNichols}  % BlackNichols 
@@ -401,6 +409,7 @@ bin/pdf2eps 1 "\image"
              tex/annexe_des,
              tex/annexe_2nd,
              tex/annexe_scilab,
+             tex/annexe_matlab,
              tex/annexe_log,
              tex/annexe_invL}
 }
@@ -469,7 +478,8 @@ bin/pdf2eps 1 "\image"
 \include{tex/annexe_des}               %H Décomposition en éléments simples
 \include{tex/annexe_2nd}               %I Système du second ordre
 {\tikzset{external/export=false}
-    \include{tex/annexe_scilab}        %J Scilab
+%    \include{tex/annexe_scilab}        %J Scilab
+    \include{tex/annexe_matlab}        %J MATLAB
     \include{tex/annexe_log}           %K Echelle log  
 }
 \include{tex/annexe_invL}              %L Laplace inverse 

@@ -220,40 +220,58 @@ lorsque $\omega=$1, la phase est de -45\degreeSI, en effet,
 \]
 La~\cref{fig-bode_annexe} présente le diagramme de Bode associé à 
 la fonction de transfert de l'\cref{eq-ft_annexe}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Tracé d'un diagramme de Bode avec MATLAB}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La fonction \texttt{bode} permet de tracer un diagramme de Bode avec MATLAB.
+Par exemple pour une fonction de transfert simple du premier ordre, on écrira :
+%-------------------------------------------------------------------------------
+\begin{minted}[bgcolor=col1!10]{matlab}
+H=tf(1,[1 1]) 
+bode(H)
+\end{minted}
+%-------------------------------------------------------------------------------
+Nous nous rapporterons à la documentation officielle de MATLAB pour
+plus de détails sur la fonction 
+\href{https://fr.mathworks.com/help/control/ref/dynamicsystem.bode.html}{\texttt{bode}}.
+Il est également possible d'installer un add-on pour le tracer des diagrammes 
+de Bode asymptotiques.
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Tracé d'un diagramme de Bode avec Scilab}
+%\section{Tracé d'un diagramme de Bode avec Scilab}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Deux fonctions permettent de tracer un diagramme de Bode avec Scilab.
+%Deux fonctions permettent de tracer un diagramme de Bode avec Scilab.
 %-------------------------------------------------------------------------------
-\begin{itemize}
-    \item \verb?bode(syslin,fMin,fMax)? trace le diagramme de Bode réel. 
-          Cette fonction prend pour argument \verb?sys? un système linéaire 
-          comme défini à l'~\Cref{annexe-scilab}, \verb?fMin? et \verb?fMax? 
-          une fréquence minimal et maximal (en \si{\hertz} sauf si un 
-          4ème argument est donné). 
-    \item \verb?bode_asymp(syslin,fMin,fMax)? trace le diagramme asymptotique.
-\end{itemize}
+%\begin{itemize}
+%    \item \verb?bode(syslin,fMin,fMax)? trace le diagramme de Bode réel. 
+%          Cette fonction prend pour argument \verb?sys? un système linéaire 
+%          comme défini à l'~\Cref{annexe-scilab}, \verb?fMin? et \verb?fMax? 
+%          une fréquence minimal et maximal (en \si{\hertz} sauf si un 
+%          4ème argument est donné). 
+%    \item \verb?bode_asymp(syslin,fMin,fMax)? trace le diagramme asymptotique.
+%\end{itemize}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
-\begin{Scilabcode}
-scf(grf);clf(grf);grf=grf+1;
-fMin =0.01,fMax=100;
-p=poly(0,'p')
-PremierOrdre=syslin('c',[1],[1+p])
-//-----------------------------------
-// diagrammme de Bode
-//-----------------------------------
-bode(PremierOrdre,fMin,fMax,"rad");
-// ----------------------------------
-// diagrammme de Bode asymptotique
-//-----------------------------------
-bode_asymp(PremierOrdre,fMin,fMax);
-\end{Scilabcode}
+%\begin{Scilabcode}
+%scf(grf);clf(grf);grf=grf+1;
+%fMin =0.01,fMax=100;
+%p=poly(0,'p')
+%PremierOrdre=syslin('c',[1],[1+p])
+%//-----------------------------------
+%// diagrammme de Bode
+%//-----------------------------------
+%bode(PremierOrdre,fMin,fMax,"rad");
+%// ----------------------------------
+%// diagrammme de Bode asymptotique
+%//-----------------------------------
+%bode_asymp(PremierOrdre,fMin,fMax);
+%\end{Scilabcode}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
