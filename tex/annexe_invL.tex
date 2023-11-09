@@ -15,29 +15,75 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 Il existe une forme analytique de la transformée inverse basée sur
 la formule de Mellin-Fourier\cite{Ostertag}:
 \[
 s(t)=\laplacei{S(p)}=\int_{c-j\infty}^{c+j\infty} e^{pt}S(p)\dd{p}
 \]
 Cette inversion se fait donc par le biais d'une intégrale dans le plan
-complexe.
+complexe. Il existe différentes méthodes numériques pour obtenir des résultats
+approchés de cette intégrale. Nous discuterons de deux algorithmes : 
+l'algorithme de Gaver-Stehfest et l'algorithme fixe de Talbot comme présentés
+par Abate et al.~\cite{abate2004,abate2006,frwiki:200676411}.
+Nous présentons une implémention python de ces deux algorithmes.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Méthode de Gaver-Stehfest}
+\section{Algorithme de Gaver-Stehfest}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+D'abord donnons nous une fonction \texttt{v\_stehfest} pour déterminer 
+la relation (32) de~\cite{abate2006} c'est à dire :
+\[
+\zeta_k = (-1)^{M+k} \sum_{j=\lfloor(k+1)/2\rfloor}^{\min{(k,M)}} 
+\dfrac{j^{M+1}}{M!}\begin{pmatrix} M\\j  \end{pmatrix}
+                   \begin{pmatrix} 2j\\j \end{pmatrix}
+                   \begin{pmatrix} j\\k-j\end{pmatrix}
+\]
+avec $\lfloor x \rfloor$ le plus grand entier inférieur ou égal à $x$. Il 
+nous faudra définir les coefficients binomiaux.
+
+\inputminted{python}{codes/python/coeff_bin-annexe_invL.py}
+\inputminted{python}{codes/python/1er_ordre-annexe_invL.py}
+\inputminted{python}{codes/python/2nd_ordre-annexe_invL.py}
+\inputminted{python}{codes/python/coeff_bin-annexe_invL.py}
+\inputminted{python}{codes/python/gaver_stehfest-annexe_invL.py}
+\inputminted{python}{codes/python/talbot-annexe_invL.py}
+\inputminted{python}{codes/python/v_stehfest-annexe_invL.py}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Méthode de Talbot fixe}
+\section{Algorithme fixe de Talbot}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On souhaite se donner la relation (18) de~\cite{abate2004} 
+qui se présente sous la forme :
+\[
+f(t) = \dfrac{r}{M} 
+\left\{ 
+    \dfrac{1}{2} F(r) e^{rt}+ \sum_{k=1}^{M-1} 
+    \textrm{Re}\left[ e^{ts(\theta_k)} F(s(\theta_k)) (1+i\sigma(\theta_k))\right]
+\right\}
+\]
+avec $\theta_k=\dfrac{k\pi}{M}$.
+
+Les relations (19), (16) et (11) de [3] respectivements: 
+\[
+r=\dfrac{2M}{5t}
+\]
+\[
+\sigma(\theta)=\theta+(\theta\cot\theta-1)\cot\theta
+\] 
+\[
+s(\theta)=r\theta(\cot\theta+i)
+\]
+sont nécessaires pour implémenter la méthode.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

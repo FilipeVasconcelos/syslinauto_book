@@ -331,6 +331,7 @@ bin/pdf2eps 1 "\image"
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \graphicspath{{./fig}
+              {./fig/cover}
               {./fig/people}
               {./fig/annexe_scilab}
               {./fig/annexe_matlab}
@@ -456,7 +457,7 @@ bin/pdf2eps 1 "\image"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\mainmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\include{tex/preface}                  %0 Preface
+\include{tex/preface}                  %0 Preface
 \include{tex/avantpropos}              %0 Avant-propos 
 \include{tex/chap_slci}                %1 SLCI                
 \include{tex/chap_bloc}                %2 Schémas fonctionnels-blocs
@@ -475,20 +476,20 @@ bin/pdf2eps 1 "\image"
 %\include{tex/annexe_laplace_irl}      %C Pierre-Simon de Laplace 
 \include{tex/annexe_laplace}           %D Transformation de Laplace 
 \include{tex/annexe_cplx}              %E Rappel sur les nombres complexes
-\include{tex/annexe_seriefourier}     %F Analyse de Fourier
+\include{tex/annexe_seriefourier}      %F Analyse de Fourier
 \include{tex/annexe_equa_diff}         %G Eq. diff. à coefficient constant
 \include{tex/annexe_des}               %H Décomposition en éléments simples
 \include{tex/annexe_2nd}               %I Système du second ordre
 {\tikzset{external/export=false}
-%    \include{tex/annexe_scilab}        %J Scilab
-    \include{tex/annexe_matlab}        %J MATLAB
-    \include{tex/annexe_log}           %K Echelle log  
+    \include{tex/annexe_scilab}        %J Scilab
+    \include{tex/annexe_matlab}        %K MATLAB
+    \include{tex/annexe_log}           %L Echelle log  
 }
-\include{tex/annexe_invL}              %L Laplace inverse 
-\include{tex/annexe_blackNichols}      %M Diagramme de Black-Nichols  
-\include{tex/annexe_cauchy}            %N Principe de l'argument Cauchy  
-\include{tex/annexe_evans}             %O Lieu d'Evans
-%\include{tex/todo}                    %P TODO
+\include{tex/annexe_invL}              %M Laplace inverse 
+\include{tex/annexe_blackNichols}      %N Diagramme de Black-Nichols  
+\include{tex/annexe_cauchy}            %O Principe de l'argument Cauchy  
+\include{tex/annexe_evans}             %P Lieu d'Evans
+%\include{tex/todo}                    %Q TODO
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\backmatter
@@ -524,7 +525,7 @@ $\,$
     \AddToShipoutPictureBG*{%
     \AtPageLowerLeft{%
         \includegraphics
-        [width=\paperwidth,height=\paperheight]{fig/quatrieme_page.eps}%
+        [width=\paperwidth,height=\paperheight]{fig/cover/quatrieme_page.eps}%
                     }%
     }
 \end{titlepage}
