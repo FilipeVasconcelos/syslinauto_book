@@ -86,8 +86,17 @@
 \newglossaryentry{correcteur}%
 {% 
   name={Correcteur},% 
-  description={
-  }
+  description={Un correcteur permet d'ajuster ou 
+               de modifier la réponse du système en fonction des écarts 
+               entre la valeur souhaitée (la consigne) et la valeur 
+               réelle mesurée (la sortie) par le système. Le rôle principal 
+               du correcteur est d'améliorer les performances du système 
+               en minimisant les erreurs et en optimisant les performances 
+               telles que la stabilité, la rapidité et la précision. 
+               Il existe différents types de correcteurs, tels que les correcteurs 
+               proportionnels (P), intégrateurs (I), dérivés (D), 
+               et les combinaisons de ceux-ci, qui sont choisis en fonction 
+               des spécificités du système et des exigences de performance.}
 }
 \newglossaryentry{tempsdemontee}%
 {% 
@@ -190,26 +199,38 @@
 \newglossaryentry{diagnyquist}%
 {% 
   name={Diagramme de Nyquist},% 
-  description={
-  }
+  description={Le diagramme de Nyquist constitue un outil graphique fréquemment 
+               employé dans les domaines de l'électronique et de l'automatique 
+               afin d'évaluer la stabilité d'un système en boucle fermée. Il 
+               représente, dans le plan complexe, la réponse harmonique du 
+               système en boucle ouverte associé. L'angle de phase et la distance 
+               du point à l'origine déterminent respectivement la phase 
+               et l'amplitude de la réponse harmonique. À l'instar du~\gls{diagblack}, 
+               celui de Nyquist fusionne les deux types de diagrammes de Bode.} 
 }
 \newglossaryentry{diagblack}%
 {% 
   name={Diagramme de Blach-Nichols},% 
-  description={
-  }
+  description={Le diagramme de Black-Nichols est un graphe 
+               utilisé en automatique pour étudier la réponse harmonique
+               des systèmes linéaires. Il représente, dans un repère 
+               semi-logarithmique, le gain (en décibels) en fonction 
+               de la phase, selon une courbe paramétrée par la pulsation. 
+               Ce diagramme combine en un les deux diagrammes de Bode. 
+               À l'échelle internationale, ce diagramme est communément 
+               appelé diagramme de Nichols, alors qu'en France, 
+               il a longtemps été spécifiquement désigné comme le 
+               diagramme de Black.}
 }
 \newglossaryentry{impulsionnelle}%
 {% 
   name={Impulsionnelle},% 
-  description={voir Réponse impulsionnelle
-  }
+  description={(c.f~\gls{repimpuls})}
 }
 \newglossaryentry{indicielle}%
 {% 
   name={Indicielle},% 
-  description={voir Réponse indicielle
-  }
+  description={(c.f~\gls{repind})}
 }
 \newglossaryentry{repimpuls}%
 {% 
@@ -225,6 +246,45 @@
   à un signal échelon.
   }
 }
+\newglossaryentry{impulsDirac}%
+{% 
+  name={Impulsion de Dirac},% 
+  description={Autrement appelée plus formellement \emph{distribution de Dirac}, 
+               ce signal sert en physique à décrire des événements ponctuels. 
+               Pour les besoins du formalisme quantique, Dirac a introduit cet objet 
+               singulier, qu'on appelle aujourd'hui \og~impulsion de Dirac\fg, notée $\delta(t)$. 
+               Cette impulsion représente un signal de durée théoriquement nulle 
+               et d'énergie finie.}
+}
+\newglossaryentry{echelon}%
+{% 
+  name={\'Echelon unité},% 
+  description={L'échelon unité également connu comme 
+              la fonction d'Heaviside ou bien encore fonction marche 
+              d'escalier, est la fonction indicatrice de $\mathbb{R}^+$.
+              La fonction est très souvent utilisée dans les mathématiques 
+              du traitement du signal ou de l'automatique pour modéliser 
+              des états fermé/ouvert (\og on/off\fg) d'un signal donné.}
+}
+\newglossaryentry{rampe}%
+{% 
+  name={Signal rampe},% 
+  description={Le signal rampe est l'échelon unitaire multipliée par 
+               l'application identité. Ce signal est connu sous le 
+               nom d'Unité Linéaire Rectifiée 
+               (ou ReLU pour \emph{Rectified Linear Unit}) dans
+               le domaine des réseaux de neurones.}
+}
+\newglossaryentry{usuel}%
+{% 
+  name={Signaux usuels},% 
+  description={Les signaux usuels sont les trois entrées ou sollicitations
+              couramment utilisé pour l'étude des systèmes linéaires. 
+              (c.f \gls{impulsDirac},~\gls{echelon},~\gls{rampe})}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
