@@ -1,5 +1,6 @@
 def gaver_stehfest(t,f,N=16):
     """
+    Méthode de Gaver-Stehfest
     (equation 31) JcO.pdf
     """
     if N%2 !=0 :

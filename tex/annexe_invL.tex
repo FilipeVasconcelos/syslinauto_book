@@ -21,11 +21,18 @@ la formule de Mellin-Fourier\cite{Ostertag}:
 s(t)=\laplacei{S(p)}=\int_{c-j\infty}^{c+j\infty} e^{pt}S(p)\dd{p}
 \]
 Cette inversion se fait donc par le biais d'une intégrale dans le plan
-complexe. Il existe différentes méthodes numériques pour obtenir des résultats
-approchés de cette intégrale. Nous discuterons de deux algorithmes : 
+complexe. Cette intégrale n'ayant pas de forme analytique, il n'est possible 
+d'approcher une solution qu'à l'aide d'outils numérique. 
+Dans cette annnexe, nous discuterons deux implémentations en python de 
+deux de ces algorithmes : 
 l'algorithme de Gaver-Stehfest et l'algorithme fixe de Talbot comme présentés
 par Abate et al.~\cite{abate2004,abate2006,frwiki:200676411}.
-Nous présentons une implémention python de ces deux algorithmes.
+Avant de tester ces méthodes sur les systèmes linéaires, nous l'appliquerons
+à l'inversion de Laplace :  
+\[
+    te^{-t}=\laplacei{\dfrac{1}{(p+1)^2}},
+\]
+dont on connait la forme analytique exacte.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -33,8 +40,13 @@ Nous présentons une implémention python de ces deux algorithmes.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-D'abord donnons nous une fonction \texttt{v\_stehfest} pour déterminer 
-la relation (32) de~\cite{abate2006} c'est à dire :
+La transformée inverse par la méthode de Gaver-Stehfest est donné par 
+(relation adaptée de l'équation (31) de~\cite{abate2006}) :
+\[
+f(t)=\dfrac{\ln{2}}{t}\sum_{k=1}^{2M}\zeta_kF\left(\dfrac{k\ln{2}}{t}\right)
+\]
+où l'on note $f(t)$ la fonction inverse de $F(p)$ et les $\zeta_k$ sont
+donnés par la relation (32) de~\cite{abate2006} c'est à dire :
 \[
 \zeta_k = (-1)^{M+k} \sum_{j=\lfloor(k+1)/2\rfloor}^{\min{(k,M)}} 
 \dfrac{j^{M+1}}{M!}\begin{pmatrix} M\\j  \end{pmatrix}
@@ -42,17 +54,56 @@ la relation (32) de~\cite{abate2006} c'est à dire :
                    \begin{pmatrix} j\\k-j\end{pmatrix}
 \]
 avec $\lfloor x \rfloor$ le plus grand entier inférieur ou égal à $x$. Il 
-nous faudra définir les coefficients binomiaux.
-
+nous faudra définir les coefficients binomiaux et les $\zeta_k$ avec les
+deux fonctions suivantes :
+\clearpage
+%-------------------------------------------------------------------------------
 \inputminted{python}{codes/python/coeff_bin-annexe_invL.py}
-\inputminted{python}{codes/python/1er_ordre-annexe_invL.py}
-\inputminted{python}{codes/python/2nd_ordre-annexe_invL.py}
-\inputminted{python}{codes/python/coeff_bin-annexe_invL.py}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\inputminted{python}{codes/python/zeta-annexe_invL.py}
+%-------------------------------------------------------------------------------
+La fonction \texttt{gaver\_stehfest} qui prend en paramètres 
+le temps \texttt{t} et la fonction \texttt{f} représentant la fonction $f(t)$ 
+inverse de $F(p)$.
+%-------------------------------------------------------------------------------
 \inputminted{python}{codes/python/gaver_stehfest-annexe_invL.py}
-\inputminted{python}{codes/python/talbot-annexe_invL.py}
-\inputminted{python}{codes/python/v_stehfest-annexe_invL.py}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Test de la méthode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit la transformée de Laplace inverse connue :
+\[
+    te^{-t}=\laplacei{\dfrac{1}{(p+1)^2}}
+\]
+Que l'on écrit sous forme de fonctions de la façon suivante en python:
+\begin{minted}{python}
+ft=lambda t : t*m.exp(-t)
+fp=lambda p : 1/(p+1)**2
+\end{minted}
+On cherche à déterminer la transformée inverse pour différentes valeurs
+de $t\in[10^{-4},10^4]$  
+\begin{minted}{python}
+t=np.logspace(-4,4,256)
+f_gaver_stehfest=np.array([gaver_stehfest(tk,fp,20) for tk in t])
+f_analytic=np.array([ft(tk) for tk in t])
+\end{minted}
+Nous traçons ci-dessous la différence relative :
+\[
+    f_{\textrm{stehfest}}(t) - f_{\textrm{exact}}(t) 
+\]
 
-
+%-------------------------------------------------------------------------------
+\begin{figure}[!b]
+    \centering
+    \includegraphics[width=0.65\linewidth]{erreur_gaver-stehfest.eps}
+    \caption{Erreur relative entre l'approche de Gaver-Stehfest et 
+             la relation exacte}
+\end{figure}
+%-------------------------------------------------------------------------------
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -69,21 +120,49 @@ f(t) = \dfrac{r}{M}
     \textrm{Re}\left[ e^{ts(\theta_k)} F(s(\theta_k)) (1+i\sigma(\theta_k))\right]
 \right\}
 \]
-avec $\theta_k=\dfrac{k\pi}{M}$.
-
-Les relations (19), (16) et (11) de [3] respectivements: 
+avec $\theta_k=\frac{k\pi}{M}$, et les relations (19), (16) et (11) de [3] 
+sont nécessaires pour implémenter la méthode à savoir 
+$r=\frac{2M}{5t}$,$\sigma(\theta)=\theta+(\theta\cot\theta-1)\cot\theta$,
+$s(\theta)=r\theta(\cot\theta+i)$.
+\inputminted{python}{codes/python/talbot-annexe_invL.py}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Test de la méthode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Nous cherchons à nouveau à reproduire la transformée de Laplace inverse connue :
 \[
-r=\dfrac{2M}{5t}
+    te^{-t}=\laplacei{\dfrac{1}{(p+1)^2}}
 \]
+Nous traçons ci-dessous la différence relative pour différence valeurs de $t$:
 \[
-\sigma(\theta)=\theta+(\theta\cot\theta-1)\cot\theta
-\] 
-\[
-s(\theta)=r\theta(\cot\theta+i)
+    f_{\textrm{talbot}}(t) - f_{\textrm{exact}}(t) 
 \]
-sont nécessaires pour implémenter la méthode.
+%-------------------------------------------------------------------------------
+\begin{figure}[!b]
+    \centering
+    \includegraphics[width=0.65\linewidth]{erreur_talbot.eps}
+    \caption{Erreur relative entre l'algorithme fixe de Talbot et 
+             la relation exacte.}
+\end{figure}
+%-------------------------------------------------------------------------------
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Exemple d'applications aux SLCI}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\inputminted{python}{codes/python/1er_ordre-annexe_invL.py}
+\inputminted{python}{codes/python/2nd_ordre-annexe_invL.py}
 
+%1er_ordre_talbot.eps  2nd_ordre_talbot.eps  erreur_gaver-stehfest.eps  erreur_talbot.eps
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{erreur_gaver-stehfest.eps}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

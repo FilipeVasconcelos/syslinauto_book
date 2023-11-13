@@ -1,9 +1,8 @@
-# -------------------------------------------------------------------------------
-# réponse indicielle d'un système du second ordre
-# forme analytique pour la comparaison des résultats
-# des méthodes numériques
-# -------------------------------------------------------------------------------
 def second_ordre(t,**kwargs):
+    """
+    Réponse indicielle d'un système du second ordre. La forme 
+    dépend de z (le coefficient d'amortissement)
+    """
     K=kwargs.get('K', 1.0)
     w=kwargs.get('w', 1.0)
     z=kwargs.get('z', 1.0)
