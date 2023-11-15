@@ -301,7 +301,10 @@ bin/pdf2eps 1 "\image"
 %MINTED 
 \usepackage{morewrites}
 \usepackage{minted}
-\usepackage{mintedscilabfmv}
+\setminted[python]{%
+    framesep=1mm,
+    baselinestretch=1.1,
+    bgcolor=blue!8}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{marginnote}
@@ -367,7 +370,7 @@ bin/pdf2eps 1 "\image"
 %\includeonly{tex/annexe_scilab}        % Scilab
 %\includeonly{tex/annexe_matlab}         % MATLAB
 %\includeonly{tex/annexe_log}           % Echelle log
-\includeonly{tex/annexe_invL}          % Inverse Laplace 
+%\includeonly{tex/annexe_invL}          % Inverse Laplace 
 %\includeonly{tex/annexe_blackNichols}  % BlackNichols 
 %\includeonly{tex/annexe_cauchy}        % Principe de l'argument de Cauchy
 %\includeonly{tex/annexe_evans}         % Lieu d'Evans

@@ -33,6 +33,13 @@ Avant de tester ces méthodes sur les systèmes linéaires, nous l'appliquerons
     te^{-t}=\laplacei{\dfrac{1}{(p+1)^2}},
 \]
 dont on connait la forme analytique exacte.
+Il faut noter que les méthodes et algorithmes présentés ici dépendent 
+largement de la précision machine accessible pour le calcul en virgule flottante.
+L'usage de librairie en précision arbitraire comme \texttt{mpmath} peut être 
+nécessaire pour obtenir des résultats de meilleure précision. Il est également
+connu que toutes les méthodes d'inversion numérique présente des problèmes
+aux temps longs lorsque la fonction à inverser présente des pôles ce qui 
+est très largement le cas des SLCI.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -63,12 +70,13 @@ deux fonctions suivantes :
 %-------------------------------------------------------------------------------
 \inputminted{python}{codes/python/zeta-annexe_invL.py}
 %-------------------------------------------------------------------------------
-La fonction \texttt{gaver\_stehfest} qui prend en paramètres 
-le temps \texttt{t} et la fonction \texttt{f} représentant la fonction $f(t)$ 
-inverse de $F(p)$.
+\clearpage
 %-------------------------------------------------------------------------------
 \inputminted{python}{codes/python/gaver_stehfest-annexe_invL.py}
 %-------------------------------------------------------------------------------
+La fonction \texttt{gaver\_stehfest} prend en paramètres 
+le temps \texttt{t} et une fonction \texttt{f} représentant la fonction inverse 
+$F(p)$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Test de la méthode}
@@ -78,29 +86,21 @@ Soit la transformée de Laplace inverse connue :
 \[
     te^{-t}=\laplacei{\dfrac{1}{(p+1)^2}}
 \]
-Que l'on écrit sous forme de fonctions de la façon suivante en python:
+Nous cherchons à déterminer numériquement la transformée inverse 
+pour différentes valeurs de $t\in[10^{-1},10^3]$  
 \begin{minted}{python}
-ft=lambda t : t*m.exp(-t)
+ft=lambda t : t*exp(-t)
 fp=lambda p : 1/(p+1)**2
-\end{minted}
-On cherche à déterminer la transformée inverse pour différentes valeurs
-de $t\in[10^{-4},10^4]$  
-\begin{minted}{python}
-t=np.logspace(-4,4,256)
+t=np.logspace(-1,3,256)
 f_gaver_stehfest=np.array([gaver_stehfest(tk,fp,20) for tk in t])
 f_analytic=np.array([ft(tk) for tk in t])
 \end{minted}
-Nous traçons ci-dessous la différence relative :
-\[
-    f_{\textrm{stehfest}}(t) - f_{\textrm{exact}}(t) 
-\]
-
+Nous traçons ci-dessous la différence relative entre ces deux fonctions.
 %-------------------------------------------------------------------------------
 \begin{figure}[!b]
     \centering
-    \includegraphics[width=0.65\linewidth]{erreur_gaver-stehfest.eps}
-    \caption{Erreur relative entre l'approche de Gaver-Stehfest et 
-             la relation exacte}
+    \includegraphics[width=0.4\linewidth]{erreur_gaver-stehfest.eps}
+    \caption{Erreur relative de l'algorithme de Gaver-Stehfest} 
 \end{figure}
 %-------------------------------------------------------------------------------
 \clearpage
@@ -130,39 +130,75 @@ $s(\theta)=r\theta(\cot\theta+i)$.
 \subsection*{Test de la méthode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Nous cherchons à nouveau à reproduire la transformée de Laplace inverse connue :
+Nous cherchons à nouveau à reproduire la transformée de Laplace inverse :
 \[
     te^{-t}=\laplacei{\dfrac{1}{(p+1)^2}}
 \]
-Nous traçons ci-dessous la différence relative pour différence valeurs de $t$:
-\[
-    f_{\textrm{talbot}}(t) - f_{\textrm{exact}}(t) 
-\]
+La différence relative entre l'algorithme fixe de Talbot et le résultat exact 
+est donnée ci-dessous
 %-------------------------------------------------------------------------------
 \begin{figure}[!b]
     \centering
-    \includegraphics[width=0.65\linewidth]{erreur_talbot.eps}
-    \caption{Erreur relative entre l'algorithme fixe de Talbot et 
-             la relation exacte.}
+    \includegraphics[width=0.4\linewidth]{erreur_talbot.eps}
+    \caption{Erreur relative de l'algorithme fixe de Talbot} 
 \end{figure}
 %-------------------------------------------------------------------------------
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Exemple d'applications aux SLCI}
+\section{Applications aux SLCI}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Nous souhaitons appliquer les deux approches aux calculs de la réponse 
+indicielle d'un système du premier et du second ordre. 
+Nous utiliserons les relations exactes obtenues au chapitre~\cref{chap-model} 
+pour comparer les résultats obtenus.
 
-\inputminted{python}{codes/python/1er_ordre-annexe_invL.py}
-\inputminted{python}{codes/python/2nd_ordre-annexe_invL.py}
-
-%1er_ordre_talbot.eps  2nd_ordre_talbot.eps  erreur_gaver-stehfest.eps  erreur_talbot.eps
-\begin{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Système du 1er ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%La fonction python ci-dessous permet de calculer la réponse indicielle au temps
+%$t$ d'un système du premier ordre pour des paramètres $K$ et $\tau$ données.
+%-------------------------------------------------------------------------------
+%\inputminted{python}{codes/python/1er_ordre-annexe_invL.py}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{figure}[!b]
     \centering
-    \includegraphics[width=0.8\linewidth]{erreur_gaver-stehfest.eps}
+    \includegraphics[width=0.9\linewidth]{1er_ordre_talbot.eps}
+    \caption[1erOrdreInvL]{
+    \textbf{(en haut)} Réponses temporelles d'un système du premier ordre 
+    calculées à l'aide de (bleu) l'algorithme 
+    fixe de Talbot et (orange) la méthode de Gaver-Stehfest. Les deux réponses
+    sont légerement décaler pour permettre la comparaison
+
+    \textbf{(en bas)} Différence
+    relative de chacunes des deux approches avec la réponse temporelle exacte calculée
+    avec la fonction \texttt{premier\_ordre}.~\label{fig-1erOrdreInvL}}
 \end{figure}
+%-------------------------------------------------------------------------------
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Système du 2nd ordre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-------------------------------------------------------------------------------
+%\inputminted{python}{codes/python/2nd_ordre-annexe_invL.py}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{figure}[!b]
+    \centering
+    \includegraphics[width=0.9\linewidth]{2nd_ordre_talbot.eps}
+    \caption{Même présentation que~\cref{fig-1erOrdreInvL} dans le cas d'un système
+    du second ordre}
+\end{figure}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
