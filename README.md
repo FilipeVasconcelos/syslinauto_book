@@ -9,5 +9,6 @@ au module de Systèmes Mécaniques et Automatiques (SMA).
 ## Page de couverture (Illustration : Lorraine Bayard)
 <img src="fig/cover/premiere_page.png" width="256"> <img src="fig/cover/quatrieme_page.png" width="256">
 
+[PDF](sma_auto.pdf)
 ## Auteur
 Filipe Manuel Vasconcelos (Enseignant à ESME Lille)
