@@ -110,7 +110,7 @@ d'un système linéaire :% soit en boucle ouverte soit en boucle fermée.
 %-------------------------------------------------------------------------------
     \item En \textbf{boucle fermée}: le principe consiste à récupérer 
           le signal de sortie pour ajuster le signal de commande. 
-          Pour cela, on place le système (corrigée ou non) dans une 
+          Pour cela, on place le système (corrigé ou non) dans une 
           boucle de contre-réaction (négative). 
           Les relations entre la sortie et la consigne dans une telle 
           boucle ont été largement étudiées au \cref{chap-schemabloc}.
@@ -145,9 +145,9 @@ le cas de la boucle ouverte.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Classiquement, un asservissement se représente par le schéma fonctionnel de 
-la~\cref{fig-reg2}. Celui-ci comporte en générale un \textbf{régulateur}
-permettant de comparer l'entrée et la sortie. Ce régulateur est en 
-générale accompagné d'un \textbf{correcteur}
+la~\cref{fig-reg2}. Celui-ci est composé d'un \textbf{régulateur}
+permettant de comparer l'entrée et la sortie. Ce régulateur est 
+généralement accompagné d'un \textbf{correcteur}
 permettant de corriger la boucle ouverte du système.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
@@ -170,7 +170,7 @@ permettant de corriger la boucle ouverte du système.
 %\end{figure}
 %-------------------------------------------------------------------------------
 La \textbf{mesure} $M(p)$ est l'image de la sortie élaborée par 
-l'intermédiaire du capteur. Il est alors en générale nécessaire d'adapter 
+l'intermédiaire du capteur. Il généréralement nécessaire d'adapter 
 la consigne pour que l'écart $\epsilon(p)$ soit représentatif de l'écart 
 entre la consigne et la sortie et non de son image. Ainsi, on retrouvera 
 très souvent un \textbf{adaptateur} permmettant d'obtenir l'image 
@@ -186,7 +186,7 @@ présentant ces nouveaux constituants.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La prise en compte de pertubation se fait simplement en considérant un schéma
 fonctionnel à plusieurs entrées à l'instar du schéma-blocs de 
-la~\cref{fig-pert2}. En général, la perturbation se trouve en amont
+la~\cref{fig-pert2-chap_asserv}. En général, la perturbation se trouve en amont
 du système et le signal de perturbation $P(p)$ est simplement sommé à la 
 commande $U(p)$. On dit que l'on a à faire à une \textbf{perturbation 
 en entrée}. Si celle-ci se trouve en aval du système, on parle alors de 
@@ -204,7 +204,6 @@ quelque soit la nature et le nombre des perturbations.
 %             présentant une perturbation.\label{fig-pert}}
 %\end{figure}
 %-------------------------------------------------------------------------------
-La position de la perturbation 
 
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
@@ -212,7 +211,7 @@ La position de la perturbation
     \tikzsetnextfilename{pert_2-chap_asserv-ext}
     \input{tikz/pert_2-chap_asserv.tex}
     \caption{Schéma fonctionnel de l'asservissement d'un système 
-             présentant différents types de perturbations. \label{fig-pert2}}
+             présentant différents types de perturbations. \label{fig-pert2-chap_asserv}}
 \end{figure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -296,7 +295,7 @@ Chacuns des blocs du schéma fonctionnel d'un asservissement~\cref{fig-asser}
 permet de définir une fonction de transfert reliant localement une entrée 
 et une sortie.
 Nous allons définir quelques fonctions de transferts fondamentales à 
-l'étude d'un système asservis.
+l'étude d'un système asservi.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonction de transfert de la chaîne directe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -354,7 +353,7 @@ Remarquons que dans le cas d'une boucle de contre réaction unitaire
 \[
 H_{BF}(p)=\dfrac{H_{BO}(p)}{1+H_{BO}(p)}
 \]
-Dans le cas d'une contre réaction unitaire, la~\gls{ftbf} ne dépend 
+C'est à dire que, dans le cas d'une contre réaction unitaire, la~\gls{ftbf} ne dépend 
 que de la~\gls{ftbo}.
 %\newpage %tmp
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
