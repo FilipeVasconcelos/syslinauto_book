@@ -6,6 +6,9 @@ Ce document est le résultat de l'enseignement dispensé de janvier 2018
 à juin 2022 en deuxième année de l'ESME Sudria. Celui-ci était associé 
 au module de Systèmes Mécaniques et Automatiques (SMA).
 
+## PDF (dernière version)
+[PDF](sma_auto.pdf)
+
 ## Sommaire
 <img src="fig/sommaire/sommaire-0.png" width="256"> <img src="fig/sommaire/sommaire-1.png" width="256"> <img src="fig/sommaire/sommaire-2.png" width="256">
 <img src="fig/sommaire/sommaire-3.png" width="256"> <img src="fig/sommaire/sommaire-4.png" width="256"> 
@@ -13,6 +16,5 @@ au module de Systèmes Mécaniques et Automatiques (SMA).
 ## Page de couverture (Illustration : Lorraine Bayard)
 <img src="fig/cover/premiere_page.png" width="256"> <img src="fig/cover/quatrieme_page.png" width="256">
 
-[PDF](sma_auto.pdf)
 ## Auteur
 Filipe Manuel Vasconcelos (Enseignant à ESME Lille)
