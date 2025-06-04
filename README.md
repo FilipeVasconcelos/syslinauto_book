@@ -9,6 +9,7 @@ au module de Systèmes Mécaniques et Automatiques (SMA).
 ## PDF (dernière version)
 [PDF](sma_auto.pdf)
 
+<<<<<<< HEAD
 ## Sommaire 
 
 <h2>Table of Contents</h2>
@@ -314,6 +315,8 @@ au module de Systèmes Mécaniques et Automatiques (SMA).
 </ul>
 
 
+=======
+>>>>>>> e8756487409d6a4b7e0a1e372758db14a9424ef7
 ## Page de couverture (Illustration : Lorraine Bayard)
 <img src="fig/cover/premiere_page.png" width="256"> <img src="fig/cover/quatrieme_page.png" width="256">
 
