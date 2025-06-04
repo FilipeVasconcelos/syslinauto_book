@@ -7,7 +7,7 @@ Ce document est le résultat de l'enseignement dispensé de janvier 2018
 au module de Systèmes Mécaniques et Automatiques (SMA).
 
 ## Page de couverture
-![Cover](fig/cover/premiere_page.png)
+<img src="fig/cover/premiere_page.png" width="48">
 
 ## Auteur
 Filipe Manuel De Freitas Vasconcelos
