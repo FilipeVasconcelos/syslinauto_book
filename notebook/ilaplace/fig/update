@@ -1,0 +1,7 @@
+#!/bin/bash
+path=../../../fig/annexe_invL/
+for file in *.png
+do
+    echo "convert to ${path}$(basename $file .png).eps"
+    convert $file eps3:${path}$(basename $file .png).eps
+done

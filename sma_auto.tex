@@ -301,7 +301,10 @@ bin/pdf2eps 1 "\image"
 %MINTED 
 \usepackage{morewrites}
 \usepackage{minted}
-\usepackage{mintedscilabfmv}
+\setminted[python]{%
+    framesep=1mm,
+    baselinestretch=1.1,
+    bgcolor=blue!8}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{marginnote}

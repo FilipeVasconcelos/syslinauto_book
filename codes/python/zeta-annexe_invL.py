@@ -10,7 +10,7 @@ def zeta_stehfest(N):
     zetas=[]
     for k in range(1,2*M+1):
         coeff=(-1)**(M+k)/m.factorial(M)
-        vs.append(coeff)
+        zetass.append(coeff)
         jmi=(k+1)//2
         jma=min(k,M)
         zetak=0.0
