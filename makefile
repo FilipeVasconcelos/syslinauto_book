@@ -29,7 +29,7 @@ svg:	dvi
 	dvisvgm ${mainfile}.dvi
 
 dvi:
-	@latex -shell-escape ${mainfile} | pv -w 60 -i 0.001 -F "latex run 1 : %t %p (${tlformat})" > /dev/null
+	@latex -file-line-error -shell-escape ${mainfile} | pv -w 60 -i 0.001 -F "latex run 1 : %t %p (${tlformat})" > /dev/null
 	@bibtex ${mainfile} > /dev/null 2>&1 ||true
 	@makeindex -q ${mainfile} 
 	@makeglossaries -q ${mainfile} 

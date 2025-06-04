@@ -1,49 +1,7 @@
 #!/bin/bash
-declare -A data=(['chap_slci']="13-41"
-                 ['exo-chap_slci']="42-44"
-                 ['exoCorr-chap_slci']="45-76"
-                 ['chap_bloc']="53-69"
-                 ['exo-chap_bloc']="70-71"
-                 ['exoCorr-chap_bloc']="72-76"
-                 ['chap_model']="77-103"
-                 ['exo-chap_model']="104-104"
-                 ['exoCorr-chap_model']="105-106"
-                 ['chap_repfreq']="107-140"
-                 ['exo-chap_repfreq']="141-141"
-                 ['exoCorr-chap_repfreq']="142-143"
-                 ['chap_asserv']="145-153"
-                 ['exo-chap_asserv']="154-155"
-                 ['exoCorr-chap_asserv']="156-157"
-                 ['chap_perf']="159-176"
-                 ['exo-chap_perf']="177-177"
-                 ['exoCorr-chap_perf']="178-178"
-                 ['chap_stab']="179-201"
-                 ['exo-chap_stab']="202-202"
-                 ['exoCorr-chap_stab']="203-203"
-                 ['chap_correction']="205-215"
-                 ['exo-chap_correction']="216-216"
-                 ['exoCorr-chap_correction']="217-217"
-                 ['chap_etat']="219-219"
-                 ['exo-chap_etat']="220-220"
-                 ['exoCorr-chap_etat']="221-221"
-                 ['annexe_alphagrec']="225-226"
-                 ['annexe_usi']="227-228"
-                 ['annexe_laplace_irl']="229-230"
-                 ['annexe_laplace']="231-234"
-                 ['annexe_cplx']="235-238"
-                 ['annexe_seriefourier']="239-240"
-                 ['annexe_equa_diff']="241-246"
-                 ['annexe_des']="247-250"
-                 ['annexe_2nd']="251-254"
-                 ['annexe_scilab']="255-278"
-                 ['annexe_log']="279-284"
-                 ['annexe_invL']="285-286"
-                 ['annexe_black']="287-294"
-                 ['annexe_cauchy']="295-306"
-                 ['laplace_table']="233-234")
-for cle in ${!data[@]}
-do
-    echo ${cle} ${data[$cle]} 
-    echo "pdftk sma_auto.pdf cat ${data[$cle]} output extract/${cle}.pdf"
-    pdftk sma_auto.pdf cat ${data[$cle]} output extract/${cle}.pdf
-done
+set -x
+PDF=$1
+cle=$2
+pages=$3
+out=$4
+pdftk ${PDF} cat $pages output $out/${cle}.pdf
