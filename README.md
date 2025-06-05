@@ -43,4 +43,4 @@ au module de Systèmes Mécaniques et Automatiques (SMA).
 <img src="fig/cover/premiere_page.png" width="256"> <img src="fig/cover/quatrieme_page.png" width="256">
 
 ## Auteur
-Filipe Manuel Vasconcelos (Enseignant à ESME Lille)
+[Filipe Manuel Vasconcelos (Enseignant à ESME Lille)](https://sites.google.com/site/filipemanuelvasconcelos)
