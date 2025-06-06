@@ -9,7 +9,7 @@
     - Stabilité :
         - Marges de stabilité Nyquist,Bode,Black (presque terminé)
     - Précision :
-        - revoir la partie précision, Shabab y voit un
+        - revoir la partie précision, Shabab Samimi y voit un
           problème dans le signe de l'erreur dû à la perturbation.
     - Correction :
         - Des exemples pour les correcteurs PID 
