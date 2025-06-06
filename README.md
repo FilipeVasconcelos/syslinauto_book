@@ -7,7 +7,7 @@ Ce document est le résultat de l'enseignement dispensé de janvier 2018
 au module de Systèmes Mécaniques et Automatiques (SMA).
 
 ## PDF (dernière version)
-[PDF](sma_auto.pdf)
+[PDF](syslinauto.pdf)
 
 ## Sommaire 
 
