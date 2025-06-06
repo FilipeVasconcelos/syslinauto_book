@@ -1,7 +1,7 @@
 .SUFFIXES: .tex .aux .bib
 timelimit=120
 tlformat=$(shell date -u -d @${timelimit} +"%T")
-mainfile=sma_auto
+mainfile=syslinauto
 
 fast: dvifast 
 	dvips -t a4 ${mainfile}.dvi
