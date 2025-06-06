@@ -1,11 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\exercice{Etude et conception de correcteurs AP, PI et PID\difficile}
+\exercice{Étude et conception de correcteurs AP, PI et PID\difficile}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 L'objectif de cet exercice, (adapté de~\cite{Bourles}), est de déterminer les 
-paramètres de correcteurs à avance de phase (AV), Proportionel et Intégral (PI) 
-et Proportionel, Intégral et Dérivé (PID) afin d'améliorer les performances 
+paramètres de correcteurs à avance de phase (AV), Proportionnel et Intégral (PI) 
+et Proportionnel, Intégral et Dérivé (PID) afin d'améliorer les performances 
 d'un système en boucle fermée.
 
 On se placera dans le cas d'un système régi en boucle ouverte par la fonction 
@@ -27,13 +27,13 @@ On étudiera en détail trois correcteurs:
 \[
     C(p)=C_{AV}(p)=K_d\dfrac{1+\alpha\tau_d p}{1+\tau_d p}
 \]
-    avec $K_d$ le gain proportionel, $\alpha>1$ et $\tau_d$ les paramètres 
+    avec $K_d$ le gain proportionnel, $\alpha>1$ et $\tau_d$ les paramètres 
     du correcteur.
     \item Proportionnel et Intégral : 
 \[ 
         C(p)=C_{PI}(p)=K_i\dfrac{1+\tau_i p}{\tau_i p}
 \]
-    avec $K_i$ le gain proportionel et $\tau_i$ la constante de temps du 
+    avec $K_i$ le gain proportionnel et $\tau_i$ la constante de temps du 
     terme intégral.
     \item Proportionnel, Intégral et Dérivé : 
 \[
@@ -59,7 +59,7 @@ harmoniques et temporelles.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{Déterminer la pulsation $\omega_{\SI{0}{\dB}}$, telle que le gain 
           de la fonction de transfert en boucle ouverte soit égale à 
-          \SI{0}{\dB}. Remarque: on pourra l'établir précisement par le calcul
+          \SI{0}{\dB}. Remarque: on pourra l'établir précisément par le calcul
           ou par la mesure sur le diagramme de Bode précédent.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -110,7 +110,7 @@ $(\alpha,\tau_d,K_d)$ du correcteur à avance de phase}
 \subsection*{Régulation du correcteur PI}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-On souhaite maintenant rendre le système précis à l'aide de l'effet integral.
+On souhaite maintenant rendre le système précis à l'aide de l'effet intégral
 Cependant, on veut également garantir de nouveau une marge de phase $M_\phi$ de 
 \SI{60}{\degree}. Pour maintenir le système stable, il faut donc centrer le 
 correcteur PI à une pulsation $\omega_0<\omega_{\SI{0}{\dB}}$

@@ -32,8 +32,8 @@ linéaires\label{chap-asservis}}
     \centering
     \includegraphics[width=0.9\linewidth]{Centrifugal_governor.eps} 
     \caption*{Dessin d'un régulateur à boules. Les boules en rotation s'élèvent 
-    lorque la vitesse augmente, qui referme la valve d'arrivé de vapeur, ce qui 
-    entraîne une diminution de la vitesse de rotation de l'arbre entrainant 
+    lorsque la vitesse augmente, qui referme la valve d'arrivé de vapeur, ce qui 
+    entraîne une diminution de la vitesse de rotation de l'arbre entraînant 
     le régulateur jusqu'à qu'un équilibre entre ces deux effets s'installe.}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
@@ -170,12 +170,12 @@ permettant de corriger la boucle ouverte du système.
 %\end{figure}
 %-------------------------------------------------------------------------------
 La \textbf{mesure} $M(p)$ est l'image de la sortie élaborée par 
-l'intermédiaire du capteur. Il généréralement nécessaire d'adapter 
+l'intermédiaire du capteur. Il généralement nécessaire d'adapter 
 la consigne pour que l'écart $\epsilon(p)$ soit représentatif de l'écart 
 entre la consigne et la sortie et non de son image. Ainsi, on retrouvera 
-très souvent un \textbf{adaptateur} permmettant d'obtenir l'image 
-de la consigne. Le procédé/système peux nécéssité d'un \textbf{actionneur} qui 
-agit en transmettant/convertissant l'énergie nécéssaire à son action et qui
+très souvent un \textbf{adaptateur} permettant d'obtenir l'image 
+de la consigne. Le procédé/système peux nécessité d'un \textbf{actionneur} qui 
+agit en transmettant/convertissant l'énergie nécessaire à son action et qui
 élabore son nouveau signal de commande $U(p)$
 La~\cref{fig-reg2} présente une forme augmentée de schéma fonctionnel
 présentant ces nouveaux constituants. 
@@ -184,7 +184,7 @@ présentant ces nouveaux constituants.
 \subsection{Présence d'une perturbation : la régulation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La prise en compte de pertubation se fait simplement en considérant un schéma
+La prise en compte de perturbation se fait simplement en considérant un schéma
 fonctionnel à plusieurs entrées à l'instar du schéma-blocs de 
 la~\cref{fig-pert2-chap_asserv}. En général, la perturbation se trouve en amont
 du système et le signal de perturbation $P(p)$ est simplement sommé à la 
@@ -291,7 +291,7 @@ Sortie          & Le signal de sortie du système que l'on souhaite
 \subsection{Fonctions de transfert associées à l'asservissement}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Chacuns des blocs du schéma fonctionnel d'un asservissement~\cref{fig-asser} 
+Chacun des blocs du schéma fonctionnel d'un asservissement~\cref{fig-asser} 
 permet de définir une fonction de transfert reliant localement une entrée 
 et une sortie.
 Nous allons définir quelques fonctions de transferts fondamentales à 
@@ -431,7 +431,7 @@ H_{BF}(p)=\dfrac{\dfrac{K}{1+K}}{1+\dfrac{\tau}{1+K}p}
 =\dfrac{K_{BF}}{1+\tau_{BF} p}
 \]
 où $K_{BF}$ est le gain statique et $\tau_{BF}$ la constante de temps du 
-système boucle fermée. Par identification, on alors les rélations suivantes 
+système boucle fermée. Par identification, on alors les relations suivantes 
 entre les paramètres du premier ordre de la~\gls{ftbo} et les paramètres du 
 premier ordre de la~\gls{ftbf} :
 %-------------------------------------------------------------------------------
@@ -478,7 +478,7 @@ H_{BF}(p)=\dfrac{K\omega^2_0}{\omega^2_0(1+K)+2\xi\omega_0p+p^2}=
 \dfrac{K_{BF}\omega^2_{0,BF}}{\omega^2_{0,BF}(1+K_{BF})+
 2\xi_{BF}\omega_{0,BF}p+p^2}
 \]
-Par identification, on alors les rélations suivantes entre 
+Par identification, on alors les relations suivantes entre 
 les paramètres du second ordre de la~\gls{ftbo} et les paramètres du 
 second ordre de la~\gls{ftbf} :
 %-------------------------------------------------------------------------------

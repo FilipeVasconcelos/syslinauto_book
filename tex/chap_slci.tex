@@ -117,7 +117,7 @@ en anglais} des systèmes  a plusieurs entrées et plusieurs sorties, dit
 
 \textbf{L'objectif de ce cours est de permettre la modélisation, 
 l'identification et la caractérisation des systèmes monovariables.} 
-\`A noter que cet objectif atteint, il nous sera possible de réprésenter 
+\`A noter que cet objectif atteint, il nous sera possible de représenter 
 les systèmes comme des \og boîtes noires\fg pour lesquelles la structure 
 interne est inaccessible\footnote{\og Ce qui - en dernière analyse - justifie 
 l'attitude ludique, c'est que le seul moyen concevable de dévoiler une 
@@ -201,7 +201,7 @@ Un système est dit linéaire si il respecte les deux principes suivants:
 \paragraph{Système à temps continu}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Système!à temps continu}
-\textbf{Un système à temps continu met en oeuvre des signaux 
+\textbf{Un système à temps continu met en œuvre des signaux 
 à temps continus}. Comme nous le verrons, ces signaux seront
 modélisés par des fonctions d'une variable continue $t$ de temps.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -228,9 +228,9 @@ l'aide d'un schéma-bloc ci-dessous
 \begin{itemize}
     \item \emph{Principe de causalité :}
         C'est un principe fort de la physique :
-        \textbf{\og L'éffet ne précèdant pas sa cause\fg} alors 
+        \textbf{\og L’effet ne précédant pas sa cause\fg} alors 
         \textbf{\og La réponse du système ne précède pas son excitation\fg}.
-        Formellememnt, un système est dit causal si 
+        Formellement, un système est dit causal si 
         \[ e(t)=0\quad\forall t\le t_0 \Rightarrow s(t)=0\quad\forall t\le t_0\]
 \end{itemize}
 %-------------------------------------------------------------------------------
@@ -311,7 +311,7 @@ Par exemple, dans le cas d'un problème de mécanique,
 c'est la relation fondamentale de la dynamique qui est 
 la source importante d'équations différentielles (appelées équations 
 du mouvement).
-En électronique, ce sont, par exemple, les lois des noeuds et mailles (ou 
+En électronique, ce sont, par exemple, les lois des nœuds et mailles (ou 
 lois de Kirchhoff) qui permettront d'écrire ces équations différentielles. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Décharge d'un condensateur\label{para-decharge}}
@@ -320,7 +320,7 @@ Considérons le circuit ouvert ci-contre, initialement chargé, constitué
 d'un condensateur de capacité électrique $C$ et d'une résistance de valeur $R$. 
 À la fermeture de l'interrupteur, à $t=0$, un courant $i(t)$ parcourt 
 le circuit. On observe alors la décharge du condensateur à travers 
-une resistance $R$. 
+une résistance $R$. 
 
 On souhaite suivre la quantité de charge $q(t)$ aux bornes du condensateur au 
 cours du temps.
@@ -339,7 +339,7 @@ La somme des tensions aux bornes du condensateur et de la résistance
     R\devi{q(t)}{}+\dfrac{1}{C}q(t)=0 
 \end{align*}
 %-------------------------------------------------------------------------------
-Comme précédemment, on identifie formellemet cette équation différentielle 
+Comme précédemment, on identifie formellement cette équation différentielle 
 à la forme générale de l'\cref{eq-difflci} avec $s(t)=q(t)$, $e(t)=0$, 
 $n=$1, $m=0$, $a_1=R$, $a_0=\dfrac{1}{C}$.
 
@@ -375,8 +375,8 @@ m\devi{z(t)}{2}+b\devi{z(t)}{}+kz(t)=f(t)
 \newpage
 \restoregeometry
 \captionsetup{width=0.9\linewidth,labelfont=bf}
-La résolution de cette équation du mouvement permet de connaitre la position 
-de la masse à chaque instant connaissant la force exterieur 
+La résolution de cette équation du mouvement permet de connaître la position 
+de la masse à chaque instant connaissant la force extérieur 
 appliquée $f(t)$. Le système masse-ressort peut être assimilé à un~\gls{slci} 
 dont l'entrée $e(t)$ est la force $f(t)$ et la sortie $s(t)$ est la 
 position $z(t)$ de la masse (c.f le schéma-bloc de la \cref{fig-masse-ressort})
@@ -455,7 +455,7 @@ d'origine des temps par rapport au signal $s(t)$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Signal!périodique}
 Un signal est dit \textbf{périodique} s'il se reproduit identique à lui
-même au bout d'un même intervalle de temps ou periode $T$. On définit alors 
+même au bout d'un même intervalle de temps ou période $T$. On définit alors 
 sa fréquence $f=1/T$ qui est l'inverse de la période $T$ ou la pulsation 
 $\omega$ définie par rapport au cercle unité $\omega=2\pi f$.
 %-------------------------------------------------------------------------------
@@ -640,7 +640,7 @@ de l'échelon dont la dimension dépend de la nature du problème considéré.
 
 D'après les propriétés du signal échelon-unité et de la causalité, il 
 est possible de rendre causale une fonction quelconque en la 
-multipliant par un échélon-unité (c.f \ref{subsec:decomp_usuels}).
+multipliant par un échelon-unité (c.f \ref{subsec:decomp_usuels}).
 
 La réponse d'un système à un échelon est appelée 
 \textbf{réponse indicielle}.
@@ -716,7 +716,7 @@ et $\phi$ sa phase (\si{\radian}).
 %-------------------------------------------------------------------------------
 Il est possible de voir le signal sinuso\"idal comme la combinaison
 linéaire de la fonction cosinus et sinus. En effet, en utilisant une 
-des rélations trigonométriques simples\footnote{à savoir la comptine des 
+des relations trigonométriques simples\footnote{à savoir la comptine des 
 lycéens $\sin(a+b)=\sin{a}\cos{b}+\sin{b}\cos{a}$}, $s(t)$ s'écrit :
 \[
     s(t)=A(\sin(\phi)\cos{\omega t}+\cos(\phi)\sin{\omega t})
@@ -832,7 +832,7 @@ d'une sinuso\"ide.
     }\\
     \bottomrule
     \end{tabular}
-    \caption{Différents types de déphasage d'un (rouge) signal sinusoidal 
+    \caption{Différents types de déphasage d'un (rouge) signal sinusoïdal 
              $s_2(t)$ par rapport à (bleu) un signal de référence $s_1(t)$ 
          de phase nulle.\label{tab-sin_deph}}
 \end{table}
@@ -954,14 +954,14 @@ la formule de Mellin-Fourier\cite{Ostertag}:
 \[
     s(t)=\laplacei{S(p)}=\int_{c-j\infty}^{c+j\infty} e^{pt}S(p)\dd{p}
 \]
-L'intégration de celle-ci est difficile à mettre en oeuvre\footnote{
+L'intégration de celle-ci est difficile à mettre en œuvre\footnote{
 Il existe différentes méthodes numériques de transformée de Laplace 
 inverse (\cref{annexe-invL}). Ces méthodes, hors programme, peuvent 
 cependant faire l'objet d'un projet numérique intéressant.}, 
-on préferera l'utilisation des tables de transformations de Laplace pour 
+on préférera l'utilisation des tables de transformations de Laplace pour 
 réaliser la correspondance inverse (\cref{annexe-lap}). Lorsque la 
 transformation n'existe pas dans les tables, il est possible de 
-réaliser une décompostion en éléments simples de la réponse $S(p)$ pour 
+réaliser une décomposition en éléments simples de la réponse $S(p)$ pour 
 se placer dans un cas usuel (\cref{annexe-DES}).
 \newpage
 \restoregeometry
@@ -1009,7 +1009,7 @@ transformée de Laplace, on écrit alors :
 \end{bequation}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Retard en $p$ (Thèorème de l'amortissement)}
+\paragraph{Retard en $p$ (Théorème de l'amortissement)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit $s(t)$ un signal de transformée de Laplace $S(p)$. La transformée 
 de Laplace du signal modifié $e^{-at}s(t)$ s'écrit :
@@ -1107,7 +1107,7 @@ diviser par $p$ dans le domaine de Laplace.}
 %-------------------------------------------------------------------------------
 où $s(0)$ est la valeur d'un signal $s(t)$ pour $t=0$.
 Ce théorème est utilisé pour déterminer la valeur initiale
-dans le domaine temporelle d'un signal dont on connait 
+dans le domaine temporelle d'un signal dont on connaît 
 uniquement la transformée de Laplace.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Théorème de la valeur finale}
@@ -1138,7 +1138,7 @@ produit des signaux dans le domaine de Laplace. Formellement,
 %-------------------------------------------------------------------------------
 Si cette propriété est fondamentale, nous ne l'utiliserons 
 que très exceptionnellement. Nous la rencontrerons à nouveau, 
-dans ce chapitre, lorsque nous introduierons la fonction de 
+dans ce chapitre, lorsque nous introduirons la fonction de 
 transfert d'un système linéaire.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1299,11 +1299,11 @@ Lorsqu'une équation différentielle à coefficients constants a pu être établ
 pour définir la relation entre l'entrée et la sortie d'un \gls{slci}, il 
 nous faut en trouver une solution. Les méthodes classiques de résolution 
 d'équations différentielles peuvent être difficiles et fastidieuses à mettre 
-en oeuvre, notamment dans le cas d'équation différentielle d'ordre élevé 
+en œuvre, notamment dans le cas d'équation différentielle d'ordre élevé 
 ou encore pour des systèmes composés de sous-systèmes.
 
-La transformée de Laplace permet de mettre en oeuvre une méthode plus simple et 
-systèmatique  pour la la résolution de ces équations différentielles à 
+La transformée de Laplace permet de mettre en œuvre une méthode plus simple et 
+systématique  pour la la résolution de ces équations différentielles à 
 coefficients constants.
 
 Comme nous l'avons déjà discuté, la forme générale de ces équations est 
@@ -1327,8 +1327,8 @@ d'entrée et $a_i,b_i\in\mathbb{R}$. L'équation est dite d'ordre $n$.
 %-------------------------------------------------------------------------------
 Sous cette forme, cette équation différentielle constitue ce que l'on 
 nomme \textbf{la loi temporelle} du système. Sans perte de généralité, on ne 
-considèrera dans un premier temps que les systèmes pour lesquels toutes les 
-\textbf{conditions initialles sont nulles}, appelées également les conditions 
+considérera dans un premier temps que les systèmes pour lesquels toutes les 
+\textbf{conditions initiales sont nulles}, appelées également les conditions 
 d'Heaviside
 \newpage
 \restoregeometry
@@ -1375,9 +1375,9 @@ Nous allons résoudre cette équation par deux méthodes différentes:
 \textbf{la méthode direct de résolution d'équations différentielles avec 
 second membre}, et par l'\textbf{application de la transformée de Laplace}.
 Nous pourrons observer que l'application de la TL pour la résolution
-des équations différentielles est une méthode plus systèmatique qui 
+des équations différentielles est une méthode plus systématique qui 
 s'affranchit de la forme particulière de l'équation différentielle 
-auquelle on a à faire. Nous verrons que la transformée de Laplace devient 
+à laquelle on a à faire. Nous verrons que la transformée de Laplace devient 
 totalement indispensable pour la caractérisation d'un \gls{slci}.
 \newpage
 \input{re/newgeometry}
@@ -1421,7 +1421,7 @@ donc donnée par
     \caption{Représentation de la solution générale de l'équation 
              différentielle~(\ref{eq-diff1}) pour $e(t)=u(t)$. 
              On vérifie lors du tracé que l'on observe bien les principales 
-             propriétes du signal (c.-à-d. conditions initiales, 
+             propriétés du signal (c.-à-d. conditions initiales, 
              valeur finale).\label{fig-solution}}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
@@ -1700,7 +1700,7 @@ la notation, les primes des coefficients de la forme canonique peuvent
 de l'équation différentielle.}.
 
 En posant respectivement $N(p)$ et $D(p)$ les polynômes du numérateur 
-et du dénomintateur. La forme canonique de la fonction de transfert 
+et du dénominateur La forme canonique de la fonction de transfert 
 s'écrira également très souvent:
 \[
     H(p)=\dfrac{K_\alpha N(p)}{p^\alpha D(p)}

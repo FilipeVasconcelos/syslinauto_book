@@ -26,7 +26,7 @@ mêmes. Cet \og abus de langage\fg (largement utilisé) provient du fait que
 l'on considère \emph{a priori} un système dans son état d'équilibre 
 au moment de l'instant initial de la sollicitation. 
 Une façon de se représenter ces états d'équilibres est d'imaginer le 
-mouvement d'une bille à la surface d'une fonction d'energie potentielle à une 
+mouvement d'une bille à la surface d'une fonction d’énergie potentielle à une 
 dimension. 
 On peut facilement généraliser à plusieurs dimensions, en considérant le 
 déplacement de la bille sur un relief accidenté et composé de collines, 
@@ -145,7 +145,7 @@ Dans cette notation, la sortie du système bouclé est donnée par :
 \]
 Pour la première demi-période, la sollicitation est positive $e_1=E_0$, 
 le système étant causal ($\epsilon_0=0$), on a $s_1=0$ et donc $\epsilon_1=E_0$.
-Pour la seconde demi-période, la sollication est maintenant négative $e_2=-E_0$,
+Pour la seconde demi-période, la sollicitation est maintenant négative $e_2=-E_0$,
 la sortie est maintenant donnée par $s_2=KE_0$. De la même manière pour 
 la troisième demi-période, on obtient $s_3=K\epsilon_2=K(e_2-s_2)=-E_0(K+K^2)$. 
 On obtient la relation suivante donnant la sortie en fonction de la 
@@ -181,7 +181,7 @@ Pour caractériser la stabilité des \gls{slci}, il est possible de déterminer
 \textbf{une condition sur les pôles} (racines du dénominateur de la fonction de 
 transfert). Pour montrer cela, nous allons étudier la réponse impulsionnelle 
 d'une fonction de transfert présentant des pôles de différentes natures et 
-oberver la condition sur ses pôles pour que le système soit stable selon les 
+observer la condition sur ses pôles pour que le système soit stable selon les 
 définitions précédentes. 
 Soit une fonction de transfert $H(p)$ présentant quatre pôles :
 %-------------------------------------------------------------------------------
@@ -240,7 +240,7 @@ tendent vers 0 pour $t\to0$.
 \newpage
 \pagestyle{fancy}
 \captionsetup{width=\linewidth}
-La~\cref{fig-stab_imp_all} présente schématiquement les reponses 
+La~\cref{fig-stab_imp_all} présente schématiquement les réponses 
 impulsionnelles des systèmes selon la nature des pôles de la fonction 
 de transfert du système dont on étudie la stabilité. 
 Pour des pôles à parties réelles négatives, les réponses tendent toutes vers 0, 
@@ -315,7 +315,7 @@ construction graphique des lieux d'Evans (c.f~\Cref{annexe-evans})
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le critère de Routh est dit algébrique car il s'établit 
-dirctement sur la fonction de transfert $H_{BF}(p)$ en boucle fermée 
+directement sur la fonction de transfert $H_{BF}(p)$ en boucle fermée 
 du système asservi. 
 \[
     H(p)=\dfrac{N(p)}{D(p)}
@@ -375,7 +375,7 @@ pour appliquer une condition supplémentaire.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dans le cas où la condition nécessaire est respectée et $n>2$, il faut 
-constuire le \textbf{tableau de Routh} à partir des coefficients de l'équation 
+construire le \textbf{tableau de Routh} à partir des coefficients de l'équation 
 caractéristique de la fonction de transfert en boucle fermée.
 \newpage
 \restoregeometry
@@ -442,7 +442,7 @@ si $n$ est impaire la dernière colonne de la seconde ligne est non-nulle:
 Les éléments de la troisième ligne sont construits à partir du 
 déterminant\footnote{Le déterminant d'une matrice 2$\times$2 
 est tel que $\begin{vmatrix} a & b \\ c & d \end{vmatrix}=ad-bc$} des 
-élements des deux premières lignes.
+éléments des deux premières lignes.
 \[
 \begin{matrix}
     p^n    \\
@@ -724,11 +724,11 @@ système soit stable en boucle fermée est donc :
 Le critère de Routh s'applique sur la fonction de transfert en boucle fermée.
 Les critères graphiques que nous allons maintenant établir 
 permettent d'étudier la stabilité du système en boucle fermée en considérant 
-le système en boucle ouverte. Cependant, \textbf{le but est toujours de verifier
+le système en boucle ouverte. Cependant, \textbf{le but est toujours de vérifier
 indirectement la condition fondamentale de stabilité des systèmes asservis}
 (c.-à-d. la nature des pôles de la fonction de transfert en boucle fermée).
 
-Pour celà considèrons la boucle de contre réaction unitaire 
+Pour cela considérons la boucle de contre réaction unitaire 
 pour l'asservissement d'un système de fonction de transfert $H(p)$, telle que :
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -752,7 +752,7 @@ par  rapport à $-1$ plutôt que par rapport à l'origine.
 Ce point de coordonnées $(-1,0)$ dans le plan complexe est appelé le 
 \textbf{point critique}\index{Point critique} de $H_{BO}(p)$.
 
-Pour montrer quelques propriétés de $1+H_{BO}(p)$, nous allons réecrire
+Pour montrer quelques propriétés de $1+H_{BO}(p)$, nous allons réécrire
 ces fonctions de transferts en fonction des polynômes du numérateur et
 du dénominateur de la boucle ouverte.
 En effet, la fonction de transfert en boucle ouverte
@@ -863,7 +863,7 @@ pour $\big|H_{BO}(\jw)\big|<1$.}
 Nous pouvons donc énoncer le critère de stabilité dit du revers :
 %-------------------------------------------------------------------------------
 \begin{criteria}{Critère de stabilité du revers}
-    Un système est stable en boucle fermée si lorque le 
+    Un système est stable en boucle fermée si lorsque le 
     déphasage en boucle ouverte est de -180\degreeSI~le module $|H_{BO}(\jw)|$ 
     est strictement inférieur à 1.
 \end{criteria}
@@ -899,7 +899,7 @@ les lieux de Nyquist de trois systèmes: stable, instable et critique. Observons
 que dans le cas stable, le lieu de déphasage $\phi=-\pi$ (c.a.d lorsque le lieu
 coupe l'axe des réels négatifs), le module ou le gain naturel $G(\omega)$ (ou 
 encore la distance à l'origine) est inférieur à 1. Dans le cas instable ce gain 
-est supérieur à 1. Nous appelerons critique le système dont le lieu de Nyquist 
+est supérieur à 1. Nous appellerons critique le système dont le lieu de Nyquist 
 passe par le point critique de coordonnées $(-1,0)$.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
@@ -1188,7 +1188,7 @@ courbe $F(\mathcal{C})$ image $F(p)$ de $\mathcal{C}$.
     \]
 \end{btheorem}
 %-------------------------------------------------------------------------------
-On se rapportera à nouveau à l'\Cref{annexe-cauchy} pour une demonstration 
+On se rapportera à nouveau à l'\Cref{annexe-cauchy} pour une démonstration 
 graphique de ce théorème\footnote{Un cours d'analyse complexe permettra de 
 compléter cette présentation. On trouvera dans \cite{laas_pc7bis,reg}, 
 une introduction plus détaillée ainsi qu'une bibliographie très fournie 
@@ -1325,7 +1325,7 @@ de Bromwich évitant ces pôles et zéros sur l'axe des imaginaires.
              ou zéros de $H_{BO}$.\label{fig-contour_Bromwich_2}} 
 \end{marginfigure}
 %-------------------------------------------------------------------------------
-\textbf{De la même manière que précedemment, les images d'une fonction de 
+\textbf{De la même manière que précédemment, les images d'une fonction de 
 transfert par ces contours de Bromwich correspondent également au lieu de 
 Nyquist complet de la réponse harmonique.}
 Le choix du contour dépend donc de la forme de la fonction de transfert 
@@ -1380,9 +1380,9 @@ de relier le plan des imaginaires positifs et négatifs à l'infini.
 \subsection{\'Enoncé et application du critère de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Le critère de Nyquist consite à relier le principe de l'argument de Cauchy au 
+Le critère de Nyquist consiste à relier le principe de l'argument de Cauchy au 
 second critère de stabilité des systèmes asservis\label{critere2}.
-Nous rappellons en effet qu'un système est stable en boucle fermée si la i
+Nous rappelons en effet qu'un système est stable en boucle fermée si la i
 fonction de transfert $1+H_{BO}$ ne présente pas de zéros à partie réelle 
 positive. Il nous est possible d'établir l'énoncé suivant :
 %-------------------------------------------------------------------------------

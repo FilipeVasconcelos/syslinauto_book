@@ -208,10 +208,10 @@ La démonstration est également triviale.
 \paragraph{La boucle de contre-réaction (positive ou négative)
           \label{sec-boucle}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La boucle de contre-réaction\footnote{\og Positive or negative feedback\fg, 
+La boucle de contre-réaction\footnote{\og Positive or negative feed-back\fg, 
 chez nos collègues anglophones.}peut être réduite à une simple fonction 
 de transfert. Considérons un système défini par le schéma-bloc ci-dessous, 
-composé des différents élements de bases.
+composé des différents éléments de bases.
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{boucle-chap_bloc-ext}
@@ -221,7 +221,7 @@ composé des différents élements de bases.
 Notons l'utilisation du symbole $\pm$ pour envisager à la fois les 
 comparateurs et sommateurs.
 Déterminons la relation entre l'entrée $E$ et la sortie $S$ de ce système.
-Pour celà réécrivons les relations linéaires simples issus de ce schéma-bloc.
+Pour cela réécrivons les relations linéaires simples issus de ce schéma-bloc.
 On sait que :
 %-------------------------------------------------------------------------------
 \begin{align}
@@ -279,7 +279,7 @@ simplifié suivant :
 \paragraph{Boucle de contre-réaction unitaire}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Une boucle de contre-réaction unitaire est une boucle de contre-réaction sans 
-fonction de transfert de retour (ex: dans le cas présenté précedemment $H_2=1$).
+fonction de transfert de retour (ex: dans le cas présenté précédemment $H_2=1$).
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{boucle_uni-chap_bloc-ext}
@@ -311,7 +311,7 @@ Considérons le schéma-bloc suivant :
 \end{center}
 %-------------------------------------------------------------------------------
 Pour pouvoir déplacer le comparateur vers la gauche, 
-il faut introduire le bloc $K$ dans la chaine direct.
+il faut introduire le bloc $K$ dans la chaîne direct.
 En conséquence, la chaîne de retour doit être modifiée pour ne pas affecter 
 la sortie globale $S$. Le schéma fonctionnel précédent est donc équivalent 
 au schéma ci-dessous :
@@ -350,7 +350,7 @@ Il est aisé de déplacer le bloc $K$ devant le point de prélèvement:
 %-------------------------------------------------------------------------------
 Dans le cas particulier où seul une branche est affectée par le bloc, 
 il faut réduire la branche non affectée après avoir déplacer le point 
-de prélèvement. Ansi les deux schémas-blocs ci-dessous sont équivalents:
+de prélèvement. Ainsi les deux schémas-blocs ci-dessous sont équivalents:
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{dep_jonc3-chap_bloc-ext}
@@ -560,7 +560,7 @@ pour la représentation graphique des relations mathématiques
 intervenants dans les \gls{slci}. Cette partie est largement
 inspirée de~\cite{Ostertag}. Elle peut être omise au cours 
 d'une première lecture. L'algèbre de ces graphes de fluence
-est cependant très éfficace et trouve de nombreuses applications 
+est cependant très efficace et trouve de nombreuses applications 
 en dehors de l'automatique. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -568,14 +568,14 @@ en dehors de l'automatique.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Branche et noeud}
+\paragraph{Branche et nœud}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Dans l'application qui nous intéresse, un graphe de fluence 
 peut être vu comme un schéma fonctionnel allégé. En effet, le graphe de fluence 
-ne comporte que deux éléments de base: le \textbf{noeud} et la 
-\textbf{branche orientée}. Les noeuds portent les variables du système 
+ne comporte que deux éléments de base: le \textbf{nœud} et la 
+\textbf{branche orientée}. Les nœuds portent les variables du système 
 (entrée, sortie, perturbation, commande\ldots). 
-Une branche reliant deux noeuds peut être ornée du facteur multiplicatif ou 
+Une branche reliant deux nœuds peut être ornée du facteur multiplicatif ou 
 de la fonction de transfert.
 
 L'\cref{eq-ES} reliant une entrée et sortie par l'intermédiaire d'une fonction 
@@ -592,7 +592,7 @@ de transfert se représente par le graphe de fluence suivant:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Source, puits et parcours}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Nous allons condidérer le graphe de fluence suivant, pour illustrer 
+Nous allons considérer le graphe de fluence suivant, pour illustrer 
 différentes définitions: 
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
@@ -600,16 +600,16 @@ différentes définitions:
     \tikzsetnextfilename{gf_source-chap_bloc-ext}
     \input{tikz/gf_source-chap_bloc.tex}
     \caption{Graphe de fluence présentant les différents éléments de bases, 
-    types de noeuds et de branches.}
+    types de nœuds et de branches.}
 \end{figure}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{itemize}
-    \item Une \textbf{source} ou noeud d'entrée est un noeud 
-          dont toutes les branches sont divergentes. Exemple: le noeud 
+    \item Une \textbf{source} ou nœud d'entrée est un nœud 
+          dont toutes les branches sont divergentes. Exemple: le nœud 
           $E$ est une source.
-    \item Un \textbf{puits} ou noeud de sortie est un noeud dont toutes 
-    les branches sont convergentes. Exemple: le noeud $S$ est un puits.
+    \item Un \textbf{puits} ou nœud de sortie est un nœud dont toutes 
+    les branches sont convergentes. Exemple: le nœud $S$ est un puits.
     \item Un \textbf{parcours} est une succession continue, 
     unidirectionnelle de branches. Exemples: 
     $\{E\rightarrow X_1\rightarrow X_2\rightarrow S\}$, 
@@ -618,11 +618,11 @@ différentes définitions:
     $\{E\rightarrow X_1\rightarrow X_2\rightarrow X_1\rightarrow S\}$
 
     \item Un \textbf{parcours ouvert} est un parcours le long duquel chaque 
-          noeud n'est franchi qu'une fois. Exemples: 
+          nœud n'est franchi qu'une fois. Exemples: 
           $\{E\rightarrow X_1\rightarrow X_2\rightarrow S\}$, 
           $\{E\rightarrow X_1 \rightarrow S\}$
     \item Un \textbf{parcours fermé} ou \textbf{boucle} est un parcours qui 
-          aboutit au noeud dont il est parti, chaque autre noeud n'étant 
+          aboutit au nœud dont il est parti, chaque autre nœud n'étant 
           franchi qu'une seule fois. Exemples: 
           $\{X_1\rightarrow X_2\rightarrow X_1\}$, 
           $\{X_2\rightarrow X_2\}$ (cette dernière est appelée boucle 
@@ -637,10 +637,10 @@ différentes définitions:
 Nous présentons ici 7 opérations de bases liées à l'algèbre des 
 graphes de fluence.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{1. Addition en un noeud}
+\paragraph{1. Addition en un nœud}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La valeur d'un noeud est égale à la somme de tous les signaux convergeant 
-vers ce noeud.
+La valeur d'un nœud est égale à la somme de tous les signaux convergeant 
+vers ce nœud
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{gf_add-chap_bloc-ext}
@@ -650,7 +650,7 @@ vers ce noeud.
 \[
 S=H_1E_1+H_2E_2
 \]
-Le comparateur/sommateur présentait précedemment est équivalent au graphe 
+Le comparateur/sommateur présentait précédemment est équivalent au graphe 
 de fluence suivant:
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -659,9 +659,9 @@ de fluence suivant:
 \end{center}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{2. Distribution par un noeud}
+\paragraph{2. Distribution par un nœud}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La valeur d'un noeud est transmise par chaque branche quittant ce noeud.
+La valeur d'un nœud est transmise par chaque branche quittant ce nœud
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{gf_distrib-chap_bloc-ext}
@@ -679,7 +679,7 @@ Ce graphe représente les équations suivantes :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{3. Branches en série}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Un suite de branches en série peut étre réduite à une unique branche, dont la 
+Un suite de branches en série peut être réduite à une unique branche, dont la 
 fonction de transfert est égale au produit des fonctions de transfert des 
 diverses branches.
 %-------------------------------------------------------------------------------
@@ -691,8 +691,8 @@ diverses branches.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{4. Branche en parallèle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Deux ou plusieurs branches connectées en parallèle, reliant le même noeud 
-d'origine au même noeud extrémité, peuvent être réduites par une branche 
+Deux ou plusieurs branches connectées en parallèle, reliant le même nœud 
+d'origine au même nœud extrémité, peuvent être réduites par une branche 
 unique, dont la fonction de transfert est égale à la somme des fonctions de 
 transfert des diverses branches. 
 %-------------------------------------------------------------------------------
@@ -702,9 +702,9 @@ transfert des diverses branches.
 \end{center}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{5. Absorption d'un noeud}
+\paragraph{5. Absorption d'un nœud}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Un noeud qui n'est ni une source ni un puits peut être supprimé de la
+Un nœud qui n'est ni une source ni un puits peut être supprimé de la
 manière suivante :
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -730,7 +730,7 @@ La variable $M$ du graphe de fluence peut être réduit, ce qui donne :
     \input{tikz/gf_boucle2-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
-Il est possible d'éliminer le noeud porté par la variable $\epsilon$:
+Il est possible d'éliminer le nœud porté par la variable $\epsilon$:
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{gf_boucle3-chap_bloc-ext}
@@ -760,8 +760,8 @@ de contre-réaction unitaire, la branche de retour est égale à 1
     \input{tikz/gf_boucle5-chap_bloc.tex}
 \end{center}
 %-------------------------------------------------------------------------------
-De la même manière que précedemment, le graphe de fluence se limite à 
-deux noeud et deux branches (dont une boucle élémentaire).
+De la même manière que précédemment, le graphe de fluence se limite à 
+deux nœud et deux branches (dont une boucle élémentaire).
 %-------------------------------------------------------------------------------
 \begin{center}
     \tikzsetnextfilename{gf_boucle6-chap_bloc-ext}
@@ -799,7 +799,7 @@ le cas d'un système dans une boucle de contre réaction (c.f \Cref{chap-stab}).
 \paragraph{7. Le gain d'un parcours}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Le gain d'un parcours est le produit des toutes 
-les fonctions de tranfert des branches parcourues. 
+les fonctions de transfert des branches parcourues. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Règle de Mason}
@@ -807,7 +807,7 @@ les fonctions de tranfert des branches parcourues.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Ces opérations de bases vont nous permettre d'introduire la 
 règle de Mason\footnote{\index{Mason, Samuel}Samuel Jefferson 
-Mason (1921-1974), électronicien américain.}. Cette régle permet de réduire 
+Mason (1921-1974), électronicien américain.}. Cette règle permet de réduire 
 le graphe de fluence et déterminer la fonction de transfert entre l'entrée 
 et la sortie d'un graphe de fluence.
 
@@ -833,7 +833,7 @@ où
         pris séparément ($\sum_i B_i$) puis deux à deux 
         ($\sum_{i,j} B_iB_j$), puis par trois $(\sum_{i,j,k} B_iB_jB_k)$ et 
         ainsi de suite. On ne prend en compte que les produits de boucles 
-        disjoints, c'est à dire n'ayant aucun noeud en commun.
+        disjoints, c'est à dire n'ayant aucun nœud en commun.
     \item $\Delta_i$ est le déterminant du graphe obtenu en supprimant le 
         parcours ouvert de gain $G_i$.
 \end{itemize}
@@ -856,7 +856,7 @@ Ce graphe de fluence possède trois boucles de gain :
 \end{itemize}
 %-------------------------------------------------------------------------------
 et un parcours ouvert $H_1H_2H_3$ de déterminant $\Delta_k=1$. Les boucles 
-étant toutes disjointes, le determinant du graphe est donc simplement 
+étant toutes disjointes, le déterminant du graphe est donc simplement 
 donné par :
 \[
 \Delta=1-R_1H_1H_2+H_1H_2H_3+R_2H_2H_3
@@ -911,7 +911,7 @@ transmittance globale :
 Dans cette partie, nous allons introduire une dernière façon de représenter
 les équations différentielles linéaires à l'aide de schémas-fonctionnel.
 À la différence des représentations déjà rencontrées, celle-ci se fera dans 
-le domaine temporel. Pour celà, nous suivrons et adapterons à nos notations
+le domaine temporel. Pour cela, nous suivrons et adapterons à nos notations
 l'approche présentée par D. M. Freeman du MIT~\cite{Freeman}.
 %https://mitocw.ups.edu.ec/courses/electrical-engineering-and-computer-science/
 %6-003-signals-and-systems-fall-2011/lecture-videos/MIT6_003F11_lec04.pdf
@@ -983,7 +983,7 @@ impulsion de Dirac:
 \subsection{Produit d'un signal temporel par un scalaire}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Nous representons le produit d'un signal $e(t)$ par un simple scalaire $a$
+Nous représentons le produit d'un signal $e(t)$ par un simple scalaire $a$
 (c.-à-d. un gain) par un triangle de la façon suivante:
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -1036,7 +1036,7 @@ série entière :
 \clearpage
 \input{re/newgeometry}
 \captionsetup{width=0.9\linewidth}
-Comme nous l'avons vu précedemment, l'application de l'opérateur 
+Comme nous l'avons vu précédemment, l'application de l'opérateur 
 $\mathcal{I}^n$ revient à appliquer $\mathcal{I}$ $n$ fois.
 Ainsi l'expression $\dfrac{S}{E}$ devient :
 %-------------------------------------------------------------------------------
@@ -1072,7 +1072,7 @@ est donc donnée par
     s(t)=e^{at}u(t).
 \]
 Chaque terme du développement peut être vu comme les différents cycles 
-pris par le signal dans la boucle de contre-réaction (feedback) 
+pris par le signal dans la boucle de contre-réaction (feed-back) 
 (c.f ~\cref{fig-cycles}).
 Notons au passage que $a$ joue ici le rôle du pôle de la fonction de transfert. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

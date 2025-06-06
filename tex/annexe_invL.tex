@@ -23,7 +23,7 @@ s(t)=\laplacei{S(p)}=\int_{c-j\infty}^{c+j\infty} e^{pt}S(p)\dd{p}
 Cette inversion se fait donc par le biais d'une intégrale dans le plan
 complexe. Cette intégrale n'ayant pas de forme analytique, il n'est possible 
 d'approcher une solution qu'à l'aide d'outils numérique. 
-Dans cette annnexe, nous discuterons deux implémentations en python de 
+Dans cette annexe, nous discuterons deux implémentations en python de 
 deux de ces algorithmes : 
 l'algorithme de Gaver-Stehfest et l'algorithme fixe de Talbot comme présentés
 par Abate et al.~\cite{abate2004,abate2006,frwiki:200676411}.
@@ -32,7 +32,7 @@ Avant de tester ces méthodes sur les systèmes linéaires, nous l'appliquerons
 \[
     te^{-t}=\laplacei{\dfrac{1}{(p+1)^2}},
 \]
-dont on connait la forme analytique exacte.
+dont on connaît la forme analytique exacte.
 Il faut noter que les méthodes et algorithmes présentés ici dépendent 
 largement de la précision machine accessible pour le calcul en virgule flottante.
 L'usage de librairie en précision arbitraire comme \texttt{mpmath} peut être 
@@ -174,10 +174,10 @@ pour comparer les résultats obtenus.
     \textbf{(en haut)} Réponses temporelles d'un système du premier ordre 
     calculées à l'aide de (bleu) l'algorithme 
     fixe de Talbot et (orange) la méthode de Gaver-Stehfest. Les deux réponses
-    sont légerement décaler pour permettre la comparaison
+    sont légèrement décaler pour permettre la comparaison
 
     \textbf{(en bas)} Différence
-    relative de chacunes des deux approches avec la réponse temporelle exacte calculée
+    relative de chacune des deux approches avec la réponse temporelle exacte calculée
     avec la fonction \texttt{premier\_ordre}.~\label{fig-1erOrdreInvL}}
 \end{figure}
 %-------------------------------------------------------------------------------

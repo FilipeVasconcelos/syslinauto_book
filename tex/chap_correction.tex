@@ -30,7 +30,7 @@ Par exemple, la figure ci-dessous présente un système asservis
 en boucle fermée avant et après correction. Il est clair que les performances
 de rapidité et de précision ont été largement améliorées. Il est possible de 
 constater également que le dépassement est largement réduit. Dans le cas, 
-où un dépassement serait innaceptable, il faudrait alors imaginer une 
+où un dépassement serait inacceptable, il faudrait alors imaginer une 
 modification de la nature du système : un premier ordre ou un second ordre
 en régime apériodique serait alors indispensable.
 
@@ -236,7 +236,7 @@ Une solution technologique permet de réaliser une forme approchée :
 \[
     C_{\text{D}}^{\text{réel}}(p)=\dfrac{\tau_d p}{1+\tau p}
 \]
-en choissisant un temps $\tau\ll\tau_d$, cette fonction de transfert se comporte
+en choisissant un temps $\tau\ll\tau_d$, cette fonction de transfert se comporte
 comme un correcteur dérivé idéal. On parle également dans ce cas de correcteur
 \og D filtré\fg.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -247,7 +247,7 @@ comme un correcteur dérivé idéal. On parle également dans ce cas de correcte
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Comme leurs noms l'indiquent, les correcteurs composés combinent plusieurs
-des correcteurs élémentaires présentés précedemment.
+des correcteurs élémentaires présentés précédemment
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Correcteur PI}
@@ -348,7 +348,7 @@ avec $\alpha>1$.
 \end{figure}
 %-------------------------------------------------------------------------------
 Le maximum de la phase se trouve à la moyenne géométrique du segment 
-$\left[\dfrac{1}{\alpha\tau},\dfrac{1}{\alpha}\right]$ (l'echelle étant 
+$\left[\dfrac{1}{\alpha\tau},\dfrac{1}{\alpha}\right]$ (l’échelle étant 
 logarithmique ceux sont les rapports qui sont égaux)
 \[
     \omega_m^2=\dfrac{1}{\alpha\tau^2}
@@ -401,7 +401,7 @@ puisque $\tau^2\omega_m^2=\dfrac{1}{\alpha}$.
 \subsubsection*{Exemple d'application du correcteur à avance de phase}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\emph{Remarque : Dans cet exercice, on utilisera SCILAB pour tracer les 
+\emph{Remarque : Dans cet exercice, on utilisera Scilab pour tracer les 
 réponses harmoniques et temporelles des fonctions de transfert en 
 boucle ouverte et/ou boucle fermée lorsque celles-ci sont nécessaires.}
 
@@ -429,7 +429,7 @@ un premier dépassement inférieur à 20\% pour la réponse indicielle.
           \[
             H_{BF}(p)=\dfrac{H(p)}{1+H(p)}=\dfrac{1}{p^2+0.2p+1}
           \]
-    \item Pour le dépassement et la rapidité, nous les mesurererons 
+    \item Pour le dépassement et la rapidité, nous les mesurerons 
           directement sur la réponse indicielle.
 \end{itemize}
 %-------------------------------------------------------------------------------
@@ -586,7 +586,7 @@ puisque $\tau^2\omega_m^2=\dfrac{1}{\beta}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour élaborer un correcteur Proportionnel Intégral Dérivé (PID), il suffit
-evidemment de construire un correcteur avec les trois correcteurs 
+évidemment de construire un correcteur avec les trois correcteurs 
 élémentaires P, I et D comme brique de base. Il existe trois façon d'agencer
 ces blocs de base pour élaborer un correcteur PID:
 %-------------------------------------------------------------------------------
@@ -608,7 +608,7 @@ on combine directement la commande de
     \input{tikz/pid_parallele_chap_correction.tex}
 \end{center}
 %-------------------------------------------------------------------------------
-La réduction de ce shéma-bloc nous donne la relation entre la commande et 
+La réduction de ce schéma-bloc nous donne la relation entre la commande et 
 l'écart
 \[
     U(p)=\left(k_p^{(1)}+\dfrac{1}{\tau_i^{(1)} p}

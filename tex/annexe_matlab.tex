@@ -89,7 +89,7 @@ un ensemble d'instructions ou script. Il permet également de définir
 des fonctions. Il peut être lancé en tapant "edit NomDeFichier" dans le 
 \emph{Command Window} ou en cliquant sur \verb?Home>>New Script?.
 Un programme MATLAB (ou 'm-file' en anglais) est donc simplement
-une suite d'instructions matlab écrites dans un éditeur de texte et 
+une suite d'instructions MATLAB écrites dans un éditeur de texte et 
 sauvegardée dans un fichier d'extension \texttt{.m}.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
@@ -135,7 +135,7 @@ retourner le résultat de l'opération à l'écran.
 Dans un premier temps et afin de se familiariser avec MATLAB, nous 
 allons d'abord construire les signaux en entrée $e(t)$, 
 ainsi que la variable temporelle $t$.
-Avant de commencer, éxécutez ces deux premières commandes qui permettent de 
+Avant de commencer, exécutez ces deux premières commandes qui permettent de 
 nettoyer la fenêtre de commande et d'effacer toutes les variables 
 enregistrées en mémoire.
 \begin{minted}[bgcolor=col1!10]{matlab}
@@ -153,7 +153,7 @@ simulée. Par exemple le vecteur \texttt{t=[0 1 2 3 4 5]} modélisant le temps e
 composée de 6 valeurs comprises entre 0 et 5. 
 C'est à dire que la sortie sera évaluée en $s(0),s(1),\ldots,s(5)$.
 
-Nous allons nons donner un vecteur \texttt{t} dont les éléments sont 
+Nous allons nous donner un vecteur \texttt{t} dont les éléments sont 
 compris dans l'intervalle $[0,10[$ par des incréments de $0.01$. 
 On pourra vérifier la taille de \texttt{t} à l'aide de la 
 fonction \texttt{size}. On se donne également des variables \texttt{t\_start}, 
@@ -185,7 +185,7 @@ L'échelon d'amplitude $A$ définie par:
         0 \qquad \textrm{si} \quad t<0
          \end{cases}
 \]
-Nous pouvons utiliser la fonctiones \texttt{ones} qui retourne un vecteur 
+Nous pouvons utiliser la fonctions \texttt{ones} qui retourne un vecteur 
 de un de taille quelconque :  
 %-------------------------------------------------------------------------------
 \begin{minted}[bgcolor=col1!10]{matlab}
@@ -319,7 +319,7 @@ ans =
     -1
 \end{minted}
 %-------------------------------------------------------------------------------
--2 et -1 étants les racines de $P(x)$.
+-2 et -1 étant les racines de $P(x)$.
 
 Il est également possible de définir un polynôme à partir de ces racines avec 
 la fonction \texttt{poly}. Ainsi l'instruction suivante donne le polynôme $P(x)$:
@@ -411,7 +411,7 @@ réponses impulsionnelles et indicielles. Respectivement \texttt{impulse} et \te
 \end{minted}
 %-------------------------------------------------------------------------------
 Sans affectation, ces fonctions tracent les réponses temporelles du système pour 
-un interval de temps et une durée déterminés par la fonction \texttt{impulse} 
+un intervalle de temps et une durée déterminés par la fonction \texttt{impulse} 
 elle-même.
 Il est également possible de récupérer la réponse temporelle sous forme 
 de vecteurs colonnes en sortie de ces fonctions. D'autres arguments permettent 

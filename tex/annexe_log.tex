@@ -12,7 +12,7 @@ utilisée pour permettre la représentation
 graphique de variables dont les valeurs s'étalent sur plusieurs ordres 
 de grandeur. Pour les diagrammes de Bode, il est courant de représenter le gain 
 d'un \gls{slci}~en décibel \textbf{dB} qui est également une unité liée au 
-logarithme décimale. La maitrise du calcul logarithmique est donc indispensable
+logarithme décimale. La maîtrise du calcul logarithmique est donc indispensable
 pour l'établissement d'un diagramme de Bode.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -33,7 +33,7 @@ analytiquement par
 \[
 \log{(x)}=\dfrac{\ln{(x)}}{\ln{(10)}}
 \]
-où la fonction $\ln{x}$ est la fonction logarithme néperien (c.-à-d. en base 
+où la fonction $\ln{x}$ est la fonction logarithme népérien (c.-à-d. en base 
 naturelle $e$) 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Propriétés}
@@ -85,7 +85,7 @@ de graduation qui leurs sont propres mais ces valeurs sont bien déterminées
 par la distance constante entre deux graduation de rapport $\alpha=2$. 
 
 Il existe une terminologie pour se référer à des rapport $\alpha$ particuliers,
-on parle d'\textbf{octave}\footnote{Pour le lecteur mélomane, celà correspond à
+on parle d'\textbf{octave}\footnote{Pour le lecteur mélomane, cela correspond à
 la définition de l'octave musicale. Par exemple, l'octave supérieur du 
 La (noté La4) de fréquence \SI{440}{\hertz} est de fréquence égale à 
 \SI{880}{\hertz} (noté La3).} lorsque $\alpha=2$ et de \textbf{décade} 
@@ -106,7 +106,7 @@ Avec cette terminologie, une atténuation du gain d'une réponse harmonique de
 Le bel (B) est une unité de grandeur sans dimension 
 exprimant la valeur relative entre deux quantités (de puissances en 
 particuliers) par le logarithme décimal de leur rapport. Le décibel (\si{\dB}), 
-plus couramment utilisé, est définie comme un dixieme de bel, et donc 
+plus couramment utilisé, est définie comme un dixième de bel, et donc 
 correspond à dix fois le logarithme décimal du rapport.
 \[
 X_{dB}=10\log{\dfrac{P_s}{P_e}}
@@ -117,10 +117,10 @@ signal pouvant être défini comme une puissance). Ainsi,
 \[
 G_{dB}=10\log{G^2} = 20\log{G}
 \]
-Nous rappellons que le gain $G(\omega)$, dit naturel, est le module de la
+Nous rappelons que le gain $G(\omega)$, dit naturel, est le module de la
 fonction de transfert $G(\omega)=|H(\jw)|$. Le~\cref{tab-equiv_dB} donne 
 l'équivalence entre le gain naturel $G$ et gain décibel $G_{dB}$ pour 
-différentes valeurs particulières frequemment rencontrées dans ce cours.
+différentes valeurs particulières fréquemment rencontrées dans ce cours.
 %-------------------------------------------------------------------------------
 \begin{table}[!t]
     \begin{tabular}{@{}P{1cm}P{1cm}P{1cm}P{1cm}P{1cm}
@@ -166,7 +166,7 @@ le gain en décibel est donc :
 C'est cette fonction qu'il faut tracer point par point sur le diagramme 
 de Bode, cependant il est généralement recommandé d'étudier les asymptotes 
 de cette fonction avant de tracer la courbe. Pour les basses fréquences, le 
-gain en décibel ce commporte comme 
+gain en décibel ce comporte comme 
 \[
     G_{dB}(\omega)\sim-20\log{1}\sim 0\text{dB}
 \] 
@@ -174,7 +174,7 @@ et pour les hautes fréquences, comme
 \[
     G_{dB}(\omega)\sim -20\log{\omega}.
 \]
-Dans le cas des hautes fréquences, lorsque la pulsation est mutiplié par 
+Dans le cas des hautes fréquences, lorsque la pulsation est multiplié par 
 10 (c.-à-d. une décade ) le gain diminue de \SI{-20}{\dB}, on dit également 
 qu'à haute fréquence le gain possède une pente de \textbf{-20dB par décade}. 
 La pulsation de coupure est ici de $\omega_{c}=1$, c'est cette pulsation qui 
@@ -199,7 +199,7 @@ de la fonction complexe $H(\jw)$.
 \phi(\omega)=\arg{H(\jw)}=-\arg{(1+\jw)}=-\arctan{\omega}
 \]
 C'est cette fonction $\phi(\omega)$ qu'il faut tracer point par point 
-sur le diagramme de Bode, mais comme précedemment
+sur le diagramme de Bode, mais comme précédemment
 il est conseillé de déterminer les asymptotes à basse et haute fréquence.
 \`A basse fréquence, la phase se comporte comme,
 \[

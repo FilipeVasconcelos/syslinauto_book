@@ -23,11 +23,11 @@ dynamique des fluides, l'optimisation numérique, et la modélisation et
 simulation de systèmes dynamiques.
 
 La syntaxe et les possibilités offertes par Scilab sont similaires à celles 
-de Matlab. Scilab peut exécuter des instructions en ligne de commande, ainsi que
+de MATLAB Scilab peut exécuter des instructions en ligne de commande, ainsi que
 des fichiers de commande (scripts) contenant des instructions (format texte). 
 On peut exécuter des programmes Fortran ou C à partir de Scilab.
 Scilab est complété par un environnement graphique Xcos comparable 
-à l'environnement graphique Simulink fourni avec Matlab. 
+à l'environnement graphique Simulink fourni avec MATLAB 
 %\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -101,7 +101,7 @@ Quelques opérateurs logiques :
  
   T 
 
--->A==B   // Egalité logique
+-->A==B   // Égalité logique
  ans  =
  
   F
@@ -125,7 +125,7 @@ fait intervenir des polynômes et des fractions rationnelles.
 La déclaration d'un polynôme se fait à l'aide de deux instructions. 
 La première utilise la fonction \verb?poly(0, "p")? qui définie 
 \og \verb?p?\fg comme l'indéterminée d'un polynôme. 
-La seconde instuction est l'énoncé du polynôme utilisant cette indéterminée. 
+La seconde instruction est l'énoncé du polynôme utilisant cette indéterminée. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -330,7 +330,7 @@ Pour concaténer deux vecteurs ou matrices :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Fonctions pour construire des vecteurs et matrices élémentaires}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-On utilisera la fonction ones pour construire un vecteur ou une matrice remplie 
+On utilisera la fonction \texttt{ones} pour construire un vecteur ou une matrice remplie 
 de 1.
 Exemple pour construire un vecteur de 10 composantes de valeurs 1 :
 %-------------------------------------------------------------------------------
@@ -342,7 +342,7 @@ Exemple pour construire un vecteur de 10 composantes de valeurs 1 :
 
 \end{Scilabcode}
 %-------------------------------------------------------------------------------
-pour une matrice 3x3 :
+pour une matrice $3\times 3$ :
 %-------------------------------------------------------------------------------
 \begin{Scilabcode}
 --> ones(3,3)
@@ -358,11 +358,11 @@ pour construire respectivement des vecteurs et matrices de zéros ou de nombres
 aléatoires.
 
 Les fonctions \verb?linspace? et \verb?logspace? permettent de construire 
-respectivement des vecteurs de valeurs linairement et logarithmiquement 
+respectivement des vecteurs de valeurs linéairement et logarithmiquement 
 équidistantes.  
 
 Par exemple l'instruction suivante construit un vecteur de 9 éléments 
-équidistants (de 0.5) dont les valeures sont comprises entre 1 et 5 :
+équidistants (de 0.5) dont les valeurs sont comprises entre 1 et 5 :
 %-------------------------------------------------------------------------------
 \begin{Scilabcode}
 --> linspace(1,5,9)
@@ -621,11 +621,11 @@ utilisant la fraction rationnelle directement \verb?syslin("c",ft)?:
 \begin{Scilabcode}
 p=%s                   // indéterminée du polynôme
 K=1,tau=1;             // paramètres du système
-H=K/(1+tau*p);         // fonction de tranfert
+H=K/(1+tau*p);         // fonction de transfert
 PO=syslin('c',H)       // définition du SLCI PO:PremierOrdre
 \end{Scilabcode}
 %-------------------------------------------------------------------------------
-ou en définisant le numérateur et dénominateur séparément 
+ou en définissant le numérateur et dénominateur séparément 
 (c.-à-d \verb?syslin("c",num,den)?)
 %-------------------------------------------------------------------------------
 \begin{Scilabcode}
@@ -704,7 +704,7 @@ Pour simuler la réponse impulsionnelle on utilisera la chaîne de caractères
 
 Il faut également définir le vecteur temps qui imposera la 
 taille du vecteur de sortie. Le troisième argument est un système linéaire
-défini par la fonction \verb?syslin? présentée précedemment. 
+défini par la fonction \verb?syslin? présentée précédemment 
 %-------------------------------------------------------------------------------
 \begin{Scilabcode}
 t=0.0:0.05:20;             // définition du vecteur temps 
@@ -716,7 +716,7 @@ s1=csim(e1,t,PO)           // réponse impulsionnelle du sl PO
 Pour la réponse indicielle, on utilisera la chaîne de caractères \verb?'step'?.
 %-------------------------------------------------------------------------------
 \begin{Scilabcode}
-e2='step'                  // 'step' : échélon unitaire.
+e2='step'                  // 'step' : échelon unitaire.
 s2=csim(e2,t,PO)           // réponse impulsionnelle du sl PO
                            // pour tous les points du vecteur t.
 \end{Scilabcode}
@@ -740,7 +740,7 @@ Il est possible d'approximer l'impulsion de Dirac par un vecteur dont
 les valeurs sont toutes nulles sauf pour sa première composante. 
 L'amplitude du \og pic\fg dépendra de l'écart entre deux valeurs du vecteur 
 temps $\Delta t$.
-Les instructions suivantes permettent de verifier cette approximation :
+Les instructions suivantes permettent de vérifier cette approximation :
 %-------------------------------------------------------------------------------
 \begin{Scilabcode}
 s=%s
@@ -917,7 +917,7 @@ Xcos pour obtenir davantage de détails~\cite{steer2014scilab,premier,xcos}.
 \subsection{Lancer Xcos}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Après avoir lancé Scilab, éxécuter une des instructions suivantes :
+Après avoir lancé Scilab, exécuter une des instructions suivantes :
 %-------------------------------------------------------------------------------
 \begin{itemize}
     \item Taper la commande \verb?xcos? dans la console;
@@ -937,7 +937,7 @@ fenêtre d'édition.
 Le module inclut un grand nombre de blocs (c.f Navigateur de palettes).
 Il est possible de construire des super-blocs qui incorpore d'autres blocs pour
 faciliter la lecture d'un diagramme complexe. \newline
-Nous allons créer un diagramme simple. Pour celà, placer les blocs suivants 
+Nous allons créer un diagramme simple. Pour cela, placer les blocs suivants 
 dans la fenêtre d'édition:
 %-------------------------------------------------------------------------------
 \begin{table}[!h]
@@ -1007,7 +1007,7 @@ Plusieurs paramètres peuvent être ajustés :
 \begin{itemize}
     \item La durée de la simulation : Simulation $\rightarrow$ 
           Configurer $\rightarrow$ Temps d'intégration final
-    \item La période d'échantillonage : Cliquer sur l'horloge.
+    \item La période d’échantillonnage : Cliquer sur l'horloge.
     \item La fonction échelon  : Cliquer sur le bloc de la fonction échelon
     \item Les paramètres de la fonction de transfert : Cliquer sur le bloc CLR 
           (N'oubliez pas d'ajouter un contexte si vous utiliser des variables)

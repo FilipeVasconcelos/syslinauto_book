@@ -29,11 +29,11 @@ Lors des précédents chapitres, les systèmes linéaires dynamiques ont été
 largement étudiés à l'aide de la notion de fonction de transfert. Cette fonction
 de transfert est une représentation dans le domaine de Laplace du système que
 l'on souhaite analyser, modéliser et contrôler. Elle permet de donner
-une réprésentation fréquentielle de l'équation différentielle régissant le 
+une représentation fréquentielle de l'équation différentielle régissant le 
 système. L'analyse des propriétés de cette fonction de transfert est riche de
 résultats et nous a permis de caractériser un grand nombre des performances
 des~\glspl{slci} ainsi que les performances liées à leur asservissement. 
-Cependant, cette approche s'avère difficile à mettre en oeuvre dans le cas 
+Cependant, cette approche s'avère difficile à mettre en œuvre dans le cas 
 des systèmes non-linéaires et/ou discrets. Le but de ce chapitre est 
 d'introduire une nouvelle approche  pour l'étude des systèmes dynamiques 
 permettant d'englober un plus grand nombre de situation. 
@@ -50,7 +50,7 @@ très rapidement difficile à étudier pour un grand nombre d'entrée et de sort
 Au contraire des systèmes monovariables, les systèmes multivariables présentent
 plusieurs entrées et sorties (en nombre différents dans le cas général)
 \footnote{Il ne faut pas confondre un système
-multivariable avec les systèmes multientrées que nous avons rencontré lorsque
+multivariable avec les systèmes multi-entrées que nous avons rencontré lorsque
 par exemple nous avons considéré la prise en compte d'une perturbation dans
 un système composé de plusieurs sous-systèmes.}. Nous pouvons représenté ce 
 type de système par le schéma suivant :
@@ -196,7 +196,7 @@ Nous allons cependant, nous limiter à une présentation
 liminaire de cette notion qui pourrait faire l'objet d'un ouvrage dédié
 
 La représentation d'état nécessite la description d'un état 
-$\bdx(t)$ à instant $t$\footnote{Nous utilisons ici la notation anglosaxonne qui
+$\bdx(t)$ à instant $t$\footnote{Nous utilisons ici la notation anglo-saxonne qui
 représente les vecteurs par des symboles en caractères gras.} qui est un 
 vecteur de variables $x_i(t)$ dont le nombre $n$ de composantes dépend 
 de l'ordre du système.
@@ -296,17 +296,17 @@ l'action directe de l'entrée sur la sortie est nulle $\boldsymbol{D=0}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Lien entre la fonction de transfert et la réprésentation d'état}
+\subsection{Lien entre la fonction de transfert et la représentation d'état}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Représentation d'\'Etat!Lien avec la fonction de transfert}
-Bien evidemment, il existe un lien entre la fonction de transfert et la 
+Bien évidemment, il existe un lien entre la fonction de transfert et la 
 représentation d'état. Le passage de la représentation d'état à la fonction
 de transfert, nous permettra d'extrapoler les résultats de l'approche 
 fréquentielle à celle de représentation d'état.
 
-Pour celà appliquons la transformée de Laplace aux équations d'état et de 
+Pour cela appliquons la transformée de Laplace aux équations d'état et de 
 sortie (c.f~\cref{eq-etat,eq-sortie}) en utilisant l'algèbre des matrices :
 \[
     \begin{cases}
@@ -332,7 +332,7 @@ En remplaçant cette nouvelle relation dans la seconde, on obtient
     S(p)=\left[\boldsymbol{C}(p\boldsymbol{I}-\boldsymbol{A})^{-1}
          \boldsymbol{B}+\boldsymbol{D}\right]E(p),
 \]
-Pour laquelle, on reconnait la fonction de transfert $H(p)=\frac{S(p)}{E(p)}$ :
+Pour laquelle, on reconnaît la fonction de transfert $H(p)=\frac{S(p)}{E(p)}$ :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     H(p)=\boldsymbol{C}
@@ -417,7 +417,7 @@ on retrouve bien la relation triviale $z(t)=z(t)$.
 \newpage
 \restoregeometry
 \captionsetup{width=0.9\linewidth}
-Pour établir l'équation d'état (c.f~\cref{eq-etat}) dérivons chacunes des 
+Pour établir l'équation d'état (c.f~\cref{eq-etat}) dérivons chacune des 
 composantes de $\boldsymbol{x}(t)$
 \[
     \boldsymbol{\dot{x}}(t)=
@@ -461,7 +461,7 @@ de ce système mécanique simple.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Pour établir la fonction de transfert à partir de la représentation d'état, nous
-allons appliquer la relation obtenue précedemment (c.f~\cref{eq-passageFT-RE}).
+allons appliquer la relation obtenue précédemment (c.f~\cref{eq-passageFT-RE}).
 Déterminons tout d'abord le terme $p\boldsymbol{I}-\boldsymbol{A}$ que l'on 
 notera $\boldsymbol{M}$,
 \[
@@ -504,7 +504,7 @@ cofacteurs $\boldsymbol{M^*}$) ainsi que son déterminant $\Delta$.
         -\dfrac{k}{m} & p
     \end{pmatrix}
 \]
-La fonction de transferst étant donnée par :
+La fonction de transfert étant donnée par :
 \[
     H(p)=\boldsymbol{C}\boldsymbol{M^{-1}}\boldsymbol{B}
 \]
@@ -521,7 +521,7 @@ Déterminons d'abord $\boldsymbol{M^{-1}}\boldsymbol{B}$
      \dfrac{1}{\Delta}
      \begin{pmatrix} \dfrac{1}{m} \\[1em] p \end{pmatrix}
 \]
-Nous developpons le calcul de $\boldsymbol{C}\boldsymbol{M^{-1}}\boldsymbol{B}$ 
+Nous développons le calcul de $\boldsymbol{C}\boldsymbol{M^{-1}}\boldsymbol{B}$ 
 pour obtenir la fonction de transfert du système :
 %-------------------------------------------------------------------------------
 \begin{align*}
@@ -536,7 +536,7 @@ pour obtenir la fonction de transfert du système :
 On vérifie que cette fonction correspond bien à celle que nous aurions obtenu
 en appliquant directement la transformée de Laplace à l'équation du mouvement
 du système.
-Bien evidemment, cette approche n'est pas idéale pour déterminer cette fonction
+Bien évidemment, cette approche n'est pas idéale pour déterminer cette fonction
 de transfert. L'objectif était de vérifier que les deux approches permettent
 d'obtenir le même résultat.
 \newpage
