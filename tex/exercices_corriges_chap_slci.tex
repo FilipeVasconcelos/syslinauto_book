@@ -18,12 +18,12 @@ e_1(t)=\begin{cases}
 \]
 On peut alors décomposer $e_1(t)$ en somme d'échelon :
 \[
-    e_1(t)=t    \left(u(t)-u(t-1)  \right)+(2-t)\left(u(t-1)-u(t-3)\right)+
+    e_1(t)=t\left(u(t)-u(t-1)\right)+(2-t)\left(u(t-1)-u(t-3)\right)+
          (t-4)\left(u(t-3)-u(t-4)\right) 
 \]
 En regroupant les termes, on obtient alors :
 \[
-    e_1(t)=tu(t)+2(1-t)u(t-1)+2(t-3)u(t-3)-(t-4)u(t-4)
+    e_1(t)=tu(t)-2(t-1)u(t-1)+2(t-3)u(t-3)-(t-4)u(t-4)
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{\textbf{Donner la transformée de Laplace $E_1(p)$ de ce signal.}}
@@ -31,14 +31,14 @@ En regroupant les termes, on obtient alors :
 La transformée de Laplace $E_1(p)$ est simplement donnée par la transformée de
 chacun des termes.
 \[
-    E_1(p)=\dfrac{1}{p^2}+\dfrac{2e^{-p}}{p^2}\left(p-1\right)
-                       +\dfrac{2e^{-3p}}{p^2}\left(1-3p\right)
-                       -\dfrac{e^{-4p}}{p^2}\left(1-4p\right)
+    E_1(p)=\dfrac{1}{p^2}-2\dfrac{e^{-p}}{p^2}
+                       +2\dfrac{e^{-3p}}{p^2}
+                       -\dfrac{e^{-4p}}{p^2}
 \]
 ou encore
 \[
     E_1(p)=\dfrac{1}{p^2}
-    \left(1+2e^{-p}(p-1)+2e^{-3p}(1-3p)-e^{-4p}(1-4p)\right)
+    \left(1+2e^{-p}+2e^{-3p}-e^{-4p}\right)
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -71,7 +71,7 @@ e_2(t)=
 \]
 En regroupant les termes on peut réécrire cette expression sous la forme :
 \[
-    e_2(t)=t^2u(t)-4(t-1)u(t-1)-t^2u(t-2)+4(t-1)u(t-2)
+    e_2(t)=t^2u(t)-4(t-1)u(t-1)+(t-2)^2u(t-2)
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question{\textbf{Donner la transformée de Laplace $E_2(p)$ de ce signal.}}
@@ -80,12 +80,7 @@ On rappelle que la transformé de Laplace de la fonction $f(t)=t^2$
 est $F(p)=\dfrac{2}{p^3}$. On obtient alors pour la transformée 
 $E_2(p)$ de $e_2(t)$ :
 \[
-    E_2(p)=\dfrac{2}{p^3}-4e^{-p}\left(\dfrac{1}{p^2}-\dfrac{1}{p}\right)
-        -e^{-2p}\dfrac{2}{p^3}+4e^{-2p}\left(\dfrac{1}{p^2}-\dfrac{1}{p}\right)
-\]
-\[
-    E_2(p)=\dfrac{2}{p^3}\left(1-e^{-2p}\right)
-        -4\left(\dfrac{1}{p^2}-\dfrac{1}{p}\right)\left(e^{-p}-e^{-2p}\right)
+    E_2(p)=\dfrac{2}{p^3}-4e^{-p}\dfrac{1}{p^2}+e^{-2p}\dfrac{2}{p^3}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -116,11 +111,11 @@ e_4(t)=
 \]
 On peut alors écrire ces signaux comme la somme des signaux usuels comme:
 \[
-    e_3(t)=(1-t)\left(u(t)-u(t-1)\right)=u(t)-r(t)-u(t-1)+r(t-1)
+    e_3(t)=(1-t)\left(u(t)-u(t-1)\right)=u(t)-tu(t)+(t-1)u(t-1)
 \]
 et
 \[
-    e_4(t)=t\left(u(t)-u(t-1)\right)=r(t)-r(t-1)
+    e_4(t)=t\left(u(t)-u(t-1)\right)=tu(t) - (t-1)u(t-1) - u(t-1)
 \]
 où $u(t)$ est la fonction échelon et $r(t)$ la fonction rampe.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -130,11 +125,11 @@ transformées de Laplace respectives de $e_3(t)$ et $e_4(t)$.}}
 Les transformées sont simplement données par la propriété des fonctions 
 retardés et des signaux rampes. On a notamment,
 \[
-    E_3(p)=\dfrac{(p-1)}{p^2}\left(1-e^{-p}\right)
+    E_3(p)=\dfrac{1}{p}-\dfrac{1}{p^2}+\dfrac{e^{-p}}{p^2}
 \]
 et
 \[
-    E_3(p)=\dfrac{1}{p^2}\left(1-e^{-p}\right)
+    E_4(p)=\dfrac{1}{p^2}-\dfrac{-e^{-p}}{p^2}-\dfrac{e^{-p}}{p}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -157,9 +152,11 @@ On sollicite le système par le signal $e(t)$ défini par :
 La transformée de Laplace $E(p)$ est simplement donnée par la somme,
 \[
     E(p)=E_3(p)+e^{-p} E_4(p)
-        =\dfrac{(p-1)}{p^2}\left(1-e^{-p}\right)+
-         \dfrac{e^{-p}}{p^2}\left(1-e^{-p}\right)
-        =\dfrac{1-e^{-p}}{p^2}\left(e^{-p}+p-1\right)
+        = \dfrac{1}{p}-\dfrac{1}{p^2}+\dfrac{e^{-p}}{p^2} +
+          e^{-p} \left(\dfrac{1}{p^2}-\dfrac{e^{-p}}{p^2}-\dfrac{e^{-p}}{p}\right)
+\]
+\[
+    E(p)=\dfrac{1}{p}\left(1-e^{-2p}\right)+\dfrac{1}{p^2}\left(1-2e^{-p}-e^{-2p}\right)
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
