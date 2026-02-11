@@ -22,7 +22,7 @@ définie dans le domaine de Laplace. Autrement dit,
 \[
 s(t)=\laplacei{S(p)}
 \]
-Cette inversion passe généralement par l’utilisation des tables de 
+Cette inversion passe généralement par l'utilisation des tables de 
 transformées de Laplace (c.f \Cref{annexe-lap}).
 Cependant, ces tables peuvent ne pas être complètes, on utilise alors 
 la~\gls{des} de $S(p)$. Celle-ci nous permet alors de réécrire cette fraction 
@@ -31,8 +31,6 @@ usuellement présentes dans les tables.
 
 Dans cette annexe, nous présenterons les techniques de~\gls{des} les plus 
 couramment rencontrées dans l'étude des~\gls{slci}. 
-%Ces systèmes ne s'intéressent qu'à 
-%une famille de fraction rationnelle.
 Cette présentation n'est pas exhaustive, et ne remplacera donc 
 pas la lecture du chapitre du cours de mathématiques qui lui est consacré.
 
@@ -50,9 +48,26 @@ Cette grandeur est de la forme,
 S(p)=\dfrac{N(p)}{D(p)}
 \]
 où $N(p)$ et $D(p)$ sont deux polynômes de degrés $m$ et $n$ respectivement.
-En générale, nous aurons à faire à des systèmes pour lesquels $m\le n$. 
+En générale, nous aurons à faire à des systèmes pour lesquels $n\gt m$. 
 Une des conséquences est que \textbf{la décomposition en éléments 
 simples ne comportera pas de partie entière.}
+
+Cependant si $n\le m$, il faut donc procéder à une division euclidienne de la 
+fraction rationnelle telle que:
+\[
+  N(p) = Q(p)D(p) + R(p) 
+\]
+Avec $Q(p)$ et $R(p)$ respectivement les polynômes quotient et reste.
+
+\[
+    \dfrac{p(p+1)}{(p+1)^2}
+\]
+On constate que $N(p)=p(p+1)$ peut s'écrire comme $(p+1)^2 - p$ c'est à dire 
+que $Q(p)=1$:
+\[
+    N(p)=Q(p)D(p) - R(p)
+\]
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
