@@ -1,0 +1,41 @@
+\begin{tikzpicture}
+\begin{axis}[
+    axis line style = thick,
+    axis x line=center,
+    axis y line=center,
+    width=13cm,
+    height=7cm,
+    xmin=0,xmax=10,
+    ymin=0,ymax=5,
+    ytick={0.28*\K,0.40*\K,\K},
+    yticklabels={0.28$K$,0.40$K$,$K$},
+    xtick={\to,\tw},
+    xticklabels={$t_1$,$t_2$},
+    xlabel={$t$},
+    ylabel={$s(t)$},
+    domain=0:10,
+    samples=200,
+    declare function={f(\A,\tau,\x)=\A*(1-exp(-\x/\tau)-(\x/\tau)*exp(-\x/\tau));},
+    clip=false
+]
+% -----------------------------
+% Paramètres
+% -----------------------------
+\pgfmathsetmacro{\tauval}{1.2}
+\pgfmathsetmacro{\K}{4}     % gain pour amplitude correcte
+\pgfmathsetmacro{\to}{1.25}     % gain pour amplitude correcte
+\pgfmathsetmacro{\tw}{1.65}     % gain pour amplitude correcte
+% -----------------------------
+% Signal de sortie s(t)
+% -----------------------------
+\addplot[very thick,col4] {f(\K,\tauval,x)};
+% -----------------------------
+\addplot[dashed] coordinates {(0,\K) (10,\K)};
+\draw[dashed] (axis cs:0,0.28*\K) -- (axis cs:\to,0.28*\K);
+\draw[dashed] (axis cs:0,0.40*\K) -- (axis cs:\tw,0.40*\K);
+\draw[dashed] (axis cs:\to,0) -- (axis cs:\to,0.28*\K);
+\draw[dashed] (axis cs:\tw,0) -- (axis cs:\tw,0.40*\K);
+\node[right,align=center,text width=3cm] at (axis cs:5.7,2.3) {$H(p)=K\dfrac{e^{-\tau p}}{1+Tp}$};
+\node[right,align=center,text width=3cm] at (axis cs:5.7,1.2) {$\tau=5.5(t_2-t_1)$ $T=2.8t_1-1.8t_2$};
+\end{axis}
+\end{tikzpicture}
