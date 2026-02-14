@@ -17,11 +17,50 @@
     ,toc=listof          % List of Figures and List of Tables appear in Table of Contents
     ,version=last        % Use latest version of the KOMA-Script
     ]{scrbook}
-\usepackage[utf8]{inputenc} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENCODAGE ET LANGUE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amsmath,amssymb}
 \usepackage[french]{babel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% POLICES ET TYPOGRAPHIE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{microtype}
+\usepackage{lmodern}
+\usepackage{setspace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MATHS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COULEURS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[dvipsnames]{xcolor}
+\definecolor{col1}{RGB}{57,106,177}
+\colorlet{headingscolor}{col1}
+%KOMA color 
+\addtokomafont{chapter}{\color{headingscolor}}
+\addtokomafont{section}{\color{headingscolor}}
+\addtokomafont{subsection}{\color{headingscolor}}
+\addtokomafont{subsubsection}{\color{headingscolor}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FIGURES ET TABLEAUX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage[skip=0.3cm,hypcap=false]{caption} 
+\usepackage{subcaption}
+\captionsetup{width=0.95\linewidth,belowskip=0pt,labelfont=bf} 
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{makecell}
+
+
 \addto\captionsfrench{\renewcommand{\bibname}{Références}}
 \addto\captionsfrench{\def\tablename{Tableau}}
 \addto\captionsfrench{\renewcommand\appendixname{Annexe}
@@ -33,27 +72,14 @@
             imageposition=right,
             version={4.0},
            ]{doclicense}
-\usepackage[dvipsnames]{xcolor}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%KOMA color 
-\definecolor{col1}{RGB}{57,106,177}
-\colorlet{headingscolor}{col1}
-\addtokomafont{chapter}{\color{headingscolor}}
-\addtokomafont{section}{\color{headingscolor}}
-\addtokomafont{subsection}{\color{headingscolor}}
-\addtokomafont{subsubsection}{\color{headingscolor}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{ifthen}
-\usepackage[skip=0.3cm,hypcap=false]{caption} 
-\captionsetup{width=0.95\linewidth,belowskip=0pt,labelfont=bf} 
 \usepackage[french]{minitoc}
 \usepackage{bbding}
 %\usepackage{MnSymbol}
-\usepackage{mathrsfs}
-\usepackage{graphics}
-\usepackage{subcaption}
 \usepackage{lscape}
 \usepackage{enumitem}
 \setlist[itemize]{label=\textbullet}
@@ -61,7 +87,6 @@
 \usepackage{setspace}
 \usepackage{rotating}
 \usepackage{epstopdf}
-\usepackage{mathtools}
 \usepackage{siunitx}
 \usepackage{siunitxfmv}
 \usepackage{afterpage}
@@ -86,7 +111,6 @@
 \setabbreviationstyle[acronym]{long-short}
 \usepackage{tocbibind}
 \usepackage{titletoc}%
-\usepackage{float}
 \usepackage[page]{appendix}
 \renewcommand\appendixtocname{Annexes}
 
@@ -111,33 +135,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PGF/TikZ/PGFPLOTS
-\usepackage{pgf,tikz}
-\usepackage{pgfplots}
-\pgfplotsset{compat=newest}
-\usepackage{tikzfmv}
-\usepackage{tkz-euclide}
-\usepackage{tikz-3dplot}
-\usepackage{pst-3dplot}
-\usetikzlibrary{calc,tikzmark}
-\usetikzlibrary{quotes,angles}
-\usetikzlibrary{arrows.meta,bending,automata,positioning}
-\usetikzlibrary{shapes.geometric}       
-\usetikzlibrary{babel} 
-\usetikzlibrary{decorations.text}
-\usetikzlibrary{matrix}
-\usetikzlibrary{intersections}
-%\usetkzobj{all} %2020
-%\tikzset{external/optimize command away=\AddToShipoutPicture}
-%\tikzset{external/optimize command away=\AddToShipoutPictureBG}
-%\tikzset{external/system call={pdflatex -shell-escape 
-%-halt-on-error -interaction=batchmode -jobname "\image" "\texsource"; 
-%bin/pdf2eps 1 "\image"
-%}}
+\input{preamble/tikz}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % définition de l'année scolaire (page de garde) 
-\newcommand\lastyear{\advance\year by -1 \the\year\advance\year by 1}
-\newcommand\nextyear{\advance\year by 1 \the\year\advance\year by -1}
+\newcommand{\lastyear}{\advance\year by -1 \the\year\advance\year by 1}
+\newcommand{\nextyear}{\advance\year by 1 \the\year\advance\year by -1}
 \newcommand{\anneescolaire}{%
     \ifthenelse{\month<7}
     {\lastyear--\the\year}
@@ -145,9 +148,7 @@
 }%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{booktabs}
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
-\usepackage{array,multirow,makecell}
 \setcellgapes{1pt}
 \usepackage{hhline}
 \usepackage{tabularx}
@@ -216,22 +217,7 @@
 % Packages fmv
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{mathfmv}
-\usepackage{schemabloc}
-\usepackage{schemablocfmv}
-\sbStyleBloc{thick}
-\sbStyleBlocT{thick}
-\sbStyleLien{thick}
-\sbStyleSum{thick}
-\usepackage{gfluence}
-\usepackage{vecteurs}
-\usepackage{tdexoq}
-\let\exo\exercice
-\let\ques\question
-\renewcommand{\exercice}[1]{\exo{#1}[\large][\color{col1}\sffamily]}
-\renewcommand{\question}[1]{\ques[\color{col1}\sffamily]{#1}}
-\usepackage{routhtab}
-\usepackage{poles}
+\input{preamble/fmv}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \loadglsentries{tex/acronyme}
@@ -313,6 +299,7 @@
 \clearpage
 \ifodd\value{page}\hbox{}\newpage\fi
 }
+\usepackage{standalone}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \graphicspath{{./fig}
               {./fig/cover}
@@ -325,7 +312,8 @@
               {./fig/chap_stab/}
               {./fig/logo}
               {./fig/annexe_blackNichols}
-              {./fig/annexe_cauchy}}
+              {./fig/annexe_cauchy}
+	      {./figtikz}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ------------------------------------------------------------------------------
 % includeonly individuel
@@ -357,54 +345,6 @@
 %\includeonly{tex/annexe_cauchy}        % Principe de l'argument de Cauchy
 %\includeonly{tex/annexe_evans}         % Lieu d'Evans
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ------------------------------------------------------------------------------
-% includeonly groupé
-% ------------------------------------------------------------------------------
-% premier semestre :
-% ------------------------------------------------------------------------------
-\newcommand{\premierS}
-{%
-\includeonly{tex/chap_slci,
-             tex/chap_bloc,
-             tex/chap_model,
-             tex/chap_repfreq,
-             tex/annexe_alphagrec,
-             tex/annexe_usi,
-             tex/annexe_laplace,
-             tex/annexe_cplx,
-             tex/annexe_equa_diff,
-             tex/annexe_des,
-             tex/annexe_2nd,
-             tex/annexe_scilab,
-             tex/annexe_log,
-             tex/annexe_invL}
-}
-% ------------------------------------------------------------------------------
-% second semestre :
-% ------------------------------------------------------------------------------
-\newcommand{\secondS}
-{%
-\includeonly{tex/chap_asserv,
-             tex/chap_perf,
-             tex/chap_stab,
-             tex/chap_correction,
-             tex/chap_etat,
-             tex/annexe_alphagrec,
-             tex/annexe_usi,
-             tex/annexe_laplace,
-             tex/annexe_cplx,
-             tex/annexe_equa_diff,
-             tex/annexe_des,
-             tex/annexe_2nd,
-             tex/annexe_scilab,
-             tex/annexe_matlab,
-             tex/annexe_log,
-             tex/annexe_invL}
-}
-%\premierS
-%\secondS
-%\includeonly{tex/chap_asserv,tex/chap_perf}  
-%\includeonly{tex/chap_slci,tex/chap_model,tex/annexe_laplace}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % utile pour l'annnexe 5
 \newlength\myheight
