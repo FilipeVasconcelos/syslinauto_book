@@ -1,0 +1,31 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\input{preamble/tikz}
+\input{preamble/fmv}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}
+    [
+    axis lines=center,
+    axis line style = thick,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
+    ymin=-10,
+    ymax=+10,
+    xmin=-10,
+    xmax=+10,
+    grid=both,
+    x label style={below right},
+    y label style={left},
+    yticklabels={,,},
+    xticklabels={,,},
+    ]     
+    \node [below,yshift=-1em]     at (axis cs: 5, 0)   {\large$\forall\omega$};
+    \node [above,col1,yshift=1em] at (axis cs: 5, 0)   {\large$K$};
+    \addplot [col1,mark options={scale=1.5},mark = *] coordinates {(5, 0)} {};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

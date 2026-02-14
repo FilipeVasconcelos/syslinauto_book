@@ -1,0 +1,18 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\input{preamble/tikz}
+\usepackage{siunitx}
+\graphicspath{{./fig/chap_correction}}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \node {\includegraphics[width=0.8\textwidth]
+        {bode_BONC_BOC_exemple-chap_correction.eps}};
+    \draw[dblarw={col1}{1pt}{1pt}] (-0.68,-3.14) -- node[midway,left] 
+    {$M_\phi=\SI{55}{\degree}$} (-0.68,-1.2) ; 
+    \node at (2,-0.5) {Non corrigé};
+    \node[col1] at (2,-1) {Corrigé};
+\end{tikzpicture}
+
+\end{document}

@@ -1,12 +1,21 @@
 %!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 0 0 301 88
+%%HiResBoundingBox: 0.000000 0.000000 301.000000 88.000000
 %%Creator: GraphicsMagick 1.3.38
 %%Title: Workspace.eps
 %%CreationDate: Mon Nov  6 13:44:21 2023
-%%BoundingBox: 0 0 301 88
-%%HiResBoundingBox: 0 0 300.792 87.76225
 %%LanguageLevel: 3
-%%Pages: 1
 %%EndComments
+% EPSF created by ps2eps 1.70
+%%BeginProlog
+save
+countdictstack
+mark
+newpath
+/showpage {} def
+/setpagedevice {pop} def
+%%EndProlog
+%%Page 1 1
 %%BeginProlog
 /ByteStreamDecodeFilter
 {
@@ -28,7 +37,6 @@
   z 4 eq {/FlateDecode filter} if
   z 5 eq {/DCTDecode filter} if
 } bind def
-
 /DirectClassImageDict
 {
   colorspace 0 eq
@@ -64,7 +72,6 @@
   }
   ifelse
 } bind def
-
 /PseudoClassImageDict
 {
   % COLORS IN PSEUDO CLASS IMAGE
@@ -104,7 +111,6 @@
   }
   ifelse
 } bind def
-
 /NonMaskedImageDict
 {
   class 1 eq
@@ -112,7 +118,6 @@
   { DirectClassImageDict }
   ifelse
 } bind def
-
 /MaskedImageDict
 {
   <<
@@ -132,20 +137,16 @@
     >>
   >>
 } bind def
-
 /ClipImage
 {} def
-
 /DisplayImage
 {
   /buffer 512 string def
-
   % TRANSLATION
   currentfile buffer readline pop
   token pop /x exch def
   token pop /y exch def pop
   x y translate
-
   % IMAGE SIZE AND FONT SIZE
   currentfile buffer readline pop
   token pop /x exch def
@@ -153,40 +154,31 @@
   currentfile buffer readline pop
   token pop /pointsize exch def pop
   x y scale
-
   % CLIPPING PATH
   currentfile buffer readline pop
   token pop /clipped exch def pop
-
   % EPS
   currentfile buffer readline pop
   token pop /sp exch def pop
-
   % IMAGE PIXEL SIZE
   currentfile buffer readline pop
   token pop /columns exch def
   token pop /rows exch def pop
-
   % COLORSPACE (RGB/CMYK)
   currentfile buffer readline pop
   token pop /colorspace exch def pop
-
   % TRANSPARENCY
   currentfile buffer readline pop
   token pop /alpha exch def pop
-
   % STENCIL MASK?
   currentfile buffer readline pop
   token pop /stencil exch def pop
-
   % IMAGE CLASS (DIRECT/PSEUDO)
   currentfile buffer readline pop
   token pop /class exch def pop
-
   % COMPRESSION
   currentfile buffer readline pop
   token pop /compression exch def pop
-
   % CLIP AND RENDER
   /pixel_stream currentfile columns rows compression
     ByteStreamDecodeFilter def
@@ -283,4 +275,9 @@ UOp(hn"=+?T^^*IH!.YZC/-#Yp+B\[E7`:J_IiAF4-i~>
 end
 %%PageTrailer
 %%Trailer
+%%Trailer
+cleartomark
+countdictstack
+exch sub { end } repeat
+restore
 %%EOF

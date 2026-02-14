@@ -1,0 +1,17 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\input{preamble/tikz}
+\input{preamble/fmv}
+
+\begin{document}
+
+\begin{tikzpicture}%
+    \draw[very thick,-latex] (0,-1.5) -- (0,2.0) node[left]  {$\Im{p}$};
+    \draw[very thick,-latex] (-2.5,0) -- (1.0,0) node[below] {$\Re{p}$};
+    \node at (-0.5,0) [thick,cross=5pt,col1]                 {};
+    \node at (-0.5,0) [col1,below,yshift=-0.5em]             {$p_1$};
+    \node at (-1.5,0) [thick,cross=5pt,col1]                 {};
+    \node at (-1.5,0) [col1,below,yshift=-0.5em]             {$p_2$};
+\end{tikzpicture}%
+
+\end{document}

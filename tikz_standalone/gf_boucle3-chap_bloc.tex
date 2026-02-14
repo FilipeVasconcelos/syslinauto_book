@@ -1,0 +1,15 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\input{preamble/tikz}
+\input{preamble/fmv}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \gfEntree{$E$}{E}
+    \gfSortie[3]{$S$}{E}{S}
+    \gfRelier[$H_1$]{E}{S}
+    \gfBoucleE[-$H_1H_2$][-][3.2][1]{S}
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,49 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\usepackage{amsmath,amssymb}
+\input{preamble/tikz}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[
+    axis line style = thick,
+    axis x line=center,
+    axis y line=center,
+    width=13cm,
+    height=7cm,
+    xmin=0,xmax=10,
+    ymin=0,ymax=4.5,
+    ytick={\K},
+    yticklabels={$K$},
+    xtick={\to,\tw},
+    xticklabels={},
+    xlabel={$t$},
+    ylabel={$s(t)$},
+    domain=0:10,
+    samples=200,
+    declare function={f(\A,\tau,\x)=\A*(1-exp(-\x/\tau)-(\x/\tau)*exp(-\x/\tau));},
+    clip=false]
+% -----------------------------
+% Paramètres
+% -----------------------------
+\pgfmathsetmacro{\tauval}{1.5}
+\pgfmathsetmacro{\start}{\tauval*(3-exp(1))}
+\pgfmathsetmacro{\finish}{3*\tauval}
+\pgfmathsetmacro{\K}{4}     % gain pour amplitude correcte
+\pgfmathsetmacro{\to}{1.25}     % gain pour amplitude correcte
+\pgfmathsetmacro{\tw}{1.65}     % gain pour amplitude correcte
+% -----------------------------
+% Signal de sortie s(t)
+% -----------------------------
+\addplot[very thick,col4] {f(\K,\tauval,x)};
+% -----------------------------
+\addplot[dashed] {\K};
+\addplot[col5,domain=\start:\finish] {\K/(\tauval*exp(1))*(x-\tauval)+\K*(1-2/exp(1))};
+\draw[latex-latex] (axis cs:0,-0.2)      -- node[below] {$\tau$} (axis cs:\start,-0.2);
+\draw[latex-latex] (axis cs:\start,-0.2) -- node[below] {$T$}    (axis cs:\finish,-0.2);
+\node[right,align=center,text width=3cm] at (axis cs:5.7,2.2) {$H(p)=K\dfrac{e^{-\tau p}}{1+Tp}$};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

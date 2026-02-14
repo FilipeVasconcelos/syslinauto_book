@@ -116,8 +116,7 @@ déterminé par la résolution de l'équation :
 \begin{marginfigure}
     \centering
     \resizebox{\marginparwidth}{!}{
-    \tikzsetnextfilename{carte_1er-chap_model-ext}
-    \input{tikz/carte_1er-chap_model}
+    \includegraphics[width=0.5\textwidth]{figtikz/carte_1er-chap_model.pdf}
     }
     \caption*{Carte des pôles et zéros d'un système du premier ordre}
 \end{marginfigure}
@@ -158,11 +157,9 @@ S(p)=H(p)E(p)=\dfrac{KE_0}{(\tau p+1)}.
 %-------------------------------------------------------------------------------
 \begin{figure}[!ht]
     \centering
-    \tikzsetnextfilename{1er_imp1-chap_model-ext}
-    \input{tikz/1er_imp1-chap_model.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/1er_imp1-chap_model.pdf}
     \hfill
-    \tikzsetnextfilename{1er_imp2-chap_model-ext}
-    \input{tikz/1er_imp2-chap_model.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/1er_imp2-chap_model.pdf}
     
     $\,$\newline 
     \ra{1.3}
@@ -215,11 +212,9 @@ considère que le signal est nul).
 %-------------------------------------------------------------------------------
 \begin{figure}[!ht]
     \centering
-    \tikzsetnextfilename{1er_ind1-chap_model-ext}
-    \input{tikz/1er_ind1-chap_model.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/1er_ind1-chap_model.pdf}
     \hfill
-    \tikzsetnextfilename{1er_ind2-chap_model-ext}
-    \input{tikz/1er_ind2-chap_model.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/1er_ind2-chap_model.pdf}
     
     \ra{1.3}
     \setlength{\ltmp}{0.15\linewidth}
@@ -297,11 +292,9 @@ t_m=-\tau\log{\dfrac{0.1}{0.9}}\sim2.2\tau
 %-------------------------------------------------------------------------------
 \begin{figure}
 \centering
-\tikzsetnextfilename{1er_ramp1-chap_model-ext}
-\input{tikz/1er_ramp1-chap_model.tex}
+\includegraphics[width=0.5\textwidth]{figtikz/1er_ramp1-chap_model.pdf}
 \hfill
-\tikzsetnextfilename{1er_ramp2-chap_model-ext}
-\input{tikz/1er_ramp2-chap_model.tex}
+\includegraphics[width=0.5\textwidth]{figtikz/1er_ramp2-chap_model.pdf}
 \caption{Réponse à une rampe d'un système du premier ordre avec $E_0=1$. 
          (gauche) Pour différentes valeurs de $\tau$ et $K=1$ 
          (droite) Pour différentes valeurs du gain $K$ et $\tau=1$.
@@ -435,18 +428,18 @@ ne sera donc pas traité.
         Régime apériodique\[\xi>1\]                                        &
         Deux pôles réels \[p_{1,2}=-\xi\omega_0\pm\omega_0\sqrt{\xi^2-1}\] & 
     {\tikzset{external/export=false}
-     \raisebox{-.5\height}{\input{tikz/poles_reels.tex}}}                  \\
+     \raisebox{-.5\height}{\includegraphics[width=0.5\textwidth]{figtikz/poles_reels.pdf}}}                  \\
     \midrule
         Régime apériodique critique \[\xi=1\]                              & 
         Un pôle double réel\[p_1=p_2=-\omega_0\]                           & 
     {\tikzset{external/export=false}
-     \raisebox{-.5\height}{\input{tikz/poles_double.tex}}}                 \\
+     \raisebox{-.5\height}{\includegraphics[width=0.5\textwidth]{figtikz/poles_double.pdf}}}                 \\
     \midrule
         Régime pseudo-périodique \[0<\xi<1\]                               & 
         Deux pôles complexes conjugués \[p_{1,2}=-\alpha\pm j\omega_d\]         
     avec $\alpha=\xi\omega_0$ et $\omega_d=\omega_0\sqrt{1-\xi^2}$         &
     {\tikzset{external/export=false}
-     \raisebox{-.5\height}{\input{tikz/poles_complexes.tex}}}              \\
+     \raisebox{-.5\height}{\includegraphics[width=0.5\textwidth]{figtikz/poles_complexes.pdf}}}              \\
     \bottomrule
     \end{tabular}
     \caption{Pôles de la fonction de transfert d'un système du second 
@@ -527,8 +520,7 @@ les constante de temps de deux systèmes du premier ordre fictifs
 placés en série :
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{2nd_sb_imp-chap_model-ext}
-    \input{tikz/2nd_sb_imp-chap_model.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/2nd_sb_imp-chap_model.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 où $K_1K_2=K$.
@@ -583,8 +575,7 @@ impulsionnelle d'un système du second ordre en régime pseudo-périodique :
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
-    \tikzsetnextfilename{2nd_pp_imp-chap_model-ext}
-    \input{tikz/2nd_pp_imp-chap_model.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/2nd_pp_imp-chap_model.pdf}
     \caption{Réponse impulsionnelle d'un système du second ordre en régime 
              pseudo-périodique pour différentes valeurs du taux d'amortissement 
              $\xi$ (\Cref{eq-1-3_2nd}) avec $\omega_0=1$.\label{fig-2nd_pp_imp}}
@@ -770,8 +761,7 @@ du second ordre en régime pseudo-périodique s'écrit :
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
-    \tikzsetnextfilename{2nd_pp-chap_model-ext}
-    \input{tikz/2nd_pp-chap_model.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/2nd_pp-chap_model.pdf}
     \caption{Réponse indicielle d'un système du second ordre en régime 
              pseudo-périodique pour différentes valeurs du taux d'amortissement 
              $\xi$ (\Cref{eq-1er_ramp}) avec $\omega_0=1$. \label{fig-2nd_pp}}
@@ -799,8 +789,7 @@ il nous faut d'abord déterminer le temps du premier maximum $t_1$.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{2nd_depassement_1-chap_model-ext}
-    \input{tikz/2nd_depassement_1-chap_model.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/2nd_depassement_1-chap_model.pdf}
     \caption{Définition du dépassement observé dans le cas de la réponse 
              indicielle en régime pseudo-périodique d'un système du second 
              ordre. Les deux enveloppes correspondent aux exponentielles 
@@ -811,8 +800,7 @@ il nous faut d'abord déterminer le temps du premier maximum $t_1$.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{2nd_depassement_2-chap_model-ext}
-    \input{tikz/depassement_amortissement.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/depassement_amortissement.pdf}
     \caption{Variation de la valeur $D_k$ du k-ème dépassement en fonction 
              du taux d'amortissement $\xi$. \label{fig-2nd_depassement_2}}
 \end{figure}
@@ -880,8 +868,7 @@ temps de réponse pour $\xi\sim 0.7$
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{2nd_t5pc-chap_model-ext}
-    \input{tikz/2nd_t5pc-chap_model.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/2nd_t5pc-chap_model.pdf}
     \caption{Définition du temps de réponse à 5\% dans le cas de la 
     réponse indicielle en régime pseudo-périodique d'un système du 
     second ordre. Le temps de réponse à 5\% est défini comme le 
@@ -893,8 +880,7 @@ temps de réponse pour $\xi\sim 0.7$
 %-------------------------------------------------------------------------------
 \begin{figure}[!b]
 \centering
-    \tikzsetnextfilename{rapidite_tr_2ndordre-chap_model-ext}
-    \input{tikz/rapidite_tr_2ndordre-chap_model.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/rapidite_tr_2ndordre-chap_model.pdf}
     \caption{Temps de réponse à 5\% réduit en fonction du taux 
              d'amortissement $\xi$. Le minimum est atteint pour $\xi\sim0.7$ 
              pour lequel $\omega_0\cdot t_{5\%}\sim3$.
@@ -1096,8 +1082,7 @@ s(t)=KE_0\left(t-\dfrac{2\xi}{\omega_0}+
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
-    \tikzsetnextfilename{2nd_ramp-chap_model-ext}
-    \input{tikz/2nd_ramp-chap_model.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/2nd_ramp-chap_model.pdf}
     \caption{Réponse à une rampe d'un système du second ordre en 
             (bleu) régime apériodique avec $\xi=2$, 
             (vert) régime apériodique critique (c.-à-d. $\xi=1$) et en 
@@ -1386,8 +1371,7 @@ de chacune des performances attendues par non système asservis.
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
-    \tikzsetnextfilename{comportement_ziegler_nichols-chap_model-ext}
-    \input{tikz/comportement_ziegler_nichols-chap_model.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/comportement_ziegler_nichols-chap_model.pdf}
     \caption{\label{comportement_ziegler_nichols}}
 \end{figure}
 %-------------------------------------------------------------------------------
@@ -1400,8 +1384,7 @@ de chacune des performances attendues par non système asservis.
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
-    \tikzsetnextfilename{comportement_strecj-chap_model-ext}
-    \input{tikz/comportement_strecj-chap_model.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/comportement_strecj-chap_model.pdf}
     \caption{\label{comportement_strecj}}
 \end{figure}
 %-------------------------------------------------------------------------------
@@ -1416,8 +1399,7 @@ point d'inflexion.
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
-    \tikzsetnextfilename{comportement_broida-chap_model-ext}
-    \input{tikz/comportement_broida-chap_model.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/comportement_broida-chap_model.pdf}
     \caption{\label{comportement_broida}}
 \end{figure}
 %-------------------------------------------------------------------------------

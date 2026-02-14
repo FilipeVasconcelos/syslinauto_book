@@ -1,0 +1,16 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\input{preamble/tikz}
+\input{preamble/fmv}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \sbEntree{E1}
+    \sbInt[3]{I1}{E1}
+    \sbRelier[$e(t)$]{E1}{I1}
+    \sbSortie[3]{S1}{I1}
+    \sbRelier[$s(t)$]{I1}{S1}
+\end{tikzpicture}
+
+\end{document}

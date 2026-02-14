@@ -35,8 +35,7 @@ les systèmes dynamiques linéaires.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{systeme-chap_slci-ext}
-    \input{tikz/systeme-chap_slci.tex}
+    \includegraphics[width=0.8\textwidth]{figtikz/systeme-chap_slci.pdf}
     \caption{Représentation d'un système en interaction avec son environnement. 
              Par définition, un système possède une ou plusieurs entrée/sortie 
              bien définis de flux de~\gls{mei}. Généralement, des 
@@ -75,7 +74,7 @@ la notion de système.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \includegraphics[width=0.8\linewidth]{ClaudeShannon.eps}
+    \includegraphics[width=\linewidth]{ClaudeShannon.eps}
     \caption*{\textbf{Claude Shannon} (1916-2001), ingénieur et 
               mathématicien américain. 
               Père fondateur de la théorie de l'information.}
@@ -84,7 +83,7 @@ la notion de système.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \includegraphics[width=0.8\linewidth]{NorbertWiener.eps}
+    \includegraphics[width=\linewidth]{NorbertWiener.eps}
     \caption*{\textbf{Norbert Wiener} (1894-1964), mathématicien 
               américain. Père fondateur de la cybernétique}
 \end{marginfigure}
@@ -92,7 +91,7 @@ la notion de système.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \includegraphics[width=0.8\linewidth]{MarvinMinsky.eps}
+    \includegraphics[width=\linewidth]{MarvinMinsky.eps}
     \caption*{\textbf{Marvin Minsky} (1916-2001), mathématicien américain. 
               Auteur de l'expression \og intelligence artificielle\fg}
 \end{marginfigure}
@@ -130,8 +129,7 @@ des systèmes monovariables que nous représenterons simplement
 de la façon suivante :
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{sb_bloc-chap_slci-ext}
-    \input{tikz/sb_bloc-chap_slci.tex}
+    \includegraphics[width=0.6\textwidth]{figtikz/sb_bloc-chap_slci.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 où $e(t)$ et $s(t)$ sont respectivement les signaux d'entrée et de sortie 
@@ -166,8 +164,7 @@ Un système est dit linéaire si il respecte les deux principes suivants:
         un système linéaire $\Sigma$:
 %-------------------------------------------------------------------------------
         \begin{center}
-            \tikzsetnextfilename{principe_linearite-chap_slci-ext}
-            \input{tikz/principe_linearite-chap_slci.tex}
+            \includegraphics[width=0.6\textwidth]{figtikz/principe_linearite-chap_slci.pdf}
         \end{center}
 %-------------------------------------------------------------------------------
     \item \emph{Principe de superposition :}
@@ -179,15 +176,13 @@ Un système est dit linéaire si il respecte les deux principes suivants:
         suivante pour un système linéaire $\Sigma$:
 %-------------------------------------------------------------------------------
         \begin{center}
-            \tikzsetnextfilename{principe_superposition_1-chap_slci-ext}
-            \input{tikz/principe_superposition_1-chap_slci.tex}
+            \includegraphics[width=0.8\textwidth]{figtikz/principe_superposition_1-chap_slci.pdf}
         \end{center}
 %-------------------------------------------------------------------------------
         Notons que ceci reste vrai pour une combinaison linéaire des entrées :
 %-------------------------------------------------------------------------------
         \begin{center}
-            \tikzsetnextfilename{principe_superposition_2-chap_slci-ext}
-            \input{tikz/principe_superposition_2-chap_slci.tex}
+            \includegraphics[width=0.5\textwidth]{figtikz/principe_superposition_2-chap_slci.pdf}
         \end{center}
 %-------------------------------------------------------------------------------
         avec $\alpha\ \text{et}\ \beta\in\mathbb{R}$, ou un nombre quelconques 
@@ -216,8 +211,7 @@ l'aide d'un schéma-bloc ci-dessous
 (avec $\tau$ un temps quelconque.): 
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{sb_bloc_e3-chap_slci-ext}
-    \input{tikz/principe_invariance-chap_slci.tex}
+    \includegraphics[width=0.6\textwidth]{figtikz/principe_invariance-chap_slci.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -327,8 +321,7 @@ cours du temps.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}[-8em]   
     \centering
-    \tikzsetnextfilename{decharge_condensateur-chap_slci-ext}
-    \input{tikz/decharge_condensateur-chap_slci.tex}
+    \includegraphics[width=\textwidth]{figtikz/decharge_condensateur-chap_slci.pdf}
     \caption{Circuit RC ouvert.\label{fig-decharge_condensateur}}
 \end{marginfigure}
 %-------------------------------------------------------------------------------
@@ -360,8 +353,7 @@ La masse est soumise à une force $\vect{f}=f(t)\zz{}$.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}[-8em]
     \centering
-    \tikzsetnextfilename{masse_ressort-chap_slci-ext}
-    \input{tikz/masse_ressort-chap_slci.tex}
+    \includegraphics[width=\textwidth]{figtikz/masse_ressort-chap_slci.pdf}
     \caption{(gauche) Système masse-ressort. (droite) Schéma-bloc de ce même 
     système.
     \label{fig-masse-ressort}}
@@ -433,8 +425,7 @@ $t=0$ permet de définir une origine des temps.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{causal-chap_slci-ext}
-    \input{tikz/causal-chap_slci.tex}
+    \includegraphics[width=0.8\textwidth]{figtikz/causal-chap_slci.pdf}
 \end{figure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -446,8 +437,7 @@ par rapport à $s(t)$, si on lui a fait subir un changement
 d'origine des temps par rapport au signal $s(t)$.
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{retarde-chap_slci-ext}
-    \input{tikz/retarde-chap_slci.tex}
+    \includegraphics[width=0.8\textwidth]{figtikz/retarde-chap_slci.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -461,8 +451,7 @@ $\omega$ définie par rapport au cercle unité $\omega=2\pi f$.
 %-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
-    \tikzsetnextfilename{periodique-chap_slci-ext}
-    \input{tikz/periodique-chap_slci.tex}
+    \includegraphics[width=0.6\textwidth]{figtikz/periodique-chap_slci.pdf}
 \end{figure}
 %-------------------------------------------------------------------------------
 Le signal complet peut être totalement d'écrit en considérant un motif de base 
@@ -499,19 +488,13 @@ sollicitation constante et une sollicitation oscillante).
 %-------------------------------------------------------------------------------
 \begin{figure}[!ht]
     \centering
-    \tikzsetnextfilename{entree_echelon-chap_slci_ext}
-    \input{tikz/entree_echelon-chap_slci.tex}
-    \tikzsetnextfilename{stable_echelon-chap_slci_ext}
-    \input{tikz/stable_echelon-chap_slci.tex}
-    \tikzsetnextfilename{instable_echelon-chap_slci_ext}
-    \input{tikz/instable_echelon-chap_slci.tex}
+    \includegraphics[width=0.25\textwidth]{figtikz/entree_echelon-chap_slci.pdf}
+    \includegraphics[width=0.25\textwidth]{figtikz/stable_echelon-chap_slci.pdf}
+    \includegraphics[width=0.25\textwidth]{figtikz/instable_echelon-chap_slci.pdf}
 
-    \tikzsetnextfilename{entree_harm-chap_slci_ext}
-    \input{tikz/entree_harm-chap_slci.tex}
-    \tikzsetnextfilename{stable_harm-chap_slci_ext}
-    \input{tikz/stable_harm-chap_slci.tex}
-    \tikzsetnextfilename{instable_harm-chap_slci_ext}
-    \input{tikz/instable_harm-chap_slci.tex}
+    \includegraphics[width=0.25\textwidth]{figtikz/entree_harm-chap_slci.pdf}
+    \includegraphics[width=0.25\textwidth]{figtikz/stable_harm-chap_slci.pdf}
+    \includegraphics[width=0.25\textwidth]{figtikz/instable_harm-chap_slci.pdf}
     \caption{Trois exemples de réponses d'un SLCI à des sollicitations bornées :
             (en bleu)  réponses stables 
             (en rouge) réponses instables.\label{fig-stabilite_signaux}}
@@ -544,7 +527,7 @@ la théorie des distributions qui étend la notion de fonction.} telle que
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \includegraphics[width=0.9\linewidth]{PaulDirac.eps} 
+    \includegraphics[width=\linewidth]{PaulDirac.eps} 
     \caption{\index{Dirac, Paul}\textbf{Paul Dirac}, (1902-1984) 
               mathématicien et physicien britannique. Auteur de 
               contributions majeures en mécanique quantique. 
@@ -571,8 +554,7 @@ impulsion retardée de $\tau$ noté $\delta(t-\tau)$.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \tikzsetnextfilename{dirac-chap_slci-ext}
-    \input{tikz/dirac-chap_slci.tex}
+    \includegraphics[width=0.8\textwidth]{figtikz/dirac-chap_slci.pdf}
 \end{figure}
 %-------------------------------------------------------------------------------
 L'impulsion de Dirac peut être expérimentalement approchée par un signal 
@@ -582,8 +564,7 @@ $\delta_a(t)$ s'approche d'une impulsion de Dirac lorsque $a\to0$.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \tikzsetnextfilename{dirac_reel-chap_slci-ext}
-    \input{tikz/dirac_reel-chap_slci.tex}
+    \includegraphics[width=\textwidth]{figtikz/dirac_reel-chap_slci.pdf}
     \caption{Représentation de l'impulsion de Dirac approchée. 
              Celle-ci tend vers l'impulsion de Dirac pour $a\to0$. 
              On remarquera que l'aire du rectangle est toujours égale à 1.
@@ -622,8 +603,7 @@ Ci contre, nous la représentons avec la fonction retardée $u(t-\tau)$.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \tikzsetnextfilename{echelon-chap_slci-ext}
-    \input{tikz/echelon-chap_slci.tex}
+    \includegraphics[width=\textwidth]{figtikz/echelon-chap_slci.pdf}
     \caption{Représentation graphique de (haut) la fonction échelon-unité 
              et (bas) la fonction échelon-unité retardée de $\tau$
             \label{fig-echelon}}
@@ -656,8 +636,7 @@ de la distribution de Dirac,
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \tikzsetnextfilename{rampe-chap_slci-ext}
-    \input{tikz/rampe-chap_slci.tex}
+    \includegraphics[width=\textwidth]{figtikz/rampe-chap_slci.pdf}
     \caption{Représentation graphique de (haut) la fonction rampe-unité et 
                                      (bas) la fonction rampe-unité retardée
                                      de $\tau$\label{fig-rampe}}
@@ -707,8 +686,7 @@ et $\phi$ sa phase (\si{\radian}).
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \tikzsetnextfilename{sinusoide-chap_slci-ext}
-    \resizebox{\linewidth}{!}{\input{tikz/sinusoide-chap_slci.tex}}
+    \resizebox{\linewidth}{!}{\includegraphics[width=0.8\textwidth]{figtikz/sinusoide-chap_slci.pdf}}
     \caption{Représentation de signaux sinuso\"idaux de même pulsation 
              et amplitude. (bleu) de phase $\phi=0$ et 
             (rouge) de phase $\phi=-\dfrac{\pi}{2}$.\label{fig-sin}}
@@ -745,8 +723,7 @@ diverge pour $a<0$.
 \begin{marginfigure}
     \captionsetup{width=0.95\linewidth,belowskip=0pt} 
     \centering
-    \tikzsetnextfilename{exp_dec-chap_slci-ext}
-    \resizebox{\linewidth}{!}{\input{tikz/exp_dec-chap_slci.tex}}
+    \resizebox{\linewidth}{!}{\includegraphics[width=\textwidth]{figtikz/exp_dec-chap_slci.pdf}}
     \caption{Représentation graphique d'une exponentielle décroissante pour 
              différentes valeurs du paramètre $a$.\label{fig-exp}}
 \end{marginfigure}
@@ -765,8 +742,7 @@ d'une sinuso\"ide.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \tikzsetnextfilename{sinusoide_amortie-chap_slci-ext}
-    \resizebox{\linewidth}{!}{\input{tikz/sinusoide_amortie-chap_slci.tex}}
+    \resizebox{\linewidth}{!}{\includegraphics[width=\textwidth]{figtikz/sinusoide_amortie-chap_slci.pdf}}
     \caption{Représentation d'un sinuso\"ide amortie. L'enveloppe en pointillé 
              correspond aux fonctions $Ae^{-at}$ et $-Ae^{-at}$.
              \label{fig-sin_amor}}
@@ -789,7 +765,7 @@ d'une sinuso\"ide.
     {\tikzset{external/export=false}       
         \raisebox{-.5\height}{%
             \resizebox{\linewidth}{!}{%
-                \input{tikz/sinusoide_enp-chap_slci.tex}
+                \includegraphics[width=0.8\textwidth]{figtikz/sinusoide_enp-chap_slci.pdf}
             }
         }
     }  \\
@@ -800,7 +776,7 @@ d'une sinuso\"ide.
     {\tikzset{external/export=false}       
         \raisebox{-.5\height}{%
             \resizebox{\linewidth}{!}{%
-                \input{tikz/sinusoide_enop-chap_slci.tex}
+                \includegraphics[width=0.8\textwidth]{figtikz/sinusoide_enop-chap_slci.pdf}
             }
         }
     }  \\
@@ -813,7 +789,7 @@ d'une sinuso\"ide.
     {\tikzset{external/export=false}       
         \raisebox{-.5\height}{%  
             \resizebox{\linewidth}{!}{%
-                \input{tikz/sinusoide_enqp-chap_slci.tex}
+                \includegraphics[width=0.8\textwidth]{figtikz/sinusoide_enqp-chap_slci.pdf}
             }
         }
     }\\
@@ -826,7 +802,7 @@ d'une sinuso\"ide.
     {\tikzset{external/export=false}       
         \raisebox{-.5\height}{%  
             \resizebox{\linewidth}{!}{%
-                \input{tikz/sinusoide_enqp2-chap_slci.tex}
+                \includegraphics[width=0.8\textwidth]{figtikz/sinusoide_enqp2-chap_slci.pdf}
             }
         }
     }\\
@@ -849,8 +825,7 @@ La fonction obtenue par le produit d'une fonction quelconque
 par la fonction échelon unitaire $u(t)$ est une fonction causale.
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{fonction_qqc-causal-chap_slci-ext}
-    \input{tikz/fonction_qqc-causal-chap_slci.tex}
+    \includegraphics[width=0.8\textwidth]{figtikz/fonction_qqc-causal-chap_slci.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 Si on retranche la fonction $e(t)=f(t)u(t)$ à partir d'un certain temps
@@ -858,8 +833,7 @@ $\tau$ à l'aide de la fonction échelon unité retardé $u(t-\tau)$
 il est possible de sélectionner une portion de la fonction initiale.
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{fonction_qqc-causal2-chap_slci-ext}
-    \input{tikz/fonction_qqc-causal2-chap_slci.tex}
+    \includegraphics[width=0.8\textwidth]{figtikz/fonction_qqc-causal2-chap_slci.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 \`A l'aide de ces propriétés il est possible de décomposer un signal 
@@ -870,8 +844,7 @@ quelconque en une somme de signaux usuels.
 Soit le signal d'entrée défini par le graphe ci-dessous
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{fonction_triangle-chap_slci-ext}
-    \input{tikz/fonction_triangle-chap_slci.tex}
+    \includegraphics[width=0.6\textwidth]{figtikz/fonction_triangle-chap_slci.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 C'est donc un signal qui est nul pour $t<0$ (causal) et $t>2$, et défini
@@ -907,7 +880,7 @@ l'entrée et la sortie d'un système linéaire.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \includegraphics[width=0.9\linewidth]{Pierre-Simon-Laplace_2}
+    \includegraphics[width=\linewidth]{Pierre-Simon-Laplace_2}
     \caption*{\index{Laplace, Pierre-Simon}\textbf{Pierre-Simon, marquis 
              de Laplace}, (1745-1827) mathématicien, astronome, physicien 
              et homme politique français. (Paris, musée d'Orsay)}
@@ -916,7 +889,7 @@ l'entrée et la sortie d'un système linéaire.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \includegraphics[width=0.9\linewidth]{Fourier}
+    \includegraphics[width=\linewidth]{Fourier}
     \caption*{\index{Fourier, Joseph}\textbf{Jean Baptiste Joseph Fourier}, (1768-1830) mathématicien et physicien 
              français. (Gravure de Julien Léopold Boilly)}
 \end{marginfigure}
@@ -1285,8 +1258,7 @@ ou encore
 %-------------------------------------------------------------------------------
 \begin{figure}[!ht]
     \centering
-    \tikzsetnextfilename{laplace_schema-chap_slci-ext}
-    \input{tikz/laplace_schema.tex}
+    \includegraphics[width=0.8\textwidth]{figtikz/laplace_schema.pdf}
     \caption{Représentation schématique de la méthode employée pour la 
              résolution des équations différentielles linéaires à 
              coefficients constants.\label{fig-laplace_schema}}
@@ -1319,7 +1291,7 @@ d'entrée et $a_i,b_i\in\mathbb{R}$. L'équation est dite d'ordre $n$.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \includegraphics[width=0.9\linewidth]{OliverHeaviside.eps}
+    \includegraphics[width=\linewidth]{OliverHeaviside.eps}
     \caption*{\index{Heaviside, Oliver}\textbf{Oliver Heaviside} (1850-1925), 
               physicien britannique. Il développa le calcul opérationnel 
               pour résoudre les équations différentielles}.
@@ -1416,8 +1388,7 @@ donc donnée par
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \tikzsetnextfilename{sol_eq_diff-chap_slci-ext}
-    \resizebox{\linewidth}{!}{\input{tikz/sol_eq_diff-chap_slci.tex}}
+    \resizebox{\linewidth}{!}{\includegraphics[width=\textwidth]{figtikz/sol_eq_diff-chap_slci.pdf}}
     \caption{Représentation de la solution générale de l'équation 
              différentielle~(\ref{eq-diff1}) pour $e(t)=u(t)$. 
              On vérifie lors du tracé que l'on observe bien les principales 
@@ -1550,8 +1521,7 @@ Nous représenterons très souvent cette relation dans le domaine de Laplace
 par le schéma-bloc suivant : 
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{sb_bloc_FT-chap_slci-ext}
-    \input{tikz/sb_bloc_FT-chap_slci.tex}
+    \includegraphics[width=0.4\textwidth]{figtikz/sb_bloc_FT-chap_slci.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 %Cette relation entre la sortie et l'entrée du système dans le domaine de 
@@ -1782,7 +1752,7 @@ lieu d'Evans
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \includegraphics[width=0.9\linewidth]{WalterEvans.eps} 
+    \includegraphics[width=\linewidth]{WalterEvans.eps} 
     \caption*{\textbf{Walter Richard Evans}, (1920-1999),ingénieur, 
               automaticien américain. Il développa la méthode graphique, 
               qui porte son nom, permettant d'étudier les pôles des 
@@ -1811,8 +1781,7 @@ La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \center
-    \tikzsetnextfilename{carte-chap_slci-ext}
-    \input{tikz/carte-chap_slci.tex}
+    \includegraphics[width=0.8\textwidth]{figtikz/carte-chap_slci.pdf}
     \caption{Exemple d'une carte de pôles et zéros associés à la 
              fonction de transfert~\Cref{eq-ft_carte}\label{fig-carte}}
 \end{figure}
@@ -1864,7 +1833,6 @@ La~\cref{fig-carte} présente la carte des pôles de cette fonction de transfert
 %-------------------------------------------------------------------------------
 %\begin{figure}[!h]
 %    \centering
-%    \tikzsetnextfilename{pole_dominant-chap_slci-ext}
 %    \input{tikz/pole_dominant-chap_slci.tex}
 %    \caption{}
 %\end{figure}

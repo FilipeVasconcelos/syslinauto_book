@@ -1,0 +1,64 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\usepackage{amsmath,amssymb}
+\input{preamble/tikz}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[
+    axis line style = thick,
+    axis x line=center,
+    axis y line=center,
+    width=13cm,
+    height=7cm,
+    xmin=0,xmax=10,
+    ymin=0,ymax=4.5,
+    ytick={\K},
+    yticklabels={$K$},
+    xtick={\to,\tw},
+    xticklabels={},
+    xlabel={$t$},
+    ylabel={$s(t)$},
+    domain=0:10,
+    samples=200,
+    declare function={f(\A,\tau,\x)=\A*(1-exp(-\x/\tau)-(\x/\tau)*exp(-\x/\tau));},
+    clip=false]
+% -----------------------------
+% Paramètres
+% -----------------------------
+\pgfmathsetmacro{\tauval}{1.5}
+\pgfmathsetmacro{\start}{\tauval*(3-exp(1))}
+\pgfmathsetmacro{\finish}{3*\tauval}
+\pgfmathsetmacro{\K}{4}     % gain pour amplitude correcte
+\pgfmathsetmacro{\to}{1.25}     % gain pour amplitude correcte
+\pgfmathsetmacro{\tw}{1.65}     % gain pour amplitude correcte
+% -----------------------------
+% Signal de sortie s(t)
+% -----------------------------
+\addplot[very thick,col4] {f(\K,\tauval,x)};
+% -----------------------------
+\addplot[dashed] {\K};
+\addplot[col5,domain=\start:\finish] {\K/(\tauval*exp(1))*(x-\tauval)+\K*(1-2/exp(1))};
+\draw[latex-latex] (axis cs:0,-0.2)      -- node[below] {$T_u$} (axis cs:\start,-0.2);
+\draw[latex-latex] (axis cs:\start,-0.2) -- node[below] {$T_a$} (axis cs:\finish,-0.2);
+\node[right,align=center,text width=4cm] at (axis cs:2.7,1.8)  {$H(p)=K\dfrac{e^{-\tau p}}{(1+Tp)^n}$};
+\node[right,align=center,text width=4cm] at (axis cs:2.7,0.8)  {$\tau=T_a\left(\dfrac{T_u}{T_a}-\dfrac{T'_u}{T_a}\right)$};
+\node at (axis cs:7.7,1.75) {
+        \begin{tabular}{ccc}
+        \hline
+		$\dfrac{T'_u}{T_a}$ & $n$ & $\dfrac{T_a}{T}$ \\[0.2cm]
+        \hline
+        0 & 1 & 1 \\
+        0.1 & 2 & 2.72 \\
+        0.22 & 3 & 3.7 \\
+        0.32 & 4 & 4.46 \\
+        0.41 & 5 & 5.12 \\
+        0.49 & 6 & 5.70 \\
+        \hline
+        \end{tabular}
+    };
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

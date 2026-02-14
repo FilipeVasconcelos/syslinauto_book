@@ -34,19 +34,20 @@
 \addplot[dashed] {\K};
 \addplot[col5,domain=\start:\finish] {\K/(\tauval*exp(1))*(x-\tauval)+\K*(1-2/exp(1))};
 \draw[latex-latex] (axis cs:0,-0.2)      -- node[below] {$T_u$} (axis cs:\start,-0.2);
-\draw[latex-latex] (axis cs:\start,-0.2) -- node[below] {$T_a$}    (axis cs:\finish,-0.2);
-\node[right,align=center,text width=4cm] at (axis cs:5.7,3.4) {$H(p)=K\dfrac{e^{-\tau p}}{(1+Tp)^n}$};
-\node at (axis cs:7.7,1.45) {
+\draw[latex-latex] (axis cs:\start,-0.2) -- node[below] {$T_a$} (axis cs:\finish,-0.2);
+\node[right,align=center,text width=4cm] at (axis cs:2.7,1.8)  {$H(p)=K\dfrac{e^{-\tau p}}{(1+Tp)^n}$};
+\node[right,align=center,text width=4cm] at (axis cs:2.7,0.8)  {$\tau=T_a\left(\dfrac{T_u}{T_a}-\dfrac{T'_u}{T_a}\right)$};
+\node at (axis cs:7.7,1.75) {
         \begin{tabular}{ccc}
         \hline
-            $\dfrac{T'_u}{T_a}$ & $n$ & $\dfrac{T_a}{T}$ \\
+		$\dfrac{T'_u}{T_a}$ & $n$ & $\dfrac{T_a}{T}$ \\[0.2cm]
         \hline
         0 & 1 & 1 \\
         0.1 & 2 & 2.72 \\
         0.22 & 3 & 3.7 \\
         0.32 & 4 & 4.46 \\
         0.41 & 5 & 5.12 \\
-%        0.49 & 6 & 5.70 \\
+        0.49 & 6 & 5.70 \\
         \hline
         \end{tabular}
     };

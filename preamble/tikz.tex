@@ -1,0 +1,44 @@
+% TikZ + PGFPlots
+\usepackage{tikz}
+\usepackage{tikzfmv}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{arrows.meta,
+                calc,
+                positioning,
+                intersections,
+                decorations.pathreplacing,
+                decorations.markings,
+                patterns,angles,quotes}
+
+\usepgfplotslibrary{fillbetween,groupplots}
+
+\definecolor{headingscolor}{RGB}{0,90,150}
+
+% Styles généraux
+\tikzset{
+  >=Stealth,
+  axis/.style={thick,->},
+  signal/.style={thick},
+  construction/.style={dashed,gray},
+  block/.style={draw,rectangle,minimum height=2em,minimum width=3em}
+}
+
+% Configuration par défaut des axes PGFPlots
+\pgfplotsset{
+  every axis/.style={
+    thick,
+    grid=both,
+    grid style={gray!30},
+    major grid style={gray!50}
+  }
+}
+
+% Styles spécifiques Bode (adaptés à ton livre)
+\pgfplotsset{
+  bode magnitude/.style={xmode=log,xlabel={$\omega$},ylabel={Gain (dB)}},
+  bode phase/.style={xmode=log,xlabel={$\omega$},ylabel={Phase (deg)}}
+}
+

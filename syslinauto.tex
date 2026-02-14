@@ -34,9 +34,6 @@
             version={4.0},
            ]{doclicense}
 \usepackage[dvipsnames]{xcolor}
-%\makeatletter
-%\def\colore{\edef\colordend{\pdfliteral{\current@color}}}%pdftex version
-%\makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %KOMA color 
@@ -113,10 +110,6 @@
 \crefname{appchap}{Annexe}{Annexes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Added package to solve the problem
-%\usepackage{hypdvips}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PGF/TikZ/PGFPLOTS
 \usepackage{pgf,tikz}
 \usepackage{pgfplots}
@@ -134,14 +127,12 @@
 \usetikzlibrary{matrix}
 \usetikzlibrary{intersections}
 %\usetkzobj{all} %2020
-\usetikzlibrary{external}
-\tikzexternalize[prefix=./figtikz/]
-\tikzset{external/optimize command away=\AddToShipoutPicture}
-\tikzset{external/optimize command away=\AddToShipoutPictureBG}
-\tikzset{external/system call={pdflatex -shell-escape 
--halt-on-error -interaction=batchmode -jobname "\image" "\texsource"; 
-bin/pdf2eps 1 "\image"
-}}
+%\tikzset{external/optimize command away=\AddToShipoutPicture}
+%\tikzset{external/optimize command away=\AddToShipoutPictureBG}
+%\tikzset{external/system call={pdflatex -shell-escape 
+%-halt-on-error -interaction=batchmode -jobname "\image" "\texsource"; 
+%bin/pdf2eps 1 "\image"
+%}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % définition de l'année scolaire (page de garde) 
@@ -174,16 +165,6 @@ bin/pdf2eps 1 "\image"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %GEOMETRY
-%\usepackage[a4paper,headheight=30pt]{geometry}
-%\usepackage[
-%      top=2cm,
-%      bottom=2cm,
-%      left=3cm,
-%      right=2cm,
-%      headheight=17pt, % as per the warning by fancyhdr
-%      includehead,includefoot,
-%      heightrounded, % to avoid spurious underfull messages
-%      ]{geometry}
 \usepackage{geometry}
 \geometry{% siehe geometry.pdf (Figure 1)
         top=25mm,
@@ -249,7 +230,6 @@ bin/pdf2eps 1 "\image"
 \let\ques\question
 \renewcommand{\exercice}[1]{\exo{#1}[\large][\color{col1}\sffamily]}
 \renewcommand{\question}[1]{\ques[\color{col1}\sffamily]{#1}}
-\usetikzlibrary{external}
 \usepackage{routhtab}
 \usepackage{poles}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -354,7 +334,7 @@ bin/pdf2eps 1 "\image"
 %\includeonly{tex/avantpropos}
 %\includeonly{tex/chap_slci}            % Système linéaire
 %\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
-\includeonly{tex/chap_model}           % Modèles Usuels    
+%\includeonly{tex/chap_model}           % Modèles Usuels    
 %\includeonly{tex/chap_repfreq}         % Réponse harmonique
 %\includeonly{tex/chap_asserv}          % Asservissement 
 %\includeonly{tex/chap_perf}            % Perf. des sys asservis 
@@ -486,11 +466,9 @@ bin/pdf2eps 1 "\image"
 \include{tex/annexe_equa_diff}         %G Eq. diff. à coefficient constant
 \include{tex/annexe_des}               %H Décomposition en éléments simples
 \include{tex/annexe_2nd}               %I Système du second ordre
-{\tikzset{external/export=false}
-    \include{tex/annexe_scilab}        %J Scilab
-    \include{tex/annexe_matlab}        %K MATLAB
-    \include{tex/annexe_log}           %L Echelle log  
-}
+\include{tex/annexe_scilab}        %J Scilab
+\include{tex/annexe_matlab}        %K MATLAB
+\include{tex/annexe_log}           %L Echelle log  
 \include{tex/annexe_invL}              %M Laplace inverse 
 \include{tex/annexe_blackNichols}      %N Diagramme de Black-Nichols  
 \include{tex/annexe_cauchy}            %O Principe de l'argument Cauchy  

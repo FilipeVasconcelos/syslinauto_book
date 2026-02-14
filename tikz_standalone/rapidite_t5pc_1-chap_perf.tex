@@ -1,0 +1,41 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\input{preamble/tikz}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \pgfmathsetmacro{\kK}{1.75}
+    \pgfmathsetmacro{\tT}{1.0}
+    \pgfmathsetmacro{\mC}{1.6625}
+    \pgfmathsetmacro{\pC}{1.8375}
+    \begin{axis}
+    [   axis line style = thick,
+	ticks=none,
+        width=0.45\textwidth,
+        axis x line=center,
+        axis y line=center,
+        xmin=-1,
+        xmax=6,
+        ymin=0,
+        ymax=2.25,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={above left},
+        clip=false
+    ]
+    \addplot[signalb,domain=-1:0] {0};
+    \addplot[signalb,domain=0:6]  {\kK*(1-exp(-x/\tT))};
+    \draw[dtb] (axis cs:0,\mC) -- (axis cs:6,\mC);
+    \draw[dtb] (axis cs:0,\pC) -- (axis cs:6,\pC);
+    \draw[dvtr] (axis cs:3*\tT,0) node[below] {\small $t_{5\%}$} 
+             -- (axis cs:3*\tT,\mC);
+    \node[right] at (axis cs:6,\kK) {\small $s(\infty)$};
+    \draw[dtb,{Latex[length=1.25mm]}-{Latex[length=1.25mm]}](axis cs:-0.25,\mC) 
+    -- node[midway,left] {\small $\pm5\%$} (axis cs:-0.25,\pC);
+    \draw[fill=col4,col4] (axis cs:3*\tT,\mC) circle[radius=1.5pt] ;
+    \end{axis}
+\end{tikzpicture}
+
+\end{document}

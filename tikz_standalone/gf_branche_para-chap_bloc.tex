@@ -1,0 +1,19 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\input{preamble/tikz}
+\input{preamble/fmv}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \gfEntree{$E$}{E}
+    \gfSortie[3]{$S$}{E}{S}
+    \gfRelierB[$H_1$][+]{E}{S}
+    \gfRelierB[$H_2$]{E}{S}
+    \node[right=of S] {$\equiv$};
+    \gfEntree[11]{$E$}{E}
+    \gfSortie{$S$}{E}{S}
+    \gfRelier[$H_1+H_2$]{E}{S}
+\end{tikzpicture}
+
+\end{document}

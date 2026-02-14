@@ -1,0 +1,56 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\input{preamble/tikz}
+\input{preamble/fmv}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Nom des noeuds
+%                                      
+%                                      
+%   E ---- a ---- b ---- c ---- d ---- e ---- S
+%                 |                           |
+%                 |                           |
+%                  --------- f -----------
+% E : entrée
+% a : adaptateur 
+% b : comparateur
+% c : correcteur
+% d : actionneur
+% e : système
+% S : sortie
+% f : capteur
+% r : noeud décalé pour le retour
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}
+    \sbEntree{EE}
+    \sbBloc[3]{aa}{$A_d(p)$}{EE}
+    \sbRelier[$E(p)$]{EE}{aa}
+    \sbComp{bb}{aa}
+    \sbRelier{aa}{bb}
+    \sbBloc[3]{cc}{$C(p)$}{bb}
+    \sbRelier[$\epsilon(p)$]{bb}{cc}
+    \sbBloc[3]{dd}{$A_c(p)$}{cc}
+    \sbRelier{cc}{dd}
+    \sbBloc[3]{ee}{$H(p)$}{dd}
+    \sbRelier[$U(p)$]{dd}{ee}
+    \sbSortie[4]{SS}{ee}
+    \sbRelier{ee}{SS}
+    \sbDecaleNoeudy[5]{dd}{r}
+    \sbBlocr[-1.6]{ff}{$G(p)$}{r}
+    \sbRelieryx{ee-SS}{ff}              
+    \sbRelierxy[$M(p)$]{ff}{bb}        % Mesure
+    \sbNomLien[0.8]{SS}{$S(p)$}
+    \node[yshift=-0.8em] at (aa.south) {\small Adaptateur};
+    \node[yshift=-0.8em] at (cc.south) {\small Correcteur};
+    \node[yshift=-0.8em] at (dd.south) {\small Actionneur};
+    \node[yshift=-0.8em] at (ee.south) {\small Système};
+    \node[yshift=-0.8em] at (ff.south) {\small Capteur};
+    \node[yshift=-0.8em,xshift=0.5em] at (EE.south) {\small Consigne};
+    \node[yshift=-0.8em] at (SS.south) {\small Sortie};
+    \draw[dvtb] ($(bb.west)+(-0.2,-2.5)$) rectangle node[col1,above,yshift=3em] 
+                {\textbf{Régulateur}} ($(cc.east)+(0.5,1.5)$);
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,40 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\input{preamble/tikz}
+\input{preamble/fmv}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}
+    [
+    axis lines=center,
+    axis line style = thick,
+    xlabel=$\Re{H(\jw)}$,
+    ylabel=$\Im{H(\jw)}$,
+    ymin=-10,
+    ymax=+10,
+    xmin=-10,
+    xmax=+10,
+    grid=both,
+    x label style={below right},
+    y label style={left},
+    yticklabels={,,},
+    xticklabels={,,},
+    ] 
+    \node [above right] at (axis cs:  0, -10)     {$\omega=0^+$};
+    \node [below right] at (axis cs:  0,  10)     {$\omega=0^-$};
+    \node [below right]       at (axis cs:  0, 0) {$\omega\rightarrow+\infty$};
+    \node [above right]       at (axis cs:  0, 0) {$\omega\rightarrow-\infty$};
+\addplot [col1, mark = *] coordinates {(0, 0)}{};
+\addplot[col1,very thick,domain=0.01:0.2,samples=50,-{Latex[length=3mm]}]
+    (0,{-1/x});
+\addplot[col1,very thick,domain=0.1:10,samples=50]
+    (0,{-1/x});
+\addplot[col2,very thick,domain=-10:-0.2,-{Latex[length=3mm]},samples=50]
+    (0,{-1/x});
+\addplot[col2,very thick,domain=-0.3:-0.01,samples=500](0,{-1/x});
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

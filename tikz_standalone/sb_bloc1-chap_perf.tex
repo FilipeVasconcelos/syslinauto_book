@@ -1,0 +1,16 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\input{preamble/tikz}
+\input{preamble/fmv}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbBloc[3]{H}{$H(p)$}{E}
+    \sbRelier[$E(p)$]{E}{H}
+    \sbSortie[3]{S}{H}
+    \sbRelier[$S(p)$]{H}{S}
+\end{tikzpicture}
+
+\end{document}

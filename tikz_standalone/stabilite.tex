@@ -1,0 +1,216 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\input{preamble/tikz}
+\input{preamble/fmv}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \tikzstyle{marktmp}=[mark=x,ultra thick,only marks,mark size=7pt]
+    \tikzstyle{thickdotted}=[ultra thick,dotted]
+    \tikzstyle{colstab}=[white!90!col1]
+    \tikzstyle{colinstab}=[white!90!black]
+    \tikzstyle{fcolstab}=[fill=white!90!col1]
+    \tikzstyle{fcolinstab}=[fill=white!90!black]
+    \begin{axis}[ticks=none,
+        width=24cm,
+        height=18cm,
+        %width=\linewidth,
+        axis x line=center,
+        axis y line=center,
+        xmin=-12.5,
+        xmax=14,
+        ymin=-5,
+        ymax=5,
+        xlabel={\LARGE $\Re{p}$},
+        ylabel={\LARGE $\Im{p}$},
+        xlabel style={below,xshift=-2em},
+        ylabel style={left,yshift=-2em}]
+    % two rectangles (stable/instable)
+    \draw[colstab,fcolstab]   (axis cs:-12.5,-5) rectangle (axis cs:0,5);
+    \draw[colinstab,fcolinstab] (axis cs:0,-5) rectangle (axis cs:14,5);
+
+    \draw[ultra thick,-latex] (axis cs:-12.5,0) -- (axis cs:14,0);
+    \draw[ultra thick,-latex] (axis cs:0,-5) -- (axis cs:0,5);
+
+    \coordinate (pt01) at (axis cs:-6.5,4.5);
+    \coordinate (pt02) at (axis cs:6.5,4.5);
+
+    \coordinate (pt1) at (axis cs:-12.5,2.0);
+    \addplot[marktmp,col3] coordinates{ (-11,1.5) (-11,-1.5) };
+    \draw[thickdotted,col3] (axis cs:-11,1.5) -- (axis cs:-11,-1.5) ;
+
+    \coordinate (pt2) at (axis cs:-7,1.0);
+    \addplot[marktmp,col2]  coordinates{ (-5,0.5) (-5,-0.5) } ;
+    \draw[thickdotted,col2] (axis cs:-5,0.5) -- (axis cs:-5,-0.5) ;
+
+    \coordinate (pt3) at (axis cs:-10.25,-3.0);
+    \addplot[marktmp,col4] coordinates{ (-8,0) } ;
+
+    \coordinate (pt4) at (axis cs:-4.75,-3.0);
+    \addplot[marktmp=x,col4] coordinates{ (-2,0) } ;
+
+    \coordinate (pt5) at  (axis cs:1.25,-5);
+    \coordinate (pt52) at (axis cs:1.25,-3);
+    \addplot[marktmp,black]  coordinates{ (0,0) } ;
+
+    \coordinate (pt6) at (axis cs:1.25,2);
+    \coordinate (pt62) at (axis cs:1.25,0);
+    \addplot[marktmp,col5] coordinates{ (0,2) (0,-2) };
+    \draw[thickdotted,col5] (axis cs:0,-2) to[bend right] (axis cs:0,2);
+
+    \coordinate (pt7) at (axis cs:8.25,2);
+    \addplot[marktmp,col1] coordinates{ (11,1.5) (11,-1.5) } ;
+    \draw[thickdotted,col1] (axis cs:11,1.5) -- (axis cs:11,-1.5);
+
+    \coordinate (pt8) at (axis cs:6.5,-3);
+    \addplot[marktmp,col6] coordinates{(8,0)};
+    \end{axis}
+
+    \node at (pt01) {\textbf{\Large STABLE}};
+    \node at (pt02) {\textbf{\Large INSTABLE}};
+    
+    % for all plots pti
+    \pgfplotsset{every axis/.append style={
+        ticks=none,
+        width=4cm,
+        height=4cm,
+        axis x line=center,
+        axis y line=center,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={right}
+        }
+    }
+    % pt1
+    \node[anchor=south west] at (pt1) 
+    {
+        \begin{tikzpicture}
+        \begin{axis}
+        [   xmin=-0.5,xmax=6.5,
+            ymin=-1.5,ymax=1.5
+	]
+        \addplot[signalg,domain=0:6] {1.2*sin(4.5*deg(x))*exp(-0.7*x)};
+        \addplot[envelop,domain=0:6]       {1.2*exp(-0.7*x)};
+        \addplot[envelop,domain=0:6]       {-1.2*exp(-0.7*x)};
+        \end{axis}
+        \end{tikzpicture}
+    };
+    % pt2
+    \node[anchor=south west] at (pt2) 
+    {
+    	\begin{tikzpicture}
+        \begin{axis}
+        [   xmin=-0.5,xmax=6.5,
+            ymin=-1.5,ymax=1.5
+	]
+        \addplot[signalo,domain=0:6] {1.2*sin(2.5*deg(x))*exp(-0.5*x)};
+        \addplot[envelop,domain=0:6]       {1.2*exp(-0.5*x)};
+        \addplot[envelop,domain=0:6]       {-1.2*exp(-0.5*x)};
+        \end{axis}
+        \end{tikzpicture}
+    };
+    % pt3
+    \node[anchor=south west] at (pt3) 
+    {
+    	\begin{tikzpicture}
+        \begin{axis}
+	[   xmin=-0.5,xmax=6.5,
+	    ymin=-0.5,ymax=3
+        ]
+	\addplot [signalr,domain=0:6]  {2*exp(-0.75*x)};
+	\end{axis}
+	\end{tikzpicture}
+    };
+    % pt4
+    \node[anchor=south west] at (pt4) 
+    {
+    	\begin{tikzpicture}
+        \begin{axis}
+        [   xmin=-0.5,xmax=6.5,
+            ymin=-0.5,ymax=3
+        ]
+        \addplot [signalr,domain=0:6] {2*exp(-0.25*x)};
+        \end{axis}
+        \end{tikzpicture}
+    };
+    % pt5
+    \node[anchor=south west] at (pt5) 
+    {
+    	\begin{tikzpicture}
+        \begin{axis}
+        [   xmin=-0.5,xmax=6.5,
+	    ymin=-0.5,ymax=3
+        ]
+        \addplot[signaln,domain=0:6] {1.5};
+        \end{axis}
+        \end{tikzpicture}
+    };
+    % pt52
+    \node[anchor=south west] at (pt52) 
+    {
+        \begin{tikzpicture}
+        \begin{axis}
+        [   xmin=-0.5,xmax=15,
+            ymin=-0.5,ymax=6,
+        ]
+	\addplot[signaln,domain=0:15] {1+exp(0.1*x)};
+        \end{axis}
+        \end{tikzpicture}
+    };
+    % pt6
+    \node[anchor=south west] at (pt6) 
+    {
+    	\begin{tikzpicture}
+        \begin{axis}
+	[   xmin=-0.5,xmax=8,
+            ymin=-20,ymax=20,
+        ]
+        \addplot[signaln,domain=0:8]  {sin(2.5*deg(x))*exp(0.40*x)+1};
+        \addplot[envelop,domain=0:8]  {exp(0.4*x)+1};
+        \addplot[envelop,domain=0:8]  {-exp(0.4*x)+1};
+        \end{axis}
+        \end{tikzpicture}
+    };
+    % pt62
+    \node[anchor=south west] at (pt62) 
+    {
+    	\begin{tikzpicture}
+        \begin{axis}
+        [   xmin=-0.5,xmax=6.5,
+	    ymin=-2.5,ymax=2.5,
+        ]
+        \addplot[signaln,domain=0:6.5] {sin(2.5*deg(x))};
+        \end{axis}
+        \end{tikzpicture}
+	};
+    % pt7
+    \node[anchor=south west] at (pt7) 
+    {
+        \begin{tikzpicture}
+	\begin{axis}
+        [   xmin=-0.5,xmax=8.0,
+	    ymin=-20,ymax=20
+        ]
+	\addplot[signalb,domain=0:8] {sin(2.5*deg(x))*exp(0.40*x)+1};
+	\addplot[envelop,domain=0:8] {exp(0.4*x)+1};
+	\addplot[envelop,domain=0:8] {-exp(0.4*x)+1};
+        \end{axis}
+        \end{tikzpicture}
+    };
+    % pt8
+    \node[anchor=south west] at (pt8) 
+    {
+        \begin{tikzpicture}
+        \begin{axis}
+	[   xmin=-0.5,xmax=15,
+	    ymin=-0.5,ymax=6,
+        ]
+        \addplot[signalv,domain=0:15] {1+exp(0.1*x)};
+        \end{axis}
+        \end{tikzpicture}
+    };
+\end{tikzpicture}
+
+\end{document}

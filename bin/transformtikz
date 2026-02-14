@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+mkdir -p tikz_standalone
+
+for file in tikz/*.tex; do
+    base=$(basename "$file")
+
+    cat > tikz_standalone/$base <<EOF
+\documentclass[tikz,border=3pt]{standalone}
+
+\input{preamble/tikz}
+
+\begin{document}
+
+$(cat "$file")
+
+\end{document}
+EOF
+
+done

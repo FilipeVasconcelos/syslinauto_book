@@ -46,8 +46,7 @@ en détail les principaux résultats du chapitre.
 %-------------------------------------------------------------------------------
 \begin{figure}[!b]
     \centering
-    \tikzsetnextfilename{necessite_correction_chap_correction-ext}
-    \input{tikz/necessite_correction_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/necessite_correction_chap_correction.pdf}
     \caption{Représentation schématique de la correction de la réponse 
              temporelle d'un système asservi. (en rouge) Le système non corrigé,
              présente un important dépassement, il est lent et peu précis. 
@@ -78,8 +77,7 @@ $\epsilon(t)$}. Nous noterons un correcteur par la fonction de transfert
 $C(p)$ et sa représentation en schéma-bloc comme ci-dessous.
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{bs_correction_chap_correction-ext}
-    \input{tikz/bs_correction_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/bs_correction_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 Cependant, il existe différentes façon de placer un correcteur dans un 
@@ -97,8 +95,7 @@ boucle ouverte non corrigée $H(p)$. Le schéma-bloc
 d'une telle correction est représentée ci-dessous:
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{correction_serie_chap_correction-ext}
-    \input{tikz/correction_serie_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/correction_serie_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 En appliquant l'algèbre de bloc, il est assez simple de déterminer la forme de
@@ -127,8 +124,7 @@ $C(p)S(p)$, cette relation s'écrit simplement :
 Le schéma-bloc de cette correction est donnée ci-dessous :
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{correction_reaction_chap_correction-ext}
-    \input{tikz/correction_reaction_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/correction_reaction_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 Attention, le correcteur ne se trouve pas dans la
@@ -157,8 +153,7 @@ correcteurs $C_1(p)$ et $C_2(p)$ sont nécessaires respectivement
 en correction en série et réaction.
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{correction_serie-reaction_chap_correction-ext}
-    \input{tikz/correction_serie-reaction_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/correction_serie-reaction_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 %\[
@@ -186,8 +181,7 @@ Nous envisagerons que la correction en série par la suite.
 \index{Correcteur!Proportionnel (P)}
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{p_chap_correction-ext}
-    \input{tikz/p_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/p_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
@@ -203,8 +197,7 @@ Nous envisagerons que la correction en série par la suite.
 \index{Correcteur!Intégral (I)}
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{i_chap_correction-ext}
-    \input{tikz/i_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/i_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
@@ -220,8 +213,7 @@ Nous envisagerons que la correction en série par la suite.
 \index{Correcteur!Dérivé (D)}
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{d_chap_correction-ext}
-    \input{tikz/d_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/d_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
@@ -257,18 +249,15 @@ des correcteurs élémentaires présentés précédemment
 %-------------------------------------------------------------------------------
 \begin{figure}
     \centering
-    \tikzsetnextfilename{bode_pi_gain_chap_correction-ext}
-    \input{tikz/bode_pi_gain_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/bode_pi_gain_chap_correction.pdf}
     
-    \tikzsetnextfilename{bode_pi_phase_chap_correction-ext}
-    \input{tikz/bode_pi_phase_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/bode_pi_phase_chap_correction.pdf}
     \caption{Diagramme de Bode du correcteur à effet proportionnel et intégral.}
 \end{figure}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{pi_chap_correction-ext}
-     \input{tikz/pi_chap_correction.tex}
+     \includegraphics[width=0.5\textwidth]{figtikz/pi_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 \[
@@ -288,18 +277,15 @@ des correcteurs élémentaires présentés précédemment
 %-------------------------------------------------------------------------------
 \begin{figure}
     \centering
-    \tikzsetnextfilename{bode_pd_gain_chap_correction-ext}
-    \input{tikz/bode_pd_gain_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/bode_pd_gain_chap_correction.pdf}
     
-    \tikzsetnextfilename{bode_pd_phase_chap_correction-ext}
-    \input{tikz/bode_pd_phase_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/bode_pd_phase_chap_correction.pdf}
     \caption{Diagramme de Bode du correcteur à effet proportionnel et dérivé.}
 \end{figure}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{pd_chap_correction-ext}
-    \input{tikz/pd_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/pd_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 \[
@@ -339,11 +325,9 @@ avec $\alpha>1$.
 %-------------------------------------------------------------------------------
 \begin{figure}
     \centering
-    \tikzsetnextfilename{bode_avancedephase_gain_chap_correction-ext}
-    \input{tikz/bode_avancedephase_gain_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/bode_avancedephase_gain_chap_correction.pdf}
     
-    \tikzsetnextfilename{bode_avancedephase_phase_chap_correction-ext}
-    \input{tikz/bode_avancedephase_phase_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/bode_avancedephase_phase_chap_correction.pdf}
     \caption{Diagramme de Bode du correcteur à avance de phase.}
 \end{figure}
 %-------------------------------------------------------------------------------
@@ -435,8 +419,7 @@ un premier dépassement inférieur à 20\% pour la réponse indicielle.
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{reponse_indicielle_exempleAP_NC-chap_correction-ext}
-    \input{tikz/reponse_indicielle_exempleAP_NC-chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/reponse_indicielle_exempleAP_NC-chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 Le dépassement est de plus de 70\% et le temps de réponse à 5\% est au dessus 
@@ -448,8 +431,7 @@ Pour déterminer la marge de phase avant correction on peut tracer le diagramme
 de Bode de la boucle ouverte non corrigée.
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{bode_BONC_exempleAP-chap_correction-ext}
-    \input{tikz/bode_BONC_exempleAP-chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/bode_BONC_exempleAP-chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 On utilise maintenant un correcteur à avance de phase.
@@ -483,8 +465,7 @@ ou encore
 Traçons le diagramme de Bode de la boucle fermée corrigée pour $K_P=1$
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{bode_BONC_BOC_exempleAP-chap_correction-ext}
-    \input{tikz/bode_BONC_BOC_exempleAP-chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/bode_BONC_BOC_exempleAP-chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 Le diagramme ci-dessous nous permet de déterminer la valeur $K_P$ du correcteur
@@ -502,8 +483,7 @@ On trace maintenant la réponse indicielle pour le système corrigé pour observ
 que les exigences du cahier des charges sont bien respectées.
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{reponse_indicielle_exempleAP_C_NC-chap_correction-ext}
-    \input{tikz/reponse_indicielle_exempleAP_C_NC-chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/reponse_indicielle_exempleAP_C_NC-chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -522,11 +502,9 @@ avec $\beta>1$
 %-------------------------------------------------------------------------------
 \begin{figure}
     \centering
-    \tikzsetnextfilename{bode_retarddephase_gain_chap_correction-ext}
-    \input{tikz/bode_retarddephase_gain_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/bode_retarddephase_gain_chap_correction.pdf}
     
-    \tikzsetnextfilename{bode_retarddephase_phase_chap_correction-ext}
-    \input{tikz/bode_retarddephase_phase_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/bode_retarddephase_phase_chap_correction.pdf}
     \caption{Diagramme de Bode du correcteur à retard de phase}
 \end{figure}
 %-------------------------------------------------------------------------------
@@ -604,8 +582,7 @@ Un PID en parallèle est la structure du correcteur la plus évidente, en effet
 on combine directement la commande de
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{pid_parallele_chap_correction-ext}
-    \input{tikz/pid_parallele_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/pid_parallele_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 La réduction de ce schéma-bloc nous donne la relation entre la commande et 
@@ -625,8 +602,7 @@ l'écart
 \index{Correcteur! Proportionnel Intégral Dérivé (PID)! série}
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{pid_serie_chap_correction-ext}
-    \input{tikz/pid_serie_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/pid_serie_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 \[
@@ -649,8 +625,7 @@ l'écart
 \index{Correcteur!Proportionnel Intégral Dérivé (PID)! mixte}
 %-------------------------------------------------------------------------------
 \begin{center}
-    \tikzsetnextfilename{pid_mixte_chap_correction-ext}
-    \input{tikz/pid_mixte_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/pid_mixte_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 \[
@@ -738,11 +713,9 @@ avec $\alpha>1$ et $\beta>1$. On prendra $\alpha=\beta$.
 %-------------------------------------------------------------------------------
 \begin{figure}
     \centering
-    \tikzsetnextfilename{bode_retardavancedephase_gain_chap_correction-ext}
-    \input{tikz/bode_retardavancedephase_gain_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/bode_retardavancedephase_gain_chap_correction.pdf}
     
-    \tikzsetnextfilename{bode_retardavancedephase_phase_chap_correction-ext}
-    \input{tikz/bode_retardavancedephase_phase_chap_correction.tex}
+    \includegraphics[width=0.5\textwidth]{figtikz/bode_retardavancedephase_phase_chap_correction.pdf}
     \caption{Diagramme de Bode du correcteur à retard-avance de phase}
 \end{figure}
 %-------------------------------------------------------------------------------

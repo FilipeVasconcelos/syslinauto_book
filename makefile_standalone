@@ -1,0 +1,16 @@
+TIKZ_SRC=$(wildcard tikz_standalone/*.tex)
+TIKZ_PDF=$(patsubst tikz_standalone/%.tex,figtikz/%.pdf,$(TIKZ_SRC))
+
+LATEX=pdflatex
+LATEXFLAGS=-interaction=batchmode -halt-on-error
+
+all: $(TIKZ_PDF)
+
+figtikz/%.pdf: tikz_standalone/%.tex | figtikz
+	$(LATEX) $(LATEXFLAGS) -output-directory=figtikz $<
+
+figtikz:
+	mkdir -p figtikz
+
+clean:
+	rm -f figtikz/*.aux figtikz/*.log figtikz/*.pdf

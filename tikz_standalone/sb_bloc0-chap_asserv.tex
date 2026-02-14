@@ -1,0 +1,26 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\input{preamble/tikz}
+\input{preamble/fmv}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Nom des noeuds
+%                                      
+%                                      
+%   E ---- a ---- S
+%
+% E : entrée
+% a : système 
+% S : sortie
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbBloc[3]{a}{$H(p)$}{E}
+    \sbRelier[$E(p)$]{E}{a}
+    \sbSortie[3]{S}{a}
+    \sbRelier[$S(p)$]{a}{S}
+\end{tikzpicture}
+
+\end{document}
