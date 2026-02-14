@@ -1,0 +1,48 @@
+#!/bin/bash
+Header()
+{
+    #Display Header 
+    echo "-------------------------------------------------"
+    echo "Compile standalone tikz figures and display pdf"
+    echo "-------------------------------------------------"
+}
+Usage()
+{
+    #Display usage
+    Header
+    echo "Usage : $0 <texfile> [-h|-l|-n]"
+    echo
+    echo "Options :"
+    echo "      -h          Print this usage mesage"   
+    echo "      -n          No display pdf file"    
+    echo
+}
+[ $# -eq 0 ] && Usage
+Header
+[ ! -d standalone ] && mkdir standalone
+# default value 
+display=1   # display pdf by default
+while getopts ":hnl" option; do
+   case $option in
+      h) # display Help
+         Usage
+         exit;;
+      n) # no display
+         display=0;;
+      \?) # Invalid option
+         echo "Erreur : option non valide"
+         exit;; 
+   esac
+done
+shift $(( OPTIND - 1 ))
+name=$1
+echo "Input file :" $name
+basenameextension=${name##*/}
+basename=${basenameextension%.*}
+echo $basename
+pdflatex -output-directory standalone $name &> /dev/null
+if [ "$display" -eq 1 ]
+then
+    mupdf standalone/$basename.pdf
+fi
+
