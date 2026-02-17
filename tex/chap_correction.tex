@@ -46,7 +46,7 @@ en détail les principaux résultats du chapitre.
 %-------------------------------------------------------------------------------
 \begin{figure}[!b]
     \centering
-    \includegraphics[width=0.5\textwidth]{figtikz/necessite_correction_chap_correction.pdf}
+    \includegraphics[width=0.8\textwidth]{figtikz/necessite_correction_chap_correction.pdf}
     \caption{Représentation schématique de la correction de la réponse 
              temporelle d'un système asservi. (en rouge) Le système non corrigé,
              présente un important dépassement, il est lent et peu précis. 
@@ -77,7 +77,7 @@ $\epsilon(t)$}. Nous noterons un correcteur par la fonction de transfert
 $C(p)$ et sa représentation en schéma-bloc comme ci-dessous.
 %-------------------------------------------------------------------------------
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{figtikz/bs_correction_chap_correction.pdf}
+    \includegraphics[width=0.4\textwidth]{figtikz/bs_correction_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 Cependant, il existe différentes façon de placer un correcteur dans un 
@@ -95,7 +95,7 @@ boucle ouverte non corrigée $H(p)$. Le schéma-bloc
 d'une telle correction est représentée ci-dessous:
 %-------------------------------------------------------------------------------
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{figtikz/correction_serie_chap_correction.pdf}
+    \includegraphics[width=0.6\textwidth]{figtikz/correction_serie_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 En appliquant l'algèbre de bloc, il est assez simple de déterminer la forme de
@@ -124,7 +124,7 @@ $C(p)S(p)$, cette relation s'écrit simplement :
 Le schéma-bloc de cette correction est donnée ci-dessous :
 %-------------------------------------------------------------------------------
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{figtikz/correction_reaction_chap_correction.pdf}
+    \includegraphics[width=0.6\textwidth]{figtikz/correction_reaction_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 Attention, le correcteur ne se trouve pas dans la
@@ -153,7 +153,7 @@ correcteurs $C_1(p)$ et $C_2(p)$ sont nécessaires respectivement
 en correction en série et réaction.
 %-------------------------------------------------------------------------------
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{figtikz/correction_serie-reaction_chap_correction.pdf}
+    \includegraphics[width=0.6\textwidth]{figtikz/correction_serie-reaction_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 %\[
@@ -181,14 +181,54 @@ Nous envisagerons que la correction en série par la suite.
 \index{Correcteur!Proportionnel (P)}
 %-------------------------------------------------------------------------------
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{figtikz/p_chap_correction.pdf}
+    \includegraphics[width=0.4\textwidth]{figtikz/p_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
+La commande est simplement proportionnelle à l'erreur.
+\[
+    U(p)=k_p\epsilon(p)
+\]
+La fonction de transfert du correcteur est donc
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-    C_{\text{P}}(p)=k_p 
+    C_{\text{P}}(p)=k_p. 
 \end{bequation}
 %-------------------------------------------------------------------------------
+Il s'agit d'un gain pur.
+
+Le diagramme de Bode de ce correcteur, représenté ci-dessous, 
+traduit immédiatement cette propriété :
+
+\begin{itemize}
+    \item \textbf{Module}
+    \[
+        \left|C_{\text{P}}(j\omega)\right|=k_p\quad\text{ou}\quad\left|C_{\text{P}}(j\omega)\right|_{dB}=20\log k_p
+    \]
+    \item \textbf{Phase}
+    \[
+        \arg C_{\text{P}}(j\omega)=0^\circ
+    \]
+    pour tout $\omega$. Le correcteur proportionnel n'introduit aucun déphasage.
+\end{itemize}
+%-------------------------------------------------------------------------------
+\begin{center}
+    \includegraphics[width=0.37\textwidth]{figtikz/bode_p_gain_chap_correction.pdf}
+    \includegraphics[width=0.37\textwidth]{figtikz/bode_p_phase_chap_correction.pdf}
+\end{center}
+%-------------------------------------------------------------------------------
+L'effet de ce correcteur sur le système en boucle ouverte est donc simplement 
+translaté de $20\log k_p$ dB. Il en résulte que la fréquence de coupure est 
+modifiée et que les marges de stabilité peuvent varier.
+En ce qui concerne, l'erreur statique est simplement réduite lorsque $k_p$ augmente, 
+sans toutefois pouvoir être annulée (sauf si le système possède déjà un intégrateur).
+
+Il existe donc un compromis entre précision et stabilité : augmenter $k_p$ 
+améliore la précision, mais peut dégrader la stabilité et conduire à des oscillations.
+
+Le correcteur proportionnel modifie uniquement le gain de la boucle sans 
+introduire de dynamique supplémentaire ni de déphasage. Il permet d'améliorer 
+la précision de manière limitée et constitue la base des correcteurs 
+plus élaborés.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Correcteur I}
@@ -197,14 +237,61 @@ Nous envisagerons que la correction en série par la suite.
 \index{Correcteur!Intégral (I)}
 %-------------------------------------------------------------------------------
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{figtikz/i_chap_correction.pdf}
+    \includegraphics[width=0.4\textwidth]{figtikz/i_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
+La commande est affectée d'un intégrateur de constante de temps $\tau_i$ 
+\[
+	U(p)=\dfrac{1}{\tau_i p}\epsilon(p)
+\]
+La fonction de transfert du correcteur est donc :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-    C_{\text{I}}(p)=\dfrac{1}{\tau_i p} 
+    C_{\text{I}}(p)=\dfrac{1}{\tau_i p}. 
 \end{bequation}
 %-------------------------------------------------------------------------------
+Ce correcteur possède un pôle à l'origine. Il introduit donc une dynamique
+supplémentaire dans la boucle.
+
+Le diagramme de Bode de ce correcteur, représenté ci-dessous,
+met en évidence les propriétés suivantes :
+\begin{itemize}
+    \item \textbf{Module}
+    \[
+        \left|C_{\text{I}}(j\omega)\right|=\frac{k_i}{\omega}
+        \quad\text{ou}\quad
+        \left|C_{\text{I}}(j\omega)\right|_{dB}=20\log k_i-20\log \omega
+    \]
+    Le gain décroît avec une pente de $-20$ dB/décade.
+
+    \item \textbf{Phase}
+    \[
+        \arg C_{\text{I}}(j\omega)=-90^\circ
+    \]
+    pour tout $\omega$. Le correcteur intégral introduit donc un retard de phase constant.
+\end{itemize}
+%-------------------------------------------------------------------------------
+\begin{center}
+    \includegraphics[width=0.37\textwidth]{figtikz/bode_i_gain_chap_correction.pdf}
+    \includegraphics[width=0.37\textwidth]{figtikz/bode_i_phase_chap_correction.pdf}
+\end{center}
+%-------------------------------------------------------------------------------
+L'effet de ce correcteur sur le système en boucle ouverte est double.
+D'une part, le gain est fortement augmenté aux basses fréquences,
+ce qui améliore la précision du système. D'autre part, le retard de phase
+introduit tend à dégrader la stabilité.
+
+La présence d'un pôle à l'origine augmente le type du système.
+Il en résulte que l'erreur statique peut être annulée pour certaines
+entrées, notamment pour une entrée en échelon.
+
+Il existe donc un compromis entre précision et stabilité : le correcteur
+intégral permet d'améliorer fortement la précision, mais peut ralentir
+la réponse du système et favoriser l'apparition d'oscillations.
+
+Le correcteur intégral introduit une dynamique supplémentaire dans la boucle.
+Il constitue un élément essentiel des correcteurs industriels, notamment
+du correcteur PI, car il permet d'assurer une erreur statique nulle.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Correcteur D}
@@ -213,9 +300,13 @@ Nous envisagerons que la correction en série par la suite.
 \index{Correcteur!Dérivé (D)}
 %-------------------------------------------------------------------------------
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{figtikz/d_chap_correction.pdf}
+    \includegraphics[width=0.4\textwidth]{figtikz/d_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
+La commande est affectée par un dérivateur de constante de temps $\tau_d$
+\[
+	U(p)=\tau_d p\epsilon(p)
+\]
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     C_{\text{D}}^{\text{idéal}}(p)=\tau_d p 
@@ -230,7 +321,14 @@ Une solution technologique permet de réaliser une forme approchée :
 \]
 en choisissant un temps $\tau\ll\tau_d$, cette fonction de transfert se comporte
 comme un correcteur dérivé idéal. On parle également dans ce cas de correcteur
-\og D filtré\fg.
+\og D filtré\fg, en effet l'action du terme $1+\tau p$ est celui d'un filtre
+passe-bas.
+%-------------------------------------------------------------------------------
+\begin{center}
+    \includegraphics[width=0.37\textwidth]{figtikz/bode_d_gain_chap_correction.pdf}
+    \includegraphics[width=0.37\textwidth]{figtikz/bode_d_phase_chap_correction.pdf}
+\end{center}
+%-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -249,15 +347,15 @@ des correcteurs élémentaires présentés précédemment
 %-------------------------------------------------------------------------------
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figtikz/bode_pi_gain_chap_correction.pdf}
+    \includegraphics[width=0.47\textwidth]{figtikz/bode_pi_gain_chap_correction.pdf}
     
-    \includegraphics[width=0.5\textwidth]{figtikz/bode_pi_phase_chap_correction.pdf}
+    \includegraphics[width=0.47\textwidth]{figtikz/bode_pi_phase_chap_correction.pdf}
     \caption{Diagramme de Bode du correcteur à effet proportionnel et intégral.}
 \end{figure}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{center}
-     \includegraphics[width=0.5\textwidth]{figtikz/pi_chap_correction.pdf}
+     \includegraphics[width=0.6\textwidth]{figtikz/pi_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 \[
@@ -277,19 +375,19 @@ des correcteurs élémentaires présentés précédemment
 %-------------------------------------------------------------------------------
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figtikz/bode_pd_gain_chap_correction.pdf}
+    \includegraphics[width=0.47\textwidth]{figtikz/bode_pd_gain_chap_correction.pdf}
     
-    \includegraphics[width=0.5\textwidth]{figtikz/bode_pd_phase_chap_correction.pdf}
+    \includegraphics[width=0.47\textwidth]{figtikz/bode_pd_phase_chap_correction.pdf}
     \caption{Diagramme de Bode du correcteur à effet proportionnel et dérivé.}
 \end{figure}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{figtikz/pd_chap_correction.pdf}
+    \includegraphics[width=0.6\textwidth]{figtikz/pd_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 \[
-    U(p)=k_p\left(1+\dfrac{1}{\tau_i p}\right)\epsilon(p)
+    U(p)=k_p\left(1+\tau_d p\right)\epsilon(p)
 \]
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
@@ -325,9 +423,9 @@ avec $\alpha>1$.
 %-------------------------------------------------------------------------------
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figtikz/bode_avancedephase_gain_chap_correction.pdf}
+    \includegraphics[width=0.47\textwidth]{figtikz/bode_avancedephase_gain_chap_correction.pdf}
     
-    \includegraphics[width=0.5\textwidth]{figtikz/bode_avancedephase_phase_chap_correction.pdf}
+    \includegraphics[width=0.47\textwidth]{figtikz/bode_avancedephase_phase_chap_correction.pdf}
     \caption{Diagramme de Bode du correcteur à avance de phase.}
 \end{figure}
 %-------------------------------------------------------------------------------
@@ -431,7 +529,7 @@ Pour déterminer la marge de phase avant correction on peut tracer le diagramme
 de Bode de la boucle ouverte non corrigée.
 %-------------------------------------------------------------------------------
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{figtikz/bode_BONC_exempleAP-chap_correction.pdf}
+    \includegraphics[width=0.8\textwidth]{figtikz/bode_BONC_exempleAP-chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 On utilise maintenant un correcteur à avance de phase.
@@ -465,7 +563,7 @@ ou encore
 Traçons le diagramme de Bode de la boucle fermée corrigée pour $K_P=1$
 %-------------------------------------------------------------------------------
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{figtikz/bode_BONC_BOC_exempleAP-chap_correction.pdf}
+    \includegraphics[width=0.8\textwidth]{figtikz/bode_BONC_BOC_exempleAP-chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 Le diagramme ci-dessous nous permet de déterminer la valeur $K_P$ du correcteur
@@ -502,9 +600,9 @@ avec $\beta>1$
 %-------------------------------------------------------------------------------
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figtikz/bode_retarddephase_gain_chap_correction.pdf}
+    \includegraphics[width=0.47\textwidth]{figtikz/bode_retarddephase_gain_chap_correction.pdf}
     
-    \includegraphics[width=0.5\textwidth]{figtikz/bode_retarddephase_phase_chap_correction.pdf}
+    \includegraphics[width=0.47\textwidth]{figtikz/bode_retarddephase_phase_chap_correction.pdf}
     \caption{Diagramme de Bode du correcteur à retard de phase}
 \end{figure}
 %-------------------------------------------------------------------------------
@@ -582,7 +680,7 @@ Un PID en parallèle est la structure du correcteur la plus évidente, en effet
 on combine directement la commande de
 %-------------------------------------------------------------------------------
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{figtikz/pid_parallele_chap_correction.pdf}
+    \includegraphics[width=0.7\textwidth]{figtikz/pid_parallele_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 La réduction de ce schéma-bloc nous donne la relation entre la commande et 
@@ -602,7 +700,7 @@ l'écart
 \index{Correcteur! Proportionnel Intégral Dérivé (PID)! série}
 %-------------------------------------------------------------------------------
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{figtikz/pid_serie_chap_correction.pdf}
+    \includegraphics[width=0.7\textwidth]{figtikz/pid_serie_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 \[
@@ -625,7 +723,7 @@ l'écart
 \index{Correcteur!Proportionnel Intégral Dérivé (PID)! mixte}
 %-------------------------------------------------------------------------------
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{figtikz/pid_mixte_chap_correction.pdf}
+    \includegraphics[width=0.7\textwidth]{figtikz/pid_mixte_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 \[
@@ -713,9 +811,9 @@ avec $\alpha>1$ et $\beta>1$. On prendra $\alpha=\beta$.
 %-------------------------------------------------------------------------------
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figtikz/bode_retardavancedephase_gain_chap_correction.pdf}
+    \includegraphics[width=0.47\textwidth]{figtikz/bode_retardavancedephase_gain_chap_correction.pdf}
     
-    \includegraphics[width=0.5\textwidth]{figtikz/bode_retardavancedephase_phase_chap_correction.pdf}
+    \includegraphics[width=0.47\textwidth]{figtikz/bode_retardavancedephase_phase_chap_correction.pdf}
     \caption{Diagramme de Bode du correcteur à retard-avance de phase}
 \end{figure}
 %-------------------------------------------------------------------------------
@@ -724,6 +822,25 @@ avec $\alpha>1$ et $\beta>1$. On prendra $\alpha=\beta$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage
+
+\section{Récapitulatif de l'effet des correcteurs}
+\begin{center}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Correcteur & $C(p)$ & Classe & Précision statique & Dynamique / stabilité \\
+\hline
+P   & $K$ & = & améliorée & rapidité ↑, stabilité ↓ si $K$ ↑ \\
+I   & $\dfrac{K}{p}$ & +1 & erreur indicielle nulle & lenteur ↑, stabilité ↓ \\
+D   & $Kp$ & = & = & amortissement ↑, stabilité ↑, bruit ↑ \\
+PI  & $K\!\left(1+\dfrac{1}{T_i p}\right)$ & +1 & erreur indicielle nulle & compromis précision / stabilité \\
+PD  & $K(1+T_d p)$ & = & améliorée & amortissement ↑, rapidité ↑, bruit ↑ \\
+PID & $K\!\left(1+\dfrac{1}{T_i p}+T_d p\right)$ & +1 & erreur indicielle nulle & performances globales ↑, bruit ↑ \\
+Retard & $K\dfrac{1+Tp}{1+\alpha Tp},\,\alpha>1$ & = & améliorée & rapidité ↓, stabilité ↓ \\
+Avance & $K\dfrac{1+Tp}{1+\alpha Tp},\,0<\alpha<1$ & = & = & rapidité ↑, stabilité ↑ \\
+\hline
+\end{tabular}
+\end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
