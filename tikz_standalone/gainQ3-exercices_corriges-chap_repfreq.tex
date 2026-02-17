@@ -1,4 +1,4 @@
-\documentclass[tikz,border=3pt]{standalone}
+\documentclass[tikz,border={48pt 3pt 3pt 3pt}]{standalone}
 
 \input{preamble/tikz}
 \usepackage{siunitx}
@@ -10,8 +10,8 @@
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.24\textheight,
+    width=0.7\linewidth,
+    height=0.35\linewidth,
     ylabel={Gain (\si{\decibel})},
     xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5},
     ytick={-80,-60,-40,-20,0,20,40,60},

@@ -17,6 +17,7 @@
     [   legend style={draw=none},
         legend pos=outer north east,
         width=0.65\textwidth,
+	scale only axis,
         axis line style = thick,
         xmin=0,
         xmax=20,
@@ -24,9 +25,12 @@
         ymax=2,
         xlabel={$t$},
         ylabel={$s(t)$},
+	xtick distance=5,
         ytick={0,0.5,1,1.5},
         yticklabels={0,$0.5KE_0$,$KE_0$,$1.5KE_0$},
         label style={font=\Large},
+    	tick label style={font=\large},
+    	legend style={font=\large}
     ]
     % amortissement
     \foreach[count=\i from 0,evaluate=\i as \colfrac using \i*100/9] 

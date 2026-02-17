@@ -1,6 +1,7 @@
 \documentclass[tikz,border=3pt]{standalone}
 
 \input{preamble/tikz}
+\usepackage{siunitx}
 
 \begin{document}
 
@@ -12,22 +13,18 @@
         axis x line=middle,
         axis y line=middle,
         xmin=-5,xmax=20,
-        ymin=-180,ymax=45,
+        ymin=-40,ymax=10,
         xlabel={ $\log\omega$},
-        ylabel={ $\phi(\omega)$},
+        ylabel={ $G_{\si{\dB}}(\omega)$},
         xlabel style={above},
         ylabel style={left},
         xticklabels={},
         xtick={},
-        ytick={0},
-		yticklabels={},
-        yticklabel style={color=col4},
-        yticklabel style={yshift=5pt},
-        extra y ticks={0},
-        extra y tick style={grid=none},
-        %ticklabel style={font=\small, te, inner sep=1pt}
+        yticklabels={},
+        ytick={},
     ]
-        \addplot[ultra thick,col4,domain=0:20] {0};
+    \addplot[ultra thick,col4,domain=0:20] {-10-x};
+    \node[col4] at (axis cs:10,-7.5) {\footnotesize$-20$\si{\dB/dec}};
     \end{axis}
 \end{tikzpicture}
 

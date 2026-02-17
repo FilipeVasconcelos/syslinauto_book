@@ -26,7 +26,7 @@
 % g : capteur
 % r : noeud décalé pour le retour
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{tikzpicture}[scale=1.1,every node/.style={scale=1.1}]
+\begin{tikzpicture}%[scale=1.1,every node/.style={scale=1.1}]
     \sbEntree{E}
     \sbBloc[3]{a}{$A_d(p)$}{E}
     \sbRelier[$E(p)$]{E}{a}
@@ -57,12 +57,12 @@
 \node[yshift=-0.8em,xshift=0.5em] at (E.south) {\small Consigne};
 \node[yshift=-0.8em] at (S.south) {\small Sortie};
 \node[yshift=2em,xshift=2.8em] at (P.east) {\small Perturbation};
-\draw[dvtb]  (-0.8,-4) rectangle node[col1,xshift=-3.2em,yshift=7em] 
-             {\textbf{Chaîne d'information}}(6.6,2.5);
-\draw[dvtr]  (6.7,-4)  rectangle node[col4,xshift=-5.3em,yshift=7em]  
-             {\textbf{Chaîne d'énergie}    }(14.8,2.5);
-\draw[dvtgf] (4,1)     -- node[col3,above] {Chaîne direct}    (14,1) ;
-\draw[dvtgf] (14,-3.7) -- node[col3,above] {Chaîne de retour} (4,-3.7) ;
+\draw[dvtb]  (-0.8,-4) rectangle node[col1,xshift=-4.4em,yshift=8.5em] 
+             {\textbf{Chaîne d'information}}(6.2,2.8);
+\draw[dvtr]  (6.3,-4)  rectangle node[col4,xshift=-6.8em,yshift=8.5em]  
+             {\textbf{Chaîne d'énergie}    }(14.8,2.8);
+\draw[dvtgf] (4,1)     -- node[col3,above,xshift=7.4em] {Chaîne direct}    (14,1) ;
+\draw[dvtgf] (14,-3.7) -- node[col3,above,xshift=7.4em] {Chaîne de retour} (4,-3.7) ;
 \end{tikzpicture}
 
 \end{document}

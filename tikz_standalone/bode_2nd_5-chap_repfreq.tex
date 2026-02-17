@@ -10,8 +10,8 @@
 \begin{axis}[
     name=ax1,
     ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
+    width=0.7\linewidth,
+    height=0.5\linewidth,
     ylabel={Gain (dB)},
     xtick={1e-1,1,1e1},
     ytick={-120,-100,-80,-60,-40,-20,0,20,40,60},
@@ -30,12 +30,12 @@
 \end{axis}
 \begin{axis}[
     at={(ax1.south west)},
-    yshift=-12em,
+    yshift=-15em,
     legend style={draw=none,yshift=1em},
     legend pos=outer north east,
     ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.22\textheight,
+    width=0.7\linewidth,
+    height=0.5\linewidth,
     xlabel={Pulsation (rad/s)},
     ylabel={Phase (degré)},
     xtick={1e-1,1,1e1},

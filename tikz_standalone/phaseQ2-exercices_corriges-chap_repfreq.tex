@@ -1,4 +1,4 @@
-\documentclass[tikz,border=3pt]{standalone}
+\documentclass[tikz,border={48pt 3pt 3pt 3pt}]{standalone}
 
 \input{preamble/tikz}
 \usepackage{siunitx}
@@ -8,8 +8,8 @@
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
-    width=0.9\textwidth,
-    height=0.24\textheight,
+    width=0.7\linewidth,
+    height=0.35\linewidth,
     xlabel={Pulsation (\si{\radian\per\second})},
     ylabel={Phase (\si{degree})},
     xtick={1e-5,1e-4,1e-3,1e-2,1e-1,1e0,1e1,1e2,1e3,1e4},

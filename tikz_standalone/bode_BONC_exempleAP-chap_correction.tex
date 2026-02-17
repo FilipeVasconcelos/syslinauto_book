@@ -7,10 +7,11 @@
 \begin{document}
 
 \begin{tikzpicture}
-    \node {\includegraphics[width=0.8\textwidth]
-    {bode_BONC_exemple-chap_correction.eps}};
-    \draw[dblarw={col4}{1pt}{1pt}] (-0.68,-3.14) -- node[midway,left] 
-    {$M_\phi=\SI{11.3}{\degree}$} (-0.68,-2.8) ; 
+    \coordinate (start) at (-0.52,-2.4);
+    \coordinate (end) at (-0.52,-2.05);
+    \node {\includegraphics[width=0.8\textwidth] {bode_BONC_exemple-chap_correction.eps}};
+    \draw[dblarw={col4}{1pt}{1pt}] (start) -- node[midway,left] 
+    {$M_\phi=\SI{11.3}{\degree}$}  (end) ; 
 \end{tikzpicture}
 
 \end{document}
