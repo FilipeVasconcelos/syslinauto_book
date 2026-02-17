@@ -1,8 +1,5 @@
 def talbot(t,f,M=20):
-    """
-    Algorithme fixe de Talbot :
-    Equation (18) abate2004.pdf
-    """
+    """Algorithme fixe de Talbot"""
     r=2.0*M/(5.0*t)
     sumk=0.5*f(r)*np.exp(r*t)
     step=np.pi/M
