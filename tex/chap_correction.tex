@@ -200,11 +200,11 @@ Le diagramme de Bode de ce correcteur, représenté ci-dessous,
 traduit immédiatement cette propriété :
 
 \begin{itemize}
-    \item \textbf{Module}
+    \item \textbf{Module} :
     \[
         \left|C_{\text{P}}(j\omega)\right|=k_p\quad\text{ou}\quad\left|C_{\text{P}}(j\omega)\right|_{dB}=20\log k_p
     \]
-    \item \textbf{Phase}
+    \item \textbf{Phase} :
     \[
         \arg C_{\text{P}}(j\omega)=0^\circ
     \]
@@ -222,8 +222,8 @@ modifiée et que les marges de stabilité peuvent varier.
 En ce qui concerne, l'erreur statique est simplement réduite lorsque $k_p$ augmente, 
 sans toutefois pouvoir être annulée (sauf si le système possède déjà un intégrateur).
 
-Il existe donc un compromis entre précision et stabilité : augmenter $k_p$ 
-améliore la précision, mais peut dégrader la stabilité et conduire à des oscillations.
+Il existe donc un compromis entre précision et stabilité : \textbf{augmenter $k_p$ 
+améliore la précision, mais peut dégrader la stabilité et conduire à des oscillations.}
 
 Le correcteur proportionnel modifie uniquement le gain de la boucle sans 
 introduire de dynamique supplémentaire ni de déphasage. Il permet d'améliorer 
@@ -250,25 +250,21 @@ La fonction de transfert du correcteur est donc :
     C_{\text{I}}(p)=\dfrac{1}{\tau_i p}. 
 \end{bequation}
 %-------------------------------------------------------------------------------
-Ce correcteur possède un pôle à l'origine. Il introduit donc une dynamique
-supplémentaire dans la boucle.
-
 Le diagramme de Bode de ce correcteur, représenté ci-dessous,
 met en évidence les propriétés suivantes :
 \begin{itemize}
-    \item \textbf{Module}
+    \item \textbf{Module} :
     \[
-        \left|C_{\text{I}}(j\omega)\right|=\frac{k_i}{\omega}
+        \left|C_{\text{I}}(\jw)\right|=\dfrac{1}{\tau_i\omega}
         \quad\text{ou}\quad
-        \left|C_{\text{I}}(j\omega)\right|_{dB}=20\log k_i-20\log \omega
+        \left|C_{\text{I}}(\jw)\right|_{dB}=-20\log\tau_i-20\log\omega
     \]
     Le gain décroît avec une pente de $-20$ dB/décade.
-
-    \item \textbf{Phase}
+    \item \textbf{Phase} :
     \[
-        \arg C_{\text{I}}(j\omega)=-90^\circ
+        \arg{C_{\text{I}}(\jw)}=-\dfrac{\pi}{2}\quad\forall\omega.
     \]
-    pour tout $\omega$. Le correcteur intégral introduit donc un retard de phase constant.
+    Le correcteur intégral introduit donc un retard de phase constant.
 \end{itemize}
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -281,13 +277,9 @@ D'une part, le gain est fortement augmenté aux basses fréquences,
 ce qui améliore la précision du système. D'autre part, le retard de phase
 introduit tend à dégrader la stabilité.
 
-La présence d'un pôle à l'origine augmente le type du système.
-Il en résulte que l'erreur statique peut être annulée pour certaines
-entrées, notamment pour une entrée en échelon.
-
-Il existe donc un compromis entre précision et stabilité : le correcteur
-intégral permet d'améliorer fortement la précision, mais peut ralentir
-la réponse du système et favoriser l'apparition d'oscillations.
+Il existe donc à nouveau un compromis entre précision et stabilité : 
+\textbf{le correcteur intégral permet d'améliorer fortement la précision, mais 
+peut ralentir la réponse du système et favoriser l'apparition d'oscillations.}
 
 Le correcteur intégral introduit une dynamique supplémentaire dans la boucle.
 Il constitue un élément essentiel des correcteurs industriels, notamment
@@ -312,8 +304,40 @@ La commande est affectée par un dérivateur de constante de temps $\tau_d$
     C_{\text{D}}^{\text{idéal}}(p)=\tau_d p 
 \end{bequation}
 %-------------------------------------------------------------------------------
-Le correcteur dérivé sous cette forme est purement théorique, notamment parce
-que le gain est infini lorsque la pulsation tend vers l'infini.
+Le diagramme de Bode de ce correcteur, représenté ci-dessous,
+met en évidence les propriétés suivantes :
+\begin{itemize}
+    \item \textbf{Module} :
+    \[
+        \left|C_{\text{D}}(\jw)\right|=\tau_d\omega
+        \quad\text{ou}\quad
+        \left|C_{\text{D}}(\jw)\right|_{dB}=20\log\tau_d+20\log\omega
+    \]
+    Le gain augumente avec une pente de $20$ dB/décade.
+    \item \textbf{Phase} :
+    \[
+        \arg{C_{\text{I}}(\jw)}=-\dfrac{\pi}{2}\quad\forall\omega.
+    \]
+    Le correcteur intégral introduit donc une avance de phase constant.
+\end{itemize}
+%-------------------------------------------------------------------------------
+\begin{center}
+    \includegraphics[width=0.37\textwidth]{figtikz/bode_d_gain_chap_correction.pdf}
+    \includegraphics[width=0.37\textwidth]{figtikz/bode_d_phase_chap_correction.pdf}
+\end{center}
+Cette avance de phase améliore la stabilité du système en augmentant la marge
+de phase. Le correcteur dérivé permet ainsi d'améliorer l'amortissement et de
+réduire les oscillations.
+
+Cependant, le gain devenant très élevé aux hautes fréquences, le correcteur dérivé
+amplifie fortement les signaux rapides, notamment le bruit de mesure. Il ne peut
+donc pas être utilisé seul en pratique.
+En ce qui concerne la précision, le correcteur dérivé n'améliore pas l'erreur
+statique, car son gain est nul en basse fréquence.
+
+\footnote{Le correcteur dérivé idéal n'est pas physiquement réalisable, 
+notamment parce que son gain augmente indéfiniment avec la fréquence :
+Il amplifierait infiniment les composantes haute fréquence, notamment le bruit de mesure.
 
 Une solution technologique permet de réaliser une forme approchée :
 \[
@@ -321,14 +345,8 @@ Une solution technologique permet de réaliser une forme approchée :
 \]
 en choisissant un temps $\tau\ll\tau_d$, cette fonction de transfert se comporte
 comme un correcteur dérivé idéal. On parle également dans ce cas de correcteur
-\og D filtré\fg, en effet l'action du terme $1+\tau p$ est celui d'un filtre
-passe-bas.
-%-------------------------------------------------------------------------------
-\begin{center}
-    \includegraphics[width=0.37\textwidth]{figtikz/bode_d_gain_chap_correction.pdf}
-    \includegraphics[width=0.37\textwidth]{figtikz/bode_d_phase_chap_correction.pdf}
-\end{center}
-%-------------------------------------------------------------------------------
+\og D filtré\fg, en effet l'action du terme $\dfrac{1}{1+\tau p}$ est celui d'un filtre
+passe-bas.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -344,6 +362,60 @@ des correcteurs élémentaires présentés précédemment
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Correcteur!Proportionnel Intégral (PI)}
+Le correcteur proportionnel intégral combine les propriétés des correcteurs
+proportionnel et intégral. L'architecture du correcteur peut-être représenté 
+par le schéma-bloc suivant\footnote{à noter qu'une architecture parallèle
+est équivalente et ne nécessite qu'une redéfinition des paramètres du correcteur}
+%-------------------------------------------------------------------------------
+\begin{center}
+     \includegraphics[width=0.6\textwidth]{figtikz/pi_chap_correction.pdf}
+\end{center}
+%-------------------------------------------------------------------------------
+La commande $U(p)$ fait intervenir les paramètres $k_p$ et $\tau_i$ 
+telle que :   
+\[
+    U(p)=k_p\left(1+\dfrac{1}{\tau_i p}\right)\epsilon(p)
+\]
+La fonction de transfert de ce correcteur peut donc s'écrire :
+%-------------------------------------------------------------------------------
+\begin{bequation}[ams align]
+    C_{\text{PI}}=k_p\left(\dfrac{1+\tau_i p}{\tau_i p}\right)
+\end{bequation}
+%-------------------------------------------------------------------------------
+Le diagramme de Bode de ce correcteur, représenté ci-dessus,
+met en évidence les propriétés suivantes :
+
+\begin{itemize}
+    \item \textbf{Module} :
+
+    À basse fréquence $(\omega \ll \dfrac{1}{\tau_i})$, le comportement est celui
+    d'un intégrateur :
+    \[
+        \left|C_{\text{PI}}(\jw)\right|\approx\dfrac{k_p}{\tau_i\omega}
+    \]
+    Le gain décroît avec une pente de $-20$ dB/décade.
+
+    À haute fréquence $(\omega \gg \dfrac{1}{\tau_i})$, le comportement devient
+    celui d'un correcteur proportionnel :
+    \[
+        \left|C_{\text{PI}}(\jw)\right|\approx k_p.
+    \]
+
+    \item \textbf{Phase} :
+
+    À basse fréquence :
+    \[
+        \arg C_{\text{PI}}(\jw)\approx -\dfrac{\pi}{2}
+    \]
+
+    À haute fréquence :
+    \[
+        \arg C_{\text{PI}}(\jw)\approx 0.
+    \]
+
+    La phase évolue donc progressivement entre $-\dfrac{\pi}{2}$ et $0$ autour de la
+    pulsation de coupure $\omega_i=\dfrac{1}{\tau_i}$.
+\end{itemize}
 %-------------------------------------------------------------------------------
 \begin{figure}
     \centering
@@ -352,19 +424,6 @@ des correcteurs élémentaires présentés précédemment
     \includegraphics[width=0.47\textwidth]{figtikz/bode_pi_phase_chap_correction.pdf}
     \caption{Diagramme de Bode du correcteur à effet proportionnel et intégral.}
 \end{figure}
-%-------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------
-\begin{center}
-     \includegraphics[width=0.6\textwidth]{figtikz/pi_chap_correction.pdf}
-\end{center}
-%-------------------------------------------------------------------------------
-\[
-    U(p)=k_p\left(1+\dfrac{1}{\tau_i p}\right)\epsilon(p)
-\]
-%-------------------------------------------------------------------------------
-\begin{bequation}[ams align]
-    C_{\text{PI}}=k_p\left(\dfrac{1+\tau_i p}{\tau_i p}\right)
-\end{bequation}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
