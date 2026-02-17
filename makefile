@@ -2,7 +2,7 @@
 .PHONY: standalone pdf
 mainfile=syslinauto
 
-pdf :
+pdf: standalone
 	pdflatex -shell-escape ${mainfile}  
 bibtex:
 	bibtex ${mainfile} ||true

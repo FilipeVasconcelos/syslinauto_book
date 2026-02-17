@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+OUTPUT_TEX=figsonly_standalone.tex
+cat > $OUTPUT_TEX <<EOF
+\documentclass[a4paper]{article}
+\usepackage{graphicx}
+\usepackage[a4paper,headheight=16pt]{geometry}
+\usepackage{verbatim}
+\usepackage{caption}
+\usepackage{standalone}
+
+\captionsetup[figure]{position=top}
+\begin{document}
+EOF
+for file in tikz_standalone/*.tex
+do
+dir=$(dirname $file)
+bse=$(basename $file .tex)
+filepdf=figtikz/${bse}.pdf
+caption=\\texttt{${filepdf//_/\\_}}
+stand=${dir}/$bse
+echo $stand $bse $filepdf
+cat <<EOF >> $OUTPUT_TEX
+\begin{figure}[htbp]
+    \centering
+    \caption{$caption}
+    \includegraphics[width=\\textwidth]{$filepdf}
+    %\includestandalone[width=\\textwidth]{$stand}
+\end{figure}
+\clearpage
+EOF
+done
+echo "\end{document}" >> ${OUTPUT_TEX}

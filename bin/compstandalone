@@ -40,7 +40,7 @@ echo "Input file :" $name
 basenameextension=${name##*/}
 basename=${basenameextension%.*}
 echo $basename
-pdflatex -output-directory standalone $name &> /dev/null
+pdflatex -output-directory standalone $name #&> /dev/null
 if [ "$display" -eq 1 ]
 then
     mupdf standalone/$basename.pdf
