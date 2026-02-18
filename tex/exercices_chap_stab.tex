@@ -41,6 +41,40 @@ caractéristiques suivantes par le critère de Routh :}
 \end{itemize}
 %-------------------------------------------------------------------------------
 \clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Critère du revers de Nyquist~\difficile}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Le système $H(p)$ est asservi par retour unitaire à l'aide d'un gain $K$ (c.f schéma bloc)
+avec 
+$$
+H(p)=\dfrac{1}{\left(1+\dfrac{p}{2}\right)(1+p)^2(1+2p)}.
+$$
+
+\begin{center}
+    \begin{tikzpicture}
+        \sbStyleBloc{very thick}
+        \sbEntree{E}
+        \sbComp{a}{E}
+        \sbRelier[$E(p)$]{E}{a}
+        \sbBloc{b}{$K$}{a}
+        \sbRelier{a}{b}
+        \sbBlocL{c}{$H(p)$}{b}
+        \sbSortie[4]{S}{c}
+        \sbRelier{c}{S}
+        \sbRenvoi{c-S}{a}{}
+        \sbNomLien[0.8]{S}{$S(p)$}
+    \end{tikzpicture}
+\end{center}
+
+\question{Tracer le lieu de Nyquist de $H_1$ et conclure sur la possibilité
+de stabilité asymptotique du système ainsi asservi : on précisera, dans l'affirmative, 
+les conditions sur $K$, ainsi que les marges de stabilité.
+}
+
+\question{Vérifier ce résultat par application du critère de Routh.}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Critère de Nyquist~\difficile}

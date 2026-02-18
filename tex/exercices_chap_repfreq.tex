@@ -75,14 +75,31 @@ H(p) = \dfrac{(10p+1)(0.1p+1)}{p(0.001p+1)^2}
 \[
 H(p) = \dfrac{10(10p+1)}{(p+1)(100p+1)}
 \]
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\exercice{Diagrammes de Nyquist~\difficile}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{Tracer le diagramme de Nyquist de la fonction de transfert suivante:}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Diagramme de Bode et diagramme de Nyquist (d'après~\cite{granjon})\difficile}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On considère les systèmes de fonctions de transfert $H_1(p)$ et $H_2(p)$ définis par :
 \[
-    H(p)=\dfrac{1}{p(p+1)}
+H_1(p) =\dfrac{10^4}{p(p+10)(p+100)}
 \]
+et
+\[
+H_2(p) =\dfrac{10^3}{p(p+1)^2(p+10)}
+\]
+\question{Tracer les diagramme de Bode asymptotique (gain et phase) 
+de ces deux systèmes et en déduire leurs diagrammes
+de Nyquist. On s'attachera, notamment, à démontrer l'existence d'une 
+asymptote à la courbe de Nyquist lorsque $\omega\rightarrow0$.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Diagramme de Nyquist\difficile}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{}
+Pour chacunes des fonctions de transferts suivantes, tracer le lieu de Nyquist.
+\begin{itemize}
+    \item $H_0(p)=\dfrac{1}{p(p+1)}$,
+    \item $H_1(p)=\dfrac{1}{\left(1+\dfrac{p}{2}\right)(1+p)^2(1+2p)}$,
+    \item $H_2(p)=\dfrac{1-p}{(1+p)(1+3p+p^2)}$,
+    \item $H_3(p)=\dfrac{2p-1}{p(3p-4)}$
+    \item $H_4(p)=\dfrac{1-2p}{p(1+p)}$
+\end{itemize}

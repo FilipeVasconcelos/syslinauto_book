@@ -471,23 +471,368 @@ Déphasage (\si{\degree})   & -5 & -40 & -45 & -50 & -85 \\[1em]
 \end{center}
 %-------------------------------------------------------------------------------
 \clearpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\exercice{Diagrammes de Nyquist~\difficile}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question{\textbf{Tracer le diagramme de Nyquist de la 
-fonction de transfert suivante:}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-La fonction de transfert complexe de $H(p)$ s'écrit :
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Diagramme de Bode et diagramme de Nyquist\difficile}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On considère les systèmes de fonctions de transfert $H_1(p)$ et $H_2(p)$ définis par :
 \[
-    H(\jw)=\dfrac{1}{\jw(\jw+1)}
+H_1(p) =\dfrac{10^4}{p(p+10)(p+100)}
 \]
-s'écrit, en identifiant explicitement la partie réelle et imaginaire, sous la 
+et
+\[
+H_2(p) =\dfrac{10^3}{p(p+1)^2(p+10)}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Tracer les diagramme de Bode asymptotique (gain et phase) de ces deux systèmes et en déduire leurs diagrammes
+de Nyquist. On s'attachera, notamment, à démontrer l'existence d'une asymptote à la courbe de Nyquist
+lorsque $\omega\rightarrow0$.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Mettons ces deux fonctions de transfert sous forme canonique pour faire apparaitre le gain statique.
+\[
+H_1(p) =\dfrac{10^4}{p(p+10)(p+100)} = \dfrac{10}{p(0.1p+1)(0.01p+1)}
+\]
+et
+\[
+H_2(p) =\dfrac{10^3}{p(p+1)^2(p+10)}= \dfrac{100}{p(p+1)^2(0.1p+1)}
+\]
+Traçons les diagrammes de Bode de ces deux fonctions de transfert. Nous suivrons la méthode employé au TD 5. 
+\newpage
+%%%%%%%%%%%%%%%%%%
+% H_1
+%%%%%%%%%%%%%%%%%%
+\[
+\boldsymbol{H_1(p)=\dfrac{10}{p(0.1p+1)(0.01p+1)}}
+\]
+\paragraph{Recherche des asymptotes}
+\begin{itemize}
+    \item $\textrm{intégrateur : } \dfrac{10}{p}      \rightarrow 
+      \textrm{toute fréquence}             \rightarrow 
+        \textrm{pente du gain :} \SI[per-mode=symbol]{-20}{\dB\per\dec}     \rightarrow 
+       \phi\mathrel{+}=-90\degreeSI$
+    \item $ \textrm{1er ordre : }\tau_1=0.1        \rightarrow 
+        \omega_1=10                         \rightarrow 
+        \textrm{pente du gain : } \SI[per-mode=symbol]{-20}{\dB\per\dec} \rightarrow 
+        \phi\mathrel{+}=-90\degreeSI$ 
+    \item $ \textrm{1er ordre : }\tau_2=0.01        \rightarrow 
+        \omega_2=100                         \rightarrow 
+        \textrm{pente du gain : } \SI[per-mode=symbol]{-20}{\dB\per\dec} \rightarrow 
+        \phi\mathrel{+}=-90\degreeSI$ 
+\end{itemize}
+%-------------------------------------------------------------------------------
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{figtikz/gain_ex3_Q1-exercices_corriges-chap_repfreq.pdf}
+    
+    \includegraphics[width=0.8\textwidth]{figtikz/phase_ex3_Q1-exercices_corriges-chap_repfreq.pdf}
+\end{center}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Fonctions réelles du gain et du déphasage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\[
+G(\omega)=|H(\jw)|=\dfrac{10}{\omega\sqrt{1+\tau_1^2\omega^2}\sqrt{1+\tau_2^2\omega^2}}
+\]
+\[
+G_{dB}(\omega)=20-20\log(\omega)-10\log{(1+\tau_1^2\omega^2)}-10\log{(1+\tau_2^2\omega^2)}
+\]
+\[
+\phi(\omega)=\arg{H(\jw)}=-90-\arctan{\tau_1\omega}-\arctan{\tau_2\omega}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Quelques valeurs particulières (calculées) :}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \begin{tabular}{P{3.5cm}P{2cm}P{2cm}P{2cm}P{2cm}}
+\hline
+    Pulsation (\si{\radian\per\second})    & 1  & $\omega_1=$10 & $\omega_2=$100 & 1000 \\[1em]
+\hline
+    Gain (\si{\decibel})                   & 20 & -3 & -43 & -100 \\[1em]
+\hline
+    Déphasage (\degreeSI)               & -96 & -141 & -219  & 264 \\[1em]
+\hline
+\end{tabular}%
+\end{center}
+%%%%%%%%%%%%%%%%%%
+% H_2
+%%%%%%%%%%%%%%%%%%
+\newpage
+\[
+\boldsymbol{H_2(p)=\dfrac{100}{p(p+1)^2(0.1p+1)}}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Recherche des asymptotes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+    \item $\textrm{intégrateur : } \dfrac{100}{p}      \rightarrow 
+      \textrm{toute fréquence}             \rightarrow 
+        \textrm{pente du gain :} \SI[per-mode=symbol]{-20}{\dB\per\dec}     \rightarrow 
+       \phi\mathrel{+}=-90\degreeSI$
+    \item $ \textrm{2nd ordre : }\tau_1=1        \rightarrow 
+        \omega_1=1                         \rightarrow 
+        \textrm{pente du gain : } \SI[per-mode=symbol]{-40}{\dB\per\dec} \rightarrow 
+        \phi\mathrel{+}=-180\degreeSI$ 
+    \item $ \textrm{1er ordre : }\tau_2=0.1        \rightarrow 
+        \omega_2=10                                \rightarrow 
+        \textrm{pente du gain : } \SI[per-mode=symbol]{-20}{\dB\per\dec} \rightarrow 
+        \phi\mathrel{+}=-90\degreeSI$ 
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.25\textheight,
+    ylabel={Gain (\si{\decibel})},
+    xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5},
+    ytick={-260,-220,-180,-140,-100,-60,-20,20,60,100},
+    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
+    yticklabels={-260,,-180,,-100,,-20,,60,,},
+    xmode=log,ymode=normal,
+    xmin=1e-3, xmax=1e4,
+    ymin=-260, ymax=100,
+    grid=both,
+    major grid style={black!40}
+]
+    \addplot[ultra thick, blue,domain=1e-3:1e4, samples=201]    {40-20*log10(x)-
+    20*log10(1+x*x)-10*log10(1+0.01*x*x)};
+    \addplot[line width=2pt,red,dashed,domain=1e-3:1e0, samples=51] {40-20*log10(x)};
+    \addplot[line width=2pt,red,dashed,domain=1e0:1e1, samples=51]  {40-60*log10(x)};
+    \addplot[line width=2pt,red,dashed,domain=1e1:1e4, samples=51]  {60-80*log10(x)};
+    \draw[draw=none,fill=blue] (axis cs:0.1,59.913138251578516) circle[radius=2pt];
+    \draw[draw=none,fill=blue] (axis cs:1,33.93618634889395) circle[radius=2pt];
+    \draw[draw=none,fill=blue] (axis cs:10,-23.096727432292667) circle[radius=2pt];
+    \draw[draw=none,fill=blue] (axis cs:100,-100.04408228336368) circle[radius=2pt];
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=0.9\textwidth,
+    height=0.25\textheight,
+    xlabel={Pulsation (\si{\radian\per\second})},
+    ylabel={Phase (\degreeSI)},
+    xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5},
+    ytick={-360,-330,-300,-270,-240,-210,-180,-150,-120,-90},
+    yticklabels={-360,,-300,,-240,,-180,,-120},
+    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
+    xmode=log,ymode=normal,
+    xmin=1e-3, xmax=1e4,
+    ymin=-360, ymax=-90,
+    grid=both,
+    major grid style={black!40}
+]
+    \addplot[ultra thick, blue,domain=1e-3:1e4, samples=201] {-90-2*atan2(x,1)-atan2(0.1*x,1)};
+    \addplot[line width=2pt,red,dashed,domain=1e-3:1e0, samples=51] {-90};
+    \addplot[line width=2pt,red,dashed,domain=1e0:1e1, samples=51] {-270};
+    \addplot[line width=2pt,red,dashed,domain=1e1:1e5, samples=51] {-360};
+    \draw[line width=2pt,red,dashed] (axis cs:1e0,-90)  -- (axis cs:1e0,-270);
+    \draw[line width=2pt,red,dashed] (axis cs:1e1,-270)  -- (axis cs:1e1,-360);
+    \draw[draw=none,fill=blue] (axis cs:0.1,-102) circle[radius=2pt];
+    \draw[draw=none,fill=blue] (axis cs:1,-185.71059313749964) circle[radius=2pt];
+    \draw[draw=none,fill=blue] (axis cs:10,-303.5788137250007) circle[radius=2pt];
+    \draw[draw=none,fill=blue] (axis cs:100,-353.1435294671334) circle[radius=2pt];
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Fonctions réelles du gain et du déphasage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$$
+G(\omega)=|H(\jw)|=\dfrac{100}{\omega(1+\tau_1^2\omega^2)\sqrt{1+\tau_2^2\omega^2}}
+$$
+$$
+G_{dB}(\omega)=40-20\log(\omega)-20\log{(1+\tau_1^2\omega^2)}-10\log{(1+\tau_2^2\omega^2)}
+$$
+$$
+\phi(\omega)=\arg{H(\jw)}=-90-2\arctan{\tau_1\omega}-\arctan{\tau_2\omega}
+$$
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Quelques valeurs particulières (calculées) :}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \begin{tabular}{P{3.5cm}P{2cm}P{2cm}P{2cm}P{2cm}}
+\hline
+    Pulsation (\si{\radian\per\second})    & 0.1  & $\omega_1=$1 & $\omega_2=$10 & 100 \\[1em]
+\hline
+    Gain (\si{\decibel})                   & 60 & 34 & -23 & -100 \\[1em]
+\hline
+    Déphasage (\degreeSI)               & -102 & -186 & -303  & -353 \\[1em]
+\hline
+\end{tabular}%
+\end{center}
+\newpage
+
+Il est plus facile de tracer le diagramme de Nyquist à partir du diagramme de Bode. 
+
+Le lieu de Nyquist de $H_1(\jw)$ converge vers l'origine du plan complexe pour $\omega\rightarrow\infty$ avec
+une phase de -270\degreeSI (c.a.d $-\dfrac{3\pi}{2})$). Pour $\omega\rightarrow0$ le lieu de transfert possède un
+gain infini avec un déphasage de -90 (c.a.d $-\dfrac{\pi}{2})$). 
+Pour déterminer la partie réelle de l'asymptote, décomposons $H_1(\jw)$ en partie réelle et imaginaire :
+$$
+H_1(\jw)=-\dfrac{10(\tau_1+\tau_2)}{(1+\tau_1^2\omega^2)(1+\tau_2^2\omega^2)}-j\dfrac{10(1-\tau_2\tau_1\omega^2)}{\omega(1+\tau_1^2\omega^2)(1+\tau_2^2\omega^2)}
+$$
+
+L'asymptote est donc donné par la limite suivante :
+$$
+\lim\limits_{\omega\rightarrow0}-\dfrac{10(\tau_1+\tau_2)}{(1+\tau_1^2\omega^2)(1+\tau_2^2\omega^2)} = -10(\tau_1+\tau_2)=-1.1
+$$
+
+On remarquera que la partie imaginaire tend bien vers $-\infty$ lorsque $\omega\rightarrow0$.
+
+\begin{figure}[!h]
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below right},
+            ylabel style={above left},
+            x tick label style={above},
+            y tick label style={right},
+            width=0.6\textwidth,
+			xlabel={$\Re{H_1(\jw)}$},
+			ylabel={$\Im{H_1(\jw)}$},
+            xtick={-1.4,-1.0,-0.6,-0.2},
+            ytick={-5,-4,-3,-2,-1,0,1},
+            xticklabels={-1.4,-1.0,-0.6,-0.2},
+            xmin=-1.4, xmax=0.2,
+            ymin=-5, ymax=0.75,
+        ]
+    \coordinate (insetPosition) at (axis cs:-0.5,-3);
+        \addplot[domain=0.1:10,samples=100,blue,thick,-{Latex[length=3mm]}] 
+        ({-1100000/((x*x+100)*(x*x+10000))},{-10000*(1000-x*x)/(x*(x*x+100)*(x*x+10000))});
+        \addplot[domain=9:100,samples=100,blue,thick] 
+        ({-1100000/((x*x+100)*(x*x+10000))},{-10000*(1000-x*x)/(x*(x*x+100)*(x*x+10000))});
+    \draw[dashed,ultra thick] (axis cs:-1.1,-5) -- (axis cs:-1.1,0.25);
+    \end{axis}
+    \begin{axis}[at={(insetPosition)},
+        anchor={center},
+        footnotesize,
+        ticklabel style = 
+        {font=\footnotesize,
+        /pgf/number format/fixed,
+        /pgf/number format/precision=5},
+        scaled ticks=false,
+        axis x line=center,
+        axis y line=center,
+        xlabel style={below right},
+        ylabel style={above left},
+        x tick label style={above},
+        y tick label style={right},
+        width=0.3\textwidth,
+        xtick={-0.2,-0.1},
+        ytick={-0.03,-0.01,0.01},
+        yticklabels={-0.03,-0.01,0.01},
+        xmin=-0.2, xmax=0.05,
+        ymin=-0.04, ymax=0.03
+        ]
+        \addplot[blue,domain=20:30,samples=100,thick,-{Latex[length=3mm]}] 
+        ({-1100000/((x*x+100)*(x*x+10000))},{-10000*(1000-x*x)/(x*(x*x+100)*(x*x+10000))});%
+        \addplot[blue,domain=29:100,samples=100,thick] 
+        ({-1100000/((x*x+100)*(x*x+10000))},{-10000*(1000-x*x)/(x*(x*x+100)*(x*x+10000))});%
+        \addplot[blue,domain=100:500,samples=100,thick] 
+        ({-1100000/((x*x+100)*(x*x+10000))},{-10000*(1000-x*x)/(x*(x*x+100)*(x*x+10000))});%
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+    \caption{Diagramme de Nyquist de $H_1(\jw)$ avec un élargissement proche de l'origine montrant 
+    l'approche par un angle de -270\degreeSI. L'asymptote à -1.1 est représentée en pointillé.}
+\end{figure}
+
+Le lieu de Nyquist de $H_2(\jw)$ converge vers l'origine du plan complexe pour $\omega\rightarrow\infty$ avec
+une phase -360 (c.a.d $-2\pi$). Pour $\omega\rightarrow0$ le lieu de transfert possède un
+gain infini avec un déphasage de -90 (c.a.d $-\dfrac{\pi}{2})$).
+Pour déterminer la partie réelle de l'asymptote, décomposons $H_2(\jw)$ en partie réelle et imaginaire :
+$$
+H_2(\jw)=-\dfrac{100(\tau_2+2\tau_1-\tau_2\tau_1^2\omega^2)}{(1+\tau_1^2\omega^2)(1+\tau_2^2\omega^2)}-j\dfrac{100(1-2\tau_1\tau_2\omega^2-\tau_1^2\omega)}{\omega(1+\tau_1^2\omega^2)(1+\tau_2^2\omega^2)}
+$$
+
+L'asymptote est donc donné par la limite suivante :
+$$
+\lim\limits_{\omega\rightarrow0}-\dfrac{100(\tau_2+2\tau_1-\tau_2\tau_1^2\omega^2)}{(1+\tau_1^2\omega^2)(1+\tau_2^2\omega^2)}=
+-100(\tau_2+2\tau_1)=-210
+$$
+\begin{figure}[!h]
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below right},
+            ylabel style={above left},
+            x tick label style={above},
+            y tick label style={right},
+            width=0.6\textwidth,
+			xlabel={$\Re{H_2(\jw)}$},
+			ylabel={$\Im{H_2(\jw)}$},
+            xmin=-250, xmax=45,
+            ymin=-100, ymax=25,
+            restrict x to domain=-250:0.2,       
+            restrict y to domain=-100:20,       
+            clip =false
+        ]
+    \coordinate (insetPosition) at (axis cs: -100,-60);
+        \addplot[domain=0.1:0.5,samples=100,blue,thick,-{Latex[length=3mm]}] 
+        ({(-1000*(x*x+21))/((1+x*x)*(1+x*x)*(100+x*x))},{(-8*x*x-10)/(x*(1+x*x)*(1+x*x)*(1+0.01*x*x))}); 
+    \addplot[domain=0.4:1,samples=100,blue,thick] 
+        ({(-1000*(x*x+21))/((1+x*x)*(1+x*x)*(100+x*x))},{(-8*x*x-10)/(x*(1+x*x)*(1+x*x)*(1+0.01*x*x))}); 
+    \addplot[domain=1:10,samples=100,blue,thick] 
+        ({(-1000*(x*x+21))/((1+x*x)*(1+x*x)*(100+x*x))},{(-8*x*x-10)/(x*(1+x*x)*(1+x*x)*(1+0.01*x*x))}); 
+    \draw[dashed,ultra thick] (axis cs:-210,20) -- (axis cs:-210,-100);
+    \end{axis}
+    \begin{axis}[at={(insetPosition)},
+        anchor={center},
+        footnotesize,
+        ticklabel style =        {font=\scriptsize,
+        /pgf/number format/fixed,
+        /pgf/number format/precision=5},
+        scaled ticks=false,
+        axis x line=center,
+        axis y line=center,
+        xlabel style={below right},
+        ylabel style={above left},
+        x tick label style={above},
+        y tick label style={right},
+        width=0.3\textwidth,
+        xtick={-0.004},
+        ytick={-0.04,0.04},
+        xticklabels={-0.004},
+        yticklabels={-0.04,0.04},
+        xmin=-0.01, xmax=0.005,
+        ymin=-0.1, ymax=0.15,
+        restrict x to domain=-250:0.2,       
+        restrict y to domain=-100:2,       
+        ]
+        \addplot[domain=9:100,samples=100,blue,thick] 
+       ({(-110*x+10*x*x)/((1+x*x)*(1+x*x)*(1+0.01*x*x))},{(-100+120*x*x+10*x*x*x)/(x*(1+x*x)*(1+x*x)*(1+0.01*x*x))}); 
+        \addplot[domain=2:10,samples=100,blue,thick,-{Latex[length=3mm]}] 
+       ({(-110*x+10*x*x)/((1+x*x)*(1+x*x)*(1+0.01*x*x))},{(-100+120*x*x+10*x*x*x)/(x*(1+x*x)*(1+x*x)*(1+0.01*x*x))}); 
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+    \caption{Diagramme de Nyquist de $H_2(\jw)$ avec un élargissement proche de l'origine montrant 
+    l'approche par un angle de 0\degreeSI. L'asymptote à -210 est représentée en pointillé.}
+\end{figure}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Diagramme de Nyquist}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Pour chacunes des fonctions de transferts suivantes, tracer le lieu de Nyquist.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$\star$ $\boldsymbol{H_0(p)=\dfrac{1}{\jw(\jw+1)}}$\newline
+Cette fonction de transfert s'écrit, en identifiant explicitement la partie réelle et imaginaire, sous la 
 forme :
 \[
-    H(\jw)=-\dfrac{1}{1+\omega^2}-j\dfrac{\frac{1}{\omega}}{1+\omega^2}
+    H_0(\jw)=-\dfrac{1}{1+\omega^2}-j\dfrac{\frac{1}{\omega}}{1+\omega^2}
 \]
 Le diagramme de Nyquist consiste simplement a tracé la partie réelle et 
 imaginaire pour différentes valeurs de la pulsation de la sollicitation.
@@ -509,3 +854,325 @@ $\phi(\omega)$ de ce système:
 \]
 Le déphasage permet de déterminer l'allure du diagramme de Nyquist 
 lorsque $\omega$ approche zéro ou l'infini. 
+
+$\star$ $\boldsymbol{H_1(p)=\dfrac{1}{\left(1+\dfrac{p}{2}\right)(1+p)^2(1+2p)}}$\newline
+
+Récrivons la fonction de transfert sous la forme :
+\[
+H_1(p)=\dfrac{1}{(1+\frac{5}{2}p+p^2)(1+2p+p^2)}
+\]
+
+On a donc le produit de deux fonctions de transfert du second ordre.\newline
+\begin{center}
+\begin{tabular}{P{4cm}P{3cm}P{3cm}}
+    \hhline{===}
+    $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$ \\[2em]
+    \hhline{===}
+    $\dfrac{1}{1-\omega^2+\frac{5}{2}\jw}$ & $1\rightarrow0$ & $0\rightarrow-\pi$ \\[2em]
+    \hline
+    $\dfrac{1}{1-\omega^2+2\jw}$ & $1\rightarrow0$ & $0\rightarrow-\pi$ \\[2em]
+    \hline
+    $H_1(\jw)$ & $1\rightarrow0$ & $0\rightarrow-2\pi$\\[2em]
+    \hhline{===}
+\end{tabular}
+\end{center}
+Le diagramme de Nyquist présente donc un module décroissant de 1 à 0 et le déphasage varie de 0 à $2\pi$.
+Autrement dit, pour $\omega=0$ le nombre complexe $H_1(\jw)$ est un point sur l'axe réel de coordonnée (1,0) et
+pour $\omega\rightarrow\infty$ le lieu de Nyquist converge vers l'origine du plan complexe avec une phase de 0 ($-2\pi$).
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below right},
+            ylabel style={left},
+            x tick label style={above},
+            y tick label style={right},
+            width=0.6\textwidth,
+			xlabel={$\Re{H_1(\jw)}$},
+			ylabel={$\Im{H_1(\jw)}$},
+            xmin=-1.1, xmax=1.1,
+            ymin=-1.1, ymax=1.1,
+            clip =false
+        ]
+        \coordinate (insetPosition) at (axis cs: 0.75,0.75);
+        \addplot[domain=0:0.5,samples=100,blue,thick,-{Latex[length=3mm]}]
+        ({((1-x*x)*(1-x*x)-5*x*x)/(((1-x*x)*(1-x*x)+6.25*x*x)*((1-x*x)*(1-x*x)+4*x*x))},
+         {-(x*(1-x*x)*4.5)/(((1-x*x)*(1-x*x)+6.25*x*x)*((1-x*x)*(1-x*x)+4*x*x))});
+        \addplot[domain=0.4:2,samples=100,blue,thick]
+        ({((1-x*x)*(1-x*x)-5*x*x)/(((1-x*x)*(1-x*x)+6.25*x*x)*((1-x*x)*(1-x*x)+4*x*x))},
+         {-(x*(1-x*x)*4.5)/(((1-x*x)*(1-x*x)+6.25*x*x)*((1-x*x)*(1-x*x)+4*x*x))});
+        \addplot[domain=1.9:10,samples=100,blue,thick]
+        ({((1-x*x)*(1-x*x)-5*x*x)/(((1-x*x)*(1-x*x)+6.25*x*x)*((1-x*x)*(1-x*x)+4*x*x))},
+         {-(x*(1-x*x)*4.5)/(((1-x*x)*(1-x*x)+6.25*x*x)*((1-x*x)*(1-x*x)+4*x*x))});
+         \draw[draw=none,fill=blue] (axis cs:-0.2,0) circle[radius=1.5pt] node[above] {I};
+    \end{axis}
+    \begin{axis}[at={(insetPosition)},
+        anchor={center},
+        footnotesize,
+        ticklabel style =        {font=\scriptsize,
+        /pgf/number format/fixed,
+        /pgf/number format/precision=5},
+        scaled ticks=false,
+        axis x line=center,
+        axis y line=center,
+        xlabel style={below right},
+        ylabel style={above left},
+        x tick label style={above},
+        y tick label style={right},
+        width=0.3\textwidth,
+        xtick={-0.005},
+        ytick={-0.02,0.02},
+        xticklabels={-0.005},
+        yticklabels={-0.02,0.02},
+        xmin=-0.01, xmax=0.006,
+        ymin=-0.01, ymax=0.035,
+        ]
+        \addplot[domain=1.9:10,samples=100,blue,thick]
+        ({((1-x*x)*(1-x*x)-5*x*x)/(((1-x*x)*(1-x*x)+6.25*x*x)*((1-x*x)*(1-x*x)+4*x*x))},
+         {-(x*(1-x*x)*4.5)/(((1-x*x)*(1-x*x)+6.25*x*x)*((1-x*x)*(1-x*x)+4*x*x))});
+        \addplot[domain=1:2.5,samples=100,blue,thick,-{Latex[length=2mm]}]
+        ({((1-x*x)*(1-x*x)-5*x*x)/(((1-x*x)*(1-x*x)+6.25*x*x)*((1-x*x)*(1-x*x)+4*x*x))},
+         {-(x*(1-x*x)*4.5)/(((1-x*x)*(1-x*x)+6.25*x*x)*((1-x*x)*(1-x*x)+4*x*x))});
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\newpage
+
+$\star$ $\boldsymbol{H_2(p)= \dfrac{1-p}{(1+p)(1+3p+p^2)}}$\newline
+
+\begin{center}
+\begin{tabular}{P{4cm}P{3cm}P{3cm}}
+    \hhline{===}
+    $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$ \\[2em]
+    \hhline{===}
+    $1-\jw$ & $1\rightarrow\infty$ & $0\rightarrow-\dfrac{\pi}{2}$ \\[2em]
+    \hline
+    $\dfrac{1}{1+\jw}$ & $1\rightarrow0$ & $0\rightarrow-\dfrac{\pi}{2}$ \\[2em]
+    \hline
+    $\dfrac{1}{1-\omega^2+3\jw}$ & $1\rightarrow0$ & $0\rightarrow-\pi$ \\[2em]
+    \hline
+    $H_2(\jw)$ & $1\rightarrow0^{*}$ & $0\rightarrow-2\pi$\\[2em]
+    \hhline{===}
+\end{tabular}
+\end{center}
+
+$*$ \`A partir du tableau il est impossible de déterminer le module vers lequel converge le nombre
+complexe $H_2(\jw)$. Nous devons procéder à l'étude de la limite pour $\omega\rightarrow\infty$ :
+\begin{align*}
+    \lim\limits_{\omega\rightarrow\infty}|H_2(\jw)|&=
+    \lim\limits_{\omega\rightarrow\infty}\left|\dfrac{1-\jw}{(1+\jw)(1-\omega^2+3\jw)}\right|\\
+    &=\lim\limits_{\omega\rightarrow\infty}\dfrac{1}{\left(1-\omega^2\right)^2+9\omega^2}=0
+\end{align*}
+
+Le diagramme de Nyquist ci-dessous présente donc un module décroissant de 1 à 0 et un déphasage variant de 0 à $2\pi$.
+Autrement dit, pour $\omega=0$ le nombre complexe $H_1(\jw)$ est un point sur l'axe réel de coordonnée (1,0) et
+pour $\omega\rightarrow\infty$ le lieu de Nyquist converge vers l'origine du plan complexe avec une phase de 0 ($-2\pi$).
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below right},
+            ylabel style={left},
+            x tick label style={above},
+            y tick label style={right},
+            width=0.6\textwidth,
+			xlabel={$\Re{H_2(\jw)}$},
+			ylabel={$\Im{H_2(\jw)}$},
+            xmin=-1.1, xmax=1.1,
+            ymin=-1.1, ymax=1.1,
+            clip =false
+        ]
+        \coordinate (insetPosition) at (axis cs: 0.75,0.75);
+        \addplot[domain=0:0.5,samples=100,blue,thick,-{Latex[length=3mm]}]
+        ({((1-x*x)*(1-x*x)-6*x*x)/((1+x*x)*((1-x*x)*(1-x*x)+9*x*x))},
+         {(-5*x*(1-x*x))/((1+x*x)*((1-x*x)*(1-x*x)+9*x*x))});
+        \addplot[domain=0.4:2,samples=100,blue,thick]
+        ({((1-x*x)*(1-x*x)-6*x*x)/((1+x*x)*((1-x*x)*(1-x*x)+9*x*x))},
+         {(-5*x*(1-x*x))/((1+x*x)*((1-x*x)*(1-x*x)+9*x*x))});
+        \addplot[domain=1.9:10,samples=100,blue,thick]
+        ({((1-x*x)*(1-x*x)-6*x*x)/((1+x*x)*((1-x*x)*(1-x*x)+9*x*x))},
+         {(-5*x*(1-x*x))/((1+x*x)*((1-x*x)*(1-x*x)+9*x*x))});
+        \addplot[domain=9.9:30,samples=200,blue,thick]
+        ({((1-x*x)*(1-x*x)-6*x*x)/((1+x*x)*((1-x*x)*(1-x*x)+9*x*x))},
+         {(-5*x*(1-x*x))/((1+x*x)*((1-x*x)*(1-x*x)+9*x*x))});
+         \draw[draw=none,fill=blue] (axis cs:-0.333333,0) circle[radius=1.5pt] node[above] {I};
+    \end{axis}
+    \begin{axis}[at={(insetPosition)},
+        anchor={center},
+        footnotesize,
+        ticklabel style =        {font=\scriptsize,
+        /pgf/number format/fixed,
+        /pgf/number format/precision=5},
+        scaled ticks=false,
+        axis x line=center,
+        axis y line=center,
+        xlabel style={below right},
+        ylabel style={above left},
+        x tick label style={above},
+        y tick label style={right},
+        width=0.3\textwidth,
+        xtick={-0.02},
+        ytick={0.04},
+        xticklabels={-0.02},
+        yticklabels={0.04},
+        xmin=-0.03, xmax=0.03,
+        ymin=-0.03, ymax=0.15,
+        ]
+        \addplot[domain=1:30,samples=100,blue,thick]
+                ({((1-x*x)*(1-x*x)-6*x*x)/((1+x*x)*((1-x*x)*(1-x*x)+9*x*x))},
+                 {(-5*x*(1-x*x))/((1+x*x)*((1-x*x)*(1-x*x)+9*x*x))});
+        \addplot[domain=1:3,samples=100,blue,thick,-{Latex[length=2mm]}]
+                ({((1-x*x)*(1-x*x)-6*x*x)/((1+x*x)*((1-x*x)*(1-x*x)+9*x*x))},
+                 {(-5*x*(1-x*x))/((1+x*x)*((1-x*x)*(1-x*x)+9*x*x))});
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+    \newpage
+
+$\star$ $\boldsymbol{H_3(p)=\dfrac{2p-1}{p(3p-4)}}$\newline
+
+\begin{center}
+\begin{tabular}{P{4cm}P{3cm}P{3cm}}
+    \hhline{===}
+    $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$ \\[2em]
+    \hhline{===}
+    $2\jw-1$ & $1\rightarrow\infty$ & $0\rightarrow-\dfrac{\pi}{2}$ \\[2em]
+    \hline
+    $\dfrac{1}{4-3\jw}$ & $\dfrac{1}{4}\rightarrow0$ & $0\rightarrow\dfrac{\pi}{2}$ \\[2em]
+    \hline
+    $\dfrac{1}{\jw}$ & $\infty\rightarrow0$ & $-\dfrac{\pi}{2}$ \\[2em]
+    \hline
+    $H_3(\jw)$ & $\infty\rightarrow0^{*}$ & $-\dfrac{\pi}{2}$\\[2em]
+    \hhline{===}
+\end{tabular}
+\end{center}
+
+La limite en $\omega\rightarrow\infty$ de $H_3(\jw)$ doit être déterminée :
+\begin{align*}
+    \lim\limits_{\omega\rightarrow\infty}|H_3(\jw)|&= 
+    \lim\limits_{\omega\rightarrow\infty}\left|\dfrac{2\jw-1}{\jw(3\jw-4)}\right|\\
+    &=\lim\limits_{\omega\rightarrow\infty}\dfrac{1+4\omega^2}{\omega^2\left(9\omega^2+16\right)}=0
+\end{align*}
+
+Le diagramme de Nyquist présente donc un lieu venant avec une direction asymptotique de $-\dfrac{\pi}{2}$ de module
+infini et converge vers l'origine avec la même phase pour $\omega\rightarrow\infty$.
+
+La valeur de l'asymptote est déterminé par la limite pour $\omega\rightarrow0$ de la partie réel.
+Décomposons $H_3(\jw)$ en partie réelle et imaginaire :
+\[
+H_3(\jw)=\dfrac{-5}{9\omega^2+16}-j\dfrac{6\omega^2+4}{\omega(9\omega^2+16)}
+\]
+
+l'asymptote est donc donnée par :
+\[
+\lim\limits_{\omega\rightarrow0}\dfrac{-5}{9\omega^2+16}=-\dfrac{5}{16}=0.3125
+\]
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below},
+            ylabel style={left},
+            x tick label style={above},
+            y tick label style={right},
+            width=0.6\textwidth,
+			xlabel={$\Re{H_3(\jw)}$},
+			ylabel={$\Im{H_3(\jw)}$},
+            xmin=-0.62, xmax=0.42,
+            ymin=-1.52, ymax=0.62,
+        ]
+        \coordinate (insetPosition) at (axis cs: 0.75,0.75);
+        \addplot[domain=0.1:0.5,samples=100,blue,thick,-{Latex[length=3mm]}]
+        ({-5/(9*x*x+16)},
+         {-(6*x*x+4)/(x*(9*x*x+16))});
+        \addplot[domain=0.4:3,samples=100,blue,thick]
+        ({-5/(9*x*x+16)},
+         {-(6*x*x+4)/(x*(9*x*x+16))});
+        \addplot[domain=2.9:100,samples=100,blue,thick]
+        ({-5/(9*x*x+16)},
+         {-(6*x*x+4)/(x*(9*x*x+16))});
+         \draw[dashed,ultra thick] (axis cs:-0.3125,-1.5) -- (axis cs:-0.3125,0.5);
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+    \newpage
+    $\star$ $\boldsymbol{H_4(p)=\dfrac{1-2p}{p(1+p)}}$\newline
+
+\begin{center}
+\begin{tabular}{P{4cm}P{3cm}P{3cm}}
+    \hhline{===}
+    $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$ \\[2em]
+    \hhline{===}
+    $1-2\jw$ & $1\rightarrow\infty$ & $0\rightarrow-\dfrac{\pi}{2}$ \\[2em]
+    \hline
+    $\dfrac{1}{1+\jw}$ & $1\rightarrow0$ & $0\rightarrow-\dfrac{\pi}{2}$ \\[2em]
+    \hline
+    $\dfrac{1}{\jw}$ & $\infty\rightarrow0$ & $-\dfrac{\pi}{2}$ \\[2em]
+    \hline
+    $H_4(\jw)$ & $\infty\rightarrow0^{*}$ & $-\dfrac{\pi}{2}\rightarrow-\dfrac{3\pi}{2}$ \\[2em]
+    \hhline{===}
+\end{tabular}
+\end{center}
+La limite en $\omega\rightarrow\infty$ est indéterminée par le produit des modules des fonctions de transfert
+\ogélémentaires\fg. Déterminons la directement :
+\begin{align*}
+    \lim\limits_{\omega\rightarrow\infty}|H_4(\jw)|&=\lim\limits_{\omega\rightarrow\infty} \left|\dfrac{1-2\jw}{\jw(1+\jw)} \right|\\
+    &=\lim\limits_{\omega\rightarrow\infty}\dfrac{1+4\omega^2}{\omega^2(1+\omega^2)}=0
+\end{align*}
+
+Décomposons $H_4(\jw)$ en partie réelle et imaginaire :
+\[
+H_4(\jw)=\dfrac{-3}{1+\omega^2}-j\dfrac{1-2\omega^2}{\omega(1+\omega^2)}
+\]
+L'asymptote est donné par la limite de la partie réelle :
+\[
+\lim\limits_{\omega\rightarrow0}\dfrac{-3}{1+\omega^2}=-3
+\]
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below},
+            ylabel style={above left},
+            x tick label style={above},
+            y tick label style={right},
+            width=0.6\textwidth,
+			xlabel={$\Re{H_4(\jw)}$},
+			ylabel={$\Im{H_4(\jw)}$},
+            xtick={-3,-2,-1,1},
+            xticklabels={-3,-2,-1,1},
+            xmin=-3.2, xmax=1.2,
+            ymin=-4.2, ymax=1.2,
+        ]
+        \coordinate (insetPosition) at (axis cs: 0.75,0.75);
+        \addplot[domain=0.01:2,samples=100,blue,thick,-{Latex[length=3mm]}]
+        ({-3/(x*x+1)},
+         {-(1-2*x*x)/(x*(1+x*x))});
+        \addplot[domain=1.9:10,samples=100,blue,thick]
+        ({-3/(x*x+1)},
+         {-(1-2*x*x)/(x*(1+x*x))});
+        \addplot[domain=10:100,samples=100,blue,thick]
+        ({-3/(x*x+1)},
+         {-(1-2*x*x)/(x*(1+x*x))});
+         \draw[dashed,ultra thick] (axis cs:-3,-4) -- (axis cs:-3,1);
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Diagrammes de Nyquist~\difficile}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Tracer le diagramme de Nyquist de la 
+fonction de transfert suivante:}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
