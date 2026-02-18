@@ -1,0 +1,37 @@
+\documentclass[tikz,border={48pt 3pt 3pt 3pt}]{standalone}
+
+\input{preamble/tikz}
+\usepackage{siunitx}
+\usepackage{siunitxfmv}
+
+\begin{document}
+\begin{tikzpicture}[trim axis left]
+\begin{axis}[
+    ticklabel style = {font=\footnotesize},
+    width=0.7\linewidth,
+    height=0.35\linewidth,
+    xlabel={Pulsation (\si{\radian\per\second})},
+    ylabel={Phase (\degreeSI)},
+    xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5},
+    ytick={-270,-240,-210,-180,-150,-120,-90},
+    yticklabels={-270,-240,-210,-180,-150,-120,-90},
+    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
+    xmode=log,ymode=normal,
+    xmin=1e-2, xmax=1e5,
+    ymin=-270, ymax=-90,
+    grid=both,
+    major grid style={black!40}
+]
+    \addplot[signalb,domain=1e-4:1e5] {-90-atan2(0.1*x,1)-atan2(0.01*x,1)};
+    \addplot[signalr,dashed,domain=1e-4:1e1] {-90};
+    \addplot[signalr,dashed,domain=1e1:1e2] {-180};
+    \addplot[signalr,dashed,domain=1e2:1e5] {-270};
+    \draw[signalr,dashed] (axis cs:1e1,-90)  -- (axis cs:1e1,-180);
+    \draw[signalr,dashed] (axis cs:1e2,-180)  -- (axis cs:1e2,-270);
+    \draw[draw=none,fill=col1] (axis cs:1,-96.28353183518313) circle[radius=2pt];
+    \draw[draw=none,fill=col1] (axis cs:10,-140.71059313749964) circle[radius=2pt];
+    \draw[draw=none,fill=col1] (axis cs:100,-219.28940686250036) circle[radius=2pt];
+    \draw[draw=none,fill=col1] (axis cs:1000,-263.7164681648169) circle[radius=2pt];
+\end{axis}
+\end{tikzpicture}
+\end{document}
