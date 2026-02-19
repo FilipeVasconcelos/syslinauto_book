@@ -406,7 +406,7 @@ l'étude des \gls{slci}. Les diagrammes de Bode restent l'outil principale et
 fera l'objet d'une présentation plus détaillée.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Diagrammes de Bode}
+\subsection{Diagramme de Bode}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1141,7 +1141,7 @@ et
 \captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Diagrammes de Nyquist}
+\subsection{Diagramme de Nyquist}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1161,7 +1161,7 @@ Pour chacun des modèles usuels, nous appliquerons la procédure suivante :
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \includegraphics[width=\textwidth]{figtikz/nyquist_contour-chap_repfreq.pdf}
+    \includegraphics[width=0.8\textwidth]{figtikz/nyquist_contour-chap_repfreq.pdf}
     \caption{Contour de Nyquist: le lieu de Nyquist complet est 
              la courbe paramétrée des parties réelle et imaginaire 
              de $H(p)$ lorsque $p$ parcours ce contour.
@@ -1372,7 +1372,7 @@ Les parties réel et imaginaire de cette fonction de transfert sont données par
     +4\xi^2\omega_0^2\omega^2}
 \end{align*}
 %-------------------------------------------------------------------------------
-Les figures~\cref{fig-nyquist_2nd_1} présentent le tracé des lieux de Nyquist 
+La \cref{fig-nyquist_2nd_1} présente les tracés des lieux de Nyquist 
 pour deux valeurs de $\xi$. On observe que ces lieux ont la forme de cardioïde.
 Pour des valeurs de $\xi<\dfrac{\sqrt{2}}{2}$, on observe un renflement, sur 
 la partie droite du lieu de Nyquist, dû à l'augmentation
@@ -1444,12 +1444,60 @@ spirale qui convergent vers 0.
 %             \label{fig-nyquist_effet_retard_2}}
 %\end{figure}
 %-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Synthèse des contributions élémentaires}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Les diagrammes de Nyquist des systèmes usuels peuvent être construits en
+combinant les contributions de fonctions de transfert élémentaires. Chaque
+terme influence de manière caractéristique le module et l'argument de la
+fonction de transfert lorsque la pulsation $\omega$ varie de $0$ à
+$+\infty$.
+
+Le~\cref{tab:nyquist_resume} synthétise les variations asymptotiques du
+module et de l'argument pour les principaux termes rencontrés en automatique.
+Il constitue un outil pratique permettant :
+
+\begin{itemize}
+    \item de tracer rapidement un diagramme de Nyquist sans calcul détaillé,
+    \item de prévoir la forme générale du lieu de Nyquist,
+    \item d'interpréter l'effet de chaque pôle, zéro ou retard,
+    \item d'analyser qualitativement la stabilité d'un système bouclé.
+\end{itemize}
+
+Plus généralement, le diagramme de Nyquist d'une fonction de transfert
+quelconque s'obtient en combinant ces effets élémentaires, le module étant le
+produit des modules et l'argument étant la somme des arguments.
+\begin{center}
+    \begin{tabular}{P{4cm}P{3cm}P{3cm}}
+    \hhline{===}
+    $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$\\[1em]
+    \hhline{===}
+    $\dfrac{1}{\jw}$ & $\infty\rightarrow 0$ & $-\dfrac{\pi}{2}$\\[1em]
+    \hline
+    $\dfrac{1}{1+\jtw}$ & $1\rightarrow0$ & $0\rightarrow-\dfrac{\pi}{2}$\\[1em]
+    \hline
+    $\dfrac{1}{(1-\tau^2_n\omega^2)+j2\xi\tau_n\omega}$ & $1\rightarrow0$ & $0\rightarrow-\pi$\\[1em]
+    \hline
+    $e^{-\jtw}$ & 1 & $0\rightarrow\infty$\\[1em]
+    \hline
+    $1+\jtw$ & $1\rightarrow\infty$& $0\rightarrow\dfrac{\pi}{2}$\\[1em]
+    \hline
+    $\dfrac{1}{1-\jtw}$ & $1\rightarrow0$& $0\rightarrow\dfrac{\pi}{2}$\\[1em]
+    \hline
+    $1-\jtw$ & $1\rightarrow\infty$& $0\rightarrow-\dfrac{\pi}{2}$\\[1em]
+    \hline
+    $\dfrac{1}{(1-\tau^2_n\omega^2)-j2\xi\tau_n\omega}$ & $1\rightarrow0$& $0\rightarrow\pi$\\[1em]
+    \hhline{===}
+    \end{tabular}
+    \captionof{table}{Variation du module et de l'argument du nombre 
+                      complexe $H(\jw)$ lorsque $\omega$ varie de $0\rightarrow\infty$\label{tab:nyquist_resume}}
+\end{center}
 \clearpage
 \input{re/newgeometry}
 \captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Diagrammes de Black-Nichols}
+\subsection{Diagramme de Black-Nichols}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1468,7 +1516,7 @@ Pour chacun des modèles usuels, nous appliquerons la procédure suivante :
 \end{itemize}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Diagrammes de Black d'un intégrateur pur}
+\subsubsection{Diagramme de Black d'un intégrateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La fonction de transfert complexe d'un intégrateur
 pur est simplement donnée par
@@ -1499,7 +1547,7 @@ Contrairement au diagramme de Bode, l'effet du gain n'est pas
 explicite sur le lieu de Black. Cependant pour déterminer $K$ il suffit de 
 connaître la pulsation qui donne un gain de \SI{0}{\dB}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Diagrammes de Black d'un dérivateur pur}
+\subsubsection{Diagramme de Black d'un dérivateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La fonction de transfert complexe d'un dérivateur pur est simplement donnée par
 \[
@@ -1529,7 +1577,7 @@ s'annule (en \si{\dB}) pour $\omega=\dfrac{1}{K}$.
 \restoregeometry
 \captionsetup{width=0.9\linewidth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Diagrammes de Black d'un premier ordre}
+\subsubsection{Diagramme de Black d'un premier ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La fonction de transfert complexe d'un premier ordre est simplement donnée par :
 \[
@@ -1552,7 +1600,7 @@ La~\cref{fig-black_3} présente le diagramme de Black d'un premier ordre.
 \end{figure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Diagrammes de Black d'un second ordre}
+\subsubsection{Diagramme de Black d'un second ordre}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 La fonction de transfert complexe d'un second ordre est simplement donnée par :
 \[
