@@ -1,11 +1,9 @@
 \documentclass[tikz,border={48pt 3pt 3pt 3pt}]{standalone}
-
 \input{preamble/tikz}
 \usepackage{siunitx}
 \usepackage{siunitxfmv}
-
 \begin{document}
-
+\tikzstyle{dr}=[signalr,dashed,line width=2pt]
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -23,9 +21,9 @@
     major grid style={black!40}
 ]
     \addplot[signalb,domain=1e-2:1e5]    {20-20*log10(x)-10*log10(1+0.01*x*x)-10*log10(1+0.0001*x*x)};
-    \addplot[signalr,dashed,domain=1e-2:1e1] {20-20*log10(x)};
-    \addplot[signal,dashed,domain=1e1:1e2] {40-40*log10(x)};
-    \addplot[signalr,dashed,domain=1e2:1e5] {80-60*log10(x)};
+    \addplot[dr,domain=1e-2:1e1] {20-20*log10(x)};
+    \addplot[dr,domain=1e1:1e2] {40-40*log10(x)};
+    \addplot[dr,domain=1e2:1e5] {80-60*log10(x)};
     \draw[draw=none,fill=col1] (axis cs:1,19.956351989404947) circle[radius=2pt];
     \draw[draw=none,fill=col1] (axis cs:10,-3.053513694466238) circle[radius=2pt];
     \draw[draw=none,fill=col1] (axis cs:100,-43.05351369446624) circle[radius=2pt];

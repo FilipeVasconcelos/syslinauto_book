@@ -1,10 +1,9 @@
 \documentclass[tikz,border={48pt 3pt 3pt 3pt}]{standalone}
-
 \input{preamble/tikz}
 \usepackage{siunitx}
 \usepackage{siunitxfmv}
-
 \begin{document}
+\tikzstyle{dr}=[signalr,dashed,line width=2pt]
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -23,11 +22,11 @@
     major grid style={black!40}
 ]
     \addplot[signalb,domain=1e-4:1e5] {-90-atan2(0.1*x,1)-atan2(0.01*x,1)};
-    \addplot[signalr,dashed,domain=1e-4:1e1] {-90};
-    \addplot[signalr,dashed,domain=1e1:1e2] {-180};
-    \addplot[signalr,dashed,domain=1e2:1e5] {-270};
-    \draw[signalr,dashed] (axis cs:1e1,-90)  -- (axis cs:1e1,-180);
-    \draw[signalr,dashed] (axis cs:1e2,-180)  -- (axis cs:1e2,-270);
+    \addplot[dr,domain=1e-4:1e1] {-90};
+    \addplot[dr,domain=1e1:1e2] {-180};
+    \addplot[dr,domain=1e2:1e5] {-270};
+    \draw[dr] (axis cs:1e1,-90)  -- (axis cs:1e1,-180);
+    \draw[dr] (axis cs:1e2,-180)  -- (axis cs:1e2,-270);
     \draw[draw=none,fill=col1] (axis cs:1,-96.28353183518313) circle[radius=2pt];
     \draw[draw=none,fill=col1] (axis cs:10,-140.71059313749964) circle[radius=2pt];
     \draw[draw=none,fill=col1] (axis cs:100,-219.28940686250036) circle[radius=2pt];

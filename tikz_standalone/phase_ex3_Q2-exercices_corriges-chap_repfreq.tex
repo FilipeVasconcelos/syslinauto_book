@@ -3,6 +3,7 @@
 \usepackage{siunitx}
 \usepackage{siunitxfmv}
 \begin{document}
+\tikzstyle{dr}=[signalr,dashed,line width=2pt]
 \begin{tikzpicture}[trim axis left]
 \begin{axis}[
     ticklabel style = {font=\footnotesize},
@@ -21,15 +22,15 @@
     major grid style={black!40}
 ]
     \addplot[signalb,domain=1e-3:1e4] {-90-2*atan2(x,1)-atan2(0.1*x,1)};
-    \addplot[line width=2pt,red,dashed,domain=1e-3:1e0, samples=51] {-90};
-    \addplot[line width=2pt,red,dashed,domain=1e0:1e1, samples=51] {-270};
-    \addplot[line width=2pt,red,dashed,domain=1e1:1e5, samples=51] {-360};
-    \draw[line width=2pt,red,dashed] (axis cs:1e0,-90)  -- (axis cs:1e0,-270);
-    \draw[line width=2pt,red,dashed] (axis cs:1e1,-270)  -- (axis cs:1e1,-360);
-    \draw[draw=none,fill=blue] (axis cs:0.1,-102) circle[radius=2pt];
-    \draw[draw=none,fill=blue] (axis cs:1,-185.71059313749964) circle[radius=2pt];
-    \draw[draw=none,fill=blue] (axis cs:10,-303.5788137250007) circle[radius=2pt];
-    \draw[draw=none,fill=blue] (axis cs:100,-353.1435294671334) circle[radius=2pt];
+    \addplot[dr,domain=1e-3:1e0] {-90};
+    \addplot[dr,domain=1e0:1e1] {-270};
+    \addplot[dr,domain=1e1:1e5] {-360};
+    \draw[dr] (axis cs:1e0,-90)  -- (axis cs:1e0,-270);
+    \draw[dr] (axis cs:1e1,-270)  -- (axis cs:1e1,-360);
+    \draw[draw=none,fill=col1] (axis cs:0.1,-102) circle[radius=2pt];
+    \draw[draw=none,fill=col1] (axis cs:1,-185.71059313749964) circle[radius=2pt];
+    \draw[draw=none,fill=col1] (axis cs:10,-303.5788137250007) circle[radius=2pt];
+    \draw[draw=none,fill=col1] (axis cs:100,-353.1435294671334) circle[radius=2pt];
 \end{axis}
 \end{tikzpicture}
 \end{document}
