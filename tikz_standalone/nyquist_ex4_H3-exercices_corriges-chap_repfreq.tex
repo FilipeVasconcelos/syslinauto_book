@@ -1,0 +1,32 @@
+\documentclass[tikz,border=3pt]{standalone}
+\input{preamble/tikz}
+\input{preamble/fmv}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below},
+            ylabel style={left},
+            x tick label style={above},
+            y tick label style={right},
+            width=0.6\textwidth,
+            xlabel={$\Re{H_3(\jw)}$},
+            ylabel={$\Im{H_3(\jw)}$},
+            xmin=-0.62, xmax=0.42,
+            ymin=-1.52, ymax=0.62,
+        ]
+        \coordinate (insetPosition) at (axis cs: 0.75,0.75);
+        \addplot[domain=0.1:0.5,signalb,-{Latex[length=3mm]}]
+        ({-5/(9*x*x+16)},
+         {-(6*x*x+4)/(x*(9*x*x+16))});
+        \addplot[domain=0.4:3,signalb]
+        ({-5/(9*x*x+16)},
+         {-(6*x*x+4)/(x*(9*x*x+16))});
+        \addplot[domain=2.9:100,signalb]
+        ({-5/(9*x*x+16)},
+         {-(6*x*x+4)/(x*(9*x*x+16))});
+         \draw[dashed,ultra thick] (axis cs:-0.3125,-1.5) -- (axis cs:-0.3125,0.5);
+    \end{axis}
+\end{tikzpicture}
+\end{document}

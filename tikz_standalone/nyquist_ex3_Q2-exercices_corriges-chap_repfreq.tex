@@ -1,0 +1,60 @@
+\documentclass[tikz,border={48pt 3pt 3pt 3pt}]{standalone}
+\input{preamble/tikz}
+\input{preamble/fmv}
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below right},
+            ylabel style={above left},
+            x tick label style={above},
+            y tick label style={right},
+            width=0.6\textwidth,
+            xlabel={$\Re{H_2(\jw)}$},
+            ylabel={$\Im{H_2(\jw)}$},
+            xmin=-250, xmax=45,
+            ymin=-100, ymax=25,
+            restrict x to domain=-250:0.2,
+            restrict y to domain=-100:20,
+            clip =false]
+    \coordinate (insetPosition) at (axis cs: -100,-60);
+        \addplot[domain=0.1:0.5,signalb,-{Latex[length=3mm]}]
+        ({(-1000*(x*x+21))/((1+x*x)*(1+x*x)*(100+x*x))},{(-8*x*x-10)/(x*(1+x*x)*(1+x*x)*(1+0.01*x*x))});
+    \addplot[domain=0.4:1,signalb]
+        ({(-1000*(x*x+21))/((1+x*x)*(1+x*x)*(100+x*x))},{(-8*x*x-10)/(x*(1+x*x)*(1+x*x)*(1+0.01*x*x))});
+    \addplot[domain=1:10,signalb]
+        ({(-1000*(x*x+21))/((1+x*x)*(1+x*x)*(100+x*x))},{(-8*x*x-10)/(x*(1+x*x)*(1+x*x)*(1+0.01*x*x))});
+    \draw[dashed,ultra thick] (axis cs:-210,20) -- (axis cs:-210,-100);
+    \end{axis}
+    \begin{axis}[at={(insetPosition)},
+        grid=none,
+        anchor={center},
+        footnotesize,
+        ticklabel style ={font=\scriptsize,
+        /pgf/number format/fixed,
+        /pgf/number format/precision=5},
+        scaled ticks=false,
+        axis x line=center,
+        axis y line=center,
+        xlabel style={below right},
+        ylabel style={above left},
+        x tick label style={above},
+        y tick label style={right},
+        width=0.3\textwidth,
+        xtick={-0.004},
+        ytick={-0.04,0.04},
+        xticklabels={-0.004},
+        yticklabels={-0.04,0.04},
+        xmin=-0.01, xmax=0.005,
+        ymin=-0.1, ymax=0.15,
+        restrict x to domain=-250:0.2,
+        restrict y to domain=-100:2,
+        ]
+        \addplot[signalb,domain=9:100]
+       ({(-110*x+10*x*x)/((1+x*x)*(1+x*x)*(1+0.01*x*x))},{(-100+120*x*x+10*x*x*x)/(x*(1+x*x)*(1+x*x)*(1+0.01*x*x))});
+        \addplot[signalb,domain=2:10,-{Latex[length=3mm]}]
+       ({(-110*x+10*x*x)/((1+x*x)*(1+x*x)*(1+0.01*x*x))},{(-100+120*x*x+10*x*x*x)/(x*(1+x*x)*(1+x*x)*(1+0.01*x*x))});
+    \end{axis}
+\end{tikzpicture}
+\end{document}

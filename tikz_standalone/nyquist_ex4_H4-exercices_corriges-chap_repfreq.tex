@@ -1,0 +1,34 @@
+\documentclass[tikz,border=3pt]{standalone}
+\input{preamble/tikz}
+\input{preamble/fmv}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below},
+            ylabel style={above left},
+            x tick label style={above},
+            y tick label style={right},
+            width=0.6\textwidth,
+            xlabel={$\Re{H_4(\jw)}$},
+            ylabel={$\Im{H_4(\jw)}$},
+            xtick={-3,-2,-1,1},
+            xticklabels={-3,-2,-1,1},
+            xmin=-3.2, xmax=1.2,
+            ymin=-4.2, ymax=1.2,
+        ]
+        \coordinate (insetPosition) at (axis cs: 0.75,0.75);
+        \addplot[domain=0.01:2,signalb,-{Latex[length=3mm]}]
+        ({-3/(x*x+1)},
+         {-(1-2*x*x)/(x*(1+x*x))});
+        \addplot[domain=1.9:10,signalb]
+        ({-3/(x*x+1)},
+         {-(1-2*x*x)/(x*(1+x*x))});
+        \addplot[domain=10:100,signalb]
+        ({-3/(x*x+1)},
+         {-(1-2*x*x)/(x*(1+x*x))});
+         \draw[dashed,ultra thick] (axis cs:-3,-4) -- (axis cs:-3,1);
+    \end{axis}
+\end{tikzpicture}
+\end{document}

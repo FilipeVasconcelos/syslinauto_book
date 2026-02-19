@@ -1,0 +1,59 @@
+\documentclass[tikz,border={48pt 3pt 3pt 3pt}]{standalone}
+\input{preamble/tikz}
+\input{preamble/fmv}
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+            axis x line=center,
+            axis y line=center,
+            xlabel style={below right},
+            ylabel style={above left},
+            x tick label style={above},
+            y tick label style={right},
+            width=0.6\textwidth,
+            xlabel={$\Re{H_1(\jw)}$},
+            ylabel={$\Im{H_1(\jw)}$},
+            xtick={-1.4,-1.0,-0.6,-0.2},
+            ytick={-5,-4,-3,-2,-1,0,1},
+            xticklabels={-1.4,-1.0,-0.6,-0.2},
+            xmin=-1.4, xmax=0.2,
+            ymin=-5, ymax=0.75,
+        ]
+    \coordinate (insetPosition) at (axis cs:-0.5,-3);
+        \addplot[domain=0.1:10,signalb,-{Latex[length=3mm]}]
+        ({-1100000/((x*x+100)*(x*x+10000))},{-10000*(1000-x*x)/(x*(x*x+100)*(x*x+10000))});
+        \addplot[domain=9:100,signalb]
+        ({-1100000/((x*x+100)*(x*x+10000))},{-10000*(1000-x*x)/(x*(x*x+100)*(x*x+10000))});
+    \draw[dashed,ultra thick] (axis cs:-1.1,-5) -- (axis cs:-1.1,0.25);
+    \end{axis}
+    \begin{axis}[at={(insetPosition)},
+        grid=none,
+        anchor={center},
+        footnotesize,
+        ticklabel style =
+        {font=\footnotesize,
+        /pgf/number format/fixed,
+        /pgf/number format/precision=5},
+        scaled ticks=false,
+        axis x line=center,
+        axis y line=center,
+        xlabel style={below right},
+        ylabel style={above left},
+        x tick label style={above},
+        y tick label style={right},
+        width=0.3\textwidth,
+        xtick={-0.2,-0.1},
+        ytick={-0.03,-0.01,0.01},
+        yticklabels={-0.03,-0.01,0.01},
+        xmin=-0.2, xmax=0.05,
+        ymin=-0.04, ymax=0.03
+        ]
+        \addplot[signalb,domain=20:30,-{Latex[length=3mm]}]
+        ({-1100000/((x*x+100)*(x*x+10000))},{-10000*(1000-x*x)/(x*(x*x+100)*(x*x+10000))});%
+        \addplot[signalb,domain=29:100]
+        ({-1100000/((x*x+100)*(x*x+10000))},{-10000*(1000-x*x)/(x*(x*x+100)*(x*x+10000))});%
+        \addplot[signalb,domain=100:500]
+        ({-1100000/((x*x+100)*(x*x+10000))},{-10000*(1000-x*x)/(x*(x*x+100)*(x*x+10000))});%
+    \end{axis}
+\end{tikzpicture}
+\end{document}
