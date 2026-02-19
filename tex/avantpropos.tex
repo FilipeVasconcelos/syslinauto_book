@@ -43,7 +43,6 @@ Dans ce cours nous présenterons que les principes d'asservissement et de
 régulation. Nous verrons comment il est possible d'élaborer une commande 
 adaptée (dite \textbf{corrigée}) pour un procédé quelconque, notamment 
 lorsque ceux-ci présenterons des défauts de performance.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Organisation du document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,26 +86,32 @@ approfondir quelques aspects hors programme pour une deuxième lecture.
 \newcommand{\mysize}{\footnotesize}
 \newcommand{\mysized}{\normalsize}
 \node[below=of M,pos1] {\vbox {\mysize
+%-------------------------------------------------------------------------------
                                     \begin{itemize}
                                         \item Mise en équation du système
                                         \item Modèles usuels
                                         \item Outils Mathématiques
                                     \end{itemize}}};
+%-------------------------------------------------------------------------------
 \node[below=of N,pos1] {\vbox {\mysize
+%-------------------------------------------------------------------------------
                                     \begin{itemize}
                                         \item Réponses aux sollicitations
                                         \item Identification
                                         \item Caractérisation
                                         \item Performances
                                     \end{itemize}}};
+%-------------------------------------------------------------------------------
 \node[below=of S,pos1] {\vbox {\mysize
-                                    \begin{itemize}
+%-------------------------------------------------------------------------------
+                    \begin{itemize}
 				        \item Consigne
 				        \item Commande
-					\item Asservissement
-					\item Régulation
-                                        \item Correction
-                                    \end{itemize}}};
+				  	    \item Asservissement
+					    \item Régulation
+                        \item Correction
+                    \end{itemize}}};
+%-------------------------------------------------------------------------------
 \tikzset{pos2/.style={fill=col4!10!white,
                       yshift=-10em,
                       text width=4.0cm,
@@ -114,23 +119,29 @@ approfondir quelques aspects hors programme pour une deuxième lecture.
                       rounded corners=12pt}
 }
 \node[below=of M,pos2] {\vbox {\mysized
+%-------------------------------------------------------------------------------
                                     \begin{itemize}
                                         \item \Cref{chap-slci}
                                         \item \Cref{chap-schemabloc}
                                         \item \Cref{chap-model} 
                                         \item \Cref{chap-repreEtat} 
                                     \end{itemize}}};
+%-------------------------------------------------------------------------------
 \node[below=of N,pos2] {\vbox {\mysized
+%-------------------------------------------------------------------------------
                                     \begin{itemize}
                                         \item \Cref{chap-repfreq}
                                         \item \Cref{chap-perf} 
                                         \item \Cref{chap-stab} 
                                     \end{itemize}}};
+%-------------------------------------------------------------------------------
 \node[below=of S,pos2] {\vbox {\mysized
+%-------------------------------------------------------------------------------
                                     \begin{itemize}
                                         \item \Cref{chap-asservis} 
                                         \item \Cref{chap-correc} 
                                     \end{itemize}}};
+%-------------------------------------------------------------------------------
 \end{tikzpicture}
         }
     \caption{Organisation du document.\label{fig-diagramme_cours}}

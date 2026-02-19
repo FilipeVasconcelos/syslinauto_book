@@ -93,15 +93,16 @@
                du correcteur est d'améliorer les performances du système 
                en minimisant les erreurs et en optimisant les performances 
                telles que la stabilité, la rapidité et la précision. 
-               Il existe différents types de correcteurs, tels que les correcteurs 
-               proportionnels (P), intégrateurs (I), dérivés (D), 
-               et les combinaisons de ceux-ci, qui sont choisis en fonction 
-               des spécificités du système et des exigences de performance.}
+               Il existe différents types de correcteurs, tels que 
+               les correcteurs proportionnels (P), 
+               intégrateurs (I), dérivés (D), et les combinaisons de 
+               ceux-ci, qui sont choisis en fonction des spécificités 
+               du système et des exigences de performance.}
 }
 \newglossaryentry{tempsdemontee}%
 {% 
   name={Temps de montée},% 
-  description={Le temps de montée est la durée de l'intervalle de temps d'une 
+  description={Le temps de montée est la durée de l'intervalle de temps d'une
   réponse temporelle passe d'une réponse 
   }
 }
@@ -203,10 +204,11 @@
                employé dans les domaines de l'électronique et de l'automatique 
                afin d'évaluer la stabilité d'un système en boucle fermée. Il 
                représente, dans le plan complexe, la réponse harmonique du 
-               système en boucle ouverte associé. L'angle de phase et la distance 
-               du point à l'origine déterminent respectivement la phase 
-               et l'amplitude de la réponse harmonique. À l'instar du~\gls{diagblack}, 
-               celui de Nyquist fusionne les deux types de diagrammes de Bode.} 
+               système en boucle ouverte associé. L'angle de phase et la 
+               distance du point à l'origine déterminent respectivement 
+               la phase et l'amplitude de la réponse harmonique. 
+               À l'instar du~\gls{diagblack}, celui de Nyquist fusionne 
+               les deux types de diagrammes de Bode.} 
 }
 \newglossaryentry{diagblack}%
 {% 
@@ -249,12 +251,16 @@
 \newglossaryentry{impulsDirac}%
 {% 
   name={Impulsion de Dirac},% 
-  description={Autrement appelée plus formellement \emph{distribution de Dirac}, 
-               ce signal sert en physique à décrire des événements ponctuels. 
-               Pour les besoins du formalisme quantique, Dirac a introduit cet objet 
-               singulier, qu'on appelle aujourd'hui \og~impulsion de Dirac\fg, notée $\delta(t)$. 
-               Cette impulsion représente un signal de durée théoriquement nulle 
-               et d'énergie finie.}
+  description={Nommée plus formellement \emph{distribution de Dirac}, 
+               ce concept mathématique permet de décrire des événements 
+               physiques ponctuels. Introduit par Paul Dirac pour les 
+               besoins de la mécanique quantique, cet objet singulier, 
+               noté $\delta(t)$, modélise un signal de durée nulle mais 
+               d'aire (ou impulsion) unité : 
+               $\int_{-\infty}^{+\infty} \delta(t) \dd{t} = 1$.
+               En automatique, elle représente l'entrée idéale pour 
+               caractériser la dynamique d'un système par sa réponse 
+               impulsionnelle.}
 }
 \newglossaryentry{echelon}%
 {% 

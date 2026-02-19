@@ -2,8 +2,27 @@
 GRE='\033[0;32m'
 RED='\033[0;31m'
 NOC='\033[0m'
+EXCLUDES=(
+    "avantpropos.tex"
+)
 for file in $1/*.tex
 do
+    # Ignore les fichiers exclus
+    base=$(basename "$file")
+
+    # Vérifie si le fichier est dans la liste d'exclusion
+    skip=false
+    for exclude in "${EXCLUDES[@]}"
+    do
+        if [ "$base" = "$exclude" ]; then
+            echo $exclude excluded
+            skip=true
+            break
+        fi
+    done
+
+    $skip && continue
+
     check1=$(bin/check_tikz ${file})
     if [ ! -z "${check1}" ]
     then 

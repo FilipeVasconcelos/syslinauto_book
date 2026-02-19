@@ -1,15 +1,7 @@
 \documentclass[tikz,border=3pt]{standalone}
-
 \input{preamble/tikz}
-
 \begin{document}
-
 \begin{tikzpicture}
-%    \pgfplotsset{signaltmp/.style={signaln,
-%                                   domain=0.01:0.85,
-%                                   restrict y to domain=0.01:0.99,
-%                                   unbounded coords=jump}}
-    %\pgfmathsetmacro{\pi}{3.141592653589793}     % dépassement d4 
     \begin{axis}
     [   xmode=log,
         ymode=log,
@@ -29,12 +21,11 @@
         label style={font=\Large},
         legend cell align={left},
     ]
-    \addplot[vtcol1,samples=256,domain=0.01:0.95] {exp(-(x*pi)/(sqrt(1-x*x)))};
-    \addplot[vtcol2,samples=256,domain=0.01:0.95] {exp(-(2*x*pi)/(sqrt(1-x*x)))};
-    \addplot[vtcol3,samples=256,domain=0.01:0.95] {exp(-(3*x*pi)/(sqrt(1-x*x)))};
-    \addplot[vtcol4,samples=256,domain=0.01:0.95] {exp(-(4*x*pi)/(sqrt(1-x*x)))};
+    \addplot[vtcol1,samples=256,domain=0.01:0.95]{exp(-(x*pi)/(sqrt(1-x*x)))};
+    \addplot[vtcol2,samples=256,domain=0.01:0.95]{exp(-(2*x*pi)/(sqrt(1-x*x)))};
+    \addplot[vtcol3,samples=256,domain=0.01:0.95]{exp(-(3*x*pi)/(sqrt(1-x*x)))};
+    \addplot[vtcol4,samples=256,domain=0.01:0.95]{exp(-(4*x*pi)/(sqrt(1-x*x)))};
     \legend{$k=1$,$k=2$,$k=3$,$k=4$}
     \end{axis}
 \end{tikzpicture}
-
 \end{document}

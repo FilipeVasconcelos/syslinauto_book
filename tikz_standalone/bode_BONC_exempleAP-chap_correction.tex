@@ -1,17 +1,14 @@
 \documentclass[tikz,border=3pt]{standalone}
-
 \input{preamble/tikz}
 \usepackage{siunitx}
 \graphicspath{{./fig/chap_correction}}
-
 \begin{document}
-
 \begin{tikzpicture}
     \coordinate (start) at (-0.52,-2.4);
     \coordinate (end) at (-0.52,-2.05);
-    \node {\includegraphics[width=0.8\textwidth] {bode_BONC_exemple-chap_correction.eps}};
+    \node {\includegraphics
+           [width=0.8\textwidth] {bode_BONC_exemple-chap_correction.eps}};
     \draw[dblarw={col4}{1pt}{1pt}] (start) -- node[midway,left] 
     {$M_\phi=\SI{11.3}{\degree}$}  (end) ; 
 \end{tikzpicture}
-
 \end{document}

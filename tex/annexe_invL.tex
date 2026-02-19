@@ -7,7 +7,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -34,8 +33,9 @@ Avant de tester ces méthodes sur les systèmes linéaires, nous l'appliquerons
 \]
 dont on connaît la forme analytique exacte.
 Il faut noter que les méthodes et algorithmes présentés ici dépendent 
-largement de la précision machine accessible pour le calcul en virgule flottante.
-L'usage de librairie en précision arbitraire comme \texttt{mpmath} peut être 
+largement de la précision machine accessible pour le calcul 
+en virgule flottante. L'usage de librairie en précision arbitraire 
+comme \texttt{mpmath} peut être 
 nécessaire pour obtenir des résultats de meilleure précision. Il est également
 connu que toutes les méthodes d'inversion numérique présente des problèmes
 aux temps longs lorsque la fonction à inverser présente des pôles ce qui 
@@ -116,8 +116,8 @@ qui se présente sous la forme :
 \[
 f(t) = \dfrac{r}{M} 
 \left\{ 
-    \dfrac{1}{2} F(r) e^{rt}+ \sum_{k=1}^{M-1} 
-    \textrm{Re}\left[ e^{ts(\theta_k)} F(s(\theta_k)) (1+i\sigma(\theta_k))\right]
+\dfrac{1}{2} F(r) e^{rt}+ \sum_{k=1}^{M-1} 
+\textrm{Re}\left[ e^{ts(\theta_k)} F(s(\theta_k)) (1+i\sigma(\theta_k))\right]
 \right\}
 \]
 avec $\theta_k=\frac{k\pi}{M}$, et les relations (19), (16) et (11) de [3] 
@@ -176,8 +176,9 @@ pour comparer les résultats obtenus.
     sont légèrement décaler pour permettre la comparaison
 
     \textbf{(en bas)} Différence
-    relative de chacune des deux approches avec la réponse temporelle exacte calculée
-    avec la fonction \texttt{premier\_ordre}.~\label{fig-1erOrdreInvL}}
+    relative de chacune des deux approches avec la réponse 
+    temporelle exacte calculée avec la fonction 
+    \texttt{premier\_ordre}.~\label{fig-1erOrdreInvL}}
 \end{figure}
 %-------------------------------------------------------------------------------
 \clearpage
@@ -193,8 +194,8 @@ pour comparer les résultats obtenus.
 \begin{figure}[!hb]
     \centering
     \includegraphics[width=0.9\linewidth]{2nd_ordre_talbot.eps}
-    \caption{Même présentation que~\cref{fig-1erOrdreInvL} dans le cas d'un système
-    du second ordre}
+    \caption{Même présentation que~\cref{fig-1erOrdreInvL} dans le cas 
+             d'un système du second ordre}
 \end{figure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

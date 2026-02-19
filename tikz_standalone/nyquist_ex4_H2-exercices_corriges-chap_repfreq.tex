@@ -30,7 +30,8 @@
         \addplot[domain=9.9:30,signalb]
         ({((1-x*x)*(1-x*x)-6*x*x)/((1+x*x)*((1-x*x)*(1-x*x)+9*x*x))},
          {(-5*x*(1-x*x))/((1+x*x)*((1-x*x)*(1-x*x)+9*x*x))});
-         \draw[draw=none,fill=col1] (axis cs:-0.333333,0) circle[radius=1.5pt] node[above] {I};
+         \draw[draw=none,fill=col1] 
+         (axis cs:-0.333333,0) circle[radius=1.5pt] node[above] {I};
     \end{axis}
     \begin{axis}[at={(insetPosition)},
         grid=none,

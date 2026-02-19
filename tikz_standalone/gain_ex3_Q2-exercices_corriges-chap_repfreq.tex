@@ -12,7 +12,8 @@
     ylabel={Gain (\si{\decibel})},
     xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5},
     ytick={-260,-220,-180,-140,-100,-60,-20,20,60,100},
-    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,$10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
+    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,
+                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
     yticklabels={-260,,-180,,-100,,-20,,60,,},
     xmode=log,ymode=normal,
     xmin=1e-3, xmax=1e4,
@@ -20,14 +21,19 @@
     grid=both,
     major grid style={black!40}
 ]
-    \addplot[signalb,domain=1e-3:1e4] {40-20*log10(x)-20*log10(1+x*x)-10*log10(1+0.01*x*x)};
+    \addplot[signalb,domain=1e-3:1e4] 
+    {40-20*log10(x)-20*log10(1+x*x)-10*log10(1+0.01*x*x)};
     \addplot[dr,domain=1e-3:1e0] {40-20*log10(x)};
     \addplot[dr,domain=1e0:1e1]  {40-60*log10(x)};
     \addplot[dr,domain=1e1:1e4]  {60-80*log10(x)};
-    \draw[draw=none,fill=col1] (axis cs:0.1,59.913138251578516) circle[radius=2pt];
-    \draw[draw=none,fill=col1] (axis cs:1,33.93618634889395) circle[radius=2pt];
-    \draw[draw=none,fill=col1] (axis cs:10,-23.096727432292667) circle[radius=2pt];
-    \draw[draw=none,fill=col1] (axis cs:100,-100.04408228336368) circle[radius=2pt];
+    \draw[draw=none,fill=col1] 
+        (axis cs:0.1,59.913138251578516) circle[radius=2pt];
+    \draw[draw=none,fill=col1] 
+        (axis cs:1,33.93618634889395) circle[radius=2pt];
+    \draw[draw=none,fill=col1] 
+        (axis cs:10,-23.096727432292667) circle[radius=2pt];
+    \draw[draw=none,fill=col1] 
+        (axis cs:100,-100.04408228336368) circle[radius=2pt];
 \end{axis}
 \end{tikzpicture}
 \end{document}

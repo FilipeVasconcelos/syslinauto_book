@@ -203,9 +203,12 @@ tracer la réponse temporelle pour toutes les pulsations que l'on souhaite
 %-------------------------------------------------------------------------------
 \begin{marginfigure}[-20em]
     \centering
-    \resizebox{\linewidth}{!}{\includegraphics[width=\textwidth]{figtikz/repham_1-chap_repfreq.pdf}}
-    \resizebox{\linewidth}{!}{\includegraphics[width=\textwidth]{figtikz/repham_2-chap_repfreq.pdf}}
-    \resizebox{\linewidth}{!}{\includegraphics[width=\textwidth]{figtikz/repham_3-chap_repfreq.pdf}}
+    \resizebox{\linewidth}{!}{
+        \includegraphics[width=\textwidth]{repham_1-chap_repfreq.pdf}}
+    \resizebox{\linewidth}{!}{
+        \includegraphics[width=\textwidth]{repham_2-chap_repfreq.pdf}}
+    \resizebox{\linewidth}{!}{
+        \includegraphics[width=\textwidth]{repham_3-chap_repfreq.pdf}}
     \caption{Réponse harmonique (en régime permanent) (\Cref{eq-rh}) d'un 
              système du premier ordre pour différentes pulsations d'excitation 
              de la forme $e(t)=\sin{\omega t}$, (données du~\cref{tab-1ertemp}).
@@ -293,7 +296,7 @@ phase passe lui par la détermination de l'argument principale
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=\textwidth]{figtikz/sche_bode-chap_repfreq.pdf}
+    \includegraphics[width=\textwidth]{sche_bode-chap_repfreq.pdf}
     \caption{Représentation schématique d'un diagramme de Bode. Le gain en 
              décibel et la phase associé à une fonction de transfert sont 
              représentés en fonction de la pulsation (à l'échelle log) sur 
@@ -321,8 +324,10 @@ Le diagramme de Bode de $H(\jw)$ est la somme de deux diagrammes indépendants:
 %-------------------------------------------------------------------------------
 \begin{figure}[!b]
     \centering
-    \resizebox{.45\linewidth}{!}{\includegraphics[width=\textwidth]{figtikz/sche_nyquist_3-chap_repfreq.pdf}}
-    \resizebox{.45\linewidth}{!}{\includegraphics[width=\textwidth]{figtikz/sche_nyquist_4-chap_repfreq.pdf}}
+    \resizebox{.45\linewidth}{!}{
+        \includegraphics[width=\textwidth]{sche_nyquist_3-chap_repfreq.pdf}}
+    \resizebox{.45\linewidth}{!}{
+        \includegraphics[width=\textwidth]{sche_nyquist_4-chap_repfreq.pdf}}
     \caption{(gauche) Représentation schématique d'un diagramme de Nyquist. 
              Le nombre complexe $H(\jw)$ est représenté dans le plan 
              complexe pour différentes valeurs de la pulsation $\omega$ de 
@@ -383,7 +388,7 @@ Fonction de Transfert en Boucle ouverte (FTBO).
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.8\textwidth]{figtikz/sche_black-chap_repfreq.pdf}
+    \includegraphics[width=0.8\textwidth]{sche_black-chap_repfreq.pdf}
     \caption{Représentation schématique d'un diagramme de Black. Le gain et 
              la phase de la fonction de transfert $H(\jw)$ sont représentés sur
              le lieu de Black pour différentes valeurs de la pulsation $\omega$
@@ -476,9 +481,9 @@ d'entrée.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_gain_1-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_gain_1-chap_repfreq.pdf}
 
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_gain_2-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_gain_2-chap_repfreq.pdf}
     \caption{Diagramme de Bode d'un gain pur avec (noir) 
              $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons que la 
              phase reste inchangée lorsque le gain statique $K$ varie et que 
@@ -514,9 +519,9 @@ pulsation de l'entrée.
 %-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_integ_1-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_integ_1-chap_repfreq.pdf}
 
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_integ_2-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_integ_2-chap_repfreq.pdf}
     \caption{Diagramme de Bode d'un intégrateur pur avec (noir) 
              $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons 
              que le gain s'annule pour $\omega=K$ et que la phase reste 
@@ -551,9 +556,9 @@ d'entrée.
 %-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_deriv_1-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_deriv_1-chap_repfreq.pdf}
 
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_deriv_2-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_deriv_2-chap_repfreq.pdf}
     \caption{Diagramme de Bode d'un dérivateur pur 
              avec (noir) $K=0.1$, (bleu) $K=1$ et (rouge) $K=10$. Remarquons 
              que le gain s'annule pour $\omega=\frac{1}{K}$ et que la phase 
@@ -588,9 +593,9 @@ retard de temps $\tau$ donné.
 %-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_retard_1-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_retard_1-chap_repfreq.pdf}
 
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_retard_2-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_retard_2-chap_repfreq.pdf}
     \caption{Diagramme de Bode d'un retard pur 
              avec $\tau=1$. Remarquons que le gain est constant pour toutes 
              pulsations et le déphasage est monotone décroissant en fonction 
@@ -659,21 +664,23 @@ réels et les courbes asymptotiques.
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_1er_1-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_1er_1-chap_repfreq.pdf}
 
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_1er_2-chap_repfreq.pdf}
-    \caption{\textbf{Effet du gain $K$.} Diagramme de Bode d'un système du premier ordre 
-             (\Cref{eq-1er_ftjw}) avec (noir) $K=0.1$ (bleu) $K=1$ et 
-             (rouge) $K=10$. L'effet de $K$ est de décaler verticalement 
+    \includegraphics[width=0.7\textwidth]{bode_1er_2-chap_repfreq.pdf}
+    \caption{\textbf{Effet du gain $K$.} Diagramme de Bode d'un système 
+             du premier ordre (\Cref{eq-1er_ftjw}) avec (noir) $K=0.1$ 
+                                                        (bleu) $K=1$ et 
+                                                        (rouge) $K=10$. 
+             L'effet de $K$ est de décaler verticalement 
              le diagramme de gain.\label{fig-bode_1er_1}}
 \end{figure}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{figure}[!b]
     \centering
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_1er_3-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_1er_3-chap_repfreq.pdf}
 
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_1er_4-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_1er_4-chap_repfreq.pdf}
     \caption{\textbf{Effet du temps caractéristique $\tau$.} 
              Diagramme de Bode d'un système du premier ordre 
              (\Cref{eq-1er_ftjw}) avec (noir) $\tau=10$ (bleu) $\tau=1$ et 
@@ -686,9 +693,9 @@ réels et les courbes asymptotiques.
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.7\textwidth]{figtikz/bode_1er_5-chap_repfreq.pdf}
+\includegraphics[width=0.7\textwidth]{bode_1er_5-chap_repfreq.pdf}
 
-\includegraphics[width=0.7\textwidth]{figtikz/bode_1er_6-chap_repfreq.pdf}
+\includegraphics[width=0.7\textwidth]{bode_1er_6-chap_repfreq.pdf}
 \caption{Diagramme de Bode d'un système du premier ordre 
          (\Cref{eq-1er_ftjw}) (c.-à-d. $K=1$, $\tau=1$ et $\omega_c=1$) avec 
          (bleu) le diagramme réel et (rouge) le diagramme asymptotique. On 
@@ -782,9 +789,9 @@ régime apériodique.
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_1er_serie_2nd_1-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_1er_serie_2nd_1-chap_repfreq.pdf}
 
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_1er_serie_2nd_2-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_1er_serie_2nd_2-chap_repfreq.pdf}
     \caption{Diagramme de Bode de systèmes du premier ordre en série 
     (\Cref{eq-1er_serie}) avec $\tau_1=10$ et $\tau_2=0.1$ (bleu) le 
     diagramme réel et (rouge) le diagramme asymptotique.
@@ -860,9 +867,9 @@ prochaine partie.
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_2nd_1-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_2nd_1-chap_repfreq.pdf}
 
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_2nd_2-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_2nd_2-chap_repfreq.pdf}
     \caption{Diagramme de Bode d'une fonction de transfert second ordre 
     (\Cref{eq-2nd_ftjw}) avec $K=1$, $\omega_0=1$ et $\xi=1$
     \label{fig-bode_2nd_1}}
@@ -870,10 +877,10 @@ prochaine partie.
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
-    %\includegraphics[width=0.5\textwidth]{figtikz/bode_2nd_3-chap_repfreq.pdf}
+    %\includegraphics[width=0.5\textwidth]{bode_2nd_3-chap_repfreq.pdf}
 
-    %\includegraphics[width=0.5\textwidth]{figtikz/bode_2nd_4-chap_repfreq.pdf}
-    \includegraphics[width=0.7\textwidth]{figtikz/bode_2nd_5-chap_repfreq.pdf}
+    %\includegraphics[width=0.5\textwidth]{bode_2nd_4-chap_repfreq.pdf}
+    \includegraphics[width=0.7\textwidth]{bode_2nd_5-chap_repfreq.pdf}
     \caption{Diagramme de Bode d'une fonction de transfert du second ordre 
              (\Cref{eq-2nd_ftjw}) pour différentes valeurs de $\xi$ avec 
              $K=1$ et $\omega_0=1$\label{fig-bode_2nd_2}}
@@ -950,7 +957,7 @@ résonance est le plus intense (c.f Figure \cref{fig-gain_2nd}).
 %-------------------------------------------------------------------------------
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.6\textwidth]{figtikz/gain_resonance-chap_repfreq.pdf}
+    \includegraphics[width=0.6\textwidth]{gain_resonance-chap_repfreq.pdf}
     \caption{\'Evolution du gain maximal à la pulsation de résonance
              $\omega_r$ pour différentes valeurs 
              du taux d'amortissement $\xi$. Notons l'utilisation 
@@ -984,18 +991,21 @@ diagramme de Bode pour chacun de ces éléments selon le signe des paramètres
 $\alpha$, $n_i$, et $n_j$.
 \newline
 \newline
-
+%-------------------------------------------------------------------------------
 \begin{center}
 {\tikzset{external/export=false}
 \input{tex/tab_bode_1.tex}
 }
 \end{center}
+%-------------------------------------------------------------------------------
 \clearpage
+%-------------------------------------------------------------------------------
 \begin{center}
 {\tikzset{external/export=false}
 \input{tex/tab_bode_2.tex}
 }
 \end{center}
+%-------------------------------------------------------------------------------
 %Nous listons ci-dessous l'effet sur le gain et la phase d'un diagramme de 
 %Bode pour chacun de ces élements selon le signe des exposants $\alpha$, 
 %$n_i$, et $n_j$.
@@ -1112,9 +1122,9 @@ caractéristiques.
 %-------------------------------------------------------------------------------
 \begin{figure}[!t]
     \centering
-    \includegraphics[width=0.8\textwidth]{figtikz/bode_exemple_1-chap_repfreq.pdf}
+    \includegraphics[width=0.8\textwidth]{bode_exemple_1-chap_repfreq.pdf}
 
-    \includegraphics[width=0.8\textwidth]{figtikz/bode_exemple_2-chap_repfreq.pdf}
+    \includegraphics[width=0.8\textwidth]{bode_exemple_2-chap_repfreq.pdf}
     \caption{Diagramme de Bode du système d'ordre quelconque de 
              l'\cref{eq-ft_qq} (bleu) diagramme de Bode réel et (rouge) 
              diagramme de Bode asymptotique.\label{fig-bode_qq}}
@@ -1161,7 +1171,7 @@ Pour chacun des modèles usuels, nous appliquerons la procédure suivante :
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \includegraphics[width=0.8\textwidth]{figtikz/nyquist_contour-chap_repfreq.pdf}
+    \includegraphics[width=0.8\textwidth]{nyquist_contour-chap_repfreq.pdf}
     \caption{Contour de Nyquist: le lieu de Nyquist complet est 
              la courbe paramétrée des parties réelle et imaginaire 
              de $H(p)$ lorsque $p$ parcours ce contour.
@@ -1188,7 +1198,8 @@ Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \resizebox{\linewidth}{!}{\includegraphics[width=\textwidth]{figtikz/nyquist_gainpur-chap_repfreq.pdf}}
+    \resizebox{\linewidth}{!}{
+    \includegraphics[width=\textwidth]{nyquist_gainpur-chap_repfreq.pdf}}
     \caption{Diagramme de Nyquist d'un gain pur. Le nombre complexe $H(\jw)$ 
              est représenté par un point sur l'axe des réels à la valeur $K$. 
              \label{fig-nyquist_1}}
@@ -1199,7 +1210,6 @@ Ce qui est en accord avec le fait qu'un gain pur présente un déphasage nul.
     \Im{H(\jw)}&=0\\
 \end{align*}
 %-------------------------------------------------------------------------------
-%\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Diagramme de Nyquist d'un intégrateur pur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1214,7 +1224,8 @@ qui dépend cependant directement de la pulsation $\omega$.
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \resizebox{\linewidth}{!}{\includegraphics[width=\textwidth]{figtikz/nyquist_integ-chap_repfreq.pdf}}
+    \resizebox{\linewidth}{!}{
+    \includegraphics[width=\textwidth]{nyquist_integ-chap_repfreq.pdf}}
     \caption{Diagramme de Nyquist d'un intégrateur pur. Le lieu de Nyquist 
              est représenté par une demi droite sur l'axe des nombres 
              imaginaires purs négatifs.\label{fig-nyquist_2}}
@@ -1230,7 +1241,8 @@ de ce nombre complexe sont :
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \resizebox{\linewidth}{!}{\includegraphics[width=\textwidth]{figtikz/nyquist_deriv-chap_repfreq.pdf}}
+    \resizebox{\linewidth}{!}{
+    \includegraphics[width=\textwidth]{nyquist_deriv-chap_repfreq.pdf}}
     \caption{Diagramme de Nyquist d'un dérivateur pur. Le lieu de Nyquist 
              est représenté par une demi droite sur l'axe des nombres 
              imaginaires purs positifs.\label{fig-nyquist_3}}
@@ -1255,7 +1267,8 @@ H(\jw)=e^{-j\tau\omega}
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \resizebox{\linewidth}{!}{\includegraphics[width=\textwidth]{figtikz/nyquist_retard-chap_repfreq.pdf}}
+    \resizebox{\linewidth}{!}{
+    \includegraphics[width=\textwidth]{nyquist_retard-chap_repfreq.pdf}}
     \caption{Diagramme de Nyquist d'un retard pur. Le lieu de Nyquist 
              est représenté par le cercle unité dans le plan complexe.
              \label{fig-nyquist_4}}
@@ -1343,7 +1356,7 @@ de rayon $K/2$
 %-------------------------------------------------------------------------------
 \begin{figure}[!hb]
     \centering
-    \includegraphics[width=0.8\textwidth]{figtikz/nyquist_1er-chap_repfreq.pdf}
+    \includegraphics[width=0.8\textwidth]{nyquist_1er-chap_repfreq.pdf}
     \caption{Diagramme de Nyquist d'un système du premier ordre 
              (avec $K=1$,$\tau=1$). 
              Le lieu de Nyquist est représenté par un demi cercle 
@@ -1380,8 +1393,8 @@ du module $|H(\jw)|$ (c.-à-d. du gain) associée au phénomène de résonance.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.47\textwidth]{figtikz/nyquist_2nd_1-chap_repfreq.pdf}
-    \includegraphics[width=0.47\textwidth]{figtikz/nyquist_2nd_3-chap_repfreq.pdf}
+    \includegraphics[width=0.47\textwidth]{nyquist_2nd_1-chap_repfreq.pdf}
+    \includegraphics[width=0.47\textwidth]{nyquist_2nd_3-chap_repfreq.pdf}
     \caption{Diagramme de Nyquist d'un système du second ordre 
              (avec $K=1$,$\omega_0=1$ et (haut) $\xi=0.6$ (bas) $\xi=0.4$ ). 
              Le lieu de Nyquist est représenté par 
@@ -1424,25 +1437,13 @@ spirale qui convergent vers 0.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.8\textwidth]{figtikz/nyquist_effet_retard_1-chap_repfreq.pdf}
+    \includegraphics
+    [width=0.8\textwidth]{nyquist_effet_retard_1-chap_repfreq.pdf}
     \caption{Effet d'un retard sur le diagramme de Nyquist d'un système 
              du premier ordre. Avec $K=1$, $\tau=1$ et $\tau_1=2$. Le lieu 
              de Nyquist est représenté par une spirale.
              \label{fig-nyquist_effet_retard_1}}
 \end{figure}
-%-------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------
-%\begin{figure}[!h]
-%    \centering
-%    \includegraphics[width=0.5\textwidth]{figtikz/nyquist_effet_retard_2-chap_repfreq.pdf}
-%    \caption{Effet d'un retard sur le diagramme de Nyquist d'un système du 
-%             premier ordre pour différentes valeurs de retard. (bleu) 
-%             $\tau_1=0.5$, (rouge) $\tau_1=1.0$ et (noir) $\tau_1=2.0$.
-%             Avec $K=1$, $\tau=1$ et $\tau_1=2$. Le lieu de Nyquist est 
-%             représenté par une spirale. Par souci de clarté, nous n'avons 
-%             ici représenté que l'intervalle $\omega\in[0,\dfrac{10}{\tau_1}]$ 
-%             \label{fig-nyquist_effet_retard_2}}
-%\end{figure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Synthèse des contributions élémentaires}
@@ -1453,21 +1454,23 @@ terme influence de manière caractéristique le module et l'argument de la
 fonction de transfert lorsque la pulsation $\omega$ varie de $0$ à
 $+\infty$.
 
-Le~\cref{tab:nyquist_resume} synthétise les variations asymptotiques du
+Le~\cref{tab-nyquistresume} synthétise les variations asymptotiques du
 module et de l'argument pour les principaux termes rencontrés en automatique.
 Il constitue un outil pratique permettant :
-
+%-------------------------------------------------------------------------------
 \begin{itemize}
     \item de tracer rapidement un diagramme de Nyquist sans calcul détaillé,
     \item de prévoir la forme générale du lieu de Nyquist,
     \item d'interpréter l'effet de chaque pôle, zéro ou retard,
     \item d'analyser qualitativement la stabilité d'un système bouclé.
 \end{itemize}
-
+%-------------------------------------------------------------------------------
 Plus généralement, le diagramme de Nyquist d'une fonction de transfert
 quelconque s'obtient en combinant ces effets élémentaires, le module étant le
 produit des modules et l'argument étant la somme des arguments.
-\begin{center}
+%-------------------------------------------------------------------------------
+\begin{table}
+    \centering
     \begin{tabular}{P{4cm}P{3cm}P{3cm}}
     \hhline{===}
     $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$\\[1em]
@@ -1476,22 +1479,30 @@ produit des modules et l'argument étant la somme des arguments.
     \hline
     $\dfrac{1}{1+\jtw}$ & $1\rightarrow0$ & $0\rightarrow-\dfrac{\pi}{2}$\\[1em]
     \hline
-    $\dfrac{1}{(1-\tau^2_n\omega^2)+j2\xi\tau_n\omega}$ & $1\rightarrow0$ & $0\rightarrow-\pi$\\[1em]
+    $\dfrac{1}{(1-\tau^2_n\omega^2)+j2\xi\tau_n\omega}$ 
+    & $1\rightarrow0$ 
+    & $0\rightarrow-\pi$\\[1em]
     \hline
     $e^{-\jtw}$ & 1 & $0\rightarrow\infty$\\[1em]
     \hline
-    $1+\jtw$ & $1\rightarrow\infty$& $0\rightarrow\dfrac{\pi}{2}$\\[1em]
+    $1+\jtw$ & $1\rightarrow\infty$ 
+             & $0\rightarrow\dfrac{\pi}{2}$\\[1em]
     \hline
-    $\dfrac{1}{1-\jtw}$ & $1\rightarrow0$& $0\rightarrow\dfrac{\pi}{2}$\\[1em]
+    $\dfrac{1}{1-\jtw}$ & $1\rightarrow0$
+                        & $0\rightarrow\dfrac{\pi}{2}$\\[1em]
     \hline
     $1-\jtw$ & $1\rightarrow\infty$& $0\rightarrow-\dfrac{\pi}{2}$\\[1em]
     \hline
-    $\dfrac{1}{(1-\tau^2_n\omega^2)-j2\xi\tau_n\omega}$ & $1\rightarrow0$& $0\rightarrow\pi$\\[1em]
+    $\dfrac{1}{(1-\tau^2_n\omega^2)-j2\xi\tau_n\omega}$ 
+    & $1\rightarrow0$ 
+    & $0\rightarrow\pi$\\[1em]
     \hhline{===}
     \end{tabular}
-    \captionof{table}{Variation du module et de l'argument du nombre 
-                      complexe $H(\jw)$ lorsque $\omega$ varie de $0\rightarrow\infty$\label{tab:nyquist_resume}}
-\end{center}
+    \caption{Variation du module et de l'argument du nombre 
+             complexe $H(\jw)$ lorsque $\omega$ varie de 
+             $0\rightarrow\infty$\label{tab-nyquistresume}}
+\end{table}
+%-------------------------------------------------------------------------------
 \clearpage
 \input{re/newgeometry}
 \captionsetup{width=0.9\linewidth}
@@ -1526,7 +1537,8 @@ pur est simplement donnée par
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \resizebox{\linewidth}{!}{\includegraphics[width=\textwidth]{figtikz/black_integ-chap_repfreq.pdf}}
+    \resizebox{\linewidth}{!}{
+    \includegraphics[width=\textwidth]{black_integ-chap_repfreq.pdf}}
     \caption{Diagramme de Black d'un intégrateur pur. Le lieu de Black
              est représenté par une droite d'abscisse -90\degreeSI.
              \label{fig-black_1}}
@@ -1556,7 +1568,8 @@ La fonction de transfert complexe d'un dérivateur pur est simplement donnée pa
 %-------------------------------------------------------------------------------
 \begin{marginfigure}
     \centering
-    \resizebox{\linewidth}{!}{\includegraphics[width=\textwidth]{figtikz/black_deriv-chap_repfreq.pdf}}
+    \resizebox{\linewidth}{!}{
+    \includegraphics[width=\textwidth]{black_deriv-chap_repfreq.pdf}}
     \caption{Diagramme de Black d'un dérivateur pur. Le lieu de Black
              est représenté par une droite d'abscisse +90\degreeSI.
              \label{fig-black_2}}
@@ -1594,7 +1607,7 @@ La~\cref{fig-black_3} présente le diagramme de Black d'un premier ordre.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.8\textwidth]{figtikz/black_1er-chap_repfreq.pdf}
+    \includegraphics[width=0.8\textwidth]{black_1er-chap_repfreq.pdf}
     \caption{Diagramme de Black d'un système du premier ordre. 
     \label{fig-black_3}}
 \end{figure}
@@ -1620,8 +1633,8 @@ La~\cref{fig-black_4} présente le diagramme de Black d'un second ordre.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.45\textwidth]{figtikz/black_2nd-chap_repfreq.pdf}
-    \includegraphics[width=0.45\textwidth]{figtikz/black_2nd_resonance-chap_repfreq.pdf}
+    \includegraphics[width=0.45\textwidth]{black_2nd-chap_repfreq.pdf}
+    \includegraphics[width=0.45\textwidth]{black_2nd_resonance-chap_repfreq.pdf}
     \caption{Diagramme de Black d'un système du second ordre (à gauche)
         pour $\xi=1$ (à droite) pour différentes valeurs de 
         $\xi<\dfrac{\sqrt{2}}{2}$ (phénomène de résonance). 
@@ -1692,7 +1705,8 @@ caractéristiques des systèmes du premier ordre $\tau$.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.9\textwidth]{figtikz/repham_transitoire_1er-chap_repfreq.pdf}
+    \includegraphics
+    [width=0.9\textwidth]{repham_transitoire_1er-chap_repfreq.pdf}
     \caption{Exemple du transitoire de la réponse harmonique d'un système
     du premier ordre.(en bleu) La sollicitation (en rouge) la réponse.}
 \end{figure}

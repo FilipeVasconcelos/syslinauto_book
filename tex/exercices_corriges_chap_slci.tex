@@ -52,7 +52,8 @@ Le signal est composé de deux paraboles.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.5\textwidth]{figtikz/fonction_e2-exercices_corriges-chap_slci.pdf}
+    \includegraphics
+    [width=0.5\textwidth]{fonction_e2-exercices_corriges-chap_slci.pdf}
 \end{figure}
 %-------------------------------------------------------------------------------
 \[
@@ -152,10 +153,12 @@ La transformée de Laplace $E(p)$ est simplement donnée par la somme,
 \[
     E(p)=E_3(p)+e^{-p} E_4(p)
         = \dfrac{1}{p}-\dfrac{1}{p^2}+\dfrac{e^{-p}}{p^2} +
-          e^{-p} \left(\dfrac{1}{p^2}-\dfrac{e^{-p}}{p^2}-\dfrac{e^{-p}}{p}\right)
+          e^{-p} \left(\dfrac{1}{p^2}-\dfrac{e^{-p}}{p^2} -
+          \dfrac{e^{-p}}{p}\right)
 \]
 \[
-    E(p)=\dfrac{1}{p}\left(1-e^{-2p}\right)+\dfrac{1}{p^2}\left(1-2e^{-p}-e^{-2p}\right)
+    E(p)=\dfrac{1}{p}\left(1-e^{-2p}\right)+
+         \dfrac{1}{p^2}\left(1-2e^{-p}-e^{-2p}\right)
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -168,8 +171,12 @@ La transformée de Laplace $E(p)$ est simplement donnée par la somme,
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.5\textwidth]{figtikz/fonction_porte_decomposition-exercices_corriges-chap_slci.pdf}
-    \includegraphics[width=0.5\textwidth]{figtikz/fonction_porte_decomposition2-exercices_corriges-chap_slci.pdf}
+    \includegraphics
+    [width=0.5\textwidth]
+    {fonction_porte_decomposition-exercices_corriges-chap_slci.pdf}
+    \includegraphics
+    [width=0.5\textwidth]
+    {fonction_porte_decomposition2-exercices_corriges-chap_slci.pdf}
 \end{figure}
 %-------------------------------------------------------------------------------
 La fonction $\delta_a(t)$ est simplement donnée par 
@@ -255,7 +262,7 @@ la transformée inverse de $Q(p)$ est simplement donnée par
 %-------------------------------------------------------------------------------
 \begin{center}
     \includegraphics[width=0.8\textwidth]
-    {figtikz/laplace_schema_decharge_condensateur-exercices_corriges-chap_slci.pdf}
+    {laplace_schema_decharge_condensateur-exercices_corriges-chap_slci.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 La~\cref{fig-decharge} suivante présente la représentation graphique de 
@@ -264,7 +271,9 @@ cette solution pour $\tau=\SI{1}{\second}$.
 %-------------------------------------------------------------------------------
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.6\textwidth]{figtikz/decharge_condensateur-exercices_corriges-chap_slci.pdf}
+    \includegraphics
+    [width=0.6\textwidth]
+    {decharge_condensateur-exercices_corriges-chap_slci.pdf}
     \caption{Charge aux bornes du condensateur en fonction du temps.
     \label{fig-decharge}}
 \end{figure}
@@ -369,7 +378,9 @@ constate sur la figure ci-dessous que la masse retourne
 approximativement \SI{4}{\second}.
 %-------------------------------------------------------------------------------
 \begin{center}
-    \includegraphics[width=0.6\textwidth]{figtikz/masse_ressort_solution-exercices_corriges-chap_slci.pdf}
+    \includegraphics
+    [width=0.6\textwidth]
+    {masse_ressort_solution-exercices_corriges-chap_slci.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
 %\clearpage

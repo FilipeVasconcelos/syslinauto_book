@@ -103,6 +103,8 @@
     bookmarks=true,
 }
 \usepackage{url} 
+\usepackage[french,nameinlink,noabbrev]{cleveref}
+\crefname{appchap}{Annexe}{Annexes}
 \usepackage[hyphenbreaks]{breakurl} 
 \usepackage[acronym,symbols,nogroupskip,nonumberlist]{glossaries-extra}
 \usepackage{glossary-superragged}
@@ -130,8 +132,6 @@
 \usepackage{xargs}
 \usepackage{lipsum}
 \usepackage{etoolbox}
-\usepackage[french,nameinlink,noabbrev]{cleveref}
-\crefname{appchap}{Annexe}{Annexes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PGF/TikZ/PGFPLOTS
@@ -313,7 +313,7 @@
               {./fig/logo}
               {./fig/annexe_blackNichols}
               {./fig/annexe_cauchy}
-	      {./figtikz}}
+	          {./figtikz}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ------------------------------------------------------------------------------
 % includeonly individuel
@@ -323,7 +323,7 @@
 %\includeonly{tex/chap_slci}            % Système linéaire
 %\includeonly{tex/chap_bloc}            % Schémas fonctionnels-blocs
 %\includeonly{tex/chap_model}           % Modèles Usuels    
-\includeonly{tex/chap_repfreq}         % Réponse harmonique
+%\includeonly{tex/chap_repfreq}         % Réponse harmonique
 %\includeonly{tex/chap_asserv}          % Asservissement 
 %\includeonly{tex/chap_perf}            % Perf. des sys asservis 
 %\includeonly{tex/chap_stab}            % Stabilité des sys. asservis 
