@@ -967,7 +967,7 @@ combinaison linéaire de $S_1(p)$ et $S_2(p)$. Autrement dit,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Retard en $t$ (temporel)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Soit $s(t-\tau)$, un signal $s(t)$ présentant un retard $\tau$.
+Soit $s(t-\tau)u(t-\tau)$, un signal $s(t)$ causal présentant un retard $\tau$.
 \[
     \laplace{s(t-\tau)}=\int_{0}^{+\infty} e^{-pt}s(t-\tau)\dd{t}
 \]
@@ -975,14 +975,14 @@ en appliquant le changement de variable $t'=t-\tau$, on obtient $t=t'+\tau$
 et $\dd{t}=\dd{t}$
 \[
 \laplace{s(t-\tau)}
-=\int_{\tau}^{+\infty} e^{-p(t'+\tau)}s(t')\dd{t'}
+=\int_{-\tau}^{+\infty} e^{-p(t'+\tau)}s(t')\dd{t'}
 =e^{-p\tau}\int_{0}^{+\infty} e^{-pt'}s(t')\dd{t'}
 \]
 on reconnaît dans cette dernière expression la définition de la 
 transformée de Laplace, on écrit alors :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
-    \laplace{s(t-\tau)}=e^{-p\tau}S(p)
+    \laplace{s(t-\tau)u(t-\tau)}=e^{-p\tau}S(p)
 \end{bequation}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
