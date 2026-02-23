@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+make standalone
+
 OUTPUT_TEX=figsonly_standalone.tex
 cat > $OUTPUT_TEX <<EOF
 \documentclass[a4paper]{article}
@@ -31,3 +33,4 @@ cat <<EOF >> $OUTPUT_TEX
 EOF
 done
 echo "\end{document}" >> ${OUTPUT_TEX}
+pdflatex $OUTPUT_TEX
