@@ -1,14 +1,12 @@
 \documentclass[tikz,border=3pt]{standalone}
-
 \input{preamble/tikz}
 \input{preamble/fmv}
-
 \begin{document}
-
 \begin{tikzpicture}
     \begin{scope}[baseline=0pt]
         \begin{axis}
         [
+            grid=none,
             xtick=\empty,
             height=3.7cm,
             width=5.5cm,
@@ -41,6 +39,7 @@
     \begin{scope}[xshift=10cm]
         \begin{axis}
         [
+            grid=none,
             xtick=\empty,
             ytick=\empty,
             height=3.7cm,
@@ -67,6 +66,7 @@
     \begin{scope}[xshift=4.75cm,yshift=3.25cm]
         \begin{axis}
         [
+            grid=none,
             xtick=\empty,
             ytick=\empty,
             height=3.7cm,
@@ -92,5 +92,4 @@
         \end{axis}
     \end{scope}
 \end{tikzpicture}
-
 \end{document}

@@ -6,7 +6,9 @@
 
 \begin{tikzpicture}
     \begin{axis}
-    [   name=ax0,
+    [   
+        grid=none,
+        name=ax0,
         ticks=none,
         axis line style = thick,
         height=5cm,
@@ -25,7 +27,9 @@
     \draw[ultra thick,col1,-latex] (axis cs:0,0) -- (axis cs:0,2.0);
     \end{axis}
     \begin{axis}
-    [   at={(ax0.south east)}, 
+    [   
+        grid=none,
+        at={(ax0.south east)}, 
         xshift=4        em,                
         axis line style = thick,
         height=5cm,

@@ -6,7 +6,9 @@
 
 \begin{tikzpicture}
     \begin{axis}
-    [   name=axx,
+    [   
+        grid=none,
+        name=axx,
         ticks=none,
         axis line style = thick,
         xmode=log,
@@ -34,7 +36,9 @@
     \addplot[col1, mark = *] coordinates {(1e1,{-10*log10(1+100)})} {};
     \end{axis}
     \begin{axis}
-    [   at={(axx.below south west)},yshift=-0.2cm,anchor=north west,
+    [   
+        grid=none,
+        at={(axx.below south west)},yshift=-0.2cm,anchor=north west,
         ticks=none,
         axis line style = thick,
         xmode=log,

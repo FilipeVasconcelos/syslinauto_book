@@ -5,6 +5,7 @@
 \begin{tikzpicture}
 \begin{axis}
     [
+    grid=none,
     axis lines=center,
     axis line style = thick,
     xlabel=$\Re{H(\jw)}$,
@@ -13,7 +14,6 @@
     ymax=+1.5,
     xmin=-1.5,
     xmax=+1.5,
-    grid=both,
     x label style={below},
     y label style={left},
     yticklabels={,,},
@@ -29,5 +29,4 @@
     ({cos(deg(x))},{sin(deg(x))});
 \end{axis}
 \end{tikzpicture}
-
 \end{document}

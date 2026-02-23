@@ -1,13 +1,11 @@
 \documentclass[tikz,border=3pt]{standalone}
-
 \input{preamble/tikz}
 \input{preamble/fmv}
-
 \begin{document}
-
 \begin{tikzpicture}[scale=0.85]
 \begin{axis}
     [
+    grid=none,
     name=nyy1,
     height=8cm,
     width=8cm,
@@ -46,6 +44,7 @@
 \end{axis}
 \begin{axis}
     [
+    grid=none,
     at={(nyy1.south east)},xshift=4ex,
     height=8cm,
     width=8cm,

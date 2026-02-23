@@ -1,12 +1,11 @@
 \documentclass[tikz,border=3pt]{standalone}
-
 \input{preamble/tikz}
-
 \begin{document}
-
 \begin{tikzpicture}
     \begin{axis}
-    [   ticks=none,
+    [   
+        grid=none,
+        ticks=none,
         axis line style = thick,
         height=5cm,
         width=5cm,
@@ -32,5 +31,4 @@
     {1-((1./\w)*exp(-\a*x)*sin(deg(x)*\w+deg(\p)))};
     \end{axis}
 \end{tikzpicture}
-
 \end{document}

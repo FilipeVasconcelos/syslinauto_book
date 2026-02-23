@@ -1,12 +1,11 @@
 \documentclass[tikz,border=3pt]{standalone}
-
 \input{preamble/tikz}
-
 \begin{document}
-
 \begin{tikzpicture}
     \begin{axis}
-    [	ticks=none,
+    [	
+        grid=none,
+        ticks=none,
         axis line style = thick,
         height=5cm,
         width=5cm,
@@ -25,5 +24,4 @@
     \addplot[signalr,domain=0:10] {0.05*x^2};
     \end{axis}
 \end{tikzpicture}
-
 \end{document}

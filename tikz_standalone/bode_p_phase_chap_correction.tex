@@ -1,12 +1,10 @@
 \documentclass[tikz,border=3pt]{standalone}
-
 \input{preamble/tikz}
-
 \begin{document}
-
 \begin{tikzpicture}
     \begin{axis}
     [
+        grid=none,
         width=0.5\linewidth,
         axis line style = thick,
         axis x line=middle,
@@ -25,10 +23,8 @@
         yticklabel style={yshift=5pt},
         extra y ticks={0},
         extra y tick style={grid=none},
-        %ticklabel style={font=\small, te, inner sep=1pt}
     ]
         \addplot[ultra thick,col4,domain=0:20] {0};
     \end{axis}
 \end{tikzpicture}
-
 \end{document}

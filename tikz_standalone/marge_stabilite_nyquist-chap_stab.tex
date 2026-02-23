@@ -1,13 +1,11 @@
 \documentclass[tikz,border=3pt]{standalone}
-
 \input{preamble/tikz}
 \input{preamble/fmv}
-
 \begin{document}
-
 \begin{tikzpicture}
 \begin{axis}
     [
+        grid=none, 
         axis lines = center,
         height=10cm,
         width=12cm,
@@ -73,5 +71,4 @@
     {$M_G=-20\log{\big|H(j\omega_{\pi})\big|}$};
 \end{axis}
 \end{tikzpicture}
-
 \end{document}

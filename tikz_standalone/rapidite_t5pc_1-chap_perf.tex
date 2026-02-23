@@ -1,17 +1,16 @@
 \documentclass[tikz,border=3pt]{standalone}
-
 \input{preamble/tikz}
-
 \begin{document}
-
 \begin{tikzpicture}
     \pgfmathsetmacro{\kK}{1.75}
     \pgfmathsetmacro{\tT}{1.0}
     \pgfmathsetmacro{\mC}{1.6625}
     \pgfmathsetmacro{\pC}{1.8375}
     \begin{axis}
-    [   axis line style = thick,
-	ticks=none,
+    [   
+        grid=none,
+	    ticks=none,
+        axis line style = thick,
         width=0.45\textwidth,
         axis x line=center,
         axis y line=center,

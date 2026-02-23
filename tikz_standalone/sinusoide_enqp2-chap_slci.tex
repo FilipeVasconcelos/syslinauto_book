@@ -1,12 +1,11 @@
 \documentclass[tikz,border=3pt]{standalone}
-
 \input{preamble/tikz}
-
 \begin{document}
-
 \begin{tikzpicture}
     \begin{axis}
-    [   axis line style = thick,
+    [   
+        grid=none,
+        axis line style = thick,
         clip=false,
         height=5cm,
         width=9cm,
@@ -27,5 +26,4 @@
     \addplot[signalr,domain=0:4*pi] {0.7*sin(deg(x+pi*0.5))};
     \end{axis}
 \end{tikzpicture}
-
 \end{document}

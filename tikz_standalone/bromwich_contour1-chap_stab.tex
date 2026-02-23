@@ -1,15 +1,13 @@
 \documentclass[tikz,border=3pt]{standalone}
-
 \input{preamble/tikz}
 \input{preamble/fmv}
-
 \begin{document}
-
 \begin{tikzpicture}
     \def\rr{1.6}
     \pgfmathsetmacro\ymax{\rr+0.2}
     \begin{axis}
     [
+        grid=none,
         ticks=none,
         axis line style = thick,
         axis lines = center,

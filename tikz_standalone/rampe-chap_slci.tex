@@ -6,6 +6,7 @@
 
 \begin{tikzpicture}
     \begin{axis}[
+    grid=none,
     name=ax2,
     ticks=none,
     axis line style = thick,
@@ -26,6 +27,7 @@
     \addplot [ultra thick,col1,domain=0:15, samples=101]{x};
     \end{axis}
     \begin{axis}[
+    grid=none,
     at={(ax2.below south west)},
     anchor=north west,
     yshift=-0.9em,

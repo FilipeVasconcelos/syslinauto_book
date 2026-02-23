@@ -1,13 +1,11 @@
 \documentclass[tikz,border=3pt]{standalone}
-
 \input{preamble/tikz}
 \usepackage{siunitx}
 \usepackage{siunitxfmv}
-
 \begin{document}
-
 \begin{tikzpicture}[baseline=0]
    \begin{axis}[
+        grid=none,
         height=4cm,
         width=6cm,
         axis x line=center,
@@ -32,5 +30,4 @@
         \addplot [very thick,col1,domain=1:2.9, samples=50]{0.8};
         \end{axis}
 \end{tikzpicture}
-
 \end{document}

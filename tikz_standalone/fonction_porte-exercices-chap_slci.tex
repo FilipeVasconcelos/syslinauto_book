@@ -1,12 +1,10 @@
 \documentclass[tikz,border=3pt]{standalone}
-
 \usepackage{amsmath,amssymb}	
 \input{preamble/tikz}
-
 \begin{document}
-
 \begin{tikzpicture}[baseline=0]
    \begin{axis}[
+        grid=none,
         height=4cm,
         width=5cm,
         axis x line=center,
@@ -30,5 +28,4 @@
         {(-1,0.01) (0,0.01) (0,1) (2,1)  (2,0.01) (5,0.01) };
         \end{axis}
 \end{tikzpicture}
-
 \end{document}
