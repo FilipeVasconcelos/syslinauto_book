@@ -521,26 +521,26 @@ Puisqu'il est plus facile de tracer le diagramme de Nyquist à partir
 du diagramme de Bode, traçons les diagrammes de Bode de ces deux 
 fonctions de transfert.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Recherche des asymptotes pour $H_1(p)$}
+%\paragraph{Recherche des asymptotes pour $H_1(p)$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
-\begin{itemize}
-    \item $\textrm{intégrateur : } \dfrac{10}{p}   \rightarrow 
-           \textrm{toute fréquence}                \rightarrow 
-           \textrm{pente du gain :} 
-           \SI[per-mode=symbol]{-20}{\dB\per\dec}  \rightarrow 
-           \phi\mathrel{+}=-90\degreeSI$
-    \item $ \textrm{1er ordre : }\tau_1=0.1        \rightarrow 
-           \omega_1=10                             \rightarrow 
-        \textrm{pente du gain : } 
-        \SI[per-mode=symbol]{-20}{\dB\per\dec}     \rightarrow 
-        \phi\mathrel{+}=-90\degreeSI$ 
-    \item $ \textrm{1er ordre : } \tau_2=0.01      \rightarrow 
-        \omega_2=100                               \rightarrow 
-        \textrm{pente du gain : } 
-        \SI[per-mode=symbol]{-20}{\dB\per\dec}     \rightarrow 
-        \phi\mathrel{+}=-90\degreeSI$ 
-\end{itemize}
+%\begin{itemize}
+%    \item $\textrm{intégrateur : } \dfrac{10}{p}   \rightarrow 
+%           \textrm{toute fréquence}                \rightarrow 
+%           \textrm{pente du gain :} 
+%           \SI[per-mode=symbol]{-20}{\dB\per\dec}  \rightarrow 
+%           \phi\mathrel{+}=-90\degreeSI$
+%    \item $ \textrm{1er ordre : }\tau_1=0.1        \rightarrow 
+%           \omega_1=10                             \rightarrow 
+%        \textrm{pente du gain : } 
+%        \SI[per-mode=symbol]{-20}{\dB\per\dec}     \rightarrow 
+%        \phi\mathrel{+}=-90\degreeSI$ 
+%    \item $ \textrm{1er ordre : } \tau_2=0.01      \rightarrow 
+%        \omega_2=100                               \rightarrow 
+%        \textrm{pente du gain : } 
+%        \SI[per-mode=symbol]{-20}{\dB\per\dec}     \rightarrow 
+%        \phi\mathrel{+}=-90\degreeSI$ 
+%\end{itemize}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -551,6 +551,7 @@ fonctions de transfert.
     [width=0.8\textwidth]{phase_ex3_Q1-exercices_corriges-chap_repfreq.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
+\clearpage
 Le lieu de Nyquist de $H_1(\jw)$ converge vers l'origine du plan complexe 
 pour $\omega\rightarrow\infty$ avec une phase de -270\degreeSI 
 (c.a.d $-\dfrac{3\pi}{2})$). Pour $\omega\rightarrow0$ le lieu de transfert 
@@ -665,13 +666,13 @@ imaginaire pour différentes valeurs de la pulsation de la sollicitation.
 \begin{center}
 \begin{tabular}{P{4cm}P{3cm}P{3cm}}
     \hhline{===}
-    $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$ \\[2em]
+    $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$ \\[1em]
     \hhline{===}
-    $\dfrac{1}{\jw}$ & $1\rightarrow0$ & $0\rightarrow-\pi$ \\[2em]
+    $\dfrac{1}{\jw}$ & $1\rightarrow0$ & $0\rightarrow-\pi$ \\[1em]
     \hline
-    $\dfrac{1}{\jw+1}$ & $1\rightarrow0$ & $0\rightarrow-\pi$ \\[2em]
+    $\dfrac{1}{\jw+1}$ & $1\rightarrow0$ & $0\rightarrow-\pi$ \\[1em]
     \hline
-    $H_0(\jw)$ & $1\rightarrow0$ & $0\rightarrow-2\pi$\\[2em]
+    $H_0(\jw)$ & $1\rightarrow0$ & $0\rightarrow-2\pi$\\[1em]
     \hhline{===}
 \end{tabular}
 \end{center}
@@ -708,14 +709,14 @@ On a donc le produit de deux fonctions de transfert du second ordre.\newline
 \begin{center}
 \begin{tabular}{P{4cm}P{3cm}P{3cm}}
     \hhline{===}
-    $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$ \\[2em]
+    $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$ \\[1em]
     \hhline{===}
     $\dfrac{1}{1-\omega^2+\frac{5}{2}\jw}$ & $1\rightarrow0$ 
-                                           & $0\rightarrow-\pi$ \\[2em]
+                                           & $0\rightarrow-\pi$ \\[1em]
     \hline
-    $\dfrac{1}{1-\omega^2+2\jw}$ & $1\rightarrow0$ & $0\rightarrow-\pi$ \\[2em]
+    $\dfrac{1}{1-\omega^2+2\jw}$ & $1\rightarrow0$ & $0\rightarrow-\pi$ \\[1em]
     \hline
-    $H_1(\jw)$ & $1\rightarrow0$ & $0\rightarrow-2\pi$\\[2em]
+    $H_1(\jw)$ & $1\rightarrow0$ & $0\rightarrow-2\pi$\\[1em]
     \hhline{===}
 \end{tabular}
 \end{center}
@@ -737,15 +738,15 @@ $\star$ $\boldsymbol{H_2(p)= \dfrac{1-p}{(1+p)(1+3p+p^2)}}$\newline
 \begin{center}
 \begin{tabular}{P{4cm}P{3cm}P{3cm}}
     \hhline{===}
-    $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$ \\[2em]
+    $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$ \\[1em]
     \hhline{===}
-    $1-\jw$ & $1\rightarrow\infty$ & $0\rightarrow-\dfrac{\pi}{2}$ \\[2em]
+    $1-\jw$ & $1\rightarrow\infty$ & $0\rightarrow-\dfrac{\pi}{2}$ \\[1em]
     \hline
-    $\dfrac{1}{1+\jw}$ & $1\rightarrow0$ & $0\rightarrow-\dfrac{\pi}{2}$ \\[2em]
+    $\dfrac{1}{1+\jw}$ & $1\rightarrow0$ & $0\rightarrow-\dfrac{\pi}{2}$ \\[1em]
     \hline
-    $\dfrac{1}{1-\omega^2+3\jw}$ & $1\rightarrow0$ & $0\rightarrow-\pi$ \\[2em]
+    $\dfrac{1}{1-\omega^2+3\jw}$ & $1\rightarrow0$ & $0\rightarrow-\pi$ \\[1em]
     \hline
-    $H_2(\jw)$ & $1\rightarrow0^{*}$ & $0\rightarrow-2\pi$\\[2em]
+    $H_2(\jw)$ & $1\rightarrow0^{*}$ & $0\rightarrow-2\pi$\\[1em]
     \hhline{===}
 \end{tabular}
 \end{center}
@@ -779,17 +780,17 @@ $\star$ $\boldsymbol{H_3(p)=\dfrac{2p-1}{p(3p-4)}}$\newline
 \begin{center}
 \begin{tabular}{P{4cm}P{3cm}P{3cm}}
     \hhline{===}
-    $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$ \\[2em]
+    $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$ \\[1em]
     \hhline{===}
     $2\jw-1$ & $1\rightarrow\infty$
-    &$0\rightarrow-\dfrac{\pi}{2}$\\[2em]
+    &$0\rightarrow-\dfrac{\pi}{2}$\\[1em]
     \hline
     $\dfrac{1}{4-3\jw}$ & $\dfrac{1}{4}\rightarrow0$
-    &$0\rightarrow\dfrac{\pi}{2}$\\[2em]
+    &$0\rightarrow\dfrac{\pi}{2}$\\[1em]
     \hline
-    $\dfrac{1}{\jw}$ & $\infty\rightarrow0$ & $-\dfrac{\pi}{2}$ \\[2em]
+    $\dfrac{1}{\jw}$ & $\infty\rightarrow0$ & $-\dfrac{\pi}{2}$ \\[1em]
     \hline
-    $H_3(\jw)$ & $\infty\rightarrow0^{*}$ & $-\dfrac{\pi}{2}$\\[2em]
+    $H_3(\jw)$ & $\infty\rightarrow0^{*}$ & $-\dfrac{\pi}{2}$\\[1em]
     \hhline{===}
 \end{tabular}
 \end{center}
@@ -829,18 +830,18 @@ $\star$ $\boldsymbol{H_4(p)=\dfrac{1-2p}{p(1+p)}}$\newline
 \begin{center}
 \begin{tabular}{P{4cm}P{3cm}P{3cm}}
     \hhline{===}
-    $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$ \\[2em]
+    $H(\jw)$ & $|H(\jw)|$ & $\arg{H(\jw)}$ \\[1em]
     \hhline{===}
     $1-2\jw$ & $1\rightarrow\infty$ 
-    & $0\rightarrow-\dfrac{\pi}{2}$ \\[2em]
+    & $0\rightarrow-\dfrac{\pi}{2}$ \\[1em]
     \hline
     $\dfrac{1}{1+\jw}$ & $1\rightarrow0$ 
-    & $0\rightarrow-\dfrac{\pi}{2}$\\[2em]
+    & $0\rightarrow-\dfrac{\pi}{2}$\\[1em]
     \hline
-    $\dfrac{1}{\jw}$ & $\infty\rightarrow0$ & $-\dfrac{\pi}{2}$\\[2em]
+    $\dfrac{1}{\jw}$ & $\infty\rightarrow0$ & $-\dfrac{\pi}{2}$\\[1em]
     \hline
     $H_4(\jw)$ & $\infty\rightarrow0^{*}$ 
-    & $-\dfrac{\pi}{2}\rightarrow-\dfrac{3\pi}{2}$ \\[2em]
+    & $-\dfrac{\pi}{2}\rightarrow-\dfrac{3\pi}{2}$ \\[1em]
     \hhline{===}
 \end{tabular}
 \end{center}
