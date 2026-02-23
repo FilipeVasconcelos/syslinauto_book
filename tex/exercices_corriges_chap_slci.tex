@@ -213,13 +213,84 @@ $\delta_a(t)$. En effet,
 Puisque la transformée de Laplace d'une impulsion de Dirac est égale à 1, on a
 bien vérifié que $\lim_{a\to0} \delta_a(p)=\delta(t)$ où $\delta(t)$ est 
 l'impulsion de Dirac.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Transformée de Laplace d'un signal périodique~\difficile}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer le motif $e_m(t)$ du signal $e(t)$}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Le motif $e_m(t)$ du signal périodique $e(t)$ est simplement le signal triangle:
+\[
+    e_m(t)=\begin{cases} 
+        \dfrac{2}{\tau_0}t\quad 0<t<\dfrac{\tau_0}{2} \\
+        -\dfrac{2}{\tau_0}\left(t-\tau_0\right)\quad\dfrac{\tau_0}{2}<t<\tau_0\\
+        0\quad \text{sinon}
+    \end{cases}
+\]
+%-------------------------------------------------------------------------------
+\begin{center}
+    \includegraphics
+    [width=0.5\textwidth]{signal_periodique_motif-exercices-chap_slci.pdf}
+\end{center}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Ecrire le signal périodique comme une somme infinie 
+de tous les motifs retardés d'un temps $k\tau$ avec $k\in\mathbb{N}^*$}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Le signal périodique est une somme de signaux retardés $e_m(t-k\tau_0)$ tel que
+\[
+    e(t)=e_m(t)+e_m(t-\tau_0)+e_m(t-2\tau_0)+e_m(t-3\tau_0)\ldots
+\]
+\[
+    e(t)=\sum_{k=0}^\infty e_m(t-k\tau_0)
+\]
+%-------------------------------------------------------------------------------
+\begin{center}
+    \includegraphics
+    [width=0.5\textwidth]{signal_periodique_motif2-exercices-chap_slci.pdf}
+\end{center}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer la transformée de Laplace du signal $E(p)$ 
+en fonction de la transformée de Laplace du motif $E_m(p)$}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+En appliquant la propriété du retard en $t$ de la transformée de
+Laplace, la transformée de Laplace $E(p)$ est simplement la somme 
+des transformées des motifs retardés :
+\[
+    E(p)=E_m(p)(1+e^{-p\tau_0}+e^{-2p\tau_0}+e^{-3p\tau_0}+\ldots)
+\]
+\[
+    E(p)=E_m(p)\sum_{k=0}^\infty e^{-pk\tau_0}
+\]
+En identifiant la série géométrique, on obtient la relation générale entre
+la transformée de Laplace d'un signal périodique et la transformée de son motif:
+\[
+    E(p)=\dfrac{E_m(p)}{1-e^{-p\tau_0}}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer alors la transformée de Laplace du motif $E_m(p)$}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\[
+    e_m(t)=\dfrac{2}{\tau_0}t u(t)
+           -\dfrac{4}{\tau_0}\left(t-\dfrac{\tau_0}{2}\right) 
+            u\left(t-\frac{\tau_0}{2}\right) +
+            \dfrac{2}{\tau_0}\left(t-\tau_0\right)u(t-\tau_0)
+\]
+La transformée de Laplace $E_m(p)$ devient :
+\[
+    E_m(p)=\dfrac{2}{\tau_0}\dfrac{1}{p^2}\left(
+    1 - 2 e^{-p\frac{\tau_0}{2}} + e^{-p\tau_0}\right)
+\]
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice{Décharge d'un condensateur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Dans cet exercice nous allons appliquer la méthode \fg classique\og pour la
+Dans cet exercice nous allons appliquer la méthode \og classique\fg pour la
 résolution d'une équation différentielle à coefficients constants.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
