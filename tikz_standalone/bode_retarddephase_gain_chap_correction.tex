@@ -19,7 +19,7 @@
         xlabel style={above},
         ylabel style={left},
         xticklabel style={above},
-        xticklabels={$\dfrac{1}{\alpha\tau_i}$,$\dfrac{1}{\alpha}$},
+        xticklabels={$\dfrac{1}{\beta\tau}$,$\dfrac{1}{\tau}$},
         xtick={5,20},
         yticklabels={},
         ytick={},
@@ -27,12 +27,12 @@
     \addplot[ultra thick,col1,domain=25:60] {-20};
     \addplot[ultra thick,col1,domain=5:25] {5-x};
     \addplot[ultra thick,col1,domain=0:5] {0};
-    \draw[line width=2pt,col2,-latex] 
+    \draw[line width=1pt,col4,-latex] 
          (axis cs:15,0) node[above] {$\omega_m$}  -- 
-         node[right] {\footnotesize$\boldsymbol{10\log{\alpha}}$} (axis cs:15,-10);
-    \draw[line width=2pt,col2,-latex] 
+         node[right] {\footnotesize$\boldsymbol{10\log{\beta}}$} (axis cs:15,-10);
+    \draw[line width=1pt,col4,-latex] 
         (axis cs:35,0)  --
-        node[left,yshift=-1em] {\footnotesize$\boldsymbol{20\log{\alpha}}$} (axis cs:35,-20);
+        node[left,yshift=-1em] {\footnotesize$\boldsymbol{20\log{\beta}}$} (axis cs:35,-20);
     \end{axis}
 \end{tikzpicture}
 

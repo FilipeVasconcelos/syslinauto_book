@@ -18,7 +18,7 @@
         ylabel={ $G_{\si{\dB}}(\omega)$},
         xlabel style={above},
         ylabel style={left},
-        xticklabels={$\dfrac{1}{\alpha\tau_i}$,$\dfrac{1}{\alpha}$},
+        xticklabels={$\dfrac{1}{\alpha\tau}$,$\dfrac{1}{\tau}$},
         xtick={5,25},
         yticklabels={},
         ytick={},
@@ -27,10 +27,10 @@
     \addplot[ultra thick,col1,domain=5:25] {-5+x};
     \addplot[ultra thick,col1,domain=0:5] {0};
     %\node[col1] at (axis cs:10,15) {\footnotesize$20$\si{\dB/dec}};
-    \draw[line width=2pt,col2,-latex] 
+    \draw[line width=1pt,col4,-latex] 
          (axis cs:15,0) node[below] {$\omega_m$}  -- 
          node[right] {\footnotesize$\boldsymbol{10\log{\alpha}}$} (axis cs:15,10);
-    \draw[line width=2pt,col2,-latex] 
+    \draw[line width=1pt,col4,-latex] 
         (axis cs:45,0)  --
         node[right] {\footnotesize$\boldsymbol{20\log{\alpha}}$} (axis cs:45,20);
     \end{axis}

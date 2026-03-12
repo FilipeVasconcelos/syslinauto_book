@@ -977,21 +977,21 @@ avec $\alpha>1$ et $\beta>1$. On prendra $\alpha=\beta$.
 \renewcommand{\arraystretch}{1.1}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-Correcteur & $C(p)$ & Classe & Précision statique & Dynamique / stabilité \\
+Correcteur & $C(p)$ & Précision statique & Dynamique / stabilité \\
 \hline
-P      & $K$ & = & améliorée & rapidité ↑, stabilité ↓ si $K$ ↑ \\
-I      & $\dfrac{K}{p}$ & +1 & erreur indicielle nulle 
+P      & $k_p$ & améliorée & rapidité ↑, stabilité ↓ si $K$ ↑ \\
+I      & $\dfrac{1}{\tau_ip}$ & erreur indicielle nulle 
        & lenteur ↑, stabilité ↓ \\
-D      & $Kp$ & = & = & amortissement ↑, stabilité ↑, bruit ↑ \\
-PI     & $K\!\left(1+\dfrac{1}{T_i p}\right)$ & +1 & erreur indicielle nulle 
+D      & $Kp$ & = & amortissement ↑, stabilité ↑, bruit ↑ \\
+PI     & $k_p\!\left(1+\dfrac{1}{\tau_i p}\right)$ & erreur indicielle nulle 
        & compromis précision / stabilité \\
-PD     & $K(1+T_d p)$ & = & améliorée & amortissement ↑, rapidité ↑, bruit ↑ \\
-PID    & $K\!\left(1+\dfrac{1}{T_i p}+T_d p\right)$ & +1 & 
-      erreur indicielle nulle & performances globales ↑, bruit ↑ \\
-Retard & $K\dfrac{1+Tp}{1+\alpha Tp},\,\alpha>1$ & = & améliorée & 
-      rapidité ↓, stabilité ↓ \\
-Avance & $K\dfrac{1+Tp}{1+\alpha Tp},\,0<\alpha<1$ & = & = 
+PD     & $k_p(1+\tau_d p)$ & améliorée & amortissement ↑, rapidité ↑, bruit ↑ \\
+Avance & $K\dfrac{1+\tau p}{1+\alpha \tau p},\,0<\alpha<1$ & = 
        & rapidité ↑, stabilité ↑ \\
+Retard & $\dfrac{1+\tau p}{1+\beta \tau p},\,\beta>1$ & améliorée & 
+      rapidité ↓, stabilité ↓ \\
+PID    & $k_p\!\left(1+\dfrac{1}{\tau_i p}+\tau_d p\right)$ & 
+      erreur indicielle nulle & performances globales ↑, bruit ↑ \\
 \hline
 \end{tabular}
 \end{center}
