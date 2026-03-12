@@ -368,8 +368,8 @@ d'un filtre passe-bas.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Comme leurs noms l'indiquent, les correcteurs composés combinent plusieurs
-des correcteurs élémentaires présentés précédemment
+%Comme leurs noms l'indiquent, les correcteurs composés combinent plusieurs
+%des correcteurs élémentaires présentés précédemment
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Correcteur PI}
@@ -399,11 +399,9 @@ La fonction de transfert de ce correcteur peut donc s'écrire :
 %-------------------------------------------------------------------------------
 Le diagramme de Bode de ce correcteur, représenté ci-dessus,
 met en évidence les propriétés suivantes :
-
 %-------------------------------------------------------------------------------
 \begin{itemize}
     \item \textbf{Module} :
-
     À basse fréquence $(\omega \ll \dfrac{1}{\tau_i})$, le comportement est 
     celui d'un intégrateur :
     \[
@@ -418,53 +416,62 @@ met en évidence les propriétés suivantes :
     \]
 
     \item \textbf{Phase} :
-
     À basse fréquence :
     \[
         \arg C_{\text{PI}}(\jw)\approx -\dfrac{\pi}{2}
     \]
-
     À haute fréquence :
     \[
         \arg C_{\text{PI}}(\jw)\approx 0.
     \]
-
-    La phase évolue donc progressivement entre $-\dfrac{\pi}{2}$ et $0$ 
-    autour de la pulsation de coupure $\omega_i=\dfrac{1}{\tau_i}$.
+    %La phase évolue donc progressivement entre $-\dfrac{\pi}{2}$ et $0$ 
+    %autour de la pulsation de coupure $\omega_i=\dfrac{1}{\tau_i}$.
 \end{itemize}
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
-\begin{figure}
-    \centering
+\begin{center}
     \includegraphics[width=0.47\textwidth]{bode_pi_gain_chap_correction.pdf}
-    
     \includegraphics[width=0.47\textwidth]{bode_pi_phase_chap_correction.pdf}
-    \caption{Diagramme de Bode du correcteur à effet proportionnel et intégral.}
-\end{figure}
+\end{center}
 %-------------------------------------------------------------------------------
+L'effet de ce correcteur sur le système en boucle ouverte est particulièrement
+intéressant. À basse fréquence, le gain est fortement augmenté en raison de la
+présence du pôle à l'origine. Cela permet d'améliorer considérablement la précision
+du système et d'annuler l'erreur statique pour une entrée en échelon.
+
+À haute fréquence, le correcteur se comporte comme un correcteur proportionnel,
+ce qui limite le retard de phase introduit par l'action intégrale seule et permet
+de conserver de bonnes marges de stabilité.
+
+Il existe donc un compromis entre précision et stabilité :
+\textbf{le correcteur PI permet d'assurer une erreur statique nulle tout en
+limitant la dégradation de la stabilité grâce à la présence du zéro.}
+
+Le correcteur PI constitue ainsi un excellent compromis entre précision et stabilité.
+Il est largement utilisé en pratique, car il permet d'annuler l'erreur statique sans
+introduire une dégradation excessive du comportement dynamique du système.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Correcteur PD}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \index{Correcteur!Proportionnel Dérivé (PD)}
-%-------------------------------------------------------------------------------
-\begin{figure}
-    \centering
-    \includegraphics[width=0.47\textwidth]{bode_pd_gain_chap_correction.pdf}
-    
-    \includegraphics[width=0.47\textwidth]{bode_pd_phase_chap_correction.pdf}
-    \caption{Diagramme de Bode du correcteur à effet proportionnel et dérivé.}
-\end{figure}
-%-------------------------------------------------------------------------------
+Le correcteur proportionnel dérivé combine les propriétés des correcteurs
+proportionnel et dérivé. L'architecture du correcteur peut-être représenté
+par le schéma-bloc suivant:\footnote{à noter qu'une architecture parallèle
+est équivalente et ne nécessite qu'une redéfinition des paramètres
+du correcteur}
 %-------------------------------------------------------------------------------
 \begin{center}
     \includegraphics[width=0.6\textwidth]{pd_chap_correction.pdf}
 \end{center}
 %-------------------------------------------------------------------------------
+La commande $U(p)$ fait intervenir les paramètres $k_p$ et $\tau_d$ 
+telle que :   
 \[
     U(p)=k_p\left(1+\tau_d p\right)\epsilon(p)
 \]
+La fonction de transfert de ce correcteur peut donc s'écrire :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
     C_{\text{PD}}=k_p\left(1+\tau_d p\right)
@@ -475,7 +482,68 @@ une forme approchée/filtrée :
 \[
     C_{\text{PD}}=k_p\dfrac{1+\tau_d p}{1+\tau p}
 \]
-avec $\tau\ll\tau_d$
+avec $\tau\ll\tau_d$.
+
+Le diagramme de Bode de ce correcteur, représenté ci-dessous,
+met en évidence les propriétés suivantes :
+%-------------------------------------------------------------------------------
+\begin{itemize}
+    \item \textbf{Module} :
+    À basse fréquence $(\omega \ll \dfrac{1}{\tau_d})$, le comportement est
+    celui d'un correcteur proportionnel :
+    \[
+        \left|C_{\text{PD}}(\jw)\right|\approx k_p .
+    \]
+
+    À haute fréquence $(\omega \gg \dfrac{1}{\tau_d})$, le comportement devient
+    celui d'un dérivateur :
+    \[
+        \left|C_{\text{PD}}(\jw)\right|\approx k_p\tau_d\omega .
+    \]
+    Le gain augmente alors avec une pente de $20$ dB/décade.
+
+    \item \textbf{Phase} :
+    À basse fréquence :
+    \[
+        \arg C_{\text{PD}}(\jw)\approx 0 .
+    \]
+
+    À haute fréquence :
+    \[
+        \arg C_{\text{PD}}(\jw)\approx \dfrac{\pi}{2}.
+    \]
+\end{itemize}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{center}
+    \includegraphics[width=0.47\textwidth]{bode_pd_gain_chap_correction.pdf}
+    \includegraphics[width=0.47\textwidth]{bode_pd_phase_chap_correction.pdf}
+\end{center}
+%-------------------------------------------------------------------------------
+
+L'effet de ce correcteur sur le système en boucle ouverte est principalement
+d'améliorer le comportement dynamique du système. La présence du zéro
+introduit une avance de phase qui permet d'augmenter la marge de phase
+et donc d'améliorer la stabilité relative du système.
+
+À basse fréquence, le correcteur se comporte comme un correcteur proportionnel.
+Il ne modifie donc pas significativement la précision du système et
+n'améliore pas l'erreur statique.
+
+À plus haute fréquence, l'action dérivée amplifie les variations rapides
+de l'erreur. Le correcteur agit alors de manière anticipative et permet
+d'améliorer l'amortissement du système, ce qui se traduit généralement
+par une réduction des oscillations et du dépassement.
+
+Il existe donc un compromis entre rapidité et sensibilité au bruit :
+\textbf{le correcteur PD permet d'améliorer la stabilité et la rapidité
+de la réponse, mais peut amplifier les composantes haute fréquence
+du signal d'erreur.}
+
+Pour cette raison, le correcteur PD est rarement utilisé seul dans les
+applications industrielles. Il est le plus souvent associé à une action
+intégrale dans les correcteurs PID, qui permettent simultanément
+d'améliorer la précision et le comportement dynamique du système.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -497,15 +565,10 @@ Le correcteur à avance de phase (AP) est défini par la fonction de transfert :
 %-------------------------------------------------------------------------------
 avec $\alpha>1$.
 %-------------------------------------------------------------------------------
-\begin{figure}
-    \centering
-    \includegraphics
-    [width=0.47\textwidth]{bode_avancedephase_gain_chap_correction.pdf}
-    
-    \includegraphics
-    [width=0.47\textwidth]{bode_avancedephase_phase_chap_correction.pdf}
-    \caption{Diagramme de Bode du correcteur à avance de phase.}
-\end{figure}
+\begin{center}
+\includegraphics[width=0.47\textwidth]{bode_avancedephase_gain_chap_correction.pdf}
+\includegraphics[width=0.47\textwidth]{bode_avancedephase_phase_chap_correction.pdf}
+\end{center}
 %-------------------------------------------------------------------------------
 Le maximum de la phase se trouve à la moyenne géométrique du segment 
 $\left[\dfrac{1}{\alpha\tau},\dfrac{1}{\alpha}\right]$ (l’échelle étant 
@@ -561,10 +624,9 @@ puisque $\tau^2\omega_m^2=\dfrac{1}{\alpha}$.
 \subsubsection*{Exemple d'application du correcteur à avance de phase}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\emph{Remarque : Dans cet exercice, on utilisera Scilab pour tracer les 
-réponses harmoniques et temporelles des fonctions de transfert en 
-boucle ouverte et/ou boucle fermée lorsque celles-ci sont nécessaires.}
-
+%\emph{Remarque : Dans cet exercice, on utilisera Scilab pour tracer les 
+%réponses harmoniques et temporelles des fonctions de transfert en 
+%boucle ouverte et/ou boucle fermée lorsque celles-ci sont nécessaires.}
 On se donne un procédé de fonction de transfert $H(p)$ telle que
 \[
     H(p)=\dfrac{1}{p(p+0.2)}
@@ -622,7 +684,8 @@ On cherche $\phi_m$ tel que
 \]
 où $\phi_m$ est la phase maximale apportée par le correcteur à avance de phase
 tel que:
-$\phi_m=\arcsin{\left(\dfrac{\alpha-1}{\alpha+1}\right)}$
+$\phi_m=\arcsin{\left(\dfrac{\alpha-1}{\alpha+1}\right)}$.
+
 Donc on cherche $\alpha$ tel que $\phi_m=\SI{43.7}{\degree}$
 \[
     \alpha=\dfrac{1+\sin\phi_m}{1-\sin\phi_m}=5.47
@@ -679,15 +742,12 @@ Le correcteur à retard de phase (RP) est défini par la fonction de transfert :
 %-------------------------------------------------------------------------------
 avec $\beta>1$
 %-------------------------------------------------------------------------------
-\begin{figure}
-    \centering
-    \includegraphics
-    [width=0.47\textwidth]{bode_retarddephase_gain_chap_correction.pdf}
-    
-    \includegraphics
-    [width=0.47\textwidth]{bode_retarddephase_phase_chap_correction.pdf}
-    \caption{Diagramme de Bode du correcteur à retard de phase}
-\end{figure}
+\begin{center}
+\includegraphics
+[width=0.47\textwidth]{bode_retarddephase_gain_chap_correction.pdf}
+\includegraphics
+[width=0.47\textwidth]{bode_retarddephase_phase_chap_correction.pdf}
+\end{center}
 %-------------------------------------------------------------------------------
 Le minimum de la phase se trouve à la moyenne géométrique du segment 
 $\left[\dfrac{1}{\beta\tau},\dfrac{1}{\tau}\right]$. Cette pulsation 
@@ -892,15 +952,12 @@ de transfert :
 %-------------------------------------------------------------------------------
 avec $\alpha>1$ et $\beta>1$. On prendra $\alpha=\beta$.
 %-------------------------------------------------------------------------------
-\begin{figure}
-    \centering
-    \includegraphics
-    [width=0.47\textwidth]{bode_retardavancedephase_gain_chap_correction.pdf}
-    
-    \includegraphics
-    [width=0.47\textwidth]{bode_retardavancedephase_phase_chap_correction.pdf}
-    \caption{Diagramme de Bode du correcteur à retard-avance de phase}
-\end{figure}
+\begin{center}
+\includegraphics
+[width=0.47\textwidth]{bode_retardavancedephase_gain_chap_correction.pdf}
+\includegraphics
+[width=0.47\textwidth]{bode_retardavancedephase_phase_chap_correction.pdf}
+\end{center}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{PID avec la dérivée sur la mesure seule}

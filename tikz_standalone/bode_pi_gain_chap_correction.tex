@@ -1,37 +1,32 @@
 \documentclass[tikz,border=3pt]{standalone}
-
+\usepackage{amsmath,amssymb}	
 \input{preamble/tikz}
 \usepackage{siunitx}
-\usepackage{siunitxfmv}
-
 \begin{document}
-
-\begin{tikzpicture}%[trim axis left]
-    \begin{axis}[
-    ticklabel style = {font=\footnotesize},
-    width=0.7\linewidth,
-    height=0.5\linewidth,
-    ylabel={Gain (\si{\decibel})},
-    xtick={1e-4,1e-3,1e-2,1e-1,1,1e1,1e2,1e3,1e4,1e5},
-    ytick={0,10,20,30,40},
-    xticklabels={$10^{-4}$,$10^{-3}$,$10^{-2}$,$10^{-1}$,
-                 $10^{0}$,$10^{1}$,$10^{2}$,$10^{3}$,$10^{4}$,$10^{5}$},
-    yticklabels={0,10,20,30,40},
-    xmode=log,ymode=normal,
-    xmin=1e-2, xmax=1e2,
-    ymin=0, ymax=40,
-    grid=both,
-    major grid style={black!40},
-    clip=false,
+\begin{tikzpicture}
+    \begin{axis}
+    [
+        grid=none,
+        width=\linewidth,
+        width=0.5\linewidth,
+        axis line style = thick,
+        axis x line=middle,
+        axis y line=middle,
+        xmin=-5,xmax=20,
+        ymin=-10,ymax=30,
+        xlabel={ $\log\omega$},
+        ylabel={ $G_{\si{\dB}}(\omega)$},
+        xlabel style={above},
+        ylabel style={left},
+        xticklabels={$\dfrac{1}{\tau_i}$},
+        xtick={10},
+        yticklabels={},
+        ytick={},
     ]
-    \pgfmathsetmacro{\ti}{1.0000001} 
-    \pgfmathsetmacro{\wti}{(1/\ti)} 
-    \addplot[ultra thick, col1,domain=1e-2:1e2, samples=201]    
-            {10*log10(1+\ti*\ti*x*x)-20*log10(\ti*x)};
-    \addplot[line width=2pt,col4,dashed,domain=1e-2:\wti, samples=51] 
-            {-20*log10(x)};
-    \addplot[line width=2pt,col4,dashed,domain=\wti:1e2, samples=51] {0};
-\end{axis}
+    \addplot[ultra thick,col1,domain=0:10] {-2*x+20};
+    \addplot[ultra thick,col1,domain=10:20] {0};
+    \node[col1] at (axis cs:7.5,15) {\footnotesize$-20$\si{\dB/dec}};
+    \end{axis}
 \end{tikzpicture}
 
 \end{document}
