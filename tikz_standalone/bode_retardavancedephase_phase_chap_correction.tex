@@ -6,21 +6,39 @@
     \begin{axis}
     [
         grid=none,
+        tick align=outside,
         width=0.5\linewidth,
         axis line style = thick,
         axis x line=middle,
         axis y line=middle,
-        xmin=-5,xmax=20,
-        ymin=-45,ymax=180,
+        xmin=-5,xmax=100,
+        ymin=-130,ymax=130,
         xlabel={ $\log\omega$},
         ylabel={ $\phi(\omega)$},
         xlabel style={below},
         ylabel style={left},
-        xticklabels={},
-        xtick={},
-        yticklabels={$\dfrac{\pi}{2}$},
-        ytick={90} ]
-        \addplot[ultra thick,col1,domain=0:20] {90};
+        xtick={20,35,50,70},
+        xticklabels={,,%
+        $\dfrac{1}{\alpha\tau_a}$,
+        $\dfrac{1}{\tau_a}$},
+        extra x ticks={20,35},
+        extra x tick labels={
+        $\dfrac{1}{\beta\tau_r}$,
+        $\dfrac{1}{\tau_r}$},
+        extra x tick style={
+            ticklabel style={above}
+        },
+        yticklabels={$-\dfrac{\pi}{2}$,$\dfrac{\pi}{2}$},
+        ytick={-90,90} ]
+    \addplot[ultra thick,col1,domain=0:20]  {0};
+    \addplot[ultra thick,col1,domain=20:35] {-90};
+    \addplot[ultra thick,col1,domain=35:50] {0};
+    \addplot[ultra thick,col1,domain=50:70] {90};
+    \addplot[ultra thick,col1,domain=70:90] {0};
+    \draw[line width=1pt,col1,dashed] (axis cs:20,0) -- (axis cs:20,-90);
+    \draw[line width=1pt,col1,dashed] (axis cs:35,0) -- (axis cs:35,-90);
+    \draw[line width=1pt,col1,dashed] (axis cs:50,0) -- (axis cs:50,90);
+    \draw[line width=1pt,col1,dashed] (axis cs:70,0) -- (axis cs:70,90);
     \end{axis}
 \end{tikzpicture}
 \end{document}

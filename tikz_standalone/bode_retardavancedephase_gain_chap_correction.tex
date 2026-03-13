@@ -12,22 +12,30 @@
         axis line style = thick,
         axis x line=middle,
         axis y line=middle,
-        xmin=-5,xmax=70,
-        ymin=-30,ymax=10,
+        xmin=-5,xmax=100,
+        ymin=-30,ymax=20,
         xlabel={ $\log\omega$},
         ylabel={ $G_{\si{\dB}}(\omega)$},
+        xticklabel style={below,font=\small},
         xlabel style={above},
-        ylabel style={left},
-    %    xticklabels={$\dfrac{1}{\alpha\tau_i}$,$\dfrac{1}{\alpha}$},
-    %    xtick={5,25},
-        yticklabels={},
-        ytick={},
+        ylabel style={above},
+        xticklabels={$\dfrac{1}{\beta\tau_r}$,$\dfrac{1}{\tau_r}$,$\dfrac{1}{\alpha\tau_a}$,$\dfrac{1}{\tau_a}$},
+        xtick={20,35,50,70},
+        yticklabels={$20\log{k_p}$},
+        ytick={10},
+        clip=false
     ]
-    \addplot[ultra thick,col1,domain=0:5] {0};
-    \addplot[ultra thick,col1,domain=5:25] {5-x};
-    \addplot[ultra thick,col1,domain=25:35] {-20};
-    \addplot[ultra thick,col1,domain=35:55] {-55+x};
-    \addplot[ultra thick,col1,domain=55:70] {0};
+    \addplot[thick,col1,domain=0:20] {10};
+    \addplot[thick,col1,domain=20:35] {50-2*x};
+    \addplot[thick,col1,domain=35:55] {-20};
+    \addplot[thick,col1,domain=55:75] {2*x-130};
+    \addplot[thick,col1,domain=75:95] {20};
+    \draw[line width=1pt,col4,-latex]
+        (axis cs:10,-20)  --
+        node[left] {\footnotesize$\boldsymbol{20\log{\beta}}$} (axis cs:10,10);
+    \draw[line width=1pt,col4,-latex]
+        (axis cs:80,-20)  --
+        node[below right] {\footnotesize$\boldsymbol{20\log{\alpha}}$} (axis cs:80,20);
     \end{axis}
 \end{tikzpicture}
 
