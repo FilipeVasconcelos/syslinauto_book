@@ -187,7 +187,7 @@ Pour une telle entrée, l'erreur statique devient :
 %-------------------------------------------------------------------------------
 \begin{bequation}[ams align]
 \epsilon_s=\lim\limits_{p\to 0} \dfrac{p^\alpha}{p^\alpha+K}\dfrac{E_0}{p}
-          =\dfrac{p^{\alpha-1}}{p^\alpha+K}E_0 
+          =\lim\limits_{p\to 0} \dfrac{p^{\alpha-1}}{p^\alpha+K}E_0 
 \end{bequation}
 %-------------------------------------------------------------------------------
 Dans le cas d'un système de classe $\alpha=0$ en boucle ouverte, 
@@ -266,10 +266,10 @@ et s'annule pour $\alpha>2$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Cas générale}
+\subsubsection{Cas général}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 On considère maintenant l'effet d'une perturbation sur la précision d'un 
-système asservis.
+système asservi.
 Sans perte de généralité, on ne considérera que le cas d'une perturbation 
 en entrée (c'est à dire en amont d'un système linéaire défini par une fonction 
 de transfert $H_2(p)$), la présence d'un correcteur $H_1(p)$ n'est pas 
@@ -283,7 +283,7 @@ et $H_2(p)$ de forme canonique :
     H_2(p)=\dfrac{K_2}{p^{\alpha_2}}\dfrac{N_2(p)}{D_2(p)}
 \end{align*}
 %-------------------------------------------------------------------------------
-de les gains statiques $K_i$, de classe $\alpha_i$, de polynômes $N_i(p)$
+avec les gains statiques $K_i$, de classe $\alpha_i$, de polynômes $N_i(p)$
 et $D_i(p)$ tels que $N_i(0)=1$ et $D_i(0)=1$.
 %-------------------------------------------------------------------------------
 \begin{center}
@@ -314,7 +314,7 @@ La fonction de transfert de l'asservissement est donnée par :
 \[
 H_{P=0}=\dfrac{H_1H_2(p)}{1+H_1(p)H_2(p)} 
 \]
-Dans le cas de la régulation d'un système asservis, il est nécessaire de 
+Dans le cas de la régulation d'un système asservi, il est nécessaire de 
 rejeter cette contribution.
 
 La fonction de transfert $H_{E=0}$, de la régulation, correspondant à une 
@@ -343,7 +343,7 @@ est alors :
 \begin{align*}
     \epsilon_P&=\lim\limits_{p\to0} p\epsilon_P(p)\\
     \epsilon_P&=\lim\limits_{p\to0} -H_{E=0}P_0\\
-    \epsilon_P&=\lim\limits_{p\to0}\dfrac{\pau K_2}{\pau\pad+K_1K_2}P_0
+    \epsilon_P&=\lim\limits_{p\to0}-\dfrac{\pau K_2}{\pau\pad+K_1K_2}P_0
 \end{align*}
 %-------------------------------------------------------------------------------
 \textbf{La perturbation est rejetée ($\epsilon_P=0$) si $\alpha_1>0$, 
@@ -352,8 +352,8 @@ En effet si $\alpha_1=0$, l'erreur due à la perturbation est finie et
 donnée par :
 \[
     \begin{cases}
-        \alpha_2=0 & \epsilon_P=\dfrac{K_2}{1+K_1K_2}P_0 \\[1.5em]
-        \alpha_2>0 & \epsilon_P=\dfrac{P_0}{K_1}
+        \alpha_2=0 & \epsilon_P=-\dfrac{K_2}{1+K_1K_2}P_0 \\[1.5em]
+        \alpha_2>0 & \epsilon_P=-\dfrac{P_0}{K_1}
     \end{cases}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -377,10 +377,11 @@ que $P(p)=e^{-\tau p}\dfrac{P_0}{p}$ retardée d'un temps $\tau>0$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Si l'intégrateur est en aval de la perturbation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Dans un tel cas l'erreur due à la perturbation est donnée par :
+Dans un tel cas $H_1(p)=1$ et $H_2(p)=\dfrac{1}{p(p+1)}$. Ainsi,
+l'erreur due à la perturbation est donnée par :
 \[
 \epsilon_P=\lim\limits_{p\to0}p\epsilon_P(p)=
-\lim\limits_{p\to0}\dfrac{e^{-\tau p}}{p(p+1)+1}P_0=P_0
+\lim\limits_{p\to0}\dfrac{e^{-\tau p}}{p(p+1)+1}P_0=-P_0
 \]
 L'erreur statique de position totale est donc non nulle. La perturbation
 n'est pas rejetée comme on peut le voir sur la simulation de la réponse
@@ -391,14 +392,15 @@ temporelle globale de ce système (c.f~\cref{fig-pert1}).
     \includegraphics[width=\textwidth]{pert1_data-chap_perf.pdf}
     \caption{Effet de la perturbation sur la réponse temporelle dans le cas
              où l'intégrateur est en aval de la perturbation. La simulation 
-             de la réponse temporelle est obtenue pour les paramètres suivants:
+             de la réponse temporelle est obtenue pour les paramètres suivants :
              $E_0=1$, $P_0=0.5$ et $\tau=15$\label{fig-pert1}}
 \end{figure}
 %-------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Si l'intégrateur est en amont de la perturbation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Dans un tel cas l'erreur due à la perturbation est donnée par :
+Dans un tel cas $H_1(p)=\dfrac{1}{p}$ et $H_2(p)=\dfrac{1}{(p+1)}$. Ainsi, 
+l'erreur due à la perturbation est donnée par :
 \[
 \epsilon_P=\lim\limits_{p\to0}\dfrac{pe^{-\tau p}}{p(p+1)+1}P_0=0
 \]
@@ -411,7 +413,7 @@ temporelle globale de ce système (c.f~\cref{fig-pert2}).
     \includegraphics[width=\textwidth]{pert2_data-chap_perf.pdf}
     \caption{Effet de la perturbation sur la réponse temporelle dans le cas
              où l'intégrateur est en amont de la perturbation. La simulation
-             de la réponse temporelle est obtenue pour les paramètres suivants: 
+             de la réponse temporelle est obtenue pour les paramètres suivants : 
              $E_0=1$, $P_0=0.5$ et $\tau=15$\label{fig-pert2}}
 \end{figure}
 %-------------------------------------------------------------------------------

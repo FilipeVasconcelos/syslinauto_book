@@ -30,17 +30,19 @@
     \end{axis}
     \begin{scope}[shift={(-10,2.3)}]
         \sbEntree{E}
-        \sbCompSum{comp1}{E}{+}{-}{+}{}
+        \sbCompSum{comp1}{E}{}{-}{+}{}
         \sbRelier[$E(p)$]{E}{comp1}
-        \sbBloc[2.5]{C}{$\dfrac{1}{p}$}{comp1}
-        \sbRelier[$\epsilon(p)$]{comp1}{C}
+        \sbCompSum{comp2}{comp1}{+}{}{+}{}
+        \sbRelier[$\epsilon(p)$]{comp1}{comp2}
+        \sbBloc[2.5]{C}{$\dfrac{1}{p}$}{comp2}
+        \sbRelier[]{comp2}{C}
         \sbBloc[3]{H}{$\dfrac{1}{p+1}$}{C}
         \sbRelier[]{C}{H}
         \sbSortie[3]{S}{H}
         \sbRelier[$S(p)$]{H}{S}
         \sbRenvoi[4]{H-S}{comp1}{}
-        \sbDecaleNoeudy[-2.5]{comp1}{P}
-        \sbRenvoiF[-2.5]{P}{comp1}{$P(p)$}
+        \sbDecaleNoeudy[-2.5]{comp2}{P}
+        \sbRenvoiF[-2.5]{P}{comp2}{$P(p)$}
     \end{scope}
 \end{tikzpicture}
 
