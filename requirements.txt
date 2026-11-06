@@ -1,0 +1,6 @@
+   jupyterlab
+   numpy
+   matplotlib
+   mpmath
+   control
+   # pour ouvrir les notebooks : jupyter

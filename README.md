@@ -12,7 +12,12 @@ au module de Systèmes Mécaniques et Automatiques (SMA).
 - Distribution TeX Live (version complète recommandée) avec `pdflatex`, `bibtex`, `makeindex` et `makeglossaries`
 - `make`
 - Python et [Pygments](https://pygments.org/) (`pip install Pygments`), requis par le package `minted`
-- Packages locaux `mintedscilabfmv`, `tcolorfmv` et `siunitxfmv` : absents du dépôt, à installer dans votre arbre TeX (par exemple `~/texmf/tex/latex/`)
+- Packages locaux `mintedscilabfmv`, `tcolorfmv` et `siunitxfmv` : fournis dans `preamble/`, ils ne sont **pas** installés automatiquement. Copiez-les dans votre arbre TeX utilisateur (Linux/macOS) :
+  ```
+  d="$(kpsewhich -var-value TEXMFHOME)/tex/latex/syslinauto"
+  mkdir -p "$d" && cp preamble/*.sty "$d"
+  ```
+  Vérification : `kpsewhich tcolorfmv.sty` doit afficher un chemin. Pensez à recopier les fichiers si le dépôt les met à jour.
 
 ### Commandes
 ```
