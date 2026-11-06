@@ -1,0 +1,26 @@
+% siunitxfmv package
+% 
+% (c) Filipe Vasconcelos
+%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+% 
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{siunitxfmv}
+  [2019/10/21 v0.01 LaTeX package de déclarations d'unités siunitx]
+
+\RequirePackage{siunitx}
+\def\hi{Ce paquet regroupe des définitions d'unités pour fmv.}
+\let\myDate\date
+
+\sisetup{inter-unit-product=\ensuremath{{}\cdot{}}}
+\DeclareSIUnit{\tour}{tr}
+\DeclareSIUnit\dec{decade}
+\DeclareSIUnit\oct{octave}
+\DeclareSIUnit\dB{\decibel}
+\DeclareSIUnit{\tourparminute}{\tour\per\minute}
+\newcommand*{\degreeSI}{\si{\degree}}
+\endinput
+%%
+%% End of file `siunitxfmv.sty'.

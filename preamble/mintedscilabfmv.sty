@@ -1,0 +1,65 @@
+% mintedscilabfmv package
+% 
+% (c) Filipe Vasconcelos
+%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+% 
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{mintedscilabfmv}
+  [2020/11/17 v0.01 LaTeX package pour définir la syntaxe scilab pour minted]
+
+%\RequirePackage{minted}
+\RequirePackage{tcolorbox}
+\RequirePackage{etoolbox}
+\def\hi{Ce paquet définit une syntaxe minted scilab.}
+\let\myDate\date
+%\BeforeBeginEnvironment{minted}{\begin{tcolorbox}[enhanced,
+%                                                  breakable,
+%                                                  sharpish corners,
+%                                                  width=\linewidth,
+%                                                  colframe=white,
+%                                                  colback=blue!8]}%
+%\AfterEndEnvironment{minted}{\end{tcolorbox}}%
+\newminted{Scilab}{
+    xleftmargin=1mm,
+    xrightmargin=1mm,
+    autogobble,
+    linenos=false,
+    fontfamily=tt,
+    numberblanklines=true,
+    numbersep=5pt,
+    funcnamehighlighting=true,
+    tabsize=4,
+    obeytabs=false,
+    mathescape=false,
+    samepage=false, %with this setting you can force the list to appear on the same page
+    showspaces=false,
+    showtabs =false,
+    texcl=false,
+    fontsize=\normalsize,
+}
+\newmintedfile[scilabcode]{scilab}{
+    xleftmargin=0mm,
+    xrightmargin=0mm,
+    autogobble,
+    linenos=false,
+    fontfamily=tt,
+    numberblanklines=true,
+    numbersep=5pt,
+    %gobble=0,
+    funcnamehighlighting=true,
+    tabsize=4,
+    obeytabs=false,
+    mathescape=false,
+    samepage=false, %with this setting you can force the list to appear on the same page
+    showspaces=false,
+    showtabs =false,
+    texcl=false,
+    fontsize=\normalsize,
+}
+
+\endinput
+%%
+%% End of file `mintedscilabfmv.sty'.
