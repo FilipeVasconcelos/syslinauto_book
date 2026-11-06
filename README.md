@@ -6,6 +6,25 @@ Ce document est le résultat de l'enseignement dispensé de janvier 2018
 à juin 2022 en deuxième année de l'ESME Sudria. Celui-ci était associé 
 au module de Systèmes Mécaniques et Automatiques (SMA).
 
+## Compilation
+
+### Prérequis
+- Distribution TeX Live (version complète recommandée) avec `pdflatex`, `bibtex`, `makeindex` et `makeglossaries`
+- `make`
+- Python et [Pygments](https://pygments.org/) (`pip install Pygments`), requis par le package `minted`
+- Packages locaux `mintedscilabfmv`, `tcolorfmv` et `siunitxfmv` : absents du dépôt, à installer dans votre arbre TeX (par exemple `~/texmf/tex/latex/`)
+
+### Commandes
+```
+make full    # figures TikZ, PDF, bibliographie, index, glossaires, puis 2 passes
+make pdf     # compile le PDF (une passe)
+make clean   # supprime les fichiers auxiliaires
+```
+
+La compilation utilise `pdflatex -shell-escape` (nécessaire à `minted`). 
+Le dossier `figtikz/` est généré par `make standalone` à partir de plus de 400 figures : la première compilation est très longue.
+
+
 ## PDF (dernière version)
 [PDF](syslinauto.pdf)
 
@@ -38,6 +57,7 @@ au module de Systèmes Mécaniques et Automatiques (SMA).
  * Annexe N - Abaque de Black-Nichols 
  * Annexe O - Principe de l'argument de Cauchy 
  * Annexe P - Lieu d'Evans (lieu des racines) 
+ * Annexe Q - Différentes architectures des correcteurs PID
 
 ## Page de couverture (Illustration : Lorraine Bayard)
 <img src="fig/cover/premiere_page.png" width="256"> <img src="fig/cover/quatrieme_page.png" width="256">
