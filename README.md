@@ -4,7 +4,9 @@
 
 Ce document est le résultat de l'enseignement dispensé de janvier 2018 
 à juin 2022 en deuxième année de l'ESME Sudria. Celui-ci était associé 
-au module de Systèmes Mécaniques et Automatiques (SMA).
+au module de Systèmes Mécaniques et Automatiques (SMA). Mais le contenu
+est autant adapté aux étudiants du cycle préparatoire qu'aux étudiants
+de première année du cycle ingénieur.
 
 ## Compilation
 
