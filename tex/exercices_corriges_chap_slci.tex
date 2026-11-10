@@ -549,3 +549,503 @@ de transfert sous la forme :
 \]
 Aussi sous cette forme, la question de la précision des valeurs décimales 
 peut se poser. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{\'Etude d'équations différentielles}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer la transformée de Laplace de chacune de ces
+équations différentielles. En déduire les fonctions de transfert $H_2(p)$,
+d'entrée $X(p)$ et de sortie $S(p)$, et $H_1(p)$, d'entrée $E(p)$ et de sortie
+$X(p)$, et les représenter sous forme de blocs.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La première équation différentielle dans le domaine de Laplace, donne :
+%-------------------------------------------------------------------------------
+\begin{align*}
+    p^2S(p)+110pS(p)+1000S(p)=pX(p)+30X(p) \\
+    S(p) ( p^2+110p+1000) = (p+30)X(p) \\
+    S(p) = \dfrac{(p+30)}{(p^2+110p+1000)} X(p)
+\end{align*}
+%-------------------------------------------------------------------------------
+cette dernière expression est de la forme :
+%-------------------------------------------------------------------------------
+\begin{align}
+    S(p) = H_2(p) X(p)
+    \label{eq-edo-h2}
+\end{align}
+%-------------------------------------------------------------------------------
+où $H_2(p)$ est une fonction de transfert d'un SLCI d'entrée $X(p)$
+et de sortie $S(p)$.
+%-------------------------------------------------------------------------------
+\begin{center}
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbBloc[3]{H2}{$H_2(p)=\dfrac{(p+30)}{(p^2+110p+1000)}$}{E}
+        \sbRelier[$X(p)$]{E}{H2}
+    \sbSortie[3]{S}{H2}
+        \sbRelier[$S(p)$]{H2}{S}
+\end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+La seconde équation différentielle, dans le domaine de Laplace, donne :
+%-------------------------------------------------------------------------------
+\begin{align*}
+    pX(p)+X(p)=KE(p) \\
+    X(p) (p+1) = KE(p) \\
+    X(p) = \dfrac{K}{(p+1)} E(p)
+\end{align*}
+%-------------------------------------------------------------------------------
+cette dernière expression est de la forme :
+%-------------------------------------------------------------------------------
+\begin{align}
+X(p) = H_1(p) E(p)
+\label{eq-edo-h1}
+\end{align}
+%-------------------------------------------------------------------------------
+où $H_1(p)$ est une fonction de transfert d'un SLCI d'entrée $E(p)$
+et de sortie $X(p)$ :
+%-------------------------------------------------------------------------------
+\begin{center}
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbBloc[3]{H1}{$H_1(p)=\dfrac{K}{(p+1)}$}{E}
+        \sbRelier[$E(p)$]{E}{H1}
+    \sbSortie[3]{S}{H1}
+        \sbRelier[$X(p)$]{H1}{S}
+\end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Tracer le schéma fonctionnel complet du système.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+\begin{tikzpicture}
+    \sbEntree{E}
+    \sbBloc[3]{H1}{$H_1(p)$}{E}
+    \sbRelier[$E(p)$]{E}{H1}
+    \sbBloc[3]{H2}{$H_2(p)$}{H1}
+    \sbRelier[$X(p)$]{H1}{H2}
+    \sbSortie[3]{S}{H2}
+    \sbRelier[$S(p)$]{H2}{S}
+\end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer la fonction de transfert $H(p)$ du système.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A partir des equations \ref{eq-edo-h2} et \ref{eq-edo-h1}, on peut écrire :
+\[
+    S(p) = H_2(p) H_1(p) E(p)
+\]
+On a alors une expression de la forme $S(p) =H(p) E(p)$,
+avec $H(p)=H_2(p) H_1(p)=\dfrac{K(p+30)}{(p^2+110p+1000)(p+1)}$
+%-------------------------------------------------------------------------------
+\begin{center}
+\begin{tikzpicture}
+\sbEntree{E}
+\sbBloc[3]{H1}{$H(p)=H_2(p) H_1(p)$}{E}
+\sbRelier[$E(p)$]{E}{H1}
+\sbSortie[3]{S}{H1}
+\sbRelier[$S(p)$]{H1}{S}
+\end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+On sollicite le système avec un échelon $e(t)=E_0 u(t)$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer la valeur finale de la sortie et la tangente à
+l'origine.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La valeur finale peut être obtenue par la propriété de la transformée
+de Laplace que l'on nomme le théorème de la valeur finale:
+\[
+\lim\limits_{t \rightarrow +\infty} f(t) = \lim\limits_{p \rightarrow 0} pF(p)
+\]
+dans le cas où le système précédent est sollicité par un échelon:
+\[
+pS(p)=\dfrac{KE_0(p+30)}{(p^2+110p+1000)(p+1)}
+\]
+\[
+\lim\limits_{t \rightarrow +\infty} s(t) = \lim\limits_{p \rightarrow 0} pS(p)
+                                         = \dfrac{3}{100}KE_0
+\]
+pour déterminer la tangente à l'origine on applique le théorème de la valeur
+initiale à la dérivée du signal.
+\[
+\lim\limits_{t \rightarrow 0} \devi{s(t)}{} =
+\lim\limits_{p \rightarrow +\infty} p^2S(p)= 0
+\]
+la tangente de $s(t)$ est donc horizontal en 0.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{Déterminer la sortie $s(t)$ et tracer le signal.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour déterminer le signal de sortie $s(t)$, nous allons appliquer la
+transformée de Laplace inverse sur :
+\[
+S(p) = \dfrac{KE_0(p+30)}{(p^2+110p+1000)(p+1)p}
+\]
+pour celà nous allons décomposer en élément simple cette fraction rationnelle.
+Le polynôme $p^2+110p+1000$ admet comme racine $p_1=-10$ et $p_2=-100$.
+On peut donc récrire :
+\[
+S(p)=\dfrac{KE_0(p+30)}{p(p+1)(p+10)(p+100)}
+\]
+décomposons $S(p)$ de la manière suivante:
+\[
+S(p)=\dfrac{A}{p}+\dfrac{B}{p+1}+\dfrac{C}{p+10}+\dfrac{D}{p+100}
+\]
+les différents coefficients $A$,$B$,$C$ et $D$ peuvent être déterminés par
+les limites suivantes :
+%-------------------------------------------------------------------------------
+\begin{align*}
+    A&=\lim\limits_{p \rightarrow 0} p S(p) =
+    \lim\limits_{p \rightarrow 0}
+    \dfrac{KE_0(p+30)}{(p+1)(p+10)(p+100)} =
+    \dfrac{3}{100}KE_0 \\
+    B&=\lim\limits_{p \rightarrow -1} (p+1) S(p) =
+    \lim\limits_{p \rightarrow -1}
+    \dfrac{KE_0(p+30)}{p(p+10)(p+100)}=
+    -\dfrac{29}{891}KE_0\\
+    C&=\lim\limits_{p \rightarrow -10} (p+10) S(p) =
+    \lim\limits_{p \rightarrow -10}
+    \dfrac{KE_0(p+30)}{p(p+1)(p+100)}=
+    \dfrac{1}{405}KE_0 \\
+    D&=\lim\limits_{p \rightarrow -100} (p+100) S(p) =
+    \lim\limits_{p \rightarrow -100}
+    \dfrac{KE_0(p+30)}{p(p+1)(p+10)}=
+    \dfrac{7}{89100}KE_0
+\end{align*}
+%-------------------------------------------------------------------------------
+\[
+S(p) = KE_0\left(\dfrac{3}{100}  \dfrac{1}{p} -\dfrac{29}{891}\dfrac{1}{p+1} +
+                                 \dfrac{1}{405}\dfrac{1}{p+10} +
+                                 \dfrac{7}{89100}\dfrac{1}{p+100} \right)
+\]
+\[
+s(t) = \laplacei{S(p)} = KE_0u(t)\left(\dfrac{3}{100} -
+                         \dfrac{29}{891}e^{-t}+\dfrac{1}{405}e^{-10t}+
+                         \dfrac{7}{89100}e^{-100t} \right)
+\]
+on vérifie que $s(+\infty)=\dfrac{3}{100}KE_0$, $s(0)=0$ et
+$\left.\devi{s(t)}{}\right|_{t=0}=0$
+%-------------------------------------------------------------------------------
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+        scaled y ticks = false,
+        height=5cm,
+        width=9cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-0.5,
+        xmax=5,
+        ymin=-0.01,
+        ymax=0.04,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={left},
+        yticklabels={0,$\dfrac{3}{100}KE_0$},
+        ytick={0,0.03},
+        y tick label style={anchor=east}
+        ]
+
+        \addplot [very thick,color=blue,domain=0:10, samples=501]
+        {3/100-29/891*exp(-x)+1/405*exp(-10*x)+7/89100*exp(-100*x)};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Fonction de transfert, réponse temporelle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{$\devi{s(t)}{}+2s(t)=e(t)$ avec $s(0)=2$ et $e(t)=e^{-t}$.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de l'équation différentielle donne :
+%-------------------------------------------------------------------------------
+\begin{align*}
+    pS(p)-2+2S(p)&=E(p)\\
+    S(p)&=\dfrac{1}{p+2}E(p)+\dfrac{2}{p+2}
+\end{align*}
+%-------------------------------------------------------------------------------
+La fonction de transfert est le rapport de la sortie et de l'entrée lorsque
+les CI sont nulles, ici :
+\[
+H(p)=\dfrac{1}{p+2}
+\]
+pour $e(t)=e^{-t}$, $E(p)=\dfrac{1}{(p+1)}$ on peut alors écrire :
+\[
+S(p)=\dfrac{1}{(p+1)(p+2)}+\dfrac{2}{p+2}
+\]
+la transformée inverse donne :
+\[
+s(t) = \laplacei{S(p)}=e^{-t}-e^{-2t}+2e^{-2t}=e^{-t}+e^{-2t}
+\]
+%-------------------------------------------------------------------------------
+\begin{center}
+    \begin{tikzpicture}
+    \begin{axis}
+    [   scaled y ticks = false,
+        height=5cm,
+        width=10cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-0.5,
+        xmax=3.1,
+        ymin=-0.01,
+        ymax=3.0,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={left},
+        yticklabels={0,$s(0)=2$},
+        ytick={0,2.0},
+        xtick={0,1,2,3},
+        xticklabels={0,1,2,3},
+        y tick label style={anchor=east}
+    ]
+    \addplot [signalb,domain=0:10 ] {exp(-x)+exp(-2*x)};
+    \addplot [envelop,domain=0:10] {exp(-x)};
+    \end{axis}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{$\devi{s(t)}{2}+3\devi{s(t)}{}+2s(t)=\devi{e(t)}{}+e(t)$
+avec $s(0)=\left.\devi{s(t)}{}\right|_{t=0}=0$ et $e(t)=e^{-3t}$.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de l'équation différentielle donne :
+%-------------------------------------------------------------------------------
+\begin{align*}
+    p^2S(p)+3pS(p)+2S(p)&=pE(p)+E(p)\\
+    S(p)(p^2+3p+2)&=(p+1)E(p)\\
+    S(p) &= \dfrac{p+1}{p^2+3p+2}E(p)
+\end{align*}
+%-------------------------------------------------------------------------------
+La fonction de transfert est donné par la fraction rationnelle :
+\[
+H(p)=\dfrac{p+1}{p^2+3p+2}
+\]
+les pôles de $H(p)$ sont $p_1=-2$ et $p_2=-1$, on peut donc factoriser la
+relation précédente par les pôles :
+\[
+S(p) = \dfrac{p+1}{(p+1)(p+2)}E(p)=\dfrac{1}{(p+2)}E(p)
+\]
+pour $e(t)=e^{-3t}$, $E(p)=\dfrac{1}{p+3}$
+\[
+S(p)=\dfrac{1}{(p+2)(p+3)}
+\]
+la transformée inverse donne :
+\[
+s(t) = \laplacei{S(p)}=e^{-2t}-e^{-3t}
+\]
+%-------------------------------------------------------------------------------
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+        scaled y ticks = false,
+        height=5cm,
+        width=9cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-0.5,
+        xmax=3.0,
+        ymin=-0.01,
+        ymax=0.2,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={left},
+        yticklabels={0},
+        ytick={0},
+        y tick label style={anchor=east}
+        ]
+        \addplot [very thick,color=blue,domain=0:10, samples=501]
+        {exp(-2*x)-exp(-3*x)};
+        \addplot [very thick,color=black,domain=0:10, samples=501]
+        {exp(-3*x)};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{$\devi{s(t)}{2}+2\devi{s(t)}{}+s(t)=e(t)$ avec
+$s(0)=\left.\devi{s(t)}{}\right|_{t=0}=0$ et $e(t)=e^{-2t}$.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de l'équation différentielle donne :
+%-------------------------------------------------------------------------------
+\begin{align*}
+    p^2S(p)+2pS(p)+S(p)&=E(p) \\
+    S(p)&=\dfrac{1}{p^2+2p+1}E(p)
+\end{align*}
+%-------------------------------------------------------------------------------
+La fonction de transfert est donné par la fraction rationnelle :
+\[
+H(p)=\dfrac{1}{p^2+2p+1}
+\]
+le pôle de $H(p)$ est $p_1=-1$ qui est une racine double
+\[
+S(p) = \dfrac{1}{(p+1)^2}E(p)
+\]
+pour $e(t)=e^{-2t}$, $E(p)=\dfrac{1}{p+2}$
+\[
+S(p)=\dfrac{1}{(p+1)^2(p+2)}
+\]
+décomposons $S(p)$ en élément simple:
+\[
+S(p)=\dfrac{A}{p+1}+\dfrac{B}{(p+1)^2}+\dfrac{C}{(p+2)}
+\]
+\[
+A(p^2+3p+2)+B(p+2)+C(p+1)^2=1
+\]
+\[
+\begin{cases}
+     A+C&=0 \\
+    3A+B+2C&=0 \\
+    2A+2B+C&=1
+\end{cases}\Longrightarrow
+\begin{cases}
+    A=-1\\
+    B=1\\
+    C=1
+\end{cases}
+\]
+\[
+S(p)=-\dfrac{1}{p+1}+\dfrac{1}{(p+1)^2}+\dfrac{1}{(p+2)}
+\]
+la transformée inverse donne :
+\[
+s(t) = \laplacei{S(p)}= -e^{-t}+te^{-t}+e^{-2t} = (t-1)e^{-t}+e^{-2t}
+\]
+%-------------------------------------------------------------------------------
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+        scaled y ticks = false,
+        height=5cm,
+        width=9cm,
+        axis x line=middle,
+        axis y line=middle,
+        xmin=-0.5,
+        xmax=10.2,
+        ymin=-0.01,
+        ymax=0.2,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={left},
+        yticklabels={0},
+        ytick={0},
+        xtick={0,2,4,6,8},
+        xticklabels={0,2,4,6,8},
+        y tick label style={anchor=east}
+        ]
+        \addplot[very thick,color=blue,domain=0:10 , samples=501]
+        {(x-1)*exp(-x)+exp(-2*x)};
+        \addplot[very thick,color=black,domain=0:10, samples=501]
+        {exp(-2*x)};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{\textbf{$\devi{s(t)}{2}+\devi{s(t)}{}+s(t)=e(t)$ avec
+$s(0)=\left.\devi{s(t)}{}\right|_{t=0}=0$ et $e(t)=1$.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+La transformée de Laplace de l'équation différentielle donne :
+%-------------------------------------------------------------------------------
+\begin{align*}
+    p^2S(p)+pS(p)+S(p)&=E(p) \\
+    S(p)&=\dfrac{1}{p^2+p+1}E(p)
+\end{align*}
+%-------------------------------------------------------------------------------
+La fonction de transfert est donné par la fraction rationnelle :
+\[
+H(p)=\dfrac{1}{p^2+p+1}
+\]
+les pôles de $H(p)$ sont deux complexes conjugués:
+$p_{1,2}=-\dfrac{1}{2}\pm j\dfrac{\sqrt{3}}{2}$
+\[
+S(p) = \dfrac{1}{\left(\left(p+\dfrac{1}{2}\right)^2+
+       \dfrac{3}{4}\right)}E(p)
+\]
+pour $e(t)=1$, $E(p)=\dfrac{1}{p}$
+\[
+S(p) =\dfrac{1}{p\left(p^2+p+1\right)}
+\]
+décomposons $S(p)$ en élément simple:
+\[
+S(p)=\dfrac{A}{p}+\dfrac{Bp+C}{\left(p^2+p+1\right)}
+\]
+\[
+A=\lim\limits_{p \rightarrow 0} pS(p) = 1
+\]
+%-------------------------------------------------------------------------------
+\begin{align*}
+    p^2+p+1 + Bp^2+Cp &= 1 \\
+    \begin{cases}
+        B&=-1\\
+        C&=-1
+    \end{cases}
+\end{align*}
+%-------------------------------------------------------------------------------
+\begin{align*}
+    S(p)&=\dfrac{1}{p}-\dfrac{p+1}{\left(p^2+p+1\right)} \\
+    S(p)&=\dfrac{1}{p}-\dfrac{p}{\left(\left(p+\dfrac{1}{2}\right)^2+
+          \dfrac{3}{4}\right)}-
+          \dfrac{1}{\left(\left(p+\dfrac{1}{2}\right)^2+\dfrac{3}{4}\right)}\\
+    S(p)&=\dfrac{1}{p}-\dfrac{p+\dfrac{1}{2}}
+                       {\left(\left(p+\dfrac{1}{2}\right)^2+
+                                      \dfrac{3}{4}\right)}-
+                       \dfrac{\dfrac{1}{2}}{\left(\left(p+\dfrac{1}{2}\right)^2+
+                              \dfrac{3}{4}\right)}\\
+    S(p)&=\dfrac{1}{p}-\dfrac{p+\dfrac{1}{2}}
+                             {\left(\left(p+\dfrac{1}{2}\right)^2+
+                                            \dfrac{3}{4}\right)}-
+                       \dfrac{1}{\sqrt{3}}\dfrac{\dfrac{\sqrt{3}}{2}}
+                       {\left(\left(p+\dfrac{1}{2}\right)^2+
+                                      \dfrac{3}{4}\right)}
+\end{align*}
+%-------------------------------------------------------------------------------
+la transformée inverse donne :
+\[
+s(t) = \laplacei{S(p)}=
+1-e^{-\frac{t}{2}}\cos{\left(\dfrac{\sqrt{3}}{2}t\right)}-
+\dfrac{1}{\sqrt{3}}e^{-\frac{t}{2}}\sin{\left(\dfrac{\sqrt{3}}{2}t\right)}
+\]
+%-------------------------------------------------------------------------------
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+        scaled y ticks = false,
+        height=5cm,
+        width=9cm,
+        axis x line=center,
+        axis y line=center,
+        xmin=-0.5,
+        xmax=20.0,
+        ymin=0.0,
+        ymax=1.5,
+        xlabel={$t$},
+        ylabel={$s(t)$},
+        xlabel style={below right},
+        ylabel style={left},
+        yticklabels={0,$s(\infty)=1$},
+        xticklabels={0,4,8,12,16},
+        ytick={0,1.0},
+        xtick={0,4,8,12,16},
+        y tick label style={anchor=east}
+        ]
+        \addplot [very thick,color=blue,domain=0:20, samples=201]
+        {1-exp(-x/2)*cos(sqrt(3)/2*x)-(1/sqrt(3))*exp(-x/2)*sin(sqrt(3)/2*x)};
+        \addplot [very thick,color=black,domain=0:20, samples=11]{1};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+%-------------------------------------------------------------------------------
+

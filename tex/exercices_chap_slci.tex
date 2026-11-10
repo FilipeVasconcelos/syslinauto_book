@@ -277,3 +277,54 @@ sa forme factorisée vaut 3.}
 \question{Déterminer la forme canonique de $H(p)$ et déduire le gain statique, 
 la classe et l'ordre de ce système.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{\'Etude d'équations différentielles~\difficile}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On considère un système linéaire continu et invariant, d'entrée $e(t)$ et de
+sortie $s(t)$, régi, à conditions initiales nulles, par les deux équations
+différentielles suivantes, où $x(t)$ est un signal intermédiaire et $K$ une
+constante :
+\[
+    \begin{cases}
+        \devi{s(t)}{2}+110\devi{s(t)}{}+1000s(t)=\devi{x(t)}{}+30x(t)\\[0.5em]
+        \devi{x(t)}{}+x(t)=Ke(t)
+    \end{cases}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Déterminer la transformée de Laplace de chacune de ces équations
+différentielles. En déduire les fonctions de transfert $H_2(p)$, d'entrée
+$X(p)$ et de sortie $S(p)$, et $H_1(p)$, d'entrée $E(p)$ et de sortie $X(p)$,
+et les représenter sous forme de blocs.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Tracer le schéma fonctionnel complet du système.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Déterminer la fonction de transfert $H(p)$ du système.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+On sollicite le système avec un échelon $e(t)=E_0 u(t)$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Déterminer la valeur finale de la sortie et la tangente à l'origine.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{Déterminer la sortie $s(t)$ et tracer le signal.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice{Fonction de transfert, réponse temporelle~\moyen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pour chacun des systèmes suivants, d'entrée $e(t)$ et de sortie $s(t)$,
+déterminer la fonction de transfert $H(p)$ (à conditions initiales nulles),
+puis la sortie $s(t)$ pour la sollicitation $e(t)$ donnée, et tracer
+son allure.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{$\devi{s(t)}{}+2s(t)=e(t)$ avec $s(0)=2$ et $e(t)=e^{-t}$.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{$\devi{s(t)}{2}+3\devi{s(t)}{}+2s(t)=\devi{e(t)}{}+e(t)$ avec
+$s(0)=\left.\devi{s(t)}{}\right|_{t=0}=0$ et $e(t)=e^{-3t}$.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{$\devi{s(t)}{2}+2\devi{s(t)}{}+s(t)=e(t)$ avec
+$s(0)=\left.\devi{s(t)}{}\right|_{t=0}=0$ et $e(t)=e^{-2t}$.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question{$\devi{s(t)}{2}+\devi{s(t)}{}+s(t)=e(t)$ avec
+$s(0)=\left.\devi{s(t)}{}\right|_{t=0}=0$ et $e(t)=1$.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
