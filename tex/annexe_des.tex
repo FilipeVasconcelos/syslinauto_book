@@ -24,8 +24,8 @@ s(t)=\laplacei{S(p)}
 \]
 Cette inversion passe généralement par l'utilisation des tables de 
 transformées de Laplace (c.f \Cref{annexe-lap}).
-Cependant, ces tables peuvent ne pas être complètes, on utilise alors 
-la~\gls{des} de $S(p)$. Celle-ci nous permet alors de réécrire cette fraction 
+Lorsque ces tables ne sont pas complètes, on utilise alors 
+la~\gls{des} de $S(p)$ permettant de réécrire cette fraction 
 rationnelle en une somme de fractions rationnelles 
 usuellement présentes dans les tables.
 
@@ -52,23 +52,40 @@ En générale, nous aurons à faire à des systèmes pour lesquels $n>m$.
 Une des conséquences est que \textbf{la décomposition en éléments 
 simples ne comportera pas de partie entière.}
 
-Cependant si $n\le m$, il faut donc procéder à une division euclidienne de la 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Division euclidienne : cas $\deg N\ge\deg D$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Si $n\le m$, il faut donc procéder à une division euclidienne de la 
 fraction rationnelle telle que:
 \[
   N(p) = Q(p)D(p) + R(p) 
 \]
-Avec $Q(p)$ et $R(p)$ respectivement les polynômes quotient et reste.
-
+Avec $Q(p)$ et $R(p)$ respectivement les polynômes quotient et reste et tel que
+$\text{deg}R(p)<\text{deg}D(p)$ ou encore :
 \[
-    \dfrac{p(p+1)}{(p+1)^2}
-\]
-On constate que $N(p)=p(p+1)$ peut s'écrire comme $(p+1)^2 - p$ c'est à dire 
-que $Q(p)=1$:
-\[
-    N(p)=Q(p)D(p) - R(p)
+    R(p) = N(p) - Q(p)D(p)
 \]
 
-
+Prenons l'exemple d'une fraction rationnelle donnée par:
+\[
+    \dfrac{p(p-1)}{(p+1)^2}
+\]
+Pour déterminer $Q(p)$, il suffit de prendre le rapport du terme de plus haut degré 
+de $N$ par celui de $D$, ici $Q$ étant égal à 1:
+\[
+    R(p)=p(p-1)-(p+1)^2=-3p-1
+\]
+Donc:
+\[
+    N(p)=(p+1)^2-3(p+1)+2
+\]
+et 
+\[
+    S(p)=1-\dfrac{3)}{(p+1)}+\dfrac{2}{p+1}
+\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -83,13 +100,13 @@ les polynômes de degré 1 et les polynômes de degré 2 de discriminant négati
 unitaire\footnote{Un polynôme unitaire est un polynôme dont le coefficient 
 de degré le plus grand est 1.} de la forme:
 \[
-D(p)=a\prod_{k=1}^r(p-\alpha_k)^{m_k}\prod_{k=1}^s(p^2+\beta_lp+\gamma_l)^{n_k}
+D(p)=a\prod_{k=1}^r(p-\alpha_k)^{m_k}\prod_{l=1}^s(p^2+\beta_lp+\gamma_l)^{n_l}
 \]
 où $a$ est une constante qui est le coefficient du terme de plus haut degré 
 de $D(p)$, les $\alpha_k$ sont les pôles de multiplicités $m_k$, les polynômes
 de degré 2 sont sans pôles réels (c.-à-d. $\beta_i-4\gamma_i<0$).
 
-Alors il existe une famille unique de réels $A_{k,i}$, $B_{l,j}$ et 
+Il existe alors une famille unique de réels $A_{k,i}$, $B_{l,j}$ et 
 $C_{l,j}$ telles que :
 %-------------------------------------------------------------------------------
 \begin{align}
@@ -154,7 +171,6 @@ Cette méthode est toujours applicable, mais pourra s'avérer être la fastidieu
 à mettre en œuvre dans certains cas.
 Celle-ci consiste à réduire la décomposition au même dénominateur et à établir
 un système d'équations sur les coefficients à déterminer.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Exemple 1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -185,13 +201,12 @@ par :
 \[
 S(p)=\dfrac{1}{p+1}-\dfrac{1}{p+2}
 \]
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Multiplication/Substitution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\acpl
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{\'Evaluation}
