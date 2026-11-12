@@ -84,7 +84,7 @@ Donc:
 \]
 et 
 \[
-    S(p)=1-\dfrac{3)}{(p+1)}+\dfrac{2}{p+1}
+    S(p)=1-\dfrac{3}{(p+1)}+\dfrac{2}{p+1}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -117,8 +117,35 @@ S(p)=\sum_{k=1}^r\sum_{i=1}^{m_k} \dfrac{A_{k,i}}{\left(p-\alpha_k\right)^i}+
 %-------------------------------------------------------------------------------
 On appelle cette écriture la \textbf{décomposition en éléments simples} de 
 $S(p)$ sur $\mathbb{R}$.
+\newcounter{exemple}
+\newcommand{\exemple}{%
+    \refstepcounter{exemple}%
+    \paragraph{Exemple \theexemple}%
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemple 1}
+\exemple
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit $S(p)$ tel que:
+\[
+S(p)=\dfrac{1}{(p+1)(p+2)}
+\]
+La décomposition en éléments simples de $S(p)$ est donnée par :
+\[
+    S(p)=\dfrac{A}{p+1}+\dfrac{B}{p+2}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exemple
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit $S(p)$ tel que:
+\[
+S(p)=\dfrac{1}{(p+1)(p+2)^2}
+\]
+La décomposition en éléments simples de $S(p)$ est donnée par :
+\[
+    S(p)=\dfrac{A}{p+1}+\dfrac{B}{p+2}+\dfrac{B}{(p+2)^2}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exemple
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit $S(p)$ tel que:
 \[
@@ -132,9 +159,8 @@ On obtient une décomposition en éléments simples de $S(p)$ de la forme :
 \[
 S(p)=\dfrac{A}{p-1}+\dfrac{B}{p+1}+\dfrac{Cp+D}{p^2+1}+\dfrac{Ep+F}{p^2+1}
 \]
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemple 2}
+\exemple
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit $S(p)$ tel que:
 \[
@@ -171,8 +197,9 @@ Cette méthode est toujours applicable, mais pourra s'avérer être la fastidieu
 à mettre en œuvre dans certains cas.
 Celle-ci consiste à réduire la décomposition au même dénominateur et à établir
 un système d'équations sur les coefficients à déterminer.
+\setcounter{exemple}{0}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Exemple 1}
+\exemple
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit $S(p)$ tel que:
 \[
@@ -201,6 +228,10 @@ par :
 \[
 S(p)=\dfrac{1}{p+1}-\dfrac{1}{p+2}
 \]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exemple
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Multiplication/Substitution}
