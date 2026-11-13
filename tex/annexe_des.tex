@@ -84,7 +84,7 @@ Donc:
 \]
 et 
 \[
-    S(p)=1-\dfrac{3}{(p+1)}+\dfrac{2}{p+1}
+    S(p)=1-\dfrac{3}{(p+1)}+\dfrac{2}{(p+1)^2}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -104,7 +104,7 @@ D(p)=a\prod_{k=1}^r(p-\alpha_k)^{m_k}\prod_{l=1}^s(p^2+\beta_lp+\gamma_l)^{n_l}
 \]
 où $a$ est une constante qui est le coefficient du terme de plus haut degré 
 de $D(p)$, les $\alpha_k$ sont les pôles de multiplicités $m_k$, les polynômes
-de degré 2 sont sans pôles réels (c.-à-d. $\beta_i-4\gamma_i<0$).
+de degré 2 sont sans pôles réels (c.-à-d. $\beta_l-4\gamma_l<0$).
 
 Il existe alors une famille unique de réels $A_{k,i}$, $B_{l,j}$ et 
 $C_{l,j}$ telles que :
@@ -157,7 +157,7 @@ D(p)=(p^2-1)(p^2+1)^2=(p-1)(p+1)(p^2+1)^2
 \]
 On obtient une décomposition en éléments simples de $S(p)$ de la forme :
 \[
-S(p)=\dfrac{A}{p-1}+\dfrac{B}{p+1}+\dfrac{Cp+D}{p^2+1}+\dfrac{Ep+F}{p^2+1}
+    S(p)=\dfrac{A}{p-1}+\dfrac{B}{p+1}+\dfrac{Cp+D}{p^2+1}+\dfrac{Ep+F}{(p^2+1)^2}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exemple
@@ -239,6 +239,26 @@ On obtient une décomposition en éléments simples de $S(p)$ de la forme :
 \[
     S(p)=\dfrac{A}{p+1}+\dfrac{B}{p+2}+\dfrac{C}{(p+2)^2}
 \]
+au même dénominateur on obtient :
+\[
+    S(p)=\dfrac{(A+B)p^2+(4A+3B+C)p+(4A+2B+C)}{(p+1)(p+2)^2}
+        =\dfrac{1}{(p+1)(p+2)^2}
+\]
+Le système d'équations sur les coefficients de la décomposition est :
+\[
+\begin{cases}
+    A+B=0\\
+    4A+3B+C=0\\
+    4A+2B+C=1
+\end{cases}
+\]
+Sa résolution nous donne, $A=1$ et $B=-1$ et $C=-1$.
+La décomposition en éléments simples de $S(p)$ est donc finalement donnée 
+par :
+\[
+    S(p)=\dfrac{1}{p+1}-\dfrac{1}{p+2}-\dfrac{1}{(p+2)^2}
+\]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Multiplication/Substitution}
