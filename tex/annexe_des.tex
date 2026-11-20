@@ -149,15 +149,22 @@ La décomposition en éléments simples de $S(p)$ est donnée par :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Soit $S(p)$ tel que:
 \[
-S(p)=\dfrac{1}{(p^2-1)(p^2+1)^2}
+S(p)=\dfrac{1}{p(p+1)(p+2)}
 \]
-où $D(p)$ se factorise sous la forme :
+La décomposition en éléments simples de $S(p)$ est donnée par :
 \[
-D(p)=(p^2-1)(p^2+1)^2=(p-1)(p+1)(p^2+1)^2
+    S(p)=\dfrac{A}{p}+\dfrac{B}{p+1}+\dfrac{C}{(p+2)}
 \]
-On obtient une décomposition en éléments simples de $S(p)$ de la forme :
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exemple
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit $S(p)$ tel que:
 \[
-    S(p)=\dfrac{A}{p-1}+\dfrac{B}{p+1}+\dfrac{Cp+D}{p^2+1}+\dfrac{Ep+F}{(p^2+1)^2}
+S(p)=\dfrac{1}{p(p+1)^2}
+\]
+La décomposition en éléments simples de $S(p)$ est donnée par :
+\[
+    S(p)=\dfrac{A}{p}+\dfrac{B}{p+1}+\dfrac{C}{(p+1)^2}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exemple
@@ -173,6 +180,32 @@ D(p)=(p^2-1)^2=\left((p-1)(p+1)\right)^2
 On obtient une décomposition en éléments simples de $S(p)$ de la forme :
 \[
 S(p)=\dfrac{A}{p-1}+\dfrac{B}{(p-1)^2}+\dfrac{C}{p+1}+\dfrac{D}{(p+1)^2}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exemple
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit $S(p)$ tel que:
+\[
+S(p)=\dfrac{1}{p(p^2+2p+5)}
+\]
+On obtient une décomposition en éléments simples de $S(p)$ de la forme :
+\[
+    S(p)=\frac{A}{p}+\frac{Bp+C}{p^2+2p+5}
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exemple
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Soit $S(p)$ tel que:
+\[
+S(p)=\dfrac{1}{(p^2-1)(p^2+1)^2}
+\]
+où $D(p)$ se factorise sous la forme :
+\[
+D(p)=(p^2-1)(p^2+1)^2=(p-1)(p+1)(p^2+1)^2
+\]
+On obtient une décomposition en éléments simples de $S(p)$ de la forme :
+\[
+    S(p)=\dfrac{A}{p-1}+\dfrac{B}{p+1}+\dfrac{Cp+D}{p^2+1}+\dfrac{Ep+F}{(p^2+1)^2}
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -258,11 +291,16 @@ par :
 \[
     S(p)=\dfrac{1}{p+1}-\dfrac{1}{p+2}-\dfrac{1}{(p+2)^2}
 \]
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Multiplication/Substitution}
+\subsection{Multiplication/Substitution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Cette méthode consiste à multiplier par le dénominateur de chaque terme et 
+d'évaluer à la valeur du pôle. Elle est notamment efficace dans le cas de pôles
+simples.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exemple
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
